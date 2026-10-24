@@ -1,0 +1,93 @@
+{
+  "id": "oblawa",
+  "start": "oblawa",
+  "nodes": {
+    "oblawa": {
+      "speaker": "Głuszec",
+      "text": "Wieś za cicha jak na tę porę. Z karczmy ktoś wychyla łeb i zaraz go chowa. Na rynku stoi pięciu jeźdźców w czerwieni, a sołtys Wawrzyn macha do nich rękami jak człowiek, który właśnie przegrał wszystko, łącznie z koszulą. Jeden z jeźdźców pokazuje palcem na ciebie.",
+      "options": [
+        {
+          "id": "uciekaj",
+          "text": "Uciekaj przez piwnicę i las.",
+          "goto": "ucieczka"
+        },
+        {
+          "id": "zostan",
+          "text": "Zostań i spróbuj ich zagadać.",
+          "goto": "zostan_test",
+          "requires": {
+            "notFlag": "insygnia_odkryte"
+          }
+        }
+      ]
+    },
+    "ucieczka": {
+      "speaker": "Głuszec",
+      "text": "Dopadasz klapy piwnicy, przeciskasz się przez ciasną komórkę i wyłazisz w stodole kowala. Stamtąd już tylko skok do lasu. Za plecami wrzask, tętent kopyt i ujadanie psów. Biegniesz, aż płuca palą jak żarem, a Głuszec zostaje za wzgórzem, z sołtysem, karczmarzem i całym światem, któryś zdążył poznać.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Biegnę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "akt3a_koniec"
+        },
+        {
+          "setFlag": "oblawa_ucieczka"
+        }
+      ]
+    },
+    "zostan_test": {
+      "speaker": "Głuszec",
+      "text": "Jeździec w czerwieni zsiada z konia i podchodzi bez pośpiechu.",
+      "options": [
+        {
+          "id": "zostan_t",
+          "text": "Powiedz im, że szukają kogoś, kogo tu nie ma.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 55
+          },
+          "success": "zostan_ok",
+          "failure": "zostan_zle",
+          "retry": true
+        },
+        {
+          "id": "zostan_u",
+          "text": "Jednak lepiej uciekać.",
+          "goto": "ucieczka"
+        }
+      ]
+    },
+    "zostan_ok": {
+      "speaker": "Głuszec",
+      "text": "Jeździec słucha, mrużąc oczy. Sołtys, nie czekając na pytanie, trajkocze, że cały ten rwetes to wina dwóch pijanych furmanów. Cesarscy wymieniają spojrzenia i po chwili wracają na siodła. Odjeżdżają, zostawiając kurz i gorzką pewność, że wrócą.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "search": -30
+        }
+      ]
+    },
+    "zostan_zle": {
+      "speaker": "Głuszec",
+      "text": "Jeździec słucha chwilę, a potem śmieje się bez krzty wesołości. „Nikogo tu nie ma? To czemu wszyscy tak się na ciebie gapią, chłopcze? Brać go.” Sołtys odwraca łeb. Zostaje ci jedno wyjście i bardzo mało czasu.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Uciekaj!",
+          "goto": "ucieczka"
+        }
+      ]
+    }
+  }
+}

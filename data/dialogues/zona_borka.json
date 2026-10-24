@@ -1,0 +1,96 @@
+{
+  "id": "zona_borka",
+  "portrait": "portret_zona_borka",
+  "start": "zona",
+  "nodes": {
+    "zona": {
+      "speaker": "Żona Borka",
+      "text": "Kobieta stoi przy studni z wiadrem i nie nabiera wody. „Borek poszedł z owcami w las trzy dni temu. Owce wróciły same. Jego nie ma. Wy, wędrowcy, więcej widzicie niż my. Pomożesz, na miłość boską?”",
+      "options": [
+        {
+          "text": "Co się stało?",
+          "goto": "prosba",
+          "id": "prosba",
+          "requires": {
+            "questStatus": {
+              "id": "zaginiony_pasterz_borek",
+              "is": "none"
+            },
+            "notFlag": "zona_poinformowana"
+          }
+        },
+        {
+          "text": "Znalazłem go. Żyje i jest zdrów.",
+          "goto": "ok",
+          "id": "zdrow",
+          "requires": {
+            "flag": "borek_zdrowy",
+            "notFlag": "zona_poinformowana"
+          }
+        },
+        {
+          "text": "Znalazłem go. Żyje, ale kulawy.",
+          "goto": "ok",
+          "id": "kulawy",
+          "requires": {
+            "flag": "borek_kulawy",
+            "notFlag": "zona_poinformowana"
+          }
+        },
+        {
+          "text": "Znalazłem go. Żyje.",
+          "goto": "ok",
+          "id": "zyje",
+          "requires": {
+            "flag": "borek_znaleziony",
+            "notFlag": "zona_poinformowana"
+          }
+        },
+        {
+          "text": "Bywaj.",
+          "goto": "end",
+          "id": "bywaj"
+        }
+      ]
+    },
+    "prosba": {
+      "speaker": "Żona Borka",
+      "text": "„Szedł zwykłą ścieżką za polaną, tam gdzie owce z Brodu pasą. Ślady zaczynają się przy polanie, a dalej ciągną ku starym murom na wzgórzu. Ludzie gadają, że to dawna strażnica. Poszukaj go. Zapłacę tym, co mam, czyli mało czym.”",
+      "options": [
+        {
+          "text": "Poszukam.",
+          "goto": "zona"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "zaginiony_pasterz_borek"
+        },
+        {
+          "reveal": "wilczy_las"
+        },
+        {
+          "reveal": "ruiny_straznicy"
+        }
+      ]
+    },
+    "ok": {
+      "speaker": "Żona Borka",
+      "text": "Kobieta upuszcza wiadro i łapie oddech, jakby przez trzy dni zapomniała, jak się dycha. „Żyje. Starczy. Reszta się zrośnie. Idź do córki dawnego strażnika, ona ma dla ciebie coś w sprawie tego znaku, co go nosisz. Mówiła mi.”",
+      "options": [
+        {
+          "text": "Dzięki.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "zona_poinformowana"
+        },
+        {
+          "reveal": "wilczy_brod.corka"
+        }
+      ]
+    }
+  }
+}

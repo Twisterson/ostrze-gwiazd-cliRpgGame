@@ -1,0 +1,9 @@
+   ~~~~ Rzeka ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+      {stary_mlyn}
+          |
+      {wilczy_brod}-----------{wilczy_las}-------{lesniczowka}
+          |    \                  |
+      {wilcza_nora} \        {kamienna_przelecz}
+          |          \
+      {trakt_kupiecki} \--{ruiny_straznicy}

@@ -1,0 +1,13 @@
+[
+  { "id": "sieczna", "name": "Broń sieczna", "primary": "sila", "secondary": "zrecznosc" },
+  { "id": "drzewcowa", "name": "Broń drzewcowa", "primary": "sila", "secondary": "zrecznosc" },
+  { "id": "strzelecka", "name": "Łuk i kusza", "primary": "bystrosc", "secondary": "zrecznosc" },
+  { "id": "proch", "name": "Broń palna", "primary": "bystrosc", "secondary": "rozum" },
+  { "id": "wrecz", "name": "Walka wręcz", "primary": "sila", "secondary": "krzepa" },
+  { "id": "miotanie", "name": "Miotanie", "primary": "zrecznosc", "secondary": "bystrosc" },
+  { "id": "medycyna", "name": "Medycyna", "primary": "rozum", "secondary": "bystrosc" },
+  { "id": "skradanie", "name": "Skradanie", "primary": "zrecznosc", "secondary": "bystrosc" },
+  { "id": "wymowa", "name": "Wymowa", "primary": "oglada", "secondary": "rozum" },
+  { "id": "handel", "name": "Handel", "primary": "oglada", "secondary": "rozum" },
+  { "id": "wiedza_tajemna", "name": "Wiedza tajemna", "primary": "rozum", "secondary": "fart" }
+]

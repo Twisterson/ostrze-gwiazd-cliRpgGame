@@ -1,0 +1,170 @@
+{
+  "id": "towarzysze",
+  "start": "brama",
+  "nodes": {
+    "brama": {
+      "speaker": "Brama szkoły",
+      "text": "Przy bramie czeka trójka, którą Gnieworad uznał za zbędną: wesołek z mieczem u pasa, dziewucha z włócznią i chuderlawy pisarczyk z tobołkiem większym od siebie.",
+      "options": [
+        {
+          "id": "skarimir",
+          "text": "Podejdź do Skarimira.",
+          "requires": {
+            "notFlag": "tow_skarimir"
+          },
+          "goto": "skarimir"
+        },
+        {
+          "id": "ragnoslawa",
+          "text": "Podejdź do Ragnosławy.",
+          "requires": {
+            "notFlag": "tow_ragnoslawa"
+          },
+          "goto": "ragnoslawa"
+        },
+        {
+          "id": "wojmir",
+          "text": "Podejdź do Wojmira.",
+          "requires": {
+            "notFlag": "tow_wojmir"
+          },
+          "goto": "wojmir"
+        },
+        {
+          "id": "ruszamy",
+          "text": "Ruszamy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skarimir": {
+      "speaker": "Skarimir",
+      "text": "„Cztery imiona na liście i ani jednej opłaconej gęby! Jak nas po drodze nie zeżrą, to chociaż sami zjemy porządnie, co, bohaterze?” Skarimir szczerzy zęby, jakby jechali na wesele.",
+      "portrait": "portret_skarimir",
+      "options": [
+        {
+          "id": "smiech",
+          "text": "Roześmiej się z nim.",
+          "goto": "skarimir_smiech"
+        },
+        {
+          "id": "powaga",
+          "text": "Nie czas na żarty.",
+          "actions": [
+            {
+              "setFlag": "tow_skarimir"
+            }
+          ],
+          "goto": "brama"
+        }
+      ]
+    },
+    "skarimir_smiech": {
+      "speaker": "Skarimir",
+      "text": "„No! O to idzie!” Wali cię w plecy tak, że ledwo ustoisz. „Jak się wszystko zesra, powiem, żeś mnie rozśmieszył przed śmiercią.”",
+      "portrait": "portret_skarimir",
+      "actions": [
+        {
+          "setFlag": "tow_skarimir"
+        }
+      ],
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "brama"
+        }
+      ]
+    },
+    "ragnoslawa": {
+      "speaker": "Ragnosława",
+      "text": "Ragnosława opiera włócznię o ramię i mierzy cię wzrokiem. „Wiesz, co mnie gryzie? List zapieczętowany czerwienią, a mistrz nie spojrzał nam w oczy. Pytałeś o cokolwiek?”",
+      "portrait": "portret_ragnoslawa",
+      "options": [
+        {
+          "id": "wyzwanie",
+          "text": "Kto pierwszy dojdzie do stolicy, stawia piwo.",
+          "actions": [
+            {
+              "addVar": {
+                "wola": 1
+              }
+            }
+          ],
+          "goto": "ragnoslawa_ok"
+        },
+        {
+          "id": "milczenie",
+          "text": "Nic nie mów.",
+          "actions": [
+            {
+              "setFlag": "tow_ragnoslawa"
+            }
+          ],
+          "goto": "brama"
+        }
+      ]
+    },
+    "ragnoslawa_ok": {
+      "speaker": "Ragnosława",
+      "text": "„Stoi!” Parska i pierwszy raz się uśmiecha. „Tylko się nie spóźnij, bo piwo wystygnie.”",
+      "portrait": "portret_ragnoslawa",
+      "actions": [
+        {
+          "setFlag": "tow_ragnoslawa"
+        }
+      ],
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "brama"
+        }
+      ]
+    },
+    "wojmir": {
+      "speaker": "Wojmir Cienki",
+      "text": "Wojmir ściska tobołek, aż bieleją mu kostki. „Ja… ja nigdy dalej niż na targ. A ci z urzędu patrzą, jakby liczyli, ile ze mnie łoju wytopią.”",
+      "portrait": "portret_wojmir",
+      "options": [
+        {
+          "id": "pocieszenie",
+          "text": "Pójdziemy razem, nic ci nie będzie.",
+          "goto": "wojmir_ok"
+        },
+        {
+          "id": "drwina",
+          "text": "Piórko ci się złamało?",
+          "actions": [
+            {
+              "setFlag": "tow_wojmir"
+            }
+          ],
+          "goto": "brama"
+        }
+      ]
+    },
+    "wojmir_ok": {
+      "speaker": "Wojmir Cienki",
+      "text": "Wojmir kiwa głową, a wargi drżą mu w czymś, co mogłoby uchodzić za uśmiech. „Bóg zapłać. Zapamiętam, kto mnie nie wyśmiał.”",
+      "portrait": "portret_wojmir",
+      "actions": [
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        },
+        {
+          "setFlag": "towarzysze_zaufanie"
+        },
+        {
+          "setFlag": "tow_wojmir"
+        }
+      ],
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "brama"
+        }
+      ]
+    }
+  }
+}

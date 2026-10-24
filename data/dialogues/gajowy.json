@@ -1,0 +1,128 @@
+{
+  "id": "gajowy",
+  "portrait": "portret_gajowy",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Gajowy Radowit",
+      "text": "Gajowy Radowit siedzi przed gajówką i czyści strzelbę, która od lat nie powąchała prochu. „Czego? Jak o zwierzynę, to zwierzyny jak na lekarstwo. Jak o sidła, to pytaj Stacha, nie mnie.”",
+      "options": [
+        {
+          "id": "zlecenie",
+          "text": "Co cię boli?",
+          "goto": "q1_start",
+          "requires": {
+            "questStatus": {
+              "id": "klusownik_i_gajowy",
+              "is": "none"
+            }
+          }
+        },
+        {
+          "id": "q1_wydany",
+          "text": "Stach zakłada sidła, powiedział mi sam.",
+          "goto": "q1_wydany",
+          "requires": {
+            "flag": "stach_wydany",
+            "notFlag": "gajowy_zamkniete",
+            "questStatus": {
+              "id": "klusownik_i_gajowy",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q1_oszczedzony",
+          "text": "Stach nic nie zakłada. Pomyliłeś się.",
+          "goto": "q1_oszczedzony",
+          "requires": {
+            "flag": "stach_oszczedzony",
+            "notFlag": "gajowy_zamkniete",
+            "questStatus": {
+              "id": "klusownik_i_gajowy",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q1_po",
+          "text": "Jak tam bór po wszystkim?",
+          "goto": "q1_po",
+          "requires": {
+            "questStatus": {
+              "id": "klusownik_i_gajowy",
+              "is": "done"
+            }
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "q1_start": {
+      "speaker": "Gajowy Radowit",
+      "text": "„Ktoś zakłada sidła w borze, i to nie na zające. Zeszłej nocy wyplątałem z jednego rogacza, co jeszcze żył, i od tej pory sen mnie nie bierze. Pewnie Stach, ale za rękę go nie złapałem, a bez dowodu to nie oskarżenie, tylko babskie gadanie. Pogadaj z nim, bo mnie się boi. Tylko nie mów, że ode mnie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pogadam.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "klusownik_i_gajowy"
+        },
+        {
+          "reveal": "bor_klusownikow"
+        }
+      ]
+    },
+    "q1_wydany": {
+      "speaker": "Gajowy Radowit",
+      "text": "Gajowy powoli odkłada strzelbę, jakby od tego zależało jego sumienie. „Sam ci powiedział? Albo głupi, albo chciał, żebyś mnie ostrzegł. Zajmę się nim po swojemu. A ty masz tu piętnaście groszy za fatygę.” Widać, że rację mieć mu wcale nie miło.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "gajowy_zamkniete"
+        }
+      ]
+    },
+    "q1_oszczedzony": {
+      "speaker": "Gajowy Radowit",
+      "text": "Gajowy mruży oczy. „Pomyliłem się? Rogacz też się pomylił, jak w sidło wlazł. Ale niech ci będzie: ty dowodów nie masz, ja nie mam, wszyscy czyści jak po spowiedzi. Masz piętnaście groszy za fatygę. Na twoją głowę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "gajowy_zamkniete"
+        }
+      ]
+    },
+    "q1_po": {
+      "speaker": "Gajowy Radowit",
+      "text": "„Cicho jak na stypie. Sidła wiszą, ale puste. Stach przestał zakładać albo przeniósł je dalej, gdzie ich nie widzę. W lesie tak jest: czego oko nie widzi, tego sercu nie żal. Dobra robota.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

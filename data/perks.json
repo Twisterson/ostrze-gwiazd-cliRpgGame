@@ -1,0 +1,19 @@
+[
+  { "id": "szkola_miecza", "name": "Szkoła miecza", "description": "Instruktor wbił ci w łeb, jak się macha klingą, i nawet trochę zadziałało.", "requires": { "skills": { "sieczna": 40 } }, "modifiers": { "sieczna": 15, "meleeHitChance": 5 } },
+  { "id": "szkola_wloczni", "name": "Szkoła włóczni", "description": "Wiesz, jak utrzymać wroga na końcu drzewca i jak samemu się nie nadziać.", "requires": { "skills": { "drzewcowa": 40 } }, "modifiers": { "drzewcowa": 15, "defense": 5 } },
+  { "id": "twarda_reka", "name": "Twarda ręka", "description": "Bijesz tak, że nawet wróg przyznaje, że to bolało.", "requires": { "attributes": { "sila": 7 } }, "modifiers": { "damage": 2 } },
+  { "id": "lekki_krok", "name": "Lekki krok", "description": "Tańczysz w walce lepiej niż na weselu, tylko z mniejszą liczbą pijanych.", "requires": { "attributes": { "zrecznosc": 6 } }, "modifiers": { "ap": 1 } },
+  { "id": "twarda_skora", "name": "Twarda skóra", "description": "Łatwiej złamać na tobie kij niż twoje kości.", "requires": { "attributes": { "krzepa": 6 } }, "modifiers": { "hpMax": 10 } },
+  { "id": "nieugiety", "name": "Nieugięty", "description": "Dostaniesz w łeb, a i tak postoisz, tylko miną się zdziwisz.", "requires": { "level": 4, "attributes": { "krzepa": 7 } }, "modifiers": { "resist_ogluszenie": 25, "resist_strach": 25 } },
+  { "id": "sokole_oko", "name": "Sokole oko", "description": "Trafisz muchę w gębę z pięćdziesięciu kroków, jeśli tylko się nie ruszy.", "requires": { "attributes": { "bystrosc": 6 } }, "modifiers": { "rangedHitChance": 10 } },
+  { "id": "pewna_reka", "name": "Pewna ręka", "description": "Cokolwiek rzucisz albo wystrzelisz, zwykle leci tam, gdzie chciałeś.", "requires": { "attributes": { "zrecznosc": 6 }, "skills": { "strzelecka": 40 } }, "modifiers": { "strzelecka": 10, "miotanie": 10 } },
+  { "id": "czytanie_walki", "name": "Czytanie walki", "description": "Wróg jeszcze nie zamachnął się, a ty już wiesz, że będzie chybiał.", "requires": { "attributes": { "rozum": 7 } }, "modifiers": { "critChance": 5, "defense": 5 } },
+  { "id": "chlodna_glowa", "name": "Chłodna głowa", "description": "Wokół wrzask i krew, a ty myślisz jasno jak karczmarz przy rachunku.", "requires": { "attributes": { "rozum": 6, "bystrosc": 6 } }, "modifiers": { "initiative": 3, "resist_rozkojarzenie": 25 } },
+  { "id": "finta", "name": "Mistrz finty", "description": "Udajesz, że lewo, a bijesz prawo, i nikt jeszcze się nie połapał.", "requires": { "level": 4, "attributes": { "rozum": 8 } }, "unlocks": ["finta"] },
+  { "id": "gadane", "name": "Gadane", "description": "Zagadasz każdego, nawet kowala, który akurat ma młot w ręku.", "requires": { "attributes": { "oglada": 6 } }, "modifiers": { "wymowa": 10, "handel": 10 } },
+  { "id": "kupiecka_zylka", "name": "Kupiecka żyłka", "description": "Wyczujesz grosz z drugiego końca targu i wcisnąć ci bubel nikomu się nie uda.", "requires": { "attributes": { "oglada": 6 }, "skills": { "handel": 40 } }, "modifiers": { "handel": 20 } },
+  { "id": "czuly_na_swiat", "name": "Czuły na świat", "description": "Czujesz, że w powietrzu coś drga, i tym razem to nie od piwa.", "requires": { "attributes": { "rozum": 6 }, "skills": { "wiedza_tajemna": 30 } }, "modifiers": { "wiedza_tajemna": 15 } },
+  { "id": "cyrulik", "name": "Cyrulik", "description": "Zszyjesz, opatrzysz i jeszcze ząb wyrwiesz, a pacjent prawie nie krzyczy.", "requires": { "skills": { "medycyna": 40 } }, "modifiers": { "medycyna": 15 } },
+  { "id": "szczesciarz", "name": "Szczęściarz", "description": "Los uśmiecha się do ciebie, choć pewnie z braku lepszego towarzystwa.", "requires": { "level": 4 }, "modifiers": { "fart": 1 } },
+  { "id": "kocie_zycie", "name": "Kocie życie", "description": "Spadasz zawsze na cztery łapy, a jak nie, to szybko uciekasz.", "requires": { "attributes": { "fart": 7 } }, "modifiers": { "critChance": 5, "fleeChance": 15 } }
+]

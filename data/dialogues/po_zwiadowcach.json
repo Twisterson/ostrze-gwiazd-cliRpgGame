@@ -1,0 +1,22 @@
+{
+  "id": "po_zwiadowcach",
+  "start": "wynik",
+  "nodes": {
+    "wynik": {
+      "speaker": "Po walce",
+      "text": "Zwiadowcy leżą w rowie, w błocie i krwi, a ty stoisz nad nimi z mieczem i ciężko dyszysz. Ktoś ich będzie szukał, to pewne. Bierzesz, co się da, i znikasz w chaszczach.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "search": 15
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "id": "panel_wraku",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Wnętrze wraku",
+      "text": "W sercu maszyny, między blaszanymi żebrami, tkwi walec z miedzi i szkła. Pulsuje w rytmie, który wydaje ci się znajomy, choć nigdy go nie słyszałeś. Śmierdzi rdzą i spalonym łojem.",
+      "options": [
+        {
+          "id": "wyjmij",
+          "text": "Spróbuj wyjąć rdzeń ostrożnie.",
+          "goto": "wyjmij",
+          "requires": {
+            "questStatus": {
+              "id": "wrak_maszyny",
+              "is": "active"
+            },
+            "notFlag": "rdzen_wziety"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wyjmij": {
+      "speaker": "Wnętrze wraku",
+      "text": "Rdzeń siedzi w gnieździe z blachy i miedzi. Każdy ruch sypie iskrami.",
+      "options": [
+        {
+          "id": "w_cicho",
+          "text": "Wysuń go powoli, żeby nie zbudzić maszyny.",
+          "check": {
+            "skill": "skradanie",
+            "difficulty": 40
+          },
+          "success": "wyjety",
+          "failure": "iskry",
+          "retry": true
+        },
+        {
+          "id": "w_sila",
+          "text": "Wyrwij go siłą.",
+          "goto": "sila"
+        }
+      ]
+    },
+    "wyjety": {
+      "speaker": "Wnętrze wraku",
+      "text": "Palce wchodzą między żebra, rdzeń wychodzi z gniazda z cichym, mokrym mlaśnięciem. Maszyna drży, ale się nie budzi. Chowasz walec do torby, a ciąży jak kilka zwiniętych łańcuchów.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "rdzen_maszyny"
+        },
+        {
+          "setFlag": "rdzen_wziety"
+        }
+      ]
+    },
+    "iskry": {
+      "speaker": "Wnętrze wraku",
+      "text": "Z gniazda strzela snop iskier prosto w twoją dłoń. Wrzeszczysz, a maszyna wzdryga się jak zwierzę pod nożem. „Cierpliwości,” szepcze ktoś w twojej głowie. Możesz spróbować jeszcze raz albo wyrwać go siłą.",
+      "options": [
+        {
+          "id": "jeszcze",
+          "text": "Spróbuj jeszcze raz.",
+          "goto": "wyjmij"
+        },
+        {
+          "id": "sila",
+          "text": "Wyrwij go siłą.",
+          "goto": "sila"
+        }
+      ]
+    },
+    "sila": {
+      "speaker": "Wnętrze wraku",
+      "text": "Wyrywasz walec razem z wiązką kabli, z hukiem, który niesie się po całym wzgórzu. Dłonie pieką, w uszach dzwoni, a maszyna zapada się w sobie jak przekłuty pęcherz. Rdzeń ląduje w torbie, a ty jesteś zmordowany jak po całym dniu marszu w błocie.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pamiętam.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "rdzen_maszyny"
+        },
+        {
+          "setFlag": "rdzen_wziety"
+        },
+        {
+          "addEffect": "zmeczenie"
+        },
+        {
+          "search": 5
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,552 @@
+{
+  "start": "prolog_wstep",
+  "scenes": [
+    {
+      "id": "prolog_wstep",
+      "art": "wstep_gwiazdy",
+      "type": "narration",
+      "title": "Ziemia pod gwiazdami",
+      "text": "Cesarstwo ciągnie się od słonego morza po góry, których nikt nie zliczył, a w jego cieniu obowiązuje jeden porządek: podatek płać, łba nie podnoś, o gwiazdach nie gadaj. Starzy powiadają, że dawniej nocne niebo było spokojniejsze. Teraz co parę lat coś w nim zapłonie i runie za lasem, a po burzy iskier i dziwnych mgłach we wsiach ubywa ludzi. Cesarscy pisarze wpisują to do ksiąg jako klęski żywiołowe, bo urzędnik klęskę rozumie, a gwiazdy nie. Chłopi plują przez lewe ramię, dorzucają do ognia i udają, że nic nie widzieli."
+    },
+    {
+      "id": "prolog_wstep_wies",
+      "art": "wstep_brzezina",
+      "type": "narration",
+      "title": "Brzezina",
+      "text": "Brzezina to ostatnia wieś przed Pogórzem, tak daleko od stolicy, że cesarza zna się tu z monety, a poborcę ze strachu. Na jej skraju stoi szkoła ostrza, gdzie z biedaków robi się wojów, a z wojów mięso dla tych, co płacą. Kto tu trafi, ma do wyboru miecz albo włócznię, kaszę bez omasty i mistrza Hjalmira Gnieworada, który co rano przypomina, że chleb za darmo nie rośnie. Szkoła stoi tu od stu lat, bo nikt w stolicy nie pamięta, po co ją postawiono. Dziś zwykły dzień. Przynajmniej tak wygląda od rana."
+    },
+    {
+      "id": "demo_swit",
+      "art": "szkolka",
+      "type": "narration",
+      "title": "Prolog",
+      "time": 30,
+      "text": "Mgła leży na placu ćwiczeń jak kożuch na zimnej kaszy, a z kuchni ciągnie dymem i przypaloną cebulą. Mistrz Hjalmir Gnieworad stoi w bramie i łypie, jakby każdy z was był mu winien. „Wy tam, ślimaki! Imię podać, bo nad grobem nie będę ryczał »ej, ty«!”"
+    },
+    {
+      "id": "demo_kreator",
+      "type": "character_creation"
+    },
+    {
+      "id": "demo_sparing",
+      "art": "szkolka",
+      "type": "narration",
+      "title": "Sparing",
+      "time": 120,
+      "text": "Gnieworad wciska ci w garść drewnianą pałę i spycha na środek placu. „Trzymasz to jak baba żmiję. Radogost, pokaż tym ślimakom, jak się z nich robi ludzi!” Instruktor strzela knykciami, a reszta uczniów rechocze; jeden aż zapomina zamknąć gębę."
+    },
+    {
+      "id": "demo_sparing_walka",
+      "type": "combat",
+      "title": "Sparing",
+      "enemies": [
+        {
+          "id": "instruktor"
+        }
+      ],
+      "start": "melee",
+      "training": true,
+      "nonLethal": true,
+      "canFlee": false
+    },
+    {
+      "id": "demo_sparing_wygrana",
+      "type": "narration",
+      "if": {
+        "flag": "combat_demo_sparing_walka_wygrana"
+      },
+      "text": "Radogost łapie się za żebra i klnie w trzech językach naraz. „A niech cię licho, chłopie, walisz jak wół, którego bąk ugryzł!” Gnieworad kiwa głową, co u niego znaczy tyle, co u innych uścisk dłoni."
+    },
+    {
+      "id": "demo_sparing_porazka",
+      "type": "narration",
+      "if": {
+        "flag": "combat_demo_sparing_walka_porazka"
+      },
+      "text": "Leżysz w błocie i widzisz gwiazdy, choć jest środek dnia. „Wstawaj”, rzuca Radogost, „bo błoto jeszcze pomyśli, że się z nim żenisz!” Uczniowie rżą tak, że aż wrony się płoszą."
+    },
+    {
+      "id": "demo_postawa_miecz",
+      "type": "var",
+      "if": {
+        "flag": "klasa_miecz"
+      },
+      "add": {
+        "dlug": 1
+      }
+    },
+    {
+      "id": "demo_postawa_wlocznia",
+      "type": "var",
+      "if": {
+        "flag": "klasa_wlocznia"
+      },
+      "add": {
+        "wola": 1
+      }
+    },
+    {
+      "id": "demo_nagroda",
+      "art": "nagroda",
+      "type": "reward",
+      "xp": 160,
+      "money": 15,
+      "items": [
+        "kaptur_mysliwego"
+      ]
+    },
+    {
+      "id": "prolog_kurier_narracja",
+      "art": "kurier_plac",
+      "type": "narration",
+      "title": "Kurier",
+      "waitUntil": 12,
+      "text": "Koło południa na plac wpada koń w pianie, a na nim chłop w czerwonym płaszczu, jakiego we wsi nie widziano od ostatniego poboru. Uczniowie zamierają z drewnianymi pałami w garściach. Gnieworad wychodzi z bramy powoli, jakby wiedział, co usłyszy, i wcale nie chciał tego słuchać."
+    },
+    {
+      "id": "prolog_kurier",
+      "type": "dialogue",
+      "dialogue": "kurier",
+      "time": 15
+    },
+    {
+      "id": "prolog_delegacja",
+      "type": "dialogue",
+      "dialogue": "delegacja",
+      "time": 15
+    },
+    {
+      "id": "demo_kram_wstep",
+      "art": "kram",
+      "type": "narration",
+      "title": "Kram",
+      "text": "Kwatermistrz siedzi za kontuarem z nieheblowanych desek i liczy opatrunki palcem, jakby któryś miał mu zwiać. „Co, ślepia wam z łbów powyłaziły? Kupować, a nie się gapić, bo od gapienia grosza nie przybędzie!” Burczy jeszcze, że za jego czasów uczeń sam sobie darł szmaty na bandaże."
+    },
+    {
+      "id": "demo_kram_rozmowa",
+      "type": "dialogue",
+      "dialogue": "kwatermistrz"
+    },
+    {
+      "id": "demo_kram",
+      "art": "kram",
+      "type": "shop",
+      "shop": "kramarz_szkolny"
+    },
+    {
+      "id": "prolog_brama",
+      "type": "dialogue",
+      "dialogue": "towarzysze",
+      "time": 20
+    },
+    {
+      "id": "prolog_wymarsz",
+      "art": "wymarsz",
+      "type": "narration",
+      "title": "W drogę",
+      "waitUntil": 6,
+      "text": "Nazajutrz o świcie Gnieworad nie żegna się, tylko liczy was po łbach. Czworo. „Cztery imiona, cztery głowy, kurier będzie rad”, mruczy i nawet na ciebie nie spojrzy. Trakt do Wilczego Brodu to dwa dni marszu przez pogórze, a stamtąd dalej, do stolicy. Zarzucacie tobołki i wychodzicie za bramę, zanim mistrz wymyśli coś gorszego."
+    },
+    {
+      "id": "demo_podroz",
+      "type": "travel",
+      "route": "brzezina_wilczy_brod",
+      "title": "Podróż do Wilczego Brodu"
+    },
+    {
+      "id": "demo_kurier",
+      "art": "mapa_brod",
+      "type": "narration",
+      "title": "Wilczy Bród",
+      "time": 480,
+      "text": "Strażnica Wilczy Bród to palisada, wieża i błoto po kostki. Brama otwiera się z niechęcią przed półżywym wędrowcem w pogniecionym mundurze szkoły, uwalanym błotem do kolan, z oczami człowieka, który widział za dużo. Komendant Wszebor mierzy cię od stóp do głów i każe wejść pod dach. Insygnia delegacji leżą na dnie tobołka; nikt jeszcze nie pytał, a ty nie zamierzasz odpowiadać."
+    },
+    {
+      "id": "demo_mapa",
+      "art": "mapa_brod",
+      "type": "map",
+      "hub": "wilczy_brod",
+      "title": "Wilczy Bród",
+      "main": {
+        "label": "Zamknij dzień",
+        "goto": "demo_odpoczynek"
+      }
+    },
+    {
+      "id": "demo_odpoczynek",
+      "art": "odpoczynek",
+      "type": "rest"
+    },
+    {
+      "id": "demo_zapis",
+      "type": "save_point"
+    },
+    {
+      "id": "demo_dalej",
+      "type": "flag",
+      "set": {
+        "dzien_zamkniety": true
+      },
+      "goto": "demo_mapa",
+      "if": {
+        "notFlag": "akt2_koniec"
+      }
+    },
+    {
+      "id": "akt2_koniec_scena",
+      "type": "narration",
+      "if": {
+        "flag": "akt2_koniec"
+      },
+      "text": "Wóz Ostromira skrzypi pod górę ku Kamiennej Przełęczy, a ty idziesz obok i nie oglądasz się za siebie. Za plecami zostaje Wilczy Bród, jego wilki, jego łgarstwa i jego zupa. Przed tobą czeka coś, czego jeszcze nie umiesz nazwać, ale co na pewno już cię wypatrzyło.",
+      "title": "Kamienna Przełęcz"
+    },
+    {
+      "id": "akt3_wejscie",
+      "type": "narration",
+      "art": "koniec",
+      "title": "Głuszec",
+      "time": 240,
+      "text": "Za przełęczą droga rozłazi się w ścieżkę, a ścieżka w błoto. Po południu zza wzgórza wypełza Głuszec: tuzin chałup, cmentarz większy od osady i dym z komina karczmy, jedyny, co wygląda na zadowolony. Psy ujadają, nim cię zobaczą. Ludzie trzaskają okiennicami, nim usłyszą, kim jesteś. Niech tak będzie. Tu zaczyna się robota, której nie ma w żadnej umowie."
+    },
+    {
+      "id": "akt3_mapa",
+      "type": "map",
+      "hub": "gluszec",
+      "arriveAt": "gluszec",
+      "title": "Głuszec",
+      "main": {
+        "label": "Zamknij dzień",
+        "goto": "akt3_odpoczynek"
+      },
+      "exitWhen": {
+        "if": {
+          "flag": "akt3a_koniec"
+        },
+        "goto": "akt3_zapis"
+      },
+      "leaves": "wilczy_brod",
+      "starts": [
+        "przyjecie_w_osadzie"
+      ]
+    },
+    {
+      "id": "akt3_odpoczynek",
+      "type": "rest"
+    },
+    {
+      "id": "akt3_zapis",
+      "type": "save_point"
+    },
+    {
+      "id": "akt3_dalej",
+      "type": "flag",
+      "set": {
+        "akt3_dzien_zamkniety": true
+      },
+      "goto": "akt3_mapa",
+      "if": {
+        "notFlag": "akt3a_koniec"
+      }
+    },
+    {
+      "id": "akt3a_koniec_scena",
+      "type": "narration",
+      "if": {
+        "all": [
+          {
+            "flag": "akt3a_koniec"
+          },
+          {
+            "notFlag": "oblawa_ucieczka"
+          }
+        ]
+      },
+      "text": "Głuszec zostaje za plecami, z psami, cmentarzem i łgarstwami, których nikt ci nie zdążył wytłumaczyć. Zwiadowcy znają już trop, a ty znasz kierunek. Dalej będą gwiazdy.",
+      "title": "Za Głuszcem"
+    },
+    {
+      "id": "akt3a_koniec_oblawa",
+      "type": "narration",
+      "if": {
+        "all": [
+          {
+            "flag": "akt3a_koniec"
+          },
+          {
+            "flag": "oblawa_ucieczka"
+          }
+        ]
+      },
+      "text": "Obława spada na Głuszec o świcie. Uciekasz przez piwnicę i stodołę kowala, a za plecami zostają psy, wrzaski i sołtys, który cię nigdy na oczy nie widział. Las połyka cię razem z przekleństwami. Cesarscy mają już twoją gębę na papierze i wiesz, że wracać nie ma po co. Dalej będą gwiazdy.",
+      "title": "Za Głuszcem"
+    },
+    {
+      "id": "akt3b_wejscie",
+      "type": "narration",
+      "art": "obserwatorium",
+      "title": "Obserwatorium",
+      "time": 480,
+      "text": "Leziesz cały dzień na północ, aż do nocy, tam gdzie las przechodzi w spaloną ziemię, a ziemia w szkło. Wzgórza błyszczą, choć słońca nie ma. Na jednym stoi wieża z okrągłą kopułą i strzaskanym teleskopem, a z komina u jej stóp ciągnie dym, jakby sam się dziwił, że jeszcze jest. To dawne cesarskie Obserwatorium. Tu ktoś liczył gwiazdy, zanim zaczęły spadać."
+    },
+    {
+      "id": "akt3b_mapa",
+      "type": "map",
+      "hub": "obserwatorium",
+      "arriveAt": "obserwatorium",
+      "leaves": "gluszec",
+      "title": "Obserwatorium",
+      "exitWhen": {
+        "if": {
+          "flag": "akt3b_koniec"
+        },
+        "goto": "akt3b_final"
+      },
+      "main": {
+        "label": "Zamknij dzień",
+        "goto": "akt3b_odpoczynek"
+      },
+      "starts": [
+        "przyjecie_w_obserwatorium"
+      ]
+    },
+    {
+      "id": "akt3b_odpoczynek",
+      "type": "rest"
+    },
+    {
+      "id": "akt3b_zapis",
+      "type": "save_point"
+    },
+    {
+      "id": "akt3b_dalej",
+      "type": "flag",
+      "set": {
+        "akt3b_dzien_zamkniety": true
+      },
+      "goto": "akt3b_mapa",
+      "if": {
+        "notFlag": "akt3b_koniec"
+      }
+    },
+    {
+      "id": "akt3b_final",
+      "type": "dialogue",
+      "dialogue": "rozdroze_final",
+      "art": "koniec"
+    },
+    {
+      "id": "koniec_uleglosc_z",
+      "type": "ending",
+      "art": "koniec",
+      "if": {
+        "all": [
+          {
+            "flag": "final_uleglosc"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_dezerter"
+                  },
+                  {
+                    "flag": "sojusz_straznicy"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_dezerter"
+                  },
+                  {
+                    "flag": "sojusz_astrolog"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_dezerter"
+                  },
+                  {
+                    "flag": "sojusz_wedrowcy"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_straznicy"
+                  },
+                  {
+                    "flag": "sojusz_astrolog"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_straznicy"
+                  },
+                  {
+                    "flag": "sojusz_wedrowcy"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_astrolog"
+                  },
+                  {
+                    "flag": "sojusz_wedrowcy"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "NARZĘDZIE, KTÓRE PAMIĘTA\n\nWchodzisz w krater i światło zamyka się nad tobą jak woda nad topielcem. Dług spłacony. Stajesz się narzędziem w rękach istoty, która nie zna litości ani gniewu. Ale ci, co szli z tobą, nie zapominają: ktoś wpisuje twoje imię do księgi, której nikt nie przeczyta, ktoś stawia ci krzyż na brzegu, ktoś jeszcze przez rok patrzy w noc, jakby czekał. Ktoś pamięta, że byłeś człowiekiem. To prawie starcza."
+    },
+    {
+      "id": "koniec_uleglosc",
+      "type": "ending",
+      "art": "koniec",
+      "if": {
+        "flag": "final_uleglosc"
+      },
+      "text": "NARZĘDZIE\n\nWchodzisz w krater. Światło zamyka się nad tobą i to, co zostaje, jest już bardziej głosem niż człowiekiem. Dług spłacony, rachunek wyrównany. Cesarstwo nigdy się nie dowie, kim byłeś. Kamienie na grobie w Głuszcu świecą jeszcze kilka nocy, potem gasną. Nikt nie płacze, bo nikt nie wie, po kim."
+    },
+    {
+      "id": "koniec_opor_z",
+      "type": "ending",
+      "art": "koniec",
+      "if": {
+        "all": [
+          {
+            "flag": "final_opor"
+          },
+          {
+            "any": [
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_dezerter"
+                  },
+                  {
+                    "flag": "sojusz_straznicy"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_dezerter"
+                  },
+                  {
+                    "flag": "sojusz_astrolog"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_dezerter"
+                  },
+                  {
+                    "flag": "sojusz_wedrowcy"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_straznicy"
+                  },
+                  {
+                    "flag": "sojusz_astrolog"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_straznicy"
+                  },
+                  {
+                    "flag": "sojusz_wedrowcy"
+                  }
+                ]
+              },
+              {
+                "all": [
+                  {
+                    "flag": "sojusz_astrolog"
+                  },
+                  {
+                    "flag": "sojusz_wedrowcy"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "text": "WSPÓLNA SPRAWA\n\nStajesz na brzegu krateru, a za tobą stoją ludzie: ci, których zjednałeś słowem, pomocą albo odwagą. Żaden z nich nie bohater, każdy ma co stracić i właśnie dlatego stoi. Głos z krateru milknie, zbity z tropu. Cesarstwo przyśle wojsko, ale już wiesz, że nie jesteś sam. Walka potrwa lata. Pierwszy raz od rzezi masz jednak drużynę, a ta jest warta więcej niż gwiazdy."
+    },
+    {
+      "id": "koniec_opor",
+      "type": "ending",
+      "art": "koniec",
+      "if": {
+        "flag": "final_opor"
+      },
+      "text": "SAMOTNY PŁOMIEŃ\n\nStajesz na brzegu krateru z tym, coś zdobył, i z tym, co ci zostało. Głos z krateru śmieje się cicho, a cesarscy zwiadowcy podchodzą z dwóch stron jak kleszcze. Masz wolę i pali się mocniej, niż myślałeś. Kiedy ogień w kraterze zgaśnie, po Pogórzu pójdzie gadka o młodym w pogniecionym mundurze. Nikt nie będzie pewien, czy to prawda. Ty też nie."
+    },
+    {
+      "id": "koniec_ucieczka_ludzie",
+      "type": "ending",
+      "art": "koniec",
+      "if": {
+        "all": [
+          {
+            "flag": "final_ucieczka"
+          },
+          {
+            "flag": "glusz_pomoc"
+          }
+        ]
+      },
+      "text": "Z LUDŹMI, KTÓRYM POMOGŁEŚ\n\nOdchodzisz, ale nie sam. Za tobą idą wędrowcy z Głuszca, ci, którym posłałeś pieniądze i którzy mają dług wdzięczności większy niż twój. Stawiacie osadę na skraju świata, za górami, gdzie ręka cesarza nie sięga. Czasem ktoś pyta, skąd się wzięła. Odpowiadasz: z jednej decyzji, której nie musiałeś podejmować."
+    },
+    {
+      "id": "koniec_ucieczka_oblawa",
+      "type": "ending",
+      "art": "koniec",
+      "if": {
+        "all": [
+          {
+            "flag": "final_ucieczka"
+          },
+          {
+            "flag": "oblawa_ucieczka"
+          }
+        ]
+      },
+      "text": "ZA HORYZONTEM\n\nOdchodzisz na wschód, tam gdzie kończą się mapy. Za plecami zostaje Głuszec, który przez ciebie oberwał, i Obserwatorium z teleskopem i kotem. Czasem w nocy śni ci się karczma pod Zdechłym Kogutem i dym z komina, co wyglądał na zadowolony. Cesarz zapomina o tobie po roku. Ty nie zapominasz o niczym."
+    },
+    {
+      "id": "koniec_ucieczka",
+      "type": "ending",
+      "art": "koniec",
+      "if": {
+        "flag": "final_ucieczka"
+      },
+      "text": "W POJEDYNKĘ\n\nOdchodzisz i nie oglądasz się. Chodzisz od wsi do wsi i każdemu prawisz o sobie co innego. Po latach nie pamiętasz, która z tych historii była prawdziwa. Gwiazdy dalej spadają, a ty nauczyłeś się patrzeć w ziemię."
+    }
+  ]
+}

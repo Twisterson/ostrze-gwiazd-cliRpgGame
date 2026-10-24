@@ -1,0 +1,128 @@
+{
+  "id": "echo_istoty",
+  "portrait": "portret_istota",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Głos z kamieni",
+      "text": "Trzy kamienie ułożone w gwiazdę na jednym z grobów sączą bladą poświatę, która znika, gdy spojrzysz wprost. Powietrze drga jak nad ogniskiem, ziemia pachnie szronem. Z gleby, z kamieni albo z twojej własnej głowy dobiega głos, ten sam, który słyszałeś po rzezi.",
+      "options": [
+        {
+          "id": "slucham",
+          "text": "Słucham.",
+          "goto": "slucham"
+        },
+        {
+          "id": "dlug",
+          "text": "Pamiętam dług.",
+          "goto": "dlug",
+          "requires": {
+            "flag": "dlug_istoty"
+          }
+        },
+        {
+          "id": "uciekaj",
+          "text": "Odchodzę.",
+          "goto": "uciekam"
+        }
+      ]
+    },
+    "slucham": {
+      "speaker": "Głos z kamieni",
+      "text": "„Jesteś blisko miejsca, gdzie coś spadło. Nie z nieba, tylko z wnętrza. Twoja towarzyszka widziała to, zanim zginęła. Ragnosława. Pytaj tych, co przeżyli. Pytaj o dźwięk, który nie jest dźwiękiem. O kamienie, które pamiętają, czyja ręka je dotknęła.”",
+      "options": [
+        {
+          "id": "tak",
+          "text": "Powiedz mi, czego ode mnie chcesz.",
+          "goto": "chce"
+        },
+        {
+          "id": "nie",
+          "text": "Nie chcę niczego od ciebie.",
+          "goto": "nie_chce"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "co_widziala_ragnoslawa"
+        },
+        {
+          "setFlag": "echo_slyszal"
+        }
+      ]
+    },
+    "dlug": {
+      "speaker": "Głos z kamieni",
+      "text": "„Pamiętasz. Dobrze. Dług nas wiąże. Nie spłacisz go groszem ani łaską, tylko wiedzą. Idź tam, gdzie padły gwiazdy. Wszystko spisane jest w ziemi, a ziemia nie łże.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "slucham"
+        }
+      ],
+      "actions": [
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        }
+      ]
+    },
+    "chce": {
+      "speaker": "Głos z kamieni",
+      "text": "„Chcę, żebyś nie zdechł głupio. Idź, spytaj tych, co się modlą, co słyszą po nocach. Moje słowa niosą się dalej, niż myślisz, ale trafiają tylko do tych, co chcą słuchać.” Poświata gaśnie, a kamienie znów są tylko kamieniami.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wdzięczny.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        }
+      ]
+    },
+    "nie_chce": {
+      "speaker": "Głos z kamieni",
+      "text": "„Nie chcesz. To też odpowiedź. Ale nie mów potem, że cię nie ostrzegałem.” Poświata gaśnie. Trawa na grobie jest zimna jak lód, choć noc ciepła.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wychodzę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ]
+    },
+    "uciekam": {
+      "speaker": "Głos z kamieni",
+      "text": "Poświata gaśnie, zanim zrobisz krok. Zostaje szum w uszach i ciarki na karku, jakby ktoś zapamiętał twoje imię.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wychodzę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "co_widziala_ragnoslawa"
+        },
+        {
+          "setFlag": "echo_slyszal"
+        }
+      ]
+    }
+  }
+}

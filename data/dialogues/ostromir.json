@@ -1,0 +1,48 @@
+{
+  "id": "ostromir",
+  "portrait": "portret_ostromir",
+  "start": "prosba",
+  "nodes": {
+    "prosba": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„No jak, bierzesz robotę? Czterdzieści groszy za odprowadzenie wozu do Kamiennej Przełęczy. Trzy dni czekam w Brodzie, potem jadę sam, choćby mnie ze skóry obdarli.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Biorę to. Czekaj na mnie w Brodzie.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "odmowa",
+          "text": "Nie tym razem.",
+          "goto": "odmowa"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Kupiec Ostromir",
+      "text": "Kupiec ściska ci dłoń, jakby chciał z niej wycisnąć rękojmię. „Trzy dni! Ani dnia dłużej, bo mi sukno spleśnieje, a baba mnie zatłucze.”",
+      "actions": [
+        {
+          "setFlag": "ostromir_zgoda"
+        }
+      ],
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odmowa": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„Szkoda. Taki chłop, a boi się paru staj błota.” Ostromir wzdycha i wraca do łatania koła.",
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

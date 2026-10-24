@@ -1,0 +1,111 @@
+{
+  "id": "kowal",
+  "portrait": "portret_kowal",
+  "start": "kuznia",
+  "nodes": {
+    "kuznia": {
+      "speaker": "Kowal Zbych",
+      "text": "Kowal dmucha w żar, jakby to był zdradziecki sąsiad. „Podkowy, haki, gwoździe. Czarów nie kuję, bo za nie nikt nie płaci. Co tam masz?”",
+      "options": [
+        {
+          "text": "Odłamek szkła z młyna.",
+          "goto": "odlamek",
+          "id": "odlamek",
+          "requires": {
+            "item": "odlamek_szkla",
+            "questStatus": {
+              "id": "swiatlo_w_mlynie",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "text": "Jak idzie interes?",
+          "goto": "interes",
+          "id": "interes"
+        },
+        {
+          "id": "odlamek_pokaz",
+          "text": "Mam odłamek z młyna, ale zlecenia nie mam.",
+          "goto": "odlamek_pokaz",
+          "requires": {
+            "item": "odlamek_szkla",
+            "questStatus": {
+              "id": "swiatlo_w_mlynie",
+              "is": "none"
+            },
+            "notFlag": "kamien_rozpoznany"
+          }
+        },
+        {
+          "id": "kamien_po",
+          "text": "Co z tym kamieniem?",
+          "goto": "kamien_po",
+          "requires": {
+            "flag": "kamien_rozpoznany"
+          }
+        },
+        {
+          "text": "Bywaj.",
+          "goto": "end",
+          "id": "bywaj"
+        }
+      ]
+    },
+    "odlamek": {
+      "speaker": "Kowal Zbych",
+      "text": "Zbych łapie odłamek obcęgami, trzyma w żarze i patrzy, jak ani się nie topi, ani nie czernieje. „To nie szkło. To kamień z nieba, jak ten, co po burzy iskier ludziom w łbach zostaje. Trzymaj go z dala od żelaza i nikomu nie gadaj, że ode mnie.”",
+      "options": [
+        {
+          "text": "Nikomu.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "odlamek_szkla"
+        },
+        {
+          "setFlag": "kamien_rozpoznany"
+        }
+      ]
+    },
+    "interes": {
+      "speaker": "Kowal Zbych",
+      "text": "„Idzie jak wół pod górę. Każdy chce konia podkuć, nikt nie chce płacić. Cesarz podatek bierze, a podkowy wykuć nie umie.”",
+      "options": [
+        {
+          "text": "Pociesz się, że konie wdzięczne.",
+          "goto": "kuznia"
+        }
+      ]
+    },
+    "odlamek_pokaz": {
+      "speaker": "Kowal Zbych",
+      "text": "Zbych łapie odłamek obcęgami, trzyma w żarze i patrzy, jak ani się nie topi, ani nie czernieje. „To nie szkło, to kamień z nieba. Zabieraj, nie moje. Zlecenie sam znajdziesz na tablicy, jak ci grosza trzeba. I nikomu nie gadaj, że ode mnie.” Spluwa w żar.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Nikomu.",
+          "goto": "kuznia"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "kamien_rozpoznany"
+        }
+      ]
+    },
+    "kamien_po": {
+      "speaker": "Kowal Zbych",
+      "text": "„Kamień jak kamień, tylko nie z tej ziemi. Nie kuję go, widzieć nie chcę, skąd się wziął, czart go wie. Trzymaj z dala od żelaza i od ludzi. Z jednym i drugim bywa bieda.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak to bywa.",
+          "goto": "kuznia"
+        }
+      ]
+    }
+  }
+}

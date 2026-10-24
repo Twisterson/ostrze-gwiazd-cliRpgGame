@@ -1,0 +1,209 @@
+[
+  {
+    "id": "kramarz_szkolny",
+    "name": "Kram kwatermistrza",
+    "stock": [
+      {
+        "id": "opatrunek",
+        "qty": 4
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 2
+      },
+      {
+        "id": "kaptur_mysliwego",
+        "qty": 1
+      },
+      {
+        "id": "rekawice_lucznicze",
+        "qty": 1
+      },
+      {
+        "id": "pas_ladownice",
+        "qty": 1
+      },
+      {
+        "id": "luk_mysliwski",
+        "qty": 1
+      },
+      {
+        "id": "strzala",
+        "qty": 30
+      },
+      {
+        "id": "garniec_wapno",
+        "qty": 2
+      },
+      {
+        "id": "bimber",
+        "qty": 2
+      },
+      {
+        "id": "garnek_huku",
+        "qty": 1
+      },
+      {
+        "id": "sztylet",
+        "qty": 1
+      },
+      {
+        "id": "prowiant",
+        "qty": 4
+      }
+    ],
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable"
+    ],
+    "priceModifiers": [
+      {
+        "if": {
+          "flag": "kwatermistrz_rabat"
+        },
+        "buyPercent": -10,
+        "sellPercent": 10
+      }
+    ]
+  },
+  {
+    "id": "kupiec_drogi",
+    "name": "Wóz wędrownego kupca",
+    "stock": [
+      {
+        "id": "prowiant",
+        "qty": 4
+      },
+      {
+        "id": "opatrunek",
+        "qty": 2
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 1
+      },
+      {
+        "id": "strzala",
+        "qty": 10
+      }
+    ],
+    "buys": [
+      "consumable",
+      "ammo"
+    ]
+  },
+  {
+    "id": "kramarz_brod",
+    "name": "Kramik w Brodzie",
+    "stock": [
+      {
+        "id": "prowiant",
+        "qty": 4
+      },
+      {
+        "id": "opatrunek",
+        "qty": 3
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 2
+      },
+      {
+        "id": "strzala",
+        "qty": 20
+      }
+    ],
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable"
+    ]
+  },
+  {
+    "id": "handlarz_gluszec",
+    "name": "Kramy w Głuszcu",
+    "stock": [
+      {
+        "id": "prowiant",
+        "qty": 4
+      },
+      {
+        "id": "opatrunek",
+        "qty": 3
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 2
+      },
+      {
+        "id": "strzala",
+        "qty": 10
+      }
+    ],
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable"
+    ]
+  },
+  {
+    "id": "handlarz_wedrowny",
+    "name": "Wędrowny handlarz",
+    "stock": [
+      {
+        "id": "opatrunek",
+        "qty": 2
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 1
+      },
+      {
+        "id": "prowiant",
+        "qty": 3
+      },
+      {
+        "id": "strzala",
+        "qty": 10
+      }
+    ],
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable"
+    ]
+  },
+  {
+    "id": "zapasy_obserwatorium",
+    "name": "Zapasy Obserwatorium",
+    "stock": [
+      {
+        "id": "prowiant",
+        "qty": 5
+      },
+      {
+        "id": "opatrunek",
+        "qty": 4
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 3
+      },
+      {
+        "id": "strzala",
+        "qty": 10
+      }
+    ],
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable"
+    ]
+  }
+]

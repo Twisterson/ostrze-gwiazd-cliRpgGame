@@ -1,0 +1,1009 @@
+{
+  "id": "hieronim",
+  "portrait": "portret_hieronim",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim stoi przy zepsutym teleskopie z miną człeka, któremu właśnie oznajmiono, że dzieło jego żywota to tylko domysł. „Obcy? Zaiste obcy. Każdy, kto tu przyłazi, jest obcy. Mierzyć coś przyszedłeś, czy tylko się ogrzać, hę?”",
+      "options": [
+        {
+          "id": "obserwatorium",
+          "text": "Czemu to miejsce stoi puste?",
+          "goto": "obserwatorium"
+        },
+        {
+          "id": "szkla",
+          "text": "Co to za błyszczące pola dookoła?",
+          "goto": "szkla"
+        },
+        {
+          "id": "p1",
+          "text": "Szukam dachu i ciszy.",
+          "goto": "p1",
+          "requires": {
+            "notFlag": "hieronim_przyjal"
+          }
+        },
+        {
+          "id": "p_koniec",
+          "text": "Poznałem Brygidę. Mam dach, zwierzęta i nerwy.",
+          "goto": "p_koniec",
+          "requires": {
+            "all": [
+              {
+                "flag": "hieronim_przyjal"
+              },
+              {
+                "flag": "brygida_poznana"
+              },
+              {
+                "notFlag": "hieronim_potwierdzil"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q2_start",
+          "text": "Potrzebujesz czegoś z pola szkła?",
+          "goto": "q2_start",
+          "requires": {
+            "questStatus": {
+              "id": "szklo_z_krateru",
+              "is": "none"
+            },
+            "flag": "hieronim_potwierdzil"
+          }
+        },
+        {
+          "id": "q2_koniec",
+          "text": "Mam wszystkie trzy odłamki.",
+          "goto": "q2_koniec",
+          "requires": {
+            "item": {
+              "id": "odlamek_krateru",
+              "qty": 3
+            },
+            "questStatus": {
+              "id": "szklo_z_krateru",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q3_start",
+          "text": "Co wiesz o menhirach?",
+          "goto": "q3_start",
+          "requires": {
+            "questStatus": {
+              "id": "pamiec_kamieni",
+              "is": "none"
+            },
+            "flag": "hieronim_potwierdzil"
+          }
+        },
+        {
+          "id": "q3_przyjal",
+          "text": "Przyjąłem układ z kamieniami.",
+          "goto": "q3_przyjal",
+          "requires": {
+            "flag": "menhir_przyjal",
+            "notFlag": "hieronim_menhir_ok",
+            "questStatus": {
+              "id": "pamiec_kamieni",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q3_odrzucil",
+          "text": "Odrzuciłem układ z kamieniami.",
+          "goto": "q3_odrzucil",
+          "requires": {
+            "flag": "menhir_odrzucil",
+            "notFlag": "hieronim_menhir_ok",
+            "questStatus": {
+              "id": "pamiec_kamieni",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q5_start",
+          "text": "Czy ktoś zaginął w okolicy?",
+          "goto": "q5_start",
+          "requires": {
+            "questStatus": {
+              "id": "mgla_ciszy",
+              "is": "none"
+            },
+            "flag": "hieronim_potwierdzil"
+          }
+        },
+        {
+          "id": "q5_koniec",
+          "text": "Znalazłem go i wyprowadziłem.",
+          "goto": "q5_koniec",
+          "requires": {
+            "flag": "zwiadowca_wyprowadzony",
+            "notFlag": "hieronim_mgla_ok",
+            "questStatus": {
+              "id": "mgla_ciszy",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "dezerter_po",
+          "text": "Co z Tomaszem?",
+          "goto": "dezerter_po",
+          "requires": {
+            "flag": "dezerter_rozstrzygniete",
+            "notFlag": "dezerter_wydany"
+          }
+        },
+        {
+          "id": "dlug_po",
+          "text": "Brygida podłączyła rdzeń. Słyszałem głos.",
+          "goto": "dlug_po",
+          "requires": {
+            "flag": "dlug_decyzja",
+            "notFlag": "hieronim_dlug_ok"
+          }
+        },
+        {
+          "id": "q8_a",
+          "text": "Czy ktoś przynosi wieści z Głuszca?",
+          "goto": "q8_a",
+          "requires": {
+            "all": [
+              {
+                "questStatus": {
+                  "id": "wiesci_z_gluszca",
+                  "is": "none"
+                }
+              },
+              {
+                "flag": "oblawa_ucieczka"
+              },
+              {
+                "flag": "hieronim_potwierdzil"
+              }
+            ]
+          }
+        },
+        {
+          "id": "q8_b",
+          "text": "Czy ktoś przynosi wieści z Głuszca?",
+          "goto": "q8_b",
+          "requires": {
+            "questStatus": {
+              "id": "wiesci_z_gluszca",
+              "is": "none"
+            },
+            "flag": "hieronim_potwierdzil",
+            "notFlag": "oblawa_ucieczka"
+          }
+        },
+        {
+          "id": "glusz_po",
+          "text": "Co teraz z Głuszcem?",
+          "goto": "glusz_po",
+          "requires": {
+            "flag": "glusz_zostawiony"
+          }
+        },
+        {
+          "id": "q9_start",
+          "text": "Kto jeszcze pilnuje tej okolicy?",
+          "goto": "q9_start",
+          "requires": {
+            "questStatus": {
+              "id": "ostatnia_strazica_zlecenie",
+              "is": "none"
+            },
+            "flag": "hieronim_potwierdzil"
+          }
+        },
+        {
+          "id": "q9_po",
+          "text": "Żołnierz ze strażnicy się zgodził.",
+          "goto": "q9_po",
+          "requires": {
+            "flag": "sojusz_straznicy",
+            "notFlag": "hieronim_straznica_ok",
+            "questStatus": {
+              "id": "ostatnia_strazica_zlecenie",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q9_nie",
+          "text": "Żołnierz odmówił, ale nie zamykam sprawy.",
+          "goto": "q9_nie",
+          "requires": {
+            "notFlag": "sojusz_straznicy",
+            "flag": "straznica_odmowa",
+            "questStatus": {
+              "id": "ostatnia_strazica_zlecenie",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q10_start",
+          "text": "Czuję, że czas na krater.",
+          "goto": "q10_start",
+          "requires": {
+            "all": [
+              {
+                "questStatus": {
+                  "id": "przygotowania",
+                  "is": "none"
+                }
+              },
+              {
+                "questStatus": {
+                  "id": "dlug_istoty_zlecenie",
+                  "is": "done"
+                }
+              },
+              {
+                "any": [
+                  {
+                    "questStatus": {
+                      "id": "szklo_z_krateru",
+                      "is": "none"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "szklo_z_krateru",
+                      "is": "done"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "szklo_z_krateru",
+                      "is": "failed"
+                    }
+                  }
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "questStatus": {
+                      "id": "pamiec_kamieni",
+                      "is": "none"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "pamiec_kamieni",
+                      "is": "done"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "pamiec_kamieni",
+                      "is": "failed"
+                    }
+                  }
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "questStatus": {
+                      "id": "mgla_ciszy",
+                      "is": "none"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "mgla_ciszy",
+                      "is": "done"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "mgla_ciszy",
+                      "is": "failed"
+                    }
+                  }
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "questStatus": {
+                      "id": "cesarski_dezerter",
+                      "is": "none"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "cesarski_dezerter",
+                      "is": "done"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "cesarski_dezerter",
+                      "is": "failed"
+                    }
+                  }
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "questStatus": {
+                      "id": "wiesci_z_gluszca",
+                      "is": "none"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "wiesci_z_gluszca",
+                      "is": "done"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "wiesci_z_gluszca",
+                      "is": "failed"
+                    }
+                  }
+                ]
+              }
+            ],
+            "flag": "hieronim_straznica_ok"
+          }
+        },
+        {
+          "id": "q10_ostatnie",
+          "text": "Zrobiłem, co kazałeś. Jakie masz pytanie?",
+          "goto": "q10_pytanie",
+          "requires": {
+            "flag": "brygida_pozegnanie",
+            "notFlag": "przygotowania_koniec",
+            "questStatus": {
+              "id": "przygotowania",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "dezerter_po_wydany",
+          "text": "Co z Tomaszem?",
+          "goto": "dezerter_po_wydany",
+          "requires": {
+            "flag": "dezerter_wydany"
+          }
+        },
+        {
+          "id": "q10_jeszcze",
+          "text": "Czuję, że czas na krater.",
+          "goto": "q10_jeszcze",
+          "requires": {
+            "all": [
+              {
+                "questStatus": {
+                  "id": "przygotowania",
+                  "is": "none"
+                }
+              },
+              {
+                "questStatus": {
+                  "id": "dlug_istoty_zlecenie",
+                  "is": "done"
+                }
+              },
+              {
+                "flag": "hieronim_straznica_ok"
+              },
+              {
+                "any": [
+                  {
+                    "questStatus": {
+                      "id": "szklo_z_krateru",
+                      "is": "active"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "pamiec_kamieni",
+                      "is": "active"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "mgla_ciszy",
+                      "is": "active"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "cesarski_dezerter",
+                      "is": "active"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "wiesci_z_gluszca",
+                      "is": "active"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "w_toku",
+          "text": "Jak idą moje sprawy?",
+          "goto": "w_toku",
+          "requires": {
+            "any": [
+              {
+                "questStatus": {
+                  "id": "szklo_z_krateru",
+                  "is": "active"
+                }
+              },
+              {
+                "questStatus": {
+                  "id": "pamiec_kamieni",
+                  "is": "active"
+                }
+              },
+              {
+                "questStatus": {
+                  "id": "mgla_ciszy",
+                  "is": "active"
+                }
+              },
+              {
+                "questStatus": {
+                  "id": "ostatnia_strazica_zlecenie",
+                  "is": "active"
+                }
+              },
+              {
+                "questStatus": {
+                  "id": "wiesci_z_gluszca",
+                  "is": "active"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "obserwatorium": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim wzdycha, jakby to westchnienie zbierał przez trzydzieści lat. „Cesarz kazał liczyć gwiazdy. Gwiazdy spadły, kazał liczyć, gdzie. Spadły, gdzie nie powinny, kazał liczyć dalej. Teraz nikt już nie liczy, bo kto liczył, ten wie za dużo. Zostałem ja, Brygida i Kometa. Kometa to kot. Wredny.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak to bywa.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "szkla": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Szkło? Nie szkło, waść. To coś, co tylko szkłem się udaje, żeby ludzie nie podnosili. Zostało po upadku. Każdy kawałek pamięta, jak go cisnęło. Jak kiedy dotkniesz i zrobi ci się zimno pod czaszką, nie mów potem, żem nie ostrzegał.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zapamiętam.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "p1": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim opuszcza narzędzie, które trzymał jak cep. „Dach mam, cichy nie jest. Najpierw: kim waść jesteś? Tylko nie mów, że nikim, bo to najpodlejsza odpowiedź, jaką znam. Nikt tu nie przyłazi po nic. Każdy ma coś na sumieniu albo w kieszeni.”",
+      "options": [
+        {
+          "id": "p1a",
+          "text": "Wędrowiec, który uciekł przed cesarskimi.",
+          "goto": "p2"
+        },
+        {
+          "id": "p1b",
+          "text": "Ktoś, kto widział, jak spadają gwiazdy.",
+          "goto": "p2"
+        },
+        {
+          "id": "p1c",
+          "text": "Komendant z Wilczego Brodu wie, kim jestem.",
+          "goto": "p2",
+          "requires": {
+            "flag": "komendant_wie_o_szkole"
+          }
+        }
+      ]
+    },
+    "p2": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim zdejmuje okulary i wyciera je w rękaw brudniejszy od szkieł. „Uciekł, widział, wie. Jak wszyscy. A skąd przyszedłeś? Bo droga przez Głuszec zamknięta od dwóch tygodni, a Szklane Wzgórza nie mają zwyczaju przyjmować tych, co szli prosto.”",
+      "options": [
+        {
+          "id": "p2a",
+          "text": "Z Głuszca, ale niedobrze to się skończyło.",
+          "goto": "p3"
+        },
+        {
+          "id": "p2b",
+          "text": "Przez las, którędy się dało.",
+          "goto": "p3"
+        }
+      ]
+    },
+    "p3": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Źle, dobrze, wszystko jedno. Tu nikt nie pyta o przeszłość, tylko o to, co umiesz. Wiesz, jak się obchodzić z zepsutą maszyną? Z kapryśnym niebem? Z kotem, co nienawidzi wszystkich?” Hieronim łypie na ciebie nieufnie. „Nie odpowiadaj. Przyjmuję cię, z zastrzeżeniem, że Kometa może się nie zgodzić.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hieronim_przyjal"
+        },
+        {
+          "reveal": "pole_szkla"
+        },
+        {
+          "reveal": "menhiry"
+        },
+        {
+          "hint": "ostatnia_strazica"
+        }
+      ]
+    },
+    "p_koniec": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim kiwa głową z zadowoleniem człeka, co właśnie wygrał zakład sam ze sobą. „Brygida cię nie przegnała? Rzadka rzecz. Dobrze. Masz tu dziesięć groszy i propozycję: jak zechcesz wleźć w coś głębszego niż dach, przyjdź. Parę rzeczy do zmierzenia leży po tamtej stronie wzgórz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hieronim_potwierdzil"
+        }
+      ]
+    },
+    "q2_start": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Odłamki. Trzy, każdy innej barwy. Zielony pamięta ziemię, niebieski niebo, czerwony ogień. Mierzę, jak prędko tracą pamięć. Przynieś mi je, tylko nie noś przy ciele i nie gap się za długo w żaden. Jak ci się zrobi zimno pod czaszką, wyrzuć. Nie, nie wyrzucaj, na Boga. Przynieś.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "szklo_z_krateru"
+        },
+        {
+          "reveal": "krater_gwiazdy"
+        }
+      ]
+    },
+    "q2_koniec": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim bierze odłamki szczypcami i kładzie na tacy jeden przy drugim. Światło w nich drga, każde w swoim rytmie. „Pamiętają. Zielony wciąż zna ziemię, niebieski jeszcze niebo, a czerwony… ten się pali. Dobra robota. Weź dwadzieścia groszy z kasy Obserwatorium. Ostatnie, jakie mamy, więc nie przepij ich w pierwszej karczmie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": {
+            "id": "odlamek_krateru",
+            "qty": 3
+          }
+        },
+        {
+          "setFlag": "szklo_oddane"
+        }
+      ]
+    },
+    "q3_start": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Menhiry. Dwanaście kamieni, każdy z jedną ścianą jak lustro. Mówią. Nie słowami, tylko tym, co zapamiętały. Jak podejdziesz, zaproponują ci coś na kształt układu. Nigdy nie wiem, przyjąć czy nie. Idź, posłuchaj, a potem mi opowiedz. Tylko pamiętaj: każdy układ ma swoją cenę, zaiste każdy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "pamiec_kamieni"
+        }
+      ]
+    },
+    "q3_przyjal": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim blednie i siada. „Przyjąłeś. Czyli teraz coś ci jest winne. A raczej ty jesteś winien. Nie wiem, czy to dobrze, czy źle, ale wiem, że nic nie ma za darmo. Obyś wiedział, na co przystałeś. Masz piętnaście groszy za badania.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hieronim_menhir_ok"
+        }
+      ]
+    },
+    "q3_odrzucil": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim patrzy na ciebie dłużej, niż przystoi. „Odmówiłeś. Nikt przed tobą nie odmówił. Ja bym się nie ośmielił. Albo z ciebie głupiec, albo masz coś, czego mnie brak. Masz piętnaście groszy za to, żeś mi rzekł prawdę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hieronim_menhir_ok"
+        }
+      ]
+    },
+    "q5_start": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim się wzdryga, jakby mu ktoś wytknął grzech. „W zapadlisku leży mgła, co zjada dźwięk. Trzy dni temu poszedł tam jeden z cesarskich, ten, co go Brygida opatrzyła i co u nas został. Chciał zbadać, jak daleko sięga cisza. Nie wrócił. Jak jeszcze żyje, to nie wie, jak wołać. Znajdź go, nim go mgła przeżuje.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "mgla_ciszy"
+        },
+        {
+          "reveal": "zapadlisko_ciszy"
+        },
+        {
+          "reveal": "menhiry"
+        }
+      ]
+    },
+    "q5_koniec": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim przeciąga dłonią po twarzy, jakby sprawdzał, czy jeszcze ją ma. „Żyje. Milczy, ale żyje. Powiedz Brygidzie, niech mu da zupy. Wspominał coś o dezercji? Bo kto wyjdzie z mgły, rzadko wychodzi taki, jaki wszedł.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hieronim_mgla_ok"
+        },
+        {
+          "reveal": "obserwatorium.tomasz"
+        }
+      ]
+    },
+    "dezerter_po": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim gładzi brodę, jakby ważył, ile prawdy zmieści w jednym zdaniu. „Tomasz? Trzyma się. Dobrze, że ktoś z nim gada. Kto ucieka z cesarstwa, rzadko ma do kogo gębę otworzyć.” Milknie, a potem dodaje ciszej: „Jeśli ktoś zawsze będzie go szukał, lepiej, żeby miał przy sobie ludzi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "dlug_po": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim siada ciężko, a ręce trzęsą mu się tak, że musi je przycisnąć do kolan. „Głos. A jakże, głos. Trzydzieści lat liczyłem gwiazdy i ani jedna się do mnie nie odezwała. A ty, coś ledwo tu przylazł… Cóż. Niesprawiedliwe to, ale świat już taki jest. Cokolwiek postanowiłeś, obyś to ty postanowił, a nie ono za ciebie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hieronim_dlug_ok"
+        }
+      ]
+    },
+    "q8_a": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Wczoraj przylazł człowiek z tobołkiem. Rzekł, że była obława. Cesarscy rozpalili ogniska na rynku, przepytali każdego, kto stał, i odjechali o świcie. Karczmarz Mruk przeżył, ale karczma straciła okiennice. Sołtys Wawrzyn płacze, że nigdy nie był nikim, tylko sołtysem. Pytali o ciebie. Mogę im posłać trochę grosza, ale to twoje pieniądze, nie moje.”",
+      "options": [
+        {
+          "id": "wyslij",
+          "text": "Wyślij im dwadzieścia groszy.",
+          "goto": "q8_wyslij",
+          "requires": {
+            "money": 20
+          }
+        },
+        {
+          "id": "nie",
+          "text": "Nie wysyłaj. Niech sami sobie radzą.",
+          "goto": "q8_nie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "wiesci_z_gluszca"
+        }
+      ]
+    },
+    "q8_b": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Przylazł człowiek z listem od Mruka. Pisze, że cesarscy kręcili się po wsi, ale nikogo nie zabrali, bo nikt nic nie wiedział. Wawrzyn odsyła ci pozdrowienia, kazał rzec, że o niczym nie wie i ma nadzieję, że ty też. Wieś cała, ale ludzie przestali sobie ufać, sąsiad patrzy na sąsiada jak na licho. Mogę im posłać trochę grosza, żeby strach zapili. To twoje pieniądze, nie moje.”",
+      "options": [
+        {
+          "id": "wyslij",
+          "text": "Wyślij im dwadzieścia groszy.",
+          "goto": "q8_wyslij",
+          "requires": {
+            "money": 20
+          }
+        },
+        {
+          "id": "nie",
+          "text": "Nie wysyłaj. Poradzą sobie.",
+          "goto": "q8_nie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "wiesci_z_gluszca"
+        }
+      ]
+    },
+    "q8_wyslij": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim przelicza monety, zawija je w szmatkę i podaje chłopakowi, co czeka przy drzwiach. „Do Głuszca. Migiem. I nie gadaj, kto posłał.” Obraca się do ciebie. „Zrobiłeś rzecz głupią, szlachetną i bardzo ludzką. W tej kolejności.” Trzech wędrowców, co kręcili się przy bramie, patrzy na ciebie z uznaniem.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Niech będzie.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 20
+        },
+        {
+          "setFlag": "glusz_pomoc"
+        },
+        {
+          "setFlag": "sojusz_wedrowcy"
+        },
+        {
+          "setFlag": "glusz_decyzja"
+        }
+      ]
+    },
+    "q8_nie": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim kiwa głową, a w twarzy nie ma osądu. „Niech będzie. Nie każdy uratuje wszystkich. Pamiętaj tylko, że ludzie pamiętają nie to, coś zrobił, ale to, czegoś nie zrobił.” Wraca do teleskopu, ale ręka mu się chwieje.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "glusz_zostawiony"
+        },
+        {
+          "setFlag": "glusz_decyzja"
+        }
+      ]
+    },
+    "glusz_po": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Poradzą sobie. Nie dlatego, że silni, tylko dlatego, że nie mają wyboru. Ale pamiętaj: każdy, kto został, patrzy teraz na cesarskie patrole i myśli o tobie. To nie wyrzut. Tak po prostu jest.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "q9_start": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Na północnej grani stoi Ostatnia Strażnica. Siedzi tam stary żołnierz, co służył cesarzowi, a teraz nie służy nikomu. Jego ludzie się rozeszli, ale wiedzą, gdzie go szukać. Jak kiedy będziesz potrzebował siły, tam jej szukaj. Tylko on uparty jak skała i równie gadatliwy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "ostatnia_strazica_zlecenie"
+        },
+        {
+          "reveal": "ostatnia_strazica"
+        },
+        {
+          "reveal": "krater_gwiazdy"
+        }
+      ]
+    },
+    "q9_po": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim klaszcze w dłonie, co u niego wygląda, jakby łapał komara. „Żołnierz! Prawdziwy! Cesarstwo pomyśli, że zbieramy wojsko. Niech tak myśli, a potem wszyscy będziemy zdziwieni, zaiste.” Podaje ci piętnaście groszy.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hieronim_straznica_ok"
+        }
+      ]
+    },
+    "q9_nie": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Odmówił. Nic dziwnego, to człowiek z granitu. Nie gryź się tym. Są ludzie, których nie da się wziąć, można tylko przeczekać.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hieronim_straznica_ok"
+        }
+      ]
+    },
+    "q10_start": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim zdejmuje okulary i kładzie je na stole, jakby się z nimi żegnał. „Tak. Wiem. Kiedy kto przychodzi z taką gębą, znaczy, że rozdroże blisko. Nim pójdziesz, pogadaj z Brygidą. Ona ma dla ciebie coś, czego ja dać nie mogę. A potem wróć do mnie, bo mam jedno pytanie.” To punkt bez powrotu: po tej rozmowie ruszasz do krateru.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "przygotowania"
+        }
+      ]
+    },
+    "q10_pytanie": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim patrzy na ciebie bez okularów i dopiero teraz widzisz, że ma oczy starca, który za długo gapił się w niebo. „Pytanie proste. Chcesz, żebym poszedł z tobą? Jestem stary, głupi i ręka mi lata. Ale znam mapy i wiem, gdzie szukać. Jak nie, to nie. Jak tak, za nic nie ręczę.”",
+      "options": [
+        {
+          "id": "tak",
+          "text": "Chodź ze mną.",
+          "goto": "q10_tak"
+        },
+        {
+          "id": "nie",
+          "text": "Zostań tu. Ktoś musi pilnować teleskopu.",
+          "goto": "q10_nie"
+        }
+      ]
+    },
+    "q10_tak": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim wstaje i nagle ma w sobie dziarskość, o którą nikt by go nie posądzał. „Dobrze. Wezmę mapy, wezmę kota, wezmę nawet manierkę z gorzałką. Może się nie przydadzą, ale lepiej mieć niż szukać. Idziemy.” Uśmiech ma szczery i trochę przestraszony.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idziemy.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "sojusz_astrolog"
+        },
+        {
+          "setFlag": "przygotowania_koniec"
+        }
+      ]
+    },
+    "q10_nie": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim siada z powrotem i patrzy w okno, za którym nic nie widać. „Ano tak. Ktoś musi siedzieć na miejscu, kiedy kto wraca. Albo nie wraca.” Chwilę milczy. „Idź, nim się rozmyślę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zapamiętam ci to.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "przygotowania_koniec"
+        }
+      ]
+    },
+    "dezerter_po_wydany": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim długo nic nie mówi. „Wydałeś go. Miałeś swoje powody i nie będę udawał, że ich nie było. Ale Tomasz siedział przy moim piecu, jadł moją zupę i opowiadał o kotach, które lubił za dziecka. Takie rzeczy zostają w człowieku jak zadra. Nie przychodź do mnie z tym więcej.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "q10_jeszcze": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim kręci głową. „Jeszcze nie. Masz rozgrzebane sprawy, a z krateru nikt nie wraca załatwiać drobiazgów. To punkt bez powrotu. Skończ, coś zaczął, albo porzuć to z czystym sumieniem, a potem przyjdź.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "w_toku": {
+      "speaker": "Astronom Hieronim",
+      "text": "Hieronim podnosi głowę znad map. „Kilka rzeczy masz rozgrzebanych i sam o tym wiesz. Nie przylazłeś tu wylegiwać się na piecu, tylko dokończyć, coś zaczął. Dziennik masz, to zajrzyj. A jak nie pamiętasz, dokąd miałeś iść, to znaczy, że trzeba ci dłuższego snu albo krótszej pamięci.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

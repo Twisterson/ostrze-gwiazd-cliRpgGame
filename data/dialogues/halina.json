@@ -1,0 +1,131 @@
+{
+  "id": "halina",
+  "portrait": "portret_halina",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Siostra Halina",
+      "text": "Siostra Halina zamiata kapliczkę miotłą, która pamięta lepsze czasy i gorsze lata. „Bóg przyjmuje każdego, ale zamiatam ja. Co cię przywiało? Tylko nie mów, że przypadek, bo przypadków tu się nie wita.”",
+      "options": [
+        {
+          "id": "q3_list",
+          "text": "Kopacz Jerzy prosił, żebyś przeczytała ten list.",
+          "goto": "q3_list",
+          "requires": {
+            "item": "list_kopacza",
+            "questStatus": {
+              "id": "listy_z_tamtej_strony",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "waha",
+          "text": "Nie wiem, co mam teraz zrobić.",
+          "goto": "waha",
+          "requires": {
+            "flag": "waha_sie"
+          }
+        },
+        {
+          "id": "q6_start",
+          "text": "Czy tu można dostać wosk do pieczęci?",
+          "goto": "q6_start",
+          "requires": {
+            "questStatus": {
+              "id": "falszywe_papiery",
+              "is": "none"
+            },
+            "flag": "halina_przeczytala"
+          }
+        },
+        {
+          "id": "q12_halina",
+          "text": "Słyszałem głos z kamieni na cmentarzu.",
+          "goto": "q12_halina",
+          "requires": {
+            "flag": "echo_slyszal",
+            "notFlag": "halina_echo",
+            "questStatus": {
+              "id": "co_widziala_ragnoslawa",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "q3_list": {
+      "speaker": "Siostra Halina",
+      "text": "Halina łamie pieczęć kciukiem, jakby robiła to co dzień, i czyta półgłosem. „To nie list do nikogo. To rozkaz: »Wszystkich ocalałych z delegacji należy zatrzymać i przesłuchać w Rzeczce. Żywych.« Podpis nie do odczytania. Powiem ci jedno: kto to pisał, nie chciał, żeby ktoś żywy z tego wyszedł.” Zwija kartkę i chowa pod habit, nie patrząc ci w oczy.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zapamiętam ci to.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "list_kopacza"
+        },
+        {
+          "setFlag": "halina_przeczytala"
+        },
+        {
+          "search": 10
+        }
+      ]
+    },
+    "waha": {
+      "speaker": "Siostra Halina",
+      "text": "Halina odstawia miotłę. „Wahasz się, bo na rozstajach nie ma dobrych dróg, są tylko mniej złe. Wahanie to nie grzech. Grzech to udawać, że wyboru nie ma. Wróć, jak będziesz wiedział, między czym wybierasz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wrócę.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "q6_start": {
+      "speaker": "Siostra Halina",
+      "text": "Halina patrzy na ciebie, jakby ważyła na dłoni coś, co łatwo kruszy się w palcach. „Wosk do pieczęci. Czyli chcesz papierów, których nie ma. Nie pytam po co, bo wiem. Wosk dam, ale nie tobie, tylko kowalowi Bogdanowi, co robi najlepsze sygnety w okolicy. Zanieś mu ten wosk i powiedz, że od siostry. Resztę sam załatwi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zapamiętam ci to.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "falszywe_papiery"
+        },
+        {
+          "giveItem": "wosk_pieczetny"
+        }
+      ]
+    },
+    "q12_halina": {
+      "speaker": "Siostra Halina",
+      "text": "Halina odstawia miotłę i długo patrzy na kapliczkę, jakby tam szukała znaku. „Głos z kamieni. Starzy gadali, że po burzy iskier takie kamienie zostają na grobach tych, co nie powinni byli umrzeć. To nie anioł i nie diabeł, tylko coś trzeciego, o czym Kościół nic nie wie. Chcesz mądrej rady: idź stąd, zanim zwiadowcy znajdą chałupę, w której śpisz. A jak rady nie chcesz, to i tak idź.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "halina_echo"
+        }
+      ]
+    }
+  }
+}

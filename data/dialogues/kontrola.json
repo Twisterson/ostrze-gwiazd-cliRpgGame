@@ -1,0 +1,226 @@
+{
+  "id": "kontrola",
+  "portrait": "portret_zwiadowcy",
+  "start": "kontrola",
+  "nodes": {
+    "kontrola": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "Dwaj ludzie w czerwonych płaszczach zatrzymują cię w pół kroku. Jeden obmacuje wzrokiem twoje buty, drugi twoją gębę. „Imię. Skąd. Dokąd. Kto za ciebie ręczy?” Karczmarz Mruk w progu karczmy krzywi się, jakby trzymał cię za dłużnika i chętnie się ciebie pozbył. Kątem oka widzisz drzwiczki za beczkami, których przedtem nie było widać.",
+      "options": [
+        {
+          "id": "papiery",
+          "text": "Pokaż papiery od kowala.",
+          "goto": "papiery",
+          "requires": {
+            "flag": "papiery_falszywe"
+          }
+        },
+        {
+          "id": "gadka",
+          "text": "Opowiedz im bajkę o pielgrzymce.",
+          "goto": "gadka_test"
+        },
+        {
+          "id": "lapowka",
+          "text": "Daj im dwadzieścia groszy za spokój.",
+          "goto": "lapowka",
+          "requires": {
+            "money": 20
+          }
+        },
+        {
+          "id": "schowaj",
+          "text": "Zniknij w piwnicy pod karczmą.",
+          "goto": "schowaj",
+          "requires": {
+            "known": "gluszec.piwnica"
+          }
+        },
+        {
+          "id": "stoj",
+          "text": "Stój spokojnie i daj się obszukać.",
+          "goto": "obszukaj_ok",
+          "requires": {
+            "notFlag": "ukryte_insygnia"
+          }
+        },
+        {
+          "id": "stoj_zle",
+          "text": "Stój spokojnie i daj się obszukać.",
+          "goto": "obszukaj_zle",
+          "requires": {
+            "flag": "ukryte_insygnia",
+            "notFlag": "insygnia_odkryte"
+          }
+        },
+        {
+          "id": "stoj_znowu",
+          "text": "Stój spokojnie i daj się obszukać.",
+          "goto": "obszukaj_znowu",
+          "requires": {
+            "flag": "insygnia_odkryte"
+          }
+        }
+      ],
+      "actions": [
+        {
+          "reveal": "gluszec.piwnica"
+        }
+      ]
+    },
+    "papiery": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "Starszy zwiadowca obraca świstek w palcach, trzyma pod światło, wącha i oddaje. „Pieczęć brudna, ale pieczęć. Idź, tylko nie zgub, bo następnym razem spytam, czyja to pieczęć.” Odchodzą, a ty jeszcze chwilę nie oddychasz.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "search": -5
+        }
+      ]
+    },
+    "gadka_test": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "Zwiadowcy patrzą na ciebie spod łba.",
+      "options": [
+        {
+          "id": "gadka_t",
+          "text": "Mów pewnym głosem i patrz im w oczy.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 45
+          },
+          "success": "gadka_ok",
+          "failure": "gadka_zle",
+          "retry": true
+        },
+        {
+          "id": "gadka_w",
+          "text": "Wycofaj się i stój spokojnie.",
+          "goto": "obszukaj_ok"
+        }
+      ]
+    },
+    "gadka_ok": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "„Pielgrzymka, powiadasz. Do Rzeczki, na zdrowie wuja.” Starszy drapie się po brodzie. „Szczęście ma wuj, że ma takiego bratanka. Idź. I nie właź nam w drogę, bo następnym razem może mnie to nie bawić.” Odchodzą.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "search": -10
+        }
+      ]
+    },
+    "gadka_zle": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "„Pielgrzymka? Z mieczem u pasa i odciskami od rękojeści na palcach? Marnego wuj ma bratanka, skoro tak łże.” Młodszy skrobie coś w notesie. „Zapamiętamy. Ty też zapamiętaj, żeś nas widział.” Odchodzą, a ty czujesz na plecach ich wzrok jeszcze długo potem.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Cholera.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "search": 10
+        }
+      ]
+    },
+    "lapowka": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "Starszy waży sakiewkę w garści i wzrusza ramionami. „Dwadzieścia. Mało, ale wystarczy, żebyśmy twojej gęby nie widzieli przez godzinę. Godzinę.” Odchodzą w stronę karczmy, a Mruk robi minę, jakby mu kto właśnie dług oddał.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 20
+        },
+        {
+          "search": -5
+        }
+      ]
+    },
+    "schowaj": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "Zanim zwiadowcy dokończą pytanie, już jesteś za beczkami i za drzwiczkami. W piwnicy cuchnie kiszoną kapustą i strachem. Siedzisz tam ponad dwie godziny, a nad głową dudnią kroki i głosy. W końcu cichnie. Mruk uchyla klapę. „Poszli. Ale pamiętaj, że matką ci nie jestem.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "time": 130
+        },
+        {
+          "search": -8
+        }
+      ]
+    },
+    "obszukaj_ok": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "Zwiadowcy grzebią w torbie, plecaku i kieszeniach, bez ceregieli. Nic, chyba że liczyć szczerbaty grzebień. „Czysty,” mruczy starszy bez zapału. „Idź. I uważaj, bo czysty w te czasy to podejrzany.” Odchodzą.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "obszukaj_zle": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "Młodszy zwiadowca wyciąga z plecaka zwinięte insygnia delegacji i unosi je pod światło jak złowioną rybę. Starszy milczy, potem uśmiecha się zimno jak szron. „Szkoła ostrza. Patrz no, co za traf.” Kończy się to dla ciebie biegiem przez podwórzec, kuleniem się w ciemnym kącie i pewnością, że zaraz będzie gorzej. Zwiadowcy nie gonią, ale zapisują.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Uciekam.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "search": 25
+        },
+        {
+          "setFlag": "insygnia_odkryte"
+        }
+      ]
+    },
+    "obszukaj_znowu": {
+      "speaker": "Cesarscy zwiadowcy",
+      "text": "Starszy zwiadowca nawet nie zagląda ci do torby. „A to znowu ty. Szkoła ostrza, pamiętamy. Tym razem nie sprawdzamy, bo wiemy, co znajdziemy. Pamiętaj, że siedzisz na naszej liście.” Odchodzą powoli, żeby było widać, że mogli zostać.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "search": 5
+        }
+      ]
+    }
+  }
+}

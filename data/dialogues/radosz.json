@@ -1,0 +1,168 @@
+{
+  "id": "radosz",
+  "portrait": "portret_radosz",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Młynarz Radosz",
+      "text": "Młynarz Radosz liczy worki z miną człowieka, który wolałby nie doliczyć do końca. Koło młyńskie skrzypi z mozołem, a woda za nim jaśniejsza niż przed nim. „Mielę, co przyniosą. Ostatnio przynoszą mniej, niż mi biorą na podatek.”",
+      "options": [
+        {
+          "id": "q2_dlug",
+          "text": "Karczmarz Mruk przypomina o dwunastu groszach.",
+          "goto": "q2_rozmowa",
+          "requires": {
+            "questStatus": {
+              "id": "dlug_mlynarza",
+              "is": "active"
+            },
+            "notFlag": "radosz_rozmowa"
+          }
+        },
+        {
+          "id": "q2_po",
+          "text": "Jak tam młyn?",
+          "goto": "q2_po",
+          "requires": {
+            "questStatus": {
+              "id": "dlug_mlynarza",
+              "is": "done"
+            }
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "q2_rozmowa": {
+      "speaker": "Młynarz Radosz",
+      "text": "Radosz opuszcza worek i patrzy w bok, na rzekę, jakby tylko ona go nie wydała. „Dwanaście groszy. Wiem. Młyn stoi, bo woda płynie nie taka, jak trzeba. Jakby ją ktoś z czegoś wypłukiwał. Ale piwa nie oddam, bom je wypił. Dasz mi tydzień, czy mam zapłacić teraz i spać na gołym kamieniu?”",
+      "options": [
+        {
+          "id": "zwloka",
+          "text": "Dam ci tydzień.",
+          "goto": "q2_zwloka"
+        },
+        {
+          "id": "nacisk",
+          "text": "Zapłać teraz, młynarzu.",
+          "goto": "q2_nacisk"
+        },
+        {
+          "id": "targ",
+          "text": "Spróbuję cię przekonać do zapłaty.",
+          "goto": "q2_test"
+        }
+      ]
+    },
+    "q2_zwloka": {
+      "speaker": "Młynarz Radosz",
+      "text": "Radosz opiera się o worek z ulgą, jakby mu kamień młyński z szyi zdjęli. „Tydzień. Porządny z ciebie człek. Powiedz Mrukowi, że kocham go jak brata i że mi bardzo przykro.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Powiem.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "radosz_rozmowa"
+        },
+        {
+          "setFlag": "radosz_zwloka"
+        }
+      ]
+    },
+    "q2_nacisk": {
+      "speaker": "Młynarz Radosz",
+      "text": "Radosz sięga pod worek, wyciąga kiesę i odlicza dwanaście groszy z miną człowieka, któremu nerkę wyrywają. „Masz. Niech się Mruk udławi. Ale wiem ja, że to ty mi za miesiąc tę pieczeń przypalisz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Nie spalę.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 12
+        },
+        {
+          "setFlag": "radosz_rozmowa"
+        },
+        {
+          "setFlag": "radosz_zaplacil"
+        }
+      ]
+    },
+    "q2_test": {
+      "speaker": "Młynarz Radosz",
+      "text": "Radosz mierzy cię wzrokiem od butów po czapkę.",
+      "options": [
+        {
+          "id": "q2_test_o",
+          "text": "Pogadaj ze mną jak ze znajomym.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 40
+          },
+          "success": "q2_test_ok",
+          "failure": "q2_test_zle"
+        },
+        {
+          "id": "q2_test_w",
+          "text": "Dobrze, dam ci tydzień.",
+          "goto": "q2_zwloka"
+        }
+      ]
+    },
+    "q2_test_zle": {
+      "speaker": "Młynarz Radosz",
+      "text": "„Znajomy? Ty mnie nie znasz, a ja ciebie znać nie chcę. Przekonywać możesz worki, ale one i tak nie zapłacą.” Radosz wraca do liczenia. Gadka skończona, ale możesz zaproponować tydzień.",
+      "options": [
+        {
+          "id": "zwloka",
+          "text": "Dobrze, dam ci tydzień.",
+          "goto": "q2_zwloka"
+        }
+      ]
+    },
+    "q2_po": {
+      "speaker": "Młynarz Radosz",
+      "text": "„Kręci się, psiakrew, kręci. Woda dalej jakaś nieczysta, ale ziarno miele, a Mruk przestał mi wiercić wzrokiem dziurę w plecach. Ułożyłeś to po ludzku, chłopcze. Mało kto tu umie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "q2_test_ok": {
+      "speaker": "Młynarz Radosz",
+      "text": "Radosz patrzy na ciebie jak chłop, którego ktoś przejrzał na wylot, i nawet się nie obraża. Sięga pod worek, wyciąga kiesę i odlicza dwanaście groszy, a potem dorzuca trzy. „To za to, że gadasz ludzkim głosem. Powiedz Mrukowi, że nie jestem taki zły, jak on łże.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Powiem.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 15
+        },
+        {
+          "setFlag": "radosz_rozmowa"
+        },
+        {
+          "setFlag": "radosz_zaplacil"
+        }
+      ]
+    }
+  }
+}

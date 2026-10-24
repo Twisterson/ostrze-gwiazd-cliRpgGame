@@ -1,0 +1,149 @@
+{
+  "id": "kopacz",
+  "portrait": "portret_kopacz",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Kopacz Jerzy",
+      "text": "Kopacz Jerzy stoi po kolana w świeżym grobie i nie przestaje rzucać ziemią, gdy podchodzisz. „Do pochówku czy z ciekawości? Pierwsze biorę od ręki, za drugie się płaci.”",
+      "options": [
+        {
+          "id": "q3_start",
+          "text": "Co tu można zrobić dla zmarłych?",
+          "goto": "q3_start",
+          "requires": {
+            "questStatus": {
+              "id": "listy_z_tamtej_strony",
+              "is": "none"
+            }
+          }
+        },
+        {
+          "id": "q3_koniec",
+          "text": "Siostra Halina przeczytała list.",
+          "goto": "q3_koniec",
+          "requires": {
+            "flag": "halina_przeczytala",
+            "notFlag": "kopacz_listy_zamkniete",
+            "questStatus": {
+              "id": "listy_z_tamtej_strony",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "swoi",
+          "text": "Chcę wiedzieć, gdzie leżą ci, co zginęli na szlaku.",
+          "goto": "swoi",
+          "requires": {
+            "flag": "towarzysze_zgineli"
+          }
+        },
+        {
+          "id": "q9_grob",
+          "text": "Gdzie leży strażnik z ruin?",
+          "goto": "q9_grob",
+          "requires": {
+            "questStatus": {
+              "id": "wdowa_po_straznik",
+              "is": "active"
+            },
+            "notFlag": "grob_odwiedzony"
+          }
+        },
+        {
+          "id": "q3_po",
+          "text": "Jak tam na cmentarzu?",
+          "goto": "q3_po",
+          "requires": {
+            "questStatus": {
+              "id": "listy_z_tamtej_strony",
+              "is": "done"
+            }
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "q3_start": {
+      "speaker": "Kopacz Jerzy",
+      "text": "Jerzy wbija łopatę w ziemię i wspiera się na niej jak na starym kumie. „Umarłym nic nie dam, ale żywym coś mam. W kieszeni kaftana jednego z pochowanych znalazłem zaklejony list. Pieczęć cesarska, a chłop nie nasz. Zanieś go siostrze Halinie do kapliczki na rozstajach. Ona umie czytać po łacinie. Ja umiem tylko kopać.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zaniosę.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "listy_z_tamtej_strony"
+        },
+        {
+          "giveItem": "list_kopacza"
+        },
+        {
+          "reveal": "kapliczka_rozstaje"
+        }
+      ]
+    },
+    "q3_koniec": {
+      "speaker": "Kopacz Jerzy",
+      "text": "Jerzy słucha, co siostra wyczytała, i kiwa głową, jakby słyszał to już nieraz. „Znaczy, cesarski posłaniec zgubił się w drodze do kogoś, kto go nie chciał. Ludzie umierają głupio i bez adresu. Dobrze, żeś mi powiedział. Trzy grosze za fatygę, bo więcej nie mam, tylko ziemię.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "kopacz_listy_zamkniete"
+        }
+      ]
+    },
+    "swoi": {
+      "speaker": "Kopacz Jerzy",
+      "text": "Jerzy ściąga czapkę, a u niego to tyle co żałobę przywdziać. „Na szlaku? Delegacja ze szkoły? Pochowali ich tam, gdzie padli, bez księdza i bez krzyża. Jak chcesz, postawię im krzyż tutaj. Za darmo. Umarli nie płacą, ale ja pamiętam.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Postaw.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "q9_grob": {
+      "speaker": "Kopacz Jerzy",
+      "text": "Jerzy wskazuje łopatą pod mur. „Trzeci rząd od kapliczki, przy samym murze. Kopałem mu grób własnymi rękami, choć nikt nie prosił, bo porządny był chłop. Postawiłem mu kamień. Kto pyta, temu zawsze powiem. Rzadko kto pyta.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Niech będzie.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "grob_odwiedzony"
+        }
+      ]
+    },
+    "q3_po": {
+      "speaker": "Kopacz Jerzy",
+      "text": "„Spokojnie. Po nocach kamienie na starym grobie świecą blado, ale ja się nauczyłem nie patrzeć i spluwać przez lewe ramię. Umarli mają swoje sprawy, ja swoje. Tylko nie łaź tam sam po zmroku, jeśli masz choć tyle rozumu, co ja.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

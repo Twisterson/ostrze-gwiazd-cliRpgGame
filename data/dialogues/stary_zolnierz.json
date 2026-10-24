@@ -1,0 +1,179 @@
+{
+  "id": "stary_zolnierz",
+  "portrait": "portret_stary_zolnierz",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Stary żołnierz",
+      "text": "Stary żołnierz siedzi przy bramie strażnicy i patrzy w pustkę. „Czego? Nikogo nie przyjmuję. Strażnica zamknięta od dwóch lat, a ja jeszcze dłużej.”",
+      "options": [
+        {
+          "id": "namow",
+          "text": "Spróbuj go namówić do współpracy.",
+          "goto": "namow_test",
+          "requires": {
+            "questStatus": {
+              "id": "ostatnia_strazica_zlecenie",
+              "is": "active"
+            },
+            "notFlag": "straznica_decyzja"
+          }
+        },
+        {
+          "id": "prowiant",
+          "text": "Przyniosłem ci prowiant.",
+          "goto": "prowiant",
+          "requires": {
+            "questStatus": {
+              "id": "ostatnia_strazica_zlecenie",
+              "is": "active"
+            },
+            "notFlag": "straznica_decyzja",
+            "item": {
+              "id": "prowiant",
+              "qty": 2
+            }
+          }
+        },
+        {
+          "id": "zaufanie",
+          "text": "Wojmir mówił, że wojsko pamięta swoich.",
+          "goto": "zaufanie",
+          "requires": {
+            "questStatus": {
+              "id": "ostatnia_strazica_zlecenie",
+              "is": "active"
+            },
+            "notFlag": "straznica_decyzja",
+            "flag": "towarzysze_zaufanie"
+          }
+        },
+        {
+          "id": "po",
+          "text": "Jak tam straż?",
+          "goto": "po",
+          "requires": {
+            "flag": "straznica_decyzja"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "namow_test": {
+      "speaker": "Stary żołnierz",
+      "text": "Żołnierz mierzy cię wzrokiem człeka, co wszystko widział dwa razy, i to gorzej.",
+      "options": [
+        {
+          "id": "namow_t",
+          "text": "Przemów mu do rozsądku.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 45
+          },
+          "success": "sojusz",
+          "failure": "odmowa",
+          "retry": true
+        },
+        {
+          "id": "namow_w",
+          "text": "Zostaw go w spokoju.",
+          "goto": "end"
+        }
+      ]
+    },
+    "sojusz": {
+      "speaker": "Stary żołnierz",
+      "text": "Żołnierz długo milczy, a potem wolno kiwa głową. „Dobra. Pójdę z tobą. Nie dlatego, że umiesz gadać, tylko dlatego, że w twoim głosie nie ma łgarstwa. Moi ludzie przyjdą, jak zawołam. Dwunastu. Trzynastu, jak liczyć kota.” Wyciąga rękę spękaną jak sucha glina.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "sojusz_straznicy"
+        },
+        {
+          "setFlag": "straznica_decyzja"
+        }
+      ]
+    },
+    "odmowa": {
+      "speaker": "Stary żołnierz",
+      "text": "„Gadasz jak ci, co mnie tu zesłali. Gładko i po próżnicy.” Żołnierz wydmuchuje dym z fajki prosto w twoją gębę. „Idź, młody. Wróć, jak będziesz miał coś więcej niż słowa.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Spróbuję inaczej.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "straznica_odmowa"
+        }
+      ]
+    },
+    "prowiant": {
+      "speaker": "Stary żołnierz",
+      "text": "Żołnierz bierze dwa zawiniątka i przyciska je do piersi z godnością hetmana. „Prowiant. Pierwszy od trzech tygodni. Za taki gest przysięgam ci wierność, o ile wierność to jest to, co myślę.” Uśmiecha się krzywo. „Moi ludzie przyjdą. Pamiętaj tylko, że głodny żołnierz wierny jest do pierwszej miski zupy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wdzięczny.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": {
+            "id": "prowiant",
+            "qty": 2
+          }
+        },
+        {
+          "setFlag": "sojusz_straznicy"
+        },
+        {
+          "setFlag": "straznica_decyzja"
+        }
+      ]
+    },
+    "zaufanie": {
+      "speaker": "Stary żołnierz",
+      "text": "Żołnierz unosi łeb, jakby usłyszał znajomy sygnał. „Wojmir? Ten z delegacji? Znałem jego ojca. Mawiał, że wojsko pamięta swoich. Jedyne zdanie, któremu można wierzyć w tym cesarstwie.” Wstaje, wolno, z bólem w kościach. „Pójdę z tobą. Dla niego.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zapamiętam ci to.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "sojusz_straznicy"
+        },
+        {
+          "setFlag": "straznica_decyzja"
+        }
+      ]
+    },
+    "po": {
+      "speaker": "Stary żołnierz",
+      "text": "„Zbieram ludzi po lasach. Idzie jak po grudzie, bo żołnierz nie lubi wracać, gdzie już był. Ale przyjdą. Jak wołasz, to przychodzą.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Niech będzie.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

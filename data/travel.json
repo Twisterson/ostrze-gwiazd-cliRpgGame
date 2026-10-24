@@ -1,0 +1,4719 @@
+{
+  "locations": [
+    {
+      "id": "brzezina",
+      "name": "Wieś Brzezina",
+      "short": "Brzezina",
+      "region": "pogorze"
+    },
+    {
+      "id": "wilczy_brod",
+      "name": "Strażnica Wilczy Bród",
+      "short": "Wilczy Bród",
+      "region": "pogorze",
+      "spots": [
+        {
+          "id": "komendant",
+          "name": "Komendant Wszebor",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "kom_pierwszy",
+              "type": "dialogue",
+              "dialogue": "komendant",
+              "if": {
+                "notFlag": "komendant_byl"
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "kom_namysl",
+              "type": "dialogue",
+              "dialogue": "komendant_namysl",
+              "if": {
+                "all": [
+                  {
+                    "flag": "komendant_byl"
+                  },
+                  {
+                    "notFlag": "nora_zgoda"
+                  }
+                ]
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "kom_raport",
+              "type": "dialogue",
+              "dialogue": "komendant_raport",
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "nora_wykonana"
+                  },
+                  {
+                    "notFlag": "nora_rozliczona"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kom_odburk",
+              "type": "dialogue",
+              "dialogue": "komendant_odburk",
+              "if": {
+                "all": [
+                  {
+                    "flag": "nora_zgoda"
+                  },
+                  {
+                    "notFlag": "nora_wykonana"
+                  },
+                  {
+                    "notFlag": "nora_przepadla"
+                  }
+                ]
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "kom_po",
+              "type": "dialogue",
+              "dialogue": "komendant_po",
+              "if": {
+                "any": [
+                  {
+                    "flag": "nora_rozliczona"
+                  },
+                  {
+                    "flag": "nora_przepadla"
+                  }
+                ]
+              },
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "karczma",
+          "name": "Karczma „Pod Wilczym Kłem”",
+          "type": "talk",
+          "ref": "wrzosek",
+          "art": "karczma_pod_wilczym_klem"
+        },
+        {
+          "id": "izba",
+          "name": "Izba na noc",
+          "type": "rest"
+        },
+        {
+          "id": "kramik",
+          "name": "Kramik",
+          "type": "shop",
+          "ref": "kramarz_brod"
+        },
+        {
+          "id": "tablica",
+          "name": "Tablica ogłoszeń",
+          "type": "board"
+        },
+        {
+          "id": "straznik",
+          "name": "Wartownik przy palisadzie",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "straznik_0",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "Wartownik opiera się o palisadę i dłubie w zębach drzazgą. „Szron na pikach od samego świtu, psiakrew. Żołd za trzy miesiące wisi, a kwatermistrz mówi, że cesarz też biedny. Ja tam wierzę w bimber, bo ten przynajmniej grzeje i da się go kupić.”",
+              "if": {
+                "notFlag": "straznik_0"
+              }
+            },
+            {
+              "id": "straznik_0_f",
+              "type": "flag",
+              "set": {
+                "straznik_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "straznik_0"
+              }
+            },
+            {
+              "id": "straznik_1",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "„A, to znowu ty. Spać nie możesz, psia mać? Ja też nie, ale mnie za to płacą. Idź no człowieku, znajdź sobie zajęcie, bo mi wartę gapieniem psujesz.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "straznik_0"
+                  },
+                  {
+                    "notFlag": "straznik_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "straznik_1_f",
+              "type": "flag",
+              "set": {
+                "straznik_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "straznik_0"
+                  },
+                  {
+                    "notFlag": "straznik_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "straznik_2",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "Wartownik nawet łba nie odwraca. „Nie mam teraz czasu. Muszę się podrapać po plecach, a to robota na pół pacierza.”",
+              "if": {
+                "flag": "straznik_1"
+              },
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "gospodyni",
+          "name": "Gospodyni z kurami",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "gospodyni_0",
+              "type": "narration",
+              "title": "Gospodyni z kurami",
+              "text": "Gospodyni sypie kurom garść ziarna i przeklina sąsiadkę, równo, od ostatniego pokolenia. „Ta zza płota córkę za mąż wydaje, panie, a na wesele mnie nie prosi. I dobrze, bo bym jej sól na próg sypnęła. Takie wesele to tylko długi i bijatyka.”",
+              "if": {
+                "notFlag": "gospodyni_0"
+              }
+            },
+            {
+              "id": "gospodyni_0_f",
+              "type": "flag",
+              "set": {
+                "gospodyni_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "gospodyni_0"
+              }
+            },
+            {
+              "id": "gospodyni_1",
+              "type": "narration",
+              "title": "Gospodyni z kurami",
+              "text": "„O, wróciłeś. Jakbym ci miała co powiedzieć, tobym powiedziała. Z kurami przynajmniej rozmowa się klei.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "gospodyni_0"
+                  },
+                  {
+                    "notFlag": "gospodyni_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "gospodyni_1_f",
+              "type": "flag",
+              "set": {
+                "gospodyni_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "gospodyni_0"
+                  },
+                  {
+                    "notFlag": "gospodyni_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "gospodyni_2",
+              "type": "narration",
+              "title": "Gospodyni z kurami",
+              "text": "Gospodyni macha na ciebie ręką, nie patrząc. „Idź, idź. Nie widzisz, że kura jajo zniosła i jest święto?”",
+              "if": {
+                "flag": "gospodyni_1"
+              },
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "kowal",
+          "name": "Kuźnia",
+          "type": "talk",
+          "ref": "kowal"
+        },
+        {
+          "id": "zona_borka",
+          "name": "Żona Borka przy studni",
+          "type": "scene",
+          "secret": true,
+          "scenes": [
+            {
+              "id": "zona_dialog",
+              "type": "dialogue",
+              "dialogue": "zona_borka",
+              "if": {
+                "notFlag": "zona_poinformowana"
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "zona_po_0a",
+              "type": "narration",
+              "title": "Żona Borka",
+              "text": "Żona Borka nabiera wody z rozmachem baby, której wreszcie wolno. „Kulawy, ale w chałupie. Siedzi przy piecu i klnie na nogę, na owce, na szron i na mnie. Dobrze, że klnie. Cichy Borek, Boże broń, to jakby go już z wody wyłowili.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zona_poinformowana"
+                  },
+                  {
+                    "notFlag": "zona_po_0"
+                  },
+                  {
+                    "flag": "borek_kulawy"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zona_po_0b",
+              "type": "narration",
+              "title": "Żona Borka",
+              "text": "Żona Borka nabiera wody z rozmachem baby, której wreszcie wolno. „Wrócił cały, tylko głodny jak wilk i obrażony na świat. Siedzi przy piecu i owce na głos liczy, a kaszę żre trzecią miskę. Wierz mi, lepsze to niż cisza.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zona_poinformowana"
+                  },
+                  {
+                    "notFlag": "zona_po_0"
+                  },
+                  {
+                    "notFlag": "borek_kulawy"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zona_po_0_f",
+              "type": "flag",
+              "set": {
+                "zona_po_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zona_poinformowana"
+                  },
+                  {
+                    "notFlag": "zona_po_0"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zona_po_1",
+              "type": "narration",
+              "title": "Żona Borka",
+              "text": "„A to znowu ty. Spać nie możesz, psia mać? Borek chrapie tak, że mi studnia drży, ale Bóg ci zapłać raz jeszcze. Tylko jemu nie mów, że tak gadałam.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zona_po_0"
+                  },
+                  {
+                    "notFlag": "zona_po_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zona_po_1_f",
+              "type": "flag",
+              "set": {
+                "zona_po_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zona_po_0"
+                  },
+                  {
+                    "notFlag": "zona_po_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zona_po_2",
+              "type": "narration",
+              "title": "Żona Borka",
+              "text": "Żona Borka macha ręką znad wiadra. „Idź no człowieku, znajdź sobie zajęcie. Ja swoje mam: woda, owce, chłop. W tej kolejności, jak o wdzięczność idzie.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zona_po_1"
+                  },
+                  {
+                    "notFlag": "zona_po_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zona_po_2_f",
+              "type": "flag",
+              "set": {
+                "zona_po_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zona_po_1"
+                  },
+                  {
+                    "notFlag": "zona_po_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zona_po_3",
+              "type": "narration",
+              "title": "Żona Borka",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Żona Borka drapie się w ramię z takim zapałem, że wiadro samo wraca do studni.",
+              "if": {
+                "flag": "zona_po_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "corka",
+          "name": "Córka strażnika",
+          "type": "talk",
+          "ref": "corka",
+          "secret": true
+        }
+      ],
+      "visitors": [
+        {
+          "id": "zebrak",
+          "chance": 30,
+          "if": {
+            "notFlag": "zebrak_byl"
+          },
+          "scenes": [
+            {
+              "id": "gosc_zebrak",
+              "type": "narration",
+              "title": "Żebrak",
+              "text": "Przy bramie przysiada żebrak z jedną nogą krótszą i jednym uchem dłuższym. „Dasz grosza człowiekowi, co gorsze rzeczy widział niż ty? A widział, bo mu nikt nie płacił, żeby oczy zamknął.” Nie czeka na odpowiedź i znika w tłumie, którego nie ma."
+            },
+            {
+              "id": "gosc_zebrak_f",
+              "type": "flag",
+              "set": {
+                "zebrak_byl": true
+              },
+              "goto": "koniec"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wilcza_nora",
+      "name": "Wilcza Nora",
+      "short": "Wilcza Nora",
+      "region": "pogorze",
+      "temporary": true
+    },
+    {
+      "id": "kamienna_przelecz",
+      "name": "Kamienna Przełęcz",
+      "short": "Przełęcz",
+      "region": "pogorze",
+      "temporary": true
+    },
+    {
+      "id": "wilczy_las",
+      "name": "Las Rubieży",
+      "short": "Las Rubieży",
+      "region": "pogorze",
+      "near": {
+        "minutes": 40
+      },
+      "danger": 2,
+      "secret": true,
+      "hint": "nieznana ścieżka w lesie",
+      "spots": [
+        {
+          "id": "polana",
+          "name": "Polana ziół",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "las_polana_pusto",
+              "type": "narration",
+              "text": "Polana wydeptana do gołej ziemi. Ziół, po które przyszedłeś, już nie ma, a nowe jeszcze nie wylazły.",
+              "if": {
+                "flag": "ziola_zebrane"
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "las_polana_zbior",
+              "type": "narration",
+              "text": "Polana pachnie żywicą i czymś gorzkim jak piołun. Kucasz w mokrych paprociach i rwiesz ziele, które karczmarze zwą lekiem, a felczerzy chwastem.",
+              "time": 30
+            },
+            {
+              "id": "las_polana_flaga",
+              "type": "flag",
+              "set": {
+                "ziola_zebrane": true
+              }
+            },
+            {
+              "id": "las_polana_ziola",
+              "type": "reward",
+              "items": [
+                "ziola_dla_wrzoska"
+              ],
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "slady",
+          "name": "Ślady za polaną",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "slady_0",
+              "type": "narration",
+              "title": "Ślady",
+              "text": "Za polaną ziemia zryta owczymi racicami, a między nimi ciągną się ślady ciężkich buciorów. Dalej odciski głębsze, jakby ktoś szedł obładowany. Albo kogoś niósł. Trop skręca ku starym murom na wzgórzu.",
+              "if": {
+                "notFlag": "borek_slady"
+              },
+              "time": 20
+            },
+            {
+              "id": "slady_f",
+              "type": "flag",
+              "set": {
+                "borek_slady": true
+              },
+              "if": {
+                "notFlag": "borek_slady"
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "slady_juz",
+              "type": "narration",
+              "title": "Ślady",
+              "text": "Ślady stare, rozmyte błotem, ale wciąż wiodą w jedną stronę: ku murom na wzgórzu.",
+              "if": {
+                "flag": "borek_slady"
+              },
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "drwal",
+          "name": "Drwal",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "drwal_0",
+              "type": "narration",
+              "title": "Drwal",
+              "text": "Drwal rąbie pień tak zawzięcie, jakby mu ten był winien za trzy zimy. „Z cesarskiej kancelarii przysłali pisarczyka, że za karczunek mam płacić do cesarskiej kasy. Za drzewo, co samo rosło, psiajucha! Niech mu kule w kałamarz biją.”",
+              "if": {
+                "notFlag": "drwal_0"
+              }
+            },
+            {
+              "id": "drwal_0_f",
+              "type": "flag",
+              "set": {
+                "drwal_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "drwal_0"
+              }
+            },
+            {
+              "id": "drwal_1",
+              "type": "narration",
+              "title": "Drwal",
+              "text": "„A to znowu ty? Idź z tym swoim mieczem gdzie indziej, bo mi kłody wystraszysz.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "drwal_0"
+                  },
+                  {
+                    "notFlag": "drwal_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "drwal_1_f",
+              "type": "flag",
+              "set": {
+                "drwal_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "drwal_0"
+                  },
+                  {
+                    "notFlag": "drwal_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "drwal_2",
+              "type": "narration",
+              "title": "Drwal",
+              "text": "Drwal podnosi siekierę i opuszcza ją bez słowa. Drzazgi lecą. Gadanie skończone.",
+              "if": {
+                "flag": "drwal_1"
+              },
+              "goto": "koniec"
+            }
+          ]
+        }
+      ],
+      "visitors": [
+        {
+          "id": "mysliwy",
+          "chance": 25,
+          "if": {
+            "notFlag": "mysliwy_byl"
+          },
+          "scenes": [
+            {
+              "id": "gosc_mysliwy",
+              "type": "narration",
+              "title": "Myśliwy",
+              "text": "Z zarośli wyłazi myśliwy z łukiem na plecach i martwym zającem u pasa. „Nie strzelaj do mnie, to i ja do ciebie nie będę. Wilki nerwowe, upiory głodne, a ludzie głupi. Najlepiej siedzieć w chałupie, ale kto by usiedział.” Znika między drzewami bez słowa pożegnania."
+            },
+            {
+              "id": "gosc_mysliwy_f",
+              "type": "flag",
+              "set": {
+                "mysliwy_byl": true
+              },
+              "goto": "koniec"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "stary_mlyn",
+      "name": "Stary młyn nad rzeką",
+      "short": "Stary młyn",
+      "region": "pogorze",
+      "near": {
+        "minutes": 35
+      },
+      "danger": 1,
+      "secret": true,
+      "hint": "dym nad rzeką",
+      "spots": [
+        {
+          "id": "mlynarz",
+          "name": "Młynarz Ostap",
+          "type": "talk",
+          "ref": "ostap"
+        },
+        {
+          "id": "mlyn",
+          "name": "Wnętrze młyna",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "mlyn_dzien",
+              "type": "narration",
+              "title": "Stary młyn",
+              "text": "Koło młyńskie stoi martwe, a rzeka leniwie liże mu łopaty. W środku czuć kurz, stęchłe ziarno i zimny kamień. Nic się nie rusza, choć wszystko jakby na coś czekało.",
+              "if": {
+                "timeOfDay": [
+                  "swit",
+                  "dzien",
+                  "zmierzch"
+                ]
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "mlyn_noc_pusto",
+              "type": "narration",
+              "title": "Stary młyn",
+              "text": "Nocą młyn jest ciemny i pusty, tylko deski jęczą na wietrze. Światła, które tu widziałeś, już nie ma.",
+              "if": {
+                "all": [
+                  {
+                    "timeOfDay": "noc"
+                  },
+                  {
+                    "flag": "odlamek_zebrany"
+                  }
+                ]
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "mlyn_noc_swiatlo",
+              "type": "narration",
+              "title": "Stary młyn",
+              "text": "Po zmroku w środku coś rozbłyska bladym, zimnym światłem. Idziesz za nim po skrzypiących schodkach, a ono cofa się o krok, jak pies, co chce, żeby go gonić. W kącie, pod kołem zębatym, leży odłamek ciemnego szkła i pulsuje.",
+              "if": {
+                "all": [
+                  {
+                    "timeOfDay": "noc"
+                  },
+                  {
+                    "notFlag": "odlamek_zebrany"
+                  }
+                ]
+              },
+              "time": 20
+            },
+            {
+              "id": "mlyn_noc_odlamek",
+              "type": "reward",
+              "items": [
+                "odlamek_szkla"
+              ],
+              "if": {
+                "all": [
+                  {
+                    "timeOfDay": "noc"
+                  },
+                  {
+                    "notFlag": "odlamek_zebrany"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "mlyn_noc_flaga",
+              "type": "flag",
+              "set": {
+                "odlamek_zebrany": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "timeOfDay": "noc"
+                  },
+                  {
+                    "notFlag": "odlamek_zebrany"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "zona",
+          "name": "Żona młynarza",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "zonamlyn_0",
+              "type": "narration",
+              "title": "Żona młynarza",
+              "text": "Żona młynarza skrobie ziemniaki, jakby obdzierała ze skóry wroga. „Na Kupałę mnie Ostap pod młyn ciągał, wianki puszczać, a teraz mu tylko światła w młynie w głowie. Ja mówię, że to sumienie mu świeci. Chłopy wolą duchy niż gadać z babą.”",
+              "if": {
+                "notFlag": "zonamlyn_0"
+              }
+            },
+            {
+              "id": "zonamlyn_0_f",
+              "type": "flag",
+              "set": {
+                "zonamlyn_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "zonamlyn_0"
+              }
+            },
+            {
+              "id": "zonamlyn_1",
+              "type": "narration",
+              "title": "Żona młynarza",
+              "text": "„A, to znowu ty. Spać nie możesz, psia mać? Jak ci się nudzi, to ziemniaki skrob, na duchy czas przyjdzie potem.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zonamlyn_0"
+                  },
+                  {
+                    "notFlag": "zonamlyn_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zonamlyn_1_f",
+              "type": "flag",
+              "set": {
+                "zonamlyn_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zonamlyn_0"
+                  },
+                  {
+                    "notFlag": "zonamlyn_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zonamlyn_2",
+              "type": "narration",
+              "title": "Żona młynarza",
+              "text": "Żona młynarza nawet głowy nie podnosi. „Nie mam teraz czasu. Muszę się podłubać w uchu, bo mi w nim od rana szumi jak w młynie.”",
+              "if": {
+                "flag": "zonamlyn_1"
+              },
+              "goto": "koniec"
+            }
+          ]
+        }
+      ],
+      "art": "stary_mlyn"
+    },
+    {
+      "id": "trakt_kupiecki",
+      "name": "Trakt kupiecki",
+      "short": "Trakt",
+      "region": "pogorze",
+      "near": {
+        "minutes": 45
+      },
+      "danger": 2,
+      "secret": true,
+      "hint": "wóz na trakcie",
+      "spots": [
+        {
+          "id": "ostromir",
+          "name": "Kupiec Ostromir",
+          "type": "talk",
+          "ref": "ostromir_trakt"
+        },
+        {
+          "id": "zwiadowcy",
+          "name": "Ognisko zwiadowców",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "zwiad_dialog",
+              "type": "dialogue",
+              "dialogue": "zwiadowcy",
+              "if": {
+                "all": [
+                  {
+                    "timeOfDay": [
+                      "zmierzch",
+                      "noc"
+                    ]
+                  },
+                  {
+                    "notFlag": "zwiadowcy_slysza"
+                  }
+                ]
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "zwiad_pusto",
+              "type": "narration",
+              "title": "Trakt",
+              "text": "Przy wygasłym ognisku wciąż widać ślady końskich kopyt i dwa wgniecenia po ludziach, co tu niedawno siedzieli. Po zmierzchu pewnie wrócą.",
+              "if": {
+                "timeOfDay": [
+                  "swit",
+                  "dzien"
+                ]
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "zwiad_juz",
+              "type": "narration",
+              "title": "Trakt",
+              "text": "Zwiadowców już nie ma, ognisko zimne. Wiesz, co miałeś wiedzieć, a reszta to ich sprawa.",
+              "if": {
+                "flag": "zwiadowcy_slysza"
+              },
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "pielgrzym",
+          "name": "Pielgrzym na kamieniu",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "pielgrzym_0",
+              "type": "narration",
+              "title": "Pielgrzym",
+              "text": "Pielgrzym siedzi na przydrożnym kamieniu i zna chyba wszystkich świętych po imieniu. „Sąsiedzi, synku, to największy krzyż. Mój co roku miedzę o skibę przesuwa, a w niedzielę pierwszy w kościele. Dlatego chodzę po świecie. Tu przynajmniej miedzy nie ma.”",
+              "if": {
+                "notFlag": "pielgrzym_0"
+              }
+            },
+            {
+              "id": "pielgrzym_0_f",
+              "type": "flag",
+              "set": {
+                "pielgrzym_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "pielgrzym_0"
+              }
+            },
+            {
+              "id": "pielgrzym_1",
+              "type": "narration",
+              "title": "Pielgrzym",
+              "text": "„O, a to znowu ty. Pewnie z pytaniami o niebo, co? Nie wiem, co tam się dzieje. Wiem tyle, że jak trzeszczy, to się modlę, a jak nie trzeszczy, to tym bardziej.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pielgrzym_0"
+                  },
+                  {
+                    "notFlag": "pielgrzym_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pielgrzym_1_f",
+              "type": "flag",
+              "set": {
+                "pielgrzym_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pielgrzym_0"
+                  },
+                  {
+                    "notFlag": "pielgrzym_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pielgrzym_2",
+              "type": "narration",
+              "title": "Pielgrzym",
+              "text": "Pielgrzym macha na ciebie ręką. „Idź no człowieku, znajdź sobie zajęcie. Ja tu pracuję: siedzę i odpoczywam od roboty.”",
+              "if": {
+                "flag": "pielgrzym_1"
+              },
+              "goto": "koniec"
+            }
+          ]
+        }
+      ],
+      "art": "trakt"
+    },
+    {
+      "id": "lesniczowka",
+      "name": "Leśniczówka",
+      "short": "Leśniczówka",
+      "region": "pogorze",
+      "near": {
+        "minutes": 30,
+        "via": "wilczy_las"
+      },
+      "danger": 1,
+      "secret": true,
+      "hint": "komin w lesie",
+      "spots": [
+        {
+          "id": "lesniczy",
+          "name": "Leśniczy",
+          "type": "talk",
+          "ref": "lesniczy"
+        },
+        {
+          "id": "pies",
+          "name": "Pies przy chacie",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "pies_0",
+              "type": "narration",
+              "title": "Pies leśniczego",
+              "text": "Wielki pies leśniczego podnosi łeb, waży cię okiem sędziego i wraca do drzemki. Zza chaty ktoś woła: „Burek! Nie szczekaj na ludzi z mieczem!” Burek ziewa. Miecz to dla niego żaden argument.",
+              "if": {
+                "notFlag": "pies_0"
+              }
+            },
+            {
+              "id": "pies_0_f",
+              "type": "flag",
+              "set": {
+                "pies_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "pies_0"
+              }
+            },
+            {
+              "id": "pies_1",
+              "type": "narration",
+              "title": "Pies leśniczego",
+              "text": "Burek warczy raz, krótko, na znak, że cię pamięta. Z chaty: „A to znowu ten wędrowiec? Zabierz go stąd, bo mi psa z równowagi wyprowadzi!”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pies_0"
+                  },
+                  {
+                    "notFlag": "pies_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pies_1_f",
+              "type": "flag",
+              "set": {
+                "pies_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pies_0"
+                  },
+                  {
+                    "notFlag": "pies_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pies_2",
+              "type": "narration",
+              "title": "Pies leśniczego",
+              "text": "Pies nawet nie mrugnie. Ma w nosie wszystko, co nie jest kością.",
+              "if": {
+                "flag": "pies_1"
+              },
+              "goto": "koniec"
+            }
+          ]
+        }
+      ],
+      "art": "lesniczowka"
+    },
+    {
+      "id": "ruiny_straznicy",
+      "name": "Ruiny strażnicy",
+      "short": "Ruiny",
+      "region": "pogorze",
+      "near": {
+        "minutes": 40
+      },
+      "danger": 4,
+      "secret": true,
+      "hint": "czarne mury",
+      "spots": [
+        {
+          "id": "ruiny",
+          "name": "Rumowisko",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "ruiny_wejscie",
+              "type": "narration",
+              "title": "Ruiny strażnicy",
+              "text": "Czarne mury sterczą ze wzgórza jak spróchniałe zęby. Brama wisi na jednym zawiasie, a przez dziurawy dach widać gwiazdy, choć jest dzień. W środku cuchnie spalenizną sprzed lat i czymś, co pachnieć nie powinno wcale.",
+              "time": 25
+            },
+            {
+              "id": "ruiny_borek",
+              "type": "dialogue",
+              "dialogue": "borek_ruiny",
+              "if": {
+                "all": [
+                  {
+                    "flag": "borek_slady"
+                  },
+                  {
+                    "notFlag": "borek_znaleziony"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ruiny_amulet_0",
+              "type": "narration",
+              "title": "Ruiny strażnicy",
+              "text": "Spod rumowiska wystaje wytarta blaszka z wybitym znakiem strażnicy. Ktoś ją tu zostawił albo zgubił, i już po nią nie wróci.",
+              "if": {
+                "all": [
+                  {
+                    "notFlag": "pobojowisko_ragnoslawa"
+                  },
+                  {
+                    "notFlag": "amulet_zebrany"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ruiny_amulet_1",
+              "type": "reward",
+              "items": [
+                "amulet_strazniczy"
+              ],
+              "if": {
+                "all": [
+                  {
+                    "notFlag": "pobojowisko_ragnoslawa"
+                  },
+                  {
+                    "notFlag": "amulet_zebrany"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ruiny_amulet_2",
+              "type": "flag",
+              "set": {
+                "amulet_zebrany": true
+              },
+              "if": {
+                "all": [
+                  {
+                    "notFlag": "pobojowisko_ragnoslawa"
+                  },
+                  {
+                    "notFlag": "amulet_zebrany"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ruiny_drzwi",
+              "type": "narration",
+              "title": "Ruiny strażnicy",
+              "text": "W głębi stoi mur z wyżłobionym znakiem. Przykładasz amulet, a kamień drży, jakby się budził ze snu. Znak pasuje, kreska w kreskę, ale drzwi się nie otwierają. Jeszcze nie. Wiesz tylko, że ojciec córki miał rację.",
+              "if": {
+                "all": [
+                  {
+                    "flag": "amulet_pytanie"
+                  },
+                  {
+                    "item": "amulet_strazniczy"
+                  },
+                  {
+                    "notFlag": "amulet_pasuje"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "ruiny_drzwi_f",
+              "type": "flag",
+              "set": {
+                "amulet_pasuje": true
+              },
+              "if": {
+                "all": [
+                  {
+                    "flag": "amulet_pytanie"
+                  },
+                  {
+                    "item": "amulet_strazniczy"
+                  },
+                  {
+                    "notFlag": "amulet_pasuje"
+                  }
+                ]
+              },
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "kamienie",
+          "name": "Kruk między kamieniami",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "kamienie_0",
+              "type": "narration",
+              "title": "Ruiny",
+              "text": "Między kamieniami siedzi kruk, z wyglądu mądrzejszy niż pół Brodu. Patrzy ci w oczy i kracze raz, głucho. Może pozdrawia. Może wróży. Lepiej splunąć przez lewe ramię.",
+              "if": {
+                "notFlag": "kamienie_0"
+              }
+            },
+            {
+              "id": "kamienie_0_f",
+              "type": "flag",
+              "set": {
+                "kamienie_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "kamienie_0"
+              }
+            },
+            {
+              "id": "kamienie_1",
+              "type": "narration",
+              "title": "Ruiny",
+              "text": "A to znowu kruk. Kracze, tym razem wyraźnie coś ci zarzuca.",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamienie_0"
+                  },
+                  {
+                    "notFlag": "kamienie_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamienie_1_f",
+              "type": "flag",
+              "set": {
+                "kamienie_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamienie_0"
+                  },
+                  {
+                    "notFlag": "kamienie_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamienie_2",
+              "type": "narration",
+              "title": "Ruiny",
+              "text": "Kruk odwraca się do ciebie ogonem. Ma swoje sprawy.",
+              "if": {
+                "flag": "kamienie_1"
+              },
+              "goto": "koniec"
+            }
+          ]
+        }
+      ],
+      "art": "ruiny_straznicy"
+    },
+    {
+      "id": "gluszec",
+      "name": "Osada Głuszec",
+      "short": "Głuszec",
+      "region": "glusz",
+      "spots": [
+        {
+          "id": "karczma_kogut",
+          "name": "Karczma „Pod Zdechłym Kogutem”",
+          "type": "talk",
+          "ref": "karczmarz_kogut"
+        },
+        {
+          "id": "izba_gluszec",
+          "name": "Izba na noc",
+          "type": "rest"
+        },
+        {
+          "id": "kramy",
+          "name": "Kramy wędrownych handlarzy",
+          "type": "shop",
+          "ref": "handlarz_gluszec"
+        },
+        {
+          "id": "kuznia_gluszec",
+          "name": "Kuźnia Bogdana",
+          "type": "talk",
+          "ref": "kowal_gluszec"
+        },
+        {
+          "id": "znachorka",
+          "name": "Szałas znachorki",
+          "type": "talk",
+          "ref": "znachorka"
+        },
+        {
+          "id": "soltys",
+          "name": "Dom sołtysa",
+          "type": "talk",
+          "ref": "soltys"
+        },
+        {
+          "id": "cmentarz",
+          "name": "Cmentarz",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "cmentarz_echo",
+              "type": "dialogue",
+              "dialogue": "echo_istoty",
+              "if": {
+                "all": [
+                  {
+                    "timeOfDay": "noc"
+                  },
+                  {
+                    "questStatus": {
+                      "id": "co_widziala_ragnoslawa",
+                      "is": "none"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "przyjecie_w_osadzie",
+                      "is": "done"
+                    }
+                  },
+                  {
+                    "any": [
+                      {
+                        "questStatus": {
+                          "id": "zwiad_na_wzgorzu",
+                          "is": "done"
+                        }
+                      },
+                      {
+                        "questStatus": {
+                          "id": "kto_sprzedal_ocalalego",
+                          "is": "done"
+                        }
+                      }
+                    ]
+                  }
+                ]
+              },
+              "goto": "koniec"
+            },
+            {
+              "id": "cmentarz_scena",
+              "type": "narration",
+              "title": "Cmentarz",
+              "text": "Cmentarz jest większy od wsi i dużo od niej spokojniejszy. Krzyże stoją krzywo, jakby się z kimś przepychały o miejsce. Na kilku grobach świeże zioła, na innych nic, a na jednym trzy kamienie ułożone w gwiazdę. Nikt ci nie powie, kto je tak ułożył. Pytać lepiej nie, żeby licha nie budzić.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "tablica_gluszec",
+          "name": "Tablica ogłoszeń",
+          "type": "board"
+        },
+        {
+          "id": "piwnica",
+          "name": "Piwnica pod karczmą",
+          "type": "scene",
+          "secret": true,
+          "scenes": [
+            {
+              "id": "piwnica_scena",
+              "type": "narration",
+              "title": "Piwnica",
+              "text": "Za beczkami z kiszoną kapustą są drzwiczki, o których karczmarz mówi, że ich nie ma. Za nimi ciasna izdebka z siennikiem, dwoma bukłakami i dziurą w ścianie, przez którą widać podwórze. Śmierdzi ludźmi, którzy dawno nie mieli po co wychodzić.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "stara_baba",
+          "name": "Stara baba na ławce",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "baba_0",
+              "type": "narration",
+              "title": "Stara baba",
+              "text": "Stara baba na ławie przed chałupą łuska groch do garnka i nie przerywa, choć podchodzisz. „Sól masz w kieszeni, młody? Nie? To głupiś. Mora tu po nocach chodzi i siada na piersi takim, co bez soli śpią. Za moich czasów każdy nosił.”",
+              "if": {
+                "notFlag": "baba_0"
+              }
+            },
+            {
+              "id": "baba_0_f",
+              "type": "flag",
+              "set": {
+                "baba_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "baba_0"
+              }
+            },
+            {
+              "id": "baba_1",
+              "type": "narration",
+              "title": "Stara baba",
+              "text": "„A to znowu ty. Spać nie możesz, psia mać? Ja też nie, ale ja mam swoje lata. Ty nie masz nic, tylko niepokój w kościach.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "baba_0"
+                  },
+                  {
+                    "notFlag": "baba_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "baba_1_f",
+              "type": "flag",
+              "set": {
+                "baba_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "baba_0"
+                  },
+                  {
+                    "notFlag": "baba_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "baba_2",
+              "type": "narration",
+              "title": "Stara baba",
+              "text": "Baba nawet oczu nie podnosi. „Idź no człowieku, znajdź sobie zajęcie. Nic ci nie powiem, bo nic nie wiem, a co wiedziałam, tom zapomniała.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "baba_1"
+                  },
+                  {
+                    "notFlag": "baba_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "baba_2_f",
+              "type": "flag",
+              "set": {
+                "baba_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "baba_1"
+                  },
+                  {
+                    "notFlag": "baba_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "baba_3",
+              "type": "narration",
+              "title": "Stara baba",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Baba drapie się z taką rozkoszą, że dalsza rozmowa nie ma sensu.",
+              "if": {
+                "flag": "baba_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "chlopiec",
+          "name": "Chłopiec z kurami",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "chlopiec_0",
+              "type": "narration",
+              "title": "Chłopiec",
+              "text": "Chłopak w za dużej koszuli goni kury po błocie i wcale nie chce ich złapać. „Pan jest ten zza przełęczy? Babka mówi, że zza przełęczy przychodzą strzygi i że trzeba im w oczy nie patrzeć. Ja patrzę. Pan ma zwyczajne. Tylko brudne.”",
+              "if": {
+                "notFlag": "chlopiec_0"
+              }
+            },
+            {
+              "id": "chlopiec_0_f",
+              "type": "flag",
+              "set": {
+                "chlopiec_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "chlopiec_0"
+              }
+            },
+            {
+              "id": "chlopiec_1",
+              "type": "narration",
+              "title": "Chłopiec",
+              "text": "„O, znowu pan. Kury dalej moje, tylko jedna zwiała. Jak ją pan znajdzie, niech pan nie mówi tacie, żem ją gonił.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "chlopiec_0"
+                  },
+                  {
+                    "notFlag": "chlopiec_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chlopiec_1_f",
+              "type": "flag",
+              "set": {
+                "chlopiec_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "chlopiec_0"
+                  },
+                  {
+                    "notFlag": "chlopiec_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chlopiec_2",
+              "type": "narration",
+              "title": "Chłopiec",
+              "text": "Chłopak patrzy na ciebie z politowaniem. „Pan nie ma co robić? Bo ja mam. Kury pilnuję. Mama mówi, że jak mi zwieją, to mnie cesarzowi sprzeda.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "chlopiec_1"
+                  },
+                  {
+                    "notFlag": "chlopiec_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chlopiec_2_f",
+              "type": "flag",
+              "set": {
+                "chlopiec_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "chlopiec_1"
+                  },
+                  {
+                    "notFlag": "chlopiec_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "chlopiec_3",
+              "type": "narration",
+              "title": "Chłopiec",
+              "text": "„Nie mam czasu, kury!” Chłopak pędzi w błoto za rudą kwoką, która zwiała, jakby się z nim umówiła.",
+              "if": {
+                "flag": "chlopiec_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "pijak",
+          "name": "Pijak pod płotem",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "pijak_0",
+              "type": "narration",
+              "title": "Pijak",
+              "text": "Pijak pod płotem otwiera jedno oko i bełkocze. „Wesele było. U Kowalowej córki. Trzy dni piłem na kredyt i dalej piję, bo karczmarz myśli, że to wciąż wesele. Nie mów mu, obcy, bo mnie zatłucze.”",
+              "if": {
+                "notFlag": "pijak_0"
+              }
+            },
+            {
+              "id": "pijak_0_f",
+              "type": "flag",
+              "set": {
+                "pijak_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "pijak_0"
+              }
+            },
+            {
+              "id": "pijak_1",
+              "type": "narration",
+              "title": "Pijak",
+              "text": "„A to znowu ty? Spać nie możesz, psia mać? Ja też nie. Długi mi się śnią, a jak się śnią, to rosną jak na drożdżach.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pijak_0"
+                  },
+                  {
+                    "notFlag": "pijak_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pijak_1_f",
+              "type": "flag",
+              "set": {
+                "pijak_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pijak_0"
+                  },
+                  {
+                    "notFlag": "pijak_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pijak_2",
+              "type": "narration",
+              "title": "Pijak",
+              "text": "Pijak macha ręką, jakby opędzał się od gadającej muchy. „Idź, człowieku, znajdź sobie zajęcie. Ja swoje mam, i to od rana do rana.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pijak_1"
+                  },
+                  {
+                    "notFlag": "pijak_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pijak_2_f",
+              "type": "flag",
+              "set": {
+                "pijak_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pijak_1"
+                  },
+                  {
+                    "notFlag": "pijak_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pijak_3",
+              "type": "narration",
+              "title": "Pijak",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Pijak drapie się w miejscu, o którym wolisz nie wiedzieć, i zasypia w pół ruchu.",
+              "if": {
+                "flag": "pijak_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "gajowy",
+          "name": "Gajówka przy bramie",
+          "type": "talk",
+          "ref": "gajowy"
+        },
+        {
+          "id": "kopacz",
+          "name": "Kopacz Jerzy na cmentarzu",
+          "type": "talk",
+          "ref": "kopacz"
+        },
+        {
+          "id": "mlyn_wodny",
+          "name": "Młyn wodny",
+          "type": "talk",
+          "ref": "radosz"
+        },
+        {
+          "id": "wdowa",
+          "name": "Wdowa Jaga",
+          "type": "talk",
+          "ref": "wdowa",
+          "secret": true
+        }
+      ],
+      "visitors": [
+        {
+          "id": "oblawa",
+          "chance": 80,
+          "if": {
+            "all": [
+              {
+                "search": {
+                  "min": 75
+                }
+              },
+              {
+                "notFlag": "akt3a_koniec"
+              }
+            ]
+          },
+          "scenes": [
+            {
+              "id": "gosc_oblawa",
+              "type": "dialogue",
+              "dialogue": "oblawa",
+              "goto": "koniec"
+            }
+          ],
+          "forced": true
+        },
+        {
+          "id": "zwiadowcy_kontrola",
+          "chance": 55,
+          "if": {
+            "search": {
+              "min": 25,
+              "max": 74
+            }
+          },
+          "scenes": [
+            {
+              "id": "gosc_kontrola",
+              "type": "dialogue",
+              "dialogue": "kontrola",
+              "goto": "koniec"
+            }
+          ],
+          "forced": true
+        },
+        {
+          "id": "najemnik",
+          "chance": 35,
+          "if": {
+            "all": [
+              {
+                "questStatus": {
+                  "id": "najemnik_w_karczmie",
+                  "is": "none"
+                }
+              },
+              {
+                "questStatus": {
+                  "id": "przyjecie_w_osadzie",
+                  "is": "done"
+                }
+              }
+            ]
+          },
+          "scenes": [
+            {
+              "id": "gosc_najemnik",
+              "type": "dialogue",
+              "dialogue": "najemnik",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "falszywy_pielgrzym",
+          "chance": 40,
+          "if": {
+            "all": [
+              {
+                "flag": "kowal_wskazal"
+              },
+              {
+                "notFlag": "pielgrzym_byl"
+              }
+            ]
+          },
+          "scenes": [
+            {
+              "id": "gosc_pielgrzym",
+              "type": "dialogue",
+              "dialogue": "pielgrzym_falszywy"
+            },
+            {
+              "id": "gosc_pielgrzym_f",
+              "type": "flag",
+              "set": {
+                "pielgrzym_byl": true
+              },
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "wedrowny_handlarz",
+          "chance": 25,
+          "scenes": [
+            {
+              "id": "gosc_handlarz",
+              "type": "shop",
+              "shop": "handlarz_wedrowny",
+              "goto": "koniec"
+            }
+          ]
+        }
+      ],
+      "art": "gluszec",
+      "tracksSearch": true
+    },
+    {
+      "id": "bor_klusownikow",
+      "name": "Bór kłusowników",
+      "short": "Bór",
+      "region": "glusz",
+      "near": {
+        "minutes": 40
+      },
+      "danger": 2,
+      "secret": true,
+      "hint": "ścieżki w zaroślach",
+      "spots": [
+        {
+          "id": "polana_klusownikow",
+          "name": "Polana ze sidłami",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "polana_klusownikow_scena",
+              "type": "narration",
+              "title": "Bór kłusowników",
+              "text": "Bór gęsty i cichy, a w ciszy słychać tylko skrzypienie sideł. Między paprociami wiją się cienkie druty, a pod bukiem ktoś ułożył ostrze noża w strzałkę. Strzałka mówi jasno: zawracaj, póki masz nogi.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "sojka",
+          "name": "Zdziczały sójkarz",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "sojkarz_0",
+              "type": "narration",
+              "title": "Sójkarz",
+              "text": "Pod dębem siedzi chudzielec w kaftanie z piór i gwiżdże na sójki. Sójki mają go w nosie. „Byłem leśnikiem. Teraz ja tylko leszemu z drogi schodzę, bo on tu gospodarzem. Ja jego nie zaczepiam, on mnie nie wodzi. I ty, obcy, nie gwiżdż w lesie po zmroku.”",
+              "if": {
+                "notFlag": "sojkarz_0"
+              }
+            },
+            {
+              "id": "sojkarz_0_f",
+              "type": "flag",
+              "set": {
+                "sojkarz_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "sojkarz_0"
+              }
+            },
+            {
+              "id": "sojkarz_1",
+              "type": "narration",
+              "title": "Sójkarz",
+              "text": "„O, wróciłeś. Spać nie możesz, psia mać? Ja też nie. Ptactwo mnie budzi, a ja go nie cierpię.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "sojkarz_0"
+                  },
+                  {
+                    "notFlag": "sojkarz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sojkarz_1_f",
+              "type": "flag",
+              "set": {
+                "sojkarz_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "sojkarz_0"
+                  },
+                  {
+                    "notFlag": "sojkarz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sojkarz_2",
+              "type": "narration",
+              "title": "Sójkarz",
+              "text": "Sójkarz łypie na ciebie z politowaniem. „Idź no człowieku, znajdź sobie zajęcie. Tu nic nie ma, tylko sidła i mój podły humor.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "sojkarz_1"
+                  },
+                  {
+                    "notFlag": "sojkarz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sojkarz_2_f",
+              "type": "flag",
+              "set": {
+                "sojkarz_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "sojkarz_1"
+                  },
+                  {
+                    "notFlag": "sojkarz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "sojkarz_3",
+              "type": "narration",
+              "title": "Sójkarz",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Sójkarz trze plecami o korę dębu z miną człowieka, który przeżył niejedną wojnę, choć walczył głównie sam ze sobą.",
+              "if": {
+                "flag": "sojkarz_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "stach",
+          "name": "Kłusownik Stach",
+          "type": "talk",
+          "ref": "stach"
+        }
+      ],
+      "art": "bor_klusownikow",
+      "tracksSearch": true
+    },
+    {
+      "id": "stary_trakt",
+      "name": "Stary trakt",
+      "short": "Trakt",
+      "region": "glusz",
+      "near": {
+        "minutes": 50
+      },
+      "danger": 2,
+      "secret": true,
+      "hint": "zarośnięta droga",
+      "spots": [
+        {
+          "id": "przydrozny_kamien",
+          "name": "Kamień przydrożny",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "przydrozny_kamien_scena",
+              "type": "narration",
+              "title": "Stary trakt",
+              "text": "Stara droga zarosła trawą po kolana, ale kamienie milowe stoją, jakby dalej liczyły kroki. Na jednym ktoś wyrył nożem: »Tędy szli po gwiazdy«. Obok, innym nożem, poprawka: »Tędy szli i nie wrócili«. Ktoś trzeci splunął pod spodem.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "wedrowiec_traktu",
+          "name": "Wędrowiec na kamieniu",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "wedrowiec_0",
+              "type": "narration",
+              "title": "Wędrowiec",
+              "text": "Wędrowiec siedzi na kamieniu milowym i żuje suchara z miną skazańca. „Do Brodu idę. Albo z Brodu. W taką słotę, psiakrew, wszystko jedno: wszędzie błoto, a myto i tak zedrą.”",
+              "if": {
+                "notFlag": "wedrowiec_0"
+              }
+            },
+            {
+              "id": "wedrowiec_0_f",
+              "type": "flag",
+              "set": {
+                "wedrowiec_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "wedrowiec_0"
+              }
+            },
+            {
+              "id": "wedrowiec_1",
+              "type": "narration",
+              "title": "Wędrowiec",
+              "text": "„A, to ty. Spać nie możesz, psia mać? Ja też nie, ale ja mam lepszy powód: noga mnie łupie.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wedrowiec_0"
+                  },
+                  {
+                    "notFlag": "wedrowiec_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wedrowiec_1_f",
+              "type": "flag",
+              "set": {
+                "wedrowiec_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wedrowiec_0"
+                  },
+                  {
+                    "notFlag": "wedrowiec_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wedrowiec_2",
+              "type": "narration",
+              "title": "Wędrowiec",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Ja swoje już znalazłem: siedzę.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wedrowiec_1"
+                  },
+                  {
+                    "notFlag": "wedrowiec_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wedrowiec_2_f",
+              "type": "flag",
+              "set": {
+                "wedrowiec_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wedrowiec_1"
+                  },
+                  {
+                    "notFlag": "wedrowiec_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wedrowiec_3",
+              "type": "narration",
+              "title": "Wędrowiec",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Wędrowiec drapie się tak zajadle, że aż kamień pod nim wygląda na zazdrosny.",
+              "if": {
+                "flag": "wedrowiec_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "furman",
+          "name": "Furman Bolek",
+          "type": "talk",
+          "ref": "furman"
+        },
+        {
+          "id": "rozbity_woz",
+          "name": "Wąwóz za zakrętem",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "woz_znaleziony_scena",
+              "type": "narration",
+              "title": "Rozbity wóz",
+              "text": "W wąwozie za zakrętem leży przewrócony wóz z urwanym kołem. Wokół ślady butów, koleiny w błocie i zaschnięta plama, której lepiej nie tykać. Po towarze ani śladu, ale na burcie ktoś wyciął nożem znak: trzy kreski w poprzek. Znak ludzi, którzy uciekli, a nie zginęli.",
+              "if": {
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "zaginiona_karawana",
+                      "is": "active"
+                    }
+                  },
+                  {
+                    "notFlag": "woz_znaleziony"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "woz_znaleziony_f",
+              "type": "flag",
+              "set": {
+                "woz_znaleziony": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "zaginiona_karawana",
+                      "is": "active"
+                    }
+                  },
+                  {
+                    "notFlag": "woz_znaleziony"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "woz_pusto",
+              "type": "narration",
+              "title": "Stary trakt",
+              "text": "Stara droga ciągnie się w obie strony, niby pusta, ale po bokach trawa leży zgnieciona, jakby ktoś wlókł tędy coś ciężkiego. Nic więcej nie znajdujesz, tylko swędzi cię kark, jakby to ktoś szukał ciebie.",
+              "goto": "koniec"
+            }
+          ]
+        }
+      ],
+      "art": "stary_trakt",
+      "tracksSearch": true
+    },
+    {
+      "id": "kapliczka_rozstaje",
+      "name": "Kapliczka na rozstajach",
+      "short": "Kapliczka",
+      "region": "glusz",
+      "near": {
+        "minutes": 30
+      },
+      "danger": 1,
+      "secret": true,
+      "hint": "dzwonek niesiony wiatrem",
+      "spots": [
+        {
+          "id": "kapliczka",
+          "name": "Kapliczka",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "kapliczka_scena",
+              "type": "narration",
+              "title": "Kapliczka na rozstajach",
+              "text": "Kapliczka mała i krzywa, a świątek w niej ma jedno oko i gębę kogoś, kto widział za dużo. Przed nim leżą wota: kłos, podkowa i ogarek świecy z wyraźnym śladem zębów.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "pustelnik",
+          "name": "Pustelnik",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "pustelnik_0",
+              "type": "narration",
+              "title": "Pustelnik",
+              "text": "Pustelnik wygląda, jakby stracił wiarę w ludzi i znalazł ją w grzybach. „Nie przeszkadzaj. Odmawiam na topielców, żeby z bagna nie wyłazili. Albo liczę, ilu ich już wylazło. Nigdy nie wiem, które z dwojga robię.”",
+              "if": {
+                "notFlag": "pustelnik_0"
+              }
+            },
+            {
+              "id": "pustelnik_0_f",
+              "type": "flag",
+              "set": {
+                "pustelnik_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "pustelnik_0"
+              }
+            },
+            {
+              "id": "pustelnik_1",
+              "type": "narration",
+              "title": "Pustelnik",
+              "text": "„Znowu ty. Spać nie możesz, psia mać? Ja śpię dobrze, tylko z otwartymi oczami.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pustelnik_0"
+                  },
+                  {
+                    "notFlag": "pustelnik_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pustelnik_1_f",
+              "type": "flag",
+              "set": {
+                "pustelnik_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pustelnik_0"
+                  },
+                  {
+                    "notFlag": "pustelnik_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pustelnik_2",
+              "type": "narration",
+              "title": "Pustelnik",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Ja swoje mam: nic nie robić, ale z całego serca.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pustelnik_1"
+                  },
+                  {
+                    "notFlag": "pustelnik_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pustelnik_2_f",
+              "type": "flag",
+              "set": {
+                "pustelnik_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pustelnik_1"
+                  },
+                  {
+                    "notFlag": "pustelnik_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pustelnik_3",
+              "type": "narration",
+              "title": "Pustelnik",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Pustelnik drapie się z powagą kapłana i nawet oczu nie podnosi.",
+              "if": {
+                "flag": "pustelnik_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "halina",
+          "name": "Siostra Halina",
+          "type": "talk",
+          "ref": "halina"
+        }
+      ],
+      "art": "kapliczka_rozstaje",
+      "tracksSearch": true
+    },
+    {
+      "id": "kamieniolom",
+      "name": "Kamieniołom",
+      "short": "Kamieniołom",
+      "region": "glusz",
+      "near": {
+        "minutes": 25,
+        "via": "bor_klusownikow"
+      },
+      "danger": 2,
+      "secret": true,
+      "hint": "stukot kilofów",
+      "spots": [
+        {
+          "id": "sztolnia",
+          "name": "Wejście do sztolni",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "sztolnia_scena",
+              "type": "narration",
+              "title": "Kamieniołom",
+              "text": "Sztolnia ziewa czarną gębą w zboczu. Podpory sczerniałe od wilgoci, a na jednej wisi lampa, która dawno nie widziała łoju ani oliwy. Z głębi kapie woda, a czasem dochodzi coś, co mogłoby być kapaniem, ale nie jest.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "kamieniarz",
+          "name": "Kamieniarz",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "kamieniarz_0",
+              "type": "narration",
+              "title": "Kamieniarz",
+              "text": "Kamieniarz wali młotem w głaz, jakby mu nie zależało, czy pęknie. „Nagrobki kuję. W Głuszcu to jedyna robota, co nigdy się nie kończy. Ludzie mrą, kamień zostaje, a ja biorę po groszu od litery, więc krótkie imiona to moja zguba.”",
+              "if": {
+                "notFlag": "kamieniarz_0"
+              }
+            },
+            {
+              "id": "kamieniarz_0_f",
+              "type": "flag",
+              "set": {
+                "kamieniarz_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "kamieniarz_0"
+              }
+            },
+            {
+              "id": "kamieniarz_1",
+              "type": "narration",
+              "title": "Kamieniarz",
+              "text": "„A to znowu ty. Spać nie możesz, psia mać? Kamień nie śpi, ja nie śpię, to możemy razem nie spać.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamieniarz_0"
+                  },
+                  {
+                    "notFlag": "kamieniarz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamieniarz_1_f",
+              "type": "flag",
+              "set": {
+                "kamieniarz_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamieniarz_0"
+                  },
+                  {
+                    "notFlag": "kamieniarz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamieniarz_2",
+              "type": "narration",
+              "title": "Kamieniarz",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Tu jest kamień do bicia i ja go zajmuję.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamieniarz_1"
+                  },
+                  {
+                    "notFlag": "kamieniarz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamieniarz_2_f",
+              "type": "flag",
+              "set": {
+                "kamieniarz_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamieniarz_1"
+                  },
+                  {
+                    "notFlag": "kamieniarz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamieniarz_3",
+              "type": "narration",
+              "title": "Kamieniarz",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Kamieniarz drapie się młotem po plecach, co wygląda groźnie, ale skutkuje.",
+              "if": {
+                "flag": "kamieniarz_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "dozorca",
+          "name": "Dozorca Wincenty",
+          "type": "talk",
+          "ref": "dozorca"
+        },
+        {
+          "id": "sztolnia_ranny",
+          "name": "Ranny górnik w sztolni",
+          "type": "talk",
+          "ref": "ranny",
+          "if": {
+            "notFlag": "ranny_pomoc"
+          }
+        }
+      ],
+      "art": "kamieniolom",
+      "tracksSearch": true
+    },
+    {
+      "id": "bagna_szarej_wody",
+      "name": "Bagna Szarej Wody",
+      "short": "Bagna",
+      "region": "glusz",
+      "near": {
+        "minutes": 35,
+        "via": "stary_trakt"
+      },
+      "danger": 3,
+      "secret": true,
+      "hint": "mgła nad trzęsawiskiem",
+      "spots": [
+        {
+          "id": "grobla",
+          "name": "Zbutwiała grobla",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "grobla_scena",
+              "type": "narration",
+              "title": "Bagna Szarej Wody",
+              "text": "Grobla z balików gnije w ciszy, a bagno pod nią bulgocze jak brzuch po zepsutej kaszy. Pośrodku leży but. Jeden, bez właściciela. Całkiem suchy, co w tym miejscu straszy bardziej, niż gdyby go wcale nie było.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "wedkarz",
+          "name": "Wędkarz",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "wedkarz_0",
+              "type": "narration",
+              "title": "Wędkarz",
+              "text": "Wędkarz siedzi z kijem nad czymś, co przy dobrej woli można nazwać wodą. „Ryby topielec wyżarł. Ale łowię, bo jak go złapię, to mu nagadam. Ostatnio wyciągnąłem jego but. Chyba jego.”",
+              "if": {
+                "notFlag": "wedkarz_0"
+              }
+            },
+            {
+              "id": "wedkarz_0_f",
+              "type": "flag",
+              "set": {
+                "wedkarz_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "wedkarz_0"
+              }
+            },
+            {
+              "id": "wedkarz_1",
+              "type": "narration",
+              "title": "Wędkarz",
+              "text": "„O, to ty. Spać nie możesz, psia mać? Ja też nie. Ryby nie dają.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wedkarz_0"
+                  },
+                  {
+                    "notFlag": "wedkarz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wedkarz_1_f",
+              "type": "flag",
+              "set": {
+                "wedkarz_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wedkarz_0"
+                  },
+                  {
+                    "notFlag": "wedkarz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wedkarz_2",
+              "type": "narration",
+              "title": "Wędkarz",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Wystraszysz mi ryby, o ile jaka jeszcze została.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wedkarz_1"
+                  },
+                  {
+                    "notFlag": "wedkarz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wedkarz_2_f",
+              "type": "flag",
+              "set": {
+                "wedkarz_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wedkarz_1"
+                  },
+                  {
+                    "notFlag": "wedkarz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wedkarz_3",
+              "type": "narration",
+              "title": "Wędkarz",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Wędkarz drapie się w najlepsze, a spławik drga z tej samej przyczyny co on.",
+              "if": {
+                "flag": "wedkarz_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "trzcinowisko",
+          "name": "Trzcinowisko",
+          "type": "talk",
+          "ref": "trzcinowisko"
+        }
+      ],
+      "art": "bagna_szarej_wody",
+      "tracksSearch": true
+    },
+    {
+      "id": "wzgorze_wartownicze",
+      "name": "Wzgórze wartownicze",
+      "short": "Wzgórze",
+      "region": "glusz",
+      "near": {
+        "minutes": 20,
+        "via": "kapliczka_rozstaje"
+      },
+      "danger": 2,
+      "secret": true,
+      "hint": "szczyt z ruiną",
+      "spots": [
+        {
+          "id": "szczyt",
+          "name": "Szczyt wzgórza",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "szczyt_zwiad",
+              "type": "narration",
+              "title": "Wzgórze wartownicze",
+              "text": "Przez kępę jałowców widać niski obóz: dwa konie, trzy czerwone płaszcze i ognisko, które ktoś próbuje schować pod płachtą. Jeden z nich patrzy na Głuszec przez lunetę. Leżysz w mokrej trawie, aż ci łokcie drętwieją, i liczysz: trzech. Czwarty pewnie chrapie w namiocie.",
+              "if": {
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "zwiad_na_wzgorzu",
+                      "is": "active"
+                    }
+                  },
+                  {
+                    "notFlag": "wzgorze_zwiad"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "szczyt_zwiad_f",
+              "type": "flag",
+              "set": {
+                "wzgorze_zwiad": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "zwiad_na_wzgorzu",
+                      "is": "active"
+                    }
+                  },
+                  {
+                    "notFlag": "wzgorze_zwiad"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "szczyt_scena",
+              "type": "narration",
+              "title": "Wzgórze wartownicze",
+              "text": "Ze szczytu Głuszec widać jak na dłoni: dymy z kominów, cmentarz i czerwoną plamę na trakcie, co może być płaszczem, a może tylko zachodem. Ktoś wydeptał tu ścieżkę, ale czart go wie, kto i po co.",
+              "goto": "koniec",
+              "if": {
+                "any": [
+                  {
+                    "flag": "wzgorze_zwiad"
+                  },
+                  {
+                    "questStatus": {
+                      "id": "zwiad_na_wzgorzu",
+                      "is": "none"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "zwiad_na_wzgorzu",
+                      "is": "done"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "zwiad_na_wzgorzu",
+                      "is": "failed"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "pasterz",
+          "name": "Stary pasterz",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "pasterz_0",
+              "type": "narration",
+              "title": "Pasterz",
+              "text": "Stary pasterz leży w trawie i liczy owce, których chyba nie ma. „Sto dwadzieścia. Albo sto dziewiętnaście. Jedną wilk wziął, ale cicho, nie wywołuj wilka z lasu, bo przyjdzie po resztę. A tej i tak nie lubiłem.”",
+              "if": {
+                "notFlag": "pasterz_0"
+              }
+            },
+            {
+              "id": "pasterz_0_f",
+              "type": "flag",
+              "set": {
+                "pasterz_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "pasterz_0"
+              }
+            },
+            {
+              "id": "pasterz_1",
+              "type": "narration",
+              "title": "Pasterz",
+              "text": "„A, to ty. Spać nie możesz, psia mać? Ja też nie. Owce chrapią.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pasterz_0"
+                  },
+                  {
+                    "notFlag": "pasterz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pasterz_1_f",
+              "type": "flag",
+              "set": {
+                "pasterz_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pasterz_0"
+                  },
+                  {
+                    "notFlag": "pasterz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pasterz_2",
+              "type": "narration",
+              "title": "Pasterz",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Ja swoje mam: leżę.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pasterz_1"
+                  },
+                  {
+                    "notFlag": "pasterz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pasterz_2_f",
+              "type": "flag",
+              "set": {
+                "pasterz_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pasterz_1"
+                  },
+                  {
+                    "notFlag": "pasterz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pasterz_3",
+              "type": "narration",
+              "title": "Pasterz",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Pasterz drapie się po owczym runie, którego nie ma, i szczerzy się do chmur.",
+              "if": {
+                "flag": "pasterz_2"
+              }
+            }
+          ]
+        }
+      ],
+      "art": "wzgorze_wartownicze",
+      "tracksSearch": true
+    },
+    {
+      "id": "obserwatorium",
+      "name": "Obserwatorium na Szklanym Wzgórzu",
+      "short": "Obserwatorium",
+      "region": "gwiazdy",
+      "spots": [
+        {
+          "id": "wieza",
+          "name": "Wieża Hieronima",
+          "type": "talk",
+          "ref": "hieronim"
+        },
+        {
+          "id": "izba_obs",
+          "name": "Izba w czeladnej",
+          "type": "rest"
+        },
+        {
+          "id": "warsztat",
+          "name": "Warsztat Brygidy",
+          "type": "talk",
+          "ref": "brygida"
+        },
+        {
+          "id": "kramy_obs",
+          "name": "Skrzynie z zapasami",
+          "type": "shop",
+          "ref": "zapasy_obserwatorium"
+        },
+        {
+          "id": "tablica_obs",
+          "name": "Tablica z notatkami",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "tablica_obs_scena",
+              "type": "narration",
+              "title": "Tablica z notatkami",
+              "text": "Na tablicy wiszą świstki: »Nie ruszać maszyny«, »Kot nie jest twój«, »Kto mi zwędził zeszyt z rachunkami, niech wie, że nie liczę gwiazd, tylko krzywdy«. Pod spodem ktoś namazał węglem kometę z uśmiechem.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "archiwum",
+          "name": "Archiwum",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "archiwum_scena",
+              "type": "narration",
+              "title": "Archiwum",
+              "text": "Archiwum to piwnica z półkami, na których leżą zwoje, tablice i księgi, każda osmalona z jednego boku, jakby je smok czytał. Na jednej z map ktoś zakreślił czerwonym atramentem kółka i podpisał: »Tu spadło. Tu spadło. Tu spadnie«. Pachnie sadzą i mysim gównem.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "taras",
+          "name": "Taras na wieży",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "taras_scena",
+              "type": "narration",
+              "title": "Taras",
+              "text": "Z tarasu widać całe Szklane Wzgórza: spaloną ziemię, błyszczące pola odłamków i daleko, pod niebem, ciemną plamę, gdzie nic nie rośnie. Wiatr świszcze w pogiętych blachach teleskopu jak ktoś, kto chce coś rzec, a nie umie.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "pomocnik",
+          "name": "Pomocnik z latarnią",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "pomocnik_0",
+              "type": "narration",
+              "title": "Pomocnik",
+              "text": "Chłopak w za dużym fartuchu obraca w łapach latarnię i patrzy w niebo, jakby rachował na palcach. „Pan ten z Głuszca, tak? Mistrz mówi, że tacy jak pan przynoszą pecha. Ale mistrz tak gada o wszystkim, nawet o zupie. Na wszelki wypadek splunę przez lewe ramię.”",
+              "if": {
+                "notFlag": "pomocnik_0"
+              }
+            },
+            {
+              "id": "pomocnik_0_f",
+              "type": "flag",
+              "set": {
+                "pomocnik_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "pomocnik_0"
+              }
+            },
+            {
+              "id": "pomocnik_1",
+              "type": "narration",
+              "title": "Pomocnik",
+              "text": "„A, to znowu pan. Spać pan nie może, psia mać? Ja też nie. Gwiazdy nie dają. Mistrz mówi, że to przez pecha, a ja myślę, że przez kawę.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pomocnik_0"
+                  },
+                  {
+                    "notFlag": "pomocnik_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pomocnik_1_f",
+              "type": "flag",
+              "set": {
+                "pomocnik_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pomocnik_0"
+                  },
+                  {
+                    "notFlag": "pomocnik_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pomocnik_2",
+              "type": "narration",
+              "title": "Pomocnik",
+              "text": "„Idź no pan człowieku, znajdź sobie zajęcie. Ja mam swoje: latarnia, niebo i strach. Każde z osobna starczy na cały dzień.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pomocnik_1"
+                  },
+                  {
+                    "notFlag": "pomocnik_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pomocnik_2_f",
+              "type": "flag",
+              "set": {
+                "pomocnik_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pomocnik_1"
+                  },
+                  {
+                    "notFlag": "pomocnik_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pomocnik_3",
+              "type": "narration",
+              "title": "Pomocnik",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Pomocnik drapie się latarnią po plecach, a brwi wiszą mu na włosku.",
+              "if": {
+                "flag": "pomocnik_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "kot",
+          "name": "Kot Kometa",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "kot_0",
+              "type": "narration",
+              "title": "Kot",
+              "text": "Na parapecie siedzi wielki bury kocur i patrzy na ciebie jak na pustą miskę. Na obroży ma blaszkę: »Kometa. Nie karmić, nie głaskać, nie wierzyć«.",
+              "if": {
+                "notFlag": "kot_0"
+              }
+            },
+            {
+              "id": "kot_0_f",
+              "type": "flag",
+              "set": {
+                "kot_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "kot_0"
+              }
+            },
+            {
+              "id": "kot_1",
+              "type": "narration",
+              "title": "Kot",
+              "text": "Kot patrzy na ciebie jak na starego kuma, co mu jest winien rybę. Jedno ucho drgnie mu o włos, co u kota znaczy wzruszenie nie do opanowania.",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kot_0"
+                  },
+                  {
+                    "notFlag": "kot_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kot_1_f",
+              "type": "flag",
+              "set": {
+                "kot_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kot_0"
+                  },
+                  {
+                    "notFlag": "kot_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kot_2",
+              "type": "narration",
+              "title": "Kot",
+              "text": "Kot wstaje, przeciąga się na pokaz i odchodzi na drugi koniec parapetu. Znaczy: idź no człowieku, znajdź sobie zajęcie.",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kot_1"
+                  },
+                  {
+                    "notFlag": "kot_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kot_2_f",
+              "type": "flag",
+              "set": {
+                "kot_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kot_1"
+                  },
+                  {
+                    "notFlag": "kot_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kot_3",
+              "type": "narration",
+              "title": "Kot",
+              "text": "Kot drapie się tylną łapą za uchem z miną »nie mam teraz czasu, muszę się podrapać« i patrzy w okno, jakby cię nigdy na świecie nie było.",
+              "if": {
+                "flag": "kot_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "wartownik_obs",
+          "name": "Wartownik przy bramie",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "wartobs_0",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "Wartownik opiera się o bramę i łypie w stronę spalonej ziemi. „Nic nie widziałem, nic nie słyszałem. Ale jak zobaczę czerwony płaszcz, to najpierw zamknę bramę, a potem może pomyślę.”",
+              "if": {
+                "notFlag": "wartobs_0"
+              }
+            },
+            {
+              "id": "wartobs_0_f",
+              "type": "flag",
+              "set": {
+                "wartobs_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "wartobs_0"
+              }
+            },
+            {
+              "id": "wartobs_1",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "„A to znowu ty. Spać nie możesz, psia mać? Ja też nie. Bo jak zasnę, to się obudzę w innym stuleciu, uchowaj Bóg.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wartobs_0"
+                  },
+                  {
+                    "notFlag": "wartobs_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wartobs_1_f",
+              "type": "flag",
+              "set": {
+                "wartobs_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wartobs_0"
+                  },
+                  {
+                    "notFlag": "wartobs_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wartobs_2",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Tu nic się nie dzieje, a to najgorsze ze wszystkiego, co się tu dzieje.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wartobs_1"
+                  },
+                  {
+                    "notFlag": "wartobs_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wartobs_2_f",
+              "type": "flag",
+              "set": {
+                "wartobs_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wartobs_1"
+                  },
+                  {
+                    "notFlag": "wartobs_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wartobs_3",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Wartownik skrobie się po hełmie tak, że aż w piwnicy słychać.",
+              "if": {
+                "flag": "wartobs_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "tomasz",
+          "name": "Zwiadowca Tomasz",
+          "type": "talk",
+          "ref": "tomasz",
+          "secret": true
+        }
+      ],
+      "art": "obserwatorium"
+    },
+    {
+      "id": "pole_szkla",
+      "name": "Pole Szkła",
+      "short": "Pole Szkła",
+      "region": "gwiazdy",
+      "near": {
+        "minutes": 25
+      },
+      "danger": 3,
+      "secret": true,
+      "hint": "błysk na horyzoncie",
+      "spots": [
+        {
+          "id": "szklane_pole",
+          "name": "Pole odłamków",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "szklane_pole_scena",
+              "type": "narration",
+              "title": "Pole Szkła",
+              "text": "Ziemia zastygła tu w szklane fale, jakby ktoś wylał jezioro i zmroził je w pół ruchu. Odłamki sterczą z niej jak zęby: zielone, niebieskie, czerwone, każdy ostry jak zadra. Kiedy się schylasz, widzisz w nich odbicie, które nie jest twoje.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "zbieracz",
+          "name": "Zbieracz szkła",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "zbieracz_0",
+              "type": "narration",
+              "title": "Zbieracz",
+              "text": "Chłop w skórzanych rękawicach grzebie kijem w szkle i pakuje coś do wora. „Nie ruszaj, jak ci życie miłe. Ja ruszam od trzydziestu lat i mam trzy palce mniej. Ale handel to handel.”",
+              "if": {
+                "notFlag": "zbieracz_0"
+              }
+            },
+            {
+              "id": "zbieracz_0_f",
+              "type": "flag",
+              "set": {
+                "zbieracz_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "zbieracz_0"
+              }
+            },
+            {
+              "id": "zbieracz_1",
+              "type": "narration",
+              "title": "Zbieracz",
+              "text": "„A to znowu ty. Spać nie możesz, psia mać? Ja też nie. Szkło nie śpi, to i ja nie.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zbieracz_0"
+                  },
+                  {
+                    "notFlag": "zbieracz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zbieracz_1_f",
+              "type": "flag",
+              "set": {
+                "zbieracz_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zbieracz_0"
+                  },
+                  {
+                    "notFlag": "zbieracz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zbieracz_2",
+              "type": "narration",
+              "title": "Zbieracz",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Pole duże i nikt tu nikomu nie wadzi.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zbieracz_1"
+                  },
+                  {
+                    "notFlag": "zbieracz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zbieracz_2_f",
+              "type": "flag",
+              "set": {
+                "zbieracz_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zbieracz_1"
+                  },
+                  {
+                    "notFlag": "zbieracz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zbieracz_3",
+              "type": "narration",
+              "title": "Zbieracz",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Zbieracz drapie się końcem kija, bo w rękawicach nic delikatniej nie zrobi.",
+              "if": {
+                "flag": "zbieracz_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "zbior_szkla",
+          "name": "Odłamki do zebrania",
+          "type": "talk",
+          "ref": "szklo"
+        }
+      ],
+      "art": "pole_szkla"
+    },
+    {
+      "id": "krater_gwiazdy",
+      "name": "Krater Spadłej Gwiazdy",
+      "short": "Krater",
+      "region": "gwiazdy",
+      "near": {
+        "minutes": 40,
+        "via": "pole_szkla"
+      },
+      "danger": 4,
+      "secret": true,
+      "hint": "czerwona poświata nocą",
+      "spots": [
+        {
+          "id": "krater",
+          "name": "Brzeg krateru",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "krater_zj_n",
+              "type": "narration",
+              "title": "Krater Spadłej Gwiazdy",
+              "text": "Powietrze nad kraterem gęstnieje, włosy stają dęba, w uszach coś cicho trzeszczy jak tłuszcz na patelni. Z dna biją niebieskie iskry, co nie gasną, choć podsuwasz dłoń. Niebo zaczyna iskrzyć.",
+              "if": {
+                "notFlag": "krater_zjawisko"
+              }
+            },
+            {
+              "id": "krater_zj_p",
+              "type": "phenomenon",
+              "phenomenon": "burza_iskier",
+              "if": {
+                "notFlag": "krater_zjawisko"
+              }
+            },
+            {
+              "id": "krater_zj_f",
+              "type": "flag",
+              "set": {
+                "krater_zjawisko": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "krater_zjawisko"
+              }
+            },
+            {
+              "id": "krater_opis",
+              "type": "narration",
+              "title": "Krater Spadłej Gwiazdy",
+              "text": "Krater ma kształt dłoni, która na chwilę rozwarła palce. Na dnie leży coś, co mogłoby być gwiazdą, gdyby gwiazdy były z żelaza i milczały. Z brzegu widać, że szkło ciemnieje, im bliżej środka.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "pustelnik_gwiazd",
+          "name": "Człowiek na brzegu",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "pustelnikg_0",
+              "type": "narration",
+              "title": "Człowiek na brzegu",
+              "text": "Na brzegu krateru siedzi człowiek z nogami spuszczonymi w dół i liczy iskry na palcach. „Czterdzieści trzy. Zawsze czterdzieści trzy. Za dużo jak na przypadek, za mało jak na zamysł. Czart wie, co to znaczy.”",
+              "if": {
+                "notFlag": "pustelnikg_0"
+              }
+            },
+            {
+              "id": "pustelnikg_0_f",
+              "type": "flag",
+              "set": {
+                "pustelnikg_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "pustelnikg_0"
+              }
+            },
+            {
+              "id": "pustelnikg_1",
+              "type": "narration",
+              "title": "Człowiek na brzegu",
+              "text": "„A to znowu ty. Spać nie możesz, psia mać? Ja też nie, ale ja mam wymówkę: czekam, aż się zdecydują.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pustelnikg_0"
+                  },
+                  {
+                    "notFlag": "pustelnikg_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pustelnikg_1_f",
+              "type": "flag",
+              "set": {
+                "pustelnikg_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pustelnikg_0"
+                  },
+                  {
+                    "notFlag": "pustelnikg_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pustelnikg_2",
+              "type": "narration",
+              "title": "Człowiek na brzegu",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Ja swoje mam: liczę.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pustelnikg_1"
+                  },
+                  {
+                    "notFlag": "pustelnikg_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pustelnikg_2_f",
+              "type": "flag",
+              "set": {
+                "pustelnikg_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "pustelnikg_1"
+                  },
+                  {
+                    "notFlag": "pustelnikg_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "pustelnikg_3",
+              "type": "narration",
+              "title": "Człowiek na brzegu",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Człowiek drapie się po ramieniu i nie przestaje liczyć.",
+              "if": {
+                "flag": "pustelnikg_2"
+              }
+            }
+          ]
+        }
+      ],
+      "art": "krater_gwiazdy"
+    },
+    {
+      "id": "menhiry",
+      "name": "Krąg Menhirów",
+      "short": "Menhiry",
+      "region": "gwiazdy",
+      "near": {
+        "minutes": 35
+      },
+      "danger": 2,
+      "secret": true,
+      "hint": "kamienie na wzgórzu",
+      "spots": [
+        {
+          "id": "krag",
+          "name": "Krąg kamieni",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "krag_scena",
+              "type": "narration",
+              "title": "Krąg Menhirów",
+              "text": "Dwanaście kamieni stoi w kręgu, każdy wyższy od chłopa, każdy z jednym bokiem gładkim jak lustro. Kładziesz dłoń i kamień jest ciepły jak bok krowy, a w uszach rośnie szmer, jakby wiele głosów gadało naraz tak cicho, że żaden nic nie mówi.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "kamieniarka",
+          "name": "Stara kamieniarka",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "kamieniarka_0",
+              "type": "narration",
+              "title": "Kamieniarka",
+              "text": "Stara baba okłada mchem jeden z menhirów, jakby wnuka okrywała pierzyną. „Pamiętają. Wszystko pamiętają. Tylko człowiek zapomina, bo mu tak lżej. Nie wywołuj licha, młody.”",
+              "if": {
+                "notFlag": "kamieniarka_0"
+              }
+            },
+            {
+              "id": "kamieniarka_0_f",
+              "type": "flag",
+              "set": {
+                "kamieniarka_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "kamieniarka_0"
+              }
+            },
+            {
+              "id": "kamieniarka_1",
+              "type": "narration",
+              "title": "Kamieniarka",
+              "text": "„A to znowu ty. Spać nie możesz, psia mać? Kamienie nie śpią, to i ja nie.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamieniarka_0"
+                  },
+                  {
+                    "notFlag": "kamieniarka_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamieniarka_1_f",
+              "type": "flag",
+              "set": {
+                "kamieniarka_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamieniarka_0"
+                  },
+                  {
+                    "notFlag": "kamieniarka_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamieniarka_2",
+              "type": "narration",
+              "title": "Kamieniarka",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Menhiry mają swoje sprawy.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamieniarka_1"
+                  },
+                  {
+                    "notFlag": "kamieniarka_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamieniarka_2_f",
+              "type": "flag",
+              "set": {
+                "kamieniarka_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "kamieniarka_1"
+                  },
+                  {
+                    "notFlag": "kamieniarka_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "kamieniarka_3",
+              "type": "narration",
+              "title": "Kamieniarka",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Kamieniarka drapie się w zgięciu łokcia i patrzy na kamień z wyrzutem.",
+              "if": {
+                "flag": "kamieniarka_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "menhir",
+          "name": "Kamień w kręgu",
+          "type": "talk",
+          "ref": "menhir"
+        }
+      ],
+      "art": "menhiry"
+    },
+    {
+      "id": "wrak_maszyny",
+      "name": "Wrak Maszyny",
+      "short": "Wrak",
+      "region": "gwiazdy",
+      "near": {
+        "minutes": 30,
+        "via": "menhiry"
+      },
+      "danger": 3,
+      "secret": true,
+      "hint": "blask metalu",
+      "spots": [
+        {
+          "id": "wrak",
+          "name": "Wnętrze wraku",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "wrak_strach_n",
+              "type": "narration",
+              "title": "Wrak Maszyny",
+              "text": "Wnętrze maszyny zimne jak studnia, ale pachnie czymś znajomym: mokrą ziemią i cichym żelazem. Płyty na ścianach jarzą się blado, kiedy podchodzisz, i gasną, kiedy się cofasz. Coś w tobie cofa się razem z nimi.",
+              "if": {
+                "notFlag": "wrak_strach"
+              }
+            },
+            {
+              "id": "wrak_strach_e",
+              "type": "effect",
+              "add": [
+                "zmeczenie"
+              ],
+              "if": {
+                "notFlag": "wrak_strach"
+              }
+            },
+            {
+              "id": "wrak_strach_f",
+              "type": "flag",
+              "set": {
+                "wrak_strach": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "wrak_strach"
+              }
+            },
+            {
+              "id": "wrak_opis",
+              "type": "narration",
+              "title": "Wrak Maszyny",
+              "text": "Blaszane żebra maszyny sterczą nad tobą jak kości zwierza, którego nikt nigdy nie widział. Znasz już ten chłód. Nie straszy cię, tylko przypomina.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "zlomiarz",
+          "name": "Złomiarz",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "zlomiarz_0",
+              "type": "narration",
+              "title": "Złomiarz",
+              "text": "Złomiarz klepie coś z blachy młotkiem, który chyba jest młodszy od tej blachy. „Maszyna? Wiem, wiem. Nie ruszać, nie sprzedawać, nie pytać. Ja się trzymam trzeciego, bo czytać dwóch pierwszych mi się nie opłaca.”",
+              "if": {
+                "notFlag": "zlomiarz_0"
+              }
+            },
+            {
+              "id": "zlomiarz_0_f",
+              "type": "flag",
+              "set": {
+                "zlomiarz_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "zlomiarz_0"
+              }
+            },
+            {
+              "id": "zlomiarz_1",
+              "type": "narration",
+              "title": "Złomiarz",
+              "text": "„A to znowu ty. Spać nie możesz, psia mać? Ja też nie. Blacha gada do mnie po nocach. Cienko, ale do rzeczy.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zlomiarz_0"
+                  },
+                  {
+                    "notFlag": "zlomiarz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zlomiarz_1_f",
+              "type": "flag",
+              "set": {
+                "zlomiarz_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zlomiarz_0"
+                  },
+                  {
+                    "notFlag": "zlomiarz_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zlomiarz_2",
+              "type": "narration",
+              "title": "Złomiarz",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Wrak się sam nie rozbierze.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zlomiarz_1"
+                  },
+                  {
+                    "notFlag": "zlomiarz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zlomiarz_2_f",
+              "type": "flag",
+              "set": {
+                "zlomiarz_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "zlomiarz_1"
+                  },
+                  {
+                    "notFlag": "zlomiarz_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "zlomiarz_3",
+              "type": "narration",
+              "title": "Złomiarz",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Złomiarz drapie się młotkiem po plecach i wygląda na rad z roboty.",
+              "if": {
+                "flag": "zlomiarz_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "panel",
+          "name": "Serce wraku",
+          "type": "talk",
+          "ref": "panel_wraku"
+        }
+      ],
+      "art": "wrak_maszyny"
+    },
+    {
+      "id": "zapadlisko_ciszy",
+      "name": "Zapadlisko Ciszy",
+      "short": "Zapadlisko",
+      "region": "gwiazdy",
+      "near": {
+        "minutes": 45,
+        "via": "menhiry"
+      },
+      "danger": 3,
+      "secret": true,
+      "hint": "mgła, w której milkną ptaki",
+      "spots": [
+        {
+          "id": "zapadlisko",
+          "name": "Brzeg zapadliska",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "zapadlisko_zj_n",
+              "type": "narration",
+              "title": "Zapadlisko Ciszy",
+              "text": "Powietrze gęstnieje, a dźwięki gasną jeden po drugim: najpierw ptaki, potem wiatr, na końcu twoje własne kroki. Mgła zlewa się z ziemią w jedno mleko.",
+              "if": {
+                "notFlag": "zapadlisko_zjawisko"
+              }
+            },
+            {
+              "id": "zapadlisko_zj_p",
+              "type": "phenomenon",
+              "phenomenon": "mgla_ciszy",
+              "if": {
+                "notFlag": "zapadlisko_zjawisko"
+              }
+            },
+            {
+              "id": "zapadlisko_zj_f",
+              "type": "flag",
+              "set": {
+                "zapadlisko_zjawisko": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "zapadlisko_zjawisko"
+              }
+            },
+            {
+              "id": "zapadlisko_opis",
+              "type": "narration",
+              "title": "Zapadlisko Ciszy",
+              "text": "Zapadlisko głębokie jak studnia olbrzyma. Mgła wypełnia je po brzegi i przelewa się powoli, jakby to coś oddychało. Cisza tu nie jest brakiem hałasu. Ona żre dźwięk, jak bagno żre buty.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "niemowa",
+          "name": "Człowiek, który nie mówi",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "niemowa_0",
+              "type": "narration",
+              "title": "Niemy",
+              "text": "Człowiek siedzi na kamieniu z palcem na ustach i kiwa ci głową. Pokazuje na ucho, potem na mgłę, potem rozkłada ręce. Jasne jak słońce: tu się gęby nie otwiera.",
+              "if": {
+                "notFlag": "niemowa_0"
+              }
+            },
+            {
+              "id": "niemowa_0_f",
+              "type": "flag",
+              "set": {
+                "niemowa_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "niemowa_0"
+              }
+            },
+            {
+              "id": "niemowa_1",
+              "type": "narration",
+              "title": "Niemy",
+              "text": "Niemy poznaje cię i krzywi się bez ogródek. Pokazuje na ucho, potem na usta, potem na siebie, i odwraca się plecami. Znaczy: spać nie możesz, psia mać, ale ja i tak nie mam o czym gadać.",
+              "if": {
+                "all": [
+                  {
+                    "flag": "niemowa_0"
+                  },
+                  {
+                    "notFlag": "niemowa_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "niemowa_1_f",
+              "type": "flag",
+              "set": {
+                "niemowa_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "niemowa_0"
+                  },
+                  {
+                    "notFlag": "niemowa_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "niemowa_2",
+              "type": "narration",
+              "title": "Niemy",
+              "text": "Niemy macha rękami, a z machania wyczytujesz: idź no człowieku, znajdź sobie zajęcie. Pokazuje przy tym na twoje nogi, jakby to one były winne.",
+              "if": {
+                "all": [
+                  {
+                    "flag": "niemowa_1"
+                  },
+                  {
+                    "notFlag": "niemowa_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "niemowa_2_f",
+              "type": "flag",
+              "set": {
+                "niemowa_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "niemowa_1"
+                  },
+                  {
+                    "notFlag": "niemowa_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "niemowa_3",
+              "type": "narration",
+              "title": "Niemy",
+              "text": "Niemy drapie się po plecach z gębą, która mówi sama za siebie: nie mam teraz czasu, muszę się podrapać.",
+              "if": {
+                "flag": "niemowa_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "zaginiony",
+          "name": "Sylwetka we mgle",
+          "type": "talk",
+          "ref": "zaginiony_zwiadowca"
+        }
+      ],
+      "art": "zapadlisko_ciszy"
+    },
+    {
+      "id": "ostatnia_strazica",
+      "name": "Ostatnia Strażnica",
+      "short": "Strażnica",
+      "region": "gwiazdy",
+      "near": {
+        "minutes": 30,
+        "via": "krater_gwiazdy"
+      },
+      "danger": 3,
+      "secret": true,
+      "hint": "wieża na grani",
+      "spots": [
+        {
+          "id": "straznica",
+          "name": "Brama strażnicy",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "straznica_scena",
+              "type": "narration",
+              "title": "Ostatnia Strażnica",
+              "text": "Strażnica stoi na skraju spalonej ziemi jak ostatni ząb w szczęce. Mury popękane, brama zawarta, ale dym z komina mówi, że ktoś tu jednak siedzi. Nad bramą zwisa chorągiew z godłem cesarstwa, przeciętym w poprzek.",
+              "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "wartownik_muru",
+          "name": "Wartownik na murze",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "wartmuru_0",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "Młody wartownik na murze gapi się w pustkę i żuje źdźbło. „Dwa lata temu się zaciągnąłem, żeby liczyć wrogów. Nikt nie rzekł, że to będą gwiazdy. A niech to licho.”",
+              "if": {
+                "notFlag": "wartmuru_0"
+              }
+            },
+            {
+              "id": "wartmuru_0_f",
+              "type": "flag",
+              "set": {
+                "wartmuru_0": true
+              },
+              "goto": "koniec",
+              "if": {
+                "notFlag": "wartmuru_0"
+              }
+            },
+            {
+              "id": "wartmuru_1",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "„A to znowu ty. Spać nie możesz, psia mać? Ja też nie. Wartę trzymać trzeba, a ja i tak zasnąć nie umiem.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wartmuru_0"
+                  },
+                  {
+                    "notFlag": "wartmuru_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wartmuru_1_f",
+              "type": "flag",
+              "set": {
+                "wartmuru_1": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wartmuru_0"
+                  },
+                  {
+                    "notFlag": "wartmuru_1"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wartmuru_2",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "„Idź no człowieku, znajdź sobie zajęcie. Ja swoje mam: mur i kuszę.”",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wartmuru_1"
+                  },
+                  {
+                    "notFlag": "wartmuru_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wartmuru_2_f",
+              "type": "flag",
+              "set": {
+                "wartmuru_2": true
+              },
+              "goto": "koniec",
+              "if": {
+                "all": [
+                  {
+                    "flag": "wartmuru_1"
+                  },
+                  {
+                    "notFlag": "wartmuru_2"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "wartmuru_3",
+              "type": "narration",
+              "title": "Wartownik",
+              "text": "„Nie mam teraz czasu, muszę się podrapać.” Wartownik drapie się łożem kuszy po plecach, co jest niebezpieczne dla obu stron.",
+              "if": {
+                "flag": "wartmuru_2"
+              }
+            }
+          ]
+        },
+        {
+          "id": "komendant_straznicy",
+          "name": "Stary żołnierz przy bramie",
+          "type": "talk",
+          "ref": "stary_zolnierz"
+        }
+      ],
+      "art": "ostatnia_strazica"
+    }
+  ],
+  "regions": {
+    "pogorze": {
+      "name": "Pogórze",
+      "forage": [
+        {
+          "item": "jagody",
+          "qty": [
+            1,
+            3
+          ],
+          "weight": 4
+        },
+        {
+          "item": "grzyby",
+          "qty": [
+            1,
+            2
+          ],
+          "weight": 3
+        },
+        {
+          "item": "orzechy",
+          "qty": [
+            1,
+            2
+          ],
+          "weight": 2
+        },
+        {
+          "item": "ziola_lesne",
+          "qty": [
+            1,
+            1
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "glusz": {
+      "name": "Okolice Głuszca",
+      "forage": [
+        {
+          "item": "jagody",
+          "qty": [
+            1,
+            3
+          ],
+          "weight": 4
+        },
+        {
+          "item": "grzyby",
+          "qty": [
+            1,
+            2
+          ],
+          "weight": 3
+        },
+        {
+          "item": "orzechy",
+          "qty": [
+            1,
+            2
+          ],
+          "weight": 2
+        },
+        {
+          "item": "ziola_lesne",
+          "qty": [
+            1,
+            1
+          ],
+          "weight": 1
+        }
+      ]
+    },
+    "gwiazdy": {
+      "name": "Szklane Wzgórza",
+      "forage": [
+        {
+          "item": "jagody",
+          "qty": [
+            1,
+            3
+          ],
+          "weight": 4
+        },
+        {
+          "item": "grzyby",
+          "qty": [
+            1,
+            2
+          ],
+          "weight": 3
+        },
+        {
+          "item": "orzechy",
+          "qty": [
+            1,
+            2
+          ],
+          "weight": 2
+        },
+        {
+          "item": "ziola_lesne",
+          "qty": [
+            1,
+            1
+          ],
+          "weight": 1
+        }
+      ]
+    }
+  },
+  "stageArt": {
+    "depart": "wymarsz",
+    "march": "trakt",
+    "camp": "oboz",
+    "ulewa": "ulewa"
+  },
+  "routes": [
+    {
+      "id": "brzezina_wilczy_brod",
+      "from": "brzezina",
+      "to": "wilczy_brod",
+      "days": 2,
+      "region": "pogorze",
+      "fixed": {
+        "1": "bandyci_na_trakcie",
+        "2": "noc_upiorow"
+      }
+    },
+    {
+      "id": "wilczy_brod_nora",
+      "from": "wilczy_brod",
+      "to": "wilcza_nora",
+      "days": 1,
+      "region": "pogorze"
+    },
+    {
+      "id": "wilczy_brod_przelecz",
+      "from": "wilczy_brod",
+      "to": "kamienna_przelecz",
+      "days": 1,
+      "region": "pogorze"
+    }
+  ],
+  "events": [
+    {
+      "id": "bandyci_na_trakcie",
+      "kind": "attack",
+      "weight": 0,
+      "scenes": [
+        {
+          "id": "bandyci_zasadzka",
+          "art": "zasadzka",
+          "type": "narration",
+          "title": "Zasadzka",
+          "text": "Za zakrętem traktu z przydrożnych krzaków wyłażą dwa byczki z kijami, śmierdzące jak stary kożuch na deszczu. „Kiesę dawaj, paniczu, to pójdziesz dalej o własnych nogach!” Wyglądają, jakby prawdziwego ostrza w życiu nie widzieli, ale kije mają całkiem prawdziwe."
+        },
+        {
+          "id": "bandyci_walka",
+          "type": "combat",
+          "title": "Zasadzka",
+          "enemies": [
+            {
+              "id": "bandyta",
+              "count": 2
+            }
+          ],
+          "start": "far",
+          "canFlee": true,
+          "onFlee": "bandyci_ucieczka",
+          "loot": [
+            {
+              "chance": 100,
+              "giveItem": "kamien_zmierzchu"
+            }
+          ],
+          "ambush": true
+        },
+        {
+          "id": "bandyci_po_walce",
+          "type": "narration",
+          "goto": "bandyci_ognisko",
+          "text": "Zostawiasz ich w rowie, niech przemyślą swój żywot. Przy jednym znalazłeś coś, co ciepło pulsuje w garści. Ruszasz dalej, zanim który się ocknie i zacznie zadawać pytania."
+        },
+        {
+          "id": "bandyci_ucieczka",
+          "type": "narration",
+          "text": "Dajesz susa w krzaki, a pokrzywy smagają cię po łydkach gorzej niż mistrz po grzbiecie. Zbóje wyją za tobą, ale żadnemu nie chce się gonić. Nadkładasz drogi lasem i wracasz na trakt dopiero za wzgórzem.",
+          "goto": "bandyci_ognisko"
+        },
+        {
+          "id": "bandyci_ognisko",
+          "art": "ognisko_druzyna",
+          "type": "dialogue",
+          "dialogue": "ognisko",
+          "time": 30,
+          "goto": "koniec"
+        }
+      ]
+    },
+    {
+      "id": "pielgrzym",
+      "kind": "encounter",
+      "weight": 3,
+      "once": true,
+      "scenes": [
+        {
+          "id": "pielgrzym_spotkanie",
+          "type": "narration",
+          "title": "Pielgrzym",
+          "time": 20,
+          "text": "Na kamieniu przy drodze siedzi stary pielgrzym z kosturem i torbą chudszą od niego samego. „Do Wilczego Brodu, synku? Tam strażnicy więcej chleją, niż pilnują. A jak niebo zacznie trzeszczeć i iskrzyć, chowaj żelazo – burza iskier lubi tych, co się nim chwalą.” Na pożegnanie łamie bochenek i wciska ci połowę."
+        },
+        {
+          "id": "pielgrzym_chleb",
+          "type": "reward",
+          "items": [
+            "prowiant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glodny_wedrowiec",
+      "kind": "encounter",
+      "weight": 2,
+      "once": true,
+      "scenes": [
+        {
+          "id": "wedrowiec_rozmowa",
+          "type": "dialogue",
+          "dialogue": "glodny_wedrowiec",
+          "time": 10
+        }
+      ]
+    },
+    {
+      "id": "kupiec_wedrowny",
+      "kind": "encounter",
+      "weight": 2,
+      "once": true,
+      "scenes": [
+        {
+          "id": "kupiec_woz",
+          "type": "narration",
+          "title": "Kupiec",
+          "text": "Skrzypiący wóz, kosmaty konik i kupiec z brzuchem jak beczka kiszonej kapusty. „Prowiant, opatrunki, strzały! Taniej niż w mieście, bo drożej już się nie da!” Konik łypie na ciebie, jakby chciał ostrzec."
+        },
+        {
+          "id": "kupiec_handel",
+          "type": "shop",
+          "shop": "kupiec_drogi",
+          "time": 15
+        }
+      ]
+    },
+    {
+      "id": "wilki",
+      "kind": "attack",
+      "weight": 2,
+      "scenes": [
+        {
+          "id": "wilki_wycie",
+          "art": "wilki",
+          "type": "narration",
+          "title": "Wilki",
+          "text": "Z zarośli wychodzą dwa wilki. Chude, z obnażonymi kłami – głód wygnał je z lasu za dnia. Nie warczą. Po prostu idą na ciebie."
+        },
+        {
+          "id": "wilki_walka",
+          "type": "combat",
+          "title": "Wilki",
+          "enemies": [
+            {
+              "id": "wilk",
+              "count": 2
+            }
+          ],
+          "start": "far",
+          "canFlee": true,
+          "onFlee": "wilki_ucieczka"
+        },
+        {
+          "id": "wilki_po_walce",
+          "type": "narration",
+          "goto": "koniec",
+          "text": "Ścierasz posokę z ostrza i nasłuchujesz. Las milczy. Idziesz dalej, co chwila zerkając przez ramię."
+        },
+        {
+          "id": "wilki_ucieczka",
+          "type": "narration",
+          "text": "Wdrapujesz się na zwalony pień i wywijasz żelazem, aż wilkom się odechciewa. Odchodzą w las, a ich wycie słyszysz jeszcze długo."
+        }
+      ]
+    },
+    {
+      "id": "ulewa_nadciaga",
+      "kind": "weather",
+      "weight": 2,
+      "if": {
+        "timeOfDay": [
+          "swit",
+          "dzien"
+        ]
+      },
+      "phenomenon": "ulewa"
+    },
+    {
+      "id": "cisza",
+      "kind": "encounter",
+      "weight": 4,
+      "scenes": [
+        {
+          "id": "cisza_droga",
+          "type": "narration",
+          "title": "Droga",
+          "text": "Trakt wije się między brzozami, ptactwo wrzeszczy w zaroślach, a jedynym wrogiem jest kamień w bucie. Dzień mija spokojnie, odpukać."
+        }
+      ]
+    },
+    {
+      "id": "kupiec_ostromir",
+      "kind": "encounter",
+      "weight": 2,
+      "once": true,
+      "scenes": [
+        {
+          "id": "ostromir_spotkanie",
+          "type": "narration",
+          "title": "Kupiec Ostromir",
+          "text": "Na poboczu stoi wóz z pękniętym kołem, a przy nim pulchny kupiec ociera pot czapką. „Ostromir jestem, handluję suknem. Jak dotrzesz do Wilczego Brodu, poszukaj mnie – potrzebuję kogoś z żelazem do Kamiennej Przełęczy.”"
+        },
+        {
+          "id": "ostromir_rozmowa",
+          "type": "dialogue",
+          "dialogue": "ostromir",
+          "time": 10
+        },
+        {
+          "id": "ostromir_zlecenie",
+          "type": "quest",
+          "start": "eskorta_ostromira",
+          "if": {
+            "flag": "ostromir_zgoda"
+          }
+        }
+      ],
+      "if": {
+        "flag": "dlug_oddany"
+      }
+    },
+    {
+      "id": "noc_upiorow",
+      "kind": "story",
+      "weight": 0,
+      "endsTrip": true,
+      "scenes": [
+        {
+          "id": "noc_zmierzch",
+          "art": "trakt",
+          "type": "narration",
+          "title": "Zmierzch",
+          "waitUntil": 18,
+          "text": "Dzień dogasa, a z nim gasną dowcipy Skarimira. Przyspieszacie, bo cień drzew wydłuża się nad traktem jak palce topielca. Wojmir co chwila ogląda się przez ramię, Ragnosława trzyma włócznię, jakby się z nią urodziła. Niebo na zachodzie ma barwę świeżej rany, a z lasu ciągnie chłodem, którego żaden wiatr nie tłumaczy."
+        },
+        {
+          "id": "noc_burza",
+          "type": "phenomenon",
+          "phenomenon": "burza_iskier"
+        },
+        {
+          "id": "noc_atak",
+          "art": "noc_upiory",
+          "type": "narration",
+          "title": "Noc upiorów",
+          "waitUntil": 21,
+          "text": "Powietrze trzeszczy iskrami, aż włosy stają ci dęba. Spomiędzy pni wychodzą dwie postacie, które kiedyś mogły być ludźmi: blade, wyciągnięte, z czarnymi dziurami zamiast oczu. Śmiech Skarimira urywa się w pół. „Do broni!” krzyczy Ragnosława, a stal wchodzi w nich jak w mgłę."
+        },
+        {
+          "id": "noc_walka",
+          "type": "combat",
+          "title": "Noc upiorów",
+          "enemies": [
+            {
+              "id": "upior_nocy",
+              "count": 2
+            }
+          ],
+          "start": "melee",
+          "canFlee": false,
+          "onDefeat": "noc_omdlenie",
+          "ambush": true
+        },
+        {
+          "id": "noc_omdlenie",
+          "art": "noc_ciemnosc",
+          "type": "narration",
+          "title": "Ciemność",
+          "text": "Cios, który cię dosięga, jest zimny jak lód z dna studni. Świat gaśnie od brzegów, aż zostaje tylko twój własny oddech, a potem i on się kończy."
+        },
+        {
+          "id": "noc_zaglada",
+          "art": "noc_ciemnosc",
+          "type": "narration",
+          "title": "Cisza",
+          "text": "Przez ciemność dochodzi cię jeszcze to i owo. Najpierw cichnie Ragnosława: krzyk, trzask włóczni i koniec. Skarimir próbuje zażartować, ale żart urywa się w pół słowa, a śmiech więźnie mu w gardle. Wojmir nie krzyczy wcale; słychać tylko, jak upuszcza tobołek. Potem iskry gasną i zostaje noc."
+        },
+        {
+          "id": "noc_flaga",
+          "type": "flag",
+          "set": {
+            "towarzysze_zgineli": true
+          }
+        },
+        {
+          "id": "noc_przebudzenie",
+          "art": "noc_istota",
+          "type": "dialogue",
+          "waitUntil": 2,
+          "dialogue": "istota"
+        },
+        {
+          "id": "noc_swit",
+          "art": "swit_ocalaly",
+          "type": "narration",
+          "title": "Świt",
+          "waitUntil": 5,
+          "text": "Budzi cię chłód i szelest wiatru w trawie. Nic cię nie boli, choć koszula zesztywniała od zaschniętej krwi, i nie jest to twoja krew. Wokół leżą ciała, na które nie chcesz patrzeć. Z całej delegacji został jeden: ty. Przewodnika nie widać wśród zabitych; uciekł jak zając i zostawił nawet tobołek. Insygnia szkoły chowasz na dno swojego, bo coś ci mówi, że lepiej ich teraz nie nosić."
+        },
+        {
+          "id": "noc_flaga_insygnia",
+          "type": "flag",
+          "set": {
+            "ukryte_insygnia": true
+          }
+        },
+        {
+          "id": "noc_pobojowisko",
+          "art": "pobojowisko",
+          "type": "dialogue",
+          "dialogue": "pobojowisko"
+        },
+        {
+          "id": "noc_rozdroze",
+          "art": "rozdroze",
+          "type": "dialogue",
+          "dialogue": "rozdroze"
+        },
+        {
+          "id": "noc_bezdroza",
+          "type": "narration",
+          "title": "Bezdroża",
+          "time": 180,
+          "text": "Idziesz bez drogi, bo drogi mają oczy, a ty masz dość patrzenia. Mundur szkoły ciąży ci jak cudza skóra, błoto sięga kolan, a ty ani razu nie oglądasz się za siebie. Wreszcie zza zarośli wyłania się palisada Wilczego Brodu. Insygnia zostają na dnie tobołka, a o to, co z nimi związane, nikt nie zapyta, jeśli sam nie powiesz.",
+          "goto": "koniec"
+        }
+      ]
+    },
+    {
+      "id": "kontrola_zwiadowcow",
+      "kind": "encounter",
+      "weight": 6,
+      "if": {
+        "all": [
+          {
+            "search": {
+              "min": 25
+            }
+          },
+          {
+            "region": "glusz"
+          }
+        ]
+      },
+      "scenes": [
+        {
+          "id": "kontrola_droga",
+          "type": "narration",
+          "title": "Kontrola na drodze",
+          "time": 10,
+          "text": "Zza zakrętu wyjeżdża dwóch jeźdźców w czerwonych płaszczach. Zwalniają, a potem zastawiają ci drogę, jakby od początku wiedzieli, którędy pójdziesz. Konie parują, błoto chlupie pod kopytami."
+        },
+        {
+          "id": "kontrola_droga_d",
+          "type": "dialogue",
+          "dialogue": "kontrola_droga"
+        }
+      ]
+    },
+    {
+      "id": "patrol_zwiadowcow",
+      "kind": "attack",
+      "weight": 5,
+      "if": {
+        "all": [
+          {
+            "search": {
+              "min": 50
+            }
+          },
+          {
+            "region": "glusz"
+          }
+        ]
+      },
+      "scenes": [
+        {
+          "id": "patrol_start",
+          "type": "narration",
+          "title": "Patrol",
+          "text": "Na zakręcie leśnej ścieżki z cienia wychodzi dwóch zwiadowców, miecze już w garści. „To on” – mówi jeden głosem zimnym jak szron. „Szkoła ostrza. Żywego, jak się da.”"
+        },
+        {
+          "id": "patrol_walka",
+          "type": "combat",
+          "title": "Patrol zwiadowców",
+          "enemies": [
+            {
+              "id": "zwiadowca_cesarski",
+              "count": 2
+            }
+          ],
+          "start": "far",
+          "canFlee": true,
+          "onFlee": "patrol_ucieczka",
+          "ambush": true
+        },
+        {
+          "id": "patrol_po",
+          "type": "dialogue",
+          "dialogue": "po_zwiadowcach",
+          "goto": "koniec"
+        },
+        {
+          "id": "patrol_ucieczka",
+          "type": "narration",
+          "title": "Uciekasz",
+          "text": "Rzucasz się w chaszcze, a miecze świszczą tam, gdzie przed chwilą stałeś. Gonią cię przez pół boru, aż gubią trop w strumieniu. Do wsi dowlekasz się w błocie po uszy i wściekły jak pies, ale cały."
+        }
+      ]
+    },
+    {
+      "id": "klusownicy_w_boru",
+      "kind": "attack",
+      "weight": 4,
+      "if": {
+        "all": [
+          {
+            "questStatus": {
+              "id": "klusownik_i_gajowy",
+              "is": "active"
+            }
+          },
+          {
+            "region": "glusz"
+          }
+        ]
+      },
+      "scenes": [
+        {
+          "id": "klusownicy_start",
+          "type": "narration",
+          "title": "Kłusownicy",
+          "text": "Z gęstwiny wyłazi dwóch chłopów z nożami i workiem na plecach. „Ty od gajowego? Szkoda. Mieliśmy nadzieję, żeś ktoś inny.”"
+        },
+        {
+          "id": "klusownicy_walka",
+          "type": "combat",
+          "title": "Kłusownicy",
+          "enemies": [
+            {
+              "id": "klusownik",
+              "count": 2
+            }
+          ],
+          "start": "far",
+          "canFlee": true,
+          "onFlee": "klusownicy_ucieczka"
+        },
+        {
+          "id": "klusownicy_po",
+          "type": "narration",
+          "title": "Po walce",
+          "text": "Kłusownicy zmykają z podkulonym ogonem i zostawiają worek. W środku zające, którym już nic nie zaszkodzi.",
+          "goto": "koniec"
+        },
+        {
+          "id": "klusownicy_ucieczka",
+          "type": "narration",
+          "title": "Wycofujesz się",
+          "text": "Cofasz się szybko, a ścieżka ginie w paproci. Za plecami rechot i pogróżki, ale nikt nie goni."
+        }
+      ]
+    }
+  ]
+}

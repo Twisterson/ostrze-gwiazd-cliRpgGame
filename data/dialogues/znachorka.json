@@ -1,0 +1,158 @@
+{
+  "id": "znachorka",
+  "portrait": "portret_dobrawa",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Znachorka Dobrawa",
+      "text": "Szałas pachnie sianem, dymem i czymś, czego lepiej nie nazywać. Znachorka Dobrawa nie podnosi oczu znad moździerza. „Boli cię co? Nie? To po coś wlazł? Kto tu włazi bez bólu, ten ma ból wymyślony, a taki leczy się najdrożej.”",
+      "options": [
+        {
+          "id": "ziola",
+          "text": "Co masz na sprzedaż?",
+          "goto": "ziola"
+        },
+        {
+          "id": "plotka",
+          "text": "Wiesz coś o tym, co się dzieje w okolicy?",
+          "goto": "plotka"
+        },
+        {
+          "id": "q4_zn",
+          "text": "Sołtys prosił, żebym się dowiedział, kto sypie cesarskim.",
+          "goto": "q4_zn",
+          "requires": {
+            "questStatus": {
+              "id": "kto_sprzedal_ocalalego",
+              "is": "active"
+            },
+            "notFlag": "znachorka_wskazala"
+          }
+        },
+        {
+          "id": "ranny_po",
+          "text": "Przyniosłem ci rannego górnika.",
+          "goto": "ranny_po",
+          "requires": {
+            "flag": "ranny_u_znachorki"
+          }
+        },
+        {
+          "id": "q8_start",
+          "text": "Czego ci brakuje do naparów?",
+          "goto": "q8_start",
+          "requires": {
+            "questStatus": {
+              "id": "szara_trzcina",
+              "is": "none"
+            }
+          }
+        },
+        {
+          "id": "q8_koniec",
+          "text": "Mam szarą trzcinę.",
+          "goto": "q8_koniec",
+          "requires": {
+            "item": "szara_trzcina",
+            "questStatus": {
+              "id": "szara_trzcina",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "ziola": {
+      "speaker": "Znachorka Dobrawa",
+      "text": "„Na sprzedaż mam wszystko, ale nie dla każdego. Opatrunek, napar, maść na odciski i na głupotę. Ta ostatnia nie działa, ale schodzi jak ciepłe bułki.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zapamiętam ci to.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "plotka": {
+      "speaker": "Znachorka Dobrawa",
+      "text": "„Plotki to nie moje zioło. Ja leczę ciało, nie język. Ale tyle ci powiem: coraz więcej ludzi przychodzi z tym samym zmęczeniem w oczach, co po burzy iskier. Nie pytaj mnie, co to znaczy. Pytaj tych, co się boją, że ty wiesz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pomyślę.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "q4_zn": {
+      "speaker": "Znachorka Dobrawa",
+      "text": "Dobrawa tłucze w moździerzu coś, co pachnie za dobrze, żeby było zdrowe. „Widziałam chłopa z bukłakiem, z którego nie pije, i z różańcem, którego nie przesuwa. Chodzi nocą. Do kowala. Ja leczę, nie donoszę, ale jak pójdziesz do kowala, powiedz, że ja cię przysłałam.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Powiem.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "znachorka_wskazala"
+        }
+      ]
+    },
+    "ranny_po": {
+      "speaker": "Znachorka Dobrawa",
+      "text": "Dobrawa nie odrywa oczu od naparu. „Śpi. Noga stłuczona do kości, aż dziw, że nie złamana. Jak się zbudzi, pierwsze, co powie, to że go kto okradł. Zdrowy znak. Dobrze, żeś go przyniósł, bo to by mi trzy godziny drogi zjadło.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "q8_start": {
+      "speaker": "Znachorka Dobrawa",
+      "text": "Dobrawa wzdycha, jakby cię do piekła posyłała. „Szarej trzciny z bagien. Rośnie tylko w mule, gdzie woda stoi za spokojnie, żeby była zdrowa. Bez niej naparu na gorączkę nie zrobię, a gorączka kosi ludzi jak żniwiarz. Nazbieraj mi wiązkę. Tylko uważaj: w mule siedzi wszelkie licho, a ptaki, co tam wrzeszczą, zdradzą człowieka na pięć wiorst.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "szara_trzcina"
+        },
+        {
+          "reveal": "bagna_szarej_wody"
+        }
+      ]
+    },
+    "q8_koniec": {
+      "speaker": "Znachorka Dobrawa",
+      "text": "Dobrawa wącha wiązkę, rozciera łodygę w palcach i kiwa głową, co u niej rzadkie. „Prawdziwa. Ciemniejsza, niżbym chciała, ale coś mi mówi, że nie z miejsca, gdzie zdechło coś dużego. Dobra. Masz dwa napary i moje uznanie, które nic niewarte, ale lepsze to niż figa.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "szara_trzcina"
+        },
+        {
+          "setFlag": "trzcina_oddana"
+        }
+      ]
+    }
+  }
+}

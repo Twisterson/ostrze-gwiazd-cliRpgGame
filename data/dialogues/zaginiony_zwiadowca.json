@@ -1,0 +1,64 @@
+{
+  "id": "zaginiony_zwiadowca",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Zaginiony zwiadowca",
+      "text": "We mgle siedzi człowiek w podartym płaszczu z godłem cesarza. Otwiera usta, ale nic z nich nie wychodzi, ani szept. Patrzy na ciebie i nie wiadomo, czy się cieszy, czy boi.",
+      "options": [
+        {
+          "id": "znajdz",
+          "text": "Podejdź do niego i wskaż drogę wyjścia.",
+          "goto": "znaleziony",
+          "requires": {
+            "questStatus": {
+              "id": "mgla_ciszy",
+              "is": "active"
+            },
+            "notFlag": "zwiadowca_znaleziony"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "znaleziony": {
+      "speaker": "Zaginiony zwiadowca",
+      "text": "Zwiadowca łapie cię za rękaw jak tonący za linę. Pokazuje na gardło, potem na uszy, potem na mgłę. Już wiesz, że tak będzie wyglądać cała gadka. Kiwa głową. Przy twoim boku wyjdzie z mgły, byleś tylko nie pogubił dróg.",
+      "options": [
+        {
+          "id": "wyprowadz",
+          "text": "Wyprowadź go ze mgły.",
+          "goto": "wyprowadzony"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "zwiadowca_znaleziony"
+        }
+      ]
+    },
+    "wyprowadzony": {
+      "speaker": "Zaginiony zwiadowca",
+      "text": "Idziecie ręka w rękę, co pół kroku tracisz rozeznanie, gdzie przód, a gdzie tył, ale on prowadzi, jakby nogi same pamiętały ścieżkę. Gdy mgła rzednie, dźwięk wraca jak cios obuchem w łeb. Zwiadowca chrypi: „Dzięki. Nazywam się Tomasz.” I od razu milknie, jakby chlapnął za dużo.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "zwiadowca_wyprowadzony"
+        },
+        {
+          "time": 60
+        }
+      ]
+    }
+  }
+}

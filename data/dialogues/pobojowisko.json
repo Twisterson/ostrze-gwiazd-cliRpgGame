@@ -1,0 +1,133 @@
+{
+  "id": "pobojowisko",
+  "start": "rozejrzenie",
+  "nodes": {
+    "rozejrzenie": {
+      "speaker": "Pobojowisko",
+      "text": "Ranek jest bezczelnie spokojny. Trawa paruje rosą, a w niej leżą ci, z którymi wczoraj łamałeś chleb. Obok ich tobołki, rozwleczone jak po rabunku, i jeden więcej: cudzy, rzucony w pół kroku. Przewodnika nie ma wśród ciał. Zając też nie zostawia śladów, kiedy wieje.",
+      "options": [
+        {
+          "id": "skarimir",
+          "text": "Przeszukaj ciało Skarimira.",
+          "requires": {
+            "notFlag": "pobojowisko_skarimir"
+          },
+          "goto": "skarimir"
+        },
+        {
+          "id": "ragnoslawa",
+          "text": "Przeszukaj ciało Ragnosławy.",
+          "requires": {
+            "notFlag": "pobojowisko_ragnoslawa"
+          },
+          "goto": "ragnoslawa"
+        },
+        {
+          "id": "wojmir",
+          "text": "Przeszukaj ciało Wojmira.",
+          "requires": {
+            "notFlag": "pobojowisko_wojmir"
+          },
+          "goto": "wojmir"
+        },
+        {
+          "id": "tobolek",
+          "text": "Zajrzyj do tobołka przewodnika.",
+          "requires": {
+            "notFlag": "pobojowisko_przewodnik"
+          },
+          "goto": "tobolek"
+        },
+        {
+          "id": "dalej",
+          "text": "Dość. Idę dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skarimir": {
+      "speaker": "Pobojowisko",
+      "text": "Skarimir ściska jeszcze w garści sztylet, jakby wciąż miał komuś nim odpowiedzieć. Rozginasz mu zesztywniałe palce bez złości. Umarły nie będzie się sądził o swoje, a ty masz przed sobą kawał drogi.",
+      "actions": [
+        {
+          "setFlag": "pobojowisko_skarimir"
+        },
+        {
+          "giveItem": "sztylet"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rozglądam się dalej.",
+          "goto": "rozejrzenie"
+        }
+      ]
+    },
+    "ragnoslawa": {
+      "speaker": "Pobojowisko",
+      "text": "Ragnosława leży twarzą ku niebu, z miną kogoś, kto się z góry na wszystko obraził. W jej torbie są czyste opatrunki, a na szyi wytarta blaszka strażniczego znaku. Bierzesz jedno i drugie, bo żywym się przyda.",
+      "actions": [
+        {
+          "setFlag": "pobojowisko_ragnoslawa"
+        },
+        {
+          "giveItem": {
+            "id": "opatrunek",
+            "qty": 2
+          }
+        },
+        {
+          "giveItem": "amulet_strazniczy"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rozglądam się dalej.",
+          "goto": "rozejrzenie"
+        }
+      ]
+    },
+    "wojmir": {
+      "speaker": "Pobojowisko",
+      "text": "Wojmir miał więcej rozumu niż siły i ani jedno, ani drugie nic mu dziś nie dało. W jego tobołku prowiant na dwa dni i nic więcej, czym by się kto chwalił.",
+      "actions": [
+        {
+          "setFlag": "pobojowisko_wojmir"
+        },
+        {
+          "giveItem": {
+            "id": "prowiant",
+            "qty": 2
+          }
+        }
+      ],
+      "options": [
+        {
+          "text": "Rozglądam się dalej.",
+          "goto": "rozejrzenie"
+        }
+      ]
+    },
+    "tobolek": {
+      "speaker": "Pobojowisko",
+      "text": "Przewodnik wiał tak prędko, że zostawił nawet swój tobołek. Z jego dna wygrzebujesz zatłuszczony szkic drogi: rzeka, bród, strażnica i ścieżka w las, którą ktoś zaznaczył na wszelki wypadek. Jedyny, kto znał cel, jedyny zniknął, ale mapa została.",
+      "actions": [
+        {
+          "setFlag": "pobojowisko_przewodnik"
+        },
+        {
+          "giveItem": "mapa_przewodnika"
+        },
+        {
+          "hint": "wilczy_las"
+        }
+      ],
+      "options": [
+        {
+          "text": "Rozglądam się dalej.",
+          "goto": "rozejrzenie"
+        }
+      ]
+    }
+  }
+}

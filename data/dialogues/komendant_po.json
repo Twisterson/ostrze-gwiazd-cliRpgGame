@@ -1,0 +1,99 @@
+{
+  "id": "komendant_po",
+  "start": "po",
+  "nodes": {
+    "po": {
+      "speaker": "Komendant Wszebor",
+      "text": "Komendant nie odrywa oczu od zupy. „A, to ty. Czego? Chyba że się nudzisz, bo wtedy mam dla ciebie parę roboty, a żadna nie pachnie różami.”",
+      "options": [
+        {
+          "text": "Masz dla mnie robotę?",
+          "goto": "robota",
+          "id": "robota",
+          "requires": {
+            "questStatus": {
+              "id": "list_do_lesniczego",
+              "is": "none"
+            },
+            "notFlag": "list_odpowiedz"
+          }
+        },
+        {
+          "text": "Podsłuchałem zwiadowców na trakcie.",
+          "goto": "ocalali",
+          "id": "ocalali",
+          "requires": {
+            "flag": "zwiadowcy_slysza",
+            "notFlag": "akt3_zapowiedz"
+          }
+        },
+        {
+          "text": "Leśniczy kazał ci powiedzieć o ścieżkach.",
+          "goto": "odpowiedz",
+          "id": "odpowiedz",
+          "requires": {
+            "flag": "lesniczy_list",
+            "notFlag": "list_odpowiedz"
+          }
+        },
+        {
+          "text": "Bywaj.",
+          "goto": "end",
+          "id": "bywaj"
+        }
+      ]
+    },
+    "robota": {
+      "speaker": "Komendant Wszebor",
+      "text": "„Zanieś ten list leśniczemu. Za lasem, po drugiej stronie. Nie czytaj.” Komendant podsuwa kartkę z pieczęcią i patrzy w bok. „A jak przeczytasz, to rób głupiego, że nie wiesz, co tam stoi.”",
+      "options": [
+        {
+          "text": "Zaniosę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "list_do_lesniczego"
+        },
+        {
+          "giveItem": "list_komendanta"
+        },
+        {
+          "reveal": "lesniczowka"
+        }
+      ]
+    },
+    "ocalali": {
+      "speaker": "Komendant Wszebor",
+      "text": "Komendant odkłada łyżkę, a to nigdy nie wróży nic dobrego. „Pytają o ocalałych ze szkoły. O jednego. Wiedzą, że ktoś przeżył, i mają jego rysopis: młody, w mundurze, błoto po kolana. Nie znasz przypadkiem takiego?”",
+      "options": [
+        {
+          "text": "Nie mam pojęcia, o kim mówisz.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "akt3_zapowiedz"
+        }
+      ]
+    },
+    "odpowiedz": {
+      "speaker": "Komendant Wszebor",
+      "text": "„Patrole mają się trzymać traktu, bo las to wymysł zbójców. Czyli w lesie dzieje się wszystko, co najgorsze. Dobra. Masz za fatygę i nie wracaj z gorszymi wieściami, bo nie zdzierżę.”",
+      "options": [
+        {
+          "text": "Postaram się.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "list_odpowiedz"
+        }
+      ]
+    }
+  },
+  "portrait": "portret_wszebor"
+}

@@ -1,0 +1,93 @@
+{
+  "id": "dozorca",
+  "portrait": "portret_wincenty",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Dozorca Wincenty",
+      "text": "Dozorca Wincenty siedzi na kamieniu przed sztolnią i żuje źdźbło, jakby i ono mu zbrzydło. Smakuje mu już tylko narzekanie. „Kamień gryzie, ludzie giną, a cesarz podatek ściąga. Czego?”",
+      "options": [
+        {
+          "id": "q7_start",
+          "text": "Coś się stało w sztolni?",
+          "goto": "q7_start",
+          "requires": {
+            "questStatus": {
+              "id": "rannego_nie_zostawia_sie",
+              "is": "none"
+            }
+          }
+        },
+        {
+          "id": "q7_koniec",
+          "text": "Zająłem się twoim rannym.",
+          "goto": "q7_koniec",
+          "requires": {
+            "flag": "ranny_pomoc",
+            "notFlag": "dozorca_zamkniete",
+            "questStatus": {
+              "id": "rannego_nie_zostawia_sie",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "ranny_po",
+          "text": "Jak twój górnik?",
+          "goto": "ranny_po",
+          "requires": {
+            "flag": "ranny_opatrzony"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "q7_start": {
+      "speaker": "Dozorca Wincenty",
+      "text": "Wincenty wypluwa źdźbło. „Wczoraj podpora puściła i przysypało jednego z moich. Poharatany, ale dycha, bo twardy jak korzeń. Ja się na opatrunkach nie znam, a do znachorki kawał drogi. Zajrzyj do sztolni i zrób, co umiesz. Jak nie umiesz opatrywać, to chociaż zanieś go do Dobrawy w Głuszcu. Byle nie zostawiać, jak leży, bo licho tylko na to czeka.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "rannego_nie_zostawia_sie"
+        }
+      ]
+    },
+    "q7_koniec": {
+      "speaker": "Dozorca Wincenty",
+      "text": "Wincenty ściąga czapkę, a u niego to tyle co wypić za czyjeś zdrowie. „Dobra. Porządny z ciebie człowiek, choć czart wie, skąd się tacy biorą w te czasy. Weź osiemnaście groszy z kasy kamieniołomu. Więcej nie ma, bo kamień schodzi wolno jak smoła.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "dozorca_zamkniete"
+        }
+      ]
+    },
+    "ranny_po": {
+      "speaker": "Dozorca Wincenty",
+      "text": "Wincenty prawie się uśmiecha. „Łazi o lasce i klnie na każdego, kto mu kazał leżeć. Gada, że noga lepsza niż przed wypadkiem. Nie wierzę, ale niech gada. Dobry z ciebie felczer, choć pewnie sam to wiesz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

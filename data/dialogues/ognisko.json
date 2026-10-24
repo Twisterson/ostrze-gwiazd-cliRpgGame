@@ -1,0 +1,216 @@
+{
+  "id": "ognisko",
+  "start": "ogien",
+  "nodes": {
+    "ogien": {
+      "speaker": "Popas przy ognisku",
+      "text": "Popas nad strumieniem. Skarimir grzebie patykiem w żarze i sypie żartami, Ragnosława ostrzy włócznię i na nikogo nie patrzy, a Wojmir siedzi tak blisko ognia, że mu się onuce kopcą. Nikt nie wspomina, dokąd idziecie. Nie wywołuje się wilka z lasu.",
+      "options": [
+        {
+          "id": "skarimir",
+          "text": "Posłuchaj Skarimira.",
+          "requires": {
+            "notFlag": "og_skarimir"
+          },
+          "goto": "skarimir"
+        },
+        {
+          "id": "ragnoslawa",
+          "text": "Zagadnij Ragnosławę.",
+          "requires": {
+            "notFlag": "og_ragnoslawa"
+          },
+          "goto": "ragnoslawa"
+        },
+        {
+          "id": "wojmir",
+          "text": "Usiądź przy Wojmirze.",
+          "requires": {
+            "notFlag": "og_wojmir"
+          },
+          "goto": "wojmir"
+        },
+        {
+          "id": "dalej",
+          "text": "Ruszamy dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skarimir": {
+      "speaker": "Skarimir",
+      "text": "„Wiecie, co bym zrobił z cesarską daniną? Zeżarł! Najpierw pieczeń, potem pisarczyka, a na zagryzkę kuriera!” Wojmir blednie, a Skarimir zanosi się rechotem tak, że opluwa ognisko.",
+      "portrait": "portret_skarimir",
+      "options": [
+        {
+          "id": "smiech",
+          "text": "Zaśmiej się razem z nim.",
+          "goto": "skarimir_smiech"
+        },
+        {
+          "id": "cicho",
+          "text": "Powiedz, żeby przestał straszyć chłopaka.",
+          "goto": "skarimir_cicho"
+        }
+      ]
+    },
+    "skarimir_smiech": {
+      "speaker": "Skarimir",
+      "text": "„Ha! Będą jeszcze z ciebie ludzie!” Dorzuca patyk do ognia. „Jak nas zjedzą, to przynajmniej ze smakiem.”",
+      "portrait": "portret_skarimir",
+      "actions": [
+        {
+          "setFlag": "og_skarimir"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dalej.",
+          "goto": "ogien"
+        }
+      ]
+    },
+    "skarimir_cicho": {
+      "speaker": "Skarimir",
+      "text": "Skarimir unosi łapy, jakby się poddawał. „Już dobra, już milczę. Ale mówię ci, w smutku to i woda kwaśnieje.”",
+      "portrait": "portret_skarimir",
+      "actions": [
+        {
+          "setFlag": "og_skarimir"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dalej.",
+          "goto": "ogien"
+        }
+      ]
+    },
+    "ragnoslawa": {
+      "speaker": "Ragnosława",
+      "text": "„Pytałam mistrza, po co czterech i czemu akurat my”, mruczy Ragnosława, nie przerywając ostrzenia. „Odburknął, że rozkazy nie są od myślenia. A ty co myślisz?”",
+      "portrait": "portret_ragnoslawa",
+      "options": [
+        {
+          "id": "posluch",
+          "text": "Rozkaz to rozkaz. Trzeba go wykonać.",
+          "actions": [
+            {
+              "addVar": {
+                "dlug": 1
+              }
+            }
+          ],
+          "goto": "ragnoslawa_posluch"
+        },
+        {
+          "id": "sprawdz",
+          "text": "Rozkazy trzeba najpierw sprawdzić.",
+          "actions": [
+            {
+              "addVar": {
+                "wola": 1
+              }
+            }
+          ],
+          "goto": "ragnoslawa_sprawdz"
+        }
+      ]
+    },
+    "ragnoslawa_posluch": {
+      "speaker": "Ragnosława",
+      "text": "Ragnosława kiwa głową, choć minę ma, jakby się ością zadławiła. „Pewnie masz rację. Szkoda tylko, że od rozkazów nikt jeszcze nie utył.”",
+      "portrait": "portret_ragnoslawa",
+      "actions": [
+        {
+          "setFlag": "og_ragnoslawa"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dalej.",
+          "goto": "ogien"
+        }
+      ]
+    },
+    "ragnoslawa_sprawdz": {
+      "speaker": "Ragnosława",
+      "text": "Ragnosława uśmiecha się krzywo, pierwszy raz od rana. „Zapamiętam, żeś to rzekł. Może się kiedy przyda.”",
+      "portrait": "portret_ragnoslawa",
+      "actions": [
+        {
+          "setFlag": "og_ragnoslawa"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dalej.",
+          "goto": "ogien"
+        }
+      ]
+    },
+    "wojmir": {
+      "speaker": "Wojmir Cienki",
+      "text": "Wojmir odsuwa się o piędź, robiąc ci miejsce. „Ja… nie jestem jak oni. Włócznią nie rzucam, żartować nie umiem. Umiem tylko pisać.” Gapi się w żar. „Boję się, że to za mało.”",
+      "portrait": "portret_wojmir",
+      "options": [
+        {
+          "id": "cieplo",
+          "text": "Podziel się z nim prowiantem.",
+          "goto": "wojmir_cieplo"
+        },
+        {
+          "id": "milczenie",
+          "text": "Milcz i patrz w ogień.",
+          "goto": "wojmir_milczenie"
+        }
+      ]
+    },
+    "wojmir_cieplo": {
+      "speaker": "Wojmir Cienki",
+      "text": "Wojmir bierze kawałek chleba, jakby dostał skarb. „Bóg zapłać. Jak będę mógł się odwdzięczyć, to… no, napiszę ci laurkę.” Śmieje się nerwowo i pierwszy raz ramiona mu opadają.",
+      "portrait": "portret_wojmir",
+      "actions": [
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        },
+        {
+          "setFlag": "towarzysze_zaufanie"
+        },
+        {
+          "setFlag": "og_wojmir"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dalej.",
+          "goto": "ogien"
+        }
+      ]
+    },
+    "wojmir_milczenie": {
+      "speaker": "Wojmir Cienki",
+      "text": "Siedzicie obok siebie w milczeniu, a ogień trzaska za was obu. Po jakimś czasie Wojmir zasypia na siedząco, z piórem w garści.",
+      "portrait": "portret_wojmir",
+      "actions": [
+        {
+          "setFlag": "og_wojmir"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dalej.",
+          "goto": "ogien"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,212 @@
+{
+  "id": "kowal_gluszec",
+  "portrait": "portret_bogdan",
+  "start": "kuznia",
+  "nodes": {
+    "kuznia": {
+      "speaker": "Kowal Bogdan",
+      "text": "Kowal Bogdan wali w żelazo, jakby to ono mu pieniądze wisiało. „Podkowy, kosy, haki, gwoździe. Mieczy nie kuję, bo cesarz ma na nie monopol i pilnuje go lepiej niż własnych żon. Czego?”",
+      "options": [
+        {
+          "id": "interes",
+          "text": "Jak interesy?",
+          "goto": "interes"
+        },
+        {
+          "id": "miecz",
+          "text": "A broń na sprzedaż?",
+          "goto": "bron"
+        },
+        {
+          "id": "q4_kg",
+          "text": "Znachorka mówi, że ktoś nocą cię odwiedza z bukłakiem.",
+          "goto": "q4_kg",
+          "requires": {
+            "questStatus": {
+              "id": "kto_sprzedal_ocalalego",
+              "is": "active"
+            },
+            "flag": "znachorka_wskazala",
+            "notFlag": "kowal_wskazal"
+          }
+        },
+        {
+          "id": "technologia",
+          "text": "Znam kamienie z nieba. Wiem, co potrafią.",
+          "goto": "technologia",
+          "requires": {
+            "flag": "technologia_wiedza"
+          }
+        },
+        {
+          "id": "q5_start",
+          "text": "Czego się obawiasz w tej okolicy?",
+          "goto": "q5_start",
+          "requires": {
+            "questStatus": {
+              "id": "zwiad_na_wzgorzu",
+              "is": "none"
+            },
+            "flag": "soltys_potwierdzil"
+          }
+        },
+        {
+          "id": "q5_koniec",
+          "text": "Byłem na wzgórzu. Widziałem czerwone płaszcze.",
+          "goto": "q5_koniec",
+          "requires": {
+            "flag": "wzgorze_zwiad",
+            "notFlag": "kowal_zwiad_zamkniety",
+            "questStatus": {
+              "id": "zwiad_na_wzgorzu",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q6_kuj",
+          "text": "Siostra Halina przysłała wosk do pieczęci.",
+          "goto": "q6_kuj",
+          "requires": {
+            "item": "wosk_pieczetny",
+            "notFlag": "papiery_falszywe",
+            "questStatus": {
+              "id": "falszywe_papiery",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "papiery_po",
+          "text": "Jak wyglądają moje papiery?",
+          "goto": "papiery_po",
+          "requires": {
+            "flag": "papiery_falszywe"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "interes": {
+      "speaker": "Kowal Bogdan",
+      "text": "„Kuję konie cesarskim posłańcom, co płacą kwitem, i chłopom, co płacą jajami. Jaja przynajmniej można zjeść. Kwit można najwyżej spalić, a i to marny z niego ogień.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wiadomo.",
+          "goto": "kuznia"
+        }
+      ]
+    },
+    "bron": {
+      "speaker": "Kowal Bogdan",
+      "text": "„Broń? Widły ci wystarczą. Jak chcesz czegoś porządniejszego, to u handlarza w kramach, ale on kupuje od złodziei i ceny ma złodziejskie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "kuznia"
+        }
+      ]
+    },
+    "q4_kg": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan przestaje bić w żelazo, a to u niego tyle co spowiedź. „Pielgrzym. Przyłazi, pije, wypytuje o gości w karczmie i o to, kto przyjechał zza przełęczy. Kupuje gwoździe i płaci monetą z cesarskim orłem. Powiedz sołtysowi, że to ten z traktu, i że ja się nie boję, tylko uważam.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Powiem.",
+          "goto": "kuznia"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "kowal_wskazal"
+        }
+      ]
+    },
+    "technologia": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan odkłada młot i patrzy na ciebie długo. „Wiesz? To się tym przy ludziach nie chwal. W Głuszcu kamień z nieba to nie dziwo, tylko wyrok. Jak zechcesz kiedyś o tym pogadać na spokojnie, wiesz, gdzie kuźnia.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Przyjdę.",
+          "goto": "kuznia"
+        }
+      ]
+    },
+    "q5_start": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan wyciera łapy w skórzany fartuch i ścisza głos. „Na wzgórzu za kapliczką ktoś pali ogień. Nie pastuch, bo pastuch nie ma po co. Idź tam, rozejrzyj się, wróć i powiedz, coś widział. Jak cesarscy, chcę wiedzieć, ilu. Jak nie, chcę wiedzieć, kto, bo wolę sąsiadów, których znam.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pójdę.",
+          "goto": "kuznia"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "zwiad_na_wzgorzu"
+        },
+        {
+          "reveal": "wzgorze_wartownicze"
+        }
+      ]
+    },
+    "q5_koniec": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan słucha z kamienną gębą i dopiero na końcu przełyka ślinę. „Czerwone płaszcze, ognisko i warta co dwie godziny. Znaczy, zostają. Lepiej wiedzieć wcześniej niż za późno. A i na cmentarzu po nocach robi się ciekawie, ale to już nie moja sprawa. Masz dziesięć groszy i radę: nie łaź tamtędy w tym, co masz na grzbiecie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dziękuję za radę.",
+          "goto": "kuznia"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "kowal_zwiad_zamkniety"
+        }
+      ]
+    },
+    "q6_kuj": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan wącha wosk, kiwa głową i chowa go do skrzynki. „Papiery? Zrobię. Kowal z cesarską pieczęcią to paskudne połączenie, ale kto powiedział, że mam żyć bezpiecznie? Poczekaj chwilę, będzie jak oryginał. Prawie. Nikt nie sprawdza, czy prawdziwe, tylko patrzy na minę.” Po chwili kładzie przed tobą świstek, co pachnie dymem i szachrajstwem.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bóg zapłać.",
+          "goto": "kuznia"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "wosk_pieczetny"
+        },
+        {
+          "setFlag": "papiery_falszywe"
+        },
+        {
+          "search": -15
+        }
+      ]
+    },
+    "papiery_po": {
+      "speaker": "Kowal Bogdan",
+      "text": "„Na pierwszy rzut oka cesarskie, na drugi niby też. Nie pokazuj ich nikomu, kto przeczytał więcej niż pięć stron. A jak kto spyta, czyje papiery, mów, że kuzyna. Każdy ma jakiegoś kuzyna.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kuznia"
+        }
+      ]
+    }
+  }
+}

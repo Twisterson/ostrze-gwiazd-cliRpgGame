@@ -1,0 +1,140 @@
+{
+  "id": "kurier",
+  "portrait": "portret_kurier",
+  "start": "przybycie",
+  "nodes": {
+    "przybycie": {
+      "speaker": "Cesarski kurier",
+      "text": "Kurier w czerwonym płaszczu zwala się z siodła i wyciąga zwój z pieczęcią większą niż jego sumienie. Gnieworad czyta w milczeniu, a szczęka chodzi mu, jakby żuł gwóźdź. Kurier wodzi wzrokiem po uczniach jak rzeźnik po oborze.",
+      "options": [
+        {
+          "id": "wymowa",
+          "text": "Co tam wiozisz, kurierze?",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 40
+          },
+          "requires": {
+            "notFlag": "rozkaz_danina"
+          },
+          "success": "tresc",
+          "failure": "odprawa"
+        },
+        {
+          "id": "podsluch",
+          "text": "Wsłuchaj się w to, co mówią.",
+          "check": {
+            "skill": "skradanie",
+            "difficulty": 35
+          },
+          "requires": {
+            "notFlag": "rozkaz_bez_powrotu"
+          },
+          "success": "podsluch_ok",
+          "failure": "podsluch_zle"
+        },
+        {
+          "id": "pokora",
+          "text": "Przyjmuję rozkaz.",
+          "goto": "pokora"
+        },
+        {
+          "id": "pyskowka",
+          "text": "Mnie nikt nie pyta?",
+          "goto": "pyskowka"
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "tresc": {
+      "speaker": "Cesarski kurier",
+      "text": "Kurier prycha przez nos, ale rozkaz nie jest tajny, tylko nie w smak. „Cesarz życzy sobie młodych adeptów w stolicy. Czterech z tej budy, imiona wpisane z góry. Zaszczyt, jak powiadają ci, co sami nigdzie nie jadą.”",
+      "actions": [
+        {
+          "setFlag": "rozkaz_danina"
+        }
+      ],
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "przybycie"
+        }
+      ]
+    },
+    "odprawa": {
+      "speaker": "Cesarski kurier",
+      "text": "„Wiozę, co mi dali, wiejski chłopcze. Pytania zostaw urzędnikom, oni przynajmniej biorą za to grosz.” Kurier obraca się plecami, aż płaszcz furczy.",
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "przybycie"
+        }
+      ]
+    },
+    "podsluch_ok": {
+      "speaker": "Zza węgła",
+      "text": "Z gadki przy koniu wyłapujesz strzępy: „…do stolicy… imiona wpisane… a po powrocie?” – „Jakim powrocie?” I śmiech, od którego nikomu nie robi się wesoło. O drodze z powrotem nikt tu nie piśnie ani słowem.",
+      "actions": [
+        {
+          "setFlag": "rozkaz_bez_powrotu"
+        }
+      ],
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "przybycie"
+        }
+      ]
+    },
+    "podsluch_zle": {
+      "speaker": "Cesarski kurier",
+      "text": "Kurier przyłapuje cię na podsłuchiwaniu i patrzy tak, że zimno idzie ci aż do pięt. „Chłopcze, uszy jeszcze ci się przydadzą. Nie nadstawiaj ich, gdzie nie trzeba.”",
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "przybycie"
+        }
+      ]
+    },
+    "pokora": {
+      "speaker": "Mistrz Gnieworad",
+      "text": "„Tak gada ten, co wie, że łeb ma jeden.” Gnieworad kiwa głową, jakbyś zdał egzamin ważniejszy niż wszystkie, a kurier już na ciebie nie patrzy.",
+      "portrait": "portret_gnieworad",
+      "actions": [
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "pyskowka": {
+      "speaker": "Mistrz Gnieworad",
+      "text": "„Pyta się!” Gnieworad prycha, ale kącik ust mu drga. „Nikt cię nie pyta, tak jak konia nikt nie pyta, dokąd go zaprzęgają. Ale dobrze, żeś gębę ma, psiakrew.”",
+      "portrait": "portret_gnieworad",
+      "actions": [
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

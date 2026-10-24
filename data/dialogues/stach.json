@@ -1,0 +1,122 @@
+{
+  "id": "stach",
+  "portrait": "portret_stach",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Kłusownik Stach",
+      "text": "Zza buka wyłazi chudy chłop z workiem na plecach i gębą kogoś, kogo tu nigdy nie było. „Ja? W lesie? A co, szyszek zbierać nie wolno?”",
+      "options": [
+        {
+          "id": "q1_sidla",
+          "text": "Gajowy mówi, że to twoje sidła w borze.",
+          "goto": "q1_rozmowa",
+          "requires": {
+            "questStatus": {
+              "id": "klusownik_i_gajowy",
+              "is": "active"
+            },
+            "notFlag": "stach_rozmowa"
+          }
+        },
+        {
+          "id": "po_wyd",
+          "text": "Gajowy wie o sidłach.",
+          "goto": "po_wyd",
+          "requires": {
+            "flag": "stach_wydany"
+          }
+        },
+        {
+          "id": "po_osz",
+          "text": "Gajowy nie wie o niczym.",
+          "goto": "po_osz",
+          "requires": {
+            "flag": "stach_oszczedzony"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "q1_rozmowa": {
+      "speaker": "Kłusownik Stach",
+      "text": "Stach wypuszcza powietrze, jakby je od tygodnia trzymał. „Moje, nie moje. Dzieciak głodny, baba kaszle, a cesarz bierze podatek od każdej kury. Sidła są na zające, rogacze same włażą, bo głupie. Doniesiesz gajowemu czy dasz człowiekowi żyć?”",
+      "options": [
+        {
+          "id": "wydaj",
+          "text": "Powiem gajowemu, gdzie sidła.",
+          "goto": "q1_wydaj"
+        },
+        {
+          "id": "oszczedz",
+          "text": "Powiem, że niczego nie widziałem.",
+          "goto": "q1_oszczedz"
+        }
+      ]
+    },
+    "q1_wydaj": {
+      "speaker": "Kłusownik Stach",
+      "text": "Stach spluwa ci pod nogi i w oczy nie patrzy. „To idź. Ale zapamiętaj: kto raz wyda biedaka, ten już zawsze kogoś na sumieniu nosi. Nawet jak ma rację.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "stach_rozmowa"
+        },
+        {
+          "setFlag": "stach_wydany"
+        }
+      ]
+    },
+    "q1_oszczedz": {
+      "speaker": "Kłusownik Stach",
+      "text": "Stach marszczy brwi, jakby wypatrywał haczyka. „Nic nie widziałeś? Dobra. Ja też nic nie robiłem. Tylko pamiętaj, sidła w borze są pod bukiem, nie pod dębem, jakby kto pytał.” Machnięciem ręki daje znać, żeś teraz jego dłużnik.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "stach_rozmowa"
+        },
+        {
+          "setFlag": "stach_oszczedzony"
+        }
+      ]
+    },
+    "po_wyd": {
+      "speaker": "Kłusownik Stach",
+      "text": "Stach nie odpowiada od razu. „Wiem, że on wie. Przeniosłem sidła za strumień i nauczyłem się na ciebie nie patrzeć. Każdy coś na sumieniu ma, ale ja przynajmniej nie udaję, że nie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem, rozumiem.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "po_osz": {
+      "speaker": "Kłusownik Stach",
+      "text": "Stach prycha, ale kącik gęby mu drga. „Nic nie wie, bo nic nie widział, bo ja dobrze chowam. Ale pamiętam. Jak kiedy będziesz głodny, wiesz, gdzie mnie szukać. Nie w lesie. W lesie mnie nie ma.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

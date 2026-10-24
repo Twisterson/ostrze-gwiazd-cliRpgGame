@@ -1,0 +1,17 @@
+{
+  "id": "komendant_odburk",
+  "portrait": "portret_wszebor",
+  "start": "odburk",
+  "nodes": {
+    "odburk": {
+      "speaker": "Komendant Wszebor",
+      "text": "„Ty jeszcze tutaj? Wataha sama się nie wybije, a mnie zupa stygnie od twojego gapienia. Marsz do wąwozu, psia mać, nim owce skończą się razem z moją cierpliwością.”",
+      "options": [
+        {
+          "text": "Już idę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

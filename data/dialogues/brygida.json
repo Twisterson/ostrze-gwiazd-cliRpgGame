@@ -1,0 +1,339 @@
+{
+  "id": "brygida",
+  "portrait": "portret_brygida",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida wyłazi spod blachy, gęba w smarze, nóż w zębach. „Czego? Masz coś zepsutego, to połóż, a jak nie, to zejdź mi z drogi. Mam tu trzy maszyny i cztery humory, a każdy gorszy.”",
+      "options": [
+        {
+          "id": "maszyny",
+          "text": "Nad czym tu pracujesz?",
+          "goto": "maszyny"
+        },
+        {
+          "id": "poznanie",
+          "text": "Hieronim kazał mi się z tobą zapoznać.",
+          "goto": "poznanie",
+          "requires": {
+            "questStatus": {
+              "id": "przyjecie_w_obserwatorium",
+              "is": "active"
+            },
+            "notFlag": "brygida_poznana"
+          }
+        },
+        {
+          "id": "q4_start",
+          "text": "Masz coś, czego nie potrafisz wyjąć z wraku?",
+          "goto": "q4_start",
+          "requires": {
+            "questStatus": {
+              "id": "wrak_maszyny",
+              "is": "none"
+            },
+            "flag": "brygida_poznana"
+          }
+        },
+        {
+          "id": "q4_koniec",
+          "text": "Mam rdzeń z wraku.",
+          "goto": "q4_koniec",
+          "requires": {
+            "item": "rdzen_maszyny",
+            "questStatus": {
+              "id": "wrak_maszyny",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "rdzen_slucham",
+          "text": "Czy rdzeń już działa? Chcę posłuchać.",
+          "goto": "rdzen_slucham",
+          "requires": {
+            "questStatus": {
+              "id": "dlug_istoty_zlecenie",
+              "is": "none"
+            },
+            "flag": "rdzen_oddany"
+          }
+        },
+        {
+          "id": "rdzen_po_a",
+          "text": "Rdzeń znów brzęczy.",
+          "goto": "rdzen_po_a",
+          "requires": {
+            "flag": "dlug_przyjety"
+          }
+        },
+        {
+          "id": "rdzen_po_b",
+          "text": "Rdzeń znów brzęczy.",
+          "goto": "rdzen_po_b",
+          "requires": {
+            "flag": "dlug_odrzucony"
+          }
+        },
+        {
+          "id": "q10_brygida",
+          "text": "Hieronim kazał mi się z tobą pożegnać.",
+          "goto": "q10_brygida",
+          "requires": {
+            "questStatus": {
+              "id": "przygotowania",
+              "is": "active"
+            },
+            "notFlag": "brygida_pozegnanie"
+          }
+        },
+        {
+          "id": "w_toku",
+          "text": "Jak z rdzeniem?",
+          "goto": "w_toku",
+          "requires": {
+            "questStatus": {
+              "id": "wrak_maszyny",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "maszyny": {
+      "speaker": "Mechanik Brygida",
+      "text": "„Nad tym, co zostało po upadku. Blaszane żebra, miedziane żyły i coś, co kiedyś mogło być sercem. Hieronim gada, że to maszyna astronomiczna. Ja mówię, że to maszyna do robienia ludziom biedy. Jedno drugiemu nie przeczy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Brzmi groźnie.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "poznanie": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida mierzy cię od kopyt do czupryny i wzdycha, jakby jej kazali wychować kolejnego ucznia na zmarnowanie. „Hieronim cię przysłał, bo sam się boi. No dobra. Niczego nie ruszaj bez pytania, nie pytaj o nic, co się rusza samo, i nie pij z tej butli, bo to nie woda, psiakrew. Jakoś się dogadamy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "brygida_poznana"
+        }
+      ]
+    },
+    "q4_start": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida wyciera łapy w szmatę, w której więcej łoju niż płótna. „W sercu wraku siedzi rdzeń. Walec z miedzi i szkła. Jak go wyjmę, to może pojmę, co to w ogóle za licho było. Ale moje ręce tam nie wejdą. Twoje chudsze. Wleź, wyjmij, wróć, a pokażę ci, jak wygląda wdzięczność, co nie tylko gębą gada.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "wrak_maszyny"
+        },
+        {
+          "reveal": "wrak_maszyny"
+        },
+        {
+          "reveal": "menhiry"
+        }
+      ]
+    },
+    "q4_koniec": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida bierze walec oburącz jak niemowlę i długo milczy. „Ciężki. Ciepły. I bije, słyszysz? Jak serce, psiamać. Dobra robota. Tyle mam: kilka groszy, kilka papierów i to paskudne czucie, że wyciągnęliśmy z ziemi coś, co powinno było w niej zgnić. No. Dzięki ci.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "rdzen_maszyny"
+        },
+        {
+          "setFlag": "rdzen_oddany"
+        }
+      ]
+    },
+    "rdzen_slucham": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida patrzy na ciebie jak na durnia, co prosi, żeby go wpuścić do pieca. „Działa. Od trzech dni brzęczy mi pod stołem, a czart wie czemu. Słuchaj, tylko potem gadaj, co słyszałeś, bo ja słyszę samo brzęczenie. I niczego nie dotykaj poza uchem.” Przykłada ci walec do ucha, a świat cichnie jak pod śniegiem.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham.",
+          "goto": "istota_rdzen"
+        }
+      ]
+    },
+    "istota_rdzen": {
+      "speaker": "Głos z rdzenia",
+      "text": "Głos ten sam, co po rzezi, tylko cichszy, jakby szedł z bardzo daleka. „Wróciłeś. Nie spodziewałem się. Jesteś mi dłużny, a ja mam to, czego szukasz: wiedzę o tym, co spada z nieba. Dam ci ją, jeśli uznasz dług. Mogę też milczeć, jeśli wolisz być wolny. Wybór twój, ale wybieraj teraz.”",
+      "options": [
+        {
+          "id": "przyjmij",
+          "text": "Uznaję dług i biorę wiedzę.",
+          "goto": "dlug_przyjety"
+        },
+        {
+          "id": "pamietam",
+          "text": "Pamiętam dług. Mów.",
+          "goto": "dlug_pamietam",
+          "requires": {
+            "flag": "dlug_istoty"
+          }
+        },
+        {
+          "id": "odrzuc",
+          "text": "Nie jestem twoim dłużnikiem.",
+          "goto": "dlug_odrzucony"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "dlug_istoty_zlecenie"
+        }
+      ]
+    },
+    "dlug_przyjety": {
+      "speaker": "Głos z rdzenia",
+      "text": "»Dobrze.« Pod czaszką rozlewa się obraz: kratery, w których nic nie rośnie, smugi światła na niebie i coś wielkiego, co spada powoli, jakby nie chciało nikogo skrzywdzić. »Dług zaciągnięty. Zapamiętam.« Rdzeń milknie, a Brygida patrzy na ciebie, jakby zobaczyła strzygę.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "addVar": {
+            "dlug": 2
+          }
+        },
+        {
+          "setFlag": "dlug_przyjety"
+        },
+        {
+          "setFlag": "dlug_decyzja"
+        }
+      ]
+    },
+    "dlug_pamietam": {
+      "speaker": "Głos z rdzenia",
+      "text": "»Pamiętasz. To dobrze. Pamięć dla nas obu jest ciężarem.« Obrazy spływają szybko i ostro, a z nimi czucie, że ktoś dopisuje w księdze dłużników jeszcze jedną linijkę. »Dług narasta.« Rdzeń milknie. Brygida pyta: „Co ci powiedział?”, a ty nie masz na to słów.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "addVar": {
+            "dlug": 3
+          }
+        },
+        {
+          "setFlag": "dlug_przyjety"
+        },
+        {
+          "setFlag": "dlug_decyzja"
+        }
+      ]
+    },
+    "dlug_odrzucony": {
+      "speaker": "Głos z rdzenia",
+      "text": "»Wolisz być wolny. Niech i tak będzie.« Głos chłodny, ale nie wrogi. »Tylko wolność ma swoją cenę: nie dowiesz się niczego, czego sam nie wygrzebiesz.« Rdzeń brzęczy jeszcze chwilę i cichnie. Brygida mruga: „Masz minę, jakbyś dziewce odmówił ręki. Siadaj, bo padniesz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "addVar": {
+            "wola": 2
+          }
+        },
+        {
+          "setFlag": "dlug_odrzucony"
+        },
+        {
+          "setFlag": "dlug_decyzja"
+        }
+      ]
+    },
+    "rdzen_po_a": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida kładzie rdzeń na stole ostrożnie jak jajo. „Inaczej brzęczy, odkąd go uznałeś. Wolniej, cieplej, jakby ktoś w nim siedział i się cieszył. Nie podoba mi się to. Nie mówię, że to źle. Mówię, że mi się nie podoba.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "rdzen_po_b": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida stuka palcem w rdzeń i wzdryga się, kiedy odpowiada jej blaszane echo. „Obraził się. Jak pies, któremu nie dali kości. Ale cicho siedzi, i chwała Bogu. Wolę żelastwo, co się boczy, niż takie, co gada.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "q10_brygida": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida wyłazi spod stołu i tym razem wyciera ręce porządnie. „Żegnać się przyszedłeś? Poważnie to brzmi. No dobra. Nic dla ciebie nie mam prócz rady: jak rdzeń zacznie bić, to go nie pytaj, o co mu chodzi, tylko idź w drugą stronę. Szczęść Boże, uparciuchu.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Niech będzie.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "brygida_pozegnanie"
+        }
+      ]
+    },
+    "w_toku": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida wzrusza ramionami, nie wyłażąc spod blachy. „Rdzeń siedzi, gdzie siedział. Wyciągniesz go, to będę miała co oglądać. Do tego czasu mam pióro, rozpórkę i parszywy humor.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

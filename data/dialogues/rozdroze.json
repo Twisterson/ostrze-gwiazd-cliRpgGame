@@ -1,0 +1,79 @@
+{
+  "id": "rozdroze",
+  "start": "rozstaje",
+  "nodes": {
+    "rozstaje": {
+      "speaker": "Rozdroże",
+      "text": "Pod przydrożnym słupem trakt rozwidla się na dwoje. Jedna odnoga wiedzie ku stolicy, dokąd rozkaz cesarza kazał ci iść z całą delegacją. Z delegacji zostałeś ty, a rozkaz dalej wiąże, tylko nie ma już z kim go wykonać. Druga odnoga skręca na bezdroża ku Wilczemu Brodowi, gdzie przynajmniej ktoś rozpali ogień.",
+      "options": [
+        {
+          "id": "odrzucam",
+          "text": "Nie pójdę do stolicy. Nikt mnie tam nie czeka, a jak czeka, to z toporem.",
+          "goto": "odrzucenie"
+        },
+        {
+          "id": "waham",
+          "text": "Stoję i patrzę. Jedno i drugie wygląda gorzej, niż pachnie.",
+          "goto": "wahanie"
+        },
+        {
+          "id": "pokora",
+          "text": "Najpierw spytam o drogę w Brodzie. Rozkaz nie ucieknie, w przeciwieństwie do przewodnika.",
+          "goto": "pokora"
+        }
+      ]
+    },
+    "odrzucenie": {
+      "speaker": "Rozdroże",
+      "text": "Spluwasz w pył drogi do stolicy. Rozkaz cesarza jest długi, cesarz jeszcze dłuższy, a ty masz jedną głowę i tym razem chcesz ją zachować na karku. Ruszasz na bezdroża, kopiąc kamień przed sobą.",
+      "actions": [
+        {
+          "addVar": {
+            "wola": 1
+          }
+        },
+        {
+          "setFlag": "odrzucil_stolice"
+        }
+      ],
+      "options": [
+        {
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wahanie": {
+      "speaker": "Rozdroże",
+      "text": "Stoisz długo, aż słońce wylezie znad lasu i przestanie być wymówką. Decyzji żadnej nie ma. Jest tylko druga odnoga, bliższa, i nogi, które same wybrały.",
+      "actions": [
+        {
+          "setFlag": "waha_sie"
+        }
+      ],
+      "options": [
+        {
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "pokora": {
+      "speaker": "Rozdroże",
+      "text": "Kłaniasz się słupowi, jakby to on wydawał rozkazy. Najpierw niech ci ktoś powie, gdzie dziś jest cesarstwo, a pytać zawsze lepiej cudzą gębą niż własnymi nogami. Wybierasz drogę do Brodu.",
+      "actions": [
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

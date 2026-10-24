@@ -1,0 +1,285 @@
+{
+  "id": "soltys",
+  "portrait": "portret_soltys",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "Sołtys Wawrzyn siedzi za stołem zawalonym kwitami, których czytać nie umie, i udaje, że czyta. Mierzy cię od buta po czapkę. „A ty kto? I po co? I na jak długo? I kto za ciebie poręczy, jak co?”",
+      "options": [
+        {
+          "id": "pytania",
+          "text": "Sołtysie, szukam dachu i spokoju.",
+          "goto": "p1",
+          "requires": {
+            "notFlag": "soltys_przyjal"
+          }
+        },
+        {
+          "id": "nocleg_raport",
+          "text": "Mam już nocleg w karczmie.",
+          "goto": "potwierdz",
+          "requires": {
+            "flag": "nocleg_oplacony",
+            "notFlag": "soltys_potwierdzil"
+          }
+        },
+        {
+          "id": "kim",
+          "text": "Wędrowiec. Szukam roboty i dachu.",
+          "goto": "kim",
+          "requires": {
+            "flag": "soltys_przyjal"
+          }
+        },
+        {
+          "id": "wies",
+          "text": "Opowiedz mi o Głuszcu.",
+          "goto": "wies"
+        },
+        {
+          "id": "q4_start",
+          "text": "Słyszałem, że ktoś sypie cesarskim.",
+          "goto": "q4_start",
+          "requires": {
+            "questStatus": {
+              "id": "kto_sprzedal_ocalalego",
+              "is": "none"
+            },
+            "flag": "soltys_potwierdzil"
+          }
+        },
+        {
+          "id": "q4_koniec",
+          "text": "Wiem, kto sypie.",
+          "goto": "q4_koniec",
+          "requires": {
+            "flag": "kowal_wskazal",
+            "notFlag": "soltys_donosiciel_zamkniete",
+            "questStatus": {
+              "id": "kto_sprzedal_ocalalego",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "odrzucil",
+          "text": "Odmówiłem cesarskiemu rozkazowi i zostałem tu.",
+          "goto": "odrzucil",
+          "requires": {
+            "flag": "odrzucil_stolice",
+            "notFlag": "soltys_odrzucil_ok"
+          }
+        },
+        {
+          "id": "pielgrzym_znikl",
+          "text": "Fałszywy pielgrzym już nie wróci.",
+          "goto": "pielgrzym_znikl",
+          "requires": {
+            "flag": "informator_przepedzony",
+            "notFlag": "soltys_pielgrzym_ok"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "kim": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "„Wędrowiec. Każdy tu wędrowiec, dopóki komuś kura nie zginie. Dach masz w karczmie, robotę na tablicy, a pytania schowaj za pazuchę. Jak co narobisz, ja za ciebie nie odpowiadam, ale i ty za mnie nie, więc wychodzi po równo.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Sprawiedliwie.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "wies": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "„Dwadzieścia dymów, trzydzieści psów i jeden cmentarz, największy w okolicy. Ludzie tu wolą umrzeć, niż się wynieść, i wiedzą czemu. Najbliższy większy gród to Rzeczka, dzień drogi stąd, a w niej cesarski garnizon, więc kto ma rozum, ten tam nie łazi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zrozumiałem.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "p1": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "Wawrzyn odkłada kwit do góry nogami i patrzy na ciebie jak na podatek. „Dachu i spokoju tu nie uświadczysz. Ale najpierw: kto cię tu przysłał? Do Głuszca nikt z własnej woli nie przyłazi.”",
+      "options": [
+        {
+          "id": "p1a",
+          "text": "Nikt. Droga sama mnie tu przyniosła.",
+          "goto": "p2"
+        },
+        {
+          "id": "p1b",
+          "text": "Szkoła ostrza kazała się zameldować.",
+          "goto": "p2",
+          "actions": [
+            {
+              "search": 10
+            }
+          ]
+        }
+      ]
+    },
+    "p2": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "„Droga niosła, szkoła kazała… Każdy ma wymówkę, mało kto papiery. A skąd idziesz? Tylko nie mów, że znikąd, bo Znikąd to wiocha bez nazwy, a takich tu nie ma.”",
+      "options": [
+        {
+          "id": "p2a",
+          "text": "Zza przełęczy.",
+          "goto": "p3"
+        },
+        {
+          "id": "p2b",
+          "text": "Z Brodu. Reszty nie pamiętam.",
+          "goto": "p3"
+        }
+      ]
+    },
+    "p3": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "Sołtys pochyla się i szepcze tak, że słychać w sąsiedniej chałupie: „A cesarscy? Nie szukają cię aby? Bo jak szukają, to dachu nie dam, a jak nie, to dam, ale za pięć groszy za to, że nie pytam.”",
+      "options": [
+        {
+          "id": "p3a",
+          "text": "Nie wiem, o co chodzi.",
+          "goto": "przyjety"
+        },
+        {
+          "id": "p3b",
+          "text": "Zapłacę pięć groszy.",
+          "goto": "przyjety",
+          "requires": {
+            "money": 5
+          },
+          "actions": [
+            {
+              "takeMoney": 5
+            }
+          ]
+        }
+      ]
+    },
+    "przyjety": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "„Niech będzie. Przyjęty, z tym że nie wiem, kim jesteś, i wiedzieć nie chcę. W karczmie masz izbę, na tablicy robotę, a w borze za wsią kłusowników, co dla odmiany robią uczciwe rzeczy. Idź tymi ścieżkami, a ja będę miał oko.” Wawrzyn znów bierze kwit do góry nogami.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "soltys_przyjal"
+        },
+        {
+          "reveal": "bor_klusownikow"
+        },
+        {
+          "reveal": "stary_trakt"
+        },
+        {
+          "hint": "kapliczka_rozstaje"
+        }
+      ]
+    },
+    "potwierdz": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "„Izba za trzy grosze? A jakże. U Mruka to prawie zaszczyt: jak cię pchły ominęły, toś chodząca klątwa. Masz tu dziesięć groszy za fatygę i pamiętaj, żeś mnie na oczy nie widział.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Nigdy.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "soltys_potwierdzil"
+        }
+      ]
+    },
+    "q4_start": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "Wawrzyn odkłada kwit, co mu się raz do roku zdarza, i zerka na drzwi, czy kto nie podsłuchuje. „Ktoś w Głuszcu donosi cesarskim, kto tu przyłazi. Nie ty, bo ty wyglądasz na takiego, co by sam siebie nie wydał. Dowiedz się, kto, ale po cichu. Znachorka widzi, kto kogo odwiedza, a kowal słyszy, co ludzie gadają przy żelazie. Od nich zacznij.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zacznę.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "kto_sprzedal_ocalalego"
+        }
+      ]
+    },
+    "q4_koniec": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "Wawrzyn słucha z miną człowieka, który to wszystko dawno miał w głowie, tylko czekał, aż kto potwierdzi. „Fałszywy pielgrzym. Ten, co się szwenda przy trakcie z bukłakiem i bez krzty pobożności. Cesarscy płacą mu za nazwiska. Dobrze wiedzieć. Co z nim zrobię, to moja rzecz, a tyś mi nic nie mówił. I jeszcze jedno: kopacz się skarżył, że po nocach na starym grobie świecą kamienie. Nie łaź tam, chyba że masz dobry powód i mało rozumu.” Sołtys odprawia cię machnięciem, jakby muchę przeganiał.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Nigdy.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "soltys_donosiciel_zamkniete"
+        },
+        {
+          "search": -5
+        }
+      ]
+    },
+    "odrzucil": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "Wawrzyn mruga, jakby mu kto piasku w oczy sypnął. „Odmówiłeś rozkazowi? To albo bohater, albo wisielec, a przy obu lepiej nie siadać. Ale u nas cesarskich rozkazów nikt nie kocha, więc cię nie wydam. Ten jeden raz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobrze wiedzieć.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "soltys_odrzucil_ok"
+        }
+      ]
+    },
+    "pielgrzym_znikl": {
+      "speaker": "Sołtys Wawrzyn",
+      "text": "Wawrzyn unosi brwi tak wysoko, że prawie wchodzą pod czapkę. „Przegoniłeś go? Sam? Bez kija i bez świadków? Obyś nie zrobił nic, czego ja potem będę musiał nie widzieć. Ale niech tam. Dwa grosze od sołtysa za spokój na drodze.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 2
+        },
+        {
+          "setFlag": "soltys_pielgrzym_ok"
+        }
+      ]
+    }
+  }
+}

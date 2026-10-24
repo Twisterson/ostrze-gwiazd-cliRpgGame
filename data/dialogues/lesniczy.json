@@ -1,0 +1,59 @@
+{
+  "id": "lesniczy",
+  "portrait": "portret_lesniczy",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Leśniczy",
+      "text": "Leśniczy siedzi na pniu i struga coś, co kiedyś miało być łyżką. „Od komendanta? Zawsze ktoś od kogoś. Skoro musisz, dawaj.”",
+      "options": [
+        {
+          "text": "Mam list od komendanta.",
+          "goto": "list",
+          "id": "list",
+          "requires": {
+            "item": "list_komendanta"
+          }
+        },
+        {
+          "text": "Co słychać w lesie?",
+          "goto": "las",
+          "id": "las"
+        },
+        {
+          "text": "Bywaj.",
+          "goto": "end",
+          "id": "bywaj"
+        }
+      ]
+    },
+    "list": {
+      "speaker": "Leśniczy",
+      "text": "Leśniczy czyta powoli, rusza wargami, dwa razy obraca kartkę. „Powiedz Wszeborowi: ścieżki w lesie to nie ścieżki, tylko wymysł zbójców, a patrole niech się trzymają traktu. Pojąłeś? To powtórz.”",
+      "options": [
+        {
+          "text": "Trzymać się traktu. Zrozumiałem.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "list_komendanta"
+        },
+        {
+          "setFlag": "lesniczy_list"
+        }
+      ]
+    },
+    "las": {
+      "speaker": "Leśniczy",
+      "text": "„Zwierz przepadł, ptaki milkną, a wilki wyją w biały dzień. Leszy się gniewa albo coś gorszego. Jak niebo znowu zakipi, nie chcę tu być, gdzie mnie nikt nie szuka.”",
+      "options": [
+        {
+          "text": "Wrócę z wieściami.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

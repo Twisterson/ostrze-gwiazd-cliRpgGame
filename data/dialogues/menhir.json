@@ -1,0 +1,93 @@
+{
+  "id": "menhir",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Krąg Menhirów",
+      "text": "Dwanaście kamieni stoi w kręgu, każdy z jedną ścianą gładką jak lustro. Szmer, który bierzesz za głosy, zlewa się w jeden ton, ledwo słyszalny, jak wiatr w kominie.",
+      "options": [
+        {
+          "id": "sluchaj",
+          "text": "Przyłóż dłoń do kamienia i słuchaj.",
+          "goto": "sluchaj",
+          "requires": {
+            "questStatus": {
+              "id": "pamiec_kamieni",
+              "is": "active"
+            },
+            "notFlag": "menhir_slyszal"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "sluchaj": {
+      "speaker": "Krąg Menhirów",
+      "text": "Kamień ciepły jak skóra. Szmer składa się w słowa, które nie są słowami: »Pamiętamy ciebie. Pamiętamy to, co niesiesz w sobie. Możemy ci to wyjaśnić, jeśli zgodzisz się, że będziemy cię pamiętać zawsze.« Przez chwilę czujesz, że za zgodę dostałbyś odpowiedź na każde pytanie, a za odmowę zostaniesz sam ze swoimi.",
+      "options": [
+        {
+          "id": "przyjmij",
+          "text": "Zgódź się.",
+          "goto": "przyjal"
+        },
+        {
+          "id": "odrzuc",
+          "text": "Odmów.",
+          "goto": "odrzucil"
+        }
+      ]
+    },
+    "przyjal": {
+      "speaker": "Krąg Menhirów",
+      "text": "»Dobrze. Dług zaciągnięty.« Szmer cichnie, a w głowie zostaje mglisty ślad czegoś, czego nigdy nie widziałeś. Jakby ci ktoś wypalił w środku znak, co nie zejdzie.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "menhir_slyszal"
+        },
+        {
+          "setFlag": "menhir_przyjal"
+        },
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        }
+      ]
+    },
+    "odrzucil": {
+      "speaker": "Krąg Menhirów",
+      "text": "»Odmowa przyjęta.« Szmer rozlega się ostatni raz i cichnie. Kamień robi się zimny jak grobowa płyta. Zostajesz sam ze swoimi pytaniami, ale i z czuciem, że nikt nie ma nad tobą żadnej władzy.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pamiętam.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "menhir_slyszal"
+        },
+        {
+          "setFlag": "menhir_odrzucil"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ]
+    }
+  }
+}

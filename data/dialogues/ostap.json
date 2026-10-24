@@ -1,0 +1,135 @@
+{
+  "id": "ostap",
+  "start": "mlyn",
+  "nodes": {
+    "mlyn": {
+      "speaker": "Młynarz Ostap",
+      "text": "Ostap otrzepuje dłonie z mąki, której i tak nie ma. „Młyn stoi, bo rzeka stoi, a rzeka stoi, bo ją ktoś w górze wystraszył. Ja tu mielę, co przyniosą. Zwykle nic.”",
+      "options": [
+        {
+          "text": "Przyniosłem zboże od kramarza.",
+          "goto": "zboze",
+          "id": "zboze",
+          "requires": {
+            "item": "worek_zboza"
+          }
+        },
+        {
+          "text": "Dlaczego młyn nie mieli?",
+          "goto": "dlaczego",
+          "id": "dlaczego",
+          "requires": {
+            "notFlag": "odlamek_zebrany"
+          }
+        },
+        {
+          "id": "odlamek",
+          "text": "Byłem tu w nocy. Znalazłem ten odłamek.",
+          "goto": "odlamek_o",
+          "requires": {
+            "flag": "odlamek_zebrany",
+            "notFlag": "ostap_odlamek"
+          }
+        },
+        {
+          "id": "kamien",
+          "text": "Kowal mówi, że to kamień z nieba.",
+          "goto": "kamien_o",
+          "requires": {
+            "flag": "kamien_rozpoznany",
+            "notFlag": "ostap_kamien"
+          }
+        },
+        {
+          "id": "swiatlo_po",
+          "text": "Światło już się nie pojawia?",
+          "goto": "swiatlo_po",
+          "requires": {
+            "flag": "ostap_odlamek"
+          }
+        },
+        {
+          "text": "Bywaj.",
+          "goto": "end",
+          "id": "bywaj"
+        }
+      ]
+    },
+    "zboze": {
+      "speaker": "Młynarz Ostap",
+      "text": "Ostap zagląda do worka, wącha, krzywi się i przesiewa garść przez palce. „Pół żyta, pół piachu. Po kramarzu cudów się nie spodziewałem. Powiedz Wrzoskowi, że jego beczka z piwem wciąż mi wisi dwa kufle i że ja pamiętam.”",
+      "options": [
+        {
+          "text": "Przekażę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "worek_zboza"
+        },
+        {
+          "setFlag": "ostap_zboze"
+        }
+      ]
+    },
+    "dlaczego": {
+      "speaker": "Młynarz Ostap",
+      "text": "„Nocą w młynie świeci się coś, czego nie zapalałem. Zimne, sine, niebieskie. Pies wyje, baba się modli, a ja liczę straty. Masz odwagę i mocny żołądek, to zajrzyj tam po zmroku.”",
+      "options": [
+        {
+          "text": "Zajrzę.",
+          "goto": "mlyn"
+        },
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odlamek_o": {
+      "speaker": "Młynarz Ostap",
+      "text": "Ostap słucha o odłamku i niebieskiej poświacie i wzdryga się, jakby go kto złapał za kark. „To tym tak świeciło? Małe to na tyle strachu. Czy ci wierzyć, nie wiem, ale pies przestał wyć, odkąd to z młyna zniknęło. Może i prawda.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zostanie u mnie.",
+          "goto": "mlyn"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "ostap_odlamek"
+        }
+      ]
+    },
+    "kamien_o": {
+      "speaker": "Młynarz Ostap",
+      "text": "Ostap blednie, na ile może zblednąć chłop obsypany mąką. „Z nieba? A po coś mi to mówił, skoro i tak spać nie mogę? Dobrze, że stąd poszło. A czart wie, co jeszcze leży po rzekach w górze.” Spluwa przez lewe ramię, bo tak trzeba.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Lepiej o tym nie gadać.",
+          "goto": "mlyn"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "ostap_kamien"
+        }
+      ]
+    },
+    "swiatlo_po": {
+      "speaker": "Młynarz Ostap",
+      "text": "„Nie świeci. Pies śpi, baba się nie modli, a ja dalej liczę straty, tylko już własne. Da się żyć.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobrze słyszeć.",
+          "goto": "mlyn"
+        }
+      ]
+    }
+  },
+  "portrait": "portret_wedrowiec"
+}

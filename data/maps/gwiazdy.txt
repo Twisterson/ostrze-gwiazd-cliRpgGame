@@ -1,0 +1,9 @@
+   ~~~~ Szklane Wzgórza ~~~~
+
+      {pole_szkla}----------{krater_gwiazdy}----------{ostatnia_strazica}
+          |
+      {obserwatorium}
+          |
+      {menhiry}-----------{wrak_maszyny}
+          |
+      {zapadlisko_ciszy}

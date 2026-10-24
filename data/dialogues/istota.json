@@ -1,0 +1,117 @@
+{
+  "id": "istota",
+  "start": "nadejscie",
+  "nodes": {
+    "nadejscie": {
+      "speaker": "Istota",
+      "text": "Budzisz się w ciemności, a ciemność ma twarz. Pochyla się nad tobą Istota o czarnym, szklanym obliczu, w którym świecą gwiazdy, choć samo niczego nie odbija. Rany zasklepiły się gładko, jakby ich nigdy nie było. Głos dudni w kościach, nie w uszach: „Tkanka zrośnięta. Rdzeń sprawny. Dług zaciągnięty. Zniszcz to, co zbudowano na tej ziemi.”",
+      "actions": [
+        {
+          "healFull": true
+        },
+        {
+          "setFlag": "dlug_istoty"
+        }
+      ],
+      "options": [
+        {
+          "id": "cesarz",
+          "text": "„Cesarz?…”",
+          "requires": {
+            "flag": "rozkaz_danina"
+          },
+          "goto": "cesarz"
+        },
+        {
+          "id": "dalej",
+          "text": "Słuchaj dalej.",
+          "goto": "wybor"
+        }
+      ]
+    },
+    "cesarz": {
+      "speaker": "Istota",
+      "text": "Szklana twarz ani drgnie, ale głos dorzuca jakby mimochodem: „Rozkaz cesarza nie był poselstwem.” Gwiazdy w niej gasną i zapalają się na nowo.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słuchaj dalej.",
+          "goto": "wybor"
+        }
+      ]
+    },
+    "wybor": {
+      "speaker": "Istota",
+      "text": "Istota czeka. Nic w niej nie oddycha, nic nie mruga, a jednak czujesz na karku, że chce odpowiedzi.",
+      "portrait": "portret_istota",
+      "options": [
+        {
+          "id": "pokora",
+          "text": "„Spłacę, co zaciągnąłem.”",
+          "actions": [
+            {
+              "addVar": {
+                "dlug": 1
+              }
+            }
+          ],
+          "goto": "pokora"
+        },
+        {
+          "id": "pytanie",
+          "text": "„Jaki dług?”",
+          "actions": [],
+          "goto": "pytanie"
+        },
+        {
+          "id": "bunt",
+          "text": "„Nikomu nic nie zawdzięczam.”",
+          "actions": [
+            {
+              "addVar": {
+                "wola": 1
+              }
+            }
+          ],
+          "goto": "bunt"
+        }
+      ]
+    },
+    "pokora": {
+      "speaker": "Istota",
+      "text": "„Zapisano.” Szklana twarz odwraca się ku gwiazdom i zostajesz sam, w chłodzie, pod pustym okiem nieba.",
+      "portrait": "portret_istota",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "pytanie": {
+      "speaker": "Istota",
+      "text": "Cisza ciągnie się tak długo, że zaczynasz liczyć uderzenia własnego serca. Wreszcie głos mówi: „Zostanie wyjaśnione.” I nic więcej.",
+      "portrait": "portret_istota",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "bunt": {
+      "speaker": "Istota",
+      "text": "Szklana twarz przechyla się, jakby oglądała robaka. „Zapisano również to.” Gwiazdy w niej drżą, a ty czujesz w trzewiach, że ta odpowiedź komuś przypadła do smaku.",
+      "portrait": "portret_istota",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dalej.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "id": "najemnik",
+  "portrait": "portret_kruk",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Najemnik Kruk",
+      "text": "Przy szynkwasie siedzi barczysty chłop w płaszczu bez godła, z mieczem u pasa i gębą kogoś, kto nigdy sam za siebie nie płaci. Obraca kufel w garści i gapi się na ciebie za długo. „Nowy jesteś, co? W takich dziurach nowego widać od progu.”",
+      "options": [
+        {
+          "id": "pytanie",
+          "text": "Czego chcesz?",
+          "goto": "pytanie",
+          "requires": {
+            "questStatus": {
+              "id": "najemnik_w_karczmie",
+              "is": "none"
+            }
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "pytanie": {
+      "speaker": "Najemnik Kruk",
+      "text": "„Szukam chłopaka ze szkoły ostrza. Młody, w wymiętym mundurze, z tym znakiem na rękawie, co go kiedyś nosili. Cesarz płaci jak należy. Dwadzieścia monet za imię, drugie dwadzieścia za miejsce. Co ty na to?”",
+      "options": [
+        {
+          "id": "klam",
+          "text": "Nic nie wiem, ale mogę wskazać fałszywy trop.",
+          "goto": "klam_test"
+        },
+        {
+          "id": "lap",
+          "text": "Dam ci piętnaście groszy, żebyś się odczepił.",
+          "goto": "lapowka",
+          "requires": {
+            "money": 15
+          }
+        },
+        {
+          "id": "nie",
+          "text": "Nie rozmawiam z takimi jak ty.",
+          "goto": "nie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "najemnik_w_karczmie"
+        }
+      ]
+    },
+    "klam_test": {
+      "speaker": "Najemnik Kruk",
+      "text": "Kruk przekrzywia głowę.",
+      "options": [
+        {
+          "id": "klam_t",
+          "text": "Powiedz, że ocalały poszedł w stronę gór.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 40
+          },
+          "success": "klam_ok",
+          "failure": "klam_zle"
+        },
+        {
+          "id": "klam_n",
+          "text": "Wycofaj się.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "klam_ok": {
+      "speaker": "Najemnik Kruk",
+      "text": "Kruk kiwa głową powoli. „Góry. Daleko. Dobrze, że mi kto powiedział, zanim zacząłem szukać nie tam, gdzie trzeba. Masz dwie monety za fatygę. Powiem im, że widziałem człowieka z dwoma tobołami.” Wstaje i wychodzi bez słowa.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "najemnik_rozwiazany"
+        },
+        {
+          "giveMoney": 2
+        },
+        {
+          "search": -10
+        }
+      ]
+    },
+    "klam_zle": {
+      "speaker": "Najemnik Kruk",
+      "text": "Kruk szczerzy się szeroko i fałszywie. „Góry? Z tym, jak ci łapy latają? Kto mówi prawdę, ten się na powałę nie gapi. Jeszcze pogadamy.” Wychodzi, a ty przez resztę dnia co kilka kroków oglądasz się przez ramię.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Cholera.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "najemnik_rozwiazany"
+        },
+        {
+          "search": 15
+        }
+      ]
+    },
+    "lapowka": {
+      "speaker": "Najemnik Kruk",
+      "text": "Kruk liczy monety dwa razy i wsuwa je do sakiewki z wprawą kogoś, kto robi to co dzień. „Piętnaście? Wiesz, że za tyle nie zapomnę całkiem. Ale przez tydzień twojej gęby nie będę pamiętał.” Wychodzi, nie oglądając się.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 15
+        },
+        {
+          "setFlag": "najemnik_rozwiazany"
+        },
+        {
+          "search": -5
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Najemnik Kruk",
+      "text": "„Nie lubisz takich jak ja? Wielu nie lubi, a wielu płaci. Zapamiętam twoją gębę, nowy.” Wychodzi, a drzwi trzaskają za nim jak obietnica.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "najemnik_rozwiazany"
+        },
+        {
+          "search": 5
+        }
+      ]
+    }
+  }
+}

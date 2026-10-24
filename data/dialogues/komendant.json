@@ -1,0 +1,126 @@
+{
+  "id": "komendant",
+  "portrait": "portret_wszebor",
+  "start": "przybycie",
+  "nodes": {
+    "przybycie": {
+      "speaker": "Komendant Wszebor",
+      "text": "Komendant podnosi łeb znad rozlanej zupy i mierzy cię od butów po czuprynę, jak dziurawy garnek na targu. „Patrzcie go. Łachmaniarz, a bramę przelazł jak przez własne podwórze. Kim jesteś, psiakrew? Tutejszy to ty nie jesteś.”",
+      "options": [
+        {
+          "id": "wedrowiec",
+          "text": "Wędrowiec. Zabłądziłem.",
+          "goto": "drugie"
+        },
+        {
+          "id": "uczen",
+          "text": "Uczeń szkoły z Brzeziny.",
+          "goto": "drugie",
+          "actions": [
+            {
+              "setFlag": "komendant_wie_o_szkole"
+            }
+          ]
+        },
+        {
+          "id": "pyskowka",
+          "text": "A ty kto, żeby pytać? Zupa ci stygnie.",
+          "goto": "drugie",
+          "actions": [
+            {
+              "addVar": {
+                "wola": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "drugie": {
+      "speaker": "Komendant Wszebor",
+      "text": "„Zabłądziłeś? Przez bagna, w mundurze, z cudzą krwią na rękawach.” Komendant węszy wokół ciebie jak ogar. „Kto błądzi, ten tak nie śmierdzi. Skąd idziesz i dokąd, bo mi się ta bajka nie klei.”",
+      "options": [
+        {
+          "id": "stolica",
+          "text": "Szedłem ze szkołą do stolicy. Nie doszliśmy.",
+          "goto": "trzecie"
+        },
+        {
+          "id": "nikt",
+          "text": "Idę tam, gdzie mnie nikt nie szuka.",
+          "goto": "trzecie"
+        },
+        {
+          "id": "bywaj2",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "trzecie": {
+      "speaker": "Komendant Wszebor",
+      "text": "Komendant długo milczy, żuje wąs i gapi się na ciebie jak na zagadkę, której rozwiązywać się nie opłaca. „Dobra. Więcej nie pytam, bo odpowiedź byłaby gorsza od pytania. Ale skoro tu siedzisz i żresz moje powietrze, to je odrobisz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham.",
+          "goto": "zlecenie"
+        }
+      ]
+    },
+    "zlecenie": {
+      "speaker": "Komendant Wszebor",
+      "text": "„Wataha z wąwozu porywa nam owce spod palisady. Wybij ją, zapłacę dwadzieścia pięć groszy. Dzień drogi w górę strumienia. Uszy przynieś na dowód, bo słowu wędrowca wierzę jak marcowej pogodzie.”",
+      "actions": [
+        {
+          "setFlag": "komendant_byl"
+        }
+      ],
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Biorę to.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "odmowa",
+          "text": "Nie tym razem.",
+          "goto": "odmowa"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Komendant Wszebor",
+      "text": "„No. Idź, póki wilki głodne, a nie wściekłe.” Komendant wraca do zupy, jakby cię nigdy nie było.",
+      "actions": [
+        {
+          "setFlag": "nora_zgoda"
+        },
+        {
+          "startQuest": "wilcza_nora"
+        }
+      ],
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odmowa": {
+      "speaker": "Komendant Wszebor",
+      "text": "Komendant wzrusza ramionami. „Twoja wola. Owce nie moje, cesarskie. Ale grosz nie śmierdzi, drzwi masz otwarte.”",
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

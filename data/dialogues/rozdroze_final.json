@@ -1,0 +1,81 @@
+{
+  "id": "rozdroze_final",
+  "portrait": "portret_istota",
+  "start": "final",
+  "nodes": {
+    "final": {
+      "speaker": "Głos z krateru",
+      "text": "Na skraju krateru powietrze drga jak żelazo w kuźni, a głos, co wypełnia czaszkę, jest ten sam, który słyszałeś po rzezi, tylko wyraźniejszy. „Dotarłeś. Wiesz już, czym jestem, a ja wiem, kim ty jesteś. Mam dla ciebie trzy drogi. Pierwsza: przyjmujesz dług, a ja daję ci to, czego szukasz. Druga: odmawiasz, walczysz z cesarstwem i ze mną. Trzecia: odchodzisz tam, gdzie nikt cię nie znajdzie. Wybieraj.”",
+      "options": [
+        {
+          "id": "uleglosc",
+          "text": "Przyjmuję dług.",
+          "goto": "uleglosc"
+        },
+        {
+          "id": "opor",
+          "text": "Nie jestem niczyim narzędziem.",
+          "goto": "opor",
+          "requires": {
+            "var": "wola",
+            "gte": 2
+          },
+          "showLocked": true
+        },
+        {
+          "id": "ucieczka",
+          "text": "Odchodzę. Daleko.",
+          "goto": "ucieczka"
+        }
+      ]
+    },
+    "uleglosc": {
+      "speaker": "Głos z krateru",
+      "text": "„Dobrze. Pojmij, że dług to nie łaska, tylko rachunek. Zapamiętam ciebie, a ty zapamiętasz mnie. Wejdź w krater.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wchodzę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "final_uleglosc"
+        }
+      ]
+    },
+    "opor": {
+      "speaker": "Głos z krateru",
+      "text": "„Odmawiasz. Nikt przed tobą nie odmówił, a przynajmniej nikt nie przeżył, żeby o tym opowiedzieć. Dobrze. Zobaczymy, czy wola to coś więcej niż słowo.” Poświata gaśnie, a krater zaczyna drżeć, jakby coś w nim budziło się niechętnie.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Walczę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "final_opor"
+        }
+      ]
+    },
+    "ucieczka": {
+      "speaker": "Głos z krateru",
+      "text": "„Odchodzisz. To też wybór, choć nie taki, co robi bohaterów. Odejdź, a ja przestanę cię szukać. Na jakiś czas.” Poświata cofa się, a w kraterze zapada cisza, tym razem prawdziwa.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Odchodzę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "final_ucieczka"
+        }
+      ]
+    }
+  }
+}

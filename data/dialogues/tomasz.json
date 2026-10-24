@@ -1,0 +1,211 @@
+{
+  "id": "tomasz",
+  "portrait": "portret_tomasz",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Zwiadowca Tomasz",
+      "text": "Tomasz siedzi w kącie czeladnej, okręcony końską derką, i gapi się na własne dłonie, jakby nie wiedział, czyje są. Gada cicho, chrapliwie, jak człowiek, co długo milczał i zapomniał, jak się mówi.",
+      "options": [
+        {
+          "id": "q6_start",
+          "text": "Dlaczego uciekłeś z oddziału?",
+          "goto": "q6_start",
+          "requires": {
+            "questStatus": {
+              "id": "cesarski_dezerter",
+              "is": "none"
+            }
+          }
+        },
+        {
+          "id": "po_wydany",
+          "text": "Patrol po ciebie przyjdzie?",
+          "goto": "po_wydany",
+          "requires": {
+            "flag": "dezerter_wydany"
+          }
+        },
+        {
+          "id": "po_pomoc",
+          "text": "Jak ci się tu mieszka?",
+          "goto": "po_pomoc",
+          "requires": {
+            "flag": "sojusz_dezerter"
+          }
+        },
+        {
+          "id": "po_zostan",
+          "text": "Jak się czujesz?",
+          "goto": "po_zostan",
+          "requires": {
+            "flag": "dezerter_rozstrzygniete",
+            "notFlag": "sojusz_dezerter",
+            "all": [
+              {
+                "notFlag": "dezerter_wydany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "q6_start": {
+      "speaker": "Zwiadowca Tomasz",
+      "text": "„Bo kazali palić wsie. Nie te, co się buntowały. Te, co nie zapłaciły podatku, bo nie miały czym. Dziewiętnaście lat miałem i wiarę w cesarza. Teraz mam kocioł zupy i worek pytań. Szukają mnie. Jak znajdą, rozstrzelają. Jak znajdą ciebie z takim jak ja, rozstrzelają i ciebie. No i co zrobisz?”",
+      "options": [
+        {
+          "id": "pomoc",
+          "text": "Pomogę ci zniknąć.",
+          "goto": "q6_pomoc"
+        },
+        {
+          "id": "papiery",
+          "text": "Mam fałszywe papiery od kowala z Głuszca.",
+          "goto": "q6_papiery",
+          "requires": {
+            "flag": "papiery_falszywe"
+          }
+        },
+        {
+          "id": "wydaj",
+          "text": "Wydam cię patrolowi za nagrodę.",
+          "goto": "q6_wydaj"
+        },
+        {
+          "id": "zostan",
+          "text": "Zostań tu, jest tu bezpieczniej niż gdzie indziej.",
+          "goto": "q6_zostan"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "cesarski_dezerter"
+        }
+      ]
+    },
+    "q6_pomoc": {
+      "speaker": "Zwiadowca Tomasz",
+      "text": "Tomasz podnosi wzrok i patrzy na ciebie, jakby nie mógł rozeznać, coś ty za zwierz. „Pomożesz. Naprawdę? Nie pytaj, czemu mi to starcza. Pokażę ci, jak chodzić po lesie, żeby cię zwiadowcy nie zwęszyli. Dwa dni nauki to mniej niż życie.” Ściska ci rękę, niezgrabnie, jak drewnianą łapą.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Niech będzie.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "dezerter_rozstrzygniete"
+        },
+        {
+          "setFlag": "sojusz_dezerter"
+        },
+        {
+          "search": -5
+        }
+      ]
+    },
+    "q6_papiery": {
+      "speaker": "Zwiadowca Tomasz",
+      "text": "Tomasz bierze papiery od kowala ostrożnie, jakby były z cienkiego szkła. „Cesarska pieczęć. Prawie. Jak mnie kto zapyta, powiem, że służę gdzie indziej. Nikt nie sprawdzi, bo każdy boi się sprawdzać.” Pierwszy raz się uśmiecha, krzywo. „Będę ci winien.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "dezerter_rozstrzygniete"
+        },
+        {
+          "setFlag": "sojusz_dezerter"
+        },
+        {
+          "search": -10
+        }
+      ]
+    },
+    "q6_wydaj": {
+      "speaker": "Zwiadowca Tomasz",
+      "text": "Tomasz patrzy na ciebie długo i nie ma w nim zdziwienia. „Ano tak. Tak się robi. Ja też kiedyś wydałem paru takich. Masz, to wszystko, co zostało z żołdu: trzydzieści groszy. Tam, dokąd pójdę, na nic mi się nie zdadzą.” Wciska ci sakiewkę w garść, potem zamyka oczy i siada w kącie, jakby czekał na patrol, który ty mu przyślesz.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Niech będzie.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "dezerter_rozstrzygniete"
+        },
+        {
+          "setFlag": "dezerter_wydany"
+        },
+        {
+          "giveMoney": 30
+        },
+        {
+          "search": -10
+        }
+      ]
+    },
+    "q6_zostan": {
+      "speaker": "Zwiadowca Tomasz",
+      "text": "Tomasz kiwa głową i odwraca oczy. „Niech będzie. Tu chociaż mam Brygidę, co mnie nie rozlicza. Ale pamiętaj: mgła nie trwa wiecznie, a kurz w końcu siada. Prędzej czy później znajdą.” I znów gapi się w ręce.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "dezerter_rozstrzygniete"
+        }
+      ]
+    },
+    "po_wydany": {
+      "speaker": "Zwiadowca Tomasz",
+      "text": "Tomasz nie podnosi głowy. „Przyjdą. Dziś albo za tydzień. Szkoda tylko, że przez ciebie. Reszta mi wisi.” I znów gapi się w ręce. Żalu w nim nie ma, tylko zmęczenie jak po młócce.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zgoda.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "po_pomoc": {
+      "speaker": "Zwiadowca Tomasz",
+      "text": "Tomasz prawie się uśmiecha. „Uczę się spać, nie budząc się co godzinę. Brygida mówi, że przejdzie. Hieronim mówi, że to się zowie melancholia. Kot mówi, że to psu na budę. Wierzę kotu.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "po_zostan": {
+      "speaker": "Zwiadowca Tomasz",
+      "text": "Tomasz wzrusza ramionami i znów gapi się w ręce. „Żyję. Tyle mogę rzec. Reszta zależy od tego, kto następny wlezie przez bramę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+   ~~~~ Okolice Głuszca ~~~~
+
+      {wzgorze_wartownicze}
+          |
+      {kapliczka_rozstaje}
+          |
+      {gluszec}-----------{bor_klusownikow}----------{kamieniolom}
+          |
+      {stary_trakt}-------{bagna_szarej_wody}

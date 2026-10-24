@@ -1,0 +1,8 @@
+[
+  { "id": "miecz", "name": "Klasa miecza", "description": "Ciosy z rozmachem i pewna stal w dłoni, bo kto się nie rozpędzi, ten się nie wygłupi.", "taggedSkill": "sieczna",
+    "startItems": [{ "id": "miecz_krotki", "qty": 1 }, { "id": "kaftan_przeszywany", "qty": 1 }, { "id": "pas_zwykly", "qty": 1 }, { "id": "opatrunek", "qty": 2 }, { "id": "prowiant", "qty": 2 }],
+    "startEquipped": { "bron": "miecz_krotki", "tulow": "kaftan_przeszywany", "pas": "pas_zwykly" }, "startMoney": 30, "masteryStart": { "miecz": 15 } },
+  { "id": "wlocznia", "name": "Klasa włóczni", "description": "Długi drzewiec trzyma wroga z dala od brzucha, a gębę najlepiej z dala od własnej.", "taggedSkill": "drzewcowa",
+    "startItems": [{ "id": "para_wloczni", "qty": 1 }, { "id": "kaftan_przeszywany", "qty": 1 }, { "id": "pas_zwykly", "qty": 1 }, { "id": "opatrunek", "qty": 2 }, { "id": "prowiant", "qty": 2 }],
+    "startEquipped": { "bron": "para_wloczni", "tulow": "kaftan_przeszywany", "pas": "pas_zwykly" }, "startMoney": 30, "masteryStart": { "wlocznie": 15 } }
+]

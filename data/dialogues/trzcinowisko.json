@@ -1,0 +1,54 @@
+{
+  "id": "trzcinowisko",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Trzcinowisko",
+      "text": "Trzcinowisko szumi bez wiatru, a woda między łodygami stoi gładka jak szkło. Śmierdzi mułem i zgnilizną, i jeszcze czymś, co mogłoby być nadzieją, gdyby nie pachniało jak sidło.",
+      "options": [
+        {
+          "id": "zbieraj",
+          "text": "Zbierz wiązkę szarej trzciny.",
+          "goto": "zbieraj",
+          "requires": {
+            "questStatus": {
+              "id": "szara_trzcina",
+              "is": "active"
+            },
+            "notFlag": "trzcina_zebrana"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zbieraj": {
+      "speaker": "Trzcinowisko",
+      "text": "Brniesz po kolana w błocie, tniesz łodygi nożem i co chwila nasłuchujesz. Z trzcin zrywa się ptactwo i wrzeszczy tak, że pewnie w Głuszcu słychać. Wiązka ciężka i mokra. Wracasz na groblę uwalany po pas, z zadrą pod skórą, że ktoś cię cały czas obserwował.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pamiętam.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "time": 75
+        },
+        {
+          "giveItem": "szara_trzcina"
+        },
+        {
+          "setFlag": "trzcina_zebrana"
+        },
+        {
+          "search": 10
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "id": "szklo",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Pole Szkła",
+      "text": "Ziemia zastygła w szklane fale, zimne pod butem. Z odłamków, co sterczą jak wyszczerbione zęby, możesz wybrać jeden z trzech kolorów: zielony, niebieski albo czerwony.",
+      "options": [
+        {
+          "id": "s_zielony",
+          "text": "Weź odłamek: zielony.",
+          "goto": "s_zielony",
+          "requires": {
+            "questStatus": {
+              "id": "szklo_z_krateru",
+              "is": "active"
+            },
+            "notFlag": "szklo_z"
+          }
+        },
+        {
+          "id": "s_niebieski",
+          "text": "Weź odłamek: niebieski.",
+          "goto": "s_niebieski",
+          "requires": {
+            "questStatus": {
+              "id": "szklo_z_krateru",
+              "is": "active"
+            },
+            "notFlag": "szklo_n"
+          }
+        },
+        {
+          "id": "s_czerwony",
+          "text": "Weź odłamek: czerwony.",
+          "goto": "s_czerwony",
+          "requires": {
+            "questStatus": {
+              "id": "szklo_z_krateru",
+              "is": "active"
+            },
+            "notFlag": "szklo_c"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "s_zielony": {
+      "speaker": "Pole Szkła",
+      "text": "Schylasz się i wyłuskujesz odłamek ostrożnie, żeby nie zahaczyć o krawędź. Zielony, zimny jak szron. W środku coś błyska, jakby ktoś zajrzał do niego z drugiej strony.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Niech będzie.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "odlamek_krateru"
+        },
+        {
+          "setFlag": "szklo_z"
+        }
+      ]
+    },
+    "s_niebieski": {
+      "speaker": "Pole Szkła",
+      "text": "Schylasz się i wyłuskujesz odłamek ostrożnie, żeby nie zahaczyć o krawędź. Niebieski, zimny jak szron. W środku coś błyska, jakby ktoś zajrzał do niego z drugiej strony.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "odlamek_krateru"
+        },
+        {
+          "setFlag": "szklo_n"
+        }
+      ]
+    },
+    "s_czerwony": {
+      "speaker": "Pole Szkła",
+      "text": "Schylasz się i wyłuskujesz odłamek ostrożnie, żeby nie zahaczyć o krawędź. Czerwony, zimny jak szron. W środku coś błyska, jakby ktoś zajrzał do niego z drugiej strony.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pamiętam.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "odlamek_krateru"
+        },
+        {
+          "setFlag": "szklo_c"
+        }
+      ]
+    }
+  }
+}

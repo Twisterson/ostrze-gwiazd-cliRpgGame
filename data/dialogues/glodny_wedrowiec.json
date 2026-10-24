@@ -1,0 +1,84 @@
+{
+  "id": "glodny_wedrowiec",
+  "portrait": "portret_wedrowiec",
+  "start": "prosba",
+  "nodes": {
+    "prosba": {
+      "speaker": "Wędrowiec",
+      "text": "Przy rowie kuca chłop chudy jak tyczka, w siermiędze z samych dziur. „Panie, trzeci dzień nic w gębie nie miałem prócz własnego języka, a i ten mi już zbrzydł. Masz może kęs czego, na litość?”",
+      "options": [
+        {
+          "id": "prowiant",
+          "text": "Weź, jedz. (prowiant)",
+          "requires": {
+            "item": "prowiant"
+          },
+          "goto": "dzieki_prowiant"
+        },
+        {
+          "id": "jagody",
+          "text": "Mam garść jagód. (jagody)",
+          "requires": {
+            "item": "jagody"
+          },
+          "goto": "dzieki_jagody"
+        },
+        {
+          "id": "odmowa",
+          "text": "Sam mam mało. Bywaj.",
+          "goto": "odmowa"
+        }
+      ]
+    },
+    "dzieki_prowiant": {
+      "speaker": "Wędrowiec",
+      "text": "Chłop rzuca się na chleb jak wilk na owcę, a słoninę wącha, jakby to było pachnidło z cesarskiego dworu. „Niech ci bogowie w dzieciach wynagrodzą, panie! A jak będziesz w Brodzie, nie pij u Wrzoska – psiajucha leje wodę do piwa.”",
+      "actions": [
+        {
+          "takeItem": "prowiant"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "dzieki_jagody": {
+      "speaker": "Wędrowiec",
+      "text": "Jagody znikają w mig, a broda chłopa robi się sina od soku. „Mało, ale od serca, a od serca najlepiej smakuje. Bogowie widzą, panie, bogowie wszystko widzą.”",
+      "actions": [
+        {
+          "takeItem": "jagody"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odmowa": {
+      "speaker": "Wędrowiec",
+      "text": "Chłop kiwa głową, jakby niczego innego nie czekał. „Ano, bieda nikogo o imię nie pyta.” Spluwa w pył przez lewe ramię i odwraca wzrok.",
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

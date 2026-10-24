@@ -1,0 +1,260 @@
+{
+  "id": "wrzosek",
+  "portrait": "portret_wrzosek",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "Wrzosek wyciera kufel tą samą szmatą, którą przed chwilą przetarł stół. „Pod Wilczym Kłem witamy każdego, kto ma grosz albo opowieść. Najlepiej jedno i drugie.”",
+      "options": [
+        {
+          "id": "plotki",
+          "text": "Co słychać w okolicy?",
+          "requires": {
+            "notFlag": "wrzosek_plotka"
+          },
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 35
+          },
+          "success": "plotka_ok",
+          "failure": "plotka_zle"
+        },
+        {
+          "id": "robota",
+          "text": "Potrzebujesz czegoś?",
+          "requires": {
+            "known": "wilczy_las",
+            "questStatus": {
+              "id": "lek_dla_wrzoska",
+              "is": "none"
+            }
+          },
+          "goto": "robota"
+        },
+        {
+          "id": "ziola",
+          "text": "Mam ziela z polany.",
+          "requires": {
+            "item": "ziola_dla_wrzoska",
+            "questStatus": {
+              "id": "lek_dla_wrzoska",
+              "is": "active"
+            }
+          },
+          "goto": "oddanie"
+        },
+        {
+          "text": "Ostap kazał ci coś przekazać.",
+          "goto": "wiadomosc",
+          "id": "wiadomosc",
+          "requires": {
+            "flag": "ostap_zboze",
+            "notFlag": "wrzosek_wiadomosc"
+          }
+        },
+        {
+          "text": "Masz dla mnie coś do ściągnięcia?",
+          "goto": "dlug",
+          "id": "dlug",
+          "requires": {
+            "flag": "wrzosek_wiadomosc",
+            "questStatus": {
+              "id": "dlug_kupca",
+              "is": "none"
+            },
+            "notFlag": "dlug_oddany"
+          }
+        },
+        {
+          "text": "Mam pokwitowanie od Ostromira.",
+          "goto": "dlug_oddany",
+          "id": "dlug_oddany",
+          "requires": {
+            "item": "pokwitowanie"
+          }
+        },
+        {
+          "text": "Co tam u ludzi w okolicy?",
+          "goto": "borek",
+          "id": "borek",
+          "requires": {
+            "flag": "wrzosek_ziola_oddane",
+            "notFlag": "zona_wskazana"
+          }
+        },
+        {
+          "id": "borek_wrocil",
+          "text": "Borek wrócił do domu.",
+          "goto": "borek_wrocil",
+          "requires": {
+            "flag": "zona_poinformowana",
+            "notFlag": "wrzosek_borek_ok"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "plotka_ok": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "Wrzosek pochyla się nad ladą i ścisza głos tak, że słychać go w całej izbie. „Dla ciebie za darmo. W lesie za strażnicą jest ścieżka, którą chodzą tylko ci, co nie chcą być widziani. Zioła tam rosną jak na gnoju. Tylko nie gadaj, że od Wrzoska.”",
+      "actions": [
+        {
+          "setFlag": "wrzosek_plotka"
+        },
+        {
+          "reveal": "wilczy_las"
+        }
+      ],
+      "options": [
+        {
+          "text": "Dobra.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "plotka_zle": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "„Uszy do słuchania masz, a język do niczego.” Wrzosek wraca do szmaty, ale zapity furman w kącie bełkocze coś o ścieżce w lesie za strażnicą. Ludzie gadają, że rosną tam zioła. Dość, by wiedzieć, gdzie szukać.",
+      "options": [
+        {
+          "text": "Dobra.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "reveal": "wilczy_las"
+        }
+      ]
+    },
+    "robota": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "„Skoro już wiesz o ścieżce, to się przydasz. Łeb mi po wczorajszym pęka jak wołu po jarmarku. Nazbieraj mi ziół na polanie w lesie i przynieś. Zapłacę, ile sumienie pozwoli, czyli mało.”",
+      "actions": [
+        {
+          "startQuest": "lek_dla_wrzoska"
+        }
+      ],
+      "options": [
+        {
+          "text": "Zobaczę, co da się zrobić.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "oddanie": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "Wrzosek wącha pęczek i pierwszy raz od rana szczerzy zęby. „Pachnie jak zbawienie. Masz u mnie dobre słowo, może i jedno piwo.” „A jak ci się nudzi, to za rzeką, na starym młynie, ktoś się nocą kręci. Ostap, nasz młynarz, wiecznie coś stęka.”",
+      "actions": [
+        {
+          "takeItem": "ziola_dla_wrzoska"
+        },
+        {
+          "setFlag": "wrzosek_ziola_oddane"
+        },
+        {
+          "reveal": "stary_mlyn"
+        }
+      ],
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wiadomosc": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "Wrzosek słyszy, że ma oddać dwa kufle, i długo milczy. „Ostap pamięta tylko długi. Dług to jedyne, co w tym kraju ludzie pamiętają lepiej niż gęby.” Po namyśle dolewa ci do kubka. „Za wieść.”",
+      "options": [
+        {
+          "text": "Dobra.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "wrzosek_wiadomosc"
+        }
+      ]
+    },
+    "dlug": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "„Skoro już latasz między mną a młynem, to i do Ostromira skoczysz. Kupiec wisi mi za trzy beczki, a wozu jego nie widzę od jesieni. Weźmiesz weksel, odbierzesz pokwitowanie, że przyjął, i wrócisz. Zapłacę.”",
+      "options": [
+        {
+          "text": "Zrobię to.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "dlug_kupca"
+        },
+        {
+          "giveItem": "weksel"
+        },
+        {
+          "reveal": "trakt_kupiecki"
+        }
+      ]
+    },
+    "dlug_oddany": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "Wrzosek ogląda pokwitowanie pod światło, wącha i gryzie róg kory. „Podpis prawdziwy. Nikt by tak nie bazgrał, żeby podrobić.” Wyciera łapy i kiwa łbem z uznaniem. „Masz u mnie dług wdzięczności. Najdroższy, jaki jest.”",
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "pokwitowanie"
+        },
+        {
+          "setFlag": "dlug_oddany"
+        }
+      ]
+    },
+    "borek": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "„Borkowa baba snuje się koło studni jak strzyga. Chłop poszedł z owcami w las i nie wrócił. Pogadaj z nią, ty masz nogi do łażenia.”",
+      "options": [
+        {
+          "text": "Pogadam.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "zona_wskazana"
+        },
+        {
+          "reveal": "wilczy_brod.zona_borka"
+        }
+      ]
+    },
+    "borek_wrocil": {
+      "speaker": "Karczmarz Wrzosek",
+      "text": "Wrzosek nalewa dwa kufle i jeden stawia przed tobą bez słowa, co u niego znaczy tyle co order. „Wrócił. Dobrze. Pół wsi mi już o tym nagadało, ale ty pierwszy nie dodałeś, że w ruinach straszy. Pij.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "wrzosek_borek_ok"
+        }
+      ]
+    }
+  }
+}

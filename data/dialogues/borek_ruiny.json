@@ -1,0 +1,72 @@
+{
+  "id": "borek_ruiny",
+  "start": "znaleziony",
+  "nodes": {
+    "znaleziony": {
+      "speaker": "Pasterz Borek",
+      "text": "W kącie rozwalonej izby, pod śmierdzącym owczym runem, leży chłop z wykręconą nogą i oczami kogoś, kto liczył już tylko dni. „Baba cię przysłała? Powiedz jej, że owce się znalazły. Ja jakby mniej.”",
+      "options": [
+        {
+          "id": "opatrz",
+          "text": "Opatrz mu nogę.",
+          "check": {
+            "skill": "medycyna",
+            "difficulty": 30
+          },
+          "success": "zdrow",
+          "failure": "kulawy"
+        },
+        {
+          "text": "Powiem żonie, że żyjesz.",
+          "goto": "pozegnanie",
+          "id": "zona"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "borek_znaleziony"
+        }
+      ]
+    },
+    "zdrow": {
+      "speaker": "Pasterz Borek",
+      "text": "Szyna z kija i dwa paski z koszuli. Borek klnie jak furman w błocie, ale stoi o własnych siłach. „Psiakrew, mało kto tak umie. Jak wrócę, powiem, żeś mnie dobrze opatrzył.”",
+      "options": [
+        {
+          "text": "Idź za mną.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "borek_zdrowy"
+        }
+      ]
+    },
+    "kulawy": {
+      "speaker": "Pasterz Borek",
+      "text": "Nastawiasz krzywo i Borek ryczy, aż kruki zrywają się z murów. Noga jakoś trzyma, ale już na zawsze będzie koślawa. „Nic to. Póki żyję, póty łażę. Powiedz babie, że kulawy, ale cały.”",
+      "options": [
+        {
+          "text": "Wybacz.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "borek_kulawy"
+        }
+      ]
+    },
+    "pozegnanie": {
+      "speaker": "Pasterz Borek",
+      "text": "„Dobra. Niech ma nadzieję. A jak nie wrócę, niech wie, że nie uciekłem jak pies.”",
+      "options": [
+        {
+          "text": "Wrócisz.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

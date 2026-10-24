@@ -1,0 +1,145 @@
+{
+  "id": "corka",
+  "portrait": "portret_corka",
+  "start": "corka",
+  "nodes": {
+    "corka": {
+      "speaker": "Córka strażnika",
+      "text": "Młoda kobieta siedzi na schodku i mięli w palcach rzemyk z pustą pętlą. „Ojciec był strażnikiem z ruin. Nosił taki znak jak ten twój, tylko prawdziwy.” Wbija wzrok w twoją pierś. „Skąd go wziąłeś, obcy?”",
+      "options": [
+        {
+          "text": "To amulet po zabitej towarzyszce.",
+          "goto": "opowiesc",
+          "id": "amulet",
+          "requires": {
+            "item": "amulet_strazniczy",
+            "questStatus": {
+              "id": "amulet_z_ruin",
+              "is": "none"
+            },
+            "notFlag": "amulet_oddany"
+          }
+        },
+        {
+          "text": "Znak pasuje do drzwi w ruinach. Oddaję go.",
+          "goto": "oddany",
+          "id": "oddaj",
+          "requires": {
+            "item": "amulet_strazniczy",
+            "flag": "amulet_pasuje",
+            "notFlag": "amulet_zatrzymany"
+          }
+        },
+        {
+          "text": "Znak pasuje. Zatrzymam go.",
+          "goto": "zatrzymany",
+          "id": "zatrzymaj",
+          "requires": {
+            "flag": "amulet_pasuje",
+            "notFlag": "amulet_oddany"
+          }
+        },
+        {
+          "id": "po_oddany",
+          "text": "Jak sobie radzisz?",
+          "goto": "po_oddany",
+          "requires": {
+            "flag": "amulet_oddany"
+          }
+        },
+        {
+          "id": "po_zatrzymany",
+          "text": "Jak sobie radzisz?",
+          "goto": "po_zatrzymany",
+          "requires": {
+            "flag": "amulet_zatrzymany"
+          }
+        },
+        {
+          "text": "Bywaj.",
+          "goto": "end",
+          "id": "bywaj"
+        }
+      ]
+    },
+    "opowiesc": {
+      "speaker": "Córka strażnika",
+      "text": "„Ojciec gadał, że w ruinach są drzwi, które otwiera tylko taki znak. Szukał do śmierci i nie znalazł. Idź tam, przyłóż go do muru i wróć mi powiedzieć, czy pasuje. Jak pasuje, to stary miał rację. A to więcej, niż mi za życia powiedział.”",
+      "options": [
+        {
+          "text": "Sprawdzę.",
+          "goto": "corka"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "amulet_z_ruin"
+        },
+        {
+          "setFlag": "amulet_pytanie"
+        }
+      ]
+    },
+    "oddany": {
+      "speaker": "Córka strażnika",
+      "text": "Bierze amulet w obie dłonie, jak nowo narodzone dziecko. „Bóg zapłać. Nikt mi jeszcze nic nie oddał bez targu. Ojciec by oczy przetarł. Za tymi murami czekała na ciebie jeszcze tajemnica. Jak cię kiedy o nią zapytają, to ode mnie nic nie wiesz.” „Matka mieszka w Głuszcu, za cmentarzem. Będziesz tamtędy szedł, zajrzyj do niej.”",
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "amulet_strazniczy"
+        },
+        {
+          "setFlag": "amulet_oddany"
+        },
+        {
+          "reveal": "gluszec.wdowa"
+        }
+      ]
+    },
+    "zatrzymany": {
+      "speaker": "Córka strażnika",
+      "text": "Zaciska usta. „Niech ci będzie. Pamiątka to pamiątka. Tylko pilnuj, żeby ci jej ktoś nie wyrwał razem z ręką.” Wraca do rzemyka. „Matka mieszka w Głuszcu, za cmentarzem. Będziesz tamtędy szedł, zajrzyj do niej.”",
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "amulet_zatrzymany"
+        },
+        {
+          "reveal": "gluszec.wdowa"
+        }
+      ]
+    },
+    "po_oddany": {
+      "speaker": "Córka strażnika",
+      "text": "Dziewczyna obraca znak w palcach i pierwszy raz się uśmiecha. „Nie liczę już, ile razy go oglądam. Powiesiłam nad łóżkiem, od mory. Ojciec by rzekł, że głupota, ale ojciec nigdy tak długo na niego nie patrzył.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Cieszę się.",
+          "goto": "corka"
+        }
+      ]
+    },
+    "po_zatrzymany": {
+      "speaker": "Córka strażnika",
+      "text": "Dziewczyna odwraca oczy. „Nie wypominam. Pamiątka to pamiątka. Ale jak ci kiedy ciążyć zacznie, wiesz, gdzie mieszkam.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zapamiętam.",
+          "goto": "corka"
+        }
+      ]
+    }
+  }
+}

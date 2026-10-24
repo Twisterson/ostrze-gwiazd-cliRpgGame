@@ -1,0 +1,84 @@
+{
+  "id": "ostromir_trakt",
+  "start": "wozu",
+  "nodes": {
+    "wozu": {
+      "speaker": "Kupiec Ostromir",
+      "text": "Ostromir siedzi na koźle i liczy na palcach coś, co kiedyś było pieniędzmi. „Wędrowiec! Albo czegoś chcesz, albo coś sprzedajesz, albo mnie okradniesz. Które, gadaj?”",
+      "options": [
+        {
+          "text": "Mam weksel od Wrzoska.",
+          "goto": "weksel",
+          "id": "weksel",
+          "requires": {
+            "item": "weksel"
+          }
+        },
+        {
+          "text": "Potrzebujesz eskorty na Przełęcz?",
+          "goto": "eskorta",
+          "id": "eskorta",
+          "requires": {
+            "flag": "dlug_oddany",
+            "any": [
+              {
+                "questStatus": {
+                  "id": "eskorta_ostromira",
+                  "is": "none"
+                }
+              },
+              {
+                "questStatus": {
+                  "id": "eskorta_ostromira",
+                  "is": "failed"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "text": "Bywaj.",
+          "goto": "end",
+          "id": "bywaj"
+        }
+      ]
+    },
+    "weksel": {
+      "speaker": "Kupiec Ostromir",
+      "text": "Ostromir patrzy na weksel jak na dawno pochowanego krewniaka. „Wrzosek. A jakże. Trzy beczki piwa, których nie wypiłem, bo się w drodze skwasiło.” Bazgrze coś na kawałku kory i podaje ci. „Pokwitowanie. Niech je ściska i niech nie skamle.”",
+      "options": [
+        {
+          "text": "Przekażę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "weksel"
+        },
+        {
+          "giveItem": "pokwitowanie"
+        },
+        {
+          "setFlag": "ostromir_dlug"
+        }
+      ]
+    },
+    "eskorta": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„Przełęcz? Trzy dni pustkowiem, a ja wiozę sukno na tysiąc złotych i ani krzty odwagi. Czterdzieści groszy za odprowadzenie wozu, a będziesz mi najlepszym przyjacielem, póki nie przyjdzie do rachunku.” Wyciąga rękę.",
+      "options": [
+        {
+          "text": "Biorę to. Czekaj w Brodzie.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "eskorta_ostromira"
+        }
+      ]
+    }
+  },
+  "portrait": "portret_ostromir"
+}

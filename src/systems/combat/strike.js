@@ -1,0 +1,88 @@
+/** The one player weapon blow used by every attack (plain attack, techniques, later reach and firearms). */
+import { getStats } from "../stats.js";
+import { enemyById } from "./data.js";
+import { onAllyDeath } from "./state.js";
+import { playerHitChance, rollDamage, mitigate, dealDamage } from "./formulas.js";
+import { applyToEnemy } from "./effects.js";
+import { masteryTypeOf, masteryBonuses } from "./mastery.js";
+
+const roll100 = (rng) => rng.int(1, 100);
+
+/** Rolls an effect's application on an enemy and records the matching event. */
+export function effectOnEnemy(data, combat, enemy, id, rng, events, opts) {
+  const r = applyToEnemy(data, combat, enemy, id, rng, opts);
+  events.push({ type: r.immune ? "efekt_odporny" : r.applied ? "efekt_nalozony" : "efekt_odparty", id, target: enemy.uid });
+  return r;
+}
+
+/** Marks the death: other living enemies lose morale. */
+export function onEnemyDeath(data, combat, enemy, events) {
+  events.push({ type: "wrog_pokonany", target: enemy.uid });
+  onAllyDeath(data, combat);
+}
+
+/**
+ * One player blow with `weapon` at `target` (an enemy object): hit roll, damage, mitigation, mastery (`killedBy`), blunt
+ * rules and the weapon's effects. Spends one load of a reloadable weapon (not when thrown); AP are the caller's job.
+ * @param {object} opts
+ * @param {object} opts.weapon the item striking
+ * @param {object} opts.target the enemy
+ * @param {object} opts.rng
+ * @param {number} [opts.hitPenalty] lowers the hit chance
+ * @param {number} [opts.critBonus] added to the crit chance
+ * @param {number} [opts.damagePercent] added to the damage % bonus (before armor)
+ * @param {string} [opts.skillOverride] skill used instead of the weapon's
+ * @param {boolean} [opts.thrown] a throw: ranged (`far`), mastery kind `rzucana`, nothing spent from the magazine
+ * @param {boolean} [opts.noDamage] a hit does no damage (a stun attempt): only the extra effect is rolled
+ * @param {{ id: string, chance: number }} [opts.effect] extra effect rolled after a hit that did not kill (aimed attack)
+ * @returns {object[]} events (`atak` first; `wrog_pokonany`, effect events)
+ */
+export function strike(state, data, combat, { weapon, target, rng, hitPenalty = 0, critBonus = 0, damagePercent = 0, skillOverride, thrown = false, effect, noDamage = false }) {
+  const c = data.rules.combat;
+  const stats = getStats(state, data);
+  const masteryType = masteryTypeOf(weapon, { thrown });
+  const used = { ...weapon, skill: skillOverride ?? weapon.skill, ...(thrown ? { range: "far" } : {}) };
+  const events = [];
+  const chance = playerHitChance(state, data, combat, used, target, { penalty: hitPenalty, masteryType });
+  const hit = roll100(rng) <= chance;
+  if (weapon.reload && !thrown) state.inventory.loaded[weapon.id] = (state.inventory.loaded?.[weapon.id] ?? 0) - 1;
+  const ev = { type: "atak", attacker: "player", target: target.uid, hit, damage: 0, crit: false, chance, weapon: weapon.id, ...(thrown ? { thrown: true } : {}) };
+  events.push(ev);
+  if (!hit) return events;
+  if (noDamage) {
+    if (effect && roll100(rng) <= effect.chance) effectOnEnemy(data, combat, target, effect.id, rng, events);
+    return events;
+  }
+  const { raw, crit } = rollDamage(rng, {
+    damage: weapon.damage, melee: used.range === "melee", sila: stats.attributes.sila, bonus: stats.derived.damage,
+    bonusPercent: masteryBonuses(state, data, masteryType).damagePercent + damagePercent,
+    critChance: stats.derived.critChance + critBonus, rules: c,
+  });
+  const base = enemyById(data, target.id);
+  let amount = mitigate({
+    raw, crit, armor: base.armor ?? 0, armorPierce: weapon.armorPierce ?? 0,
+    reductionPercent: base.reduction?.[weapon.damageType] ?? 0, taken: base.damageTaken?.[weapon.damageType] ?? 1,
+  });
+  // Extra damage of the player's effects (e.g. a burning blade) rides on every weapon blow: own roll and type, no flat armor.
+  if (!thrown) {
+    for (const extra of stats.other.extraDamage) {
+      const bonus = mitigate({
+        raw: rng.int(extra.amount[0], extra.amount[1]), reductionPercent: base.reduction?.[extra.type] ?? 0, taken: base.damageTaken?.[extra.type] ?? 1,
+      });
+      amount += bonus;
+      ev.extra = { type: extra.type, amount: (ev.extra?.amount ?? 0) + bonus };
+    }
+  }
+  ev.damage = dealDamage(combat, target, amount);
+  ev.crit = crit;
+  // The finishing blow (in training: the blow that left the enemy spared at 1 HP) credits its weapon kind.
+  if (masteryType && target.hp <= (combat.training ? 1 : 0)) target.killedBy = masteryType;
+  if (target.dead) { onEnemyDeath(data, combat, target, events); return events; }
+  if (weapon.damageType === "obuchowe") {
+    if (crit) { if (roll100(rng) <= c.bluntCritStun) effectOnEnemy(data, combat, target, "ogluszenie", rng, events); }
+    else if (roll100(rng) <= c.bluntDaze) effectOnEnemy(data, combat, target, "zamroczenie", rng, events);
+  }
+  for (const fx of weapon.effects ?? []) if (roll100(rng) <= fx.chance) effectOnEnemy(data, combat, target, fx.id, rng, events);
+  if (effect && roll100(rng) <= effect.chance) effectOnEnemy(data, combat, target, effect.id, rng, events);
+  return events;
+}

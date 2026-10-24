@@ -1,0 +1,269 @@
+{
+  "id": "kwatermistrz",
+  "portrait": "portret_kwatermistrz",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Kwatermistrz Dobrogost",
+      "text": "Dobrogost wyrasta zza kontuaru jak zmora o niezapłaconym rachunku. „No? Kupujesz, czy tylko moje powietrze żresz? Jedno i drugie kosztuje, mówię ci!”",
+      "options": [
+        {
+          "id": "targ",
+          "text": "Zbijmy trochę cenę, dziadku.",
+          "check": {
+            "skill": "handel",
+            "difficulty": 35
+          },
+          "requires": {
+            "notFlag": "kwatermistrz_rabat"
+          },
+          "success": "targ_ok",
+          "failure": "targ_zle"
+        },
+        {
+          "id": "plotka",
+          "text": "Słyszałeś coś o kurierze?",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 40
+          },
+          "requires": {
+            "notFlag": "plotka_kurier"
+          },
+          "success": "plotka_ok",
+          "failure": "plotka_zle"
+        },
+        {
+          "id": "lyk",
+          "text": "Nalej łyka. (2 gr)",
+          "requires": {
+            "all": [
+              {
+                "money": 2
+              },
+              {
+                "effectStacks": {
+                  "id": "podchmielenie",
+                  "lte": 2
+                }
+              }
+            ]
+          },
+          "goto": "lyk"
+        },
+        {
+          "id": "lyk_dosc",
+          "text": "Nalej łyka. (2 gr)",
+          "requires": {
+            "effectStacks": {
+              "id": "podchmielenie",
+              "gte": 3
+            }
+          },
+          "goto": "dosc"
+        },
+        {
+          "id": "kaptur",
+          "text": "Patrz, jaki kaptur.",
+          "requires": {
+            "item": "kaptur_mysliwego"
+          },
+          "showLocked": true,
+          "goto": "kaptur"
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "rozmowa_dalej": {
+      "speaker": "Kwatermistrz Dobrogost",
+      "text": "Dobrogost bębni paluchami po kontuarze. „No, coś jeszcze? Czas leci, a towar sam się nie sprzeda, psia mać.”",
+      "options": [
+        {
+          "id": "targ",
+          "text": "Zbijmy trochę cenę, dziadku.",
+          "check": {
+            "skill": "handel",
+            "difficulty": 35
+          },
+          "requires": {
+            "all": [
+              {
+                "notFlag": "kwatermistrz_rabat"
+              },
+              {
+                "notFlag": "kwatermistrz_targ_oblany"
+              }
+            ]
+          },
+          "success": "targ_ok",
+          "failure": "targ_zle"
+        },
+        {
+          "id": "plotka",
+          "text": "Słyszałeś coś o kurierze?",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 40
+          },
+          "requires": {
+            "all": [
+              {
+                "notFlag": "plotka_kurier"
+              },
+              {
+                "notFlag": "kwatermistrz_plotka_oblana"
+              }
+            ]
+          },
+          "success": "plotka_ok",
+          "failure": "plotka_zle"
+        },
+        {
+          "id": "lyk",
+          "text": "Nalej łyka. (2 gr)",
+          "requires": {
+            "all": [
+              {
+                "money": 2
+              },
+              {
+                "effectStacks": {
+                  "id": "podchmielenie",
+                  "lte": 2
+                }
+              }
+            ]
+          },
+          "goto": "lyk"
+        },
+        {
+          "id": "lyk_dosc",
+          "text": "Nalej łyka. (2 gr)",
+          "requires": {
+            "effectStacks": {
+              "id": "podchmielenie",
+              "gte": 3
+            }
+          },
+          "goto": "dosc"
+        },
+        {
+          "id": "kaptur",
+          "text": "Patrz, jaki kaptur.",
+          "requires": {
+            "item": "kaptur_mysliwego"
+          },
+          "showLocked": true,
+          "goto": "kaptur"
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "targ_ok": {
+      "speaker": "Kwatermistrz Dobrogost",
+      "text": "Dobrogost sapie, mruży oko i liczy coś na paluchach. „Tfu, żebyś ty się na jarmarku nie urodził! Dobra, utnę ci z każdego towaru, ale matce nie mów, bo mnie z chałupy pogoni.” Spluwa w garść i wyciąga ją na zgodę.",
+      "actions": [
+        {
+          "setFlag": "kwatermistrz_rabat"
+        }
+      ],
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "rozmowa_dalej"
+        }
+      ]
+    },
+    "targ_zle": {
+      "speaker": "Kwatermistrz Dobrogost",
+      "text": "„Zbić cenę?! Moje opatrunki, jak własne dzieci! Wynocha z takimi fanaberiami, bo ci jeszcze doliczę za gadanie!” Krzywi się, jakby mu ząb wyleciał, i wpycha sakiewkę głębiej za pazuchę.",
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "rozmowa_dalej"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "kwatermistrz_targ_oblany"
+        }
+      ]
+    },
+    "plotka_ok": {
+      "speaker": "Kwatermistrz Dobrogost",
+      "text": "Kwatermistrz łypie na boki, ścisza głos i pochyla się nad ladą. „Ten w czerwonym płaszczu? Zanim pojechał dalej, wypytywał mnie o spis uczniów, jakby kupował prosięta na wagę. Ja nic nie mówiłem, a ty nic nie słyszałeś.”",
+      "actions": [
+        {
+          "setFlag": "plotka_kurier"
+        }
+      ],
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "rozmowa_dalej"
+        }
+      ]
+    },
+    "plotka_zle": {
+      "speaker": "Kwatermistrz Dobrogost",
+      "text": "„Kurier? Jaki kurier? Stoję tu od świtu i widzę same gęby, co nic nie kupują.” Prycha i wraca do liczenia. Z tego kamienia wody nie wyciśniesz.",
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "rozmowa_dalej"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "kwatermistrz_plotka_oblana"
+        }
+      ]
+    },
+    "lyk": {
+      "speaker": "Kwatermistrz Dobrogost",
+      "text": "Dobrogost zdejmuje z półki mętną flaszkę, nalewa do kubka i patrzy, czy aby nie za dużo. „Za moje zdrowie. I za twoje, ale to już na twój rachunek.” Pali w gardle jak diabli, za to w brzuchu robi się ciepło, a język sam się rozwiązuje.",
+      "actions": [
+        {
+          "takeMoney": 2
+        },
+        {
+          "addEffect": "podchmielenie"
+        }
+      ],
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "rozmowa_dalej"
+        }
+      ]
+    },
+    "kaptur": {
+      "speaker": "Kwatermistrz Dobrogost",
+      "text": "Kwatermistrz obraca kaptur w paluchach, ogląda szwy i mlaska. „Myśliwski, porządna robota. Ktoś tu szył lepiej niż nasza szwaczka. Drożej ci go nie sprzedam, boś swój, ale taniej też nie, bo nie z mojej kiesy.”",
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "rozmowa_dalej"
+        }
+      ]
+    },
+    "dosc": {
+      "speaker": "Kwatermistrz Dobrogost",
+      "text": "Dobrogost zabiera ci flaszkę sprzed nosa i odstawia na półkę. „Starczy ci, chłopcze. Jeszcze mi pod ladą zaśniesz, a ja cię na grzbiecie do koszar nie poniosę, bom stary i krzyż mam jeden.”",
+      "options": [
+        {
+          "text": "Dalej.",
+          "goto": "rozmowa_dalej"
+        }
+      ]
+    }
+  }
+}

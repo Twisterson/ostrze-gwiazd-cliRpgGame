@@ -1,0 +1,125 @@
+{
+  "id": "furman",
+  "portrait": "portret_bolek",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Furman Bolek",
+      "text": "Furman Bolek siedzi na przewróconej beczce i gapi się w puste błoto, gdzie dwa dni temu stał jego wóz. „Ja? Ja już nic nie mam. Gęba mi została, to gadać mogę.”",
+      "options": [
+        {
+          "id": "q11_start",
+          "text": "Co się stało?",
+          "goto": "q11_start",
+          "requires": {
+            "questStatus": {
+              "id": "zaginiona_karawana",
+              "is": "none"
+            }
+          }
+        },
+        {
+          "id": "q11_mapa",
+          "text": "Mam mapę przewodnika. Może coś na niej jest.",
+          "goto": "q11_mapa",
+          "requires": {
+            "item": "mapa_przewodnika",
+            "questStatus": {
+              "id": "zaginiona_karawana",
+              "is": "active"
+            },
+            "notFlag": "karawana_skrot"
+          }
+        },
+        {
+          "id": "q11_koniec",
+          "text": "Znalazłem ślady twojej karawany.",
+          "goto": "q11_koniec",
+          "requires": {
+            "flag": "woz_znaleziony",
+            "notFlag": "furman_zamkniety",
+            "questStatus": {
+              "id": "zaginiona_karawana",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q11_po",
+          "text": "Co teraz zrobisz?",
+          "goto": "q11_po",
+          "requires": {
+            "questStatus": {
+              "id": "zaginiona_karawana",
+              "is": "done"
+            }
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "q11_start": {
+      "speaker": "Furman Bolek",
+      "text": "„Karawana. Cztery wozy, siedmiu chłopa, towar z południa. Ze Starego traktu ruszyliśmy całą karawaną, a wróciłem sam. Konie przylazły same, wozy wcale. Jak wypatrzysz coś na tym szlaku, daj znać, bo mi się ciągle zdaje, że widziałem ślady, tylko czart wie czyje.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "zaginiona_karawana"
+        }
+      ]
+    },
+    "q11_mapa": {
+      "speaker": "Furman Bolek",
+      "text": "Bolek ogląda mapę w gasnącym świetle i pociąga nosem. „O, tu. Stary skrót przez wąwóz, o którym nie wiedziałem. Wozy mogły tamtędy pojechać, jak je ktoś pognał. Zajrzyj, jak masz ochotę. Ja się boję, jak Boga kocham.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "karawana_skrot"
+        }
+      ]
+    },
+    "q11_koniec": {
+      "speaker": "Furman Bolek",
+      "text": "Bolek słucha, coraz bielszy na gębie, a pod koniec odkłada lejce. „Rozbite w wąwozie, ludzie rozpędzeni, towar zrabowany. Czyli nie zginęli, tylko pouciekali. Znaczy, są gdzieś tu, w okolicy. Bóg zapłać. Weź dwadzieścia groszy, co mi zostały, i kawał szynki z tego, com przywiózł.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak zrobię.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "furman_zamkniety"
+        }
+      ]
+    },
+    "q11_po": {
+      "speaker": "Furman Bolek",
+      "text": "„Poczekam, aż ci, co pouciekali, wrócą. Jak ludzie zaczynają się odnajdywać, to nie wszystko jeszcze diabli wzięli. Poszedłeś tam, gdzie ja bałem się iść. Takich rzeczy się nie zapomina.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

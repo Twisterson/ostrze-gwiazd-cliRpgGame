@@ -1,0 +1,103 @@
+{
+  "id": "wdowa",
+  "portrait": "portret_jaga",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Wdowa Jaga",
+      "text": "Wdowa Jaga stoi przy płocie z rękami złożonymi na brzuchu i patrzy na ciebie, jakbyś niósł list, którego bała się przeczytać.",
+      "options": [
+        {
+          "id": "q9_start",
+          "text": "Twoja córka powiedziała, że tu mieszkasz.",
+          "goto": "q9_start",
+          "requires": {
+            "questStatus": {
+              "id": "wdowa_po_straznik",
+              "is": "none"
+            },
+            "flag": "amulet_oddany"
+          }
+        },
+        {
+          "id": "q9_start_z",
+          "text": "Twoja córka ma problem z amuletem.",
+          "goto": "q9_start_z",
+          "requires": {
+            "questStatus": {
+              "id": "wdowa_po_straznik",
+              "is": "none"
+            },
+            "flag": "amulet_zatrzymany"
+          }
+        },
+        {
+          "id": "q9_koniec",
+          "text": "Mąż leży przy murze, trzeci rząd od kapliczki.",
+          "goto": "q9_koniec",
+          "requires": {
+            "flag": "grob_odwiedzony",
+            "notFlag": "wdowa_zamknieta",
+            "questStatus": {
+              "id": "wdowa_po_straznik",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "q9_start": {
+      "speaker": "Wdowa Jaga",
+      "text": "Jaga mruga powoli. „Moja Ela? Przyszła dwa dni temu z amuletem i przepłakała cały wieczór. Mąż był strażnikiem ruin i zginął, kiedy cesarscy zamknęli to miejsce. Nie wiem, gdzie go zakopali. Kopacz Jerzy pewnie wie, ale mnie odwagi brak, żeby pytać. Zapytasz za mnie?”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pamiętam.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "wdowa_po_straznik"
+        }
+      ]
+    },
+    "q9_start_z": {
+      "speaker": "Wdowa Jaga",
+      "text": "Jaga zaciska usta tak, że warg nie widać. „Zatrzymałeś go. Niech będzie, to pamiątka. Nie odbiorę ci jej. Ale mój chłop leży gdzieś tu w ziemi i chcę wiedzieć gdzie. Kopacz Jerzy powinien wiedzieć. Zapytasz za mnie?”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Niech będzie.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "wdowa_po_straznik"
+        }
+      ]
+    },
+    "q9_koniec": {
+      "speaker": "Wdowa Jaga",
+      "text": "Jaga milknie, a potem robi coś, czego się nie spodziewasz: uśmiecha się, cienko jak nitka. „Trzeci rząd. Lubił ten kąt, bo po południu słońce tam zaglądało. Bóg zapłać. Masz tu, co mam: trochę mięsiwa na wymianę. Więcej nie dam, bo nie mam, ale kto przynosi dobrą wieść, ten z pustymi rękami nie odchodzi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jak mówisz.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "wdowa_zamknieta"
+        }
+      ]
+    }
+  }
+}

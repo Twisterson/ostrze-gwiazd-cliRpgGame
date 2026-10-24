@@ -1,0 +1,93 @@
+{
+  "id": "pielgrzym_falszywy",
+  "portrait": "portret_pielgrzym",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Pielgrzym z bukłakiem",
+      "text": "Przy karczmie kręci się człek z różańcem, którego nie przesuwa, i bukłakiem, z którego nie pije. Ślepia ma za bystre jak na kogoś, kto szuka łaski.",
+      "options": [
+        {
+          "id": "oskarz",
+          "text": "Ty sypiesz cesarskim.",
+          "goto": "oskarz_test"
+        },
+        {
+          "id": "odpusc",
+          "text": "Zostaw go w spokoju.",
+          "goto": "odpusc"
+        }
+      ]
+    },
+    "oskarz_test": {
+      "speaker": "Pielgrzym z bukłakiem",
+      "text": "Pielgrzym blednie, ale szczerzy zęby.",
+      "options": [
+        {
+          "id": "oskarz_t",
+          "text": "Powiedz mu to tak, żeby się zląkł.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 40
+          },
+          "success": "oskarz_ok",
+          "failure": "oskarz_zle"
+        },
+        {
+          "id": "oskarz_w",
+          "text": "Wycofaj się.",
+          "goto": "odpusc"
+        }
+      ]
+    },
+    "oskarz_ok": {
+      "speaker": "Pielgrzym z bukłakiem",
+      "text": "Pielgrzym upuszcza różaniec, a potem sakiewkę, bo wyrwał ją odruchowo, jakby chciał się wykupić. „Ja tylko za dwa grosze, panie! Nic wielkiego! Już mnie nie ma.” Pryska w stronę traktu szybciej, niż myślałeś, że ludzie z bukłakami umieją biegać. Sakiewka zostaje w błocie.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobra robota.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 15
+        },
+        {
+          "setFlag": "informator_przepedzony"
+        },
+        {
+          "search": -10
+        }
+      ]
+    },
+    "oskarz_zle": {
+      "speaker": "Pielgrzym z bukłakiem",
+      "text": "Pielgrzym rży śmiechem tak głośno, że ktoś z karczmy wychyla się przez drzwi. „Ja? Panie, jam człowiek wiary!” Odchodzi, ale spojrzenie, które rzuca ci przez ramię, zimne jest jak woda w studni. Wiesz, że to nie koniec.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Cholera.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "search": 15
+        }
+      ]
+    },
+    "odpusc": {
+      "speaker": "Pielgrzym z bukłakiem",
+      "text": "Pielgrzym kiwa głową powoli. „Mądry człek. Niech cię Bóg ma w opiece, a ja będę cię miał w pamięci.” Odchodzi, a po krzyżu przechodzi ci zimny dreszcz.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

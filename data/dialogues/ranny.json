@@ -1,0 +1,103 @@
+{
+  "id": "ranny",
+  "portrait": "portret_ranny",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Ranny górnik",
+      "text": "W głębi sztolni, pod zwaloną podporą, leży górnik z nogą przygniecioną belką. Blady jak łój, ale gęby nie traci. „Nie ruszaj, bo zacznę klnąć, aż strop spadnie. Albo przestań się gapić, psia mać, i pomóż.”",
+      "options": [
+        {
+          "id": "opatrz",
+          "text": "Opatrz mu nogę.",
+          "goto": "opatrz_start",
+          "requires": {
+            "questStatus": {
+              "id": "rannego_nie_zostawia_sie",
+              "is": "active"
+            },
+            "notFlag": "ranny_pomoc"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "opatrz_start": {
+      "speaker": "Ranny górnik",
+      "text": "Górnik zaciska zęby. „No, rób. Byle bym potem chodził na swoich.”",
+      "options": [
+        {
+          "id": "opatrz_t",
+          "text": "Uwolnij nogę i załóż szynę.",
+          "check": {
+            "skill": "medycyna",
+            "difficulty": 35
+          },
+          "success": "opatrz_ok",
+          "failure": "opatrz_zle"
+        },
+        {
+          "id": "opatrz_n",
+          "text": "Zanieś go do znachorki.",
+          "goto": "zanies"
+        }
+      ]
+    },
+    "opatrz_ok": {
+      "speaker": "Ranny górnik",
+      "text": "Belka ustępuje, noga tylko stłuczona. Szyna z deski trzyma. Górnik wypuszcza powietrze jak miech. „Dobra robota. Powiedz Wincentemu, że żyję i że jestem na niego obrażony do grobowej deski.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Powiem.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "ranny_pomoc"
+        },
+        {
+          "setFlag": "ranny_opatrzony"
+        }
+      ]
+    },
+    "opatrz_zle": {
+      "speaker": "Ranny górnik",
+      "text": "Szyna się zsuwa, górnik wyje tak, że echo wraca ze trzy razy. „Zostaw! Zostaw, bo cię gołymi rękami wyrzucę, niech cię kule biją! Niech mnie kto zaniesie do tej Dobrawy, a ty łap precz.” Zostaje ci jedna rozsądna droga.",
+      "options": [
+        {
+          "id": "zanies",
+          "text": "Zanieś go do znachorki.",
+          "goto": "zanies"
+        }
+      ]
+    },
+    "zanies": {
+      "speaker": "Ranny górnik",
+      "text": "Niesiesz go przez pół kamieniołomu i całą drogę do Głuszca, ostrożnie jak jajko w garści. Dobrawa bierze go bez słowa i wskazuje ławę. „Zostaw. Jak przeżył noc pod belką, to i pod moją ręką przeżyje. Idź, powiedz dozorcy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "time": 90
+        },
+        {
+          "setFlag": "ranny_pomoc"
+        },
+        {
+          "setFlag": "ranny_u_znachorki"
+        }
+      ]
+    }
+  }
+}

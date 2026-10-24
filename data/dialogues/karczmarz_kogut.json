@@ -1,0 +1,211 @@
+{
+  "id": "karczmarz_kogut",
+  "portrait": "portret_mruk",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Karczmarz Mruk",
+      "text": "Karczmarz Mruk wyciera kufel tą samą szmatą, którą przed chwilą przetarł ławę. „Nowy? Nowych tu nie lubimy, ale grosz od nich taki sam jak od starych. Co podać? Bo gapić się możesz za darmo, tylko mi gości płoszysz.”",
+      "options": [
+        {
+          "id": "plotki",
+          "text": "Co słychać we wsi?",
+          "goto": "plotki"
+        },
+        {
+          "id": "cesarz",
+          "text": "Co sądzisz o cesarzu?",
+          "goto": "cesarz"
+        },
+        {
+          "id": "nocleg",
+          "text": "Gdzie tu można przespać noc?",
+          "goto": "nocleg"
+        },
+        {
+          "id": "q2_dlug",
+          "text": "Ktoś ci wisi?",
+          "goto": "q2_start",
+          "requires": {
+            "questStatus": {
+              "id": "dlug_mlynarza",
+              "is": "none"
+            },
+            "flag": "soltys_przyjal"
+          }
+        },
+        {
+          "id": "q2_zaplacil",
+          "text": "Radosz zapłacił. Mam twoje dwanaście groszy.",
+          "goto": "q2_zaplacil",
+          "requires": {
+            "flag": "radosz_zaplacil",
+            "notFlag": "mruk_dlug_rozliczony",
+            "money": 12,
+            "questStatus": {
+              "id": "dlug_mlynarza",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "q2_zwloka",
+          "text": "Radosz prosi o tydzień zwłoki.",
+          "goto": "q2_zwloka",
+          "requires": {
+            "flag": "radosz_zwloka",
+            "notFlag": "mruk_dlug_rozliczony",
+            "questStatus": {
+              "id": "dlug_mlynarza",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "kurier",
+          "text": "Pytali tu o kuriera w czerwonym płaszczu?",
+          "goto": "kurier",
+          "requires": {
+            "flag": "kurier_pytal"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "plotki": {
+      "speaker": "Karczmarz Mruk",
+      "text": "Mruk pochyla się nad szynkwasem i ścisza głos tak, że słychać go w całej izbie. „Gadają, że ktoś pytał o ocalałych. Cesarscy, w płaszczach czerwonych jak sumienie poborcy. Nikt nic nie wie, bo nikt nic nie widział, a kto widział, ten teraz bardzo pilnie pije swoje piwo.” Za to kamieniarze z kamieniołomu pod wzgórzem chleją u niego od świtu do nocy i przechwalają się, że tam jeszcze jest co kuć.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jasne.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "reveal": "kamieniolom"
+        }
+      ]
+    },
+    "cesarz": {
+      "speaker": "Karczmarz Mruk",
+      "text": "„Cesarz? Mam o nim jak najlepsze zdanie. Na głos, przy każdym. A po cichu mam inne, tylko z cichym gadaniem nie chodzi się do karczmy, a do spowiedzi, a na spowiedź tu nikt nie ma czasu.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Mądrze.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "nocleg": {
+      "speaker": "Karczmarz Mruk",
+      "text": "„Izba na górze, trzy grosze za noc, pchły gratis, bo ich wygnać się nie da. Jak ci nie w smak, w chlewie cieplej, ale tam już ktoś śpi, a on się nie dzieli.”",
+      "options": [
+        {
+          "id": "wez",
+          "text": "Wezmę izbę (3 gr).",
+          "goto": "nocleg_ok",
+          "requires": {
+            "money": 3,
+            "notFlag": "nocleg_oplacony"
+          }
+        },
+        {
+          "id": "dalej",
+          "text": "Za drogo, wrócę później.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "nocleg_ok": {
+      "speaker": "Karczmarz Mruk",
+      "text": "Mruk chowa trzy grosze do kieszeni z wprawą, której nie powstydziłby się poborca. „Izba na górze, drugie drzwi. Jak usłyszysz szelest pod łóżkiem, to nie mysz, tylko moja teściowa. Nie gryzie, tylko gada.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zapamiętam ci to.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 3
+        },
+        {
+          "setFlag": "nocleg_oplacony"
+        }
+      ]
+    },
+    "q2_start": {
+      "speaker": "Karczmarz Mruk",
+      "text": "Mruk wyciera szynkwas z takim żalem, jakby opłakiwał krewniaka. „Młynarz Radosz wisi mi dwanaście groszy za piwo, które żłopał, kiedy jeszcze miał co mleć. Teraz młyn stoi, a Radosz udaje, że mnie nie zna. Idź do niego, powiedz, że mu przypominam. Jak zapłaci, przynieś, dostaniesz działkę. Nie cały dług, tylko okruch, bo ja nie przytułek.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zajmę się tym.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "dlug_mlynarza"
+        },
+        {
+          "hint": "bagna_szarej_wody"
+        }
+      ]
+    },
+    "q2_zaplacil": {
+      "speaker": "Karczmarz Mruk",
+      "text": "Mruk przelicza monety dwa razy, raz na ucho, raz na ząb. „Dwanaście. Rzadki widok, żeby dłużnik płacił. Masz szóstkę za fatygę, bo uczciwość trzeba karmić, żeby nie zdechła.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zapamiętam ci to.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 12
+        },
+        {
+          "setFlag": "mruk_dlug_rozliczony"
+        }
+      ]
+    },
+    "q2_zwloka": {
+      "speaker": "Karczmarz Mruk",
+      "text": "Mruk milczy tak długo, że zaczynasz żałować, żeś gębę otworzył. „Tydzień. Dobra. Ale jak nie zapłaci, to za tydzień ty mi dopłacisz za jego piwo. Żartuję. Prawie.” Odwraca się do kufli, a po chwili ciska ci sześć groszy za fatygę, bo psiakrew, dłużnikiem być nie lubi.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "mruk_dlug_rozliczony"
+        }
+      ]
+    },
+    "kurier": {
+      "speaker": "Karczmarz Mruk",
+      "text": "Mruk przestaje wycierać kufel, a to zdarza się raz do roku. „Pytali. Tyle że u nas nie pyta się wprost, tylko stawia piwo i czeka, aż komuś język się rozwiąże. Nikomu się nie rozwiązał, bo piwo było kwaśne. Ale za tego, kto następnym razem przyjdzie ze złotem zamiast piwa, nie ręczę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobrze wiedzieć.",
+          "goto": "powitanie"
+        }
+      ]
+    }
+  }
+}

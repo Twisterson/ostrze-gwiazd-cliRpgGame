@@ -1,0 +1,146 @@
+{
+  "id": "zwiadowcy",
+  "start": "obozowisko",
+  "nodes": {
+    "obozowisko": {
+      "speaker": "Zwiadowcy",
+      "text": "Przy ognisku, za wozem, siedzi dwóch w szarych płaszczach. Gadają półgłosem, a to zwykle znaczy, że warto słuchać. Albo że lepiej nie wiedzieć, co robią z tymi, co podsłuchują.",
+      "options": [
+        {
+          "id": "skradanie",
+          "text": "Podkradnij się i posłuchaj.",
+          "check": {
+            "skill": "skradanie",
+            "difficulty": 35
+          },
+          "success": "podsluch_ok",
+          "failure": "podsluch_zle",
+          "requires": {
+            "notFlag": "zwiadowcy_slysza"
+          }
+        },
+        {
+          "id": "wymowa",
+          "text": "Dosiądź się i zagadaj.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 40
+          },
+          "success": "rozmowa_ok",
+          "failure": "rozmowa_zle",
+          "requires": {
+            "notFlag": "zwiadowcy_slysza"
+          }
+        },
+        {
+          "id": "cierpliwie",
+          "text": "Przysiądź w cieniu i słuchaj, ile się da (zajmie godzinę).",
+          "goto": "cierpliwie",
+          "requires": {
+            "notFlag": "zwiadowcy_slysza"
+          }
+        },
+        {
+          "id": "juz",
+          "text": "Pamiętam, co mówiliście.",
+          "goto": "juz",
+          "requires": {
+            "flag": "zwiadowcy_slysza"
+          }
+        },
+        {
+          "text": "Odejdź.",
+          "goto": "end",
+          "id": "odejdz"
+        }
+      ]
+    },
+    "podsluch_ok": {
+      "speaker": "Zza wozu",
+      "text": "„…szukają ocalałego ze szkoły, tego z Brzeziny. Jeden przeżył, reszta gnije. Wiedzą, że poszedł w stronę Brodu.” – „A komendant?” – „Komendant nie pamięta, co jadł na obiad, a co dopiero, kogo widział.” Śmiech. Zimny jak woda w studni.",
+      "options": [
+        {
+          "text": "Wymykasz się po cichu.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "zwiadowcy_slysza"
+        }
+      ]
+    },
+    "podsluch_zle": {
+      "speaker": "Zwiadowca",
+      "text": "Jeden podnosi głowę i patrzy prosto tam, gdzie stoisz. „Wyłaź, nim cię wyniosę razem z krzakiem. Uszy to dobra rzecz, ale wolę je widzieć na twoim łbie.”",
+      "options": [
+        {
+          "text": "Spróbuj inaczej.",
+          "goto": "obozowisko"
+        },
+        {
+          "text": "Odejdź.",
+          "goto": "end"
+        }
+      ]
+    },
+    "rozmowa_ok": {
+      "speaker": "Zwiadowca",
+      "text": "„Pytasz, to powiem. Nie za darmo, ale wyglądasz na takiego, co i tak nie ma nic do stracenia.” I gada: o ocalałym, o liście gończym, o tym, że w Brodzie ktoś patrzy w złą stronę.",
+      "options": [
+        {
+          "text": "Dziękuję za szczerość.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "zwiadowcy_slysza"
+        }
+      ]
+    },
+    "rozmowa_zle": {
+      "speaker": "Zwiadowca",
+      "text": "„Siadaj, bo stoisz. Gadaj, bo milczysz. A nie, nie gadaj, bo ci nie wierzę.” Zwiadowcy wracają do swego, jakby cię w ogóle nie było.",
+      "options": [
+        {
+          "text": "Spróbuj inaczej.",
+          "goto": "obozowisko"
+        },
+        {
+          "text": "Odejdź.",
+          "goto": "end"
+        }
+      ]
+    },
+    "cierpliwie": {
+      "speaker": "Zwiadowcy",
+      "text": "Siedzisz godzinę na ziąbie, aż zwiadowcom rozwiążą się języki. Nie wszystko słyszysz i nie wszystko pojmujesz, ale to, co dolatuje, wystarcza: szukają jednego ocalałego i wiedzą, że poszedł ku Brodowi. Reszta tonie w kaszlu.",
+      "actions": [
+        {
+          "time": 60
+        },
+        {
+          "setFlag": "zwiadowcy_slysza"
+        }
+      ],
+      "options": [
+        {
+          "text": "Wymykasz się.",
+          "goto": "end"
+        }
+      ]
+    },
+    "juz": {
+      "speaker": "Zwiadowcy",
+      "text": "Jeden unosi brew, drugi udaje, że śpi. „Znowu ty? Miałeś szukać swojego, a nie nas. Dla ciebie nic już nie mamy i nic nie powtórzymy.” Wracają do gadania, tym razem dużo ciszej.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wycofuję się.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

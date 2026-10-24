@@ -1,0 +1,51 @@
+{
+  "id": "komendant_namysl",
+  "portrait": "portret_wszebor",
+  "start": "pytanie",
+  "nodes": {
+    "pytanie": {
+      "speaker": "Komendant Wszebor",
+      "text": "„A, łachmaniarz wrócił. Namyśliłeś się? Grosz nie śmierdzi, zapłata pewna. Wilki same się nie wybiją, choć do stu diabłów, bardzo bym chciał.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Namyśliłem się. Biorę to.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Jeszcze nie.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Komendant Wszebor",
+      "text": "„No i widzisz. Mądrego poznać po tym, że zmienia zdanie, nim mu je życie zmieni kijem. Dzień w górę strumienia, uszy na dowód.”",
+      "actions": [
+        {
+          "setFlag": "nora_zgoda"
+        },
+        {
+          "startQuest": "wilcza_nora"
+        }
+      ],
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Komendant Wszebor",
+      "text": "„Jak chcesz. Ja tu siedzę i siedzieć będę, a owce giną co noc.”",
+      "options": [
+        {
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}
