@@ -4,7 +4,7 @@
   "nodes": {
     "nadejscie": {
       "speaker": "Istota",
-      "text": "Budzisz się w ciemności, a ciemność ma twarz. Pochyla się nad tobą Istota o czarnym, szklanym obliczu, w którym świecą gwiazdy, choć samo niczego nie odbija. Rany zasklepiły się gładko, jakby ich nigdy nie było. Głos dudni w kościach, nie w uszach: „Tkanka zrośnięta. Rdzeń sprawny. Dług zaciągnięty. Zniszcz to, co zbudowano na tej ziemi.”",
+      "text": "Budzisz się w środku nocy. Nad tobą pochyla się Istota o czarnej, szklanej twarzy, w której świecą gwiazdy, choć to nie odbicie nieba. Twoje rany są zasklepione, jakby ich nigdy nie było. Głos słyszysz nie uszami, tylko gdzieś w kościach: „Tkanka zrośnięta. Rdzeń sprawny. Dług zaciągnięty. Zniszcz to, co zbudowano na tej ziemi.”",
       "actions": [
         {
           "healFull": true
@@ -42,7 +42,7 @@
     },
     "wybor": {
       "speaker": "Istota",
-      "text": "Istota czeka. Nic w niej nie oddycha, nic nie mruga, a jednak czujesz na karku, że chce odpowiedzi.",
+      "text": "Istota czeka na odpowiedź. Nie oddycha i nie mruga.",
       "portrait": "portret_istota",
       "options": [
         {
@@ -79,7 +79,7 @@
     },
     "pokora": {
       "speaker": "Istota",
-      "text": "„Zapisano.” Szklana twarz odwraca się ku gwiazdom i zostajesz sam, w chłodzie, pod pustym okiem nieba.",
+      "text": "„Zapisano.” Szklana twarz odwraca się ku niebu, a potem Istoty już nie ma. Zostajesz sam, w chłodzie.",
       "portrait": "portret_istota",
       "options": [
         {
@@ -91,7 +91,7 @@
     },
     "pytanie": {
       "speaker": "Istota",
-      "text": "Cisza ciągnie się tak długo, że zaczynasz liczyć uderzenia własnego serca. Wreszcie głos mówi: „Zostanie wyjaśnione.” I nic więcej.",
+      "text": "Długo nic. Wreszcie głos mówi: „Zostanie wyjaśnione.” I nic więcej.",
       "portrait": "portret_istota",
       "options": [
         {
@@ -103,7 +103,7 @@
     },
     "bunt": {
       "speaker": "Istota",
-      "text": "Szklana twarz przechyla się, jakby oglądała robaka. „Zapisano również to.” Gwiazdy w niej drżą, a ty czujesz w trzewiach, że ta odpowiedź komuś przypadła do smaku.",
+      "text": "Szklana twarz przechyla się, jakby oglądała robaka. „Zapisano również to.” Gwiazdy w niej drżą. Masz wrażenie, że ta odpowiedź jej się spodobała.",
       "portrait": "portret_istota",
       "options": [
         {

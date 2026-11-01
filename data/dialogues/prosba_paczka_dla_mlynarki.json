@@ -1,0 +1,49 @@
+{
+  "id": "prosba_paczka_dla_mlynarki",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Kupiec Radogost",
+      "text": "Na pniu przysiadł kupiec z wozem, który stoi bokiem w błocie. „Radogost, handel i bieda. Wiozłem paczkę dla młynarki ze Starego młyna, ale koło mi pękło, a termin mnie goni. Zaniesiesz? Młynarka się odwdzięczy, to dobra kobieta. Tylko nie dopytuj o męża.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Nie mam czasu.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Kupiec Radogost",
+      "text": "Radogost wciska ci paczkę w rękę i obie dłonie. „Niech ci Pan Bóg i droga sprzyjają. Młyn nad rzeką, nie przegapisz, bo jedyny.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "paczka_dla_mlynarki"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Kupiec Radogost",
+      "text": "„Trudno. Pewnie sam doniosę, jak koło sklecę.” Kupiec odwraca się do wozu i wzdycha.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "prosba_zwoj_dla_pustelnika",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Uczony Anzelm",
+      "text": "Na kamieniu przysiadł człowiek w okularach, który coś pilnie liczy na kolanie. „Anzelm, astronom z Obserwatorium. Obliczyłem tor tej gwiazdy, co spadła, i pustelnik z krateru ma o niego prosić od trzech lat. Zaniesiesz mu zwój? Ja już drugi raz nie wchodzę na ten stok, bo kolana mam od myślenia, a nie od chodzenia.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Nie mam czasu.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Uczony Anzelm",
+      "text": "Anzelm wręcza ci zwój i dopisuje coś jeszcze w rogu. „Tylko niech nie czyta od końca, bo wyjdzie mu, że gwiazda spadła w zeszły czwartek.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "zwoj_dla_pustelnika"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Uczony Anzelm",
+      "text": "„Rozumiem. Każdy ma swoje kolana. Poszukam kogoś z gorszymi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

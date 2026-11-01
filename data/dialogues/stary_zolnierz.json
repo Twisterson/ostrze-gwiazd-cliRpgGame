@@ -151,7 +151,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Zapamiętam ci to.",
+          "text": "Idziemy.",
           "goto": "powitanie"
         }
       ],

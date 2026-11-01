@@ -1,0 +1,17 @@
+{
+  "id": "gniewosz_po",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Jar",
+      "text": "Szałas Gniewosza stoi pusty. Na kamieniu ktoś zostawił suchary ułożone w równe kupki, po trzy. Nikt nie wrócił, żeby je zjeść, i to jest najlepsza wiadomość, jaką ten jar miał od dawna. Albo najgorsza, zależnie od tego, co zrobiłeś.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobra.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

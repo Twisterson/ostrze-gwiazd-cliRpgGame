@@ -1,0 +1,151 @@
+{
+  "id": "brama_z_wiru",
+  "start": "brama",
+  "nodes": {
+    "brama": {
+      "speaker": "Brama z wiru",
+      "text": "Na podejściu do Łysej Skały, w szczelinie, z której sączy się światło, stoi urządzenie: rama z metalu, który nie jest żelazem, cewka, wir w środku. Wir obraca się tak wolno, że trzeba stać dłuższą chwilę, żeby zrozumieć, że w ogóle się porusza. Za nim jest coś, co nie jest niebem. Istota nie schodzi tu, bo nic jej nie obchodzi, kto przy bramie majstruje: wrota pracują same.",
+      "options": [
+        {
+          "id": "rysunki",
+          "text": "Przyglądam się rysunkom Brygidy.",
+          "goto": "rysunki",
+          "requires": {
+            "flag": "jarnowo_rozpoznanie_zapis"
+          }
+        },
+        {
+          "id": "rozbroj",
+          "text": "Rozbrajam urządzenie.",
+          "goto": "potwierdz_rozbroj",
+          "requires": {
+            "all": [
+              {
+                "notFlag": "istota_wyrok"
+              },
+              {
+                "notFlag": "portal_rozbrojony"
+              },
+              {
+                "notFlag": "portal_sprawny"
+              }
+            ]
+          }
+        },
+        {
+          "id": "rozbroj_wyrok",
+          "text": "Rozbrajam urządzenie. Obiecałem, że nie wrócą tam, skąd przylecieli.",
+          "goto": "potwierdz_rozbroj",
+          "requires": {
+            "all": [
+              {
+                "flag": "istota_wyrok"
+              },
+              {
+                "notFlag": "portal_rozbrojony"
+              },
+              {
+                "notFlag": "portal_sprawny"
+              }
+            ]
+          }
+        },
+        {
+          "id": "zostaw",
+          "text": "Zostawiam urządzenie sprawne.",
+          "goto": "potwierdz_zostaw",
+          "requires": {
+            "all": [
+              {
+                "notFlag": "portal_rozbrojony"
+              },
+              {
+                "notFlag": "portal_sprawny"
+              }
+            ]
+          }
+        },
+        {
+          "id": "odloz",
+          "text": "Jeszcze nie teraz.",
+          "goto": "end"
+        }
+      ]
+    },
+    "rysunki": {
+      "speaker": "Rysunki Brygidy",
+      "text": "Rysunki Brygidy mówią jedno: łączniki są dwa, jeden przy ramie, drugi w cewce. Zerwanie obu zamknie wir, zostawienie ich otworzy go, kiedy ktoś zechce. Brygida dopisała na marginesie: „Nie dotykaj, jeśli nie chcesz wiedzieć, co jest po drugiej stronie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wracam do urządzenia.",
+          "goto": "brama"
+        }
+      ]
+    },
+    "potwierdz_rozbroj": {
+      "speaker": "Brama z wiru",
+      "text": "Dłoń już leży na pierwszym łączniku. To rozstrzygnie, co dalej. Rozbrojone wrota nie otworzą się już dla nikogo: nikt z tych, co przy nich stoją, nie ucieknie. Po tej decyzji wyjdziesz z Przystani, a zlecenia, których nie rozliczyłeś, przepadną.",
+      "options": [
+        {
+          "id": "potwierdz",
+          "text": "Zrywam łączniki.",
+          "goto": "rozbrojone"
+        },
+        {
+          "id": "cofnij",
+          "text": "Cofam rękę.",
+          "goto": "brama"
+        }
+      ]
+    },
+    "potwierdz_zostaw": {
+      "speaker": "Brama z wiru",
+      "text": "Dłoń cofa się od łączników. To rozstrzygnie, co dalej. Sprawne wrota będą czekały, aż ktoś przez nie przejdzie, a ci, którzy przy nich stoją, będą mieli drogę ucieczki. Po tej decyzji wyjdziesz z Przystani, a zlecenia, których nie rozliczyłeś, przepadną.",
+      "options": [
+        {
+          "id": "potwierdz",
+          "text": "Zostawiam wrota w spokoju.",
+          "goto": "sprawne"
+        },
+        {
+          "id": "cofnij",
+          "text": "Cofam się i jeszcze myślę.",
+          "goto": "brama"
+        }
+      ]
+    },
+    "rozbrojone": {
+      "speaker": "Brama z wiru",
+      "text": "Łączniki pękają z cichym trzaskiem. Wir zwalnia, jakby rozpoznał coś, czego dawno się spodziewał, i zapada się do środka. Światło w szczelinie gaśnie, zostawiając po sobie ciemność, w której Ostrze dzwoni raz i cichnie. Teraz nikt stąd nie ucieknie.",
+      "actions": [
+        {
+          "setFlag": "portal_rozbrojony"
+        }
+      ],
+      "options": [
+        {
+          "id": "wychodze",
+          "text": "Wchodzę wyżej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "sprawne": {
+      "speaker": "Brama z wiru",
+      "text": "Wir obraca się dalej, równo, w swoim rytmie. Światło w szczelinie nie zmienia barwy. Zostawiasz wrota w spokoju i wspinasz się wyżej, tam gdzie czeka ktoś, kto na nie liczy.",
+      "actions": [
+        {
+          "setFlag": "portal_sprawny"
+        }
+      ],
+      "options": [
+        {
+          "id": "wychodze",
+          "text": "Wchodzę wyżej.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

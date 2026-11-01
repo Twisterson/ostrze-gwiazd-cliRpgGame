@@ -1,0 +1,80 @@
+{
+  "id": "moral_dezerter_na_drodze",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Dezerter",
+      "text": "Pod krzakiem kuli się człowiek w pogniecionym mundurze. „Nie zabijaj. Nie chcę walczyć. Chcę tylko wrócić do żony.” Odpina nóż od pasa i rzuca go w trawę.",
+      "options": [
+        {
+          "id": "puszcz",
+          "text": "Puść go.",
+          "goto": "puszcz"
+        },
+        {
+          "id": "zwiaz",
+          "text": "Zwiąż go i zaprowadź do patrolu.",
+          "goto": "zwiaz"
+        },
+        {
+          "id": "zostaw",
+          "text": "Zostaw go i idź dalej.",
+          "goto": "zostaw"
+        }
+      ]
+    },
+    "puszcz": {
+      "speaker": "Dezerter",
+      "text": "Dezerter kłania się trzy razy i znika w lesie, jakby go nigdy nie było. Zostaje po nim tylko zapach dymu.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "addVar": {
+            "wola": 1
+          }
+        },
+        {
+          "xp": 15
+        }
+      ]
+    },
+    "zwiaz": {
+      "speaker": "Dezerter",
+      "text": "Patrol w pobliskiej wiosce płaci piętnaście groszy i patrzy na dezertera jak na zepsuty zawias. Chłop nie broni się. To najgorsze.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 15
+        },
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        }
+      ]
+    },
+    "zostaw": {
+      "speaker": "Dezerter",
+      "text": "Dezerter zaciska zęby, ale nie prosi więcej. Idziesz dalej i czujesz na plecach jego wzrok aż do zakrętu.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

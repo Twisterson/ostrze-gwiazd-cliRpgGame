@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_list_od_gonca",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Stary dąb",
+      "text": "Dąb stoi samotnie, z dziuplą na wysokości piersi. W środku pusto i sucho, jakby ktoś już tu coś chował.",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Wsuń list do dziupli.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "list_gonca"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze tu wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Stary dąb",
+      "text": "List znika w ciemności dziupli, a gdzieś przy korzeniach coś cicho trzaska. Po chwili spod mchu wyłania się sakiewka, a w niej garść groszy. Ktoś czekał na tę przesyłkę.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywajcie.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "list_gonca"
+        },
+        {
+          "setFlag": "list_gonca_schowany"
+        }
+      ]
+    }
+  }
+}

@@ -87,6 +87,17 @@ export const migrations = {
       world: { ...state.world, search: state.world?.search ?? 0 },
     };
   },
+  // v12: repeat-pass counters, hunt cooldowns and a walk that can meet several events (`legs` / `events` / `step`).
+  11: (state) => {
+    const old = state.world?.map?.walk ?? null;
+    let walk = null;
+    if (old && Array.isArray(old.legs)) walk = old;
+    else if (old && old.step >= 1 && old.event) walk = { to: old.to, legs: [0, old.left ?? 0], events: [old.event], step: old.step, eventScene: old.step === 1 ? old.eventScene ?? null : null };
+    return {
+      ...state, version: 12,
+      world: { ...state.world, passes: state.world?.passes ?? {}, hunts: state.world?.hunts ?? {}, ...(state.world?.map ? { map: { ...state.world.map, walk } } : {}) },
+    };
+  },
   9: (state) => ({
     ...state,
     version: 10,
@@ -169,6 +180,9 @@ const WORLD_SCHEMA = {
   required: ["shops", "claimedRewards", "failedChecks", "finishedDialogues", "dialogueProgress", "finishedCombats", "phenomenonRolledDay", "eventsSeen", "discovered", "hinted"],
   fields: {
     eventsSeen: { type: "array", items: { type: "string" } },
+    passes: { type: "object", values: { type: "integer", min: 0 } },
+    hunts: { type: "object", values: { type: "integer", min: 0 } },
+    ambushes: { type: "object", values: { type: "integer", min: 0 } },
     discovered: { type: "array", items: { type: "string" } },
     hinted: { type: "array", items: { type: "string" } },
     search: { type: "integer", min: 0, max: 100 },
@@ -392,7 +406,7 @@ function sceneAnywhere(data, id) {
   const events = [...(data.travel?.events ?? []), ...(data.quests ?? []).flatMap((q) => q.events ?? [])];
   const lists = [
     data.story.scenes, ...events.map((e) => e.scenes ?? []), ...(data.quests ?? []).map((q) => q.scenes ?? []),
-    ...(data.travel?.locations ?? []).flatMap((l) => [...(l.spots ?? []).map((s) => s.scenes ?? []), ...(l.visitors ?? []).map((v) => v.scenes ?? [])]),
+    ...(data.travel?.locations ?? []).flatMap((l) => [...(l.spots ?? []).flatMap((s) => [s.scenes ?? [], s.ambush?.scenes ?? []]), ...(l.visitors ?? []).map((v) => v.scenes ?? [])]),
   ];
   return lists.flat().find((s) => s?.id === id) ?? spotSceneById(data, id);
 }
@@ -467,6 +481,16 @@ export async function loadGame(slot, data, { warnings } = {}) {
   if (invErrors.length > 0) throw new LoadError(`niepoprawna struktura (${invErrors[0]})`);
   const repairs = [...repairInventory(state, data), ...repairEffects(state, data), ...repairMastery(state, data), ...repairDialogues(state, data), ...repairMystic(state, data), ...repairTravel(state, data), ...repairQuests(state, data), ...repairPlaces(state, data)];
   if (warnings) warnings.push(...repairs);
+  // A save from before the end of act III was rewritten (E2f): the old finale scenes are gone, and the glass scene stands under the
+  // old id `akt3b_final`, so a finished talk of the old version must not hide the new one.
+  if (state.flags.akt3b_koniec && !state.flags.szklo_wziete && data.story.scenes.some((s) => s.id === "akt3b_final")) {
+    if (!data.story.scenes.some((s) => s.id === state.scene.id) && /^koniec_/.test(state.scene.id)) {
+      if (warnings) warnings.push(fill(data.ui["load.repaired"], { what: fill(data.ui["load.repair.scene"], { id: state.scene.id }) }));
+      state.scene.id = "akt3b_final";
+    }
+    state.world.finishedDialogues = state.world.finishedDialogues.filter((id) => id !== "akt3b_final");
+    delete state.world.dialogueProgress.akt3b_final;
+  }
   if (!data.story.scenes.some((s) => s.id === state.scene.id)) {
     // A save from before the story was rewritten: the map scene is where the hub's life goes on.
     if (!data.story.scenes.some((s) => s.id === "demo_mapa")) throw new LoadError(`nieznana scena "${state.scene.id}"`);

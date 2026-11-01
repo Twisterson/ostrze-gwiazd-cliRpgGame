@@ -15,7 +15,7 @@ export const ART_TOP_TEXT_MIN = 8;
 export const ART_GAP = 2;
 const INFO_ROWS = 4;
 const MAX_NOTICES = 2;
-const GAME_TITLE = "OSTRZE GWIAZD";
+const GAME_TITLE = "VOIDED: NA PRZEKÓR GWIAZDOM";
 const MORE = "▼ dalej (Enter)";
 const ANSI = /\x1b\[[0-9;]*m/y;
 
@@ -71,6 +71,23 @@ export const sceneWidth = (cols) => frameWidth(cols) - 7 - choiceWidthOf(cols) -
 
 // A line painted as a whole: colour codes, plain text, reset codes.
 const WHOLE_PAINT = /^((?:\x1b\[[0-9;]*m)+)([^\x1b]*)((?:\x1b\[[0-9;]*m)+)$/;
+
+/** A scene line: when the text takes more than one page, what follows starts a new page (so a table is not cut off from its heading). */
+export const PAGE_BREAK = "\f";
+
+/** `lines` with the PAGE_BREAK markers resolved: dropped when all fits in `first` rows, else blank rows up to the next page (`first - 1` rows, then `rows - 1` each, the last row saying "dalej"). */
+function resolveBreaks(lines, first, rows) {
+  const text = lines.filter((line) => line !== PAGE_BREAK);
+  if (text.length === lines.length || text.length <= first) return text;
+  const out = [];
+  for (const line of lines) {
+    if (line !== PAGE_BREAK) { out.push(line); continue; }
+    const over = out.length - (first - 1);
+    const left = over < 0 ? -over : (rows - 1 - (over % (rows - 1))) % (rows - 1);
+    for (let i = 0; i < left; i++) out.push("");
+  }
+  return out;
+}
 
 /** Scene lines wrapped to `width`: plain lines and lines painted as a whole (each part keeps the colour); mixed ones are cut later. */
 export function sceneLines(body, width) {
@@ -144,8 +161,8 @@ export function composeFrame({ cols, rows, hero, title = null, body, commands = 
   if (image && Lt - image.width - ART_GAP >= ART_SIDE_TEXT_MIN) artMode = "side";
   else if (image && image.width <= Lt && Mt - image.lines.length >= ART_TOP_TEXT_MIN) artMode = "top";
   const textWidth = artMode === "side" ? Lt - image.width - ART_GAP : Lt;
-  const all = sceneLines(body, textWidth);
   const first = artMode === "top" ? Mt - image.lines.length : Mt; // text rows on page 0
+  const all = resolveBreaks(sceneLines(body, textWidth), first, Mt);
   const pages = all.length <= first ? 1 : 1 + Math.ceil((all.length - (first - 1)) / (Mt - 1));
   const shown = Math.min(Math.max(0, page), pages - 1);
   const textLines = pages === 1 ? all

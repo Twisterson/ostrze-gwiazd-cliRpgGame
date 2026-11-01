@@ -1,0 +1,88 @@
+{
+  "id": "kowal_wyspy",
+  "portrait": "portret_kowal_wyspy",
+  "start": "kuznia",
+  "nodes": {
+    "kuznia": {
+      "speaker": "Kowal Ragnar",
+      "text": "Kowal wyspiarz nie podnosi głowy znad kowadła. „Nie sprzedaję. Hetman wykupuje mi całą stal. Jak chcesz kupić, to idź do sklepu przy stoczni.”",
+      "options": [
+        {
+          "id": "stal",
+          "text": "Skąd macie taką stal?",
+          "goto": "stal"
+        },
+        {
+          "id": "rusznice",
+          "text": "Jak się kuje rusznicę?",
+          "goto": "rusznice"
+        },
+        {
+          "id": "bogdana",
+          "text": "Spójrz na to ostrze.",
+          "goto": "bogdana",
+          "requires": {
+            "flag": "ostrze_bogdana"
+          }
+        },
+        {
+          "id": "surowe",
+          "text": "Spójrz na to ostrze.",
+          "goto": "surowe",
+          "requires": {
+            "flag": "ostrze_surowe"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "stal": {
+      "speaker": "Kowal Ragnar",
+      "text": "„Z gwiazd. Nie śmieję się. Kiedy mój dziadek był chłopcem, spadła tu bryła, której nie dało się stopić zwykłym ogniem. Dopiero od kilku lat ktoś potrafi, i nie jest to nikt z nas.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kuznia"
+        }
+      ]
+    },
+    "rusznice": {
+      "speaker": "Kowal Ragnar",
+      "text": "„Lufę trzeba kuć na trzpieniu, bez przerwy, tak jak się trzyma oddech. Jak przerwiesz, pęka. Dlatego kowal rusznic zna oddech lepiej niż modlitwy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kuznia"
+        }
+      ]
+    },
+    "bogdana": {
+      "speaker": "Kowal Ragnar",
+      "text": "Kowal ogląda klingę pod światło, długo, jak lekarz. „Ręka, która to kuła, wiedziała, co robi. U nas taki kowal by z głodu nie przymierał.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kuznia"
+        }
+      ]
+    },
+    "surowe": {
+      "speaker": "Kowal Ragnar",
+      "text": "Kowal ogląda klingę i prycha. „Surowa robota, ale stal pierwszej klasy. Dokończyć by trzeba, ale kto ma na to czas w czasie wojny.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kuznia"
+        }
+      ]
+    }
+  }
+}

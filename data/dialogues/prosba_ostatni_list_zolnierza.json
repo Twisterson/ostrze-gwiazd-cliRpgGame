@@ -1,0 +1,49 @@
+{
+  "id": "prosba_ostatni_list_zolnierza",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Umierający żołnierz",
+      "text": "Przy kamieniu półleży żołnierz z przestrzeloną piersią. Mówi z trudem. „List. Dla matki. Pochowano ją przy kapliczce na rozstajach. Połóż na grobie i nie czytaj. Reszta przyjdzie sama.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Nie mam czasu na umarłych.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Umierający żołnierz",
+      "text": "Żołnierz uśmiecha się krzywo. „Mama mówiła, że dobrzy ludzie jeszcze się trafiają. Miała rację.” Wciska ci list i opada na kamień.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "ostatni_list_zolnierza"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Umierający żołnierz",
+      "text": "Żołnierz zamyka oczy. „Dobrze. Pójdę sam. Kiedyś.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": "istota_dlug_krotko",
+  "portrait": "portret_istota",
+  "start": "komora",
+  "nodes": {
+    "komora": {
+      "speaker": "Istota",
+      "text": "„Cesarz nie żyje, jego straż nie istnieje. Dług spłacony. Możesz odejść.” Mówi to jak do równego, bez rozkazu. Tylko gwiazdy w jej twarzy drgają, jakby nie były pewne, czy to powinno brzmieć jak koniec.",
+      "options": [
+        {
+          "id": "zostaje",
+          "text": "Nie odejdę jeszcze. Zostały rzeczy do dokończenia.",
+          "goto": "zostaje"
+        }
+      ]
+    },
+    "zostaje": {
+      "speaker": "Istota",
+      "text": "„Rzeczy. Tak, są rzeczy.” Milczy dłużej, niż wymaga uprzejmość. „Zrób je. Zobaczymy, kto je dokończy.”",
+      "actions": [
+        {
+          "setFlag": "istota_zwloka"
+        }
+      ],
+      "options": [
+        {
+          "id": "wychodze",
+          "text": "Wychodzę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

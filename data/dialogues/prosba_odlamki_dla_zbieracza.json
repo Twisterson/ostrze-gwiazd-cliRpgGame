@@ -1,0 +1,49 @@
+{
+  "id": "prosba_odlamki_dla_zbieracza",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Zbieracz Wacław",
+      "text": "Przy ognisku siedzi chudy chłop z torbą pełną szkła. „Wacław, zbieracz. Z moją nogą nie dojdę do kryjówki na Polu Szkła. Zaniesiesz sakiewkę? Tam jest wszystko, co mam.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Szkło nie dla mnie.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Zbieracz Wacław",
+      "text": "Wacław podaje sakiewkę ostrożnie. „Nie obracaj do światła. Szkło wtedy opowiada, co widziało.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "odlamki_dla_zbieracza"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Zbieracz Wacław",
+      "text": "Wacław kiwa głową i patrzy w ogień. „Pewnie. Sam kiedyś doczołgam.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

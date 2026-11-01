@@ -1,0 +1,184 @@
+{
+  "id": "kwatermistrz_koszar",
+  "portrait": "portret_kwatermistrz_koszar",
+  "start": "kwit",
+  "nodes": {
+    "kwit": {
+      "speaker": "Kwatermistrz Burczymucha",
+      "text": "Kwatermistrz siedzi za stołem uginającym się od kwitów, pieczątek i niezałatwionych spraw. „Nazwisko? Rozkaz? Pieczątka? Jak nie masz żadnego z trzech, to nie istniejesz i nie zawracaj mi głowy. Jak masz, to czekaj w kolejce, która nie istnieje.”",
+      "options": [
+        {
+          "id": "potrzeby",
+          "text": "Czego koszary najbardziej potrzebują?",
+          "goto": "potrzeby"
+        },
+        {
+          "id": "zold",
+          "text": "Dowiedziałem się, że żołd z frontu nie dojechał.",
+          "goto": "zold",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_zold_zatrzymany"
+              },
+              {
+                "flag": "wojna_zold_podzielony"
+              },
+              {
+                "flag": "wojna_zold_oddany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "falsz",
+          "text": "Potrzebuję dowodu, że żyję i coś widziałem.",
+          "goto": "falsz",
+          "requires": {
+            "all": [
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 3
+              },
+              {
+                "notFlag": "dowod_zywego"
+              }
+            ]
+          }
+        },
+        {
+          "id": "wino_przemyt",
+          "text": "Wino do koszar dojechało. Nie pytaj skąd.",
+          "goto": "wino_przemyt",
+          "requires": {
+            "flag": "stolica_wino_przemyt"
+          }
+        },
+        {
+          "id": "wino_kupione",
+          "text": "Wino do koszar kupiłem uczciwie.",
+          "goto": "wino_kupione",
+          "requires": {
+            "flag": "stolica_wino_kupione"
+          }
+        },
+        {
+          "id": "wino_nic",
+          "text": "Wina nie będzie. Powiedziałem żołnierzom, czemu.",
+          "goto": "wino_nic",
+          "requires": {
+            "flag": "stolica_wino_nic"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "potrzeby": {
+      "speaker": "Kwatermistrz Burczymucha",
+      "text": "„Wszystkiego. Ludzi, żelaza, koców, kapusty i cierpliwości. Cierpliwość ma najgorszy kurs: ceny rosną, a podaż spada.” Znacząco kaszle. „Gdyby ktoś wiedział, gdzie zdobyć kilka beczek wina dla koszar, mógłby liczyć na wdzięczność. Nie na pieniądze, na wdzięczność.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kwit"
+        }
+      ]
+    },
+    "zold": {
+      "speaker": "Kwatermistrz Burczymucha",
+      "text": "„Żołd z frontu? Pierwsze słyszę, a o wszystkim słyszę jako ostatni. Jeśli dojechał, to czemu sztab przysłał mi zwrot za pieczęć? A jeśli nie dojechał, to po co ta pieczęć?”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kwit"
+        }
+      ]
+    },
+    "falsz": {
+      "speaker": "Kwatermistrz Burczymucha",
+      "text": "Kwatermistrz podnosi wzrok znad kwitów. „Dowód życia? Na wzór czterdziesty szósty, z pieczątką w lewym rogu i podpisem człowieka, który istnieje. Ja mogę. Pytanie, czy pan potrafi mnie przekonać, że warto.”",
+      "options": [
+        {
+          "id": "przekonaj",
+          "text": "Warto, bo kwatermistrz, który wystawia dowody, ma się lepiej niż ten, który ich nie wystawia.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 40
+          },
+          "success": "falsz_ok",
+          "failure": "falsz_pudlo"
+        },
+        {
+          "id": "odejdz",
+          "text": "Wolę wrócić później.",
+          "goto": "kwit"
+        }
+      ]
+    },
+    "falsz_ok": {
+      "speaker": "Kwatermistrz Burczymucha",
+      "text": "Kwatermistrz przez chwilę mruży oczy, a potem z rezygnacją przybija pieczątkę. „Dla bezpieczeństwa państwa. Mojego własnego.” Wręcza ci dokument, który wygląda tak urzędowo, że mógłby sam przejść przez bramę.",
+      "actions": [
+        {
+          "setFlag": "dowod_zywego"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dziękuję.",
+          "goto": "kwit"
+        }
+      ]
+    },
+    "falsz_pudlo": {
+      "speaker": "Kwatermistrz Burczymucha",
+      "text": "„Przekonujące, ale nie dość.” Kwatermistrz kręci głową. „Drugi raz mnie pan nie nabierze, ja się uczę szybciej, niż pan kłamie. Jak potrzebuje pan papieru, niech pan spróbuje w świątyni. Siostry nie pytają, tylko liczą.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pójdę gdzie indziej.",
+          "goto": "kwit"
+        }
+      ]
+    },
+    "wino_przemyt": {
+      "speaker": "Kwatermistrz Burczymucha",
+      "text": "„Wino? Przyszło. Nie wiem skąd i nie mam tego w żadnym kwicie, więc nie istnieje.” Przybija pieczątkę na pustej kartce, dla zasady. „Jakby ktoś pytał, to się samo wzięło.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kwit"
+        }
+      ]
+    },
+    "wino_kupione": {
+      "speaker": "Kwatermistrz Burczymucha",
+      "text": "„Wino z rachunkiem, z pieczątką i z podpisem. Pierwszy raz od dwóch lat coś przyszło tak, jak miało przyjść. Nie wiem, co z tym zrobić, więc wpisałem do trzech ksiąg.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kwit"
+        }
+      ]
+    },
+    "wino_nic": {
+      "speaker": "Kwatermistrz Burczymucha",
+      "text": "„Wina nie ma, ale ludzie wiedzą, czemu go nie ma, i to się okazuje gorsze. Przedtem kląłem ja, teraz klną wszyscy.” Przekłada kwity z lewej na prawą. „Wolałbym zostać sam z długiem.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kwit"
+        }
+      ]
+    }
+  }
+}

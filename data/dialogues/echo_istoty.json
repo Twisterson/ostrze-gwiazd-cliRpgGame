@@ -53,7 +53,7 @@
     },
     "dlug": {
       "speaker": "Głos z kamieni",
-      "text": "„Pamiętasz. Dobrze. Dług nas wiąże. Nie spłacisz go groszem ani łaską, tylko wiedzą. Idź tam, gdzie padły gwiazdy. Wszystko spisane jest w ziemi, a ziemia nie łże.”",
+      "text": "„Pamiętasz. Dobrze. Dług nas wiąże. Nie spłacisz go groszem ani łaską, tylko wiedzą. Idź tam, gdzie padły gwiazdy.”",
       "options": [
         {
           "id": "dalej",
@@ -89,7 +89,7 @@
     },
     "nie_chce": {
       "speaker": "Głos z kamieni",
-      "text": "„Nie chcesz. To też odpowiedź. Ale nie mów potem, że cię nie ostrzegałem.” Poświata gaśnie. Trawa na grobie jest zimna jak lód, choć noc ciepła.",
+      "text": "„Nie chcesz. To też odpowiedź. Ale nie mów potem, że cię nie ostrzegałam.” Poświata gaśnie. Trawa na grobie jest zimna jak lód, choć noc ciepła.",
       "options": [
         {
           "id": "dalej",

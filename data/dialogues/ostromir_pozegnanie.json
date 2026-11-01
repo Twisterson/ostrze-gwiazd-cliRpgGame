@@ -1,0 +1,64 @@
+{
+  "id": "ostromir_pozegnanie",
+  "portrait": "portret_ostromir",
+  "start": "pozegnanie",
+  "nodes": {
+    "pozegnanie": {
+      "speaker": "Kupiec Ostromir",
+      "text": "Szwagier już rozładowuje wóz, a Ostromir odciąga cię na bok i ściąga czapkę z łysiny. „Dowiozłeś, to dowiozłeś, nie będę ci dziękował drugi raz, bo wejdzie w nawyk. Ale powiem ci coś za darmo, a ja za darmo mówię rzadko. Ty tu dalej nie zostaniesz, widzę to po tobie.”",
+      "options": [
+        {
+          "id": "dokad",
+          "text": "Dokąd stąd prowadzą drogi?",
+          "goto": "szlaki"
+        },
+        {
+          "id": "nic",
+          "text": "Dam sobie radę.",
+          "goto": "zegnaj_nic"
+        }
+      ]
+    },
+    "szlaki": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„Za przełęczą jest Głuszec, trzy dni marszu od Brodu. Dalej kopalnie i Wzgórza, ale tam to już nie ja. Na wschód, też trzy dni, dym nad lasem: Ostoja zbójców, i nie idź tam z pustą kieszenią, bo z pustą wrócisz bez kieszeni. A na północ cztery dni stoi Twierdza graniczna.” Liczy na palcach i gubi się przy trzecim. „Mówiąc krótko, wszędzie daleko. To nie jest spacer do karczmy. Wróć do Wilczego Brodu, kup prowiantu i opatrunków, wyśpij się za dachem i dopiero idź. Na szlaku nikt ci nie poda zupy.” Patrzy na ciebie dłużej, niż wypada kupcowi. „Szukasz czegoś, wszyscy coś szukają. Może to znajdziesz w którymś z tych miejsc, a może samo cię znajdzie. Nazywaj to przeznaczeniem, losem albo pechem, ja nazywam to targiem, w którym nie znasz ceny.”",
+      "actions": [
+        {
+          "reveal": "ostoja_zbojcow"
+        },
+        {
+          "reveal": "twierdza_graniczna"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zrobię tak.",
+          "goto": "zegnaj"
+        }
+      ]
+    },
+    "zegnaj": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„I weź ze sobą coś ostrego. Albo kogoś, kto ma coś ostrego i mniej rozumu.” Klepie cię po plecach i wraca do wozu.",
+      "options": [
+        {
+          "id": "idz",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zegnaj_nic": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„Dasz, dasz. Wszyscy dają, dopóki nie dostaną.” Wzrusza ramionami i wraca do wozu. „Jak zmądrzejesz, to wiesz, gdzie mnie nie ma.”",
+      "options": [
+        {
+          "id": "idz",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

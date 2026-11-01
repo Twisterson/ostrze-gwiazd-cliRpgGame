@@ -1,0 +1,22 @@
+{
+  "id": "znal_zwloki_kupca",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Droga",
+      "text": "Przy drodze wóz wywrócony na bok, koło oderwane, a pod płachtą nieboszczyk w kupieckim kaftanie. Wilki tu były, ale tobołka nie ruszyły. Na szczęście dla ciebie.",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveRandom": "lupy_znalezisko_pogorze"
+        }
+      ]
+    }
+  }
+}

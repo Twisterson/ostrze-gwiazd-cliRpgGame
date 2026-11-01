@@ -39,7 +39,7 @@
     },
     "skarimir": {
       "speaker": "Skarimir",
-      "text": "„Wiecie, co bym zrobił z cesarską daniną? Zeżarł! Najpierw pieczeń, potem pisarczyka, a na zagryzkę kuriera!” Wojmir blednie, a Skarimir zanosi się rechotem tak, że opluwa ognisko.",
+      "text": "„Wiecie, co bym zrobił z cesarską daniną? Zeżarł! Najpierw pieczeń, potem pisarczyka, a na zagryzkę kuriera!” Wojmir blednie, a Skarimir zanosi się rechotem tak, że opluwa ognisko. „Jak to mówią: nie chwal dnia przed… przed kolacją!” „Przed zachodem słońca, baranie”, mruczy Ragnosława. „A kolacja to niby kiedy jest?”",
       "portrait": "portret_skarimir",
       "options": [
         {
@@ -73,7 +73,7 @@
     },
     "skarimir_cicho": {
       "speaker": "Skarimir",
-      "text": "Skarimir unosi łapy, jakby się poddawał. „Już dobra, już milczę. Ale mówię ci, w smutku to i woda kwaśnieje.”",
+      "text": "Skarimir unosi łapy, jakby się poddawał. „Już dobra, już milczę. Ale jak będziemy tak siedzieć z kwaśnymi minami, to nas szlag trafi, zanim dojdziemy.”",
       "portrait": "portret_skarimir",
       "actions": [
         {
@@ -121,7 +121,7 @@
     },
     "ragnoslawa_posluch": {
       "speaker": "Ragnosława",
-      "text": "Ragnosława kiwa głową, choć minę ma, jakby się ością zadławiła. „Pewnie masz rację. Szkoda tylko, że od rozkazów nikt jeszcze nie utył.”",
+      "text": "Ragnosława kiwa głową, choć minę ma, jakby się ością zadławiła. „Pewnie masz rację. Tylko jakoś mi od tego nie lżej.”",
       "portrait": "portret_ragnoslawa",
       "actions": [
         {
@@ -155,7 +155,7 @@
     },
     "wojmir": {
       "speaker": "Wojmir Cienki",
-      "text": "Wojmir odsuwa się o piędź, robiąc ci miejsce. „Ja… nie jestem jak oni. Włócznią nie rzucam, żartować nie umiem. Umiem tylko pisać.” Gapi się w żar. „Boję się, że to za mało.”",
+      "text": "Wojmir odsuwa się o piędź, robiąc ci miejsce. „Ja… nie jestem jak oni. Włóczni nie uniosę, żartować nie umiem. Umiem tylko pisać.” Gapi się w żar. „Boję się, że to za mało.”",
       "portrait": "portret_wojmir",
       "options": [
         {
@@ -197,7 +197,7 @@
     },
     "wojmir_milczenie": {
       "speaker": "Wojmir Cienki",
-      "text": "Siedzicie obok siebie w milczeniu, a ogień trzaska za was obu. Po jakimś czasie Wojmir zasypia na siedząco, z piórem w garści.",
+      "text": "Siedzicie obok siebie i nic nie mówicie. Po jakimś czasie Wojmir zasypia na siedząco, z piórem w garści.",
       "portrait": "portret_wojmir",
       "actions": [
         {

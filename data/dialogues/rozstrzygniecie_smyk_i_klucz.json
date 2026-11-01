@@ -1,0 +1,65 @@
+{
+  "id": "rozstrzygniecie_smyk_i_klucz",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "speaker": "Szczur wodociągowy",
+      "text": "W półmroku kanału ktoś siedzi na kamieniu i bawi się kluczem na sznurku. „Szukasz tego? Smyk zgubił. Ja znalazłem. Ja oddam, jak ktoś mi powie, po co on mu. A jak nie powie, to nie oddam, a jak nie oddam, to Smyk nie ma po co wracać do miasta.”",
+      "options": [
+        {
+          "id": "odda",
+          "text": "Klucz jest Smyka. Oddaj i nie kombinuj.",
+          "goto": "wynik_odda"
+        },
+        {
+          "id": "zatrzymaj",
+          "text": "Klucz zostaje u mnie. Smyk dostanie coś innego.",
+          "goto": "wynik_zatrzymaj"
+        }
+      ]
+    },
+    "wynik_odda": {
+      "speaker": "Szczur wodociągowy",
+      "text": "Szczur kręci głową, ale oddaje klucz bez walki. „Kiedyś ktoś mi powiedział, że kto kradnie dzieciakom, ten kończy w kanale. Wolę kończyć w kanale na stojąco.” Klucz ląduje w twojej dłoni.",
+      "actions": [
+        {
+          "setFlag": "stolica_klucz_oddany"
+        },
+        {
+          "setFlag": "smyk_i_klucz_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_zatrzymaj": {
+      "speaker": "Szczur wodociągowy",
+      "text": "Szczur wzrusza ramionami i rzuca ci klucz. „Wasza sprawa. Ale pamiętaj, że dzieciaki mają dłuższą pamięć niż dorośli.” Chowasz klucz do kieszeni.",
+      "actions": [
+        {
+          "setFlag": "stolica_klucz_zatrzymany"
+        },
+        {
+          "setFlag": "smyk_i_klucz_zrobione"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

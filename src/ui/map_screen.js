@@ -4,7 +4,7 @@ import { t } from "./strings.js";
 import { showScreen, sceneCapacity, displayWidth } from "./screen.js";
 import { campMenu } from "./camp.js";
 import { sceneWidth } from "./frame.js";
-import { locationById, walkMinutes } from "../systems/travel.js";
+import { locationById, routeById, walkMinutes } from "../systems/travel.js";
 import { isKnown } from "../systems/places.js";
 import { searchLevel } from "../systems/search.js";
 import { mapOptions, currentObjectives } from "../systems/quests.js";
@@ -63,8 +63,10 @@ export function destinationEntries(state, data, hub) {
   const here = state.world.location;
   const marked = markedLocations(state, data);
   const entries = [];
+  const region = locationById(data, hub)?.region;
+  const away = locationById(data, here)?.far; // standing in a far place: back to the hub or on to another far place
   for (const location of data.travel.locations) {
-    if (location.id === here || location.temporary || !(location.near || location.id === hub) || !isKnown(state, data, location.id)) continue;
+    if (away || location.region !== region || location.id === here || location.temporary || !(location.near || location.id === hub) || !isKnown(state, data, location.id)) continue;
     const minutes = walkMinutes(data, here, location.id);
     const objectives = currentObjectives(state, data).filter((c) => locationOf(c.objective.at) === location.id).map((c) => c.objective.text);
     entries.push({
@@ -73,10 +75,50 @@ export function destinationEntries(state, data, hub) {
       lines: [location.name, `${minutesText(ui, minutes)} · ${dangerText(ui, location.danger)}`, ...objectives.map((o) => `→ ${o}`)],
     });
   }
+  const farEntry = (location, route, reverse) => {
+    const days = routeById(data, route).days;
+    const label = reverse ? t(ui, "map.backTo", { name: location.name }) : location.name;
+    const danger = dangerText(ui, location.danger);
+    return {
+      id: location.id, kind: "far", location, route, reverse, days, danger: location.danger ?? 1, quest: null, marked: marked.has(location.id),
+      label: [label, daysText(ui, days), danger].join(" · "),
+      lines: [location.name, `${daysText(ui, days)} · ${danger}`],
+    };
+  };
+  if (away) {
+    entries.push(farEntry(locationById(data, hub), away.route, true));
+    // To another far place of the hub: straight there when a shortcut joins them, otherwise (the other side of the map) through the hub.
+    const hubName = locationById(data, hub).short ?? locationById(data, hub).name;
+    for (const location of data.travel.locations) {
+      if (!location.far || location.id === here || location.region !== region || !isKnown(state, data, location.id)) continue;
+      const shortcut = data.travel.routes.find((r) => (r.from === here && r.to === location.id) || (r.to === here && r.from === location.id));
+      if (shortcut) {
+        entries.push(farEntry(location, shortcut.id, shortcut.to === here));
+        continue;
+      }
+      const entry = farEntry(location, location.far.route, false);
+      const days = entry.days + routeById(data, away.route).days;
+      const danger = dangerText(ui, location.danger);
+      entries.push({
+        ...entry, days, viaHub: true, label: [location.name, daysText(ui, days), danger].join(" · "),
+        lines: [location.name, `${daysText(ui, days)} · ${danger}`, t(ui, "map.viaHub", { hub: hubName })],
+      });
+    }
+  } else if (here !== hub) {
+    // From an ordinary place of the hub the far trails are open too: the way leads through the hub first.
+    for (const location of data.travel.locations) {
+      if (!location.far || location.region !== region || !isKnown(state, data, location.id)) continue;
+      const entry = farEntry(location, location.far.route, false);
+      entries.push({ ...entry, viaHub: true, lines: [...entry.lines, t(ui, "map.viaHub", { hub: locationById(data, hub).short ?? locationById(data, hub).name })] });
+    }
+  }
   if (here === hub) {
+    for (const location of data.travel.locations) {
+      if (location.far && location.region === region && isKnown(state, data, location.id)) entries.push(farEntry(location, location.far.route, false));
+    }
     for (const option of mapOptions(state, data, hub)) {
       entries.push({
-        id: option.location.id, kind: "quest", location: option.location, days: option.days, danger: 3, quest: option.quest, marked: false,
+        id: option.location.id, kind: "quest", location: option.location, days: option.days, danger: 3, quest: option.quest, marked: true,
         label: destinationLabel(data, option),
         lines: [option.location.name, t(ui, `map.kind.${option.quest.kind}`, { name: option.quest.name }), option.quest.description],
       });
@@ -86,9 +128,10 @@ export function destinationEntries(state, data, hub) {
 }
 
 /** "??? · hint" for every location the player has only heard of. */
-export function undiscoveredLines(state, data) {
+export function undiscoveredLines(state, data, hub) {
+  const region = locationById(data, hub)?.region;
   return data.travel.locations
-    .filter((l) => l.secret && !isKnown(state, data, l.id) && (state.world.hinted ?? []).includes(l.id))
+    .filter((l) => l.region === region && l.secret && !isKnown(state, data, l.id) && (state.world.hinted ?? []).includes(l.id))
     .map((l) => paint("dim", t(data.ui, "map.unknown", { hint: l.hint ?? t(data.ui, "map.unknownHint") })));
 }
 
@@ -110,7 +153,7 @@ export function renderRegionMap(state, data, { hub, width, height }) {
     if (!location) return " ".repeat(token.length);
     if (id === here) return `@ ${location.short}`;
     const n = entries.findIndex((e) => e.id === id);
-    if (n >= 0) return `[${n + 1}]${marked.has(id) ? "!" : ""} ${location.short}`;
+    if (n >= 0) return `[${n + 1}]${marked.has(id) || entries[n].marked ? "!" : ""} ${location.short}`;
     return hinted.includes(id) && !isKnown(state, data, id) ? "[?]" : " ".repeat(token.length);
   };
   const lines = text.replace(/\s+$/, "").split("\n").map((l) => l.replace(/\{([a-z0-9_]+)\}/g, label).trimEnd());
@@ -136,7 +179,7 @@ export async function askDestination(ctx, hub, { continueLabel, stayLabel = null
   const { ui } = data;
   const entries = destinationEntries(state, data, hub);
   const before = entries.map((e) => ({ id: e.id, label: `${e.marked ? "! " : ""}${e.label}`, description: e.description || undefined }));
-  const unknown = undiscoveredLines(state, data);
+  const unknown = undiscoveredLines(state, data, hub);
   const hidden = unknown.length === 0 ? [] : [t(ui, "map.undiscovered"), ...unknown].map((label, i) => ({ id: `?${i}`, label, disabled: true }));
   const extra = [...(stayLabel ? [{ id: "stay", label: stayLabel }] : []), ...hidden];
   const here = paint("title", t(ui, "map.here", { name: locationById(data, state.world.location).name }));

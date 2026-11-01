@@ -1,0 +1,49 @@
+{
+  "id": "prosba_list_od_gonca",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Goniec Wsiebor",
+      "text": "W rowie leży młody goniec w czerwonym płaszczu, z bandażem przez pół twarzy. „Wsiebor. Wojskowa poczta. Mam list, który nie może trafić do tych, co mnie postrzelili. Schowaj go w dębie w Lesie Rubieży. Kto go znajdzie, ten zapłaci.” Wciska ci zalakowany list.",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Schowam.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Nie mieszam się w wasze sprawy.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Goniec Wsiebor",
+      "text": "Wsiebor opada na trawę z ulgą. „Dąb z dziuplą po południowej stronie. Nie czytaj. Wiem, że chcesz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "list_od_gonca"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Goniec Wsiebor",
+      "text": "„Rozumiem.” Goniec zamyka oczy. „Nikt nie chce mieć w kieszeni cudzej śmierci.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

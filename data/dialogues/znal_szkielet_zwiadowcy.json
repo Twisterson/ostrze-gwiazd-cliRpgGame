@@ -1,0 +1,22 @@
+{
+  "id": "znal_szkielet_zwiadowcy",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Wzgórze",
+      "text": "Na grzbiecie wzgórza leży szkielet w cesarskim mundurze. Zębami trzyma kawałek papieru. W kieszeni znajdujesz to, czego nie zdążył wydać.",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveRandom": "lupy_znalezisko_gwiazdy"
+        }
+      ]
+    }
+  }
+}

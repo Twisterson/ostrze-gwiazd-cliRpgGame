@@ -7,7 +7,7 @@
       "text": "Ostap otrzepuje dłonie z mąki, której i tak nie ma. „Młyn stoi, bo rzeka stoi, a rzeka stoi, bo ją ktoś w górze wystraszył. Ja tu mielę, co przyniosą. Zwykle nic.”",
       "options": [
         {
-          "text": "Przyniosłem zboże od kramarza.",
+          "text": "Przyniosłem worek zboża.",
           "goto": "zboze",
           "id": "zboze",
           "requires": {
@@ -57,7 +57,7 @@
     },
     "zboze": {
       "speaker": "Młynarz Ostap",
-      "text": "Ostap zagląda do worka, wącha, krzywi się i przesiewa garść przez palce. „Pół żyta, pół piachu. Po kramarzu cudów się nie spodziewałem. Powiedz Wrzoskowi, że jego beczka z piwem wciąż mi wisi dwa kufle i że ja pamiętam.”",
+      "text": "Ostap zagląda do worka, wącha, krzywi się i przesiewa garść przez palce. „Pół żyta, pół piachu. Po tym, kto go wysłał, cudów się nie spodziewałem. Powiedz Wrzoskowi, że jego beczka z piwem wciąż mi wisi dwa kufle i że ja pamiętam.”",
       "options": [
         {
           "text": "Przekażę.",

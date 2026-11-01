@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_odlamki_dla_zbieracza",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Kryjówka Wacława",
+      "text": "W szczelinie między szklanymi głazami ktoś zbudował ciasny schowek z kołderką i garnuszkiem. Nikogo nie ma, ale kryjówka czeka.",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Odłóż sakiewkę do kryjówki.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "sakiewka_odlamkow"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze tu wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Kryjówka Wacława",
+      "text": "Sakiewka brzęka cicho, kiedy ją kładziesz. W szczelinie błyska jakby ktoś mrugnął, a po chwili w garnuszku znajdujesz zapłatę.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywajcie.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "sakiewka_odlamkow"
+        },
+        {
+          "setFlag": "sakiewka_oddana"
+        }
+      ]
+    }
+  }
+}

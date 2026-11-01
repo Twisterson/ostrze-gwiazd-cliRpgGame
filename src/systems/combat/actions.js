@@ -213,7 +213,7 @@ export function doAction(state, data, combat, action, rng) {
     }
     case "swap":
       combat.playerAp -= c.swapAp;
-      swapWeapons(state);
+      swapWeapons(state, data);
       events.push({ type: "zmiana_broni" });
       return done();
     case "move": {

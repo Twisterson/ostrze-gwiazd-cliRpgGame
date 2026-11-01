@@ -71,7 +71,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Pamiętam.",
+          "text": "Tym lepiej.",
           "goto": "powitanie"
         }
       ],

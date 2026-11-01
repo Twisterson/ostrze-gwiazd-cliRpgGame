@@ -1,0 +1,25 @@
+{
+  "id": "mul_cesarz_po",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Muł",
+      "text": "Maruderzy leżą, a muł nawet nie zmienił grządki. Podnosisz linę. Cesarz patrzy na ciebie, potem na trupy, potem na kapustę, i widać, że ocenia was w tej kolejności od końca. „Wasza Wysokość” działa za drugim razem.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idziemy.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "mul_odzyskany"
+        },
+        {
+          "clearFlag": "mul_cesarz_walka"
+        }
+      ]
+    }
+  }
+}

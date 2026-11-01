@@ -2,9 +2,9 @@
 
 /** Size limits in pixels by the way an image is used (checked against the field that names it). */
 export const ART_LIMITS = {
-  scene: { w: 48, h: 20 },
-  portrait: { w: 20, h: 20 },
-  enemy: { w: 40, h: 16 },
+  scene: { w: 96, h: 48 },
+  portrait: { w: 48, h: 48 },
+  enemy: { w: 64, h: 48 },
 };
 
 export class PixError extends Error {}
@@ -24,7 +24,7 @@ export function artRefErrors(data, id, kind, field = "art") {
 const PALETTE = /^paleta:\s*(.*)$/;
 
 /**
- * Parses a `.pix` file: `#` lines are comments, `paleta: a=236 b=94` maps letters a–z to 256-colour numbers, the rest is the grid
+ * Parses a `.pix` file: `#` lines are comments, `paleta: a=236 b=94` maps letters a–z, A–Z, 0–9 (up to 62 colours) to 256-colour numbers, the rest is the grid
  * (equal-length rows, an even number of them: two pixel rows make one terminal cell row).
  * @returns {{ w: number, h: number, palette: Record<string, number>, rows: string[] }}
  * @throws {PixError} `wiersz N: …` (N counts file lines from 1)
@@ -44,8 +44,9 @@ export function parsePix(text) {
       for (const pair of head[1].split(/\s+/).filter(Boolean)) {
         const m = /^(.)=(\d+)$/.exec(pair);
         if (!m) throw new PixError(`wiersz ${n}: zły wpis palety „${pair}”`);
-        if (!/^[a-z]$/.test(m[1])) throw new PixError(`wiersz ${n}: litera palety „${m[1]}” – dozwolone a–z („.” to przezroczystość)`);
+        if (!/^[a-zA-Z0-9]$/.test(m[1])) throw new PixError(`wiersz ${n}: litera palety „${m[1]}” – dozwolone a–z, A–Z, 0–9 („.” to przezroczystość)`);
         if (Number(m[2]) > 255) throw new PixError(`wiersz ${n}: numer koloru ${m[2]} poza 0–255`);
+        if (m[1] in palette) throw new PixError(`wiersz ${n}: litera palety „${m[1]}” powtórzona`);
         palette[m[1]] = Number(m[2]);
       }
       return;

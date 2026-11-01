@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_buty_dla_wartownika",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Strażnik mostu",
+      "text": "Strażnik na moście stoi z miną człowieka, który nie liczy na nic, a już na pewno nie na buty.",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Oddaję buty od szewca.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "buty_wartownika"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Strażnik mostu",
+      "text": "Strażnik ściąga stary but i wkłada nowy z miną, jakby wkładał na siebie godność. „Powiedz Mojżeszowi, że żyję. I że jeden jest za ciasny, ale nie będę narzekał.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "buty_wartownika"
+        },
+        {
+          "setFlag": "buty_dla_wartownika_dostarczone"
+        }
+      ]
+    }
+  }
+}

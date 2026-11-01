@@ -4,7 +4,7 @@
   "nodes": {
     "rozejrzenie": {
       "speaker": "Pobojowisko",
-      "text": "Ranek jest bezczelnie spokojny. Trawa paruje rosą, a w niej leżą ci, z którymi wczoraj łamałeś chleb. Obok ich tobołki, rozwleczone jak po rabunku, i jeden więcej: cudzy, rzucony w pół kroku. Przewodnika nie ma wśród ciał. Zając też nie zostawia śladów, kiedy wieje.",
+      "text": "Ranek jest bezczelnie spokojny. Trawa paruje rosą, a w niej leżą ci, z którymi wczoraj jadłeś z jednego kociołka. Obok ich tobołki, rozwleczone jak po rabunku, i jeden więcej: cudzy, rzucony w pół kroku. Przewodnika nie ma wśród ciał. Skurwiel zwiał, jak tylko zrobiło się gorąco.",
       "options": [
         {
           "id": "skarimir",
@@ -47,7 +47,7 @@
     },
     "skarimir": {
       "speaker": "Pobojowisko",
-      "text": "Skarimir ściska jeszcze w garści sztylet, jakby wciąż miał komuś nim odpowiedzieć. Rozginasz mu zesztywniałe palce bez złości. Umarły nie będzie się sądził o swoje, a ty masz przed sobą kawał drogi.",
+      "text": "Skarimir ściska jeszcze w garści sztylet. Kolacji się nie doczekał. Rozginasz mu zesztywniałe palce; jemu sztylet już się nie przyda, a tobie może.",
       "actions": [
         {
           "setFlag": "pobojowisko_skarimir"
@@ -89,7 +89,7 @@
     },
     "wojmir": {
       "speaker": "Pobojowisko",
-      "text": "Wojmir miał więcej rozumu niż siły i ani jedno, ani drugie nic mu dziś nie dało. W jego tobołku prowiant na dwa dni i nic więcej, czym by się kto chwalił.",
+      "text": "Wojmir miał więcej rozumu niż siły i ani jedno, ani drugie nic mu dziś nie dało. W jego tobołku prowiant na dwa dni, kałamarz i pióro.",
       "actions": [
         {
           "setFlag": "pobojowisko_wojmir"
@@ -110,7 +110,7 @@
     },
     "tobolek": {
       "speaker": "Pobojowisko",
-      "text": "Przewodnik wiał tak prędko, że zostawił nawet swój tobołek. Z jego dna wygrzebujesz zatłuszczony szkic drogi: rzeka, bród, strażnica i ścieżka w las, którą ktoś zaznaczył na wszelki wypadek. Jedyny, kto znał cel, jedyny zniknął, ale mapa została.",
+      "text": "Przewodnik wiał tak prędko, że zostawił nawet swój tobołek. Z jego dna wygrzebujesz zatłuszczony szkic drogi: rzeka, bród, strażnica i ścieżka w las, którą ktoś zaznaczył na wszelki wypadek. Przewodnika diabli wzięli, ale mapa została.",
       "actions": [
         {
           "setFlag": "pobojowisko_przewodnik"

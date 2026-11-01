@@ -1,0 +1,208 @@
+{
+  "id": "ostrze_z_nieba",
+  "start": "kuznia",
+  "nodes": {
+    "kuznia": {
+      "speaker": "Kuźnia w Obserwatorium",
+      "text": "Ogień w kuźni pod Obserwatorium ryczy. Odłamek, który wyjąłeś z zagłębienia, leży na kowadle i pachnie zimnem. Ktoś musi go wziąć w obcęgi.",
+      "options": [
+        {
+          "id": "bogdan_miecz",
+          "text": "Podaj odłamek Bogdanowi.",
+          "goto": "bogdan_miecz",
+          "requires": {
+            "all": [
+              {
+                "flag": "klasa_miecz"
+              },
+              {
+                "flag": "glusz_pomoc"
+              },
+              {
+                "notFlag": "ostrze_odebrane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bogdan_wlocznie",
+          "text": "Podaj odłamek Bogdanowi.",
+          "goto": "bogdan_wlocznie",
+          "requires": {
+            "all": [
+              {
+                "flag": "klasa_wlocznia"
+              },
+              {
+                "flag": "glusz_pomoc"
+              },
+              {
+                "notFlag": "ostrze_odebrane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "brygida_miecz",
+          "text": "Podaj odłamek Brygidzie.",
+          "goto": "brygida_miecz",
+          "requires": {
+            "all": [
+              {
+                "flag": "klasa_miecz"
+              },
+              {
+                "notFlag": "glusz_pomoc"
+              },
+              {
+                "notFlag": "ostrze_odebrane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "brygida_wlocznie",
+          "text": "Podaj odłamek Brygidzie.",
+          "goto": "brygida_wlocznie",
+          "requires": {
+            "all": [
+              {
+                "flag": "klasa_wlocznia"
+              },
+              {
+                "notFlag": "glusz_pomoc"
+              },
+              {
+                "notFlag": "ostrze_odebrane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "po",
+          "text": "Ostrze już leży w dłoni.",
+          "goto": "po",
+          "requires": {
+            "flag": "ostrze_odebrane"
+          }
+        },
+        {
+          "id": "zar",
+          "text": "Poczekam, aż żar się uspokoi.",
+          "goto": "kuznia"
+        }
+      ]
+    },
+    "bogdan_miecz": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan przyszedł tu z Głuszca na piechotę, bo wstyd mu było czekać na wóz. Trzyma odłamek w obcęgach i patrzy na niego jak na dłużnika. „Metal się nie zgadza z żelazem, ale się dogada.” Przez noc wali młotem, a nad ranem wręcza ci ostrze, które wygląda raczej jak niezbyt rozmowny sąsiad.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "odlamek_krateru"
+        },
+        {
+          "giveItem": "ostrze_gwiazd_bogdana"
+        },
+        {
+          "setFlag": "ostrze_odebrane"
+        },
+        {
+          "setFlag": "ostrze_bogdana"
+        }
+      ]
+    },
+    "bogdan_wlocznie": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan przyszedł tu z Głuszca na piechotę, bo wstyd mu było czekać na wóz. Dzieli odłamek na dwa równe groty, jakby kroił chleb dla bliźniaków. „Dwie ręce, dwa żądła. Nie dawaj im się wadzić.” O świcie wręcza ci parę, która leży w dłoniach, jakby ją tam zostawiono.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "odlamek_krateru"
+        },
+        {
+          "giveItem": "para_gwiazd_bogdana"
+        },
+        {
+          "setFlag": "ostrze_odebrane"
+        },
+        {
+          "setFlag": "ostrze_bogdana"
+        }
+      ]
+    },
+    "brygida_miecz": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida kuje bez ceregieli i bez Bogdana, bo z Głuszca nikt nie przyszedł. Na własny rachunek i bez narzekania. Ostrze wychodzi krzywe, ale gwiezdne. „Nie podziękujesz, bo i tak nie będzie piękne”, mówi, wycierając ręce w fartuch.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "odlamek_krateru"
+        },
+        {
+          "giveItem": "ostrze_gwiazd_surowe"
+        },
+        {
+          "setFlag": "ostrze_odebrane"
+        },
+        {
+          "setFlag": "ostrze_surowe"
+        }
+      ]
+    },
+    "brygida_wlocznie": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida kuje bez Bogdana, na własny rachunek i w pośpiechu. Dwa nierówne groty z nieba, brzydkie jak grzech i tak samo skuteczne. „Kłuć będą. Ładne nie będą.” Pierwszy raz widzisz ją prawie uśmiechniętą.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "odlamek_krateru"
+        },
+        {
+          "giveItem": "para_gwiazd_surowa"
+        },
+        {
+          "setFlag": "ostrze_odebrane"
+        },
+        {
+          "setFlag": "ostrze_surowe"
+        }
+      ]
+    },
+    "po": {
+      "speaker": "Kuźnia w Obserwatorium",
+      "text": "Kuźnia stygnie. Ostrze waży mniej, niż się spodziewałeś. Do stolicy daleko, ale droga jest jedna.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

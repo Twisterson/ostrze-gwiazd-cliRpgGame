@@ -1,0 +1,95 @@
+{
+  "id": "rozstrzygniecie_rannych_sie_nie_liczy",
+  "start": "pole",
+  "nodes": {
+    "pole": {
+      "speaker": "Ranny żołnierz",
+      "text": "Z trawy podnosi się czyjaś ręka. „Pić.” Dalej leży jeszcze kilku, w różnych mundurach, wszyscy jednakowo szarzy na twarzy. Wrony siedzą na płocie i udają, że czekają na coś innego. „Nie mam siły wybierać, kogo uratujesz. Ale ty masz.”",
+      "options": [
+        {
+          "id": "wszyscy",
+          "text": "Zabiorę wszystkich, kto jeszcze oddycha.",
+          "goto": "wszyscy"
+        },
+        {
+          "id": "swoi",
+          "text": "Zabiorę tylko cesarskich. Reszta niech czeka na swoich.",
+          "goto": "swoi"
+        },
+        {
+          "id": "lupy",
+          "text": "Obejdę pole. Rannym już nic nie pomoże, łupy tak.",
+          "goto": "lupy"
+        }
+      ]
+    },
+    "wszyscy": {
+      "speaker": "Ranny żołnierz",
+      "text": "Zajmuje to pół dnia, trzy wozy i jedno przekleństwo medyczki, która nie lubi, gdy jej się miesza mundury. Ale wszyscy trafiają pod jeden dach, i jarnowscy, i cesarscy. Medyczka nie pyta o barwy. Mówi tylko: „Po co ci to było?” I podaje bandaż.",
+      "actions": [
+        {
+          "setFlag": "wojna_ranni_wszyscy"
+        },
+        {
+          "setFlag": "rannych_sie_nie_liczy_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "swoi": {
+      "speaker": "Ranny żołnierz",
+      "text": "Zabierasz tych z czerwonymi naszywkami i zostawiasz resztę wronom, które patrzą na ciebie tak, jakby ktoś właśnie skrócił im obiad. Kapitan będzie zadowolony. Ty jakoś mniej.",
+      "actions": [
+        {
+          "setFlag": "wojna_ranni_swoi"
+        },
+        {
+          "setFlag": "rannych_sie_nie_liczy_zrobione"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "lupy": {
+      "speaker": "Ranny żołnierz",
+      "text": "Obchodzisz pole z workiem. Ręka, która prosiła o wodę, opada. Ziemia ciężka od krwi, a sakwy lekkie od cudzych oszczędności. Jest to praca jak każda, ale po powrocie nie patrzysz nikomu w oczy.",
+      "actions": [
+        {
+          "setFlag": "wojna_ranni_lupy"
+        },
+        {
+          "setFlag": "rannych_sie_nie_liczy_zrobione"
+        },
+        {
+          "giveRandom": "lupy_pole_bitwy"
+        },
+        {
+          "giveRandom": "lupy_pole_bitwy"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

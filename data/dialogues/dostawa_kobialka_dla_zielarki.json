@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_kobialka_dla_zielarki",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Zielarka Żywia",
+      "text": "Z szałasu wygląda stara kobieta z oczami jak mokre kamienie. „Kto cię wysłał? Nie mów, już wiem.” Skinięciem zaprasza do środka.",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Mirogost przysyła kobiałkę.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "kobialka_ziol"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze tu wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Zielarka Żywia",
+      "text": "Zielarka podnosi pokrywkę, wącha i uśmiecha się półgębkiem. „Dobre. Tym razem nic nie umarło po drodze.” Odsypuje ci garść maści i daje flaszkę.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywajcie.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "kobialka_ziol"
+        },
+        {
+          "setFlag": "kobialka_oddana"
+        }
+      ]
+    }
+  }
+}

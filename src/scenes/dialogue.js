@@ -7,7 +7,7 @@ import { pushEventNotices } from "../ui/events.js";
 import { paint } from "../ui/colors.js";
 import { wrap } from "../ui/text.js";
 import { t } from "../ui/strings.js";
-import { nodeView, enterNode, chooseOption, finishDialogue, optionKey } from "../systems/dialogue.js";
+import { nodeView, enterNode, chooseOption, finishDialogue, optionKey, startNodeOf } from "../systems/dialogue.js";
 import { itemById } from "../systems/items.js";
 import { MissingCharacterError } from "./errors.js";
 import { runCombat, combatNext } from "./combat.js";
@@ -51,6 +51,7 @@ export async function dialogue(ctx, scene) {
   }
 
   const label = (o) => {
+    if (o.offer) return t(ui, "dialogue.offer", { text: o.label });
     if (!o.check) return o.label;
     const key = ctx.debug && o.check.chance !== undefined ? "dialogue.checkLabelDebug" : "dialogue.checkLabel";
     return t(ui, key, { ...o.check, text: o.label });
@@ -59,16 +60,18 @@ export async function dialogue(ctx, scene) {
   // A talk interrupted by a save resumes at the node whose entry actions already ran.
   const progress = state.world.dialogueProgress;
   const resumed = progress[scene.id];
-  let nodeId = resumed ?? data.dialogues.find((d) => d.id === scene.dialogue).start;
+  let nodeId = resumed ?? startNodeOf(state, data.dialogues.find((d) => d.id === scene.dialogue));
   let result = "end";
   let entering = resumed === undefined;
   let beforePick = null;
+  let lastView = null; // the last line spoken stays on screen under the camp menu instead of an empty page
   for (;;) {
     if (entering) pushEventNotices(ctx, enterNode(state, data, scene.dialogue, nodeId, ctx.rng).events);
     entering = false;
     progress[scene.id] = nodeId;
     const view = nodeView(state, data, scene.dialogue, nodeId, { debug: ctx.debug });
     await render(view);
+    lastView = view;
     const openCard = async () => { await showCharacter(ctx); await render(view); };
     if (view.isEnd) {
       await pressEnter(io, ui, { onCharacter: openCard });
@@ -111,6 +114,7 @@ export async function dialogue(ctx, scene) {
   state.world.finishedDialogues.push(scene.id);
   const next = def ? combatNext(def, outcome) : undefined;
   if (next) return next;
-  await render();
-  await campMenu(ctx, () => render());
+  if (scene.camp === false) return;
+  await render(lastView);
+  await campMenu(ctx, () => render(lastView));
 }

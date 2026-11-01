@@ -1,0 +1,84 @@
+{
+  "id": "rozstrzygniecie_kowal_i_rusznice",
+  "start": "kuznia",
+  "nodes": {
+    "kuznia": {
+      "speaker": "Kowal Ragnar",
+      "text": "Kowal stoi przy kowadle, a obok leży stos luf rusznic, wszystkie o dłoń krótsze, niż zamówiono. „Hetman chce stu rusznic do końca miesiąca. Kuję, bo płaci, ale płaci coraz mniej, a sumienie gryzie coraz bardziej. Mam dwóch uczniów i jedną żonę, więc nie mogę kuć tak, jak podpowiada mi sumienie. Poradzisz coś?”",
+      "options": [
+        {
+          "id": "stop",
+          "text": "Wstrzymaj kucie. Niech hetman zrozumie, że coś się kończy.",
+          "goto": "wynik_stop"
+        },
+        {
+          "id": "dalej",
+          "text": "Kuj dalej. Wojna się skończy, ale rachunki nie.",
+          "goto": "wynik_dalej"
+        },
+        {
+          "id": "sabotaz",
+          "text": "Zrób lufy z odrobiną wady. Niech nikt nie wie.",
+          "goto": "wynik_sabotaz"
+        }
+      ]
+    },
+    "wynik_stop": {
+      "speaker": "Kowal Ragnar",
+      "text": "Kowal odkłada młot i po raz pierwszy od miesięcy oddycha pełną piersią. Czeladnicy gapią się na niego z otwartymi gębami. „Powiem hetmanowi, że stal się skończyła” – mruczy. „Nie uwierzy, ale nie będzie umiał wykazać.”",
+      "actions": [
+        {
+          "setFlag": "jarnowo_kuznia_stop"
+        },
+        {
+          "setFlag": "kowal_i_rusznice_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_dalej": {
+      "speaker": "Kowal Ragnar",
+      "text": "Kowal kiwa głową i wraca do kowadła. „Ręce mam do roboty, rusznice do zamówień, wojna do apetytu” – mówi, jakby recytował przysłowie. Iskry sypią się na klepisko i nic w kuźni się nie zmienia.",
+      "actions": [
+        {
+          "setFlag": "jarnowo_kuznia_dalej"
+        },
+        {
+          "setFlag": "kowal_i_rusznice_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_sabotaz": {
+      "speaker": "Kowal Ragnar",
+      "text": "Kowal przez chwilę nie rusza się, a potem bierze najcieńszą lufę i obraca ją w palcach, szukając miejsca na cienką rysę. „Jedna na dziesięć. Nikt nie zgadnie, który strzelec dostał którą.” Spluwa w żar. „Jeśli ktoś kiedyś zapyta, nie znam cię.”",
+      "actions": [
+        {
+          "setFlag": "jarnowo_kuznia_sabotaz"
+        },
+        {
+          "setFlag": "kowal_i_rusznice_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

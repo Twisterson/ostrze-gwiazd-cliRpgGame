@@ -1,0 +1,49 @@
+{
+  "id": "prosba_notatnik_ucznia",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Zbłąkany uczeń",
+      "text": "Chłopak w poplamionym kitlu siedzi na kamieniu i trzyma w rękach notatnik jak niemowlę. „Jestem uczniem Hieronima, zgubiłem się. Zaniesiesz to do skrzynki uczniów w Obserwatorium? Gdyby mistrz zobaczył, że to zgubiłem, zrobiłby ze mnie szkielet.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Radź sobie sam.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Zbłąkany uczeń",
+      "text": "Chłopak wciska ci notatnik. „Nie otwieraj! Tam są rysunki gwiazd, a każda ma imię.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "notatnik_ucznia"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Zbłąkany uczeń",
+      "text": "Chłopak spuszcza głowę i kuli się nad notatnikiem. „No trudno. Wrócę na piechotę, o ile gwiazdy pozwolą.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

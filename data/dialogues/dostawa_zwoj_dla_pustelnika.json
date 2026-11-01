@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_zwoj_dla_pustelnika",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Skrytka pustelnika",
+      "text": "Skrzynka stoi pod głazem. Nikt z niej nie wyszedł, ale pewnie ktoś ją sprawdza.",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Wkładam zwój do skrzynki.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "zwoj_pustelnika"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Skrytka pustelnika",
+      "text": "Skrzynka pochłania zwój i po chwili słychać z głębi stęknięcie. Obok stoi słoik z kilkoma monetami i karteczką: „Za fatygę. Nie liczyć.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "zwoj_pustelnika"
+        },
+        {
+          "setFlag": "zwoj_dla_pustelnika_dostarczone"
+        }
+      ]
+    }
+  }
+}

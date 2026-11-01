@@ -1,0 +1,84 @@
+{
+  "id": "rozstrzygniecie_wino_dla_koszar",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "speaker": "Sierżant Gruby",
+      "text": "Sierżant opiera się na ławie z miną człowieka, który jest bardzo zajęty niczym. „Kwatermistrz szuka wina. Ja szukam, kto je znajdzie. Marszałek obiecał ludziom święto, a jak nie będzie wina, to nie będzie święta, a jak nie będzie święta, to będzie bunt. Prosta arytmetyka.”",
+      "options": [
+        {
+          "id": "przemyt",
+          "text": "Znam ludzi w porcie. Wino będzie, nie pytaj skąd.",
+          "goto": "wynik_przemyt"
+        },
+        {
+          "id": "kup",
+          "text": "Kupię na targu, uczciwie i drożej. Zapłacisz z koszarowej szkatuły.",
+          "goto": "wynik_kup"
+        },
+        {
+          "id": "nic",
+          "text": "Nie będzie wina. Powiedz ludziom prawdę.",
+          "goto": "wynik_nic"
+        }
+      ]
+    },
+    "wynik_przemyt": {
+      "speaker": "Sierżant Gruby",
+      "text": "Sierżant otwiera usta, żeby coś powiedzieć, ale rozmyśla się w połowie. „No dobra. Nie pytam. Tylko żeby beczki nie miały cesarskiej pieczęci, bo wtedy ja będę tym, co nie pytał.” Zaciera ręce, bo właśnie uratowałeś mu święto.",
+      "actions": [
+        {
+          "setFlag": "stolica_wino_przemyt"
+        },
+        {
+          "setFlag": "wino_dla_koszar_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_kup": {
+      "speaker": "Sierżant Gruby",
+      "text": "Sierżant liczy w pamięci, wzdycha i wyciąga sakiewkę. „Uczciwość kosztuje, i to ostatnio więcej niż wino.” Kiwa głową z szacunkiem, którego nie zamierza powtórzyć.",
+      "actions": [
+        {
+          "setFlag": "stolica_wino_kupione"
+        },
+        {
+          "setFlag": "wino_dla_koszar_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_nic": {
+      "speaker": "Sierżant Gruby",
+      "text": "Sierżant patrzy na ciebie, jakbyś zaproponował mu kąpiel w lodzie. „Prawdę? Panie, tu prawda jest jak czyste buty: nie warto, bo i tak się ubrudzi.” Ale po chwili kiwa głową. „Dobra. Niech wiedzą. Niech się wściekną na kogo trzeba.”",
+      "actions": [
+        {
+          "setFlag": "stolica_wino_nic"
+        },
+        {
+          "setFlag": "wino_dla_koszar_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

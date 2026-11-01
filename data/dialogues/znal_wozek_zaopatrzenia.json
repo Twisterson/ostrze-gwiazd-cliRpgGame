@@ -1,0 +1,22 @@
+{
+  "id": "znal_wozek_zaopatrzenia",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Droga",
+      "text": "Rozbity wóz zaopatrzenia leży w rowie, a konie i woźnica zniknęli. Plandeka rozdarta, skrzynie pootwierane, ale w jednej z nich cesarski kwatermistrz zostawił coś, co uznał za niewarte kradzieży. Jego błąd.",
+      "actions": [
+        {
+          "giveRandom": "lupy_front_cesarski"
+        }
+      ],
+      "options": [
+        {
+          "id": "ok",
+          "text": "Przeszukaj skrzynie.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

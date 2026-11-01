@@ -1,0 +1,196 @@
+{
+  "id": "gniewosz",
+  "portrait": "portret_gniewosz",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Sierżant Gniewosz",
+      "portrait": "portret_gniewosz",
+      "text": "Pod okapem skały siedzi chłop w kaftanie, z którego ktoś spruł naszywki, a miejsca po nich zostały ciemniejsze. Liczy suchary. Liczy je drugi raz, jakby coś się mogło zmienić. „Gniewosz. Byłem sierżantem, teraz jestem kimś, kto liczy suchary. Trzydziestu dwóch chłopa, jedzenia na dziewięć dni, a co trzy dni schodzi tu pościg. Zimy nikt z nas tu nie przeżyje, a wisieć też nikt nie chce. Ty chodzisz, gdzie chcesz. Pomożesz?”",
+      "options": [
+        {
+          "id": "praca",
+          "text": "Co można zrobić?",
+          "goto": "praca",
+          "requires": {
+            "questStatus": {
+              "id": "jar_bez_wyjscia",
+              "is": "none"
+            }
+          }
+        },
+        {
+          "id": "list",
+          "text": "Mam list żelazny od kapitana.",
+          "goto": "list",
+          "requires": {
+            "item": "list_zelazny"
+          }
+        },
+        {
+          "id": "prowadz",
+          "text": "Prowadzę was przez góry. Mam prowiant.",
+          "goto": "prowadz",
+          "requires": {
+            "all": [
+              {
+                "questStatus": {
+                  "id": "jar_bez_wyjscia",
+                  "is": "active"
+                }
+              },
+              {
+                "item": {
+                  "id": "prowiant",
+                  "qty": 6
+                }
+              },
+              {
+                "notFlag": "jar_rozstrzygniety"
+              }
+            ]
+          }
+        },
+        {
+          "id": "sprawa",
+          "text": "Jeszcze raz: co możecie zrobić?",
+          "goto": "sprawa",
+          "requires": {
+            "all": [
+              {
+                "questStatus": {
+                  "id": "jar_bez_wyjscia",
+                  "is": "active"
+                }
+              },
+              {
+                "notFlag": "jar_rozstrzygniety"
+              }
+            ]
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Tylko patrzę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "praca": {
+      "speaker": "Sierżant Gniewosz",
+      "portrait": "portret_gniewosz",
+      "text": "„Dwie drogi. Albo wracamy, ale tylko z listem żelaznym od waszego kapitana, bo bez papieru zawisną wszyscy, a ja pierwszy. Albo za wzgórza, tam gdzie nikt nikogo nie szuka. Znam ścieżkę, ale nie mam czym nakarmić ludzi na tę drogę: sześć worków prowiantu i kogoś, kto pójdzie przodem, bo moich zobaczą z daleka. Trzeciej drogi nie ma. Znaczy jest, wiedzie przez kapitana, ale wtedy za informację dostaje ją ktoś inny.”",
+      "options": [
+        {
+          "id": "tak",
+          "text": "Zajmę się tym.",
+          "goto": "tak"
+        },
+        {
+          "id": "nie",
+          "text": "Sami się w to wpakowaliście.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "tak": {
+      "speaker": "Sierżant Gniewosz",
+      "portrait": "portret_gniewosz",
+      "text": "Gniewosz kiwa głową i przekłada suchar na drugą kupkę. „Nie obiecuję wdzięczności, bo jej nie mam z czego dać. Ale ten, co w nocy trzyma straż, ma wnuka, i ten wnuk kiedyś się dowie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Niech i tak będzie.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "jar_bez_wyjscia"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Sierżant Gniewosz",
+      "portrait": "portret_gniewosz",
+      "text": "„Wpakowaliśmy.” Gniewosz nie podnosi głowy. „Pod Wronią Górą kazali nam iść na pikinierów bez pik. Nie poszliśmy. Jeśli za to się wisi, to niech wiszą ci, co rozkazywali, ale ty chyba nie masz tyle sznura. Idź już.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "sprawa": {
+      "speaker": "Sierżant Gniewosz",
+      "portrait": "portret_gniewosz",
+      "text": "„List od kapitana, to wrócimy. Sześć worków prowiantu i ktoś z przodu, to pójdziemy za wzgórza. Liczba sucharów się nie zmienia, a pościg przychodzi częściej.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pamiętam.",
+          "goto": "end"
+        }
+      ]
+    },
+    "list": {
+      "speaker": "Sierżant Gniewosz",
+      "portrait": "portret_gniewosz",
+      "text": "Gniewosz czyta pismo dwa razy, drugi raz palcem po pieczęci. Nie mówi nic. Wstaje, idzie do ogniska, odczytuje na głos, a potem przez chwilę nikt się nie rusza, bo każdy czeka, czy to żart. Rano zwijają szałasy. Jeden chłopak płacze, drugi klnie, a Gniewosz wciska ci w rękę skórzany pas: „Mojego kapitana. Już mu się nie przyda.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobrej drogi.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "list_zelazny"
+        },
+        {
+          "giveItem": "pas_zolnierski"
+        },
+        {
+          "setFlag": "wojna_jar_powrot"
+        },
+        {
+          "setFlag": "jar_rozstrzygniety"
+        },
+        {
+          "time": 60
+        }
+      ]
+    },
+    "prowadz": {
+      "speaker": "Sierżant Gniewosz",
+      "portrait": "portret_gniewosz",
+      "text": "Idziesz przodem przez cały dzień, a za tobą trzydziestu dwóch chłopa z workami i bez słowa. Na grani Gniewosz zatrzymuje wszystkich, zdejmuje resztkę munduru i wiesza ją na gałęzi. „Niech sobie wisi. Tak będzie w raportach.” Rusza dalej w dół, po drugiej stronie, gdzie nikogo nie obchodzi, kto z kim walczy. Nie ogląda się. Żaden się nie ogląda.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wracam.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": {
+            "id": "prowiant",
+            "qty": 6
+          }
+        },
+        {
+          "setFlag": "wojna_jar_ucieczka"
+        },
+        {
+          "setFlag": "jar_rozstrzygniety"
+        },
+        {
+          "time": 600
+        }
+      ]
+    }
+  }
+}

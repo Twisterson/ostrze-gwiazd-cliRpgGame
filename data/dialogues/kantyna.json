@@ -1,0 +1,804 @@
+{
+  "id": "kantyna",
+  "portrait": "portret_kantynierka",
+  "start": "powitanie",
+  "returnStart": "znowu",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "Kantyna to płachta na czterech żerdziach, dwa stoły z czyichś drzwi i kocioł. Przy jednym stole grają w kości wojacy, przy drugim siedzą ci, co tylko tędy idą. Za kotłem stoi szeroka baba z chochlą jak buława. „Bronka. Zupa gorąca, piwo mokre, a na kredyt jedzą u mnie tylko trupy. Siadaj albo nie zawadzaj.”",
+      "options": [
+        {
+          "id": "handel",
+          "text": "Pokaż, co masz na sprzedaż.",
+          "goto": "end",
+          "actions": [
+            {
+              "setFlag": "kantyna_kupuje"
+            }
+          ]
+        },
+        {
+          "id": "zupa",
+          "text": "Miska zupy i pajda (8 gr).",
+          "goto": "zupa",
+          "requires": {
+            "money": 8
+          }
+        },
+        {
+          "id": "plotki",
+          "text": "Co słychać w obozie?",
+          "goto": "plotki"
+        },
+        {
+          "id": "wiesc_prawda",
+          "text": "Co nowego o taborze?",
+          "goto": "wiesc_prawda",
+          "requires": {
+            "flag": "wojna_wywiad_prawda"
+          }
+        },
+        {
+          "id": "wiesc_falsz",
+          "text": "Co nowego o Jarnowianach?",
+          "goto": "wiesc_falsz",
+          "requires": {
+            "flag": "wojna_wywiad_falsz"
+          }
+        },
+        {
+          "id": "wiesc_proch",
+          "text": "Co nowego o Jarnowianach?",
+          "goto": "wiesc_proch",
+          "requires": {
+            "flag": "wojna_wywiad_proch"
+          }
+        },
+        {
+          "id": "wiesc_powrot",
+          "text": "Co nowego o tych z jaru?",
+          "goto": "wiesc_powrot",
+          "requires": {
+            "flag": "wojna_jar_powrot"
+          }
+        },
+        {
+          "id": "wiesc_wydani",
+          "text": "Co nowego o tych z jaru?",
+          "goto": "wiesc_wydani",
+          "requires": {
+            "flag": "wojna_jar_wydani"
+          }
+        },
+        {
+          "id": "wiesc_ucieczka",
+          "text": "Co nowego o tych z jaru?",
+          "goto": "wiesc_ucieczka",
+          "requires": {
+            "flag": "wojna_jar_ucieczka"
+          }
+        },
+        {
+          "id": "zegota_prosba",
+          "text": "Kapral cię woła.",
+          "goto": "zegota_prosba",
+          "requires": {
+            "questStatus": {
+              "id": "zold_w_kosciach",
+              "is": "none"
+            }
+          },
+          "job": "zold_w_kosciach"
+        },
+        {
+          "id": "zegota_zwrot",
+          "text": "Do kaprala: mam mieszek.",
+          "goto": "zegota_zwrot",
+          "requires": {
+            "item": "mieszek_zoldu"
+          }
+        },
+        {
+          "id": "stol",
+          "text": "Dosiadam się do wojaków.",
+          "goto": "stol",
+          "requires": {
+            "notFlag": "zold_oszukany"
+          }
+        },
+        {
+          "id": "stol_zimno",
+          "text": "Dosiadam się do wojaków.",
+          "goto": "stol_zimno",
+          "requires": {
+            "flag": "zold_oszukany"
+          }
+        },
+        {
+          "id": "mul_prosba",
+          "text": "Dziad szuka muła.",
+          "goto": "mul_prosba",
+          "requires": {
+            "questStatus": {
+              "id": "mul_imieniem_cesarz",
+              "is": "none"
+            }
+          },
+          "job": "mul_imieniem_cesarz"
+        },
+        {
+          "id": "mul_zwrot",
+          "text": "Druciarzu, Cesarz wrócił.",
+          "goto": "mul_zwrot",
+          "requires": {
+            "flag": "mul_odzyskany",
+            "notFlag": "mul_rozliczony"
+          }
+        },
+        {
+          "id": "podrozny",
+          "text": "Zagaduję podróżnego.",
+          "goto": "podrozny",
+          "requires": {
+            "questStatus": {
+              "id": "mul_imieniem_cesarz",
+              "is": "active"
+            },
+            "notFlag": "mul_odzyskany"
+          }
+        },
+        {
+          "id": "podrozny_po",
+          "text": "Zagaduję druciarza.",
+          "goto": "podrozny",
+          "requires": {
+            "flag": "mul_rozliczony"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "znowu": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "Bronka nie podnosi wzroku znad kotła. „Znowu ty? Zupa ta sama, tylko gęstsza. Nie pytaj czemu.”",
+      "options": [
+        {
+          "id": "handel",
+          "text": "Pokaż, co masz na sprzedaż.",
+          "goto": "end",
+          "actions": [
+            {
+              "setFlag": "kantyna_kupuje"
+            }
+          ]
+        },
+        {
+          "id": "zupa",
+          "text": "Miska zupy i pajda (8 gr).",
+          "goto": "zupa",
+          "requires": {
+            "money": 8
+          }
+        },
+        {
+          "id": "plotki",
+          "text": "Co słychać w obozie?",
+          "goto": "plotki"
+        },
+        {
+          "id": "wiesc_prawda",
+          "text": "Co nowego o taborze?",
+          "goto": "wiesc_prawda",
+          "requires": {
+            "flag": "wojna_wywiad_prawda"
+          }
+        },
+        {
+          "id": "wiesc_falsz",
+          "text": "Co nowego o Jarnowianach?",
+          "goto": "wiesc_falsz",
+          "requires": {
+            "flag": "wojna_wywiad_falsz"
+          }
+        },
+        {
+          "id": "wiesc_proch",
+          "text": "Co nowego o Jarnowianach?",
+          "goto": "wiesc_proch",
+          "requires": {
+            "flag": "wojna_wywiad_proch"
+          }
+        },
+        {
+          "id": "wiesc_powrot",
+          "text": "Co nowego o tych z jaru?",
+          "goto": "wiesc_powrot",
+          "requires": {
+            "flag": "wojna_jar_powrot"
+          }
+        },
+        {
+          "id": "wiesc_wydani",
+          "text": "Co nowego o tych z jaru?",
+          "goto": "wiesc_wydani",
+          "requires": {
+            "flag": "wojna_jar_wydani"
+          }
+        },
+        {
+          "id": "wiesc_ucieczka",
+          "text": "Co nowego o tych z jaru?",
+          "goto": "wiesc_ucieczka",
+          "requires": {
+            "flag": "wojna_jar_ucieczka"
+          }
+        },
+        {
+          "id": "zegota_prosba",
+          "text": "Kapral cię woła.",
+          "goto": "zegota_prosba",
+          "requires": {
+            "questStatus": {
+              "id": "zold_w_kosciach",
+              "is": "none"
+            }
+          },
+          "job": "zold_w_kosciach"
+        },
+        {
+          "id": "zegota_zwrot",
+          "text": "Do kaprala: mam mieszek.",
+          "goto": "zegota_zwrot",
+          "requires": {
+            "item": "mieszek_zoldu"
+          }
+        },
+        {
+          "id": "stol",
+          "text": "Dosiadam się do wojaków.",
+          "goto": "stol",
+          "requires": {
+            "notFlag": "zold_oszukany"
+          }
+        },
+        {
+          "id": "stol_zimno",
+          "text": "Dosiadam się do wojaków.",
+          "goto": "stol_zimno",
+          "requires": {
+            "flag": "zold_oszukany"
+          }
+        },
+        {
+          "id": "mul_prosba",
+          "text": "Dziad szuka muła.",
+          "goto": "mul_prosba",
+          "requires": {
+            "questStatus": {
+              "id": "mul_imieniem_cesarz",
+              "is": "none"
+            }
+          },
+          "job": "mul_imieniem_cesarz"
+        },
+        {
+          "id": "mul_zwrot",
+          "text": "Druciarzu, Cesarz wrócił.",
+          "goto": "mul_zwrot",
+          "requires": {
+            "flag": "mul_odzyskany",
+            "notFlag": "mul_rozliczony"
+          }
+        },
+        {
+          "id": "podrozny",
+          "text": "Zagaduję podróżnego.",
+          "goto": "podrozny",
+          "requires": {
+            "questStatus": {
+              "id": "mul_imieniem_cesarz",
+              "is": "active"
+            },
+            "notFlag": "mul_odzyskany"
+          }
+        },
+        {
+          "id": "podrozny_po",
+          "text": "Zagaduję druciarza.",
+          "goto": "podrozny",
+          "requires": {
+            "flag": "mul_rozliczony"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zupa": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "Dostajesz miskę, w której pływa coś, co mogło być kaszą, i pajdę twardą jak obcas. Jest gorące. Na froncie to wystarczy, żeby nazwać to obiadem. „Mięso było w poniedziałek” – mówi Bronka. „Który, nie powiem.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Smacznego mi.",
+          "goto": "znowu"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 8
+        },
+        {
+          "time": 30
+        },
+        {
+          "meal": 15
+        }
+      ]
+    },
+    "plotki": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "„Kapitan chodzi zły, bo sztab pisze rozkazy, a nie pisze, czym strzelać. Medyczka chodzi zła, bo jej chłopaki znoszą. A ja chodzę zła, bo mi ktoś zajumał drugą chochlę. Na polu za obozem wrony tak się obżarły, że już nie latają, tylko chodzą. Tyle wiem. Resztę ci powiedzą ci przy stole, ale oni łżą.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobrze wiedzieć.",
+          "goto": "znowu"
+        }
+      ],
+      "actions": [
+        {
+          "hint": "pole_bitwy"
+        }
+      ]
+    },
+    "stol": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "Wojacy przesuwają się o pół tyłka, a kapral Żegota, chłop z gębą jak stary worek, przesuwa ku tobie kubek. Cudzy, ale pełny. „Siadaj. Tylko o bitwie nie gadamy, bo jemy.”",
+      "options": [
+        {
+          "id": "front",
+          "text": "Jak tam na froncie?",
+          "goto": "stol_front"
+        },
+        {
+          "id": "jarnowianie",
+          "text": "Co to za ludzie, ci Jarnowianie?",
+          "goto": "stol_jarnowianie"
+        },
+        {
+          "id": "kosci",
+          "text": "O co gracie?",
+          "goto": "stol_kosci"
+        },
+        {
+          "id": "dalej",
+          "text": "Idę już.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "stol_front": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "„Front jest tam, gdzie akurat wleziesz w gówno. Wczoraj był za przeprawą. Dziś podobno we wsi, tej spalonej, bo zwiadowcy cesarscy tam siedzą w zaroślach i liczą, kto po wodę idzie. Jak pójdziesz, to nie po wodę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jasne.",
+          "goto": "stol"
+        }
+      ],
+      "actions": [
+        {
+          "hint": "spalona_wies"
+        }
+      ]
+    },
+    "stol_jarnowianie": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "„Tacy sami jak my, tylko z drugiej strony rzeki. Mają obóz dwa dni drogi stąd, też im nie płacą i też mają kaprala, który gada przy zupie. Jakby nas zamienić, nikt by się nie połapał. Oprócz kaprala. Ich kapral ma oboje oczu.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pocieszające.",
+          "goto": "stol"
+        }
+      ],
+      "actions": [
+        {
+          "hint": "oboz_jarnowian_przedni"
+        }
+      ]
+    },
+    "stol_kosci": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "Żołnierz obok wysypuje na stół trzy guziki i ząb. „O guziki. I o ząb, ale ząb jest Bolka i Bolko chce go z powrotem.” Bolko kiwa głową i przykłada szmatę do dziąsła, bo dziura po zębie jeszcze krwawi.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Powodzenia, Bolko.",
+          "goto": "stol"
+        }
+      ]
+    },
+    "stol_zimno": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "Nikt się nie przesuwa. Żegota patrzy w kubek, jakby tam było ciekawiej. „Szuler nie miał mieszka, co? No to szkoda. Miejsca też nie ma. Pod płachtą jest dużo miejsca, tam siedzą tacy, co tylko przechodzą.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "zegota_prosba": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "„Ty. Wyglądasz, jakbyś umiał liczyć do trzech. Był tu jeden Mszczuj, szuler, chudy jak drut. Usiadł z nami w dzień żołdu i po dwóch dzbanach miał żołd całej drużyny. Sześćdziesiąt groszy. Kości kantowane, sam bym przysiągł, gdybym wtedy widział na oczy. Poszedł na pole, tam mu się lepiej handluje. Odzyskaj mieszek, to coś z tego dostaniesz. Nam kapitan nie da wyjść, a sam nie pójdę, bo mam nogę.”",
+      "options": [
+        {
+          "id": "tak",
+          "text": "Odzyskam.",
+          "goto": "zegota_tak"
+        },
+        {
+          "id": "noga",
+          "text": "Jaką nogę?",
+          "goto": "zegota_noga"
+        },
+        {
+          "id": "nie",
+          "text": "Trzeba było nie grać.",
+          "goto": "zegota_nie"
+        }
+      ]
+    },
+    "zegota_noga": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "Żegota stuka łyżką w kolano. Słychać drewno. „Tę. Drugą też mam, ale ta nie chce iść sama.”",
+      "options": [
+        {
+          "id": "tak",
+          "text": "Odzyskam ten żołd.",
+          "goto": "zegota_tak"
+        },
+        {
+          "id": "nie",
+          "text": "Trzeba było nie grać.",
+          "goto": "zegota_nie"
+        }
+      ]
+    },
+    "zegota_tak": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "„Wóz stoi na skraju pola, nie przegapisz, to jedyny wóz z całymi kołami. Mszczuj ma przy sobie dwóch od worków. Nie graj z nim. Mówię to, bo mnie nikt nie powiedział.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Nie zagram.",
+          "goto": "znowu"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "zold_w_kosciach"
+        }
+      ]
+    },
+    "zegota_nie": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "„Mądrala. Trzeba było nie iść na wojnę, a jednak siedzimy.” Żegota wraca do kubka. „Jak ci się odmieni, wiesz, gdzie stół.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wiem.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "zegota_zwrot": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "Kapral odkłada łyżkę. Przy stole robi się cicho, tylko Bolko dalej ssie dziąsło. „No i co? Był ten mieszek przy nim?”",
+      "options": [
+        {
+          "id": "oddaj",
+          "text": "Był. Sześćdziesiąt, policz.",
+          "goto": "zegota_oddane"
+        },
+        {
+          "id": "polowa",
+          "text": "Był. Połowa moja, za fatygę.",
+          "goto": "zegota_polowa"
+        },
+        {
+          "id": "klamstwo",
+          "text": "Nie było. Przepił wszystko.",
+          "goto": "zegota_klamstwo"
+        }
+      ]
+    },
+    "zegota_oddane": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "Żegota liczy dwa razy, potem daje liczyć Bolkowi, który liczy na palcach i kończy na trzydziestu, bo tyle umie. Odsuwa ku tobie garść monet. „Dwadzieścia pięć. Drużyna się zrzuciła. Nie płacz, nie jesteśmy rodziną, tylko nikt nam dawno niczego nie oddał.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Na zdrowie.",
+          "goto": "znowu"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "mieszek_zoldu"
+        },
+        {
+          "giveMoney": 25
+        },
+        {
+          "setFlag": "zold_rozliczony"
+        }
+      ]
+    },
+    "zegota_polowa": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "Żegota patrzy na ciebie długo, potem na połowę mieszka. „Trzydzieści. Szuler wziął wszystko, a ty połowę. Znaczy, jesteś dwa razy uczciwszy.” Odlicza. Nikt ci nie dziękuje, ale kubka też nie zabiera.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Uczciwa cena.",
+          "goto": "znowu"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "mieszek_zoldu"
+        },
+        {
+          "giveMoney": 30
+        },
+        {
+          "setFlag": "zold_rozliczony"
+        }
+      ]
+    },
+    "zegota_klamstwo": {
+      "speaker": "Kapral Żegota",
+      "portrait": "portret_zegota",
+      "text": "„Przepił.” Żegota powtarza to bez złości, tak jak się powtarza, ile dni zostało do żniw. Obok ktoś przestaje rzucać kośćmi. W twojej sakwie sześćdziesiąt groszy waży teraz dokładnie tyle, ile powinno, i w kantynie jest jakby ciaśniej.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Trudno.",
+          "goto": "znowu"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "mieszek_zoldu"
+        },
+        {
+          "giveMoney": 60
+        },
+        {
+          "setFlag": "zold_oszukany"
+        },
+        {
+          "setFlag": "zold_rozliczony"
+        }
+      ]
+    },
+    "podrozny": {
+      "speaker": "Druciarz Ziemowit",
+      "portrait": "portret_ziemowit",
+      "text": "Pod płachtą siedzi stary druciarz z workiem garnków, które już nikomu nie gotują. „Ziemowit. Idę tam, gdzie jeszcze mają dziury w garnkach i nie mają dziur w głowach. Coraz mniej tego.”",
+      "options": [
+        {
+          "id": "droga",
+          "text": "Co na drogach?",
+          "goto": "podrozny_droga"
+        },
+        {
+          "id": "wojna",
+          "text": "Po co się pchasz na front?",
+          "goto": "podrozny_wojna"
+        },
+        {
+          "id": "dalej",
+          "text": "Dobrej drogi.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "podrozny_droga": {
+      "speaker": "Druciarz Ziemowit",
+      "portrait": "portret_ziemowit",
+      "text": "„Na wschód nie idź, chyba że lubisz wisieć. Wzgórze tam takie, że z daleka widać, kto się spóźnił z podatkiem. A w jarze za lasem siedzą dezerterzy. Porządni ludzie, garnek mi naprawić dali. Znaczy zabrali, ale wcześniej powiedzieli dzień dobry.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki za radę.",
+          "goto": "podrozny"
+        }
+      ],
+      "actions": [
+        {
+          "hint": "jar_dezerterow"
+        },
+        {
+          "hint": "wzgorze_wisielcow"
+        }
+      ]
+    },
+    "podrozny_wojna": {
+      "speaker": "Druciarz Ziemowit",
+      "portrait": "portret_ziemowit",
+      "text": "„Bo wojsko to najlepszy klient. Garnek mu dziurawią, hełm mu dziurawią, a jeszcze ma żołd. Znaczy miał. Teraz biorę w guzikach. Mam już pół worka guzików i ani jednego porządnego płaszcza do nich.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobry interes.",
+          "goto": "podrozny"
+        }
+      ]
+    },
+    "mul_prosba": {
+      "speaker": "Druciarz Ziemowit",
+      "portrait": "portret_ziemowit",
+      "text": "Stary druciarz łapie cię za rękaw. „Nie widziałeś muła? Szarego, z liną na szyi. Cesarz się wabi. Nazwałem go tak, zanim to było niebezpieczne, bo żre za dziesięciu i nigdy nie robi, co trzeba. Od trzech dni chodzę po obozie i wołam, że Cesarz uciekł, i dwa razy brali mnie już na przesłuchanie. Poszedł ku spalonej wsi, tam jeszcze kapusta została. Przyprowadzisz go? Bez muła jestem tylko dziadem z garnkami.”",
+      "options": [
+        {
+          "id": "tak",
+          "text": "Przyprowadzę twojego Cesarza.",
+          "goto": "mul_tak"
+        },
+        {
+          "id": "nie",
+          "text": "Wojna jest, dziadku. Muły giną.",
+          "goto": "mul_nie"
+        }
+      ]
+    },
+    "mul_tak": {
+      "speaker": "Druciarz Ziemowit",
+      "portrait": "portret_ziemowit",
+      "text": "„Niech ci Bóg da zdrowie, a ja dam trzydzieści groszy, bo Bóg mi nie płaci. Tylko bądź dla niego stanowczy. Na »prrr« nie reaguje. Na »Wasza Wysokość« czasem tak.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wasza Wysokość, jasne.",
+          "goto": "znowu"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "mul_imieniem_cesarz"
+        }
+      ]
+    },
+    "mul_nie": {
+      "speaker": "Druciarz Ziemowit",
+      "portrait": "portret_ziemowit",
+      "text": "„Ludzie też. Ale człowiek nie uniesie mi sześćdziesięciu kilo garnków.” Druciarz puszcza twój rękaw i łapie za rękaw następnego. Następny jest wieszakiem.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj, dziadku.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "mul_zwrot": {
+      "speaker": "Druciarz Ziemowit",
+      "portrait": "portret_ziemowit",
+      "text": "Ziemowit wybiega spod płachty, a muł patrzy na niego tak, jakby to druciarz się zgubił. „Żyjesz, ty cholero! Wasza Wysokość, ty cholero!” Wojak przy wozie unosi głowę, przemyśliwa to i wraca do drzemki. Druciarz odlicza ci monety, dorzuca coś z worka. „Weź jeszcze ziół. Żona zbierała. Dawno, więc mocne.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pilnuj go lepiej.",
+          "goto": "znowu"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "mul_rozliczony"
+        }
+      ]
+    },
+    "wiesc_prawda": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "„Spalili tabor pod przeprawą. Woźnica Staszek jadał u mnie, wisiał mi za dwie zupy. Nie wiem, kto im to sprzedał, ale jak się dowiem, to dostanie zupę z tego, co leży za kotłem. Prochu nie ma, więc dziś wszyscy jesteśmy piechotą, nawet kanonierzy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "wiesc_falsz": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "„Podobno czterdziestu wyspiarzy poszło pod fort szukać wozów, których tam nie było. Przyszli po proch, wyszli pod kuszami. Wojsko tak się cieszy, że dwóch nawet zapłaciło za zupę. Tego jeszcze nie widziałam.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "wiesc_proch": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "„Wyspiarze strzelają mokrym prochem. Tak mówią. Nasi wleźli przez bród, jakby tam nie było nikogo, i wrócili z trzema kuframi cudzych sucharów. Twarde jak obcas, ale swoje. Znaczy nie swoje. Wiesz, o co chodzi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "wiesc_powrot": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "„Wrócili. Trzydzieści dwie gęby więcej do kotła, a kasa ta sama. Sierżant przyszedł i zapytał, ile jest im winien za zupę. Tego też jeszcze nie widziałam. Dałam mu za darmo, ale nikomu nie mów.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "wiesc_wydani": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "„A co ma być? Wisieli wczoraj, wiszą dziś. Kapral mówi, że dwóch z nich jadało przy tamtym stole, kiedy jeszcze było co jeść.” Bronka miesza dłużej, niż zupa tego wymaga. „Zupę dziś masz. Ale nie wiem, po co tu przyszedłeś.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "znowu"
+        }
+      ]
+    },
+    "wiesc_ucieczka": {
+      "speaker": "Kantynierka Bronka",
+      "portrait": "portret_kantynierka",
+      "text": "„Zniknęli, tak mówią. Trzydziestu chłopa. Kapitan się wścieka, że nie ma kogo wieszać, a przy stole dziwnym trafem się cieszą. Ktoś im musiał pomóc, sami by do płotu nie trafili.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "znowu"
+        }
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 /** Modifier catalog: which keys a modifier object may contain, validation and summing. */
 
-export const DAMAGE_TYPES = ["sieczne", "klute", "obuchowe", "ogien", "palne"];
+export const DAMAGE_TYPES = ["sieczne", "klute", "obuchowe", "ogien", "palne", "gwiezdne"];
 export const NUMERIC_KEYS = [
   "hpMax", "ap", "defense", "initiative", "carry", "hitChance", "meleeHitChance", "rangedHitChance",
   "damage", "critChance", "fleeChance",

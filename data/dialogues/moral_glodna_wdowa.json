@@ -1,0 +1,118 @@
+{
+  "id": "moral_glodna_wdowa",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Wdowa przy drodze",
+      "text": "Na pniu siedzi kobieta z dzieckiem na kolanach i patrzy w ziemię. „Nie proszę o wiele, panie. Chleb. Cokolwiek. Dziecko od trzech dni nie je.”",
+      "options": [
+        {
+          "id": "prowiant",
+          "text": "Daj jej prowiant.",
+          "goto": "prowiant",
+          "requires": {
+            "item": "prowiant"
+          }
+        },
+        {
+          "id": "monety",
+          "text": "Daj jej trzy grosze.",
+          "goto": "monety",
+          "requires": {
+            "money": 3
+          }
+        },
+        {
+          "id": "odmow",
+          "text": "Nie mam, siostro.",
+          "goto": "odmow"
+        },
+        {
+          "id": "rabuj",
+          "text": "Zabierz jej tobołek.",
+          "goto": "rabuj"
+        }
+      ]
+    },
+    "prowiant": {
+      "speaker": "Wdowa przy drodze",
+      "text": "Kobieta chowa prowiant w fartuch. „Niech cię Matka strzeże, panie.” Dziecko pierwszy raz od dawna się uśmiecha.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "prowiant"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        },
+        {
+          "xp": 15
+        }
+      ]
+    },
+    "monety": {
+      "speaker": "Wdowa przy drodze",
+      "text": "„Trzy grosze to nie chleb, ale chleb można za nie kupić.” Kobieta wsuwa monety w zanadrze. „Pamiętam cię, panie. Chodź zdrów.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 3
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        },
+        {
+          "xp": 10
+        }
+      ]
+    },
+    "odmow": {
+      "speaker": "Wdowa przy drodze",
+      "text": "Kobieta kiwa głową bez urazy. „Nikt nie ma. Idź zdrów.” Dziecko patrzy na ciebie bez wyrazu.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "rabuj": {
+      "speaker": "Wdowa przy drodze",
+      "text": "Kobieta nie broni się. W tobołku kilka groszy, szczypta soli i trzy cebule. Gratulacje. Okradłeś wdowę z trzech cebul.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 8
+        },
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        }
+      ]
+    }
+  }
+}

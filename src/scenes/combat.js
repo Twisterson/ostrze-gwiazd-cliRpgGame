@@ -3,7 +3,7 @@ import { heroPanel } from "../ui/hero_panel.js";
 import { sceneWidth, frameWidth, sceneLines } from "../ui/frame.js";
 import { select } from "../ui/menu.js";
 import { pressEnter } from "../ui/prompt.js";
-import { pushEventNotices, combatEventText } from "../ui/events.js";
+import { pushEventNotices, combatEventText, combatEventRole } from "../ui/events.js";
 import { renderCombat, combatActionItems, techniqueItems, zoneItems } from "../ui/combat_screen.js";
 import { paint } from "../ui/colors.js";
 import { t } from "../ui/strings.js";
@@ -18,7 +18,9 @@ import { DefeatError, MissingCharacterError } from "./errors.js";
 function logEvents(data, combat, events) {
   for (const e of events) {
     const text = combatEventText(data.ui, data, combat, e);
-    if (text !== null) combat.log.push(text);
+    if (text === null) continue;
+    (combat.logRoles ??= [])[combat.log.length] = combatEventRole(e); // index = the entry's; saves from before have no roles (dim)
+    combat.log.push(text);
   }
 }
 
@@ -33,11 +35,18 @@ function drawScreen(ctx, combat, targetUid, extra = []) {
   const view = { columns: io.columns, rows: io.rows, tty: io.isTTY, targetUid, logSeen: logSeen.get(combat) ?? 0 };
   if (framesOn(io)) {
     const notices = (ctx.notices ?? []).splice(0);
-    io.frame = { hero: heroPanel(state, data, { cols: frameWidth(io.columns), combat }), title: combat.def?.title ?? null, body: [], commands: [], notices, page: 0, choiceTitle: null };
-    // the enemies' block and the journal fill the scene panel exactly, so the text never pages
-    const below = sceneLines(extra, sceneWidth(io.columns));
-    const height = sceneCapacity(io) - below.length;
-    io.frame.body = [...renderCombat(state, data, combat, { ...view, frame: true, width: sceneWidth(io.columns), height }), ...below];
+    const f = { hero: null, title: combat.def?.title ?? null, body: [], commands: [], notices, page: 0, choiceTitle: null, tooSmall: data.ui["frame.tooSmall"] };
+    io.frame = f;
+    let laidOut = f.body;
+    f.fit = () => {
+      f.hero = heroPanel(state, data, { cols: frameWidth(io.columns), combat });
+      // the enemies' block and the journal fill the scene panel exactly, so the text never pages
+      const below = sceneLines(extra, sceneWidth(io.columns));
+      const height = sceneCapacity(io) - below.length;
+      const body = [...renderCombat(state, data, combat, { ...view, columns: io.columns, rows: io.rows, frame: true, width: sceneWidth(io.columns), height }), ...below];
+      if (f.body === laidOut) f.body = body; // the journal's view keeps its own body
+      laidOut = body;
+    };
     drawFrame(io, []);
   } else {
     flushNotices(ctx);
@@ -93,12 +102,15 @@ async function showLogFrame(ctx, combat) {
   const { ui } = data;
   drawScreen(ctx, combat, undefined);
   io.frame.title = t(ui, "combat.logTitle");
-  const width = sceneWidth(io.columns);
-  const lines = combat.log.length ? sceneLines(combat.log.map((entry) => `· ${entry}`), width) : [paint("dim", t(ui, "combat.logEmpty"))];
-  const rows = sceneCapacity(io);
-  const maxTop = Math.max(0, lines.length - rows);
-  let top = maxTop;
+  let top = Infinity;
+  let maxTop = 0;
   for (;;) {
+    // laid out on every pass: the window may have changed size
+    const width = sceneWidth(io.columns);
+    const lines = combat.log.length ? combat.log.flatMap((entry, i) => sceneLines([`· ${entry}`], width).map((line) => paint(combat.logRoles?.[i] ?? "dim", line))) : [paint("dim", t(ui, "combat.logEmpty"))];
+    const rows = sceneCapacity(io);
+    maxTop = Math.max(0, lines.length - rows);
+    top = Math.min(top, maxTop);
     io.frame.body = lines.slice(top, top + rows);
     drawFrame(io, [paint("dim", t(ui, "combat.logScroll")), "", paint("title", `▶ [W] ${t(ui, "combat.back")}`)]);
     const key = await io.readKey();

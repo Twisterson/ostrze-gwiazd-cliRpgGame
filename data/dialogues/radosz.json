@@ -39,7 +39,7 @@
     },
     "q2_rozmowa": {
       "speaker": "Młynarz Radosz",
-      "text": "Radosz opuszcza worek i patrzy w bok, na rzekę, jakby tylko ona go nie wydała. „Dwanaście groszy. Wiem. Młyn stoi, bo woda płynie nie taka, jak trzeba. Jakby ją ktoś z czegoś wypłukiwał. Ale piwa nie oddam, bom je wypił. Dasz mi tydzień, czy mam zapłacić teraz i spać na gołym kamieniu?”",
+      "text": "Radosz opuszcza worek i patrzy w bok. „Dwanaście groszy. Wiem. Młyn stoi, bo woda płynie nie taka, jak trzeba. Jakby ją ktoś z czegoś wypłukiwał. Ale piwa nie oddam, bom je wypił. Dasz mi tydzień, czy mam zapłacić teraz i spać na gołym kamieniu?”",
       "options": [
         {
           "id": "zwloka",
@@ -79,11 +79,11 @@
     },
     "q2_nacisk": {
       "speaker": "Młynarz Radosz",
-      "text": "Radosz sięga pod worek, wyciąga kiesę i odlicza dwanaście groszy z miną człowieka, któremu nerkę wyrywają. „Masz. Niech się Mruk udławi. Ale wiem ja, że to ty mi za miesiąc tę pieczeń przypalisz.”",
+      "text": "Radosz sięga pod worek, wyciąga kiesę i odlicza dwanaście groszy z miną, jakby mu ząb rwali. „Masz. Niech się Mruk udławi.”",
       "options": [
         {
           "id": "dalej",
-          "text": "Nie spalę.",
+          "text": "Przekażę.",
           "goto": "powitanie"
         }
       ],

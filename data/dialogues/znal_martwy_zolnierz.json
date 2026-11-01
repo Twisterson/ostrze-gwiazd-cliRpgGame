@@ -1,0 +1,22 @@
+{
+  "id": "znal_martwy_zolnierz",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Gościniec",
+      "text": "Na skraju drogi leży żołnierz w pogniecionym mundurze, a strumień wokół niego jest czerwony. Nikt go nie poszukuje. Ty bierzesz to, co mu już niepotrzebne.",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveRandom": "lupy_znalezisko_glusz"
+        }
+      ]
+    }
+  }
+}

@@ -11,7 +11,8 @@ import {
 } from "../systems/travel.js";
 import { questById } from "../systems/quests.js";
 import { eatMeal } from "../systems/food.js";
-import { forcePhenomenon } from "../systems/phenomena.js";
+import { forcePhenomenon, activePhenomenon } from "../systems/phenomena.js";
+import { unchargedArtifacts } from "../systems/artifacts.js";
 import { itemById } from "../systems/items.js";
 import { save_point } from "./save_point.js";
 import { rest } from "./rest.js";
@@ -32,14 +33,27 @@ function waitForDawn(ctx) {
   if (wait > 0) pushEventNotices(ctx, advanceTime(state, wait, data, ctx.rng));
 }
 
-/** Departure: dawn, auto save, the travel screen; "Ruszaj" rolls the stage's event and starts the march. */
+/** Whole hours the sleep can take before the next departure (a later sleep would cost a day): `rest.maxHours` at most, `rest.minHours` at least. */
+function hoursToDawn(state, data) {
+  const { hour, minute } = clockOf(state.time.minutes);
+  const left = (data.rules.travel.departHour * 60 - (hour * 60 + minute) + 24 * 60) % (24 * 60);
+  const { minHours, maxHours } = data.rules.rest;
+  return Math.max(minHours, Math.min(maxHours, Math.floor(left / 60)));
+}
+
+/** Departure: dawn, auto save, the travel screen (none after a quiet night, unless the weather has a warning); "Ruszaj" rolls the stage's event and starts the march. */
 async function depart(ctx) {
   const { state, data } = ctx;
+  const quietMorning = trip(state).quietMorning === true;
+  delete trip(state).quietMorning;
   waitForDawn(ctx);
   await save_point(ctx);
-  const render = () => screen(ctx, () => renderDeparture(state, data), "depart");
-  await render();
-  await campMenu(ctx, render, { continueLabel: t(data.ui, "travel.depart") });
+  const weather = activePhenomenon(state, data)?.world.travel;
+  if (!quietMorning || (weather && weather !== "normal")) {
+    const render = () => screen(ctx, () => renderDeparture(state, data), "depart");
+    await render();
+    await campMenu(ctx, render, { continueLabel: t(data.ui, "travel.depart") });
+  }
   const rolled = rollStageEvent(state, data, ctx.rng);
   Object.assign(trip(state), { event: rolled?.id ?? null, eventHour: rolled?.hour ?? null, phase: "march" });
 }
@@ -60,11 +74,11 @@ export function forgetScenes(state, scenes) {
 async function playEvent(ctx) {
   const { state, data } = ctx;
   const event = eventById(data, trip(state).event);
-  trip(state).phase = "event";
+  Object.assign(trip(state), { phase: "event", eventful: true });
   if (event.phenomenon) {
     pushEventNotices(ctx, forcePhenomenon(state, data, event.phenomenon, ctx.rng, state.time.minutes));
   } else {
-    if (trip(state).eventScene === null) forgetScenes(state, event.scenes);
+    if (trip(state).eventScene === null) { forgetScenes(state, event.scenes); delete state.world.heavyLoot; }
     const start = trip(state).eventScene ?? event.scenes[0].id;
     await runScenes(ctx, createSceneList(event.scenes), start, { onScene: (id) => { trip(state).eventScene = id; }, endId: EVENT_END });
   }
@@ -101,23 +115,30 @@ async function march(ctx) {
     if (t0.hoursWalked >= marchHours) break;
     pushEventNotices(ctx, marchHour(state, data, ctx.rng));
   }
-  const summary = finishStage(state, data);
-  trip(state).phase = "camp";
-  const render = () => screen(ctx, () => renderStageSummary(state, data, summary), "march");
-  await render();
-  await campMenu(ctx, render);
+  finishStage(state, data);
+  trip(state).phase = "camp"; // the evening screen says it all
 }
 
-/** Camp: optional foraging (once an evening), then the meal and the rest; after the sleep the next day's departure. */
+/**
+ * Camp, one screen: how the day went and "go on" as the main choice, foraging (once an evening) beside it; then the meal and a sleep
+ * that takes all the time left until dawn, and the next day starts by itself. Only a worn artifact to charge brings the rest's
+ * questions back, since exposing it is a real decision.
+ */
 async function camp(ctx) {
   const { state, data } = ctx;
   const { ui } = data;
+  let plain = false;
   if (trip(state).phase === "camp") {
-    const render = () => screen(ctx, () => [renderCampHeader(state, data)], "camp");
     for (;;) {
+      plain = unchargedArtifacts(state, data).length === 0; // foraging can change the charge
+      const t0 = trip(state);
+      const day = t0.delayed
+        ? renderStageSummary(state, data, { delayed: true, by: t0.slowBy }).slice(1)
+        : [t(ui, t0.eventful ? "travel.camp" : "travel.quietCamp")];
+      const render = () => screen(ctx, () => [renderCampHeader(state, data), ...day], "camp");
       await render();
-      const extra = trip(state).foraged ? [] : [{ id: "forage", label: t(ui, "camp.forage") }];
-      const pick = await campMenu(ctx, render, { continueLabel: t(ui, "camp.pitch"), extra });
+      const extra = t0.foraged ? [] : [{ id: "forage", label: t(ui, "camp.forage") }];
+      const pick = await campMenu(ctx, render, { continueLabel: t(ui, plain ? "travel.goOn" : "camp.pitch"), extra });
       if (pick !== "forage") break;
       trip(state).foraged = true;
       const { found, events } = forage(state, data, ctx.rng);
@@ -129,7 +150,13 @@ async function camp(ctx) {
     trip(state).phase = "sleep";
     pushEventNotices(ctx, eatMeal(state, data, ctx.rng));
   }
-  await rest(ctx, {}, { afterSleep: () => nextDay(state) });
+  await rest(ctx, {}, {
+    ...(plain ? { quickHours: hoursToDawn(state, data) } : {}),
+    afterSleep: () => {
+      nextDay(state);
+      trip(state).quietMorning = true;
+    },
+  });
 }
 
 /**

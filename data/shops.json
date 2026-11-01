@@ -56,7 +56,8 @@
       "weapon",
       "armor",
       "consumable",
-      "throwable"
+      "throwable",
+      "material"
     ],
     "priceModifiers": [
       {
@@ -87,11 +88,16 @@
       {
         "id": "strzala",
         "qty": 10
+      },
+      {
+        "id": "loj_do_ostrza",
+        "qty": 3
       }
     ],
     "buys": [
       "consumable",
-      "ammo"
+      "ammo",
+      "material"
     ]
   },
   {
@@ -100,26 +106,71 @@
     "stock": [
       {
         "id": "prowiant",
-        "qty": 4
+        "qty": 6
       },
       {
         "id": "opatrunek",
-        "qty": 3
+        "qty": 4
       },
       {
         "id": "napar_ziol",
+        "qty": 3
+      },
+      {
+        "id": "odtrutka",
         "qty": 2
       },
       {
-        "id": "strzala",
-        "qty": 20
+        "id": "miod_pitny",
+        "qty": 3
+      },
+      {
+        "id": "kurta_skorzana",
+        "qty": 1
+      },
+      {
+        "id": "helm_skorzany",
+        "qty": 1
+      },
+      {
+        "id": "rekawice_skorzane",
+        "qty": 1
+      },
+      {
+        "id": "plaszcz_skorzany",
+        "qty": 1
+      },
+      {
+        "id": "kiel_dzika",
+        "qty": 1
+      },
+      {
+        "id": "podkowa_szczescia",
+        "qty": 1
+      },
+      {
+        "id": "amulet_wilczy",
+        "qty": 1
+      },
+      {
+        "id": "buty_podkute",
+        "qty": 1
+      },
+      {
+        "id": "plaszcz_wedrowca",
+        "qty": 1
+      },
+      {
+        "id": "gulasz",
+        "qty": 4
       }
     ],
     "buys": [
       "weapon",
       "armor",
       "consumable",
-      "throwable"
+      "throwable",
+      "material"
     ]
   },
   {
@@ -128,26 +179,63 @@
     "stock": [
       {
         "id": "prowiant",
-        "qty": 4
+        "qty": 6
       },
       {
         "id": "opatrunek",
-        "qty": 3
+        "qty": 4
       },
       {
         "id": "napar_ziol",
+        "qty": 3
+      },
+      {
+        "id": "oklad_ziolowy",
+        "qty": 3
+      },
+      {
+        "id": "odtrutka",
         "qty": 2
       },
       {
+        "id": "miod_pitny",
+        "qty": 3
+      },
+      {
         "id": "strzala",
+        "qty": 20
+      },
+      {
+        "id": "belt",
         "qty": 10
+      },
+      {
+        "id": "amulet_wilczy",
+        "qty": 1
+      },
+      {
+        "id": "paciorek_pielgrzyma",
+        "qty": 1
+      },
+      {
+        "id": "oberog_krwawienia",
+        "qty": 1
+      },
+      {
+        "id": "plaszcz_lowczy",
+        "qty": 1
+      },
+      {
+        "id": "napar_z_korzeni",
+        "qty": 2
       }
     ],
     "buys": [
       "weapon",
       "armor",
       "consumable",
-      "throwable"
+      "throwable",
+      "material"
     ]
   },
   {
@@ -175,7 +263,8 @@
       "weapon",
       "armor",
       "consumable",
-      "throwable"
+      "throwable",
+      "material"
     ]
   },
   {
@@ -184,7 +273,7 @@
     "stock": [
       {
         "id": "prowiant",
-        "qty": 5
+        "qty": 6
       },
       {
         "id": "opatrunek",
@@ -195,15 +284,867 @@
         "qty": 3
       },
       {
+        "id": "oklad_ziolowy",
+        "qty": 3
+      },
+      {
+        "id": "odtrutka",
+        "qty": 2
+      },
+      {
+        "id": "flasza_oleju",
+        "qty": 2
+      },
+      {
         "id": "strzala",
+        "qty": 20
+      },
+      {
+        "id": "belt",
         "qty": 10
+      },
+      {
+        "id": "kula_z_prochem",
+        "qty": 15
+      },
+      {
+        "id": "miod_pitny",
+        "qty": 2
+      },
+      {
+        "id": "garnek_huku",
+        "qty": 1
+      },
+      {
+        "id": "swieca_dymna",
+        "qty": 1
       }
     ],
     "buys": [
       "weapon",
       "armor",
       "consumable",
-      "throwable"
+      "throwable",
+      "material"
+    ]
+  },
+  {
+    "id": "kowal_brod",
+    "name": "Kuźnia Zbycha",
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "stock": [
+      {
+        "id": "kastet",
+        "qty": 1
+      },
+      {
+        "id": "rekawice_nabijane",
+        "qty": 1
+      },
+      {
+        "id": "miecz_zolnierski",
+        "qty": 1
+      },
+      {
+        "id": "topor_zbojecki",
+        "qty": 1
+      },
+      {
+        "id": "maczuga_kolkowa",
+        "qty": 1
+      },
+      {
+        "id": "para_wloczni_lowieckich",
+        "qty": 1
+      },
+      {
+        "id": "sztylet_zbojecki",
+        "qty": 1
+      },
+      {
+        "id": "skorznia_nabijana",
+        "qty": 1
+      },
+      {
+        "id": "kolczuga",
+        "qty": 1
+      },
+      {
+        "id": "helm_zelazny",
+        "qty": 1
+      },
+      {
+        "id": "czapa_kolcza",
+        "qty": 1
+      },
+      {
+        "id": "karwasze",
+        "qty": 1
+      },
+      {
+        "id": "nagolenniki",
+        "qty": 1
+      },
+      {
+        "id": "buty_wedrowca",
+        "qty": 1
+      },
+      {
+        "id": "loj_do_ostrza",
+        "qty": 4
+      }
+    ]
+  },
+  {
+    "id": "szkarad_ruszniczar",
+    "name": "Skrzynia Szkarada",
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "stock": [
+      {
+        "id": "pistolet_skalkowy",
+        "qty": 1
+      },
+      {
+        "id": "kula_z_prochem",
+        "qty": 20
+      },
+      {
+        "id": "luk_wojenny",
+        "qty": 1
+      },
+      {
+        "id": "kusza_lekka",
+        "qty": 1
+      },
+      {
+        "id": "strzala",
+        "qty": 20
+      },
+      {
+        "id": "belt",
+        "qty": 20
+      },
+      {
+        "id": "flasza_oleju",
+        "qty": 3
+      },
+      {
+        "id": "garnek_huku",
+        "qty": 2
+      },
+      {
+        "id": "swieca_dymna",
+        "qty": 2
+      },
+      {
+        "id": "puszka_szerszeni",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "id": "kowal_gluszec_sklep",
+    "name": "Kuźnia Bogdana",
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "stock": [
+      {
+        "id": "piesc_zelazna",
+        "qty": 1
+      },
+      {
+        "id": "miecz_straznika",
+        "qty": 1
+      },
+      {
+        "id": "para_wloczni_strazniczych",
+        "qty": 1
+      },
+      {
+        "id": "bulawa",
+        "qty": 1
+      },
+      {
+        "id": "luk_zlozony",
+        "qty": 1
+      },
+      {
+        "id": "kusza_zolnierska",
+        "qty": 1
+      },
+      {
+        "id": "pistolet_wojskowy",
+        "qty": 1
+      },
+      {
+        "id": "kolczuga_straznicza",
+        "qty": 1
+      },
+      {
+        "id": "helm_straznika",
+        "qty": 1
+      },
+      {
+        "id": "rekawice_kolcze",
+        "qty": 1
+      },
+      {
+        "id": "buty_straznika",
+        "qty": 1
+      },
+      {
+        "id": "pas_zolnierski",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": "warsztat_brygidy",
+    "name": "Warsztat Brygidy",
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "stock": [
+      {
+        "id": "talizman_z_odlamka",
+        "qty": 1
+      },
+      {
+        "id": "zawieszka_stroza",
+        "qty": 1
+      },
+      {
+        "id": "oko_nocy",
+        "qty": 1
+      },
+      {
+        "id": "rusznica",
+        "qty": 1
+      },
+      {
+        "id": "polpancerz",
+        "qty": 1
+      },
+      {
+        "id": "plaszcz_cesarski",
+        "qty": 1
+      },
+      {
+        "id": "kula_z_prochem",
+        "qty": 20
+      },
+      {
+        "id": "belt",
+        "qty": 10
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 3
+      },
+      {
+        "id": "oklad_ziolowy",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "id": "wedrowny_pogorze",
+    "name": "Wóz kowala wędrownego",
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "stock": [
+      {
+        "id": "miecz_zolnierski",
+        "qty": 1
+      },
+      {
+        "id": "sztylet_zbojecki",
+        "qty": 1
+      },
+      {
+        "id": "kurta_skorzana",
+        "qty": 1
+      },
+      {
+        "id": "helm_skorzany",
+        "qty": 1
+      },
+      {
+        "id": "plaszcz_lowczy",
+        "qty": 1
+      },
+      {
+        "id": "buty_wedrowca",
+        "qty": 1
+      },
+      {
+        "id": "luk_wojenny",
+        "qty": 1
+      },
+      {
+        "id": "strzala",
+        "qty": 20
+      },
+      {
+        "id": "opatrunek",
+        "qty": 4
+      },
+      {
+        "id": "miod_pitny",
+        "qty": 3
+      }
+    ]
+  },
+  {
+    "id": "wedrowny_glusz",
+    "name": "Torby handlarza ze szlaku",
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "stock": [
+      {
+        "id": "skorznia_nabijana",
+        "qty": 1
+      },
+      {
+        "id": "helm_zelazny",
+        "qty": 1
+      },
+      {
+        "id": "karwasze",
+        "qty": 1
+      },
+      {
+        "id": "nagolenniki",
+        "qty": 1
+      },
+      {
+        "id": "para_wloczni_lowieckich",
+        "qty": 1
+      },
+      {
+        "id": "kusza_lekka",
+        "qty": 1
+      },
+      {
+        "id": "belt",
+        "qty": 15
+      },
+      {
+        "id": "odtrutka",
+        "qty": 2
+      },
+      {
+        "id": "oklad_ziolowy",
+        "qty": 3
+      },
+      {
+        "id": "kiel_dzika",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": "wedrowny_gwiazdy",
+    "name": "Namiot alchemika",
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "stock": [
+      {
+        "id": "oko_nocy",
+        "qty": 1
+      },
+      {
+        "id": "zawieszka_stroza",
+        "qty": 1
+      },
+      {
+        "id": "rekawice_kolcze",
+        "qty": 1
+      },
+      {
+        "id": "buty_straznika",
+        "qty": 1
+      },
+      {
+        "id": "luk_zlozony",
+        "qty": 1
+      },
+      {
+        "id": "flasza_oleju",
+        "qty": 3
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 3
+      },
+      {
+        "id": "oklad_ziolowy",
+        "qty": 3
+      },
+      {
+        "id": "kula_z_prochem",
+        "qty": 10
+      },
+      {
+        "id": "garnek_huku",
+        "qty": 2
+      }
+    ]
+  },
+  {
+    "id": "kantyna_frontowa",
+    "name": "Kantyna",
+    "stock": [
+      {
+        "id": "opatrunek",
+        "qty": 6
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 3
+      },
+      {
+        "id": "oklad_ziolowy",
+        "qty": 2
+      },
+      {
+        "id": "odtrutka",
+        "qty": 2
+      },
+      {
+        "id": "prowiant",
+        "qty": 8
+      },
+      {
+        "id": "miod_pitny",
+        "qty": 3
+      },
+      {
+        "id": "strzala",
+        "qty": 30
+      },
+      {
+        "id": "belt",
+        "qty": 20
+      },
+      {
+        "id": "kula_z_prochem",
+        "qty": 15
+      },
+      {
+        "id": "garnek_huku",
+        "qty": 2
+      },
+      {
+        "id": "plaszcz_skorzany",
+        "qty": 1
+      },
+      {
+        "id": "pas_zolnierski",
+        "qty": 1
+      },
+      {
+        "id": "oberog_krwawienia",
+        "qty": 1
+      },
+      {
+        "id": "amulet_wilczy",
+        "qty": 1
+      }
+    ],
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "priceModifiers": []
+  },
+  {
+    "id": "kuznia_polowa",
+    "name": "Kuźnia polowa",
+    "stock": [
+      {
+        "id": "miecz_zolnierski",
+        "qty": 1
+      },
+      {
+        "id": "miecz_straznika",
+        "qty": 1
+      },
+      {
+        "id": "topor_zbojecki",
+        "qty": 1
+      },
+      {
+        "id": "bulawa",
+        "qty": 1
+      },
+      {
+        "id": "para_wloczni_strazniczych",
+        "qty": 1
+      },
+      {
+        "id": "luk_zlozony",
+        "qty": 1
+      },
+      {
+        "id": "kusza_zolnierska",
+        "qty": 1
+      },
+      {
+        "id": "skorznia_nabijana",
+        "qty": 1
+      },
+      {
+        "id": "kolczuga_straznicza",
+        "qty": 1
+      },
+      {
+        "id": "helm_zelazny",
+        "qty": 1
+      },
+      {
+        "id": "karwasze",
+        "qty": 1
+      },
+      {
+        "id": "nagolenniki",
+        "qty": 1
+      }
+    ],
+    "buys": [
+      "weapon",
+      "armor",
+      "material"
+    ],
+    "priceModifiers": []
+  },
+  {
+    "id": "wedrowny_front",
+    "name": "Towary kantyniera",
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "stock": [
+      {
+        "id": "opatrunek",
+        "qty": 4
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 2
+      },
+      {
+        "id": "odtrutka",
+        "qty": 2
+      },
+      {
+        "id": "oklad_ziolowy",
+        "qty": 2
+      },
+      {
+        "id": "flasza_oleju",
+        "qty": 2
+      },
+      {
+        "id": "garnek_huku",
+        "qty": 2
+      },
+      {
+        "id": "kula_z_prochem",
+        "qty": 10
+      },
+      {
+        "id": "belt",
+        "qty": 15
+      },
+      {
+        "id": "pistolet_wojskowy",
+        "qty": 1
+      },
+      {
+        "id": "plaszcz_lowczy",
+        "qty": 1
+      }
+    ]
+  },
+  {
+    "id": "sklep_hurtownika",
+    "name": "Hurtownia pod Murem",
+    "stock": [
+      {
+        "id": "miecz_zolnierski",
+        "qty": 1
+      },
+      {
+        "id": "miecz_straznika",
+        "qty": 1
+      },
+      {
+        "id": "topor_zbojecki",
+        "qty": 1
+      },
+      {
+        "id": "luk_zlozony",
+        "qty": 1
+      },
+      {
+        "id": "kusza_lekka",
+        "qty": 1
+      },
+      {
+        "id": "polpancerz",
+        "qty": 1
+      },
+      {
+        "id": "kolczuga",
+        "qty": 1
+      },
+      {
+        "id": "helm_straznika",
+        "qty": 1
+      },
+      {
+        "id": "rekawice_kolcze",
+        "qty": 1
+      },
+      {
+        "id": "buty_straznika",
+        "qty": 1
+      },
+      {
+        "id": "plaszcz_cesarski",
+        "qty": 1
+      },
+      {
+        "id": "pas_zolnierski",
+        "qty": 1
+      },
+      {
+        "id": "podkowa_szczescia",
+        "qty": 1
+      }
+    ],
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "priceModifiers": []
+  },
+  {
+    "id": "szklarz",
+    "name": "Pracownia szklarza",
+    "stock": [
+      {
+        "id": "oklad_ziolowy",
+        "qty": 3
+      },
+      {
+        "id": "odtrutka",
+        "qty": 3
+      },
+      {
+        "id": "napar_ziol",
+        "qty": 3
+      },
+      {
+        "id": "garnek_huku",
+        "qty": 2
+      },
+      {
+        "id": "flasza_oleju",
+        "qty": 2
+      },
+      {
+        "id": "swieca_dymna",
+        "qty": 2
+      },
+      {
+        "id": "puszka_szerszeni",
+        "qty": 2
+      },
+      {
+        "id": "talizman_z_odlamka",
+        "qty": 1
+      },
+      {
+        "id": "oko_nocy",
+        "qty": 1
+      },
+      {
+        "id": "zawieszka_stroza",
+        "qty": 1
+      }
+    ],
+    "buys": [
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "priceModifiers": []
+  },
+  {
+    "id": "kantor_portowy",
+    "name": "Kantor portowy",
+    "stock": [
+      {
+        "id": "prowiant",
+        "qty": 8
+      },
+      {
+        "id": "miod_pitny",
+        "qty": 4
+      },
+      {
+        "id": "bimber",
+        "qty": 4
+      },
+      {
+        "id": "strzala",
+        "qty": 30
+      },
+      {
+        "id": "belt",
+        "qty": 20
+      },
+      {
+        "id": "kula_z_prochem",
+        "qty": 15
+      },
+      {
+        "id": "plaszcz_skorzany",
+        "qty": 1
+      },
+      {
+        "id": "buty_wedrowca",
+        "qty": 1
+      },
+      {
+        "id": "pas_ladownice",
+        "qty": 1
+      },
+      {
+        "id": "luk_wojenny",
+        "qty": 1
+      },
+      {
+        "id": "kiel_dzika",
+        "qty": 1
+      }
+    ],
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "priceModifiers": []
+  },
+  {
+    "id": "sklep_stoczni",
+    "name": "Sklep przy stoczni",
+    "buys": [
+      "weapon",
+      "armor",
+      "consumable",
+      "throwable",
+      "material"
+    ],
+    "stock": [
+      {
+        "id": "topor_zbojecki",
+        "qty": 1
+      },
+      {
+        "id": "luk_zlozony",
+        "qty": 1
+      },
+      {
+        "id": "kusza_lekka",
+        "qty": 1
+      },
+      {
+        "id": "polpancerz",
+        "qty": 1
+      },
+      {
+        "id": "kolczuga",
+        "qty": 1
+      },
+      {
+        "id": "helm_straznika",
+        "qty": 1
+      },
+      {
+        "id": "buty_straznika",
+        "qty": 1
+      },
+      {
+        "id": "pistolet_wojskowy",
+        "qty": 1
+      },
+      {
+        "id": "opatrunek",
+        "qty": 6
+      },
+      {
+        "id": "odtrutka",
+        "qty": 3
+      },
+      {
+        "id": "flasza_oleju",
+        "qty": 3
+      },
+      {
+        "id": "kula_z_prochem",
+        "qty": 10
+      }
     ]
   }
 ]

@@ -21,7 +21,7 @@
     },
     "zgoda": {
       "speaker": "Kupiec Ostromir",
-      "text": "Kupiec ściska ci dłoń, jakby chciał z niej wycisnąć rękojmię. „Trzy dni! Ani dnia dłużej, bo mi sukno spleśnieje, a baba mnie zatłucze.”",
+      "text": "Kupiec ściska ci dłoń obiema rękami. „Trzy dni! Ani dnia dłużej, bo mi sukno spleśnieje, a baba mnie zatłucze.”",
       "actions": [
         {
           "setFlag": "ostromir_zgoda"

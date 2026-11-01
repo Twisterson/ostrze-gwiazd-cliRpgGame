@@ -1,0 +1,89 @@
+{
+  "id": "rozstrzygniecie_studnia_pod_skjeldowem",
+  "start": "studnia",
+  "nodes": {
+    "studnia": {
+      "speaker": "Stara Rojka",
+      "text": "Staruszka siedzi na cembrowinie i pilnuje studni jak psa. „Zatruta. Ktoś wrzucił konia i to nie z miłości do zwierząt. Od tamtej pory pije z niej, kto ma silny żołądek i słabą głowę. Zrób coś, bo jak nie ty, to oni, a oni zrobią gorzej.”",
+      "options": [
+        {
+          "id": "czysc",
+          "text": "Wyczyszczę ją. Niech woda będzie dla wszystkich.",
+          "goto": "czysta"
+        },
+        {
+          "id": "zatruj",
+          "text": "Zatrujemy ją porządnie. Niech Jarnowianie pocierpią.",
+          "goto": "zatruta"
+        },
+        {
+          "id": "zasyp",
+          "text": "Zasypiemy ją. Niech nikt się o nią nie bije.",
+          "goto": "zasypana"
+        }
+      ]
+    },
+    "czysta": {
+      "speaker": "Stara Rojka",
+      "text": "Praca ciężka, woda mętna, ale po południu w cembrowinie wreszcie coś zabłysło. Rojka czerpie wiadro, próbuje, krzywi się, próbuje drugi raz. „Cienka jak zupa u wdowy, ale żywa.” Do wieczora nikt nikogo o nią nie zabije. Może.",
+      "actions": [
+        {
+          "setFlag": "wojna_studnia_czysta"
+        },
+        {
+          "setFlag": "studnia_pod_skjeldowem_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zatruta": {
+      "speaker": "Stara Rojka",
+      "text": "Rojka nie odzywa się ani słowem. Patrzy tylko, jak wrzucasz do wody to, co wrzucasz, a potem odwraca się plecami. „Ech, ludzie, ludzie” – mówi do ściany.",
+      "actions": [
+        {
+          "setFlag": "wojna_studnia_zatruta"
+        },
+        {
+          "setFlag": "studnia_pod_skjeldowem_zrobione"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zasypana": {
+      "speaker": "Stara Rojka",
+      "text": "Ziemia leci do otworu głucho, jak do grobu. Rojka stoi obok i liczy łopaty. „Ludzie będą pić z rzeki, a rzeka jest niżej, więc i oni też będą niżej. Dobry pomysł, jeśli nie mieszkasz tutaj.” Zostawia cię z łopatą.",
+      "actions": [
+        {
+          "setFlag": "wojna_studnia_zasypana"
+        },
+        {
+          "setFlag": "studnia_pod_skjeldowem_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "woz_szulera_po",
+  "portrait": "portret_mszczuj",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Szuler Mszczuj",
+      "text": "Mszczuj stoi za kołem z rękami w górze i ani jednej kości w palcach. „Dobra, dobra. Bierz. Ja i tak tego nie wygrałem, ja to tylko miałem.” Podaje ci mieszek na wyciągniętej ręce, jak się podaje kiełbasę psu, którego się nie zna.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zjeżdżaj stąd.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "mieszek_zoldu"
+        },
+        {
+          "setFlag": "zold_odzyskany"
+        },
+        {
+          "clearFlag": "woz_szulera_walka"
+        }
+      ]
+    }
+  }
+}

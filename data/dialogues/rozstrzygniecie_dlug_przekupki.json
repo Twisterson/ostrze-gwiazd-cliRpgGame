@@ -1,0 +1,95 @@
+{
+  "id": "rozstrzygniecie_dlug_przekupki",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "speaker": "Dłużnik Gwóźdź",
+      "text": "Dłużnik siedzi na stołku i popija coś z kubka. „Rzepa wysłała pana? Kobieta ma wyobraźnię. Dług? Jaki dług? Ja tylko pożyczam, a ona tylko myśli, że to jest dług. Jak ci się nie podoba, to idź do komornika, jeśli go znajdziesz.”",
+      "options": [
+        {
+          "id": "splac",
+          "text": "Spłacę za ciebie. Oddasz mi, jak będziesz miał.",
+          "requires": {
+            "money": 10
+          },
+          "goto": "wynik_splac"
+        },
+        {
+          "id": "zastrasz",
+          "text": "Płacisz do jutra albo twoje stołki skończą na opał.",
+          "goto": "wynik_zastrasz"
+        },
+        {
+          "id": "umorz",
+          "text": "Nie płacisz. Przekupka umarza dług, ja jej tłumaczę, że to się opłaca.",
+          "goto": "wynik_umorz"
+        }
+      ]
+    },
+    "wynik_splac": {
+      "speaker": "Dłużnik Gwóźdź",
+      "text": "Gwóźdź chłonie twoje słowa jak spragniony. „Panie, to pan jest święty!” Zanim zdążysz się obejrzeć, kupuje ci kufel, ale zostawia rachunek na twoim kolanie. Przekupka dostaje swoje, ty dostajesz wdzięczność, której nie możesz wydać.",
+      "actions": [
+        {
+          "setFlag": "stolica_dlug_splacony"
+        },
+        {
+          "setFlag": "dlug_przekupki_zrobione"
+        },
+        {
+          "takeMoney": 10
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_zastrasz": {
+      "speaker": "Dłużnik Gwóźdź",
+      "text": "Gwóźdź blednie jak mąka, odkłada szkło i wyciąga z kieszeni zawinięte w chustkę monety. „Pan jest brutalny! Ale uczciwy, bo mówi, czego chce.” Płaci co do grosza, a ty czujesz się, jakbyś nauczył się nowego zawodu.",
+      "actions": [
+        {
+          "setFlag": "stolica_dlug_zastraszony"
+        },
+        {
+          "setFlag": "dlug_przekupki_zrobione"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_umorz": {
+      "speaker": "Dłużnik Gwóźdź",
+      "text": "Rzepa patrzy na ciebie ze zdziwieniem, a potem na Gwoździa, który nagle wygląda jak człowiek, co dostał łaskę. „No dobra, ale tylko dlatego, że pan ma takie gadane.” Machnięciem ręki wymazuje cztery miesiące długu i dwa miesiące nienawiści.",
+      "actions": [
+        {
+          "setFlag": "stolica_dlug_umorzony"
+        },
+        {
+          "setFlag": "dlug_przekupki_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

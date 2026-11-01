@@ -1,0 +1,22 @@
+{
+  "id": "znal_porzucony_wozek",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Droga",
+      "text": "W rowie leży porzucony wózek na dwóch kółkach. Ktoś uciekał w pośpiechu, bo nawet garnka nie zabrał. W skrzyni łyżki, szmaty i parę rzeczy, które się przydadzą.",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveRandom": "lupy_znalezisko_pogorze"
+        }
+      ]
+    }
+  }
+}

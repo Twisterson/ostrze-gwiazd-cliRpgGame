@@ -1,0 +1,49 @@
+{
+  "id": "prosba_siodlo_dla_zwiadowcow",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Rymarz Jaromił",
+      "text": "Na drodze stoi wóz, a przy nim chudy rymarz z siodłem na plecach, które sięga mu do kolan. „Jaromił, rymarz. Obiecałem zwiadowcom siodło na Trakcie Kupieckim, ale mi się noga skręciła na korzeniu. Zaniesiesz? Zapłacą, bo zwiadowcy płacą zawsze za późno, ale płacą.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Nie mam czasu.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Rymarz Jaromił",
+      "text": "Jaromił zdejmuje siodło z pleców i oddycha, jakby zdjął z siebie jakiegoś dłużnika. „Niech ci się szlak rozwija, a nie wywija. Zwiadowcy stoją na trakcie, tam gdzie kupcy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "siodlo_dla_zwiadowcow"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Rymarz Jaromił",
+      "text": "„Trudno. Poleżę z nogą w rowie, może ktoś lepszy się trafi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

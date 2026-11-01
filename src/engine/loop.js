@@ -50,7 +50,9 @@ export async function runScenes(ctx, list, startId, opts = {}) {
     }
     const handler = Object.hasOwn(handlers, scene.type) ? handlers[scene.type] : undefined;
     if (!handler) throw new Error(`brak handlera dla typu sceny: ${scene.type}`);
-    const result = (await handler(ctx, scene)) ?? {};
+    // A list played inside a hub visit, quest or road event returns to that menu or march, so a finished talk needs no "Dalej" of its own.
+    const played = opts.endId !== undefined && scene.type === "dialogue" ? { ...scene, camp: false } : scene;
+    const result = (await handler(ctx, played)) ?? {};
     if (scene.time) {
       pushEventNotices(ctx, advanceTime(ctx.state, scene.time, ctx.data, ctx.rng));
     }

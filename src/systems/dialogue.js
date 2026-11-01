@@ -5,6 +5,7 @@ import { evaluate, validateCondition, conditionOpts } from "../engine/conditions
 import { advanceTime } from "../engine/time.js";
 import { getStats } from "./stats.js";
 import { validateActions, runActions } from "./actions.js";
+import { canStartQuest } from "./quests.js";
 
 const ID = { type: "string", pattern: /^[a-z0-9_]+$/ };
 const TEXT = { type: "string", nonEmpty: true };
@@ -12,7 +13,7 @@ const TEXT = { type: "string", nonEmpty: true };
 const DIALOGUE_SCHEMA = {
   type: "object",
   required: ["id", "start", "nodes"],
-  fields: { id: ID, file: { type: "string" }, portrait: ID, start: ID, minutes: { type: "integer", min: 0 }, nodes: { type: "object" } },
+  fields: { id: ID, file: { type: "string" }, portrait: ID, start: ID, returnStart: ID, minutes: { type: "integer", min: 0 }, nodes: { type: "object" } },
   additional: false,
 };
 const NODE_SCHEMA = {
@@ -25,7 +26,7 @@ const OPTION_SCHEMA = {
   type: "object",
   required: ["text"],
   fields: {
-    id: ID, text: TEXT, requires: { type: "object" }, showLocked: { type: "boolean" }, actions: { type: "array" },
+    id: ID, text: TEXT, requires: { type: "object" }, showLocked: { type: "boolean" }, actions: { type: "array" }, job: ID,
     goto: { type: "string" }, check: { type: "object" }, success: { type: "string" }, failure: { type: "string" }, retry: { type: "boolean" },
   },
   additional: false,
@@ -92,10 +93,10 @@ function validateOption(option, at, nodes, seenKeys, index, data) {
   return errors;
 }
 
-/** Nodes reachable from `start` through option targets. */
+/** Nodes reachable from `start` (and `returnStart`) through option targets. */
 function reachable(d) {
   const seen = new Set();
-  const queue = [d.start];
+  const queue = [d.start, ...(d.returnStart ? [d.returnStart] : [])];
   while (queue.length) {
     const id = queue.pop();
     if (seen.has(id) || !isObject(d.nodes[id])) continue;
@@ -147,6 +148,7 @@ export function validateDialogues(dialogues, data) {
     if (isObject(d)) msgs.push(...artRefErrors(data, d.portrait, "portrait", "portrait"));
     if (isObject(d) && isObject(d.nodes)) {
       if (typeof d.start === "string" && !Object.hasOwn(d.nodes, d.start)) msgs.push(`start: nieznany węzeł ${JSON.stringify(d.start)}`);
+      if (typeof d.returnStart === "string" && !Object.hasOwn(d.nodes, d.returnStart)) msgs.push(`returnStart: nieznany węzeł ${JSON.stringify(d.returnStart)}`);
       msgs.push(...validateNodes(d, data));
       if (Object.hasOwn(d.nodes, d.start)) {
         const seen = reachable(d);
@@ -191,6 +193,19 @@ function optionState(state, data, dialogId, nodeId, option, index) {
   return { disabled: false };
 }
 
+/** True when picking `option` begins a quest (or leads to the offer of the one in its `job`) that nobody has taken yet and that can be taken now. */
+function offersQuest(state, data, dialogId, option) {
+  if (option.job && canStartQuest(state, data, option.job, { ignoreRequires: true })) return true;
+  const target = option.goto && option.goto !== "end" && !option.goto.startsWith("end:") ? nodeById(data, dialogId, option.goto) : null;
+  return [...(option.actions ?? []), ...(target?.actions ?? [])].some((a) => a.startQuest && canStartQuest(state, data, a.startQuest, { ignoreRequires: true }));
+}
+
+/** True when the first thing the player can say to this talk's start node takes a new job. */
+export function dialogueOffersQuest(state, data, dialogId) {
+  const start = startNodeOf(state, dialogueById(data, dialogId));
+  return nodeView(state, data, dialogId, start).options.some((o) => o.offer);
+}
+
 /**
  * What the player sees at a node. Options with unmet `requires` are hidden (or greyed with `showLocked`);
  * a failed check stays greyed. `chance` of a check is only given with `debug`.
@@ -202,6 +217,7 @@ export function nodeView(state, data, dialogId, nodeId, { debug = false } = {}) 
     const s = optionState(state, data, dialogId, nodeId, option, index);
     if (!s) return;
     const view = { key: optionKey(option, index), label: option.text, ...s };
+    if (offersQuest(state, data, dialogId, option)) view.offer = true;
     if (option.check) {
       view.check = { name: checkName(data, option.check), difficulty: option.check.difficulty };
       if (debug) view.check.chance = checkChance(state, data, option.check);
@@ -249,9 +265,15 @@ export function chooseOption(state, data, dialogId, nodeId, key, rng) {
   return result;
 }
 
+/** The node a talk begins at: `start` the first time, `returnStart` (when the dialogue has one) after any earlier talk. */
+export function startNodeOf(state, dialogue) {
+  return dialogue.returnStart && state.flags[`dialog_met_${dialogue.id}`] ? dialogue.returnStart : dialogue.start;
+}
+
 /** Marks the talk finished with `result` (flag) and spends its time. */
 export function finishDialogue(state, data, dialogId, result, rng) {
   state.flags[`dialog_${dialogId}_${result}`] = true;
+  state.flags[`dialog_met_${dialogId}`] = true;
   const minutes = dialogueById(data, dialogId).minutes ?? data.rules.dialogue.minutes;
   return { events: minutes > 0 ? advanceTime(state, minutes, data, rng) : [] };
 }

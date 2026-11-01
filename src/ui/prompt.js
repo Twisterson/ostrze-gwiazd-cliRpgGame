@@ -1,7 +1,7 @@
 import { t } from "./strings.js";
 import { select, showAllNotices } from "./menu.js";
 import { paint } from "./colors.js";
-import { drawFrame, say } from "./screen.js";
+import { drawFrame, say, redrawScreen } from "./screen.js";
 
 /** Numbered choice (arrows in a terminal). Returns the zero-based index. */
 export function choose(io, ui, labels, question, extra = {}) {
@@ -32,6 +32,7 @@ export async function pressEnter(io, ui, { onCharacter } = {}) {
   for (;;) {
     if (keyMode) {
       const key = await io.readKey();
+      if (key.name === "resize") redrawScreen(io);
       if (key.name === "enter" || (key.name === "char" && key.char === "1")) return; // "[1] Dalej" and Enter are the same everywhere
       if (key.name === "char" && onCharacter && (key.char === "p" || key.char === "P")) {
         await onCharacter();

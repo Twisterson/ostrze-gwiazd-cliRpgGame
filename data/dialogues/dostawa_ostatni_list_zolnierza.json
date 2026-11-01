@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_ostatni_list_zolnierza",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Grób przy kapliczce",
+      "text": "Za kapliczką stoi prosty grób, bez krzyża, z ułożonymi z kamieni inicjałami. Ktoś niedawno przynosił tu kwiaty.",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Połóż list na grobie.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "list_zolnierza"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze tu wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Grób przy kapliczce",
+      "text": "Kładziesz list pod kamieniem i cofasz się o krok. Wiatr chwyta róg koperty, jakby ktoś ciągnął go z drugiej strony. Za grobem ktoś zostawił sakiewkę. Pewnie dla tego, kto przyniesie list.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywajcie.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "list_zolnierza"
+        },
+        {
+          "setFlag": "list_zolnierza_zlozony"
+        }
+      ]
+    }
+  }
+}

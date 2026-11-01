@@ -1,0 +1,178 @@
+{
+  "id": "rozstrzygniecie_wiesci_z_ladu",
+  "start": "list",
+  "nodes": {
+    "list": {
+      "speaker": "Posłaniec",
+      "text": "Posłaniec w mokrym płaszczu ściska zapieczętowaną kopertę. „Z lądu. Bez nazwiska nadawcy, ale pieczęć znam. Mam oddać hetmanowi albo komuś, kto wie, co z nią zrobić.”",
+      "options": [
+        {
+          "id": "tomasz",
+          "text": "Znam tę pieczęć. To pismo Tomasza.",
+          "goto": "tomasz",
+          "requires": {
+            "flag": "sojusz_dezerter"
+          }
+        },
+        {
+          "id": "wedrowcy",
+          "text": "Znam tę pieczęć. To wędrowcy z Głuszca.",
+          "goto": "wedrowcy",
+          "requires": {
+            "all": [
+              {
+                "flag": "sojusz_wedrowcy"
+              },
+              {
+                "notFlag": "sojusz_dezerter"
+              }
+            ]
+          }
+        },
+        {
+          "id": "straznik",
+          "text": "Znam tę pieczęć. To stary żołnierz z Ostatniej Strażnicy.",
+          "goto": "straznik",
+          "requires": {
+            "all": [
+              {
+                "flag": "sojusz_straznicy"
+              },
+              {
+                "notFlag": "sojusz_dezerter"
+              },
+              {
+                "notFlag": "sojusz_wedrowcy"
+              }
+            ]
+          }
+        },
+        {
+          "id": "baza",
+          "text": "Otwieram list i czytam.",
+          "goto": "wszebor",
+          "requires": {
+            "all": [
+              {
+                "notFlag": "sojusz_dezerter"
+              },
+              {
+                "notFlag": "sojusz_wedrowcy"
+              },
+              {
+                "notFlag": "sojusz_straznicy"
+              }
+            ]
+          }
+        },
+        {
+          "id": "odloz",
+          "text": "Odkładam list i wracam później.",
+          "goto": "end"
+        }
+      ]
+    },
+    "tomasz": {
+      "speaker": "Posłaniec",
+      "text": "List jest krótki i pisany ołówkiem, pismo koślawe: „Piszę, bo ktoś musi. Ludzie z jaru pytają, czy wojna się skończy, a ja nie umiem odpowiedzieć. Jeśli hetman ma jeszcze sumienie, niech przeczyta, że po tamtej stronie też są ludzie, którzy mają dość.” Podpisu nie ma, ale rękę znasz.",
+      "options": [
+        {
+          "id": "przekaz",
+          "text": "Oddaję list hetmanowi.",
+          "goto": "wynik_przekaz"
+        },
+        {
+          "id": "zatrzymaj",
+          "text": "Zatrzymuję list. Nikomu nie jest dziś potrzebny.",
+          "goto": "wynik_zatrzymaj"
+        }
+      ]
+    },
+    "wedrowcy": {
+      "speaker": "Posłaniec",
+      "text": "List pisało kilka rąk, z poprawkami i skreśleniami. Piszą, że w Głuszcu cicho, że chodzą słuchy o wojnie i że ktoś ciągle pyta o „tego od iskier”. Czekają na wieści, a jak się wszystko skończy, mają dla ciebie ławę przy ogniu.",
+      "options": [
+        {
+          "id": "przekaz",
+          "text": "Oddaję list hetmanowi.",
+          "goto": "wynik_przekaz"
+        },
+        {
+          "id": "zatrzymaj",
+          "text": "Zatrzymuję list. Nikomu nie jest dziś potrzebny.",
+          "goto": "wynik_zatrzymaj"
+        }
+      ]
+    },
+    "straznik": {
+      "speaker": "Posłaniec",
+      "text": "List napisała ręka, która dawniej trzymała nóż, a teraz niezgrabnie trzyma pióro. Stary żołnierz z Ostatniej Strażnicy pisze krótko: że straż, którą wszyscy brali za cichych, też ma co powiedzieć, i że jeśli ktoś na wyspie jeszcze chce słuchać, to niech słucha.",
+      "options": [
+        {
+          "id": "przekaz",
+          "text": "Oddaję list hetmanowi.",
+          "goto": "wynik_przekaz"
+        },
+        {
+          "id": "zatrzymaj",
+          "text": "Zatrzymuję list. Nikomu nie jest dziś potrzebny.",
+          "goto": "wynik_zatrzymaj"
+        }
+      ]
+    },
+    "wszebor": {
+      "speaker": "Posłaniec",
+      "text": "Komendant Wszebor pisze kancelaryjnie, jak ktoś, kto nie chce nikogo urazić: jeśli adresat jeszcze żyje, prosi o przekazanie hetmanowi, że wojna przestała być jego prywatną sprawą i stała się sprawą wszystkich.",
+      "options": [
+        {
+          "id": "przekaz",
+          "text": "Oddaję list hetmanowi.",
+          "goto": "wynik_przekaz"
+        },
+        {
+          "id": "zatrzymaj",
+          "text": "Zatrzymuję list. Nikomu nie jest dziś potrzebny.",
+          "goto": "wynik_zatrzymaj"
+        }
+      ]
+    },
+    "wynik_przekaz": {
+      "speaker": "Posłaniec",
+      "text": "Hetmański goniec bierze list bez słowa. Zanim się odwrócisz, już czyta, a po jego twarzy przebiega coś, co nie jest gniewem.",
+      "actions": [
+        {
+          "setFlag": "jarnowo_wiesc_przekazana"
+        },
+        {
+          "setFlag": "wiesci_z_ladu_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_zatrzymaj": {
+      "speaker": "Posłaniec",
+      "text": "List ląduje w kieszeni. Posłaniec wzrusza ramionami. Jemu wszystko jedno, i tak mu już zapłacono.",
+      "actions": [
+        {
+          "setFlag": "jarnowo_wiesc_zatrzymana"
+        },
+        {
+          "setFlag": "wiesci_z_ladu_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

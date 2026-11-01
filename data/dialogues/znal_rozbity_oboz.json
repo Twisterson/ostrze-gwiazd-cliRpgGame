@@ -1,0 +1,22 @@
+{
+  "id": "znal_rozbity_oboz",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Strumień",
+      "text": "Przy strumieniu ślady po ognisku, zwęglone kołki i rozrzucone pakunki. Ktoś uciekał w nocy. Wśród rzeczy leżą takie, których ktoś będzie żałował do końca życia.",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveRandom": "lupy_znalezisko_glusz"
+        }
+      ]
+    }
+  }
+}

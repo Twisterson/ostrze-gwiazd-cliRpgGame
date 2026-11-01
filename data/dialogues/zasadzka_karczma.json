@@ -1,0 +1,140 @@
+{
+  "id": "zasadzka_karczma",
+  "start": "wybor",
+  "nodes": {
+    "wybor": {
+      "speaker": "Kieszonkowiec",
+      "text": "„Oj, panie, pomyłka. Taka mała, taka niewinna.” Chłopak trzyma coś, co przed chwilą było twoje. „Można się dogadać albo można się pobić. Mnie obojętne, byle szybko.”",
+      "options": [
+        {
+          "id": "walka",
+          "text": "Oddaj, co zabrałeś, i to szybko.",
+          "goto": "walka"
+        },
+        {
+          "id": "wymowa",
+          "text": "Chłopcy, ja też kiedyś byłem cwany. Nie ze mną.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 35
+          },
+          "success": "wymowa_ok",
+          "failure": "wymowa_pudlo",
+          "retry": true
+        },
+        {
+          "id": "skradanie",
+          "text": "Odwracam się tak, jakbym nic nie zauważył, i omijam ich bokiem.",
+          "check": {
+            "skill": "skradanie",
+            "difficulty": 35
+          },
+          "success": "skradanie_ok",
+          "failure": "skradanie_pudlo",
+          "retry": true
+        },
+        {
+          "id": "ucieczka",
+          "text": "Wolę nie ryzykować, wycofuję się.",
+          "goto": "ucieczka"
+        }
+      ]
+    },
+    "walka": {
+      "speaker": "Kieszonkowiec",
+      "text": "Chłopak wzdycha jak ktoś, komu przerwano kolację. Nóż błyska w rękawie.",
+      "actions": [
+        {
+          "setFlag": "amb_karczma_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do dzieła.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_ok": {
+      "speaker": "Kieszonkowiec",
+      "text": "„Dobra, dobra, ma pan gadane. Taki z pana człowiek bywały, że aż wstyd mnie okradać.” Chłopcy znikają w tłumie, zostawiając ci sakwę, której jeszcze nie zdążyłeś stracić.",
+      "actions": [
+        {
+          "xp": 10
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Ruszam dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_pudlo": {
+      "speaker": "Kieszonkowiec",
+      "text": "„Gada pan jak urzędnik, a pachnie jak ktoś, kto ma w kieszeni więcej, niż mówi.” Chłopak szczerzy zęby, a w rękawie błyska nóż. „Dość tego dobrego, panie. Teraz porozmawiamy po mojemu.”",
+      "actions": [
+        {
+          "setFlag": "amb_karczma_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No to walczymy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skradanie_ok": {
+      "speaker": "Kieszonkowiec",
+      "text": "Zanim zdążą się zorientować, jesteś za rogiem, a twoja sakwa nadal grzecznie leży tam, gdzie ją zostawiłeś.",
+      "actions": [
+        {
+          "xp": 10
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Ruszam dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skradanie_pudlo": {
+      "speaker": "Kieszonkowiec",
+      "text": "Jeden z chłopaków podstawia nogę i wykładasz się jak długi na bruku. „Ooo, niezdara!” – woła, a w jego ręku błyska nóż. „Daleko tak nie uciekniesz, panie.”",
+      "actions": [
+        {
+          "setFlag": "amb_karczma_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No to walczymy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "ucieczka": {
+      "speaker": "Kieszonkowiec",
+      "text": "„Oho, tchórz!” – woła chłopak, ale nie goni. Nie opłaca się biec za kimś, kto ucieka tak szybko.",
+      "actions": [
+        {
+          "setFlag": "amb_karczma_ucieczka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dawaj nogę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

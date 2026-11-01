@@ -99,9 +99,9 @@ export async function character_creation(ctx) {
     if (framesOn(io)) {
       const stats = getStats(full, data);
       const half = Math.floor((width() - 2) / 2);
-      const left = [paint("title", t(ui, "char.attributes")), ...attributes.map((a) => `  ${a.name}  ${stats.attributes[a.id]}`),
-        "", paint("title", t(ui, "char.derived")), ...DERIVED.map((k) => `  ${t(ui, `creator.short.${k}`)}  ${stats.derived[k]}`)];
-      const right = [paint("title", t(ui, "char.skills")), ...skills.map((s) => `${character.tagged.includes(s.id) ? "*" : " "}${s.name}  ${stats.skills[s.id]}`)];
+      const left = [paint("heading", t(ui, "char.attributes")), ...attributes.map((a) => `  ${a.name}  ${stats.attributes[a.id]}`),
+        "", paint("heading", t(ui, "char.derived")), ...DERIVED.map((k) => `  ${t(ui, `creator.short.${k}`)}  ${stats.derived[k]}`)];
+      const right = [paint("heading", t(ui, "char.skills")), ...skills.map((s) => (character.tagged.includes(s.id) ? paint("leading", `*${s.name}  ${stats.skills[s.id]}`) : ` ${s.name}  ${stats.skills[s.id]}`))];
       summary = ["", ...Array.from({ length: Math.max(left.length, right.length) }, (_, i) => `${cell(left[i] ?? "", half)}  ${right[i] ?? ""}`)];
     }
     await header("creator.summary", summary);

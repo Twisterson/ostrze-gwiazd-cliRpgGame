@@ -1,9 +1,3034 @@
 [
-  {"id": "instruktor", "name": "Instruktor Radogost", "nameAcc": "Instruktora", "art": "instruktor", "hp": 30, "ap": 6, "initiative": 6, "defense": 15, "armor": 0, "reduction": {}, "damageTaken": {}, "immune": [], "effectResist": {}, "tags": ["czlowiek"], "morale": null, "ai": "aggressive", "xp": 30, "attacks": [{"name": "Drewniany miecz", "damage": [2, 4], "damageType": "obuchowe", "apCost": 3, "hit": 55, "effects": [{"id": "zamroczenie", "chance": 20}]}], "loot": []},
-  {"id": "bandyta", "name": "Bandyta", "nameAcc": "Bandytę", "art": "bandyta", "hp": 22, "ap": 6, "initiative": 4, "defense": 10, "armor": 0, "reduction": {}, "damageTaken": {}, "immune": [], "effectResist": {}, "tags": ["czlowiek"], "morale": 60, "ai": "cautious", "xp": 40, "attacks": [{"name": "Pałka", "damage": [5, 9], "damageType": "obuchowe", "apCost": 3, "hit": 65, "effects": [{"id": "zamroczenie", "chance": 15}]}], "loot": [{"chance": 100, "giveMoney": 4}, {"chance": 30, "giveItem": "opatrunek"}]},
-  {"id": "upior_zwiadowca", "name": "Upiór zwiadowca", "nameAcc": "Upiora zwiadowcę", "art": "upior_zwiadowca", "hp": 45, "ap": 6, "initiative": 8, "defense": 20, "armor": 6, "reduction": {}, "damageTaken": {"sieczne": 0.5, "klute": 0.5, "ogien": 2.0}, "immune": ["oslepienie", "rozkojarzenie"], "effectResist": {"strach": 100, "ogluszenie": 20}, "tags": ["upior"], "morale": null, "ai": "aggressive", "leap": true, "xp": 150, "attacks": [{"name": "Szpon", "damage": [6, 10], "damageType": "sieczne", "apCost": 3, "hit": 65, "effects": [{"id": "krwawienie", "chance": 30}]}, {"name": "Wycie", "apCost": 4, "target": "single", "hit": 90, "effects": [{"id": "strach", "chance": 60}]}], "loot": []},
-  {"id": "upior_nocy", "name": "Upiór nocy", "nameAcc": "Upiora nocy", "art": "upior_zwiadowca", "hp": 150, "ap": 6, "initiative": 8, "defense": 20, "armor": 6, "reduction": {}, "damageTaken": {"sieczne": 0.1, "klute": 0.1, "ogien": 2.0}, "immune": ["oslepienie", "rozkojarzenie"], "effectResist": {"strach": 100, "ogluszenie": 20}, "tags": ["upior"], "morale": null, "ai": "aggressive", "leap": true, "xp": 0, "attacks": [{"name": "Szpon", "damage": [6, 10], "damageType": "sieczne", "apCost": 3, "hit": 70, "effects": [{"id": "krwawienie", "chance": 30}]}, {"name": "Wycie", "apCost": 4, "target": "single", "hit": 90, "effects": [{"id": "strach", "chance": 60}]}], "loot": []},
-  {"id": "wilk", "name": "Wilk", "nameAcc": "Wilka", "art": "wilk", "hp": 14, "ap": 6, "initiative": 8, "defense": 20, "armor": 0, "reduction": {}, "damageTaken": {}, "immune": [], "effectResist": {}, "tags": ["bestia"], "morale": null, "ai": "aggressive", "xp": 12, "attacks": [{"name": "Kły", "damage": [2, 5], "damageType": "klute", "apCost": 3, "hit": 60, "effects": [{"id": "krwawienie", "chance": 15}]}], "loot": [{"chance": 60, "giveItem": "mieso"}]},
-  {"id": "zwiadowca_cesarski", "name": "Cesarski zwiadowca", "nameAcc": "Cesarskiego zwiadowcę", "art": "zwiadowca_cesarski", "hp": 30, "ap": 6, "initiative": 7, "defense": 16, "armor": 1, "reduction": {}, "damageTaken": {}, "immune": [], "effectResist": {}, "tags": ["czlowiek"], "morale": 65, "ai": "cautious", "xp": 55, "attacks": [{"name": "Miecz", "damage": [5, 9], "damageType": "sieczne", "apCost": 3, "hit": 62}], "loot": [{"chance": 100, "giveMoney": 6}, {"chance": 25, "giveItem": "opatrunek"}]},
-  {"id": "klusownik", "name": "Kłusownik", "nameAcc": "Kłusownika", "art": "klusownik", "hp": 20, "ap": 6, "initiative": 6, "defense": 12, "armor": 0, "reduction": {}, "damageTaken": {}, "immune": [], "effectResist": {}, "tags": ["czlowiek"], "morale": 50, "ai": "cautious", "xp": 35, "attacks": [{"name": "Nóż", "damage": [3, 6], "damageType": "klute", "apCost": 3, "hit": 60, "effects": [{"id": "krwawienie", "chance": 20}]}], "loot": [{"chance": 100, "giveMoney": 3}, {"chance": 40, "giveItem": "mieso"}]}
+  {
+    "id": "instruktor",
+    "name": "Instruktor Radogost",
+    "nameAcc": "Instruktora",
+    "art": "instruktor",
+    "hp": 30,
+    "ap": 6,
+    "initiative": 6,
+    "defense": 15,
+    "armor": 0,
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 30,
+    "attacks": [
+      {
+        "name": "Drewniany miecz",
+        "damage": [
+          2,
+          4
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 55,
+        "effects": [
+          {
+            "id": "zamroczenie",
+            "chance": 20
+          }
+        ]
+      }
+    ],
+    "loot": []
+  },
+  {
+    "id": "bandyta",
+    "name": "Bandyta",
+    "nameAcc": "Bandytę",
+    "art": "bandyta",
+    "hp": 22,
+    "ap": 6,
+    "initiative": 4,
+    "defense": 10,
+    "armor": 0,
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": 60,
+    "ai": "cautious",
+    "xp": 40,
+    "attacks": [
+      {
+        "name": "Pałka",
+        "damage": [
+          5,
+          9
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 65,
+        "effects": [
+          {
+            "id": "zamroczenie",
+            "chance": 15
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 4
+      },
+      {
+        "chance": 30,
+        "giveItem": "opatrunek"
+      }
+    ]
+  },
+  {
+    "id": "upior_zwiadowca",
+    "name": "Upiór zwiadowca",
+    "nameAcc": "Upiora zwiadowcę",
+    "art": "upior_zwiadowca",
+    "hp": 45,
+    "ap": 6,
+    "initiative": 8,
+    "defense": 20,
+    "armor": 6,
+    "reduction": {},
+    "damageTaken": {
+      "sieczne": 0.5,
+      "klute": 0.5,
+      "ogien": 2
+    },
+    "immune": [
+      "oslepienie",
+      "rozkojarzenie"
+    ],
+    "effectResist": {
+      "strach": 100,
+      "ogluszenie": 20
+    },
+    "tags": [
+      "upior"
+    ],
+    "morale": null,
+    "ai": "aggressive",
+    "leap": true,
+    "xp": 150,
+    "attacks": [
+      {
+        "name": "Szpon",
+        "damage": [
+          6,
+          10
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 65,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 30
+          }
+        ]
+      },
+      {
+        "name": "Wycie",
+        "apCost": 4,
+        "target": "single",
+        "hit": 90,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 60
+          }
+        ]
+      }
+    ],
+    "loot": []
+  },
+  {
+    "id": "upior_nocy",
+    "name": "Upiór nocy",
+    "nameAcc": "Upiora nocy",
+    "art": "upior_zwiadowca",
+    "hp": 150,
+    "ap": 6,
+    "initiative": 8,
+    "defense": 20,
+    "armor": 6,
+    "reduction": {},
+    "damageTaken": {
+      "sieczne": 0.1,
+      "klute": 0.1,
+      "ogien": 2
+    },
+    "immune": [
+      "oslepienie",
+      "rozkojarzenie"
+    ],
+    "effectResist": {
+      "strach": 100,
+      "ogluszenie": 20
+    },
+    "tags": [
+      "upior"
+    ],
+    "morale": null,
+    "ai": "aggressive",
+    "leap": true,
+    "xp": 0,
+    "attacks": [
+      {
+        "name": "Szpon",
+        "damage": [
+          6,
+          10
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 70,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 30
+          }
+        ]
+      },
+      {
+        "name": "Wycie",
+        "apCost": 4,
+        "target": "single",
+        "hit": 90,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 60
+          }
+        ]
+      }
+    ],
+    "loot": []
+  },
+  {
+    "id": "wilk",
+    "name": "Wilk",
+    "nameAcc": "Wilka",
+    "art": "wilk",
+    "hp": 14,
+    "ap": 6,
+    "initiative": 8,
+    "defense": 20,
+    "armor": 0,
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "tags": [
+      "bestia"
+    ],
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 12,
+    "attacks": [
+      {
+        "name": "Kły",
+        "damage": [
+          2,
+          5
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 60,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 15
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 60,
+        "giveItem": "mieso"
+      }
+    ]
+  },
+  {
+    "id": "zwiadowca_cesarski",
+    "name": "Cesarski zwiadowca",
+    "nameAcc": "Cesarskiego zwiadowcę",
+    "art": "zwiadowca_cesarski",
+    "hp": 30,
+    "ap": 6,
+    "initiative": 7,
+    "defense": 16,
+    "armor": 1,
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": 65,
+    "ai": "cautious",
+    "xp": 55,
+    "attacks": [
+      {
+        "name": "Miecz",
+        "damage": [
+          5,
+          9
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 62
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 6
+      },
+      {
+        "chance": 25,
+        "giveItem": "opatrunek"
+      }
+    ]
+  },
+  {
+    "id": "klusownik",
+    "name": "Kłusownik",
+    "nameAcc": "Kłusownika",
+    "art": "klusownik",
+    "hp": 20,
+    "ap": 6,
+    "initiative": 6,
+    "defense": 12,
+    "armor": 0,
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": 50,
+    "ai": "cautious",
+    "xp": 35,
+    "attacks": [
+      {
+        "name": "Nóż",
+        "damage": [
+          3,
+          6
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 60,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 20
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 3
+      },
+      {
+        "chance": 40,
+        "giveItem": "prowiant"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 1,
+    "ap": 6,
+    "id": "rabus",
+    "name": "Rabuś",
+    "nameAcc": "Rabusia",
+    "art": "rabus",
+    "hp": 26,
+    "initiative": 5,
+    "defense": 10,
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": 55,
+    "ai": "cautious",
+    "xp": 45,
+    "attacks": [
+      {
+        "name": "Maczuga",
+        "damage": [
+          5,
+          9
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 65,
+        "effects": [
+          {
+            "id": "zamroczenie",
+            "chance": 15
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 5
+      },
+      {
+        "chance": 40,
+        "giveRandom": "lupy_zbojcy"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "id": "rabus_lucznik",
+    "name": "Rabuś łucznik",
+    "nameAcc": "Rabusia łucznika",
+    "art": "rabus_lucznik",
+    "hp": 22,
+    "initiative": 7,
+    "defense": 12,
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": 50,
+    "ai": "ranged",
+    "xp": 40,
+    "attacks": [
+      {
+        "name": "Strzał",
+        "damage": [
+          5,
+          9
+        ],
+        "damageType": "klute",
+        "apCost": 4,
+        "hit": 65,
+        "range": "far"
+      },
+      {
+        "name": "Nóż",
+        "damage": [
+          2,
+          4
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 55,
+        "range": "melee"
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 4
+      },
+      {
+        "chance": 35,
+        "giveRandom": "lupy_zbojcy"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "id": "maruder",
+    "name": "Maruder",
+    "nameAcc": "Marudera",
+    "art": "maruder",
+    "hp": 20,
+    "initiative": 4,
+    "defense": 8,
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": 30,
+    "ai": "cautious",
+    "xp": 30,
+    "attacks": [
+      {
+        "name": "Nóż",
+        "damage": [
+          3,
+          6
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 55
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 2
+      },
+      {
+        "chance": 30,
+        "giveItem": "prowiant"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 3,
+    "ap": 7,
+    "id": "herszt_zbojcow",
+    "name": "Herszt zbójców",
+    "nameAcc": "Herszta zbójców",
+    "art": "herszt_zbojcow",
+    "hp": 58,
+    "initiative": 7,
+    "defense": 16,
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": 70,
+    "ai": "aggressive",
+    "xp": 110,
+    "attacks": [
+      {
+        "name": "Topór",
+        "damage": [
+          7,
+          13
+        ],
+        "damageType": "sieczne",
+        "apCost": 4,
+        "hit": 74,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 25
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 20
+      },
+      {
+        "chance": 100,
+        "giveRandom": "lupy_herszt"
+      }
+    ]
+  },
+  {
+    "reduction": {
+      "sieczne": 10
+    },
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 1,
+    "ap": 6,
+    "id": "zolnierz_pogranicza",
+    "name": "Żołnierz pogranicza",
+    "nameAcc": "Żołnierza pogranicza",
+    "art": "zolnierz_pogranicza",
+    "hp": 21,
+    "initiative": 6,
+    "defense": 11,
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": 70,
+    "ai": "aggressive",
+    "xp": 55,
+    "attacks": [
+      {
+        "name": "Miecz",
+        "damage": [
+          4,
+          7
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 57
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 6
+      },
+      {
+        "chance": 35,
+        "giveRandom": "lupy_zolnierz"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 3,
+    "ap": 6,
+    "id": "sierzant_pogranicza",
+    "name": "Sierżant pogranicza",
+    "nameAcc": "Sierżanta pogranicza",
+    "art": "sierzant_pogranicza",
+    "hp": 27,
+    "initiative": 7,
+    "defense": 13,
+    "tags": [
+      "czlowiek"
+    ],
+    "morale": 80,
+    "ai": "aggressive",
+    "xp": 80,
+    "attacks": [
+      {
+        "name": "Miecz",
+        "damage": [
+          5,
+          8
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 61
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 10
+      },
+      {
+        "chance": 70,
+        "giveRandom": "lupy_zolnierz"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 2,
+    "ap": 6,
+    "id": "dzik",
+    "name": "Dzik",
+    "nameAcc": "Dzika",
+    "art": "dzik",
+    "hp": 30,
+    "initiative": 9,
+    "defense": 8,
+    "tags": [
+      "bestia"
+    ],
+    "morale": null,
+    "ai": "aggressive",
+    "leap": true,
+    "xp": 35,
+    "attacks": [
+      {
+        "name": "Kły",
+        "damage": [
+          6,
+          10
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 60
+      }
+    ],
+    "loot": [
+      {
+        "chance": 80,
+        "giveItem": "mieso"
+      },
+      {
+        "chance": 60,
+        "giveItem": "skora_dzika"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "id": "zmija_lesna",
+    "name": "Żmija leśna",
+    "nameAcc": "Żmiję leśną",
+    "art": "zmija_lesna",
+    "hp": 8,
+    "initiative": 10,
+    "defense": 25,
+    "tags": [
+      "bestia"
+    ],
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 15,
+    "attacks": [
+      {
+        "name": "Ukąszenie",
+        "damage": [
+          2,
+          4
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 70,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 60
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 30,
+        "giveItem": "zolc_zmij"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 1,
+    "ap": 6,
+    "id": "utopiec",
+    "name": "Utopiec",
+    "nameAcc": "Utopca",
+    "art": "utopiec",
+    "hp": 50,
+    "initiative": 5,
+    "defense": 12,
+    "tags": [
+      "bestia"
+    ],
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 50,
+    "attacks": [
+      {
+        "name": "Uścisk",
+        "damage": [
+          6,
+          11
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 70,
+        "effects": [
+          {
+            "id": "zamroczenie",
+            "chance": 20
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 60,
+        "giveRandom": "lupy_bagno"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {
+      "obuchowe": 0.5,
+      "ogien": 1.5
+    },
+    "immune": [
+      "oslepienie"
+    ],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "id": "blednik",
+    "name": "Błędnik",
+    "nameAcc": "Błędnika",
+    "art": "blednik",
+    "hp": 28,
+    "initiative": 8,
+    "defense": 35,
+    "tags": [
+      "bestia",
+      "duch"
+    ],
+    "morale": null,
+    "ai": "ranged",
+    "xp": 40,
+    "attacks": [
+      {
+        "name": "Żar",
+        "damage": [
+          6,
+          10
+        ],
+        "damageType": "ogien",
+        "apCost": 3,
+        "hit": 80,
+        "range": "far",
+        "effects": [
+          {
+            "id": "oslepienie",
+            "chance": 30
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 50,
+        "giveItem": "bursztyn_blednika"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "id": "skrzat_zlosnik",
+    "name": "Skrzat-złośnik",
+    "nameAcc": "Skrzata-złośnika",
+    "art": "skrzat_zlosnik",
+    "hp": 10,
+    "initiative": 9,
+    "defense": 28,
+    "tags": [
+      "bestia",
+      "duch"
+    ],
+    "morale": 40,
+    "ai": "cautious",
+    "xp": 20,
+    "attacks": [
+      {
+        "name": "Psikus",
+        "damage": [
+          1,
+          3
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 70,
+        "effects": [
+          {
+            "id": "rozkojarzenie",
+            "chance": 50
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 5
+      },
+      {
+        "chance": 30,
+        "giveRandom": "lupy_bestie"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "jarnowski_strzelec",
+    "name": "Jarnowski strzelec",
+    "nameAcc": "Jarnowskiego strzelca",
+    "art": "jarnowski_strzelec",
+    "hp": 32,
+    "initiative": 7,
+    "defense": 12,
+    "morale": 55,
+    "ai": "ranged",
+    "xp": 60,
+    "attacks": [
+      {
+        "name": "Rusznica",
+        "damage": [
+          11,
+          17
+        ],
+        "damageType": "palne",
+        "apCost": 5,
+        "hit": 70,
+        "range": "far"
+      },
+      {
+        "name": "Kolba",
+        "damage": [
+          3,
+          6
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 55,
+        "range": "melee"
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 8
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_front_jarnowski"
+      }
+    ],
+    "veteran": "jarnowski_strzelec_weteran"
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 2,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "jarnowski_kowal",
+    "name": "Jarnowski kowal",
+    "nameAcc": "Jarnowskiego kowala",
+    "art": "jarnowski_kowal",
+    "hp": 50,
+    "initiative": 5,
+    "defense": 12,
+    "morale": 70,
+    "ai": "aggressive",
+    "xp": 70,
+    "attacks": [
+      {
+        "name": "Młot",
+        "damage": [
+          9,
+          14
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 72,
+        "effects": [
+          {
+            "id": "zamroczenie",
+            "chance": 15
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 10
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_front_jarnowski"
+      }
+    ],
+    "veteran": "jarnowski_kowal_weteran"
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "jarnowski_zwiadowca",
+    "name": "Jarnowski zwiadowca",
+    "nameAcc": "Jarnowskiego zwiadowcę",
+    "art": "jarnowski_zwiadowca",
+    "hp": 34,
+    "initiative": 9,
+    "defense": 24,
+    "morale": 50,
+    "ai": "cautious",
+    "xp": 50,
+    "attacks": [
+      {
+        "name": "Sztylet",
+        "damage": [
+          6,
+          10
+        ],
+        "damageType": "sieczne",
+        "apCost": 2,
+        "hit": 70
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 6
+      },
+      {
+        "chance": 45,
+        "giveRandom": "lupy_front_jarnowski"
+      }
+    ],
+    "veteran": "jarnowski_zwiadowca_weteran"
+  },
+  {
+    "reduction": {
+      "sieczne": 25
+    },
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 3,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "cesarski_pikinier",
+    "name": "Cesarski pikinier",
+    "nameAcc": "Cesarskiego pikiniera",
+    "art": "cesarski_pikinier",
+    "hp": 40,
+    "initiative": 6,
+    "defense": 14,
+    "morale": 75,
+    "ai": "aggressive",
+    "xp": 65,
+    "attacks": [
+      {
+        "name": "Pika",
+        "damage": [
+          7,
+          12
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 65
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 8
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_front_cesarski"
+      }
+    ],
+    "veteran": "cesarski_pikinier_weteran"
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "cesarski_kusznik",
+    "name": "Cesarski kusznik",
+    "nameAcc": "Cesarskiego kusznika",
+    "art": "cesarski_kusznik",
+    "hp": 24,
+    "initiative": 7,
+    "defense": 12,
+    "morale": 60,
+    "ai": "ranged",
+    "xp": 55,
+    "attacks": [
+      {
+        "name": "Bełt",
+        "damage": [
+          8,
+          13
+        ],
+        "damageType": "klute",
+        "apCost": 5,
+        "hit": 62,
+        "range": "far"
+      },
+      {
+        "name": "Nóż",
+        "damage": [
+          2,
+          5
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 55,
+        "range": "melee"
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 7
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_front_cesarski"
+      }
+    ],
+    "veteran": "cesarski_kusznik_weteran"
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "szabrownik",
+    "name": "Szabrownik",
+    "nameAcc": "Szabrownika",
+    "art": "szabrownik",
+    "hp": 22,
+    "initiative": 6,
+    "defense": 10,
+    "morale": 35,
+    "ai": "cautious",
+    "xp": 25,
+    "attacks": [
+      {
+        "name": "Nóż",
+        "damage": [
+          3,
+          6
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 60
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 3
+      },
+      {
+        "chance": 40,
+        "giveRandom": "lupy_pole_bitwy"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "kieszonkowiec",
+    "name": "Kieszonkowiec",
+    "nameAcc": "Kieszonkowca",
+    "art": "kieszonkowiec",
+    "hp": 18,
+    "initiative": 9,
+    "defense": 22,
+    "morale": 30,
+    "ai": "cautious",
+    "xp": 20,
+    "attacks": [
+      {
+        "name": "Nóż",
+        "damage": [
+          3,
+          6
+        ],
+        "damageType": "sieczne",
+        "apCost": 2,
+        "hit": 62
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 6
+      },
+      {
+        "chance": 40,
+        "giveRandom": "lupy_miasto"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 1,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "rzezimieszek_z_portu",
+    "name": "Rzezimieszek z portu",
+    "nameAcc": "Rzezimieszka z portu",
+    "art": "rzezimieszek_z_portu",
+    "hp": 46,
+    "initiative": 5,
+    "defense": 12,
+    "morale": 60,
+    "ai": "aggressive",
+    "xp": 45,
+    "attacks": [
+      {
+        "name": "Pałka",
+        "damage": [
+          8,
+          13
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 65
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 9
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_miasto"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "cesarski_weszyciel",
+    "name": "Cesarski węszyciel",
+    "nameAcc": "Cesarskiego węszyciela",
+    "art": "cesarski_weszyciel",
+    "hp": 36,
+    "initiative": 8,
+    "defense": 18,
+    "morale": 45,
+    "ai": "cautious",
+    "xp": 45,
+    "attacks": [
+      {
+        "name": "Zatruta igła",
+        "damage": [
+          7,
+          12
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 72,
+        "effects": [
+          {
+            "id": "trucizna",
+            "chance": 25
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 10
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_miasto"
+      }
+    ],
+    "veteran": "cesarski_weszyciel_weteran"
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 3,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "patrol_miejski",
+    "name": "Strażnik miejski",
+    "nameAcc": "Strażnika miejskiego",
+    "art": "patrol_miejski",
+    "hp": 46,
+    "initiative": 6,
+    "defense": 14,
+    "morale": 65,
+    "ai": "aggressive",
+    "xp": 40,
+    "attacks": [
+      {
+        "name": "Pałka",
+        "damage": [
+          7,
+          12
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 70
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 8
+      },
+      {
+        "chance": 45,
+        "giveRandom": "lupy_miasto"
+      }
+    ],
+    "veteran": "patrol_miejski_weteran"
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 5,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "straznik_progu",
+    "name": "Strażnik Progu",
+    "nameAcc": "Strażnika Progu",
+    "art": "straznik_progu",
+    "hp": 90,
+    "initiative": 5,
+    "defense": 14,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 120,
+    "attacks": [
+      {
+        "name": "Włócznia progu",
+        "damage": [
+          10,
+          16
+        ],
+        "damageType": "klute",
+        "apCost": 4,
+        "hit": 72,
+        "effects": []
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 15
+      },
+      {
+        "chance": 60,
+        "giveRandom": "lupy_loch"
+      }
+    ],
+    "veteran": "straznik_progu_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 7,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "szeptacz",
+    "name": "Szeptacz",
+    "nameAcc": "Szeptacza",
+    "art": "szeptacz",
+    "hp": 56,
+    "initiative": 9,
+    "defense": 16,
+    "morale": null,
+    "ai": "cautious",
+    "xp": 110,
+    "attacks": [
+      {
+        "name": "Szept",
+        "damage": [
+          7,
+          12
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 80,
+        "range": "far",
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 35
+          },
+          {
+            "id": "rozkojarzenie",
+            "chance": 25
+          }
+        ]
+      },
+      {
+        "name": "Igła",
+        "damage": [
+          4,
+          7
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 65,
+        "range": "melee",
+        "effects": []
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 14
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_loch"
+      }
+    ],
+    "veteran": "szeptacz_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 3,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "kustosz_kabli",
+    "name": "Kustosz Kabli",
+    "nameAcc": "Kustosza Kabli",
+    "art": "kustosz_kabli",
+    "hp": 80,
+    "initiative": 6,
+    "defense": 13,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 125,
+    "attacks": [
+      {
+        "name": "Bicz z kabla",
+        "damage": [
+          9,
+          14
+        ],
+        "damageType": "sieczne",
+        "apCost": 4,
+        "hit": 74,
+        "effects": [
+          {
+            "id": "ogluszenie",
+            "chance": 25
+          }
+        ]
+      },
+      {
+        "name": "Iskra",
+        "damage": [
+          6,
+          10
+        ],
+        "damageType": "ogien",
+        "apCost": 5,
+        "hit": 70,
+        "range": "far",
+        "effects": [
+          {
+            "id": "podpalenie",
+            "chance": 20
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 16
+      },
+      {
+        "chance": 60,
+        "giveRandom": "lupy_loch"
+      }
+    ],
+    "veteran": "kustosz_kabli_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "reduction": {},
+    "damageTaken": {
+      "ogien": 1.5
+    },
+    "immune": [
+      "oslepienie",
+      "rozkojarzenie"
+    ],
+    "effectResist": {
+      "strach": 100,
+      "ogluszenie": 30
+    },
+    "armor": 4,
+    "ap": 6,
+    "tags": [
+      "upior"
+    ],
+    "id": "niespiacy",
+    "name": "Nieśpiący",
+    "nameAcc": "Nieśpiącego",
+    "art": "niespiacy",
+    "hp": 100,
+    "initiative": 8,
+    "defense": 17,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 140,
+    "attacks": [
+      {
+        "name": "Pazury",
+        "damage": [
+          10,
+          15
+        ],
+        "damageType": "sieczne",
+        "apCost": 4,
+        "hit": 74,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 30
+          }
+        ]
+      },
+      {
+        "name": "Bezsenny wzrok",
+        "apCost": 4,
+        "target": "single",
+        "hit": 85,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 50
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 12
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_loch"
+      }
+    ],
+    "veteran": "niespiacy_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 4,
+    "ap": 8,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "pelnomocnik",
+    "name": "Pełnomocnik Rdzenia",
+    "nameAcc": "Pełnomocnika Rdzenia",
+    "art": "pelnomocnik",
+    "hp": 185,
+    "initiative": 8,
+    "defense": 17,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 400,
+    "attacks": [
+      {
+        "name": "Klauzula zwłoki",
+        "damage": [
+          8,
+          13
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 78,
+        "effects": [
+          {
+            "id": "spowolnienie",
+            "chance": 40
+          }
+        ]
+      },
+      {
+        "name": "Egzekucja",
+        "damage": [
+          10,
+          15
+        ],
+        "damageType": "klute",
+        "apCost": 5,
+        "hit": 72,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 30
+          }
+        ]
+      },
+      {
+        "name": "Wypowiedzenie umowy",
+        "apCost": 5,
+        "target": "single",
+        "hit": 85,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 45
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 60
+      },
+      {
+        "chance": 100,
+        "giveRandom": "lupy_loch"
+      }
+    ],
+    "veteran": "pelnomocnik_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 4,
+    "ap": 6,
+    "tags": [
+      "przybysz"
+    ],
+    "id": "straznik_wiru",
+    "name": "Strażnik Wiru",
+    "nameAcc": "Strażnika Wiru",
+    "art": "straznik_wiru",
+    "hp": 70,
+    "initiative": 6,
+    "defense": 15,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 90,
+    "attacks": [
+      {
+        "name": "Cios impulsem",
+        "damage": [
+          9,
+          14
+        ],
+        "damageType": "klute",
+        "apCost": 4,
+        "hit": 72,
+        "effects": [
+          {
+            "id": "ogluszenie",
+            "chance": 20
+          }
+        ]
+      },
+      {
+        "name": "Wyładowanie",
+        "damage": [
+          6,
+          10
+        ],
+        "damageType": "ogien",
+        "apCost": 5,
+        "hit": 68,
+        "range": "far",
+        "effects": []
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 12
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_wyspa"
+      }
+    ],
+    "veteran": "straznik_wiru_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "szabrownik_wrakow",
+    "name": "Szabrownik wraków",
+    "nameAcc": "Szabrownika wraków",
+    "art": "szabrownik",
+    "hp": 44,
+    "initiative": 7,
+    "defense": 12,
+    "morale": 50,
+    "ai": "aggressive",
+    "xp": 45,
+    "attacks": [
+      {
+        "name": "Siekiera",
+        "damage": [
+          7,
+          11
+        ],
+        "damageType": "sieczne",
+        "apCost": 4,
+        "hit": 70,
+        "effects": []
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 8
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_wyspa"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 0,
+    "ap": 7,
+    "tags": [
+      "przybysz"
+    ],
+    "id": "sluga_wiru",
+    "name": "Sługa Wiru",
+    "nameAcc": "Sługę Wiru",
+    "art": "sluga_wiru",
+    "hp": 36,
+    "initiative": 8,
+    "defense": 14,
+    "morale": null,
+    "ai": "ranged",
+    "xp": 85,
+    "attacks": [
+      {
+        "name": "Promień",
+        "damage": [
+          6,
+          9
+        ],
+        "damageType": "ogien",
+        "apCost": 5,
+        "hit": 74,
+        "range": "far",
+        "effects": [
+          {
+            "id": "rozkojarzenie",
+            "chance": 25
+          }
+        ]
+      },
+      {
+        "name": "Szarpnięcie",
+        "damage": [
+          4,
+          7
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 60,
+        "range": "melee",
+        "effects": []
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 14
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_wir"
+      }
+    ],
+    "veteran": "sluga_wiru_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 6,
+    "ap": 6,
+    "tags": [
+      "przybysz"
+    ],
+    "id": "straz_szklanna",
+    "name": "Strażnik szklany",
+    "nameAcc": "Strażnika szklanego",
+    "art": "straz_szklanna",
+    "hp": 60,
+    "initiative": 5,
+    "defense": 14,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 110,
+    "attacks": [
+      {
+        "name": "Cios szklanej maczugi",
+        "damage": [
+          8,
+          12
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 72,
+        "effects": [
+          {
+            "id": "ogluszenie",
+            "chance": 20
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 16
+      },
+      {
+        "chance": 60,
+        "giveRandom": "lupy_wir"
+      }
+    ],
+    "veteran": "straz_szklanna_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {
+      "strach": 100
+    },
+    "armor": 5,
+    "ap": 8,
+    "tags": [
+      "przybysz"
+    ],
+    "id": "istota_szklanna",
+    "name": "Istota",
+    "nameAcc": "Istotę",
+    "art": "istota_szklanna",
+    "hp": 170,
+    "initiative": 9,
+    "defense": 18,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 600,
+    "attacks": [
+      {
+        "name": "Dotyk szkła",
+        "damage": [
+          8,
+          12
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 80,
+        "effects": [
+          {
+            "id": "spowolnienie",
+            "chance": 35
+          }
+        ]
+      },
+      {
+        "name": "Pękające szkło",
+        "damage": [
+          11,
+          16
+        ],
+        "damageType": "klute",
+        "apCost": 6,
+        "hit": 74,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 40
+          }
+        ]
+      },
+      {
+        "name": "Zimny wzrok",
+        "apCost": 5,
+        "target": "single",
+        "hit": 85,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 45
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 100
+      },
+      {
+        "chance": 100,
+        "giveRandom": "lupy_wir"
+      }
+    ],
+    "veteran": "istota_szklanna_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "reduction": {
+      "sieczne": 25
+    },
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 5,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "cesarski_pikinier_weteran",
+    "name": "Pikinier-weteran",
+    "nameAcc": "Pikiniera-weterana",
+    "art": "cesarski_pikinier",
+    "hp": 52,
+    "initiative": 6,
+    "defense": 18,
+    "morale": 75,
+    "ai": "aggressive",
+    "xp": 85,
+    "attacks": [
+      {
+        "name": "Pika",
+        "damage": [
+          9,
+          15
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 72
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 8
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_front_cesarski"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 2,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "cesarski_kusznik_weteran",
+    "name": "Kusznik-weteran",
+    "nameAcc": "Kusznika-weterana",
+    "art": "cesarski_kusznik",
+    "hp": 30,
+    "initiative": 7,
+    "defense": 16,
+    "morale": 60,
+    "ai": "ranged",
+    "xp": 70,
+    "attacks": [
+      {
+        "name": "Bełt",
+        "damage": [
+          10,
+          16
+        ],
+        "damageType": "klute",
+        "apCost": 5,
+        "hit": 70,
+        "range": "far"
+      },
+      {
+        "name": "Nóż",
+        "damage": [
+          3,
+          6
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 60,
+        "range": "melee"
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 7
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_front_cesarski"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 2,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "cesarski_weszyciel_weteran",
+    "name": "Węszyciel-weteran",
+    "nameAcc": "Węszyciela-weterana",
+    "art": "cesarski_weszyciel",
+    "hp": 44,
+    "initiative": 8,
+    "defense": 22,
+    "morale": 45,
+    "ai": "cautious",
+    "xp": 60,
+    "attacks": [
+      {
+        "name": "Zatruta igła",
+        "damage": [
+          8,
+          14
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 76,
+        "effects": [
+          {
+            "id": "trucizna",
+            "chance": 25
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 10
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_miasto"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 2,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "jarnowski_strzelec_weteran",
+    "name": "Strzelec-weteran",
+    "nameAcc": "Strzelca-weterana",
+    "art": "jarnowski_strzelec",
+    "hp": 38,
+    "initiative": 7,
+    "defense": 16,
+    "morale": 55,
+    "ai": "ranged",
+    "xp": 80,
+    "attacks": [
+      {
+        "name": "Rusznica",
+        "damage": [
+          12,
+          19
+        ],
+        "damageType": "palne",
+        "apCost": 5,
+        "hit": 76,
+        "range": "far"
+      },
+      {
+        "name": "Kolba",
+        "damage": [
+          4,
+          7
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 60,
+        "range": "melee"
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 8
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_front_jarnowski"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 4,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "jarnowski_kowal_weteran",
+    "name": "Kowal-weteran",
+    "nameAcc": "Kowala-weterana",
+    "art": "jarnowski_kowal",
+    "hp": 62,
+    "initiative": 5,
+    "defense": 16,
+    "morale": 70,
+    "ai": "aggressive",
+    "xp": 90,
+    "attacks": [
+      {
+        "name": "Młot",
+        "damage": [
+          11,
+          17
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 76,
+        "effects": [
+          {
+            "id": "zamroczenie",
+            "chance": 15
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 10
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_front_jarnowski"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 2,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "jarnowski_zwiadowca_weteran",
+    "name": "Zwiadowca-weteran",
+    "nameAcc": "Zwiadowcę-weterana",
+    "art": "jarnowski_zwiadowca",
+    "hp": 40,
+    "initiative": 9,
+    "defense": 28,
+    "morale": 50,
+    "ai": "cautious",
+    "xp": 65,
+    "attacks": [
+      {
+        "name": "Sztylet",
+        "damage": [
+          7,
+          12
+        ],
+        "damageType": "sieczne",
+        "apCost": 2,
+        "hit": 74
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 6
+      },
+      {
+        "chance": 45,
+        "giveRandom": "lupy_front_jarnowski"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 5,
+    "ap": 6,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "patrol_miejski_weteran",
+    "name": "Strażnik-weteran",
+    "nameAcc": "Strażnika-weterana",
+    "art": "patrol_miejski",
+    "hp": 58,
+    "initiative": 6,
+    "defense": 18,
+    "morale": 65,
+    "ai": "aggressive",
+    "xp": 55,
+    "attacks": [
+      {
+        "name": "Pałka",
+        "damage": [
+          9,
+          14
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 76
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 8
+      },
+      {
+        "chance": 45,
+        "giveRandom": "lupy_miasto"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 8,
+    "ap": 8,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "straznik_progu_weteran",
+    "name": "Strażnik Progu",
+    "nameAcc": "Strażnika Progu",
+    "art": "straznik_progu",
+    "hp": 170,
+    "initiative": 5,
+    "defense": 30,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 150,
+    "attacks": [
+      {
+        "name": "Włócznia progu",
+        "damage": [
+          18,
+          26
+        ],
+        "damageType": "klute",
+        "apCost": 4,
+        "hit": 90,
+        "effects": []
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 15
+      },
+      {
+        "chance": 60,
+        "giveRandom": "lupy_loch"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 4,
+    "ap": 8,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "szeptacz_weteran",
+    "name": "Szeptacz",
+    "nameAcc": "Szeptacza",
+    "art": "szeptacz",
+    "hp": 150,
+    "initiative": 9,
+    "defense": 32,
+    "morale": null,
+    "ai": "cautious",
+    "xp": 140,
+    "attacks": [
+      {
+        "name": "Szept",
+        "damage": [
+          14,
+          20
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 92,
+        "range": "far",
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 35
+          },
+          {
+            "id": "rozkojarzenie",
+            "chance": 25
+          }
+        ]
+      },
+      {
+        "name": "Igła",
+        "damage": [
+          13,
+          18
+        ],
+        "damageType": "klute",
+        "apCost": 3,
+        "hit": 88,
+        "range": "melee",
+        "effects": []
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 14
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_loch"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 6,
+    "ap": 8,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "kustosz_kabli_weteran",
+    "name": "Kustosz Kabli",
+    "nameAcc": "Kustosza Kabli",
+    "art": "kustosz_kabli",
+    "hp": 170,
+    "initiative": 6,
+    "defense": 28,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 155,
+    "attacks": [
+      {
+        "name": "Bicz z kabla",
+        "damage": [
+          19,
+          27
+        ],
+        "damageType": "sieczne",
+        "apCost": 4,
+        "hit": 90,
+        "effects": [
+          {
+            "id": "ogluszenie",
+            "chance": 25
+          }
+        ]
+      },
+      {
+        "name": "Iskra",
+        "damage": [
+          12,
+          17
+        ],
+        "damageType": "ogien",
+        "apCost": 5,
+        "hit": 85,
+        "range": "far",
+        "effects": [
+          {
+            "id": "podpalenie",
+            "chance": 20
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 16
+      },
+      {
+        "chance": 60,
+        "giveRandom": "lupy_loch"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {
+      "ogien": 1.5
+    },
+    "immune": [
+      "oslepienie",
+      "rozkojarzenie"
+    ],
+    "effectResist": {
+      "strach": 100,
+      "ogluszenie": 30
+    },
+    "armor": 7,
+    "ap": 8,
+    "tags": [
+      "upior"
+    ],
+    "id": "niespiacy_weteran",
+    "name": "Nieśpiący",
+    "nameAcc": "Nieśpiącego",
+    "art": "niespiacy",
+    "hp": 210,
+    "initiative": 8,
+    "defense": 32,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 175,
+    "attacks": [
+      {
+        "name": "Pazury",
+        "damage": [
+          21,
+          29
+        ],
+        "damageType": "sieczne",
+        "apCost": 4,
+        "hit": 90,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 30
+          }
+        ]
+      },
+      {
+        "name": "Bezsenny wzrok",
+        "apCost": 4,
+        "target": "single",
+        "hit": 95,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 50
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 12
+      },
+      {
+        "chance": 50,
+        "giveRandom": "lupy_loch"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 7,
+    "ap": 10,
+    "tags": [
+      "czlowiek"
+    ],
+    "id": "pelnomocnik_weteran",
+    "name": "Pełnomocnik Rdzenia",
+    "nameAcc": "Pełnomocnika Rdzenia",
+    "art": "pelnomocnik",
+    "hp": 340,
+    "initiative": 8,
+    "defense": 32,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 500,
+    "attacks": [
+      {
+        "name": "Klauzula zwłoki",
+        "damage": [
+          14,
+          20
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 90,
+        "effects": [
+          {
+            "id": "spowolnienie",
+            "chance": 40
+          }
+        ]
+      },
+      {
+        "name": "Egzekucja",
+        "damage": [
+          17,
+          25
+        ],
+        "damageType": "klute",
+        "apCost": 5,
+        "hit": 85,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 30
+          }
+        ]
+      },
+      {
+        "name": "Wypowiedzenie umowy",
+        "apCost": 5,
+        "target": "single",
+        "hit": 95,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 45
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 60
+      },
+      {
+        "chance": 100,
+        "giveRandom": "lupy_loch"
+      }
+    ]
+  },
+  {
+    "id": "upior_schodow",
+    "name": "Upiór schodów",
+    "nameAcc": "Upiora schodów",
+    "art": "upior_zwiadowca",
+    "hp": 40,
+    "ap": 6,
+    "initiative": 8,
+    "defense": 18,
+    "armor": 3,
+    "reduction": {},
+    "damageTaken": {
+      "sieczne": 0.5,
+      "klute": 0.5,
+      "ogien": 2
+    },
+    "immune": [
+      "oslepienie",
+      "rozkojarzenie"
+    ],
+    "effectResist": {
+      "strach": 100,
+      "ogluszenie": 20
+    },
+    "tags": [
+      "upior"
+    ],
+    "morale": null,
+    "ai": "aggressive",
+    "leap": true,
+    "xp": 70,
+    "attacks": [
+      {
+        "name": "Szpon",
+        "damage": [
+          6,
+          10
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 66,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 20
+          }
+        ]
+      },
+      {
+        "name": "Wycie",
+        "apCost": 4,
+        "target": "single",
+        "hit": 90,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 30
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 6
+      }
+    ],
+    "veteran": "upior_schodow_weteran",
+    "veteranFrom": 10
+  },
+  {
+    "id": "upior_schodow_weteran",
+    "name": "Upiór schodów",
+    "nameAcc": "Upiora schodów",
+    "art": "upior_zwiadowca",
+    "hp": 70,
+    "ap": 6,
+    "initiative": 8,
+    "defense": 26,
+    "armor": 6,
+    "reduction": {},
+    "damageTaken": {
+      "sieczne": 0.5,
+      "klute": 0.5,
+      "ogien": 2
+    },
+    "immune": [
+      "oslepienie",
+      "rozkojarzenie"
+    ],
+    "effectResist": {
+      "strach": 100,
+      "ogluszenie": 20
+    },
+    "tags": [
+      "upior"
+    ],
+    "morale": null,
+    "ai": "aggressive",
+    "leap": true,
+    "xp": 95,
+    "attacks": [
+      {
+        "name": "Szpon",
+        "damage": [
+          11,
+          16
+        ],
+        "damageType": "sieczne",
+        "apCost": 3,
+        "hit": 80,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 30
+          }
+        ]
+      },
+      {
+        "name": "Wycie",
+        "apCost": 4,
+        "target": "single",
+        "hit": 95,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 50
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 6
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 7,
+    "ap": 8,
+    "tags": [
+      "przybysz"
+    ],
+    "id": "straznik_wiru_weteran",
+    "name": "Strażnik Wiru",
+    "nameAcc": "Strażnika Wiru",
+    "art": "straznik_wiru",
+    "hp": 110,
+    "initiative": 6,
+    "defense": 28,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 115,
+    "attacks": [
+      {
+        "name": "Cios impulsem",
+        "damage": [
+          17,
+          24
+        ],
+        "damageType": "klute",
+        "apCost": 4,
+        "hit": 86,
+        "effects": [
+          {
+            "id": "ogluszenie",
+            "chance": 20
+          }
+        ]
+      },
+      {
+        "name": "Wyładowanie",
+        "damage": [
+          12,
+          17
+        ],
+        "damageType": "ogien",
+        "apCost": 5,
+        "hit": 85,
+        "range": "far",
+        "effects": []
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 12
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_wyspa"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 3,
+    "ap": 8,
+    "tags": [
+      "przybysz"
+    ],
+    "id": "sluga_wiru_weteran",
+    "name": "Sługa Wiru",
+    "nameAcc": "Sługę Wiru",
+    "art": "sluga_wiru",
+    "hp": 75,
+    "initiative": 8,
+    "defense": 28,
+    "morale": null,
+    "ai": "ranged",
+    "xp": 110,
+    "attacks": [
+      {
+        "name": "Promień",
+        "damage": [
+          12,
+          17
+        ],
+        "damageType": "ogien",
+        "apCost": 5,
+        "hit": 85,
+        "range": "far",
+        "effects": [
+          {
+            "id": "rozkojarzenie",
+            "chance": 25
+          }
+        ]
+      },
+      {
+        "name": "Szarpnięcie",
+        "damage": [
+          9,
+          13
+        ],
+        "damageType": "obuchowe",
+        "apCost": 3,
+        "hit": 80,
+        "range": "melee",
+        "effects": []
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 14
+      },
+      {
+        "chance": 55,
+        "giveRandom": "lupy_wir"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {},
+    "armor": 9,
+    "ap": 8,
+    "tags": [
+      "przybysz"
+    ],
+    "id": "straz_szklanna_weteran",
+    "name": "Strażnik szklany",
+    "nameAcc": "Strażnika szklanego",
+    "art": "straz_szklanna",
+    "hp": 90,
+    "initiative": 5,
+    "defense": 28,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 140,
+    "attacks": [
+      {
+        "name": "Cios szklanej maczugi",
+        "damage": [
+          15,
+          21
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 86,
+        "effects": [
+          {
+            "id": "ogluszenie",
+            "chance": 20
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 16
+      },
+      {
+        "chance": 60,
+        "giveRandom": "lupy_wir"
+      }
+    ]
+  },
+  {
+    "reduction": {},
+    "damageTaken": {},
+    "immune": [],
+    "effectResist": {
+      "strach": 100
+    },
+    "armor": 8,
+    "ap": 11,
+    "tags": [
+      "przybysz"
+    ],
+    "id": "istota_szklanna_weteran",
+    "name": "Istota",
+    "nameAcc": "Istotę",
+    "art": "istota_szklanna",
+    "hp": 320,
+    "initiative": 9,
+    "defense": 34,
+    "morale": null,
+    "ai": "aggressive",
+    "xp": 750,
+    "attacks": [
+      {
+        "name": "Dotyk szkła",
+        "damage": [
+          15,
+          21
+        ],
+        "damageType": "obuchowe",
+        "apCost": 4,
+        "hit": 90,
+        "effects": [
+          {
+            "id": "spowolnienie",
+            "chance": 35
+          }
+        ]
+      },
+      {
+        "name": "Pękające szkło",
+        "damage": [
+          20,
+          28
+        ],
+        "damageType": "klute",
+        "apCost": 6,
+        "hit": 85,
+        "effects": [
+          {
+            "id": "krwawienie",
+            "chance": 40
+          }
+        ]
+      },
+      {
+        "name": "Zimny wzrok",
+        "apCost": 5,
+        "target": "single",
+        "hit": 95,
+        "effects": [
+          {
+            "id": "strach",
+            "chance": 45
+          }
+        ]
+      }
+    ],
+    "loot": [
+      {
+        "chance": 100,
+        "giveMoney": 100
+      },
+      {
+        "chance": 100,
+        "giveRandom": "lupy_wir"
+      }
+    ]
+  }
 ]

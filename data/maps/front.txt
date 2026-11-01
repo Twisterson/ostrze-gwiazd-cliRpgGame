@@ -1,0 +1,14 @@
+   ~~~~ Front nad Szarą ~~~~
+
+      {oboz_cesarski_przedni}------{ruiny_fortu}
+                 |                     |
+                 |              {przeprawa_szarej}
+                 |                     |
+      {oboz_wronia}--------------{pole_bitwy}
+                 |
+      {spalona_wies}
+
+   dalekie szlaki (dni drogi)
+      {wzgorze_wisielcow}
+      {jar_dezerterow}
+      {oboz_jarnowian_przedni}

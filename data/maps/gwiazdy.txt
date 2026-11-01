@@ -1,9 +1,12 @@
    ~~~~ Szklane Wzgórza ~~~~
 
-      {pole_szkla}----------{krater_gwiazdy}----------{ostatnia_strazica}
+      {pole_szkla}----------{krater_gwiazdy}
           |
       {obserwatorium}
           |
       {menhiry}-----------{wrak_maszyny}
           |
       {zapadlisko_ciszy}
+
+   dalekie szlaki (dni drogi)
+      {rozbita_lodz}    {ruiny_stacji}    {ostatnia_strazica}

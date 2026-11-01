@@ -1,48 +1,2018 @@
 [
-  {"id": "piesci", "name": "Pięści", "type": "weapon", "hidden": true, "skill": "wrecz", "damageType": "obuchowe", "damage": [1, 3], "apCost": 2, "range": "melee", "minStrength": 0, "weight": 0, "value": 0, "description": "Zawsze pod łapą."},
-  {"id": "miecz_krotki", "name": "Krótki miecz", "type": "weapon", "skill": "sieczna", "damageType": "sieczne", "damage": [4, 8], "apCost": 3, "range": "melee", "minStrength": 3, "weight": 2, "value": 40, "masteryType": "miecz", "description": "Krótkie, szerokie ostrze. W ciasnocie jak znalazł."},
-  {"id": "para_wloczni", "name": "Para włóczni", "type": "weapon", "skill": "drzewcowa", "damageType": "klute", "damage": [3, 7], "apCost": 3, "range": "melee", "minStrength": 3, "weight": 3, "value": 40, "pair": true, "reach": true, "throwName": "Włócznia", "throwSkill": "drzewcowa", "masteryType": "wlocznie", "description": "Dwie krótkie włócznie o długich grotach. Kłują i tną."},
-  {"id": "luk_mysliwski", "name": "Łuk myśliwski", "type": "weapon", "skill": "strzelecka", "damageType": "klute", "damage": [3, 7], "apCost": 4, "range": "far", "minStrength": 2, "reload": {"apCost": 1, "ammo": "strzala", "capacity": 1}, "weight": 1.5, "value": 35, "masteryType": "luk", "description": "Szybki, ale często chybia. Cięciwa już przetarta."},
-  {"id": "kusza_lekka", "name": "Lekka kusza", "type": "weapon", "skill": "strzelecka", "damageType": "klute", "damage": [8, 14], "apCost": 5, "range": "far", "minStrength": 4, "reload": {"apCost": 4, "ammo": "belt", "capacity": 1}, "armorPierce": 3, "weight": 4, "value": 60, "masteryType": "kusza", "description": "Powolna, ale wali mocno i przebija pancerz."},
-  {"id": "sztylet", "name": "Sztylet", "type": "weapon", "skill": "sieczna", "damageType": "klute", "damage": [2, 4], "apCost": 2, "range": "melee", "minStrength": 1, "offhand": true, "masteryType": "miecz", "weight": 0.5, "value": 25, "description": "Krótki i podły. Dobry w drugiej ręce, kiedy pierwsza trzyma miecz."},
-  {"id": "pistolet_skalkowy", "name": "Pistolet skałkowy", "type": "weapon", "skill": "proch", "damageType": "palne", "damage": [10, 18], "apCost": 4, "range": "far", "armorPierce": 4, "minStrength": 3, "reload": {"apCost": 5, "ammo": "kula_z_prochem", "capacity": 1}, "misfireChance": 15, "burstChance": 2, "burstDamage": [4, 8], "noise": 3, "fear": 20, "smoke": 30, "masteryType": "palna", "weight": 1.5, "value": 120, "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha."},
-  {"id": "kula_z_prochem", "name": "Kula z prochem", "type": "ammo", "weight": 0.05, "value": 6, "description": "Ołowiana kula i odmierzony zapał, zawinięte w papierowy nabój."},
-  {"id": "strzala", "name": "Strzała", "type": "ammo", "weight": 0.05, "value": 1, "description": "Brzechwa z kurzym piórem."},
-  {"id": "belt", "name": "Belt", "type": "ammo", "weight": 0.1, "value": 2, "description": "Krótki, kuty bełt do kuszy."},
-  {"id": "kaftan_przeszywany", "name": "Kaftan przeszywany", "type": "armor", "slot": "tulow", "armor": 2, "reduction": {"sieczne": 15, "obuchowe": 20, "klute": 5}, "modifiers": {"skradanie": -5}, "weight": 5, "value": 40, "description": "Gruba warstwa pikowanego płótna. Latem parzy jak kożuch."},
-  {"id": "kolczuga", "name": "Kolczuga", "type": "armor", "slot": "tulow", "armor": 2, "reduction": {"sieczne": 30, "klute": 10}, "modifiers": {"ap": -1, "skradanie": -20}, "weight": 12, "value": 150, "description": "Ciężka i brzęczy, ale trzyma ostrze z dala od skóry."},
-  {"id": "kaptur_mysliwego", "name": "Kaptur myśliwego", "type": "armor", "slot": "glowa", "modifiers": {"bystrosc": 1, "resist_oslepienie": 20}, "weight": 0.5, "value": 30, "description": "Chroni ślepia przed blaskiem i kurzem."},
-  {"id": "rekawice_lucznicze", "name": "Rękawice łucznicze", "type": "armor", "slot": "rece", "modifiers": {"strzelecka": 10}, "weight": 0.3, "value": 25, "description": "Skórzane, z gołymi palcami."},
-  {"id": "buty_podkute", "name": "Buty podkute", "type": "armor", "slot": "nogi", "armor": 1, "modifiers": {"skradanie": -5}, "weight": 1.5, "value": 20, "description": "Dzwonią o każdy kamień."},
-  {"id": "plaszcz_wedrowca", "name": "Płaszcz wędrowca", "type": "armor", "slot": "plaszcz", "modifiers": {"skradanie": 5}, "weight": 1.5, "value": 15, "description": "Szary, zlewa się z błotem."},
-  {"id": "pas_zwykly", "name": "Zwykły pas", "type": "armor", "slot": "pas", "quickSlots": 2, "weight": 0.3, "value": 5, "description": "Pas z wołowej skóry z dwiema przytroczkami."},
-  {"id": "pas_ladownice", "name": "Pas z ładownicami", "type": "armor", "slot": "pas", "quickSlots": 4, "weight": 0.8, "value": 30, "description": "Cztery ładownice pod samą ręką."},
-  {"id": "opatrunek", "name": "Opatrunek", "type": "consumable", "target": "self", "apCost": 3, "heal": [3, 6], "healSkill": "medycyna", "removes": ["krwawienie"], "weight": 0.2, "value": 8, "description": "Czyste płótno i odrobina wosku. Tamuje krew."},
-  {"id": "napar_ziol", "name": "Napar ziół", "type": "consumable", "target": "self", "apCost": 3, "heal": [6, 10], "healSkill": "medycyna", "weight": 0.3, "value": 15, "description": "Gorzki jak piołun, stawia na nogi."},
-  {"id": "bimber", "name": "Bimber", "type": "consumable", "target": "self", "apCost": 3, "applies": ["podchmielenie"], "weight": 0.5, "value": 6, "description": "Mętny, ostry, grzeje od środka jak piec."},
-  {"id": "garniec_wapno", "name": "Garniec z wapnem", "type": "throwable", "skill": "miotanie", "apCost": 3, "target": "single", "effects": [{"id": "oslepienie", "chance": 90}], "weight": 1, "value": 15, "description": "Glina, wapno i porządny zamach."},
-  {"id": "garnek_huku", "name": "Garnek huku", "type": "throwable", "skill": "miotanie", "apCost": 3, "target": "single_splash", "effects": [{"id": "ogluszenie", "chance": 70}], "weight": 1, "value": 20, "description": "Garnek prochu i gwoździ. Huk, co wytrząsa myśli z łba."},
-  {"id": "swieca_dymna", "name": "Świeca dymna", "type": "throwable", "skill": "miotanie", "apCost": 3, "target": "battlefield", "effects": [{"id": "zadymienie", "chance": 100}], "weight": 1, "value": 20, "description": "Gęsty, gryzący smród dymu na kilka tur."},
-  {"id": "puszka_szerszeni", "name": "Puszka z szerszeniami", "type": "throwable", "skill": "miotanie", "apCost": 3, "target": "single", "effects": [{"id": "rozkojarzenie", "chance": 90}], "weight": 1, "value": 25, "description": "Gliniana puszka zatkana szmatą. Nie potrząsaj, uchowaj Bóg."},
-  {"id": "kamien_zmierzchu", "name": "Kamień Zmierzchu", "type": "artifact", "slot": "talizman", "weight": 0.3, "value": 0, "charge": {"max": 100, "start": 40}, "regen": {"perHour": 4, "conditions": [{"when": "night", "multiplier": 2}, {"when": "near:upior", "multiplier": 0}], "requiresExposure": false}, "passive": [{"minCharge": 75, "modifiers": {"bystrosc": 1}}], "abilities": [{"id": "plonace_ostrze", "name": "Płonące ostrze", "cost": {"type": "percent", "value": 50}, "apCost": 2, "effect": {"id": "ostrze_ognia", "target": "self", "duration": 3}}, {"id": "zaslona_zmierzchu", "name": "Zasłona Zmierzchu", "cost": {"type": "all"}, "requiresFull": true, "apCost": 4, "effect": {"id": "zaslona", "target": "self", "duration": 3}}], "whenEmpty": {"usable": true, "costHp": 10, "text": "Kamień pije z ciebie."}, "description": "Ciemny, gładki kamień, ciepły jak żywa dłoń. Nocą pulsuje fioletem."},
-  {"id": "miecz_gwiazd_test", "name": "Miecz Gwiazd (próba)", "type": "artifact", "slot": "bron", "hidden": true, "skill": "sieczna", "damageType": "sieczne", "damage": [4, 8], "apCost": 3, "range": "melee", "minStrength": 3, "masteryType": "miecz", "weight": 2, "value": 0, "charge": {"max": 50, "start": 50}, "regen": {"perHour": 2}, "passive": [{"minCharge": 25, "modifiers": {"meleeHitChance": 5}}], "abilities": [{"id": "zar_ostrza", "name": "Żar ostrza", "cost": {"type": "fixed", "value": 10}, "apCost": 2, "effect": {"id": "ostrze_ognia", "target": "self", "duration": 2}}], "description": "Próbna sztuka broni-artefaktu. Wyłącznie do testów silnika."},
-  {"id": "prowiant", "name": "Prowiant", "type": "consumable", "target": "self", "apCost": 3, "weight": 0.5, "value": 3, "food": {"order": 3}, "description": "Suchy chleb, płat słoniny i bukłak wody. Na dzień drogi."},
-  {"id": "mieso", "name": "Mięso", "type": "consumable", "target": "self", "apCost": 3, "weight": 0.6, "value": 2, "food": {"order": 2}, "description": "Kawał surowego mięsa. Upieczone nad ogniem napcha brzuch jak trzeba."},
-  {"id": "jagody", "name": "Jagody", "type": "consumable", "target": "self", "apCost": 3, "weight": 0.1, "value": 1, "food": {"order": 1}, "description": "Garść leśnych jagód. Słodkie, ale do wieczora się zepsują."},
-  {"id": "grzyby", "name": "Grzyby", "type": "consumable", "target": "self", "apCost": 3, "weight": 0.2, "value": 1, "food": {"order": 1, "risk": {"effect": "trucizna", "chance": 15, "safeTagged": "medycyna"}}, "description": "Garść leśnych grzybów. Jadalne? Czart je wie."},
-  {"id": "orzechy", "name": "Orzechy", "type": "consumable", "target": "self", "apCost": 3, "weight": 0.2, "value": 1, "food": {"order": 2}, "description": "Orzechy laskowe. Twarde jak kamień, ale sycą."},
-  {"id": "ziola_lesne", "name": "Zioła leśne", "type": "consumable", "target": "self", "apCost": 3, "heal": [2, 4], "healSkill": "medycyna", "weight": 0.1, "value": 4, "description": "Garść ziela z runa. Rozgniecione i przyłożone do rany trochę pomagają."},
-  {"id": "amulet_strazniczy", "name": "Amulet strażniczy", "type": "misc", "weight": 0.1, "value": 0, "description": "Wytarta blaszka na rzemieniu, z wybitym znakiem strażnicy. Ragnosława nosiła ją pod koszulą, przy samej skórze."},
-  {"id": "mapa_przewodnika", "name": "Mapa przewodnika", "type": "misc", "weight": 0.1, "value": 0, "description": "Zatłuszczony szkic drogi, ledwo do odczytania. Przewodnik porzucił go razem z tobołkiem, kiedy wiał."},
-  {"id": "ziola_dla_wrzoska", "name": "Ziela z polany", "type": "misc", "weight": 0.2, "value": 0, "description": "Pęczek gorzkiego ziela. Karczmarz Wrzosek płaci za nie lepiej, niż ugaszcza."},
-  {"id": "worek_zboza", "name": "Worek zboża", "type": "misc", "weight": 0.2, "value": 0, "description": "Pół worka, który kramarz ma za pełny. Młynarz Ostap ma na ten temat swoje zdanie."},
-  {"id": "list_komendanta", "name": "List komendanta", "type": "misc", "weight": 0.2, "value": 0, "description": "Złożona kartka z pieczęcią w kształcie wilczego kła. Komendant zakazał czytać, więc przeczytasz."},
-  {"id": "weksel", "name": "Weksel kupca", "type": "misc", "weight": 0.2, "value": 0, "description": "Wymięty dług Ostromira, który karczmarz Wrzosek chętnie by z niego wydusił."},
-  {"id": "pokwitowanie", "name": "Pokwitowanie", "type": "misc", "weight": 0.2, "value": 0, "description": "Kwit z podpisem Ostromira, co wygląda jak ślad pijanej kury."},
-  {"id": "odlamek_szkla", "name": "Odłamek szkła", "type": "misc", "weight": 0.2, "value": 0, "description": "Ciemny, ciężki odłamek, który w garści robi się cieplejszy, niż powinien. Lepiej splunąć przez ramię."},
-  {"id": "list_kopacza", "name": "Zaklejony list", "type": "misc", "weight": 0.1, "value": 0, "description": "Cesarska pieczęć na zaklejonym liście z kieszeni nieboszczyka. Kopacz Jerzy nie umie go przeczytać."},
-  {"id": "wosk_pieczetny", "name": "Wosk pieczętny", "type": "misc", "weight": 0.2, "value": 0, "description": "Czerwony wosk od siostry Haliny. Przyda się temu, kto się zna na sygnetach."},
-  {"id": "szara_trzcina", "name": "Szara trzcina", "type": "misc", "weight": 0.3, "value": 0, "description": "Wiązka trzciny z Bagien Szarej Wody, mokra i ciemna. Znachorka Dobrawa uwarzy z niej napar na gorączkę."},
-  {"id": "odlamek_krateru", "name": "Odłamek z krateru", "type": "misc", "weight": 0.2, "value": 0, "description": "Kawał szkła, który pamięta, jak nim cisnięto. Zimny jak lód, choć leży w słońcu."},
-  {"id": "rdzen_maszyny", "name": "Rdzeń maszyny", "type": "misc", "weight": 1.5, "value": 0, "description": "Ciężki walec z miedzi i szkła, wyrwany z wraku. Co jakiś czas pulsuje w rytmie, którego nie znasz."}
+  {
+    "id": "piesci",
+    "name": "Pięści",
+    "type": "weapon",
+    "hidden": true,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      1,
+      3
+    ],
+    "apCost": 2,
+    "range": "melee",
+    "minStrength": 0,
+    "weight": 0,
+    "value": 0,
+    "description": "Zawsze pod łapą."
+  },
+  {
+    "id": "miecz_krotki",
+    "name": "Krótki miecz",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      4,
+      8
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "weight": 2,
+    "value": 40,
+    "masteryType": "miecz",
+    "description": "Krótkie, szerokie ostrze. W ciasnocie jak znalazł."
+  },
+  {
+    "id": "para_wloczni",
+    "name": "Para włóczni",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      3,
+      7
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "weight": 3,
+    "value": 40,
+    "pair": true,
+    "reach": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "description": "Dwie krótkie włócznie o długich grotach. Kłują i tną."
+  },
+  {
+    "id": "luk_mysliwski",
+    "name": "Łuk myśliwski",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      3,
+      7
+    ],
+    "apCost": 4,
+    "range": "far",
+    "minStrength": 2,
+    "reload": {
+      "apCost": 1,
+      "ammo": "strzala",
+      "capacity": 1
+    },
+    "weight": 1.5,
+    "value": 35,
+    "masteryType": "luk",
+    "description": "Szybki, ale często chybia. Cięciwa już przetarta."
+  },
+  {
+    "id": "kusza_lekka",
+    "name": "Lekka kusza",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      8,
+      14
+    ],
+    "apCost": 5,
+    "range": "far",
+    "minStrength": 4,
+    "reload": {
+      "apCost": 4,
+      "ammo": "belt",
+      "capacity": 1
+    },
+    "armorPierce": 3,
+    "weight": 4,
+    "value": 33,
+    "masteryType": "kusza",
+    "description": "Powolna, ale wali mocno i przebija pancerz."
+  },
+  {
+    "id": "sztylet",
+    "name": "Sztylet",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "sieczna",
+    "damageType": "klute",
+    "damage": [
+      2,
+      4
+    ],
+    "apCost": 2,
+    "range": "melee",
+    "minStrength": 1,
+    "offhand": true,
+    "masteryType": "miecz",
+    "weight": 0.5,
+    "value": 25,
+    "description": "Krótki i podły. Dobry w drugiej ręce, kiedy pierwsza trzyma miecz."
+  },
+  {
+    "id": "pistolet_skalkowy",
+    "name": "Pistolet skałkowy",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "proch",
+    "damageType": "palne",
+    "damage": [
+      10,
+      18
+    ],
+    "apCost": 4,
+    "range": "far",
+    "armorPierce": 4,
+    "minStrength": 3,
+    "reload": {
+      "apCost": 5,
+      "ammo": "kula_z_prochem",
+      "capacity": 1
+    },
+    "misfireChance": 15,
+    "burstChance": 2,
+    "burstDamage": [
+      4,
+      8
+    ],
+    "noise": 3,
+    "fear": 20,
+    "smoke": 30,
+    "masteryType": "palna",
+    "weight": 1.5,
+    "value": 66,
+    "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha."
+  },
+  {
+    "id": "kula_z_prochem",
+    "name": "Kula z prochem",
+    "type": "ammo",
+    "weight": 0.05,
+    "value": 6,
+    "description": "Ołowiana kula i odmierzony zapał, zawinięte w papierowy nabój."
+  },
+  {
+    "id": "strzala",
+    "name": "Strzała",
+    "type": "ammo",
+    "weight": 0.05,
+    "value": 1,
+    "description": "Brzechwa z kurzym piórem."
+  },
+  {
+    "id": "belt",
+    "name": "Belt",
+    "type": "ammo",
+    "weight": 0.1,
+    "value": 2,
+    "description": "Krótki, kuty bełt do kuszy."
+  },
+  {
+    "id": "kaftan_przeszywany",
+    "name": "Kaftan przeszywany",
+    "type": "armor",
+    "tier": 1,
+    "slot": "tulow",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 15,
+      "obuchowe": 20,
+      "klute": 5
+    },
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 5,
+    "value": 40,
+    "description": "Gruba warstwa pikowanego płótna. Latem parzy jak kożuch."
+  },
+  {
+    "id": "kolczuga",
+    "name": "Kolczuga",
+    "type": "armor",
+    "tier": 2,
+    "slot": "tulow",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 30,
+      "klute": 10
+    },
+    "modifiers": {
+      "ap": -1,
+      "skradanie": -20
+    },
+    "weight": 12,
+    "value": 83,
+    "description": "Ciężka i brzęczy, ale trzyma ostrze z dala od skóry."
+  },
+  {
+    "id": "kaptur_mysliwego",
+    "name": "Kaptur myśliwego",
+    "type": "armor",
+    "tier": 1,
+    "slot": "glowa",
+    "modifiers": {
+      "bystrosc": 1,
+      "resist_oslepienie": 20
+    },
+    "weight": 0.5,
+    "value": 30,
+    "description": "Chroni ślepia przed blaskiem i kurzem."
+  },
+  {
+    "id": "rekawice_lucznicze",
+    "name": "Rękawice łucznicze",
+    "type": "armor",
+    "tier": 1,
+    "slot": "rece",
+    "modifiers": {
+      "strzelecka": 10
+    },
+    "weight": 0.3,
+    "value": 25,
+    "description": "Skórzane, z gołymi palcami."
+  },
+  {
+    "id": "buty_podkute",
+    "name": "Buty podkute",
+    "type": "armor",
+    "tier": 1,
+    "slot": "nogi",
+    "armor": 1,
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 1.5,
+    "value": 20,
+    "description": "Dzwonią o każdy kamień."
+  },
+  {
+    "id": "plaszcz_wedrowca",
+    "name": "Płaszcz wędrowca",
+    "type": "armor",
+    "tier": 1,
+    "slot": "plaszcz",
+    "modifiers": {
+      "skradanie": 5
+    },
+    "weight": 1.5,
+    "value": 15,
+    "description": "Szary, zlewa się z błotem."
+  },
+  {
+    "id": "pas_zwykly",
+    "name": "Zwykły pas",
+    "type": "armor",
+    "tier": 1,
+    "slot": "pas",
+    "quickSlots": 2,
+    "weight": 0.3,
+    "value": 5,
+    "description": "Pas z wołowej skóry z dwiema przytroczkami."
+  },
+  {
+    "id": "pas_ladownice",
+    "name": "Pas z ładownicami",
+    "type": "armor",
+    "tier": 2,
+    "slot": "pas",
+    "quickSlots": 4,
+    "weight": 0.8,
+    "value": 17,
+    "description": "Cztery ładownice pod samą ręką."
+  },
+  {
+    "id": "opatrunek",
+    "name": "Opatrunek",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "heal": [
+      3,
+      6
+    ],
+    "healSkill": "medycyna",
+    "removes": [
+      "krwawienie"
+    ],
+    "weight": 0.2,
+    "value": 8,
+    "description": "Czyste płótno i odrobina wosku. Tamuje krew."
+  },
+  {
+    "id": "napar_ziol",
+    "name": "Napar ziół",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "heal": [
+      6,
+      10
+    ],
+    "healSkill": "medycyna",
+    "weight": 0.3,
+    "value": 15,
+    "description": "Gorzki jak piołun, stawia na nogi."
+  },
+  {
+    "id": "bimber",
+    "name": "Bimber",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "applies": [
+      "podchmielenie"
+    ],
+    "weight": 0.5,
+    "value": 6,
+    "description": "Mętny, ostry, grzeje od środka jak piec."
+  },
+  {
+    "id": "gulasz",
+    "name": "Gulasz z kaszą",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "applies": [
+      "najedzony"
+    ],
+    "food": {
+      "order": 2
+    },
+    "weight": 0.6,
+    "value": 9,
+    "description": "Miska gęstego gulaszu z kaszą, jeszcze ciepła od garnka. Po takiej chłop chodzi pewniej."
+  },
+  {
+    "id": "napar_z_korzeni",
+    "name": "Napar z korzeni",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "applies": [
+      "mocny_napar"
+    ],
+    "weight": 0.3,
+    "value": 20,
+    "description": "Korzenie, kora i coś, czego znachorka nie chce nazwać. Smakuje jak but, działa jak kopniak."
+  },
+  {
+    "id": "loj_do_ostrza",
+    "name": "Łój do ostrza",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "applies": [
+      "natluszczone_ostrze"
+    ],
+    "weight": 0.2,
+    "value": 7,
+    "description": "Kawał łoju w szmatce. Natarty na klingę sprawia, że ostrze wchodzi tam, gdzie ma wejść."
+  },
+  {
+    "id": "garniec_wapno",
+    "name": "Garniec z wapnem",
+    "type": "throwable",
+    "skill": "miotanie",
+    "apCost": 3,
+    "target": "single",
+    "effects": [
+      {
+        "id": "oslepienie",
+        "chance": 90
+      }
+    ],
+    "weight": 1,
+    "value": 15,
+    "description": "Glina, wapno i porządny zamach."
+  },
+  {
+    "id": "garnek_huku",
+    "name": "Garnek huku",
+    "type": "throwable",
+    "skill": "miotanie",
+    "apCost": 3,
+    "target": "single_splash",
+    "effects": [
+      {
+        "id": "ogluszenie",
+        "chance": 70
+      }
+    ],
+    "weight": 1,
+    "value": 20,
+    "description": "Garnek prochu i gwoździ. Huk, co wytrząsa myśli z łba."
+  },
+  {
+    "id": "swieca_dymna",
+    "name": "Świeca dymna",
+    "type": "throwable",
+    "skill": "miotanie",
+    "apCost": 3,
+    "target": "battlefield",
+    "effects": [
+      {
+        "id": "zadymienie",
+        "chance": 100
+      }
+    ],
+    "weight": 1,
+    "value": 20,
+    "description": "Gęsty, gryzący smród dymu na kilka tur."
+  },
+  {
+    "id": "puszka_szerszeni",
+    "name": "Puszka z szerszeniami",
+    "type": "throwable",
+    "skill": "miotanie",
+    "apCost": 3,
+    "target": "single",
+    "effects": [
+      {
+        "id": "rozkojarzenie",
+        "chance": 90
+      }
+    ],
+    "weight": 1,
+    "value": 25,
+    "description": "Gliniana puszka zatkana szmatą. Nie potrząsaj, uchowaj Bóg."
+  },
+  {
+    "id": "kamien_zmierzchu",
+    "name": "Kamień Zmierzchu",
+    "type": "artifact",
+    "slot": "talizman",
+    "weight": 0.3,
+    "value": 0,
+    "charge": {
+      "max": 100,
+      "start": 40
+    },
+    "regen": {
+      "perHour": 4,
+      "conditions": [
+        {
+          "when": "night",
+          "multiplier": 2
+        },
+        {
+          "when": "near:upior",
+          "multiplier": 0
+        }
+      ],
+      "requiresExposure": true
+    },
+    "passive": [
+      {
+        "minCharge": 75,
+        "modifiers": {
+          "bystrosc": 1
+        }
+      }
+    ],
+    "abilities": [
+      {
+        "id": "plonace_ostrze",
+        "name": "Płonące ostrze",
+        "cost": {
+          "type": "percent",
+          "value": 50
+        },
+        "apCost": 2,
+        "effect": {
+          "id": "ostrze_ognia",
+          "target": "self",
+          "duration": 3
+        }
+      },
+      {
+        "id": "zaslona_zmierzchu",
+        "name": "Zasłona Zmierzchu",
+        "cost": {
+          "type": "all"
+        },
+        "requiresFull": true,
+        "apCost": 4,
+        "effect": {
+          "id": "zaslona",
+          "target": "self",
+          "duration": 3
+        }
+      }
+    ],
+    "whenEmpty": {
+      "usable": true,
+      "costHp": 10,
+      "text": "Kamień pije z ciebie."
+    },
+    "description": "Ciemny, gładki kamień, ciepły jak żywa dłoń. Nocą pulsuje fioletem."
+  },
+  {
+    "id": "miecz_gwiazd_test",
+    "name": "Miecz Gwiazd (próba)",
+    "type": "artifact",
+    "slot": "bron",
+    "hidden": true,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      4,
+      8
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "masteryType": "miecz",
+    "weight": 2,
+    "value": 0,
+    "charge": {
+      "max": 50,
+      "start": 50
+    },
+    "regen": {
+      "perHour": 2
+    },
+    "passive": [
+      {
+        "minCharge": 25,
+        "modifiers": {
+          "meleeHitChance": 5
+        }
+      }
+    ],
+    "abilities": [
+      {
+        "id": "zar_ostrza",
+        "name": "Żar ostrza",
+        "cost": {
+          "type": "fixed",
+          "value": 10
+        },
+        "apCost": 2,
+        "effect": {
+          "id": "ostrze_ognia",
+          "target": "self",
+          "duration": 2
+        }
+      }
+    ],
+    "description": "Próbna sztuka broni-artefaktu. Wyłącznie do testów silnika."
+  },
+  {
+    "id": "prowiant",
+    "name": "Prowiant",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "weight": 0.5,
+    "value": 3,
+    "food": {
+      "order": 3
+    },
+    "description": "Suchy chleb, płat słoniny i bukłak wody. Na dzień drogi."
+  },
+  {
+    "id": "mieso",
+    "name": "Mięso",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "weight": 0.6,
+    "value": 2,
+    "food": {
+      "order": 2
+    },
+    "description": "Kawał surowego mięsa. Upieczone nad ogniem napcha brzuch jak trzeba."
+  },
+  {
+    "id": "jagody",
+    "name": "Jagody",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "weight": 0.1,
+    "value": 1,
+    "food": {
+      "order": 1
+    },
+    "description": "Garść leśnych jagód. Słodkie, ale do wieczora się zepsują."
+  },
+  {
+    "id": "grzyby",
+    "name": "Grzyby",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "weight": 0.2,
+    "value": 1,
+    "food": {
+      "order": 1,
+      "risk": {
+        "effect": "trucizna",
+        "chance": 15,
+        "safeTagged": "medycyna"
+      }
+    },
+    "description": "Garść leśnych grzybów. Jadalne? Czart je wie."
+  },
+  {
+    "id": "orzechy",
+    "name": "Orzechy",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "weight": 0.2,
+    "value": 1,
+    "food": {
+      "order": 2
+    },
+    "description": "Orzechy laskowe. Twarde jak kamień, ale sycą."
+  },
+  {
+    "id": "ziola_lesne",
+    "name": "Zioła leśne",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "heal": [
+      2,
+      4
+    ],
+    "healSkill": "medycyna",
+    "weight": 0.1,
+    "value": 4,
+    "description": "Garść ziela z runa. Rozgniecione i przyłożone do rany trochę pomagają."
+  },
+  {
+    "id": "amulet_strazniczy",
+    "name": "Amulet strażniczy",
+    "type": "misc",
+    "weight": 0.1,
+    "value": 0,
+    "description": "Wytarta blaszka na rzemieniu, z wybitym znakiem strażnicy. Ragnosława nosiła ją pod koszulą, przy samej skórze."
+  },
+  {
+    "id": "mapa_przewodnika",
+    "name": "Mapa przewodnika",
+    "type": "misc",
+    "weight": 0.1,
+    "value": 0,
+    "description": "Zatłuszczony szkic drogi, ledwo do odczytania. Przewodnik porzucił go razem z tobołkiem, kiedy wiał."
+  },
+  {
+    "id": "ziola_dla_wrzoska",
+    "name": "Ziela z polany",
+    "type": "misc",
+    "weight": 0.2,
+    "value": 0,
+    "description": "Pęczek gorzkiego ziela. Karczmarz Wrzosek płaci za nie lepiej, niż ugaszcza."
+  },
+  {
+    "id": "worek_zboza",
+    "name": "Worek zboża",
+    "type": "misc",
+    "weight": 0.2,
+    "value": 0,
+    "description": "Pół worka, który kramarz ma za pełny. Młynarz Ostap ma na ten temat swoje zdanie."
+  },
+  {
+    "id": "list_komendanta",
+    "name": "List komendanta",
+    "type": "misc",
+    "weight": 0.2,
+    "value": 0,
+    "description": "Złożona kartka z pieczęcią w kształcie wilczego kła. Komendant zakazał czytać, więc przeczytasz."
+  },
+  {
+    "id": "weksel",
+    "name": "Weksel kupca",
+    "type": "misc",
+    "weight": 0.2,
+    "value": 0,
+    "description": "Wymięty dług Ostromira, który karczmarz Wrzosek chętnie by z niego wydusił."
+  },
+  {
+    "id": "pokwitowanie",
+    "name": "Pokwitowanie",
+    "type": "misc",
+    "weight": 0.2,
+    "value": 0,
+    "description": "Kwit z podpisem Ostromira, co wygląda jak ślad pijanej kury."
+  },
+  {
+    "id": "odlamek_szkla",
+    "name": "Odłamek szkła",
+    "type": "misc",
+    "weight": 0.2,
+    "value": 0,
+    "description": "Ciemny, ciężki odłamek, który w garści robi się cieplejszy, niż powinien. Lepiej splunąć przez ramię."
+  },
+  {
+    "id": "list_kopacza",
+    "name": "Zaklejony list",
+    "type": "misc",
+    "weight": 0.1,
+    "value": 0,
+    "description": "Cesarska pieczęć na zaklejonym liście z kieszeni nieboszczyka. Kopacz Jerzy nie umie go przeczytać."
+  },
+  {
+    "id": "wosk_pieczetny",
+    "name": "Wosk pieczętny",
+    "type": "misc",
+    "weight": 0.2,
+    "value": 0,
+    "description": "Czerwony wosk od siostry Haliny. Przyda się temu, kto się zna na sygnetach."
+  },
+  {
+    "id": "szara_trzcina",
+    "name": "Szara trzcina",
+    "type": "misc",
+    "weight": 0.3,
+    "value": 0,
+    "description": "Wiązka trzciny z Bagien Szarej Wody, mokra i ciemna. Znachorka Dobrawa uwarzy z niej napar na gorączkę."
+  },
+  {
+    "id": "odlamek_krateru",
+    "name": "Odłamek z krateru",
+    "type": "misc",
+    "weight": 0.2,
+    "value": 0,
+    "description": "Kawał szkła, który pamięta, jak nim cisnięto. Zimny jak lód, choć leży w słońcu.",
+    "unburdened": true
+  },
+  {
+    "id": "rdzen_maszyny",
+    "name": "Rdzeń maszyny",
+    "type": "misc",
+    "weight": 1.5,
+    "value": 0,
+    "description": "Ciężki walec z miedzi i szkła, wyrwany z wraku. Co jakiś czas pulsuje w rytmie, którego nie znasz."
+  },
+  {
+    "id": "miecz_zolnierski",
+    "name": "Miecz żołnierski",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "masteryType": "miecz",
+    "weight": 2.5,
+    "value": 61,
+    "description": "Prosty, pewny i wyszczerbiony w sam raz. Wojsko takie lubi."
+  },
+  {
+    "id": "miecz_straznika",
+    "name": "Miecz strażnika",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      7,
+      12
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 3,
+    "value": 135,
+    "description": "Kuty w dobrej kuźni, z rękojeścią, co nie ślizga się we krwi."
+  },
+  {
+    "id": "miecz_mistrza",
+    "name": "Miecz mistrza",
+    "type": "weapon",
+    "tier": 4,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      9,
+      15
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 2.5,
+    "value": 650,
+    "description": "Ktoś nad nim spędził cały zimowy sezon. Nie dla wsi, nie dla bandy."
+  },
+  {
+    "id": "sztylet_zbojecki",
+    "name": "Sztylet zbójecki",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "klute",
+    "damage": [
+      3,
+      5
+    ],
+    "apCost": 2,
+    "range": "melee",
+    "minStrength": 1,
+    "offhand": true,
+    "masteryType": "miecz",
+    "weight": 0.5,
+    "value": 39,
+    "description": "Wąski, podły i zawsze pod ręką. Czysty tylko z wierzchu."
+  },
+  {
+    "id": "topor_zbojecki",
+    "name": "Topór zbójecki",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      6,
+      11
+    ],
+    "apCost": 4,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 3,
+    "value": 55,
+    "description": "Rąbie drwa i kości z równą ochotą."
+  },
+  {
+    "id": "maczuga_kolkowa",
+    "name": "Maczuga kolkowa",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "obuchowe",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 4,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 3.5,
+    "value": 44,
+    "description": "Kij z żelaznymi kolcami. Argument, nie broń."
+  },
+  {
+    "id": "bulawa",
+    "name": "Buława",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "sieczna",
+    "damageType": "obuchowe",
+    "damage": [
+      8,
+      14
+    ],
+    "apCost": 4,
+    "range": "melee",
+    "minStrength": 5,
+    "masteryType": "miecz",
+    "weight": 4,
+    "value": 120,
+    "description": "Ciężka głowica na żelaznym trzonku. Kto oberwie, ten nie zapyta za co."
+  },
+  {
+    "id": "para_wloczni_lowieckich",
+    "name": "Para włóczni łowieckich",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      4,
+      8
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "pair": true,
+    "reach": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "weight": 3,
+    "value": 61,
+    "description": "Szerokie groty na dziki. Na ludzi też się nadają."
+  },
+  {
+    "id": "para_wloczni_strazniczych",
+    "name": "Para włóczni strażniczych",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "pair": true,
+    "reach": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "weight": 3.5,
+    "value": 130,
+    "description": "Wyważone, z grotami od porządnego kowala."
+  },
+  {
+    "id": "para_wloczni_kutych",
+    "name": "Para włóczni kutych",
+    "type": "weapon",
+    "tier": 4,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      7,
+      13
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "pair": true,
+    "reach": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "weight": 3,
+    "value": 640,
+    "description": "Groty kute tak, że wchodzą w blachę jak w masło."
+  },
+  {
+    "id": "kastet",
+    "name": "Kastet",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      2,
+      4
+    ],
+    "apCost": 2,
+    "range": "melee",
+    "minStrength": 1,
+    "weight": 0.5,
+    "value": 20,
+    "description": "Żelazo na palce. Rozmowa staje się krótsza."
+  },
+  {
+    "id": "rekawice_nabijane",
+    "name": "Rękawice nabijane",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      3,
+      6
+    ],
+    "apCost": 2,
+    "range": "melee",
+    "minStrength": 2,
+    "weight": 1,
+    "value": 39,
+    "description": "Skóra, gwoździe i dobre chęci."
+  },
+  {
+    "id": "piesc_zelazna",
+    "name": "Pięść żelazna",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      5,
+      9
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 5,
+    "weight": 1.5,
+    "value": 115,
+    "description": "Żelazna rękawica z wypustkami. Zęby liczy się później."
+  },
+  {
+    "id": "luk_wojenny",
+    "name": "Łuk wojenny",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 4,
+    "range": "far",
+    "minStrength": 3,
+    "reload": {
+      "apCost": 1,
+      "ammo": "strzala",
+      "capacity": 1
+    },
+    "masteryType": "luk",
+    "weight": 1.8,
+    "value": 61,
+    "description": "Mocniejszy od myśliwskiego, tylko ramiona bolą."
+  },
+  {
+    "id": "luk_zlozony",
+    "name": "Łuk złożony",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      7,
+      13
+    ],
+    "apCost": 4,
+    "range": "far",
+    "minStrength": 4,
+    "reload": {
+      "apCost": 1,
+      "ammo": "strzala",
+      "capacity": 1
+    },
+    "masteryType": "luk",
+    "weight": 1.6,
+    "value": 135,
+    "description": "Róg, drewno i ścięgno. Strzela daleko i celnie."
+  },
+  {
+    "id": "kusza_zolnierska",
+    "name": "Kusza żołnierska",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      10,
+      17
+    ],
+    "apCost": 5,
+    "range": "far",
+    "minStrength": 4,
+    "reload": {
+      "apCost": 4,
+      "ammo": "belt",
+      "capacity": 1
+    },
+    "armorPierce": 4,
+    "masteryType": "kusza",
+    "weight": 4.5,
+    "value": 125,
+    "description": "Napina się korbą. Bełt przebija kolczugę i gadkę."
+  },
+  {
+    "id": "kusza_cesarska",
+    "name": "Kusza cesarska",
+    "type": "weapon",
+    "tier": 4,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      12,
+      20
+    ],
+    "apCost": 5,
+    "range": "far",
+    "minStrength": 5,
+    "reload": {
+      "apCost": 4,
+      "ammo": "belt",
+      "capacity": 1
+    },
+    "armorPierce": 5,
+    "masteryType": "kusza",
+    "weight": 4.5,
+    "value": 700,
+    "description": "Cesarski arsenał nie rozdaje takich ludziom. Ta jakoś wyszła."
+  },
+  {
+    "id": "pistolet_wojskowy",
+    "name": "Pistolet wojskowy",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "proch",
+    "damageType": "palne",
+    "damage": [
+      12,
+      20
+    ],
+    "apCost": 4,
+    "range": "far",
+    "minStrength": 3,
+    "reload": {
+      "apCost": 5,
+      "ammo": "kula_z_prochem",
+      "capacity": 1
+    },
+    "armorPierce": 4,
+    "misfireChance": 12,
+    "burstChance": 2,
+    "burstDamage": [
+      4,
+      8
+    ],
+    "noise": 3,
+    "fear": 20,
+    "smoke": 30,
+    "masteryType": "palna",
+    "weight": 1.8,
+    "value": 145,
+    "description": "Dłuższa lufa, lepszy zamek. Zacina się rzadziej, ale też."
+  },
+  {
+    "id": "rusznica",
+    "name": "Rusznica",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "proch",
+    "damageType": "palne",
+    "damage": [
+      16,
+      26
+    ],
+    "apCost": 6,
+    "range": "far",
+    "minStrength": 5,
+    "reload": {
+      "apCost": 6,
+      "ammo": "kula_z_prochem",
+      "capacity": 1
+    },
+    "armorPierce": 6,
+    "misfireChance": 18,
+    "burstChance": 3,
+    "burstDamage": [
+      6,
+      10
+    ],
+    "noise": 4,
+    "fear": 30,
+    "smoke": 40,
+    "masteryType": "palna",
+    "weight": 5,
+    "value": 165,
+    "description": "Huk słychać do sąsiedniej wsi. Wróg fika w powietrzu, a ty w ucho."
+  },
+  {
+    "id": "kurta_skorzana",
+    "name": "Kurta skórzana",
+    "type": "armor",
+    "tier": 1,
+    "slot": "tulow",
+    "armor": 1,
+    "reduction": {
+      "sieczne": 10,
+      "klute": 5
+    },
+    "weight": 3,
+    "value": 45,
+    "description": "Wygarbowana, cuchnie, ale trzyma."
+  },
+  {
+    "id": "skorznia_nabijana",
+    "name": "Skórznia nabijana",
+    "type": "armor",
+    "tier": 2,
+    "slot": "tulow",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 20,
+      "obuchowe": 15,
+      "klute": 10
+    },
+    "modifiers": {
+      "skradanie": -10
+    },
+    "weight": 8,
+    "value": 61,
+    "description": "Skóra z naszytymi blaszkami. Skrzypi na każdy krok."
+  },
+  {
+    "id": "kolczuga_straznicza",
+    "name": "Kolczuga strażnicza",
+    "type": "armor",
+    "tier": 3,
+    "slot": "tulow",
+    "armor": 3,
+    "reduction": {
+      "sieczne": 35,
+      "klute": 15,
+      "obuchowe": 10
+    },
+    "modifiers": {
+      "ap": -1,
+      "skradanie": -25
+    },
+    "weight": 13,
+    "value": 135,
+    "description": "Drobne, gęste oczka. Kowal, co ją plótł, ślepł dla chleba."
+  },
+  {
+    "id": "polpancerz",
+    "name": "Półpancerz",
+    "type": "armor",
+    "tier": 3,
+    "slot": "tulow",
+    "armor": 4,
+    "reduction": {
+      "sieczne": 40,
+      "klute": 25,
+      "obuchowe": 20
+    },
+    "modifiers": {
+      "ap": -1,
+      "skradanie": -25
+    },
+    "weight": 16,
+    "value": 170,
+    "description": "Blacha na piersi i plecach. W takim kroczysz jak beczka, ale beczka nie umiera od strzały."
+  },
+  {
+    "id": "helm_skorzany",
+    "name": "Helm skórzany",
+    "type": "armor",
+    "tier": 1,
+    "slot": "glowa",
+    "armor": 1,
+    "weight": 0.7,
+    "value": 30,
+    "description": "Utwardzona skóra. Dobra na kamienie i niedobre słowa."
+  },
+  {
+    "id": "czapa_kolcza",
+    "name": "Czapa kolcza",
+    "type": "armor",
+    "tier": 2,
+    "slot": "glowa",
+    "armor": 1,
+    "reduction": {
+      "sieczne": 10
+    },
+    "weight": 1.5,
+    "value": 39,
+    "description": "Kolczy kaptur pod kapeluszem. Kto nie widzi, ten nie wie."
+  },
+  {
+    "id": "helm_zelazny",
+    "name": "Helm żelazny",
+    "type": "armor",
+    "tier": 2,
+    "slot": "glowa",
+    "armor": 2,
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 2,
+    "value": 52,
+    "description": "Żelazny garnek z nosalem. Dzwoni, gdy ktoś trafi."
+  },
+  {
+    "id": "helm_straznika",
+    "name": "Helm strażnika",
+    "type": "armor",
+    "tier": 3,
+    "slot": "glowa",
+    "armor": 3,
+    "modifiers": {
+      "resist_ogluszenie": 25
+    },
+    "weight": 2.5,
+    "value": 115,
+    "description": "Gruba stal i podszewka z koziej skóry. Łeb zostaje na miejscu, a w nim to, co było."
+  },
+  {
+    "id": "rekawice_skorzane",
+    "name": "Rękawice skórzane",
+    "type": "armor",
+    "tier": 1,
+    "slot": "rece",
+    "armor": 1,
+    "weight": 0.4,
+    "value": 25,
+    "description": "Grube i ciepłe. Trzymają pięść na zimę."
+  },
+  {
+    "id": "karwasze",
+    "name": "Karwasze",
+    "type": "armor",
+    "tier": 2,
+    "slot": "rece",
+    "armor": 1,
+    "reduction": {
+      "obuchowe": 10
+    },
+    "weight": 1,
+    "value": 39,
+    "description": "Blachy na przedramionach. Ratują kości przed pałką."
+  },
+  {
+    "id": "rekawice_kolcze",
+    "name": "Rękawice kolcze",
+    "type": "armor",
+    "tier": 3,
+    "slot": "rece",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 10
+    },
+    "weight": 1.2,
+    "value": 95,
+    "description": "Kolczy splot na dłoniach. Ostrze ślizga się po kłykciach."
+  },
+  {
+    "id": "buty_wedrowca",
+    "name": "Buty wędrowca",
+    "type": "armor",
+    "tier": 2,
+    "slot": "nogi",
+    "modifiers": {
+      "skradanie": 5,
+      "fleeChance": 10
+    },
+    "weight": 1.2,
+    "value": 30,
+    "description": "Miękkie, wygodne i dobre do uciekania."
+  },
+  {
+    "id": "nagolenniki",
+    "name": "Nagolenniki",
+    "type": "armor",
+    "tier": 2,
+    "slot": "nogi",
+    "armor": 1,
+    "reduction": {
+      "sieczne": 15
+    },
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 2.5,
+    "value": 50,
+    "description": "Blachy na goleniach. Chodzi się jak kaczka, za to nogi zostają."
+  },
+  {
+    "id": "buty_straznika",
+    "name": "Buty strażnika",
+    "type": "armor",
+    "tier": 3,
+    "slot": "nogi",
+    "armor": 2,
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 2,
+    "value": 100,
+    "description": "Ciężkie, podkute, z cholewą do kolan."
+  },
+  {
+    "id": "plaszcz_skorzany",
+    "name": "Płaszcz skórzany",
+    "type": "armor",
+    "tier": 2,
+    "slot": "plaszcz",
+    "armor": 1,
+    "reduction": {
+      "klute": 10,
+      "sieczne": 5
+    },
+    "weight": 2,
+    "value": 39,
+    "description": "Skóra, co deszczu nie przepuszcza i noża nie lubi."
+  },
+  {
+    "id": "plaszcz_lowczy",
+    "name": "Płaszcz łowczy",
+    "type": "armor",
+    "tier": 2,
+    "slot": "plaszcz",
+    "modifiers": {
+      "skradanie": 10
+    },
+    "weight": 1.5,
+    "value": 36,
+    "description": "Zielono-szary, pachnie lasem. Zwierz się nie zorientuje, człowiek też nie."
+  },
+  {
+    "id": "plaszcz_cesarski",
+    "name": "Płaszcz cesarski",
+    "type": "armor",
+    "tier": 3,
+    "slot": "plaszcz",
+    "armor": 1,
+    "reduction": {
+      "sieczne": 15,
+      "klute": 10
+    },
+    "modifiers": {
+      "oglada": 1
+    },
+    "weight": 2,
+    "value": 130,
+    "description": "Czerwony, wełniany, z wyszytym orłem. W nim ludzie ustępują z drogi, a zwiadowcy wołają za tobą."
+  },
+  {
+    "id": "pas_zolnierski",
+    "name": "Pas żołnierski",
+    "type": "armor",
+    "tier": 3,
+    "slot": "pas",
+    "quickSlots": 5,
+    "weight": 0.8,
+    "value": 45,
+    "description": "Pięć przytroczek i klamra jak podkowa."
+  },
+  {
+    "id": "oberog_krwawienia",
+    "name": "Oberóg od krwi",
+    "type": "armor",
+    "tier": 2,
+    "slot": "talizman",
+    "modifiers": {
+      "resist_krwawienie": 25
+    },
+    "weight": 0.1,
+    "value": 50,
+    "description": "Węzeł z czerwonej nitki. Baby mówią, że tamuje."
+  },
+  {
+    "id": "kiel_dzika",
+    "name": "Kieł dzika",
+    "type": "armor",
+    "tier": 2,
+    "slot": "talizman",
+    "modifiers": {
+      "hpMax": 5
+    },
+    "weight": 0.1,
+    "value": 55,
+    "description": "Oprawny w mosiądz. Daje siłę, jak ten, który go zgubił."
+  },
+  {
+    "id": "podkowa_szczescia",
+    "name": "Podkowa szczęścia",
+    "type": "armor",
+    "tier": 2,
+    "slot": "talizman",
+    "modifiers": {
+      "fart": 1
+    },
+    "weight": 0.3,
+    "value": 61,
+    "description": "Mała, kuta na ślepo, wisi na rzemyku. Jakoś pomaga."
+  },
+  {
+    "id": "amulet_wilczy",
+    "name": "Amulet wilczy",
+    "type": "armor",
+    "tier": 2,
+    "slot": "talizman",
+    "modifiers": {
+      "initiative": 3
+    },
+    "weight": 0.1,
+    "value": 50,
+    "description": "Ząb wilka i kawałek sierści. Jako pierwszy słyszysz, że ktoś idzie."
+  },
+  {
+    "id": "paciorek_pielgrzyma",
+    "name": "Paciorek pielgrzyma",
+    "type": "armor",
+    "tier": 2,
+    "slot": "talizman",
+    "modifiers": {
+      "wymowa": 5
+    },
+    "weight": 0.1,
+    "value": 44,
+    "description": "Jeden paciorek z długiego sznura. Język ci się jakoś rozwiązuje."
+  },
+  {
+    "id": "talizman_z_odlamka",
+    "name": "Talizman z odłamka",
+    "type": "armor",
+    "tier": 3,
+    "slot": "talizman",
+    "modifiers": {
+      "effectDuration_strach": -30
+    },
+    "weight": 0.2,
+    "value": 120,
+    "description": "Kawałek zimnego metalu z gwiazd. Przy nim mniej się boisz. Albo tak ci się wydaje."
+  },
+  {
+    "id": "zawieszka_stroza",
+    "name": "Zawieszka stróża",
+    "type": "armor",
+    "tier": 3,
+    "slot": "talizman",
+    "modifiers": {
+      "resist_ogluszenie": 25,
+      "resist_zamroczenie": 20
+    },
+    "weight": 0.3,
+    "value": 130,
+    "description": "Stare strażnicze odznaki. Łeb trzyma się mocniej."
+  },
+  {
+    "id": "oko_nocy",
+    "name": "Oko nocy",
+    "type": "armor",
+    "tier": 3,
+    "slot": "talizman",
+    "modifiers": {
+      "bystrosc": 1,
+      "rangedHitChance": 5
+    },
+    "weight": 0.2,
+    "value": 140,
+    "description": "Czarny kamień, w którym coś błyska. Noc robi się nieco jaśniejsza."
+  },
+  {
+    "id": "skora_dzika",
+    "name": "Skóra dzika",
+    "type": "material",
+    "weight": 1.5,
+    "value": 12,
+    "description": "Gruba, śmierdząca. Garbarz da za nią grosze."
+  },
+  {
+    "id": "kly_wilcze",
+    "name": "Kły wilcze",
+    "type": "material",
+    "weight": 0.2,
+    "value": 8,
+    "description": "Garść żółtych kłów. Dla znachora do wisiorków."
+  },
+  {
+    "id": "zolc_zmij",
+    "name": "Żółć żmii",
+    "type": "material",
+    "weight": 0.1,
+    "value": 15,
+    "description": "Mała fiolka. Znachorka da za nią więcej, niż wygląda."
+  },
+  {
+    "id": "bursztyn_blednika",
+    "name": "Bursztyn błędnika",
+    "type": "material",
+    "weight": 0.1,
+    "value": 25,
+    "description": "Ciepły w dotyku, choć nic go nie grzeje."
+  },
+  {
+    "id": "rog_utopca",
+    "name": "Róg utopca",
+    "type": "material",
+    "weight": 0.5,
+    "value": 20,
+    "description": "Zielony od szlamu róg. Czasem śmierdzi i po umyciu."
+  },
+  {
+    "id": "futro_lisa",
+    "name": "Futro lisa",
+    "type": "material",
+    "weight": 0.8,
+    "value": 10,
+    "description": "Rude i miękkie. Kuśnierz się ucieszy."
+  },
+  {
+    "id": "pierscien_zbojecki",
+    "name": "Pierścień zbójecki",
+    "type": "material",
+    "weight": 0.1,
+    "value": 40,
+    "description": "Cudzy, ale się sprzeda."
+  },
+  {
+    "id": "srebrny_kubek",
+    "name": "Srebrny kubek",
+    "type": "material",
+    "weight": 0.4,
+    "value": 30,
+    "description": "Z kupieckiego wozu. Właściciel już nie zapyta."
+  },
+  {
+    "id": "grzebien_kosciany",
+    "name": "Grzebień kościany",
+    "type": "material",
+    "weight": 0.1,
+    "value": 18,
+    "description": "Rzeźbiony, z kilkoma brakującymi zębami."
+  },
+  {
+    "id": "miod_pitny",
+    "name": "Miód pitny",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "heal": [
+      4,
+      8
+    ],
+    "healSkill": "medycyna",
+    "weight": 0.5,
+    "value": 12,
+    "description": "Słodki i zdradliwy. Rozgrzewa i trochę leczy."
+  },
+  {
+    "id": "oklad_ziolowy",
+    "name": "Okład ziołowy",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "heal": [
+      8,
+      14
+    ],
+    "healSkill": "medycyna",
+    "weight": 0.4,
+    "value": 30,
+    "description": "Lipa, arnika i niecne gadanie znachorki."
+  },
+  {
+    "id": "odtrutka",
+    "name": "Odtrutka",
+    "type": "consumable",
+    "target": "self",
+    "apCost": 3,
+    "removes": [
+      "trucizna"
+    ],
+    "weight": 0.2,
+    "value": 25,
+    "description": "Gorzka jak piołun. Wypłukuje jad z krwi."
+  },
+  {
+    "id": "flasza_oleju",
+    "name": "Flasza oleju",
+    "type": "throwable",
+    "skill": "miotanie",
+    "apCost": 3,
+    "target": "single",
+    "effects": [
+      {
+        "id": "podpalenie",
+        "chance": 80
+      }
+    ],
+    "weight": 1,
+    "value": 25,
+    "description": "Olej i knot. Rzucasz, zapala się, wróg tańczy."
+  },
+  {
+    "id": "paczka_kupca",
+    "name": "Paczka kupca",
+    "type": "misc",
+    "weight": 0.3,
+    "value": 0,
+    "description": "Zawiniątko w szmatce, zawiązane na trzy węzły. Lekkie, ale ktoś czeka."
+  },
+  {
+    "id": "list_gonca",
+    "name": "List gońca",
+    "type": "misc",
+    "weight": 0.3,
+    "value": 0,
+    "description": "Zalakowany wojskowym woskiem. Nie czytaj, bo ci się nie spodoba."
+  },
+  {
+    "id": "list_zolnierza",
+    "name": "List żołnierza",
+    "type": "misc",
+    "weight": 0.3,
+    "value": 0,
+    "description": "Ostatnie słowa spisane drżącą ręką."
+  },
+  {
+    "id": "kobialka_ziol",
+    "name": "Kobiałka ziół",
+    "type": "misc",
+    "weight": 0.3,
+    "value": 0,
+    "description": "Zioła z bagien. Pachną jak stara piwnica."
+  },
+  {
+    "id": "notatnik_ucznia",
+    "name": "Notatnik ucznia",
+    "type": "misc",
+    "weight": 0.3,
+    "value": 0,
+    "description": "Poplamiony atramentem, z rysunkiem gwiazdy na okładce."
+  },
+  {
+    "id": "sakiewka_odlamkow",
+    "name": "Sakiewka odłamków",
+    "type": "misc",
+    "weight": 0.3,
+    "value": 0,
+    "description": "Szkło brzęczy jak drobne. Nie obracaj sakiewki do światła."
+  },
+  {
+    "id": "ostrze_gwiazd_bogdana",
+    "name": "Ostrze Gwiazd (kute przez Bogdana)",
+    "type": "artifact",
+    "tier": 4,
+    "slot": "bron",
+    "damageType": "gwiezdne",
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "value": 0,
+    "charge": {
+      "max": 50,
+      "start": 50
+    },
+    "regen": {
+      "perHour": 2
+    },
+    "skill": "sieczna",
+    "masteryType": "miecz",
+    "weight": 2.5,
+    "damage": [
+      9,
+      15
+    ],
+    "armorPierce": 4,
+    "passive": [
+      {
+        "minCharge": 25,
+        "modifiers": {
+          "meleeHitChance": 5,
+          "critChance": 5
+        }
+      }
+    ],
+    "description": "Metal z nieba w ręku kowala, który wiedział, co robi. Upiory się go boją, i słusznie.",
+    "unburdened": true
+  },
+  {
+    "id": "ostrze_gwiazd_surowe",
+    "name": "Ostrze Gwiazd (surowe)",
+    "type": "artifact",
+    "tier": 4,
+    "slot": "bron",
+    "damageType": "gwiezdne",
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "value": 0,
+    "charge": {
+      "max": 50,
+      "start": 50
+    },
+    "regen": {
+      "perHour": 2
+    },
+    "skill": "sieczna",
+    "masteryType": "miecz",
+    "weight": 2.5,
+    "damage": [
+      8,
+      13
+    ],
+    "armorPierce": 3,
+    "passive": [
+      {
+        "minCharge": 25,
+        "modifiers": {
+          "meleeHitChance": 5
+        }
+      }
+    ],
+    "description": "Kute w pośpiechu, bez ceregieli i bez dobrego żaru. Krzywe, ale gwiezdne. Upiorom wszystko jedno, czy krzywe.",
+    "unburdened": true
+  },
+  {
+    "id": "para_gwiazd_bogdana",
+    "name": "Para Gwiazd (kuta przez Bogdana)",
+    "type": "artifact",
+    "tier": 4,
+    "slot": "bron",
+    "damageType": "gwiezdne",
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "value": 0,
+    "charge": {
+      "max": 50,
+      "start": 50
+    },
+    "regen": {
+      "perHour": 2
+    },
+    "skill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "pair": true,
+    "reach": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "weight": 3,
+    "damage": [
+      7,
+      12
+    ],
+    "armorPierce": 4,
+    "passive": [
+      {
+        "minCharge": 25,
+        "modifiers": {
+          "meleeHitChance": 5,
+          "critChance": 5
+        }
+      }
+    ],
+    "abilities": [
+      {
+        "id": "powrot_do_reki",
+        "name": "Powrót do ręki",
+        "description": "Rzucona włócznia wraca do ręki z każdej odległości i w locie zasłania cię przed ciosem: obrona +15 do końca następnej tury.",
+        "cost": {
+          "type": "fixed",
+          "value": 10
+        },
+        "apCost": 1,
+        "recall": true,
+        "effect": {
+          "id": "wracajacy_grot",
+          "target": "self",
+          "duration": 1
+        }
+      },
+      {
+        "id": "iskry",
+        "name": "Iskry",
+        "description": "Groty sypią iskrami w jednego wroga: 6–10 obrażeń gwiezdnych, zawsze trafia i omija pancerz, 35% szansy na ogłuszenie.",
+        "cost": {
+          "type": "fixed",
+          "value": 15
+        },
+        "apCost": 3,
+        "damage": [
+          6,
+          10
+        ],
+        "damageType": "gwiezdne",
+        "effect": {
+          "id": "ogluszenie",
+          "target": "enemy",
+          "chance": 35
+        }
+      }
+    ],
+    "description": "Dwa groty z nieba, kute przez kowala, który pamięta, jak się trzyma dwie włócznie naraz. Rzucone wracają do ręki, jakby miały sumienie.",
+    "unburdened": true
+  },
+  {
+    "id": "para_gwiazd_surowa",
+    "name": "Para Gwiazd (surowa)",
+    "type": "artifact",
+    "tier": 4,
+    "slot": "bron",
+    "damageType": "gwiezdne",
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "value": 0,
+    "charge": {
+      "max": 50,
+      "start": 50
+    },
+    "regen": {
+      "perHour": 2
+    },
+    "skill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "pair": true,
+    "reach": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "weight": 3,
+    "damage": [
+      6,
+      10
+    ],
+    "armorPierce": 3,
+    "passive": [
+      {
+        "minCharge": 25,
+        "modifiers": {
+          "meleeHitChance": 5
+        }
+      }
+    ],
+    "description": "Dwa nierówne groty z nieba, kute szybko i bez poprawek. Kłuje tak samo, tylko brzydziej.",
+    "unburdened": true
+  },
+  {
+    "id": "mieszek_zoldu",
+    "name": "Mieszek z żołdem",
+    "type": "misc",
+    "weight": 0,
+    "value": 0,
+    "unburdened": true,
+    "description": "Sześćdziesiąt groszy żołdu całej drużyny, z kapralską pieczęcią. Szuler je wygrał, ty je niesiesz, kapral je chce."
+  },
+  {
+    "id": "list_zelazny",
+    "name": "List żelazny",
+    "type": "misc",
+    "weight": 0,
+    "value": 0,
+    "unburdened": true,
+    "description": "Pismo z pieczęcią sztabu: kto wróci do obozu z własnej woli, nie wisi. Kapitan pisał to z miną, jakby podpisywał własny wyrok."
+  },
+  {
+    "id": "skrzynia_zoldu",
+    "name": "Skrzynia z żołdem",
+    "type": "misc",
+    "weight": 0,
+    "value": 0,
+    "unburdened": true,
+    "description": "Okuta skrzynia z pieczęcią sztabu. W środku brzęczy. Z zewnątrz pachnie kłopotami."
+  },
+  {
+    "id": "naprawione_siodlo",
+    "name": "Naprawione siodło",
+    "type": "misc",
+    "weight": 0.4,
+    "value": 0,
+    "description": "Ciężkie siodło z świeżo przyszytym popręgiem. Pachnie skórą i smołą."
+  },
+  {
+    "id": "swiece_woskowe",
+    "name": "Świece woskowe",
+    "type": "misc",
+    "weight": 0.4,
+    "value": 0,
+    "description": "Pęk świec z pszczelego wosku, obwiązany łykiem. Kapie z nich tłuszcz, a nie pobożność."
+  },
+  {
+    "id": "zwoj_pustelnika",
+    "name": "Zwój pustelnika",
+    "type": "misc",
+    "weight": 0.4,
+    "value": 0,
+    "description": "Zwinięty pergamin przewiązany sznurkiem. Ktoś pilnie liczył coś po obu stronach."
+  },
+  {
+    "id": "buty_wartownika",
+    "name": "Buty wartownika",
+    "type": "misc",
+    "weight": 0.4,
+    "value": 0,
+    "description": "Para podbitych butów, związanych za sznurówki. Jeden but ma inny kolor od drugiego."
+  },
+  {
+    "id": "bochen_dla_grabarza",
+    "name": "Bochen dla grabarza",
+    "type": "misc",
+    "weight": 0.4,
+    "value": 0,
+    "description": "Duży bochen żytniego chleba owinięty w ściereczkę. Jeszcze ciepły."
+  },
+  {
+    "id": "skrzynka_gwozdzi",
+    "name": "Skrzynka gwoździ",
+    "type": "misc",
+    "weight": 0.4,
+    "value": 0,
+    "description": "Mała skrzynka okuta żelazem, w środku grzechoczą gwoździe. Ciężka jak na swój rozmiar."
+  }
 ]

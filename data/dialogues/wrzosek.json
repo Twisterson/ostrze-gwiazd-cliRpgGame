@@ -24,7 +24,6 @@
           "id": "robota",
           "text": "Potrzebujesz czegoś?",
           "requires": {
-            "known": "wilczy_las",
             "questStatus": {
               "id": "lek_dla_wrzoska",
               "is": "none"
@@ -134,8 +133,11 @@
     },
     "robota": {
       "speaker": "Karczmarz Wrzosek",
-      "text": "„Skoro już wiesz o ścieżce, to się przydasz. Łeb mi po wczorajszym pęka jak wołu po jarmarku. Nazbieraj mi ziół na polanie w lesie i przynieś. Zapłacę, ile sumienie pozwoli, czyli mało.”",
+      "text": "„Czy potrzebuję? Łeb mi po wczorajszym pęka, to potrzebuję. W lesie za strażnicą jest polana, na której rosną zioła na takie okazje. Nazbieraj mi i przynieś. Zapłacę, ile sumienie pozwoli, czyli mało.”",
       "actions": [
+        {
+          "reveal": "wilczy_las"
+        },
         {
           "startQuest": "lek_dla_wrzoska"
         }
@@ -170,7 +172,7 @@
     },
     "wiadomosc": {
       "speaker": "Karczmarz Wrzosek",
-      "text": "Wrzosek słyszy, że ma oddać dwa kufle, i długo milczy. „Ostap pamięta tylko długi. Dług to jedyne, co w tym kraju ludzie pamiętają lepiej niż gęby.” Po namyśle dolewa ci do kubka. „Za wieść.”",
+      "text": "Wrzosek słyszy, że ma oddać dwa kufle, i długo milczy. „Ostap pamięta tylko długi. Cudze.” Po namyśle dolewa ci do kubka. „Za wieść.”",
       "options": [
         {
           "text": "Dobra.",
@@ -206,7 +208,7 @@
     },
     "dlug_oddany": {
       "speaker": "Karczmarz Wrzosek",
-      "text": "Wrzosek ogląda pokwitowanie pod światło, wącha i gryzie róg kory. „Podpis prawdziwy. Nikt by tak nie bazgrał, żeby podrobić.” Wyciera łapy i kiwa łbem z uznaniem. „Masz u mnie dług wdzięczności. Najdroższy, jaki jest.”",
+      "text": "Wrzosek ogląda pokwitowanie pod światło, wącha i gryzie róg kory. „Podpis prawdziwy. Nikt by tak nie bazgrał, żeby podrobić.” Wyciera łapy i kiwa łbem z uznaniem. „Masz u mnie dług wdzięczności. Tylko nie licz, że ci go przeliczę na piwo.”",
       "options": [
         {
           "text": "Bywaj.",

@@ -1,0 +1,101 @@
+{
+  "id": "rozstrzygniecie_rozpoznanie_urzadzenia",
+  "portrait": "portret_brygida",
+  "start": "stol",
+  "nodes": {
+    "stol": {
+      "speaker": "Brygida",
+      "text": "Przy nabrzeżu stoi stół kreślarski przygnieciony kamieniami, a nad nim Brygida z węglem w dłoni. „Kuźnia wyspy nic mi nie powiedziała. Ale ten sztych z Łysej Skały to nie rzemiosło, to konstrukcja. Rama, cewka i wir w środku, który zamyka się albo otwiera, zależnie od tego, kto przy nim stoi.”",
+      "actions": [
+        {
+          "reveal": "lysa_skala"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pokaż, co znalazłaś.",
+          "goto": "urzadzenie"
+        },
+        {
+          "id": "hieronim",
+          "text": "Pokaż. I zawołaj Hieronima.",
+          "goto": "urzadzenie_h",
+          "requires": {
+            "flag": "sojusz_astrolog"
+          }
+        }
+      ]
+    },
+    "urzadzenie": {
+      "speaker": "Brygida",
+      "text": "Brygida rysuje węglem jedno koło w drugim. „To są wrota. Można je zamknąć, jeśli zerwie się dwa łączniki, i wtedy nikt przez nie nie przejdzie. Można je zostawić, jak są. Nie wiem, co jest po drugiej stronie, ale wiem, że ktoś tam jest.”",
+      "options": [
+        {
+          "id": "zapis",
+          "text": "Zapisz rysunki. Przydadzą się.",
+          "goto": "wynik_zapis"
+        },
+        {
+          "id": "zniszcz",
+          "text": "Spal notatki. Lepiej, żeby nikt tego nie miał.",
+          "goto": "wynik_zniszcz"
+        }
+      ]
+    },
+    "urzadzenie_h": {
+      "speaker": "Brygida",
+      "text": "Brygida rysuje węglem jedno koło w drugim. „To są wrota.” Hieronim, który przypłynął razem z nią, dopowiada, że w Obserwatorium widział taki sam znak na jednym z odłamków. „Rozpoznaję ten wzór. To nie jest pułapka, to drzwi. Ktoś je zrobił od środka.” Brygida kiwa głową: łączniki można zerwać albo zostawić.",
+      "options": [
+        {
+          "id": "zapis",
+          "text": "Zapisz rysunki. Przydadzą się.",
+          "goto": "wynik_zapis"
+        },
+        {
+          "id": "zniszcz",
+          "text": "Spal notatki. Lepiej, żeby nikt tego nie miał.",
+          "goto": "wynik_zniszcz"
+        }
+      ]
+    },
+    "wynik_zapis": {
+      "speaker": "Brygida",
+      "text": "Brygida składa kartki w skórzany futerał i wsuwa ci go do torby. „Kiedy staniesz przed bramą, będziesz wiedział, który łącznik zrywać. Albo nie zrywać.”",
+      "actions": [
+        {
+          "setFlag": "jarnowo_rozpoznanie_zapis"
+        },
+        {
+          "setFlag": "rozpoznanie_urzadzenia_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_zniszcz": {
+      "speaker": "Brygida",
+      "text": "Węgiel pęka w palcach, kartki płoną w koksowniku przy stole. Brygida patrzy w ogień. „Niech będzie. Teraz nikt nie wie, jak to działa. Ty też nie.”",
+      "actions": [
+        {
+          "setFlag": "jarnowo_rozpoznanie_zniszczone"
+        },
+        {
+          "setFlag": "rozpoznanie_urzadzenia_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

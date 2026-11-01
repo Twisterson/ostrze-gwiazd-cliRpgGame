@@ -4,7 +4,7 @@
   "nodes": {
     "znaleziony": {
       "speaker": "Pasterz Borek",
-      "text": "W kącie rozwalonej izby, pod śmierdzącym owczym runem, leży chłop z wykręconą nogą i oczami kogoś, kto liczył już tylko dni. „Baba cię przysłała? Powiedz jej, że owce się znalazły. Ja jakby mniej.”",
+      "text": "W kącie rozwalonej izby, pod śmierdzącym owczym runem, leży chłop z wykręconą nogą, ledwo żywy. „Baba cię przysłała? Powiedz jej, że owce się znalazły. Ja jakby mniej.”",
       "options": [
         {
           "id": "opatrz",
@@ -30,7 +30,7 @@
     },
     "zdrow": {
       "speaker": "Pasterz Borek",
-      "text": "Szyna z kija i dwa paski z koszuli. Borek klnie jak furman w błocie, ale stoi o własnych siłach. „Psiakrew, mało kto tak umie. Jak wrócę, powiem, żeś mnie dobrze opatrzył.”",
+      "text": "Szyna z kija i dwa paski z koszuli. Borek klnie, aż się kurz z murów sypie, ale stoi o własnych siłach. „Psiakrew, mało kto tak umie. Jak wrócę, powiem, żeś mnie dobrze opatrzył.”",
       "options": [
         {
           "text": "Idź za mną.",

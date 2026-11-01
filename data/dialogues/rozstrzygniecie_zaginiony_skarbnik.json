@@ -1,0 +1,87 @@
+{
+  "id": "rozstrzygniecie_zaginiony_skarbnik",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "speaker": "Skarbnik Pieczątka",
+      "text": "W cieniu przy filarze kuli się człowiek w pogniecionym kaftanie, z workiem pod pachą. „Nie jestem żadnym skarbnikiem. A jak jestem, to byłym. Wziąłem to, co mi się należało, bo marszałek nie płaci od trzech miesięcy. Pan od pisarza? Proszę, niech mnie pan nie wydaje, mam żonę i kota.”",
+      "options": [
+        {
+          "id": "wydaj",
+          "text": "Idziesz ze mną. Pieniądze wracają do koszar.",
+          "goto": "wynik_wydaj"
+        },
+        {
+          "id": "ukryj",
+          "text": "Zostajesz tu. Pieniądze też. Kiedy marszałek zapłaci, wrócisz.",
+          "goto": "wynik_ukryj"
+        },
+        {
+          "id": "polowa",
+          "text": "Połowa wraca do koszar, połowa dla mnie, i nikt nie zadaje pytań.",
+          "goto": "wynik_polowa"
+        }
+      ]
+    },
+    "wynik_wydaj": {
+      "speaker": "Skarbnik Pieczątka",
+      "text": "Skarbnik bierze worek jak dziecko, które właśnie straciło ulubioną zabawkę. „Nie rozumie pan. Oni mi nie zapłacą, oni mnie rozliczą.” Idzie za tobą grzecznie, bo nikt nie ma tyle sił, żeby się opierać dwa razy w jednym tygodniu.",
+      "actions": [
+        {
+          "setFlag": "stolica_skarbnik_wydany"
+        },
+        {
+          "setFlag": "zaginiony_skarbnik_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_ukryj": {
+      "speaker": "Skarbnik Pieczątka",
+      "text": "Skarbnik ściska ci dłoń obiema rękami. „Pan jest dobry człowiek. Za dobry na to miasto.” Kiwasz głową, nieswojo, bo dobroć w tym mieście zwykle kosztuje więcej, niż się zakłada. Zostawiasz go w cieniu filaru, a worek w jego rękach.",
+      "actions": [
+        {
+          "setFlag": "stolica_skarbnik_ukryty"
+        },
+        {
+          "setFlag": "zaginiony_skarbnik_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_polowa": {
+      "speaker": "Skarbnik Pieczątka",
+      "text": "Skarbnik myśli głośno, a przy tym szybko liczy na palcach. „Pół na pół to uczciwie. Przynajmniej ktoś w tym mieście zna się na ułamkach.” Odliczając ci monety, przez cały czas patrzy w ziemię.",
+      "actions": [
+        {
+          "setFlag": "stolica_skarbnik_polowa"
+        },
+        {
+          "setFlag": "zaginiony_skarbnik_zrobione"
+        },
+        {
+          "giveMoney": 25
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

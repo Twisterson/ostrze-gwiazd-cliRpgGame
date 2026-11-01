@@ -4,7 +4,7 @@ import { locationById, routeById, eventById } from "./travel.js";
 import { evaluate, validateCondition, conditionOpts } from "../engine/conditions.js";
 import { validateActions, runActions } from "./actions.js";
 import { placeIds } from "./places.js";
-import { spotScenes, visitorOf } from "./spots.js";
+import { spotScenes, playedScenes, visitorOf } from "./spots.js";
 
 export const QUEST_KINDS = ["quest", "escort", "errand"];
 export const QUEST_STATUSES = ["active", "done", "failed"];
@@ -17,7 +17,7 @@ const QUEST_SCHEMA = {
   required: ["id", "kind", "name", "hub", "description", "location", "route", "scenes"],
   fields: {
     id: ID, kind: { type: "string", enum: QUEST_KINDS }, name: TEXT, hub: ID, description: TEXT, location: ID, route: ID,
-    client: TEXT, clientGen: TEXT, eventChance: { type: "integer", min: 0 }, board: { type: "boolean" },
+    client: TEXT, clientGen: TEXT, eventChance: { type: "integer", min: 0 }, board: { type: "boolean" }, random: { type: "boolean" }, closedBy: { type: "object" },
     report: { type: "boolean" }, reportTo: TEXT, onComplete: { type: "array" }, onStart: { type: "array" },
     events: { type: "array" }, scenes: { type: "array" },
   },
@@ -29,7 +29,7 @@ const ERRAND_SCHEMA = {
   required: ["id", "kind", "name", "hub", "description", "objectives"],
   fields: {
     id: ID, kind: { type: "string", enum: QUEST_KINDS }, name: TEXT, hub: ID, description: TEXT,
-    requires: { type: "object" }, onComplete: { type: "array" }, onStart: { type: "array" }, objectives: { type: "array" }, board: { type: "boolean" },
+    requires: { type: "object" }, onComplete: { type: "array" }, onStart: { type: "array" }, objectives: { type: "array" }, board: { type: "boolean" }, main: { type: "boolean" }, random: { type: "boolean" }, closedBy: { type: "object" },
   },
 };
 const OBJECTIVE_SCHEMA = { type: "object", additional: false, required: ["id", "text", "at", "done"], fields: { id: ID, text: TEXT, at: TEXT, done: { type: "object" } } };
@@ -141,8 +141,9 @@ export function startQuest(state, data, id) {
   const quest = questById(data, id);
   if (!quest) throw new Error(`startQuest: nieznane zadanie "${id}"`);
   state.quests ??= {};
-  if (state.quests[id] && !(quest.kind === "escort" && state.quests[id].status === "failed")) return []; // a lost escort may be taken again
-  if (activeQuests(state, data).length >= data.rules.quests.maxActive) return [{ type: "zadanie_limit", id }];
+  if (state.quests[id] && !retakeable(quest, state.quests[id])) return []; // a lost quest may be taken again
+  // The main thread of a hub (`main`) always fits: it is the signpost, not a task that takes a slot.
+  if (!quest.main && activeQuests(state, data).filter((q) => !q.main).length >= data.rules.quests.maxActive) return [{ type: "zadanie_limit", id }];
   const now = state.time.minutes;
   state.quests[id] = { status: "active", acceptedAt: now, deadline: quest.deadlineDays ? now + quest.deadlineDays * 24 * 60 : null, departed: quest.kind === "errand" };
   if (quest.kind === "errand") state.quests[id].done = [];
@@ -183,12 +184,15 @@ export function failQuest(state, data, id) {
   return close(state, id, "failed", "zadanie_przepadlo");
 }
 
-/** True when the quest may be taken now: not taken yet, its `requires` met, room under `maxActive`. */
-export function canStartQuest(state, data, id) {
+/** A lost (failed) quest may be taken again, until it is done; the main thread of a hub is only ever taken once. */
+const retakeable = (quest, entry) => entry.status === "failed" && quest.main !== true;
+
+/** True when the quest may be taken now: not taken yet or lost, its `requires` met, room under `maxActive`. */
+export function canStartQuest(state, data, id, { ignoreRequires = false } = {}) {
   const quest = questById(data, id);
-  if (!quest || state.quests?.[id]) return false;
-  if (activeQuests(state, data).length >= data.rules.quests.maxActive) return false;
-  return !quest.requires || evaluate(quest.requires, state, data);
+  if (!quest || (state.quests?.[id] && !retakeable(quest, state.quests[id]))) return false;
+  if (activeQuests(state, data).filter((q) => !q.main).length >= data.rules.quests.maxActive) return false;
+  return ignoreRequires || !quest.requires || evaluate(quest.requires, state, data);
 }
 
 /** Quests a notice board of `hub` offers: those marked `board: true` that can be taken now. */
@@ -205,6 +209,74 @@ export function errandProgress(state, data, quest) {
   const objectives = quest.objectives.map((o) => ({ ...o, done: done.includes(o.id) }));
   const current = objectives.find((o) => !o.done) ?? null;
   return { objectives, current, complete: current === null };
+}
+
+/** The mandatory (main-thread) errands of a hub. */
+export function mainQuestsOf(data, hubId) {
+  return (data.quests ?? []).filter((q) => q.kind === "errand" && q.main === true && q.hub === hubId);
+}
+
+/** How near a condition is to holding, 0–1: a counter `{ var, gte }` fills up, `all` averages, `any` takes the best, the rest is 0 or 1. */
+function conditionProgress(cond, state, data) {
+  if (evaluate(cond, state, data)) return 1;
+  if (Object.hasOwn(cond, "var") && cond.gte > 0) return Math.min(1, (state.vars?.[cond.var] ?? 0) / cond.gte);
+  if (Array.isArray(cond.all) && cond.all.length > 0) return cond.all.reduce((sum, c) => sum + conditionProgress(c, state, data), 0) / cond.all.length;
+  if (Array.isArray(cond.any) && cond.any.length > 0) return Math.max(...cond.any.map((c) => conditionProgress(c, state, data)));
+  return 0;
+}
+
+/**
+ * Progress through the mandatory threads of a hub, for the journal: the share of their objectives done (a finished thread counts
+ * fully, a dropped one keeps what was latched, the objective in progress counts in part), or null when the hub has no such thread.
+ * @returns {{ percent: number, done: number, total: number } | null}
+ */
+export function hubProgress(state, data, hubId) {
+  const quests = mainQuestsOf(data, hubId);
+  const total = quests.reduce((n, q) => n + q.objectives.length, 0);
+  if (total === 0) return null;
+  let credit = 0, done = 0;
+  for (const quest of quests) {
+    const entry = state.quests?.[quest.id];
+    if (entry?.status === "done") { credit += quest.objectives.length; done += quest.objectives.length; continue; }
+    if (!entry) continue;
+    const latched = entry.done ?? [];
+    let current = true;
+    for (const o of quest.objectives) {
+      if (latched.includes(o.id)) { credit += 1; done += 1; continue; }
+      if (current && entry.status === "active") credit += conditionProgress(o.done, state, data);
+      current = false;
+    }
+  }
+  return { percent: Math.min(100, Math.round((credit / total) * 100)), done, total };
+}
+
+/** Ids of the quests named in `condition`. */
+function questsIn(condition) {
+  if (Array.isArray(condition)) return condition.flatMap(questsIn);
+  if (!isObject(condition)) return [];
+  return [...(condition.questStatus ? [condition.questStatus.id] : []), ...Object.values(condition).flatMap(questsIn)];
+}
+
+/** The optional quests of a hub: not a main thread, not something a main thread asks for, not rolled on the road (`random`). */
+export function sideQuestsOf(data, hubId) {
+  const needed = new Set(mainQuestsOf(data, hubId).flatMap((q) => q.objectives.flatMap((o) => questsIn(o.done))));
+  return (data.quests ?? []).filter((q) => q.hub === hubId && q.main !== true && q.random !== true && !needed.has(q.id));
+}
+
+/**
+ * The hub's optional quests still open, for the journal: closed are the finished, the failed and those the story has made pointless
+ * (`closedBy`, e.g. done another way); one nobody has heard of yet is still open. Null when the hub has none.
+ * @returns {{ closed: number, total: number, left: number } | null}
+ */
+export function sideProgress(state, data, hubId) {
+  const quests = sideQuestsOf(data, hubId);
+  if (quests.length === 0) return null;
+  const closed = quests.filter((q) => {
+    const status = state.quests?.[q.id]?.status;
+    if (status === "done" || status === "failed") return true;
+    return status !== "active" && q.closedBy !== undefined && evaluate(q.closedBy, state, data);
+  }).length;
+  return { closed, total: quests.length, left: quests.length - closed };
 }
 
 /** Current objective of every active errand, for the map's markers. */
@@ -306,20 +378,27 @@ export function repairQuestState(state, data) {
   map.visitor ??= null;
   if (map.visitor !== null && !visitorOf(data, state.world.location, map.visitor)) map.visitor = null;
   map.walk ??= null;
+  map.far ??= null;
+  if (map.phase === "far" && !(map.far && routeById(data, map.far.route))) {
+    bad.push(String(map.far?.route ?? "?"));
+    Object.assign(map, { phase: "choose", far: null });
+    state.world.travel = null;
+  }
   if (map.phase === "spot" && !spotScenes(data, state.world.location, map.spot)) {
     bad.push(String(map.spot));
-    Object.assign(map, { phase: "place", spot: null, spotScene: null });
+    Object.assign(map, { phase: "place", spot: null, spotScene: null, ambush: null });
   }
   if (!locationById(data, map.hub) || locationById(data, map.hub).temporary) {
     bad.push(String(map.hub));
     state.world.map = null;
     return bad;
   }
-  if (map.walk !== null && map.walk?.event && !eventById(data, map.walk.event)) {
-    bad.push(String(map.walk.event));
+  if (map.walk !== null && (!Array.isArray(map.walk?.events) || map.walk.events.some((id) => !eventById(data, id)))) {
+    bad.push(String(map.walk?.events ?? "?"));
     Object.assign(map, { phase: "choose", walk: null });
   }
-  if (map.spotScene !== null && !(spotScenes(data, state.world.location, map.spot) ?? []).some((s) => s.id === map.spotScene)) {
+  if (map.phase === "walk" && map.walk === null) map.phase = "choose"; // a walk that did not survive (e.g. a save from before it began)
+  if (map.spotScene !== null && !(playedScenes(data, state.world.location, map.spot, map.ambush) ?? []).some((s) => s.id === map.spotScene)) {
     bad.push(String(map.spotScene));
     map.spotScene = null;
   }

@@ -1,0 +1,140 @@
+{
+  "id": "zasadzka_targ",
+  "start": "wybor",
+  "nodes": {
+    "wybor": {
+      "speaker": "Rzezimieszek",
+      "text": "„Targowisko jest nasze od zawsze. Chcesz tu kupować, płacisz za miejsce. Chcesz tu stać, płacisz za powietrze. A jak nie masz, to płacisz zdrowiem.”",
+      "options": [
+        {
+          "id": "walka",
+          "text": "Zdrowie mam. Spróbujcie.",
+          "goto": "walka"
+        },
+        {
+          "id": "wymowa",
+          "text": "Za miejsce płacę zawsze, ale tylko temu, kto ma pozwolenie.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 35
+          },
+          "success": "wymowa_ok",
+          "failure": "wymowa_pudlo",
+          "retry": true
+        },
+        {
+          "id": "skradanie",
+          "text": "Cofam się za kramy i przemykam bokiem.",
+          "check": {
+            "skill": "skradanie",
+            "difficulty": 35
+          },
+          "success": "skradanie_ok",
+          "failure": "skradanie_pudlo",
+          "retry": true
+        },
+        {
+          "id": "ucieczka",
+          "text": "Nie wchodzę w to, odchodzę.",
+          "goto": "ucieczka"
+        }
+      ]
+    },
+    "walka": {
+      "speaker": "Rzezimieszek",
+      "text": "Rzezimieszek rozciąga kark i uśmiecha się szeroko. Pałka zaczyna się kołysać.",
+      "actions": [
+        {
+          "setFlag": "amb_targ_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do dzieła.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_ok": {
+      "speaker": "Rzezimieszek",
+      "text": "„Pozwolenie? A od kogo?” Rzezimieszek się waha, bo nikt go jeszcze o nic takiego nie pytał. Zanim wymyśli odpowiedź, ty jesteś już przy straganie.",
+      "actions": [
+        {
+          "xp": 10
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Ruszam dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_pudlo": {
+      "speaker": "Rzezimieszek",
+      "text": "„Pozwolenie to ja ci dam, w twarz, i będziesz miał pamiątkę.” Dryblas stuka pałką w dłoń, a drugi pokrzykuje coś w stronę kramów, żeby ludzie się rozeszli. „Zobaczymy, co ci się bardziej opłaca.”",
+      "actions": [
+        {
+          "setFlag": "amb_targ_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No to walczymy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skradanie_ok": {
+      "speaker": "Rzezimieszek",
+      "text": "Wśród tłumu i kramów nikt cię nie widzi. Rzezimieszek rozgląda się z głupią miną, gdy mijasz go o krok.",
+      "actions": [
+        {
+          "xp": 10
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Ruszam dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skradanie_pudlo": {
+      "speaker": "Rzezimieszek",
+      "text": "Skrzynka z jabłkami wylatuje spod twojej nogi z hukiem, a jabłka toczą się po bruku. „Patrzcie go, złodziejaszek!” – ryczy dryblas i rusza w twoją stronę z pałką.",
+      "actions": [
+        {
+          "setFlag": "amb_targ_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No to walczymy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "ucieczka": {
+      "speaker": "Rzezimieszek",
+      "text": "Rzezimieszki rechoczą za twoimi plecami, ale nie gonią. Po co, skoro uciekasz tak grzecznie.",
+      "actions": [
+        {
+          "setFlag": "amb_targ_ucieczka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dawaj nogę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

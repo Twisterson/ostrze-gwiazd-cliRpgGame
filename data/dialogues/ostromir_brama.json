@@ -1,0 +1,50 @@
+{
+  "id": "ostromir_brama",
+  "portrait": "portret_ostromir",
+  "start": "prosba",
+  "nodes": {
+    "prosba": {
+      "speaker": "Kupiec Ostromir",
+      "text": "Ostromir ściąga czapkę i wyciera nią łysinę. „Dług oddany, słowo dotrzymane, to rzadkość w tych stronach. Zawiozę wóz na Kamienną Przełęcz, ale sam nie dojadę: drogi krzywe, ludzie krzywsi. Zapłacę czterdzieści groszy i dorzucę prowiant.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Biorę to. Ruszamy, gdy będziesz gotów.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "odmowa",
+          "text": "Nie tym razem.",
+          "goto": "odmowa"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„Dobra robota.” Ostromir klepie cię po ramieniu, aż się chwiejesz. „Zaprzęgnę konia i czekam przy bramie. Tylko się nie guzdraj, bo czas to pieniądz, a pieniądz to mój.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "ostromir_zgoda"
+        }
+      ]
+    },
+    "odmowa": {
+      "speaker": "Kupiec Ostromir",
+      "text": "Ostromir wzdycha, jakby mu ktoś wypłacił pensję w sianie. „Trudno. Jak się namyślisz, będę tu jeszcze przez jakiś czas.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "znal_polegly_goniec",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Droga",
+      "text": "W trawie przy drodze leży goniec w rozdartym płaszczu. Torba pod nim przetrwała lepiej niż on. W środku listy, których nikt już nie przeczyta, i parę drobnych rzeczy, które można zabrać bez poczucia winy. Prawie.",
+      "actions": [
+        {
+          "giveRandom": "lupy_pole_bitwy"
+        }
+      ],
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

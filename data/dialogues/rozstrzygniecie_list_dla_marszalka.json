@@ -1,0 +1,89 @@
+{
+  "id": "rozstrzygniecie_list_dla_marszalka",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "speaker": "Szyper Wiślak",
+      "text": "Szyper stoi nad ciałem gońca z rękami w kieszeniach. „Nie ja. Nie widziałem. Nie moja barka. List? A, list jest, ale pan go lepiej nie czytaj, bo tu czyta się tylko tych, co nie żyją. Zanieść do marszałka to robota na jedną szansę. Spalić to wymazać. A przeczytać to zrobić z siebie świadka.”",
+      "options": [
+        {
+          "id": "zanies",
+          "text": "Zaniosę go marszałkowi, tak jak stoi.",
+          "goto": "wynik_zanies"
+        },
+        {
+          "id": "przeczytaj",
+          "text": "Przeczytam, zanim zaniosę. Wolę wiedzieć, co niosę.",
+          "goto": "wynik_przeczytaj"
+        },
+        {
+          "id": "spal",
+          "text": "Spalę go. Niech marszałek żyje w nieświadomości.",
+          "goto": "wynik_spal"
+        }
+      ]
+    },
+    "wynik_zanies": {
+      "speaker": "Szyper Wiślak",
+      "text": "Szyper kiwa głową i wręcza ci list jak gorący garnek. „Dobry człowiek. Głupi, ale dobry.” Kiedy odchodzisz, słyszysz za plecami, jak szyper cicho gwiżdże melodię, której nie znasz, ale która przypomina pogrzeb.",
+      "actions": [
+        {
+          "setFlag": "stolica_list_dostarczony"
+        },
+        {
+          "setFlag": "list_dla_marszalka_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_przeczytaj": {
+      "speaker": "Szyper Wiślak",
+      "text": "List jest krótki. „Rdzeń słabnie. Cesarz śpi. Sprawdzić pakt.” Podpis nieczytelny, pieczęć miedziana. Czujesz, jak plecy ci się pocą. Kiedy podnosisz wzrok, szyper patrzy na ciebie bez wyrazu. „Teraz pan wie” – mówi. „I to już jest pański kłopot.”",
+      "actions": [
+        {
+          "setFlag": "stolica_list_przeczytany"
+        },
+        {
+          "setFlag": "list_dla_marszalka_zrobione"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_spal": {
+      "speaker": "Szyper Wiślak",
+      "text": "Płomień ogarnia papier w mgnieniu oka. Szyper patrzy, jak popiół leci nad wodę, i nic nie mówi. Dopiero po chwili: „Jest pan odważny. Albo głupi. W tym mieście to ta sama cecha.”",
+      "actions": [
+        {
+          "setFlag": "stolica_list_spalony"
+        },
+        {
+          "setFlag": "list_dla_marszalka_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

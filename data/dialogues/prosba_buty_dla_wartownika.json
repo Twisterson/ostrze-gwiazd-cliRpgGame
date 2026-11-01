@@ -1,0 +1,49 @@
+{
+  "id": "prosba_buty_dla_wartownika",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Szewc Mojżesz",
+      "text": "Przy drodze siedzi stary szewc z workiem na kolanach i patrzy w niebo, jakby pytał, po co mu to. „Mojżesz, szewc polowy. Wartownik z mostu na Szarej chodzi od miesiąca w jednym bucie z gałganem, a ja mam już do niego drugą parę. Zaniesiesz? Nie wiem, kto teraz stoi na moście, ale ktoś stoi. Zawsze ktoś stoi.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Nie mam czasu.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Szewc Mojżesz",
+      "text": "Mojżesz wiąże ci buty na pasku i klepie po ramieniu. „Zanieś, a przy okazji zapytaj, czy ten w gałganie jeszcze żyje, bo mi się nie odzywa.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "buty_dla_wartownika"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Szewc Mojżesz",
+      "text": "„Trudno. Niech chodzi w gałganie, jemu to nie przeszkadza, a mnie sumienie nie kopie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

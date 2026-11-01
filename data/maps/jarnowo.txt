@@ -1,0 +1,11 @@
+   ~~~~ Wyspa Jarnowa ~~~~
+
+ {stocznia}      {kuznie}
+      \          /
+ {cmentarz_lodzi}--{przystan_jarnowo}
+              /      |
+ {dom_czarnego_szkla}  \
+                   dalekie szlaki (dni drogi)
+                      {oboz_hetmana}
+                      {wraki_floty}
+                      {lysa_skala}

@@ -18,22 +18,43 @@ const INT_MIN0 = { type: "integer", min: 0 };
 const INT_MIN1 = { type: "integer", min: 1 };
 const strict = (required, fields) => ({ type: "object", required, fields, additional: false });
 
-export const SPOT_TYPES = ["talk", "shop", "rest", "board", "scene"];
+export const SPOT_TYPES = ["talk", "shop", "rest", "board", "scene", "hunt"];
 // `spots[].scenes` content is checked by the scene validator in data.js.
 const SPOT_SCHEMA = strict(["id", "name", "type"], {
-  id: ID, name: TEXT, type: { type: "string", enum: SPOT_TYPES }, ref: TEXT, scenes: { type: "array" }, if: { type: "object" }, secret: { type: "boolean" }, art: ID,
+  id: ID, name: TEXT, type: { type: "string", enum: SPOT_TYPES }, ref: TEXT, scenes: { type: "array" }, if: { type: "object" }, secret: { type: "boolean" }, art: ID, clearedBy: ID, cooldownDays: INT_MIN1, ambush: { type: "object" },
 });
+const AMBUSH_SCHEMA = strict(["chance", "scenes"], { chance: INT_MIN1, scenes: { type: "array" }, if: { type: "object" }, firstVisit: { type: "boolean" } });
 // A visitor: someone who drops by with some `chance` (1–100) when the player enters the location; `scenes` are checked in data.js.
 const VISITOR_SCHEMA = strict(["id", "chance", "scenes"], { id: ID, chance: INT_MIN1, scenes: { type: "array" }, if: { type: "object" }, forced: { type: "boolean" } });
 const LOCATION_SCHEMA = strict(["id", "name", "short", "region"], {
   id: ID, name: TEXT, short: TEXT, region: ID, temporary: { type: "boolean" },
-  near: strict(["minutes"], { minutes: INT_MIN1, via: ID }), danger: INT_MIN1, secret: { type: "boolean" }, tracksSearch: { type: "boolean" }, hint: TEXT, art: ID, spots: { type: "array" }, visitors: { type: "array" },
+  near: strict(["minutes"], { minutes: INT_MIN1, via: ID }), far: strict(["route"], { route: ID }), danger: INT_MIN1, secret: { type: "boolean" }, tracksSearch: { type: "boolean" }, hint: TEXT, art: ID, spots: { type: "array" }, visitors: { type: "array" },
 });
+
+/** True when `id` is the hub of the map scene of its region (or the story has no map scene for that region, as in test fixtures). */
+function isMapHub(data, id) {
+  const all = Array.isArray(data.travel?.locations) ? data.travel.locations : [];
+  const region = all.find((l) => l?.id === id)?.region;
+  const maps = (Array.isArray(data.story?.scenes) ? data.story.scenes : []).filter((s) => s?.type === "map" && all.find((l) => l?.id === s.hub)?.region === region);
+  return maps.length === 0 || maps.some((s) => s.hub === id);
+}
 
 /** Checks a location's near/danger/art and its spots (shape, `ref` per type, scenes presence, `if`); returns errors. */
 function validateLocationExtras(l, at, data) {
   const errors = [];
-  if (Number.isInteger(l.near?.minutes) && l.near.minutes > 180) errors.push(`${at("near.minutes")}: wartość większa niż 180`);
+  if (l.far !== undefined) {
+    // A far place is a trip from a hub (a place with neither `near` nor `far`) along a route of the same region that ends in it.
+    const route = routeById(data, l.far.route);
+    const all = (Array.isArray(data.travel?.locations) ? data.travel.locations : []);
+    const from = all.find((x) => x?.id === route?.from);
+    if (l.near !== undefined) errors.push(`${at("far")}: wyklucza się z near`);
+    if (!route) errors.push(`${at("far.route")}: nieznana trasa ${JSON.stringify(l.far.route)}`);
+    else if (route.to !== l.id || route.region !== l.region || !from || from.near || from.far || !isMapHub(data, route.from)) {
+      errors.push(`${at("far.route")}: oczekiwano trasy z huba tego regionu do ${l.id}, jest ${JSON.stringify(l.far.route)}`);
+    }
+  }
+  const maxNear = data.rules?.travel?.maxNearMinutes ?? 480;
+  if (Number.isInteger(l.near?.minutes) && l.near.minutes > maxNear) errors.push(`${at("near.minutes")}: wartość większa niż ${maxNear}`);
   if (typeof l.near?.via === "string") {
     const all = (Array.isArray(data.travel?.locations) ? data.travel.locations : []);
     const parent = all.find((x) => x?.id === l.near.via);
@@ -69,9 +90,24 @@ function validateLocationExtras(l, at, data) {
     if (s.type === "talk" && typeof s.ref === "string" && !(data.dialogues ?? []).some((d) => d?.id === s.ref)) errors.push(`${where("ref")}: nieznana rozmowa ${JSON.stringify(s.ref)}`);
     if (s.type === "shop" && typeof s.ref === "string" && !(data.shops ?? []).some((x) => x?.id === s.ref)) errors.push(`${where("ref")}: nieznany sklep ${JSON.stringify(s.ref)}`);
     if ((s.type === "talk" || s.type === "shop") && s.ref === undefined) errors.push(`${where("ref")}: wymagane dla ${s.type}`);
-    if ((s.type === "rest" || s.type === "board" || s.type === "scene") && s.ref !== undefined) errors.push(`${where("ref")}: niedozwolone dla ${s.type}`);
-    if (s.type === "scene" && !(Array.isArray(s.scenes) && s.scenes.length > 0)) errors.push(`${where("scenes")}: wymagana niepusta lista scen`);
-    if (s.type !== "scene" && s.scenes !== undefined) errors.push(`${where("scenes")}: dozwolone tylko dla scene`);
+    if ((s.type === "rest" || s.type === "board" || s.type === "scene" || s.type === "hunt") && s.ref !== undefined) errors.push(`${where("ref")}: niedozwolone dla ${s.type}`);
+    if ((s.type === "scene" || s.type === "hunt") && !(Array.isArray(s.scenes) && s.scenes.length > 0)) errors.push(`${where("scenes")}: wymagana niepusta lista scen`);
+    if (s.type !== "scene" && s.type !== "hunt" && s.scenes !== undefined) errors.push(`${where("scenes")}: dozwolone tylko dla scene i hunt`);
+    if (s.type === "hunt") {
+      if (typeof s.clearedBy !== "string") errors.push(`${where("clearedBy")}: wymagane dla hunt`);
+      else if (!(Array.isArray(s.scenes) ? s.scenes : []).some((x) => x?.id === s.clearedBy && x?.type === "combat")) errors.push(`${where("clearedBy")}: oczekiwano sceny combat spotu, jest ${JSON.stringify(s.clearedBy)}`);
+    } else if (s.clearedBy !== undefined || s.cooldownDays !== undefined) errors.push(`${at(`spots[${i}]`)}: clearedBy i cooldownDays dozwolone tylko dla hunt`);
+    if (s.ambush !== undefined) {
+      const a = s.ambush;
+      if (!isObject(a)) errors.push(`${where("ambush")}: oczekiwano obiektu`);
+      else {
+        errors.push(...check(a, AMBUSH_SCHEMA).map((m) => `${where("ambush")}: ${m}`));
+        if (a.chance !== undefined && !(Number.isInteger(a.chance) && a.chance >= 1 && a.chance <= 100)) errors.push(`${where("ambush.chance")}: oczekiwano liczby 1–100`);
+        if (!(Array.isArray(a.scenes) && a.scenes.length > 0)) errors.push(`${where("ambush.scenes")}: wymagana niepusta lista scen`);
+        if (isObject(a.if)) errors.push(...validateCondition(a.if, "if", conditionOpts(data)).map((m) => `${where("ambush.if")}: ${m}`));
+      }
+      if (s.type === "board" || s.type === "hunt") errors.push(`${where("ambush")}: niedozwolone dla ${s.type}`);
+    }
     errors.push(...artRefErrors(data, s.art, "scene", where("art")));
     if (isObject(s.if)) errors.push(...validateCondition(s.if, "if", conditionOpts(data)).map((m) => `${where("if")}: ${m}`));
   });
@@ -94,6 +130,11 @@ const list = (data, key) => (Array.isArray(data.travel?.[key]) ? data.travel[key
 /** Returns the location with `id`, or undefined. */
 export function locationById(data, id) {
   return list(data, "locations").find((l) => l?.id === id);
+}
+/** The trip to a far place of a hub: its route id and the days it takes (undefined for a place that is not far). */
+export function farTrip(data, locationId) {
+  const route = routeById(data, locationById(data, locationId)?.far?.route);
+  return route ? { route: route.id, days: route.days } : undefined;
 }
 /** Returns the route with `id`, or undefined. */
 export function routeById(data, id) {
@@ -244,7 +285,19 @@ export function turnBack(state) {
 
 /** Records a `once` event as seen (other events may repeat). */
 export function markEventSeen(state, data, id) {
+  if (state.world.heavyLoot) { delete state.world.heavyLoot; return; } // a find that did not fit in the bag comes back later
   if (eventById(data, id)?.once && !state.world.eventsSeen.includes(id)) state.world.eventsSeen.push(id);
+}
+
+/** Dusk and night (`rules.travel.night.periods`): wolves hunt, boars roam and bandits wait for the lost. */
+function isDark(data, minutes) {
+  return data.rules.travel.night?.periods.includes(timeOfDay(minutes, data.rules)) === true;
+}
+
+/** `pool` with the attacks heavier by `night.attackWeight` in the dark. */
+function byDarkness(data, pool, dark) {
+  const w = data.rules.travel.night?.attackWeight ?? 1;
+  return dark && w > 1 ? pool.map((e) => ({ id: e.id, weight: e.weight * (e.kind === "attack" ? w : 1) })) : pool;
 }
 
 /** Weighted pick from entries with `weight`, one `rng.int(1, total)` roll; returns the entry. */
@@ -278,18 +331,75 @@ export function walkMinutes(data, fromId, toId) {
 /** The event kinds a short walk can meet. */
 const LOCAL_EVENT_KINDS = ["encounter", "attack"];
 
+/** Key of the `world.passes` counter for a walk between two places (the direction does not matter). */
+export const passKey = (a, b) => [a, b].sort().join(">");
+
 /**
- * The local event of a short walk to a place of `danger` (≥ 3 raises the chance by `localDangerBonus`): one chance roll, then a
- * weighted pick among the walkable events (encounters and attacks that do not end a trip) whose `if` holds and `once` is unseen.
+ * Chance (%) of an event after `passes` earlier passes of the same way: `base` thinned by `decay` per pass, never below
+ * `floor` (so a well-trodden way is quiet but not safe) and never above `base`.
+ */
+export function repeatChance(base, passes, { decay, floor }) {
+  return Math.min(base, Math.max(floor, Math.round(base * decay ** passes)));
+}
+
+/** Counts one finished pass of the way `key` (a walk's `passKey` or a trip's route id). */
+export function recordPass(state, key) {
+  state.world.passes ??= {};
+  state.world.passes[key] = (state.world.passes[key] ?? 0) + 1;
+}
+
+/** Bonus (%) to a walk's event chance in a region with many places: the more of them, the busier the roads between. */
+export function crowdBonus(data, region) {
+  const c = data.rules.travel.crowd;
+  if (!c || !region) return 0;
+  const places = list(data, "locations").filter((l) => l.region === region && (l.near || l.far)).length;
+  return Math.min(c.max, Math.max(0, places - c.above) * c.perPlace);
+}
+
+/** Chance (%) of a local event on a walk to a place of `danger` (≥ 3 adds `localDangerBonus`), thinned by earlier passes of `key`. */
+function localChance(state, data, danger, key, region) {
+  const t = data.rules.travel;
+  const crowd = t.localEventChance > 0 ? crowdBonus(data, region) : 0; // a switched-off base chance stays off
+  const base = t.localEventChance + (danger >= 3 ? t.localDangerBonus : 0) + crowd;
+  return key && t.repeat ? repeatChance(base, state.world.passes?.[key] ?? 0, { decay: t.repeat.decay, floor: t.repeat.floorWalk }) : base;
+}
+
+/** Walkable events (encounters and attacks that do not end a trip) whose `if` holds and `once` is unseen. */
+function localPool(state, data) {
+  return list(data, "events").filter((e) => e.weight > 0 && LOCAL_EVENT_KINDS.includes(e.kind) && !e.endsTrip && Array.isArray(e.scenes)
+    && !(e.once && state.world.eventsSeen.includes(e.id)) && (!e.if || evaluate(e.if, state, data)));
+}
+
+/**
+ * The local event of a short walk to a place of `danger`: one chance roll (thinned by earlier passes of `key`), then a
+ * weighted pick among the walkable events.
  * @returns {string | null} event id
  */
-export function rollLocalEvent(state, data, rng, danger) {
-  const t = data.rules.travel;
-  const chance = t.localEventChance + (danger >= 3 ? t.localDangerBonus : 0);
-  if (rng.int(1, 100) > chance) return null;
-  const pool = list(data, "events").filter((e) => e.weight > 0 && LOCAL_EVENT_KINDS.includes(e.kind) && !e.endsTrip && Array.isArray(e.scenes)
-    && !(e.once && state.world.eventsSeen.includes(e.id)) && (!e.if || evaluate(e.if, state, data)));
+export function rollLocalEvent(state, data, rng, danger, key = null) {
+  if (rng.int(1, 100) > localChance(state, data, danger, key)) return null;
+  const pool = localPool(state, data);
   return pool.length === 0 ? null : pick(pool, rng).id;
+}
+
+/**
+ * The local events of a walk of `minutes`: one try per `walkSegmentMinutes` (at least one, at most `walkMaxEvents`), each a
+ * chance roll and a weighted pick; the same event is not met twice on one walk.
+ * @returns {string[]} event ids in the order they happen
+ */
+export function rollLocalEvents(state, data, rng, danger, minutes, key, region = null) {
+  const t = data.rules.travel;
+  const tries = Math.min(t.walkMaxEvents, Math.max(1, Math.floor(minutes / t.walkSegmentMinutes)));
+  const chance = localChance(state, data, danger, key, region);
+  const picked = [];
+  for (let i = 0; i < tries; i++) {
+    // Each try is judged by the light at the middle of its stretch of the walk.
+    const dark = isDark(data, state.time.minutes + Math.min(i * t.walkSegmentMinutes + t.walkSegmentMinutes / 2, minutes));
+    if (rng.int(1, 100) > chance + (dark ? t.night?.eventBonus ?? 0 : 0)) continue;
+    const pool = localPool(state, data).filter((e) => !picked.includes(e.id));
+    if (pool.length === 0) break;
+    picked.push(pick(byDarkness(data, pool, dark), rng).id);
+  }
+  return picked;
 }
 
 /**
@@ -309,13 +419,16 @@ export function rollStageEvent(state, data, rng) {
   // On the way to a quest its own events and chance apply (the plain table when the quest has no events).
   const quest = travel.quest && !travel.reverse ? (data.quests ?? []).find((q) => q.id === travel.quest) : null;
   const questEvents = Array.isArray(quest?.events) && quest.events.length > 0 ? quest.events : null;
-  const chance = quest?.eventChance ?? (travel.dangerous ? t.dangerousEventChance : t.eventChance);
-  if (rng.int(1, 100) > chance) return null;
+  const base = quest?.eventChance ?? (travel.dangerous ? t.dangerousEventChance : t.eventChance);
+  const thin = t.repeat ? repeatChance(base, state.world.passes?.[travel.route] ?? 0, { decay: t.repeat.decay, floor: t.repeat.floorStage }) : base;
+  // The light is judged in the middle of the event hours (stage start + their midpoint), so the rolls keep their order.
+  const dark = isDark(data, state.time.minutes + ((from + to) / 2) * 60);
+  if (rng.int(1, 100) > thin + (dark ? t.night?.eventBonus ?? 0 : 0)) return null;
   const pool = (questEvents ?? list(data, "events"))
     .filter((e) => e.weight > 0 && !(e.once && state.world.eventsSeen.includes(e.id)) && (!e.if || evaluate(e.if, state, data)))
-    .map((e) => ({ id: e.id, weight: e.weight * (travel.dangerous && e.kind === "attack" ? t.dangerousAttackWeight : 1) }));
+    .map((e) => ({ id: e.id, kind: e.kind, weight: e.weight * (travel.dangerous && e.kind === "attack" ? t.dangerousAttackWeight : 1) }));
   if (pool.length === 0) return null;
-  const { id } = pick(pool, rng);
+  const { id } = pick(byDarkness(data, pool, dark), rng);
   return { id, hour: rng.int(from, to) };
 }
 
@@ -346,6 +459,7 @@ export function finishStage(state, data) {
 
 /** After the camp: the next day's departure with a fresh stage. */
 export function nextDay(state) {
+  delete state.world.travel.eventful;
   Object.assign(state.world.travel, {
     day: state.world.travel.day + 1, phase: "depart", event: null, eventHour: null, eventScene: null,
     hoursWalked: 0, slowHours: 0, slowBy: null, dangerous: false, delayed: false, foraged: false,
@@ -356,6 +470,7 @@ export function nextDay(state) {
 export function endTravel(state, data) {
   const travel = state.world.travel;
   state.world.location = tripEnds(data, travel.route, travel.reverse).to;
+  recordPass(state, travel.route);
   state.world.travel = null;
 }
 

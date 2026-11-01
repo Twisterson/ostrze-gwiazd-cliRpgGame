@@ -482,6 +482,14 @@
           }
         },
         {
+          "id": "lodz_plotka",
+          "text": "Gdzie spadła pierwsza gwiazda?",
+          "goto": "lodz_plotka",
+          "requires": {
+            "notFlag": "lodz_wiem"
+          }
+        },
+        {
           "id": "bywaj",
           "text": "Bywaj.",
           "goto": "end"
@@ -536,7 +544,7 @@
     },
     "p2": {
       "speaker": "Astronom Hieronim",
-      "text": "Hieronim zdejmuje okulary i wyciera je w rękaw brudniejszy od szkieł. „Uciekł, widział, wie. Jak wszyscy. A skąd przyszedłeś? Bo droga przez Głuszec zamknięta od dwóch tygodni, a Szklane Wzgórza nie mają zwyczaju przyjmować tych, co szli prosto.”",
+      "text": "Hieronim zdejmuje okulary i wyciera je w rękaw brudniejszy od szkieł. „Uciekł, widział, wie. Jak wszyscy. A skąd przyszedłeś? Bo droga przez Głuszec zamknięta od dwóch tygodni.”",
       "options": [
         {
           "id": "p2a",
@@ -723,7 +731,7 @@
     },
     "dezerter_po": {
       "speaker": "Astronom Hieronim",
-      "text": "Hieronim gładzi brodę, jakby ważył, ile prawdy zmieści w jednym zdaniu. „Tomasz? Trzyma się. Dobrze, że ktoś z nim gada. Kto ucieka z cesarstwa, rzadko ma do kogo gębę otworzyć.” Milknie, a potem dodaje ciszej: „Jeśli ktoś zawsze będzie go szukał, lepiej, żeby miał przy sobie ludzi.”",
+      "text": "Hieronim gładzi brodę. „Tomasz? Trzyma się. Dobrze, że ktoś z nim gada. Kto ucieka z cesarstwa, rzadko ma do kogo gębę otworzyć.” Milknie, a potem dodaje ciszej: „Jeśli ktoś zawsze będzie go szukał, lepiej, żeby miał przy sobie ludzi.”",
       "options": [
         {
           "id": "dalej",
@@ -798,7 +806,7 @@
     },
     "q8_wyslij": {
       "speaker": "Astronom Hieronim",
-      "text": "Hieronim przelicza monety, zawija je w szmatkę i podaje chłopakowi, co czeka przy drzwiach. „Do Głuszca. Migiem. I nie gadaj, kto posłał.” Obraca się do ciebie. „Zrobiłeś rzecz głupią, szlachetną i bardzo ludzką. W tej kolejności.” Trzech wędrowców, co kręcili się przy bramie, patrzy na ciebie z uznaniem.",
+      "text": "Hieronim przelicza monety, zawija je w szmatkę i podaje chłopakowi, co czeka przy drzwiach. „Do Głuszca. Migiem. I nie gadaj, kto posłał.” Obraca się do ciebie. „Głupio zrobiłeś. Ale po ludzku.” Trzech wędrowców, co kręcili się przy bramie, patrzy na ciebie z uznaniem.",
       "options": [
         {
           "id": "dalej",
@@ -823,7 +831,7 @@
     },
     "q8_nie": {
       "speaker": "Astronom Hieronim",
-      "text": "Hieronim kiwa głową, a w twarzy nie ma osądu. „Niech będzie. Nie każdy uratuje wszystkich. Pamiętaj tylko, że ludzie pamiętają nie to, coś zrobił, ale to, czegoś nie zrobił.” Wraca do teleskopu, ale ręka mu się chwieje.",
+      "text": "Hieronim kiwa głową, a w twarzy nie ma osądu. „Niech będzie. Nie każdy uratuje wszystkich. Pamiętaj tylko, że w Głuszcu też to zapamiętają.” Wraca do teleskopu, ale ręka mu się chwieje.",
       "options": [
         {
           "id": "dalej",
@@ -907,7 +915,7 @@
     },
     "q10_start": {
       "speaker": "Astronom Hieronim",
-      "text": "Hieronim zdejmuje okulary i kładzie je na stole, jakby się z nimi żegnał. „Tak. Wiem. Kiedy kto przychodzi z taką gębą, znaczy, że rozdroże blisko. Nim pójdziesz, pogadaj z Brygidą. Ona ma dla ciebie coś, czego ja dać nie mogę. A potem wróć do mnie, bo mam jedno pytanie.” To punkt bez powrotu: po tej rozmowie ruszasz do krateru.",
+      "text": "Hieronim zdejmuje okulary i kładzie je na stole, jakby się z nimi żegnał. „Tak. Wiem. Kiedy kto przychodzi z taką gębą, znaczy, że rozdroże blisko. Nim pójdziesz, pogadaj z Brygidą. Ona ma dla ciebie coś, czego ja dać nie mogę. A potem wróć do mnie, bo mam jedno pytanie.” To punkt bez powrotu: po tej rozmowie ruszasz do krateru. A stamtąd droga na wschód, trzy dni do Obozu na Wroniej Górze, gdzie cesarska armia stoi naprzeciw Jarnowian i werbuje każdego, kto nie umie się schować.",
       "options": [
         {
           "id": "dalej",
@@ -962,7 +970,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Zapamiętam ci to.",
+          "text": "Idę.",
           "goto": "end"
         }
       ],
@@ -1002,6 +1010,25 @@
           "id": "dalej",
           "text": "No dobrze.",
           "goto": "powitanie"
+        }
+      ]
+    },
+    "lodz_plotka": {
+      "speaker": "Astronom Hieronim",
+      "text": "„Pierwsza? Dwa dni po burzy iskier. Dwa dni na zachód od naszych wzgórz leży kadłub z żelaza i szkła. Nie chodź tam w nocy, bo w nocy tam coś łazi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "reveal": "rozbita_lodz"
+        },
+        {
+          "setFlag": "lodz_wiem"
         }
       ]
     }

@@ -42,7 +42,7 @@
     },
     "oskarz_ok": {
       "speaker": "Pielgrzym z bukłakiem",
-      "text": "Pielgrzym upuszcza różaniec, a potem sakiewkę, bo wyrwał ją odruchowo, jakby chciał się wykupić. „Ja tylko za dwa grosze, panie! Nic wielkiego! Już mnie nie ma.” Pryska w stronę traktu szybciej, niż myślałeś, że ludzie z bukłakami umieją biegać. Sakiewka zostaje w błocie.",
+      "text": "Pielgrzym upuszcza różaniec, a potem sakiewkę. „Ja tylko za dwa grosze, panie! Nic wielkiego! Już mnie nie ma.” Pryska w stronę traktu szybciej, niż myślałeś, że ludzie z bukłakami umieją biegać. Sakiewka zostaje w błocie.",
       "options": [
         {
           "id": "dalej",
@@ -64,7 +64,7 @@
     },
     "oskarz_zle": {
       "speaker": "Pielgrzym z bukłakiem",
-      "text": "Pielgrzym rży śmiechem tak głośno, że ktoś z karczmy wychyla się przez drzwi. „Ja? Panie, jam człowiek wiary!” Odchodzi, ale spojrzenie, które rzuca ci przez ramię, zimne jest jak woda w studni. Wiesz, że to nie koniec.",
+      "text": "Pielgrzym rży śmiechem tak głośno, że ktoś z karczmy wychyla się przez drzwi. „Ja? Panie, jam człowiek wiary!” Odchodzi, ale spojrzenie, które rzuca ci przez ramię, nic dobrego nie wróży. Wiesz, że to nie koniec.",
       "options": [
         {
           "id": "dalej",

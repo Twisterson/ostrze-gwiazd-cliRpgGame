@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_siodlo_dla_zwiadowcow",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Zwiadowca przy koniu",
+      "text": "Zwiadowca patrzy na ciebie bez zainteresowania. „Czego? Jak masz siodło, to dawaj, jak nie, to nie stój przy koniu.”",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Oddaję siodło od rymarza.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "naprawione_siodlo"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Zwiadowca przy koniu",
+      "text": "Zwiadowca wsuwa ci kilka groszy do ręki i wraca do konia. „Rymarzowi powiedz, że może być.” Najwyższa pochwała, jaką od zwiadowcy usłyszysz.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "naprawione_siodlo"
+        },
+        {
+          "setFlag": "siodlo_dla_zwiadowcow_dostarczone"
+        }
+      ]
+    }
+  }
+}

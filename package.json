@@ -1,9 +1,17 @@
 {
   "name": "ostrze",
-  "version": "0.1.2",
-  "description": "Terminalowe RPG po polsku w słowiańskim fantasy: ocalały z rzezi, cesarscy zwiadowcy i trzy drogi na końcu.",
+  "version": "0.2.0",
+  "description": "Voided: na przekór gwiazdom. Terminalowe RPG po polsku w mrocznym słowiańskim fantasy: ocalały z rzezi, wojna, stolica w stanie wojennym i dług u kogoś z gwiazd.",
   "license": "MIT AND CC-BY-NC-SA-4.0",
   "author": "Daniel Twiist Antonik <twisterson@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twisterson/ostrze-gwiazd-cliRpgGame.git"
+  },
+  "homepage": "https://github.com/twisterson/ostrze-gwiazd-cliRpgGame#readme",
+  "bugs": {
+    "url": "https://github.com/twisterson/ostrze-gwiazd-cliRpgGame/issues"
+  },
   "type": "module",
   "bin": {
     "ostrze": "bin/game.js"
@@ -30,13 +38,5 @@
   ],
   "scripts": {
     "prepublishOnly": "node bin/game.js --validate"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/twisterson/ostrze-gwiazd-cliRpgGame.git"
-  },
-  "homepage": "https://github.com/twisterson/ostrze-gwiazd-cliRpgGame#readme",
-  "bugs": {
-    "url": "https://github.com/twisterson/ostrze-gwiazd-cliRpgGame/issues"
   }
 }

@@ -1,0 +1,74 @@
+{
+  "id": "brygida_wyspa",
+  "portrait": "portret_brygida",
+  "start": "kacik",
+  "nodes": {
+    "kacik": {
+      "speaker": "Brygida",
+      "text": "Brygida stoi w cudzej kuźni z rękawami podwiniętymi do łokci i z miną kogoś, kto znalazł dobrego rozmówcę wśród młotów. „Nie pytaj, jak tu trafiłam. Jak już, to powiedz, że przypłynęłam ze względu na rzemiosło. Stal wyspy jest dziwna, wiesz? Jakby pamiętała, że kiedyś spadła. Pół dnia siedzę tu, a pół przy stole kreślarskim na nabrzeżu, więc jak mnie nie ma, szukaj tam.”",
+      "actions": [
+        {
+          "reveal": "lysa_skala"
+        }
+      ],
+      "options": [
+        {
+          "id": "tu",
+          "text": "Co tu robisz?",
+          "goto": "tu"
+        },
+        {
+          "id": "hieronim",
+          "text": "Przypłynął z tobą Hieronim?",
+          "goto": "hieronim",
+          "requires": {
+            "flag": "sojusz_astrolog"
+          }
+        },
+        {
+          "id": "ostrze",
+          "text": "Jak trzyma się Ostrze?",
+          "goto": "ostrze"
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "tu": {
+      "speaker": "Brygida",
+      "text": "„Pracuję. Kuźnie wyspy mówią inną mową niż nasze, ale żelazo jest to samo i boi się tego samego: błędu.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kacik"
+        }
+      ]
+    },
+    "hieronim": {
+      "speaker": "Brygida",
+      "text": "„Tak. Siedzi z nosem w rysunkach i mówi do siebie. Powiedziałam, żeby nie wchodził do kuźni z kałamarzem. Nie posłuchał.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kacik"
+        }
+      ]
+    },
+    "ostrze": {
+      "speaker": "Brygida",
+      "text": "„Brzęczy, kiedy jest blisko szkła, ale to nic złego. To nawet dobry znak.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kacik"
+        }
+      ]
+    }
+  }
+}

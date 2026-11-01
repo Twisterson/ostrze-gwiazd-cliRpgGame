@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_gwozdzie_dla_stoczni",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Cieśla",
+      "text": "Cieśla stuka młotkiem w pustą skrzynię i wzdycha. „Gwoździe to jedyne, czego tu brakuje. Poza cierpliwością.”",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Oddaję skrzynkę od Gudrun.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "skrzynka_gwozdzi"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Cieśla",
+      "text": "Cieśla otwiera skrzynkę i wsypuje garść gwoździ w kieszeń fartucha. „Wystarczy. Powiedz Gudrun, że płacę następnym razem, a tobie dam coś na już, bo widzę, że się spociłeś.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "skrzynka_gwozdzi"
+        },
+        {
+          "setFlag": "gwozdzie_dla_stoczni_dostarczone"
+        }
+      ]
+    }
+  }
+}

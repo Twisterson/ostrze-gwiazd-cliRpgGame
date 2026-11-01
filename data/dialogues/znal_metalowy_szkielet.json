@@ -1,0 +1,22 @@
+{
+  "id": "znal_metalowy_szkielet",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Wrak",
+      "text": "Wśród szkła sterczy metalowa kratownica, jak żebra czegoś, co umarło dawno temu. Między prętami leżą rzeczy, które ktoś kiedyś uznał za wartościowe.",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveRandom": "lupy_znalezisko_gwiazdy"
+        }
+      ]
+    }
+  }
+}

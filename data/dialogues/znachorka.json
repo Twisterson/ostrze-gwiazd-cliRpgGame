@@ -5,7 +5,7 @@
   "nodes": {
     "powitanie": {
       "speaker": "Znachorka Dobrawa",
-      "text": "Szałas pachnie sianem, dymem i czymś, czego lepiej nie nazywać. Znachorka Dobrawa nie podnosi oczu znad moździerza. „Boli cię co? Nie? To po coś wlazł? Kto tu włazi bez bólu, ten ma ból wymyślony, a taki leczy się najdrożej.”",
+      "text": "Szałas pachnie sianem, dymem i kocimi szczynami. Znachorka Dobrawa nie podnosi oczu znad moździerza. „Boli cię co? Nie? To po coś wlazł? Kto tu włazi bez bólu, ten ma ból wymyślony, a taki leczy się najdrożej.”",
       "options": [
         {
           "id": "ziola",
@@ -73,14 +73,14 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Zapamiętam ci to.",
+          "text": "Zapamiętam.",
           "goto": "powitanie"
         }
       ]
     },
     "plotka": {
       "speaker": "Znachorka Dobrawa",
-      "text": "„Plotki to nie moje zioło. Ja leczę ciało, nie język. Ale tyle ci powiem: coraz więcej ludzi przychodzi z tym samym zmęczeniem w oczach, co po burzy iskier. Nie pytaj mnie, co to znaczy. Pytaj tych, co się boją, że ty wiesz.”",
+      "text": "„Plotki to nie moje zioło. Ja leczę ciało, nie język. Ale tyle ci powiem: coraz więcej ludzi przychodzi z tym samym zmęczeniem w oczach, co po burzy iskier. Nie pytaj mnie, co to znaczy, bo nie wiem.”",
       "options": [
         {
           "id": "dalej",
@@ -137,7 +137,7 @@
     },
     "q8_koniec": {
       "speaker": "Znachorka Dobrawa",
-      "text": "Dobrawa wącha wiązkę, rozciera łodygę w palcach i kiwa głową, co u niej rzadkie. „Prawdziwa. Ciemniejsza, niżbym chciała, ale coś mi mówi, że nie z miejsca, gdzie zdechło coś dużego. Dobra. Masz dwa napary i moje uznanie, które nic niewarte, ale lepsze to niż figa.”",
+      "text": "Dobrawa wącha wiązkę, rozciera łodygę w palcach i kiwa głową, co u niej rzadkie. „Prawdziwa. Ciemniejsza, niżbym chciała, ale ujdzie. Masz dwa napary i moje uznanie, które nic niewarte, ale lepsze to niż figa.”",
       "options": [
         {
           "id": "dalej",

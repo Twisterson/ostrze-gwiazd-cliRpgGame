@@ -91,7 +91,7 @@
     },
     "q6_pomoc": {
       "speaker": "Zwiadowca Tomasz",
-      "text": "Tomasz podnosi wzrok i patrzy na ciebie, jakby nie mógł rozeznać, coś ty za zwierz. „Pomożesz. Naprawdę? Nie pytaj, czemu mi to starcza. Pokażę ci, jak chodzić po lesie, żeby cię zwiadowcy nie zwęszyli. Dwa dni nauki to mniej niż życie.” Ściska ci rękę, niezgrabnie, jak drewnianą łapą.",
+      "text": "Tomasz podnosi wzrok i patrzy na ciebie, jakby nie mógł rozeznać, coś ty za zwierz. „Pomożesz. Naprawdę? To w zamian pokażę ci, jak chodzić po lesie, żeby cię zwiadowcy nie zwęszyli.” Ściska ci rękę, niezgrabnie, jak drewnianą łapą.",
       "options": [
         {
           "id": "dalej",
@@ -160,7 +160,7 @@
     },
     "q6_zostan": {
       "speaker": "Zwiadowca Tomasz",
-      "text": "Tomasz kiwa głową i odwraca oczy. „Niech będzie. Tu chociaż mam Brygidę, co mnie nie rozlicza. Ale pamiętaj: mgła nie trwa wiecznie, a kurz w końcu siada. Prędzej czy później znajdą.” I znów gapi się w ręce.",
+      "text": "Tomasz kiwa głową i odwraca oczy. „Niech będzie. Tu chociaż mam Brygidę, co mnie nie rozlicza. Ale prędzej czy później mnie znajdą.” I znów gapi się w ręce.",
       "options": [
         {
           "id": "dalej",

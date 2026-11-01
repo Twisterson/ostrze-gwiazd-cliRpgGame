@@ -1,0 +1,49 @@
+{
+  "id": "prosba_swiece_na_kapliczke",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Świecarz Tobiasz",
+      "text": "Przy drodze siedzi grubas z wózkiem pełnym świec i wachluje się kapeluszem. „Tobiasz, świecarz. Siostra Halina z kapliczki na rozstajach zamówiła pęk świec, a ja się dalej nie ruszę, bo upał mnie przygwoździł. Zaniesiesz? Powiedz, że wosk pierwsza klasa, i nie dawaj się nabrać, jak będzie marudzić o cenie.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Nie mam czasu.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Świecarz Tobiasz",
+      "text": "Tobiasz układa pęk w twoich rękach, jakby to były kruche jajka. „Tylko nie pal po drodze, bo i tak za mało mam klientów.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "swiece_na_kapliczke"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Świecarz Tobiasz",
+      "text": "„Nie? No to pójdę na piechotę, jak mi tyłek odpuści.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

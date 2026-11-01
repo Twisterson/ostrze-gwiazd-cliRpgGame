@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_notatnik_ucznia",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Skrzynka uczniów",
+      "text": "Przy wejściu do wieży stoi żelazna skrzynka z przecięciem na listy. Ktoś kredą nabazgrał na niej: «Tu gubią się jedynie rzeczy ważne».",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Wrzuć notatnik.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "notatnik_ucznia"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze tu wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Skrzynka uczniów",
+      "text": "Notatnik wsuwa się w szczelinę z szelestem, jakby sam chciał tam wejść. Chwilę później na schodach słychać kroki, a potem głos Brygidy: „Znowu ktoś przyniósł?” W skrzynce zostaje coś dla ciebie.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywajcie.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "notatnik_ucznia"
+        },
+        {
+          "setFlag": "notatnik_odniesiony"
+        }
+      ]
+    }
+  }
+}

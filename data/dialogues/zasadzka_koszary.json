@@ -1,0 +1,140 @@
+{
+  "id": "zasadzka_koszary",
+  "start": "wybor",
+  "nodes": {
+    "wybor": {
+      "speaker": "Dowódca patrolu",
+      "text": "„Obywatelu, nie szukamy kłopotów. Szukamy tylko człowieka z ostrzem, który może się plątać po okolicy. Mógłby pan pokazać, co pan nosi?”",
+      "options": [
+        {
+          "id": "walka",
+          "text": "Nie pokażę. Ale mogę pokazać inaczej.",
+          "goto": "walka"
+        },
+        {
+          "id": "wymowa",
+          "text": "Czy ja wyglądam na kogoś, kto się plącze? Plączę się tylko po znajomych adresach.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 35
+          },
+          "success": "wymowa_ok",
+          "failure": "wymowa_pudlo",
+          "retry": true
+        },
+        {
+          "id": "skradanie",
+          "text": "Rzucam płaszcz na ostrze i przeciskam się obok patrolu.",
+          "check": {
+            "skill": "skradanie",
+            "difficulty": 35
+          },
+          "success": "skradanie_ok",
+          "failure": "skradanie_pudlo",
+          "retry": true
+        },
+        {
+          "id": "ucieczka",
+          "text": "Odwracam się i odchodzę bez pośpiechu.",
+          "goto": "ucieczka"
+        }
+      ]
+    },
+    "walka": {
+      "speaker": "Dowódca patrolu",
+      "text": "Dowódca nie komentuje. Wyciąga pałkę, a jego ludzie robią to samo, równo jak w musztrze.",
+      "actions": [
+        {
+          "setFlag": "amb_koszary_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do dzieła.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_ok": {
+      "speaker": "Dowódca patrolu",
+      "text": "Dowódca przechyla głowę. „No, wygląda pan raczej na kogoś, kto się zgubił niż na tego z papieru.” Kartka znika w kieszeni, patrol rozstępuje się niechętnie.",
+      "actions": [
+        {
+          "xp": 10
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Ruszam dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_pudlo": {
+      "speaker": "Dowódca patrolu",
+      "text": "„Niech pan nie robi ze mnie głupca, obywatelu. Znam ten ton i znam ten wzrok.” Dowódca zaciska zęby i kiwa na swoich, a pałki unoszą się równo, jak w musztrze. „Aresztować, jeśli się da. Jeśli nie, to trudno.”",
+      "actions": [
+        {
+          "setFlag": "amb_koszary_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No to walczymy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skradanie_ok": {
+      "speaker": "Dowódca patrolu",
+      "text": "Płaszcz zakrywa, co trzeba, a patrol patrzy w tę stronę, w którą wskazuje im ich własna pewność siebie. Mijasz ich z miną niewiniątka.",
+      "actions": [
+        {
+          "xp": 10
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Ruszam dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skradanie_pudlo": {
+      "speaker": "Dowódca patrolu",
+      "text": "Płaszcz zahacza o zawiasy bramy i ostrze błyska w świetle latarni. „A to co takiego?” – pyta dowódca cicho, prawie z ulgą. „Panowie, mamy go.”",
+      "actions": [
+        {
+          "setFlag": "amb_koszary_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No to walczymy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "ucieczka": {
+      "speaker": "Dowódca patrolu",
+      "text": "Dowódca patrzy za tobą długo, ale rozkazu nie wydaje. Wiesz, że zapamiętał twarz.",
+      "actions": [
+        {
+          "setFlag": "amb_koszary_ucieczka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dawaj nogę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

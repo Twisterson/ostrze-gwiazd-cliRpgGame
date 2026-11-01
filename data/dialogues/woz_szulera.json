@@ -1,0 +1,119 @@
+{
+  "id": "woz_szulera",
+  "portrait": "portret_mszczuj",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Szuler Mszczuj",
+      "text": "Na skraju pola stoi wóz z całymi kołami, jedyny w okolicy. Na koźle siedzi chudy jak drut Mszczuj i rzuca kośćmi sam ze sobą. Wygrywa. Dwóch szabrowników znosi mu worki, a przy pasie wisi mieszek z kapralską pieczęcią. „Zagrasz? Stawka dowolna. Wynik też, ale o tym później.”",
+      "options": [
+        {
+          "id": "wymowa",
+          "text": "Kapral wie, że masz kantowane kości. Dwunastu chłopa też wie.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 50
+          },
+          "success": "wymowa_ok",
+          "failure": "wymowa_zle"
+        },
+        {
+          "id": "skradanie",
+          "text": "Zagaduję go o stawkę, a palce idą do mieszka.",
+          "check": {
+            "skill": "skradanie",
+            "difficulty": 45
+          },
+          "success": "skradanie_ok",
+          "failure": "skradanie_zle"
+        },
+        {
+          "id": "walka",
+          "text": "Dawaj mieszek albo pójdziesz na pole leżeć z resztą.",
+          "goto": "walka"
+        },
+        {
+          "id": "nic",
+          "text": "Innym razem.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_ok": {
+      "speaker": "Szuler Mszczuj",
+      "text": "Mszczuj przestaje rzucać. Liczy coś w głowie, a nie wygląda to na liczenie kości. „Sześćdziesiąt groszy to mało za dwunastu z pałkami, choćby i pijanych.” Odpina mieszek i rzuca ci go, nie wstając. „Powiedz kapralowi, że rewanż kiedy chce. Jak mu odrośnie noga.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Przekażę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "mieszek_zoldu"
+        },
+        {
+          "setFlag": "zold_odzyskany"
+        }
+      ]
+    },
+    "wymowa_zle": {
+      "speaker": "Szuler Mszczuj",
+      "text": "Mszczuj śmieje się bez głosu, tylko grdyka mu chodzi. „Dwunastu? Żegota nie doprowadzi dwunastu nawet do latryny. A kości są uczciwe, tylko mają swoje zdanie.” Szabrownicy odkładają worki i stają bliżej. Nikt się na razie nie spieszy.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zobaczymy.",
+          "goto": "s"
+        }
+      ]
+    },
+    "skradanie_ok": {
+      "speaker": "Szuler Mszczuj",
+      "text": "Pytasz, czy guziki też przyjmuje. Mszczuj akurat tłumaczy, że guziki przyjmuje, ale sam je wycenia, a mieszek jest już w twoim rękawie. Dziękujesz za naukę i odchodzisz spokojnym krokiem, takim, jakim chodzą tylko złodzieje i poborcy. Krzyk słychać dopiero za drugim wozem.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Ruszam.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "mieszek_zoldu"
+        },
+        {
+          "setFlag": "zold_odzyskany"
+        }
+      ]
+    },
+    "skradanie_zle": {
+      "speaker": "Szuler Mszczuj",
+      "text": "Twoje palce dochodzą do mieszka w tym samym czasie co jego dłoń. Mszczuj trzyma cię za nadgarstek zaskakująco mocno jak na kogoś tak chudego. „Dobra próba. Nie dość dobra, ale ja też zaczynałem od rąk.” Puszcza i klepie mieszek. Szabrownicy już nie noszą worków.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobra.",
+          "goto": "s"
+        }
+      ]
+    },
+    "walka": {
+      "speaker": "Szuler Mszczuj",
+      "text": "Mszczuj wzdycha, zgarnia kości do kieszeni i schodzi z kozła na drugą stronę, tę dalszą od ciebie. „Chłopcy. Ktoś tu przyszedł po resztę.” Szabrownicy rzucają worki.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do roboty.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "woz_szulera_walka"
+        }
+      ]
+    }
+  }
+}

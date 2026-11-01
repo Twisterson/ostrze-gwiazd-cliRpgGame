@@ -10,6 +10,8 @@ import { effectById } from "../systems/effects.js";
 import { itemById } from "../systems/items.js";
 import { countOf } from "../systems/inventory.js";
 import { xpToReach } from "../systems/character.js";
+import { appetitePercent } from "../systems/appetite.js";
+import { mealsLeft } from "../systems/food.js";
 
 const BAR = 10;
 const GAP = "   ";
@@ -43,10 +45,18 @@ function effectsText(ui, state, data) {
   return tags.join(" ");
 }
 
+/** Purse, the appetite gauge (yellow from the hint level) and the meals in the bag. */
+function suppliesText(ui, state, data) {
+  const pct = appetitePercent(state, data);
+  const hunger = t(ui, "hero.hunger", { pct });
+  const mark = pct >= (data.rules.appetite?.hintAt ?? 85) ? paint("hp_mid", hunger) : paint("dim", hunger);
+  return [t(ui, "hero.money", { n: state.character.money ?? 0, currency: t(ui, "currency.short") }), mark, t(ui, "hero.meals", { n: mealsLeft(state, data) })].join(GAP);
+}
+
 function weaponsText(ui, state, data) {
   const eq = state.inventory.equipped;
   const main = itemById(data, eq.bron ?? "piesci").name;
-  const off = eq.bron_druga ? ` + ${itemById(data, eq.bron_druga).name}` : "";
+  const off = eq.bron_druga && !(eq.bron && itemById(data, eq.bron).pair) ? ` + ${itemById(data, eq.bron_druga).name}` : "";
   const belt = state.inventory.quickSlots.map((id) => {
     const qty = countOf(state, id);
     return `${itemById(data, id).name}${qty > 1 ? ` ×${qty}` : ""}`;
@@ -80,7 +90,11 @@ export function heroPanel(state, data, { cols, combat = null }) {
 
   const effects = effectsText(ui, state, data);
   const head = `${hpText(ui, ch.hp, derived.hpMax)}${GAP}${paint("xp", t(ui, "hero.xp", { xp: ch.xp, next: xpToReach(ch.level + 1, data.rules) }))}`;
-  const l1 = spread(effects ? `${head}${GAP}${effects}` : head, placeText(state, data) ?? "", width);
+  const place = placeText(state, data) ?? "";
+  const l1left = effects ? `${head}${GAP}${effects}` : head;
+  const withSupplies = `${suppliesText(ui, state, data)}${place ? ` · ${place}` : ""}`;
+  // The supplies go before the place; when the line is too narrow for them the place alone stays.
+  const l1 = spread(l1left, visibleWidth(l1left) + 3 + visibleWidth(withSupplies) <= width ? withSupplies : place, width);
 
   let l2left = weaponsText(ui, state, data);
   if (combat) {

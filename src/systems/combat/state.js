@@ -34,16 +34,30 @@ export function spawnEnemies(data, existing, groups, band) {
  * Rolls initiative once (the player still goes first unless `def.ambush`): player `derived.initiative + k10`, enemy `initiative + k10`; descending, ties keep list order (player first).
  */
 export function createCombat(state, data, def, rng) {
-  const enemies = spawnEnemies(data, [], def.enemies, def.start ?? "far");
+  // The soldiers are seasoned to the hero's level (never in training); so are the reinforcements that come later.
+  const heroLevel = def.training ? null : state.character?.level ?? null;
+  const enemies = spawnEnemies(data, [], seasoned(data, heroLevel, def.enemies), def.start ?? "far");
   const rolls = [{ who: "player", score: getStats(state, data).derived.initiative + rng.int(1, 10) }];
   for (const e of enemies) rolls.push({ who: e.uid, score: enemyById(data, e.id).initiative + rng.int(1, 10) });
   const byScore = rolls.map((r, i) => ({ ...r, i })).sort((a, b) => b.score - a.score || a.i - b.i).map((r) => r.who);
   // The player always opens the fight (nothing happens before the first prompt) unless the scene is an `ambush`, where initiative decides.
   const order = def.ambush ? byScore : ["player", ...byScore.filter((who) => who !== "player")];
   return {
-    def, enemies, order, turn: 0, round: 1, playerAp: 0, defendBonus: 0, battlefield: [], log: [],
-    outcome: null, training: !!def.training, thrown: null, ready: false, reinforced: false,
+    def, enemies, order, turn: 0, round: 1, playerAp: 0, defendBonus: 0, battlefield: [], log: [], logRoles: [],
+    outcome: null, training: !!def.training, thrown: null, ready: false, reinforced: false, heroLevel,
   };
+}
+
+/**
+ * `groups` of enemies as they come against a hero of `level`: from `rules.combat.veteranFromLevel` (or the enemy's own `veteranFrom`, for the
+ * dungeon's masters) soldiers that have a `veteran` version come as that. `level` null: nobody does (a training fight).
+ */
+export function seasoned(data, level, groups) {
+  if (level === null) return groups;
+  return groups.map((entry) => {
+    const base = enemyById(data, entry.id);
+    return base?.veteran && level >= (base.veteranFrom ?? data.rules.combat.veteranFromLevel) ? { ...entry, id: base.veteran } : entry;
+  });
 }
 
 /** Enemies still in the fight (not dead, not fled). */

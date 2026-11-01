@@ -3,10 +3,10 @@
  * half-block pixels to fill the whole scene panel. Pure: `titleLines` builds the lines of one animation frame (`tick`);
  * the menu redraws it a few times a second. Without colours (or too small) it returns a plain still picture.
  */
-const RESET = "\x1b[0m";
+export const RESET = "\x1b[0m";
 
 // 5×7 glyphs of the letters of the logo ("1" = pixel)
-const FONT = {
+export const FONT = {
   O: ["01110", "10001", "10001", "10001", "10001", "10001", "01110"],
   S: ["01111", "10000", "10000", "01110", "00001", "00001", "11110"],
   T: ["11111", "00100", "00100", "00100", "00100", "00100", "00100"],
@@ -18,24 +18,46 @@ const FONT = {
   I: ["11111", "00100", "00100", "00100", "00100", "00100", "11111"],
   A: ["01110", "10001", "10001", "11111", "10001", "10001", "10001"],
   D: ["11110", "10001", "10001", "10001", "10001", "10001", "11110"],
+  H: ["10001", "10001", "10001", "11111", "10001", "10001", "10001"],
+  N: ["10001", "11001", "10101", "10101", "10011", "10001", "10001"],
+  V: ["10001", "10001", "10001", "10001", "10001", "01010", "00100"],
 };
-const LOGO = ["OSTRZE", "GWIAZD"];
-const SKY = [16, 16, 17, 17, 17, 18, 18, 19, 19, 53, 53, 54, 89, 95];
-const hash = (n) => { let x = (n * 2654435761) >>> 0; x ^= x >>> 15; x = Math.imul(x, 2246822519) >>> 0; x ^= x >>> 13; return x >>> 0; };
+const LOGO = "VOIDED";
+export const TAGLINE = "NA PRZEKÓR GWIAZDOM";
+export const SKY = [16, 16, 17, 17, 17, 18, 18, 19, 19, 53, 53, 54, 89, 95];
+export const hash = (n) => { let x = (n * 2654435761) >>> 0; x ^= x >>> 15; x = Math.imul(x, 2246822519) >>> 0; x ^= x >>> 13; return x >>> 0; };
 
-/** Pixel size of the logo at `scale`: two lines of six 5×7 letters with 1-pixel gaps. */
-const logoSize = (scale) => ({ w: (6 * 5 + 5) * scale, h: (7 * 2 + 2) * scale });
+/** Pixel size of the logo at `scale`: one line of 5×7 letters with 1-pixel gaps. */
+const logoSize = (scale) => ({ w: (LOGO.length * 6 - 1) * scale, h: 7 * scale });
 
-function chooseScale(width, rows2) {
+/**
+ * Where the logo and the tagline go: the largest scale at which the logo fits the width and both stay in the free sky
+ * above the scenery under them (`skyTop(x0, x1)`: the highest scenery pixel row across those columns). Returns the
+ * scale (0: no room for the logo), the logo's top-left corner and the pixel row of the tagline (2 pixel rows tall).
+ */
+function layout(width, skyTop, taglineLen) {
+  const tx0 = Math.floor((width - taglineLen) / 2);
   for (const s of [3, 2, 1]) {
     const { w, h } = logoSize(s);
-    if (w <= width - 4 && h + 14 <= rows2) return s;
+    if (w > width - 4) continue;
+    const ox = Math.floor((width - w) / 2);
+    const limit = Math.min(skyTop(ox, ox + w), skyTop(tx0, tx0 + taglineLen)) - 1;
+    const block = h + s + 2 + 2; // the logo, a gap, the tagline
+    if (2 + block > limit) continue;
+    const oy = 2 + Math.floor((limit - 2 - block) / 3);
+    return { scale: s, ox, oy, taglineY: oy + h + s + 2 };
   }
-  return 0;
+  return { scale: 0, taglineY: Math.max(0, skyTop(tx0, tx0 + taglineLen) - 3) };
 }
 
+/** The tagline letter-spaced ("N A   P R Z E K Ó R …") when it fits in `room` columns, else as it is. */
+const spaced = (text, room) => {
+  const wide = [...text].join(" ");
+  return [...wide].length <= room ? wide : text;
+};
+
 /** The pixel canvas of one frame: `grid[y][x]` is an xterm-256 colour index. */
-function paintCanvas(width, rows2, tick) {
+function paintCanvas(width, rows2, tick, taglineLen) {
   const grid = Array.from({ length: rows2 }, () => new Array(width).fill(16));
   const horizon = Math.floor(rows2 * 0.68);
   // sky: bands from black to a dusky glow at the horizon, the glow breathing a little
@@ -74,7 +96,7 @@ function paintCanvas(width, rows2, tick) {
   for (let x = 0; x < width; x++) for (let y = Math.max(0, hill(x)); y < rows2; y++) grid[y][x] = y > horizon + 8 ? 233 : 234;
   const set = (x, y, c) => { if (y >= 0 && y < rows2 && x >= 0 && x < width) grid[y][x] = c; };
   // the Observatory on the right hill: tower, dome, telescope, a flickering window
-  const tx = Math.floor(width * 0.74);
+  const tx = Math.floor(width * 0.8);
   const base = hill(tx);
   const th = Math.max(8, Math.floor(rows2 * 0.2));
   for (let y = base - th; y <= base; y++) for (let x = tx - 3; x <= tx + 3; x++) set(x, y, 232);
@@ -96,36 +118,44 @@ function paintCanvas(width, rows2, tick) {
     set(sx, bladeTop, 231); set(sx, bladeTop - 1, 231);
     if (glint === 1 || glint === 2) { set(sx - 1, bladeTop, 255); set(sx + 2, bladeTop, 255); }
   }
-  // the logo
-  const scale = chooseScale(width, rows2);
+  // the logo with the tagline under it, in the free sky above the ridge, the Observatory and the sword
+  // (in a small window the logo may cover the Observatory and the sword rather than go missing)
+  const skyTop = (landmarks) => (x0, x1) => {
+    let top = rows2;
+    for (let x = Math.max(0, x0); x < Math.min(width, x1); x++) top = Math.min(top, ridge(x), hill(x));
+    if (landmarks && x1 > tx - 6 && x0 <= tx + 11) top = Math.min(top, base - th - 6);
+    if (landmarks && x1 > sx - 5 && x0 <= sx + 6) top = Math.min(top, bladeTop - 1);
+    return top;
+  };
+  let place = layout(width, skyTop(true), taglineLen);
+  if (place.scale === 0) place = layout(width, skyTop(false), taglineLen);
+  const { scale, ox, oy, taglineY } = place;
   if (scale > 0) {
     const { w, h } = logoSize(scale);
-    const ox = Math.floor((width - w) / 2);
-    const oy = Math.max(2, Math.floor((horizon - h) / 3));
     const sweep = (tick * 2) % (w + h + 40) - 20; // a bright diagonal that runs across the letters
-    LOGO.forEach((word, row) => {
-      [...word].forEach((ch, i) => {
-        const glyph = FONT[ch];
-        for (let gy = 0; gy < 7; gy++) for (let gx = 0; gx < 5; gx++) {
-          if (glyph[gy][gx] !== "1") continue;
-          for (let sy = 0; sy < scale; sy++) for (let sx2 = 0; sx2 < scale; sx2++) {
-            const px = ox + (i * 6 + gx) * scale + sx2;
-            const py = oy + (row * 9 + gy) * scale + sy;
-            if (px < 0 || px >= width || py < 0 || py >= rows2) continue;
-            if (py + 1 < rows2 && px + 1 < width && grid[py + 1][px + 1] !== 255) grid[py + 1][px + 1] = 52; // a dark red shadow
-            const diag = (px - ox) + (py - oy);
-            const near = Math.abs(diag - sweep) < 3;
-            grid[py][px] = near ? 231 : (gy < 3 ? 252 : gy < 5 ? 250 : 246);
-          }
+    // "voided": now and then a band of the letters blinks out, as if wiped from the record
+    const wipe = tick % 50 < 2 ? hash(Math.floor(tick / 50)) % 7 : -1;
+    [...LOGO].forEach((ch, i) => {
+      const glyph = FONT[ch];
+      for (let gy = 0; gy < 7; gy++) for (let gx = 0; gx < 5; gx++) {
+        if (glyph[gy][gx] !== "1" || gy === wipe) continue;
+        for (let sy = 0; sy < scale; sy++) for (let sx2 = 0; sx2 < scale; sx2++) {
+          const px = ox + (i * 6 + gx) * scale + sx2;
+          const py = oy + gy * scale + sy;
+          if (px < 0 || px >= width || py < 0 || py >= rows2) continue;
+          if (py + 1 < rows2 && px + 1 < width && grid[py + 1][px + 1] !== 255) grid[py + 1][px + 1] = 52; // a dark red shadow
+          const diag = (px - ox) + (py - oy);
+          const near = Math.abs(diag - sweep) < 3;
+          grid[py][px] = near ? 231 : (gy < 3 ? 252 : gy < 5 ? 250 : 246);
         }
-      });
+      }
     });
   }
-  return grid;
+  return { grid, scale, taglineY };
 }
 
 /** One text line from two pixel rows: runs of equal pixel pairs share one colour escape. */
-function toLine(top, bottom) {
+export function toLine(top, bottom) {
   let out = "";
   let run = 0;
   let t = -1; let b = -1;
@@ -142,30 +172,35 @@ const centred = (text, width) => " ".repeat(Math.max(0, Math.floor((width - [...
 
 /**
  * The lines of the title screen at animation step `tick`, exactly `height` lines of `width` columns (colour) – or a plain
- * still picture of the same size without colours.
+ * still picture of the same size without colours. `subtitle` is the line under the logo (the game's tagline by default).
  */
-export function titleLines({ width, height, tick = 0, color = true, subtitle = "" }) {
+export function titleLines({ width, height, tick = 0, color = true, subtitle = TAGLINE }) {
   if (!color) {
     const blank = " ".repeat(width);
     const lines = Array.from({ length: height }, () => blank);
     const mid = Math.max(0, Math.floor(height / 2) - 1);
-    lines[mid] = centred("O S T R Z E   G W I A Z D", width).padEnd(width);
-    if (subtitle && mid + 2 < height) lines[mid + 2] = centred(subtitle, width).padEnd(width);
+    lines[mid] = centred(spaced(LOGO, width), width).padEnd(width);
+    if (subtitle && mid + 2 < height) lines[mid + 2] = centred(spaced(subtitle, width - 2), width).padEnd(width);
     return lines;
   }
-  const grid = paintCanvas(width, height * 2, tick);
+  // the tagline letter-spaced if it fits – unless only the plain one leaves room for the logo
+  let text = subtitle ? [...spaced(subtitle, width - 4)].slice(0, width) : [];
+  let canvas = paintCanvas(width, height * 2, tick, text.length);
+  if (canvas.scale === 0 && text.length > [...subtitle].length) {
+    const plainCanvas = paintCanvas(width, height * 2, tick, [...subtitle].length);
+    if (plainCanvas.scale > 0) { text = [...subtitle].slice(0, width); canvas = plainCanvas; }
+  }
+  const { grid, taglineY } = canvas;
   const lines = [];
   for (let r = 0; r < height; r++) lines.push(toLine(grid[2 * r], grid[2 * r + 1]));
-  if (subtitle && height >= 12) {
-    const row = Math.floor(height * 0.34) + 4;
-    const text = ` ${subtitle} `;
-    if (row < height - 2) {
-      const pad = Math.max(0, Math.floor((width - [...text].length) / 2));
-      lines[row] = " ".repeat(pad) + `\x1b[38;5;250m\x1b[48;5;232m${text}${RESET}`;
-      // keep the exact width: the plain pad and text replace the pixels of that row
-      const used = pad + [...text].length;
-      lines[row] += " ".repeat(Math.max(0, width - used));
-    }
+  const row = Math.ceil(taglineY / 2);
+  if (text.length && height >= 12 && row < height - 2) {
+    // the tagline is written into the sky: each letter on the colour of the pixel behind it, the pixels around it kept
+    const pad = Math.max(0, Math.floor((width - text.length) / 2));
+    const top = grid[2 * row]; const bottom = grid[2 * row + 1];
+    const letters = text.map((ch, i) => `\x1b[38;5;180m\x1b[48;5;${top[pad + i]}m${ch}`).join("") + RESET;
+    lines[row] = toLine(top.slice(0, pad), bottom.slice(0, pad)) + letters
+      + toLine(top.slice(pad + text.length), bottom.slice(pad + text.length));
   }
   return lines;
 }

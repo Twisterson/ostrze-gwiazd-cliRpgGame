@@ -1,0 +1,114 @@
+{
+  "id": "szulerzy",
+  "start": "beczka",
+  "nodes": {
+    "beczka": {
+      "speaker": "Szuler Gwizd",
+      "text": "Przy beczce trzech chłopów rzuca kośćmi o coś, co leży pod kapeluszem. Najstarszy unosi głowę. „Szukasz roboty czy rozrywki? Obie kosztują. Rozrywka tylko trochę szybciej.”",
+      "options": [
+        {
+          "id": "gram",
+          "text": "Gram. Pięć groszy.",
+          "goto": "gra",
+          "requires": {
+            "all": [
+              {
+                "money": 5
+              },
+              {
+                "notFlag": "szulerzy_wygral"
+              }
+            ]
+          }
+        },
+        {
+          "id": "zold",
+          "text": "Słyszałem, że ktoś przepuścił żołd garnizonu.",
+          "goto": "zold",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_zold_zatrzymany"
+              },
+              {
+                "flag": "wojna_zold_podzielony"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "gra": {
+      "speaker": "Szuler Gwizd",
+      "text": "Kości toczą się po beczce, jakby miały swoje zdanie. „Wygrywa ten, kto umie przegrywać z uśmiechem. Albo ten, kto ma kości, które ja mam.” Mruga.",
+      "options": [
+        {
+          "id": "wymowa",
+          "text": "Gadam, żeby kości zapomniały, jak spadać.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 35
+          },
+          "success": "wygrana",
+          "failure": "przegrana"
+        },
+        {
+          "id": "odejdz",
+          "text": "Odchodzę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 5
+        }
+      ]
+    },
+    "wygrana": {
+      "speaker": "Szuler Gwizd",
+      "text": "Gwizd gwiżdże przez zęby. „Na dziś koniec, bo mi pan zepsuje interes.” „Ma pan szczęście. Albo ma pan wymowę, a ona bywa gorsza od szczęścia.” Zwraca stawkę i dokłada pięć groszy, patrząc na ciebie jak na człowieka, któremu trzeba będzie kiedyś przyłożyć.",
+      "actions": [
+        {
+          "giveMoney": 10
+        },
+        {
+          "setFlag": "szulerzy_wygral"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "beczka"
+        }
+      ]
+    },
+    "przegrana": {
+      "speaker": "Szuler Gwizd",
+      "text": "Kości spadają tak, jak chciał tylko jeden z was, i nie byłeś to ty. „Pech” – mówi Gwizd z szacunkiem, którego nie zamierza ci pokazać. Pięć groszy już leży w jego rękawie.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "beczka"
+        }
+      ]
+    },
+    "zold": {
+      "speaker": "Szuler Gwizd",
+      "text": "„Żołd? Sierżant z fortu klął mi do ucha pół wieczoru. Ktoś mu wmówił, że sakwa z żołdem jest w drodze, a potem powiedział, że drogi nie ma. Nie mówię, że to pan. Tylko pan wygląda na takiego, co umie nie mieć zdania.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "beczka"
+        }
+      ]
+    }
+  }
+}

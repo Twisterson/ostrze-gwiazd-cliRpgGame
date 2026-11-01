@@ -1,0 +1,22 @@
+{
+  "id": "znal_kapliczka_ofiary",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Kapliczka",
+      "text": "Przy rozstajach pochylona kapliczka z Matką Boską w płótnie. U stóp ofiary: wieniec, kłos i sakiewka. Kto ukradnie ofiarę z kapliczki, zasługuje na gorsze. Ty tylko bierzesz to, co ktoś zostawił na zmarnowanie.",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveRandom": "lupy_znalezisko_pogorze"
+        }
+      ]
+    }
+  }
+}

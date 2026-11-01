@@ -1,0 +1,84 @@
+{
+  "id": "rozstrzygniecie_lodz_bez_zalogi",
+  "start": "lodz",
+  "nodes": {
+    "lodz": {
+      "speaker": "Szyper Bjarn",
+      "text": "Na piasku leży łódź bez załogi, burty obite smołą, a w ładowni cztery beczki, z których sączy się zapach znany każdemu, kto widział rusznicę. Obok stoi stary szyper z rękami w kieszeniach. „Nie moja. Niczyja. Ktoś ją tu zostawił po ostatnim sztormie. Można ją zatopić, można oddać Przystani, można wynieść beczki w wydmy. Ja wolę nie wiedzieć, co wybierzesz.”",
+      "options": [
+        {
+          "id": "zatop",
+          "text": "Zatapiam ładunek na głębokiej wodzie.",
+          "goto": "wynik_zatop"
+        },
+        {
+          "id": "oddaj",
+          "text": "Przekazuję beczki arsenałowi Przystani.",
+          "goto": "wynik_oddaj"
+        },
+        {
+          "id": "ukryj",
+          "text": "Wynoszę beczki w wydmy i ukrywam.",
+          "goto": "wynik_ukryj"
+        }
+      ]
+    },
+    "wynik_zatop": {
+      "speaker": "Szyper Bjarn",
+      "text": "Burty trzeszczą, kiedy odpychacie łódź na głęboką wodę. Beczki idą na dno jedna po drugiej, a woda zamyka się nad nimi, jak nad zwykłymi rzeczami. Szyper nie mówi nic, tylko spluwa za burtę.",
+      "actions": [
+        {
+          "setFlag": "jarnowo_proch_zatopiony"
+        },
+        {
+          "setFlag": "lodz_bez_zalogi_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_oddaj": {
+      "speaker": "Szyper Bjarn",
+      "text": "Dwóch ludzi z arsenału zabiera beczki na taczkach, notując coś w zeszycie. Szyper patrzy za nimi długo. „Hetman będzie miał czym strzelać” – mówi bez wyrzutu i bez radości.",
+      "actions": [
+        {
+          "setFlag": "jarnowo_proch_kapitan"
+        },
+        {
+          "setFlag": "lodz_bez_zalogi_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_ukryj": {
+      "speaker": "Szyper Bjarn",
+      "text": "Beczki znikają w wydmach pod płachtą i kilkoma pękami wodorostów. Szyper kiwa głową jak człowiek, który nie widział, bo patrzył w drugą stronę. „Gdyby ktoś pytał, to nic o tym nie wiem. A jeśli ktoś będzie potrzebował prochu, to może wiem.”",
+      "actions": [
+        {
+          "setFlag": "jarnowo_proch_ukryty"
+        },
+        {
+          "setFlag": "lodz_bez_zalogi_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

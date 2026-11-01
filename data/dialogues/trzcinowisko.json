@@ -4,7 +4,7 @@
   "nodes": {
     "powitanie": {
       "speaker": "Trzcinowisko",
-      "text": "Trzcinowisko szumi bez wiatru, a woda między łodygami stoi gładka jak szkło. Śmierdzi mułem i zgnilizną, i jeszcze czymś, co mogłoby być nadzieją, gdyby nie pachniało jak sidło.",
+      "text": "Trzcinowisko szumi bez wiatru, a woda między łodygami stoi gładka jak szkło. Śmierdzi mułem i zgnilizną.",
       "options": [
         {
           "id": "zbieraj",
@@ -27,11 +27,11 @@
     },
     "zbieraj": {
       "speaker": "Trzcinowisko",
-      "text": "Brniesz po kolana w błocie, tniesz łodygi nożem i co chwila nasłuchujesz. Z trzcin zrywa się ptactwo i wrzeszczy tak, że pewnie w Głuszcu słychać. Wiązka ciężka i mokra. Wracasz na groblę uwalany po pas, z zadrą pod skórą, że ktoś cię cały czas obserwował.",
+      "text": "Brniesz po kolana w błocie, tniesz łodygi nożem i co chwila nasłuchujesz. Z trzcin zrywa się ptactwo i wrzeszczy tak, że pewnie w Głuszcu słychać. Wiązka ciężka i mokra. Wracasz na groblę uwalany po pas, i z wrażeniem, że ktoś cię cały czas obserwował.",
       "options": [
         {
           "id": "dalej",
-          "text": "Pamiętam.",
+          "text": "Wystarczy tego błota.",
           "goto": "powitanie"
         }
       ],

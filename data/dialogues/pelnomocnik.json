@@ -1,0 +1,85 @@
+{
+  "id": "pelnomocnik",
+  "portrait": "portret_pelnomocnik",
+  "start": "umowa",
+  "nodes": {
+    "umowa": {
+      "speaker": "Pełnomocnik",
+      "text": "„Kontrahent. Dwadzieścia lat opóźnienia w obsłudze długu zamknięto jednym podpisem pod cudzym wyrokiem. Rdzeń nie ma właściciela, a ja mam zlecenie go pilnować. Pański status: nieuprawniony. Moja propozycja: aneks.”",
+      "options": [
+        {
+          "id": "aneks",
+          "text": "Co zawiera ten aneks?",
+          "goto": "aneks"
+        },
+        {
+          "id": "wola",
+          "text": "Nie przyszedłem z umową. Przyszedłem skończyć.",
+          "goto": "wola",
+          "requires": {
+            "var": "wola",
+            "gte": 3
+          }
+        },
+        {
+          "id": "dlug",
+          "text": "Mam dług. Rdzeń jest jego częścią, więc go wezmę.",
+          "goto": "dlug",
+          "requires": {
+            "var": "dlug",
+            "gte": 3
+          }
+        },
+        {
+          "id": "walka",
+          "text": "Nie będziemy negocjować.",
+          "goto": "walka"
+        }
+      ]
+    },
+    "aneks": {
+      "speaker": "Pełnomocnik",
+      "text": "„Aneks pierwszy: Rdzeń zostaje pod moją opieką, pan zostaje przy życiu, a miasto dalej płaci ludźmi, których nikt nie liczy. Warunki korzystne dla wszystkich stron poza trzecią.” Maska brzęczy cicho. „Trzecia strona to ludzie.”",
+      "options": [
+        {
+          "id": "odmowa",
+          "text": "Odmawiam.",
+          "goto": "walka"
+        }
+      ]
+    },
+    "wola": {
+      "speaker": "Pełnomocnik",
+      "text": "Pełnomocnik przechyla głowę, a maska brzęczy jak rój. „Deklaracja zamiaru. Zapisana. Regulamin nie przewiduje takiej klauzuli, więc zastosuję ostateczną.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Stosuj.",
+          "goto": "walka"
+        }
+      ]
+    },
+    "dlug": {
+      "speaker": "Pełnomocnik",
+      "text": "„Dług jest zobowiązaniem między stronami. Pan jest stroną, ja jestem stroną, Rdzeń jest zabezpieczeniem. Nie przewiduję przeniesienia długu na osobę trzecią, a pan, w rozumieniu umowy, jest właśnie osobą trzecią.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "To zmień umowę.",
+          "goto": "walka"
+        }
+      ]
+    },
+    "walka": {
+      "speaker": "Pełnomocnik",
+      "text": "Pełnomocnik prostuje się, a rurki na jego masce zapalają się jedna po drugiej. „Procedura przymusowa wszczęta. Proszę nie utrudniać wykonania. Rozmowa jest nagrywana w celu poprawy jakości obsługi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do dzieła.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

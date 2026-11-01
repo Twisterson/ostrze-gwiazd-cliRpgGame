@@ -1,6 +1,6 @@
 import { t } from "./strings.js";
 import { paint } from "./colors.js";
-import { drawFrame, say, choiceCapacity } from "./screen.js";
+import { drawFrame, say, choiceCapacity, framesOn, redrawScreen, reopenFrame } from "./screen.js";
 import { choiceWidthOf, visibleWidth } from "./frame.js";
 
 /** The widget's title: in a frame it heads the choice panel, otherwise it is written as a line. */
@@ -55,15 +55,21 @@ async function nextKey(io, animate, frame) {
     clearTimeout(timer);
     if (key !== null) { pendingKey = null; return key; }
     tick += 1;
-    frame.body = animate.frame(tick);
+    if (framesOn(io)) frame.body = animate.frame(tick);
     drawFrame(io, frame.lastChoices ?? [], { redraw: true });
   }
 }
 
 function makeScreen(io) {
   let previous = 0;
+  let size = `${io.columns}x${io.rows}`;
   return (lines, info) => {
     if (io.frame) return drawFrame(io, lines, { info: info ?? null });
+    if (size !== `${io.columns}x${io.rows}`) { // the terminal has rewrapped everything: "go up by N rows" would miss
+      size = `${io.columns}x${io.rows}`;
+      redrawScreen(io);
+      previous = 0;
+    }
     if (previous > 0) io.writeRaw(`\r\x1b[${previous}A\x1b[0J`);
     io.writeRaw(`${lines.join("\n")}\n`);
     previous = lines.length;
@@ -74,13 +80,13 @@ function makeScreen(io) {
  * Scrolling window over list rows (key mode): at most max(3, io.rows - 4) lines including
  * the "↑ …"/"↓ …" markers, moved so the cursor row stays visible. Short lists pass through.
  */
-function makeWindow(io, ui, extra = 0, { info = false } = {}) {
+function makeWindow(io, ui, extra = 0, { info = () => false } = {}) {
   let top = 0;
   return (rowLines, cursor) => {
     const n = rowLines.length;
     // In a frame the choice panel (less the description field, with `info`) holds the list.
     // `extra`: rows the widget adds above the list (counter, budget) – they share the panel
-    const h = io.frame ? Math.max(3, choiceCapacity(io, { info }) - extra) : Math.max(3, io.rows - 4);
+    const h = io.frame ? Math.max(3, choiceCapacity(io, { info: info() }) - extra) : Math.max(3, io.rows - 4);
     if (n <= h) { top = 0; return rowLines; }
     const capacity = (from) => {
       const room = h - (from > 0 ? 1 : 0);
@@ -104,24 +110,27 @@ export async function showAllNotices(io, ui) {
   drawFrame(io, [t(ui, "prompt.enter")]);
   for (;;) {
     const key = await io.readKey();
+    if (key.name === "resize") redrawScreen(io);
     if (key.name === "enter") break;
   }
   io.frame = saved;
 }
 
-/** Prefix + text for a row; the cursor row is bold, a dim row stays dim. */
-function row(isCursor, text, dim = false) {
+/** Prefix + text for a row; the cursor row is bold, a dim row stays dim, `role` colours the text (a worn item). */
+function row(isCursor, text, dim = false, role = null) {
   if (dim) return (isCursor ? CURSOR : BLANK) + paint("dim", text);
-  return isCursor ? CURSOR + paint("title", text) : BLANK + text;
+  const coloured = paint(role, text);
+  return isCursor ? CURSOR + paint("title", coloured) : BLANK + coloured;
 }
 
 /**
  * @param {object} io
  * @param {Record<string,string>} ui
- * @param {{ title?: string, items: Array<{label:string, hint?:string, disabled?:boolean, description?:string, hotkey?:string}>, initial?: number, prompt?: string, emptyPicksInitial?: boolean, preview?: (cursor: number) => string[] }} opts (prompt: line-mode question, default prompt.choice; hotkey: one letter, shown as [X]; emptyPicksInitial: line-mode empty answer picks initial)
+ * @param {{ title?: string, items: Array<{label:string, hint?:string, disabled?:boolean, description?:string, hotkey?:string, role?:string}>, initial?: number, prompt?: string, emptyPicksInitial?: boolean, preview?: (cursor: number) => string[] }} opts (prompt: line-mode question, default prompt.choice; hotkey: one letter, shown as [X]; emptyPicksInitial: line-mode empty answer picks initial)
  * @returns {Promise<number>}
  */
-export async function select(io, ui, { title, items, initial, prompt, emptyPicksInitial, preview, digits = true, animate }) {
+export async function select(io, ui, opts) {
+  const { title, items, initial, prompt, emptyPicksInitial, preview, digits = true, animate } = opts;
   // `hidden` items (commands such as [P] Postać) stay out of a frame's choice panel: they go to its command column and
   // answer only to their hotkey. Without a frame they are listed as usual.
   const hidden = (i) => Boolean(io.frame && items[i].hidden);
@@ -136,7 +145,7 @@ export async function select(io, ui, { title, items, initial, prompt, emptyPicks
   }
 
   if (!io.isTTY) {
-    items.forEach((it, i) => io.write(`[${i + 1}] ${labelOf(it)}${it.disabled ? ` ${t(ui, "menu.unavailable")}` : ""}`));
+    items.forEach((it, i) => io.write(`[${i + 1}] ${labelOf(it)}${it.disabled && !it.hint?.includes(t(ui, "menu.unavailable")) ? ` ${t(ui, "menu.unavailable")}` : ""}`));
     for (;;) {
       const answer = (await io.ask(prompt ?? t(ui, "prompt.choice"))).trim();
       if (answer === "" && emptyPicksInitial) return cursor;
@@ -164,18 +173,20 @@ export async function select(io, ui, { title, items, initial, prompt, emptyPicks
   const numbered = (i) => (io.frame && !items[i].hotkey ? `[${i + 1}] ${labelOf(items[i])}` : labelOf(items[i]));
   // A row wider than the choice panel is cut with "…"; its full text goes to the description field under the list.
   const tooWide = (i) => Boolean(io.frame) && visibleWidth(numbered(i)) + 2 > choiceWidthOf(io.columns);
-  const hasInfo = Boolean(io.frame) && (items.some((it) => it.description) || shown.some(tooWide));
+  // Asked anew for every draw: a window made narrower may cut rows that fitted before.
+  const hasInfo = () => Boolean(io.frame) && (items.some((it) => it.description) || shown.some(tooWide));
   const view = makeWindow(io, ui, 0, { info: hasInfo });
   for (;;) {
     // In a frame the choice panel cuts the rows to its width itself
     const width = io.frame ? Infinity : io.columns;
-    const rowsShown = shown.map((i) => row(i === cursor, cut(numbered(i), width), Boolean(items[i].disabled)));
+    const rowsShown = shown.map((i) => row(i === cursor, cut(numbered(i), width), Boolean(items[i].disabled), items[i].role));
     const lines = view(rowsShown, shown.indexOf(cursor));
     const description = items[cursor].description;
     if (description && !io.frame) lines.push(BLANK + paint("dim", cut(description, io.columns)));
     if (io.frame && preview) io.frame.body = preview(cursor);
-    draw(lines, hasInfo ? [tooWide(cursor) ? labelOf(items[cursor]) : "", description ?? ""].filter(Boolean).join("\n") : null);
+    draw(lines, hasInfo() ? [tooWide(cursor) ? labelOf(items[cursor]) : "", description ?? ""].filter(Boolean).join("\n") : null);
     const key = await nextKey(io, animate, io.frame);
+    if (key.name === "resize" && reopenFrame(io)) return select(io, ui, { ...opts, initial: cursor });
     if (key.name === "enter") return cursor;
     if (key.name === "up" || key.name === "down") {
       const dir = key.name === "up" ? -1 : 1;

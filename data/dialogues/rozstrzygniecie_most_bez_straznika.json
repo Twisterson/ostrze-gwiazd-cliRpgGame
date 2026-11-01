@@ -1,0 +1,84 @@
+{
+  "id": "rozstrzygniecie_most_bez_straznika",
+  "start": "most",
+  "nodes": {
+    "most": {
+      "speaker": "Przewoźnik Żerdź",
+      "text": "Przewoźnik siedzi na belce z nogami nad wodą i żuje źdźbło. „Wartownik poszedł, jak usłyszał strzały. Teraz każdy, kto ma nogi, przechodzi, a kto ma wóz, płaci mi za pomoc. Tobie coś doradzę: zrób coś z tym mostem, zanim most zrobi coś z tobą.”",
+      "options": [
+        {
+          "id": "straz",
+          "text": "Zostanę na warcie do świtu.",
+          "goto": "strzezony"
+        },
+        {
+          "id": "pal",
+          "text": "Zerwę przęsła. Niech każdy płynie sam.",
+          "goto": "zerwany"
+        },
+        {
+          "id": "zostaw",
+          "text": "Zostawię otwarty. Rzeka jest szeroka, ludzie głupi.",
+          "goto": "otwarty"
+        }
+      ]
+    },
+    "strzezony": {
+      "speaker": "Przewoźnik Żerdź",
+      "text": "Noc na moście ciągnie się jak kazanie. O świcie wartę przejmuje ktoś z obozu, a Żerdź kiwa głową z szacunkiem: „Dobrze pilnowałeś. Pierwszy raz od tygodnia ktoś tu pilnował czegoś innego niż własnej kiesy.”",
+      "actions": [
+        {
+          "setFlag": "wojna_most_strzezony"
+        },
+        {
+          "setFlag": "most_bez_straznika_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zerwany": {
+      "speaker": "Przewoźnik Żerdź",
+      "text": "Siekiera robi swoje. Przęsło pada w wodę z plaskiem, jakby zasłużyło. Żerdź nie mówi nic, tylko patrzy, jak Szara zabiera deski. „Teraz będę miał robotę” – mruczy i chyba nawet się cieszy. Obie armie będą miały mniej do ukrycia, a więcej do przeklinania.",
+      "actions": [
+        {
+          "setFlag": "wojna_most_zerwany"
+        },
+        {
+          "setFlag": "most_bez_straznika_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "otwarty": {
+      "speaker": "Przewoźnik Żerdź",
+      "text": "„Otwarty? Twoja wola.” Przewoźnik wzrusza ramionami i wraca do żucia źdźbła.",
+      "actions": [
+        {
+          "setFlag": "wojna_most_otwarty"
+        },
+        {
+          "setFlag": "most_bez_straznika_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

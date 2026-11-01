@@ -1,0 +1,120 @@
+{
+  "id": "cesarz",
+  "portrait": "portret_cesarz",
+  "start": "komnata",
+  "nodes": {
+    "komnata": {
+      "speaker": "Cesarz Ragnomir",
+      "text": "Stary człowiek siedzi na tronie jak w za dużym płaszczu. Kot śpi mu na kolanach, a w ręku ma pióro i zeszyt pokryty drobnym pismem. „Siadaj, jeśli stoisz. Nie, nie siadaj, przecież nie masz po co. Przyszedłeś mnie zabić, prawda? Wszyscy tak mówią, a potem nie mają odwagi.”",
+      "options": [
+        {
+          "id": "danina",
+          "text": "Widziałem daninę. Wiem, kto ją zabiera.",
+          "goto": "danina"
+        },
+        {
+          "id": "zlecenie",
+          "text": "Przyszedłem po dowód, że nie jestem martwy. Zabijać nie mam zamiaru.",
+          "goto": "zlecenie"
+        },
+        {
+          "id": "wola",
+          "text": "Nie przyszedłem prosić. Przyszedłem, żebyś wiedział, że to ja.",
+          "goto": "wola",
+          "requires": {
+            "var": "wola",
+            "gte": 3
+          }
+        },
+        {
+          "id": "dlug",
+          "text": "Mam dług, cesarzu. Nie wobec ciebie.",
+          "goto": "dlug",
+          "requires": {
+            "var": "dlug",
+            "gte": 3
+          }
+        },
+        {
+          "id": "szklo",
+          "text": "Słyszałem zapis ze szkła. Wiem o pakcie.",
+          "goto": "pakt",
+          "requires": {
+            "flag": "szklo_wziete"
+          }
+        },
+        {
+          "id": "cisza",
+          "text": "Milczę. Patrzę.",
+          "goto": "cisza"
+        }
+      ]
+    },
+    "danina": {
+      "speaker": "Cesarz Ragnomir",
+      "text": "„Daninę.” Powtarza słowo, jakby je smakował. „Dwadzieścia lat temu podpisałem coś, czego nie przeczytałem do końca. Pisali drobnym pismem, wiesz. Dostałem porządek, drogi bez rabusiów, sen bez wojny. Płaciłem ludźmi, których nikt nie liczył. Gdyby ktoś zapytał mnie wtedy, powiedziałbym, że to uczciwa cena. Dziś bym się nie zgodził, ale nikt mnie nie pyta.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "komnata"
+        }
+      ]
+    },
+    "zlecenie": {
+      "speaker": "Cesarz Ragnomir",
+      "text": "„Dowód? Ach tak, ten twój kłopot.” Pióro drapie po papierze, chociaż nic nie pisze. „Kazałem cię wymazać, bo widziałeś. Nie z okrucieństwa, tylko ze strachu, że ktoś ci uwierzy. A teraz stoisz tu, żywy, z ostrzem, które pachnie gwiazdami. Nie jestem pewien, czy bardziej się ciebie boję, czy bardziej ci zazdroszczę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "komnata"
+        }
+      ]
+    },
+    "wola": {
+      "speaker": "Cesarz Ragnomir",
+      "text": "Cesarz unosi wzrok i przez chwilę wygląda jak ktoś, kto kiedyś rządził. „Ty. Tak, widzę, że ty. W oczach masz coś, czego ja nie miałem. Decyzję. Dobrze. Po dwudziestu latach ktoś w końcu przyszedł z decyzją, a nie z prośbą.” Kot przeciąga się na jego kolanach, jakby pochwalał.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "komnata"
+        }
+      ]
+    },
+    "dlug": {
+      "speaker": "Cesarz Ragnomir",
+      "text": "„Dług? Wobec kogo, jeśli nie wobec mnie? Wobec niej? Tej, która leczy ranę i bierze za to rękę?” Cesarz śmieje się cicho i bez wesołości. „Spłacisz go albo nie. Ja swój spłacam od dwudziestu lat i jakoś końca nie widać.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "komnata"
+        }
+      ]
+    },
+    "pakt": {
+      "speaker": "Cesarz Ragnomir",
+      "text": "Cesarz odkłada pióro. „Więc wiesz. Pakt to nie umowa, tylko wyrok rozłożony na raty. Moje życie jest uwiązane do Rdzenia, a Rdzeń żywi się moim strachem. Przetniesz tę nić swoim ostrzem, to nie będziesz musiał mnie zabijać. Umrę sam.” Spogląda na twoją broń. „Szkoda. Mogłem jeszcze wypić herbatę, zanim wystygła.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "komnata"
+        }
+      ]
+    },
+    "cisza": {
+      "speaker": "Cesarz Ragnomir",
+      "text": "Cesarz czeka, aż coś powiesz, a potem rozumie, że nie powiesz. Kiwa głową z wdzięcznością, jak ktoś, komu zaoferowano ostatnie dobre wyjście. „Dobrze. Dość słów. Pisałem je całe życie i nikt nie przeczytał do końca. Zostało nam tylko patrzeć.”",
+      "options": [
+        {
+          "id": "koniec",
+          "text": "Patrzę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

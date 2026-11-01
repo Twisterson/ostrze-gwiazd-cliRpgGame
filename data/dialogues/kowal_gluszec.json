@@ -5,7 +5,7 @@
   "nodes": {
     "kuznia": {
       "speaker": "Kowal Bogdan",
-      "text": "Kowal Bogdan wali w żelazo, jakby to ono mu pieniądze wisiało. „Podkowy, kosy, haki, gwoździe. Mieczy nie kuję, bo cesarz ma na nie monopol i pilnuje go lepiej niż własnych żon. Czego?”",
+      "text": "Kowal Bogdan wali młotem w żelazo. „Podkowy, kosy, haki, gwoździe. Mieczy nie kuję, bo cesarz ma na nie monopol i pilnuje go lepiej niż własnych żon. Czego?”",
       "options": [
         {
           "id": "interes",
@@ -82,6 +82,14 @@
           "goto": "papiery_po",
           "requires": {
             "flag": "papiery_falszywe"
+          }
+        },
+        {
+          "id": "kopalnia_plotka",
+          "text": "Skąd bierzesz żelazo?",
+          "goto": "kopalnia_plotka",
+          "requires": {
+            "notFlag": "kopalnia_wiem"
           }
         },
         {
@@ -205,6 +213,25 @@
           "id": "dalej",
           "text": "No dobrze.",
           "goto": "kuznia"
+        }
+      ]
+    },
+    "kopalnia_plotka": {
+      "speaker": "Kowal Bogdan",
+      "text": "„Z roboty, nie z nieba.” Bogdan pociera brodę. „Choć raz kupiłem sztabę od człowieka ze starej kopalni, cztery dni szlakiem. Metal tam inny, zimny w ręku. Nie każdy go znosi. Mnie śpiewa po nocach.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "kuznia"
+        }
+      ],
+      "actions": [
+        {
+          "reveal": "stara_kopalnia"
+        },
+        {
+          "setFlag": "kopalnia_wiem"
         }
       ]
     }

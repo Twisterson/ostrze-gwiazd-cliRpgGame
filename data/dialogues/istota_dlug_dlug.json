@@ -1,0 +1,34 @@
+{
+  "id": "istota_dlug_dlug",
+  "portrait": "portret_istota",
+  "start": "komora",
+  "nodes": {
+    "komora": {
+      "speaker": "Istota",
+      "text": "„Cesarz nie żyje, jego straż nie istnieje. Dług spłacony. Możesz odejść.” Mówi to jak do równego, bez rozkazu. Tylko gwiazdy w jej twarzy drgają, jakby nie były pewne, czy to powinno brzmieć jak koniec.",
+      "options": [
+        {
+          "id": "raty",
+          "text": "Dług zawsze spłaca się ratami, a ja jeszcze nie skończyłem.",
+          "goto": "raty"
+        }
+      ]
+    },
+    "raty": {
+      "speaker": "Istota",
+      "text": "Gwiazdy w jej twarzy przez chwilę stoją nieruchomo. „Raty. To słowo rozumiem lepiej niż »wolność«. Przetargi są moim językiem, a wojna, którą nakręciłam, to tylko jedna z możliwych cen.”",
+      "actions": [
+        {
+          "setFlag": "istota_przetarg"
+        }
+      ],
+      "options": [
+        {
+          "id": "wychodze",
+          "text": "Wychodzę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "znal_oporzadzenie_rusznikarza",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Droga",
+      "text": "Na poboczu leży porzucony tobołek wyspiarza: skórzana torba z prochem, kilkoma narzędziami i śladem po wielkim pośpiechu. Rusznikarz uciekał stąd bez oglądania się za siebie, jakby coś go goniło, i widocznie dogoniło.",
+      "actions": [
+        {
+          "giveRandom": "lupy_front_jarnowski"
+        }
+      ],
+      "options": [
+        {
+          "id": "ok",
+          "text": "Weź, co zostało.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

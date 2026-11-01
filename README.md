@@ -1,4 +1,4 @@
-# Ostrze Gwiazd
+# Voided: na przekór gwiazdom
 
 Terminalowe RPG po polsku, w mrocznym, słowiańskim fantasy. Jesteś jedynym, który przeżył rzeź delegacji ze szkoły ostrza. Cesarstwo uważa cię za martwego i szuka świadka. Ty szukasz odpowiedzi w Pogórzu, w Głuszcu i na Szklanych Wzgórzach, a na końcu stajesz przed trzema drogami: uległością, oporem albo ucieczką.
 
@@ -19,11 +19,11 @@ npx ostrze            # jednorazowo, bez instalacji
 npm install -g ostrze # na stałe; potem polecenie: ostrze
 ```
 
-Z paczki lokalnej (`ostrze-0.1.0.tgz`) lub z repozytorium:
+Z paczki lokalnej (`ostrze-0.2.0.tgz`) lub z repozytorium:
 
 ```
-npx --package=./ostrze-0.1.0.tgz ostrze
-npm install -g ./ostrze-0.1.0.tgz
+npx --package=./ostrze-0.2.0.tgz ostrze
+npm install -g ./ostrze-0.2.0.tgz
 node bin/game.js     # bezpośrednio z katalogu projektu
 ```
 
@@ -50,10 +50,12 @@ Zapisy gry leżą w `~/.ostrze` (zmienna `OSTRZE_HOME` zmienia katalog).
 ## Co jest w grze
 
 - **Prolog i akt I:** szkoła ostrza, kurier z cesarskim listem, marsz, noc upiorów, Istota.
-- **Akt II:** pobojowisko, rozdroże, strażnica Wilczy Bród jako hub z mapą okolicy, osiem zleceń, wyprawa po wilki i eskorta kupca.
-- **Akt III A:** osada Głuszec, poziom poszukiwań cesarskich zwiadowców (`czujność → pościg → obława`), trzynaście zleceń.
-- **Akt III B:** Obserwatorium na Szklanych Wzgórzach, zjawiska z gwiazd, sojusznicy, finał z siedmioma zakończeniami.
-- walka turowa z punktami akcji, zasięgiem, ciosami celowanymi, parą broni, rzutami i biegłością w broniach;
+- **Akt II:** pobojowisko, rozdroże, strażnica Wilczy Bród jako hub z mapą okolicy, zlecenia, wyprawa po wilki i eskorta kupca.
+- **Akt III:** osada Głuszec i poziom poszukiwań cesarskich zwiadowców (`czujność → pościg → obława`), potem Obserwatorium na Szklanych Wzgórzach, zjawiska z gwiazd i sojusznicy.
+- **Akt IV:** front nad Szarą i obóz na Wroniej Górze, Ulfgród w stanie wojennym, noc w pałacu cesarza i lochy pod nim.
+- **Akt V i finał:** wyspa Jarnowo, hetman, Łysa Skała, Wir i rozmowa z Istotą; dwa zakończenia i epilog, który pamięta Twoje decyzje.
+- ponad 70 zadań, z licznikiem zleceń pobocznych każdego huba w dzienniku; wybory wracają później w wieściach, przy ognisku i w rozmowach;
+- walka turowa z punktami akcji, zasięgiem, ciosami celowanymi, parą broni, rzutami i biegłością w broniach; wojsko i panowie lochu rosną w siłę razem z bohaterem;
 - mistyka: zjawiska nieba, artefakty, dług i wola jako dwie osie wyborów.
 
 ## Dane zamiast kodu
@@ -62,7 +64,7 @@ Cała treść leży w `data/` jako JSON, tekst i piksele:
 
 - `story.json` fabuła; `dialogues/` rozmowy; `quests.json` zlecenia; `travel.json` lokacje, miejsca, goście i zdarzenia;
 - `items.json`, `enemies.json`, `skills.json`, `classes.json`, `rules.json` mechanika;
-- `art/*.pix` ilustracje (maks. 48×20, portrety 20×20, wrogowie 40×16), `maps/*.txt` mapy regionów;
+- `art/*.pix` ilustracje (sceny 96×48 pikseli, portrety 48×48, wrogowie 64×48; dwa piksele na wiersz terminala), `maps/*.txt` mapy regionów;
 - `ui.json` wszystkie napisy interfejsu.
 
 Po zmianie danych uruchom `node bin/game.js --validate`. Walidacja sprawdza odwołania między plikami, warunki, akcje, sceny, zlecenia i grafiki.

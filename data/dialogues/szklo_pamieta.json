@@ -1,0 +1,128 @@
+{
+  "id": "szklo_pamieta",
+  "start": "zapis",
+  "nodes": {
+    "zapis": {
+      "speaker": "Zapis w szkle",
+      "text": "Zagłębienie między odłamkami jest ciche jak dno studni. Kiedy dotykasz największego kawałka szkła, ten zaczyna mówić, ale nie do ciebie. Dwa głosy, nieludzko spokojne, prowadzą rozmowę sprzed lat, jakby ktoś kazał szkłu ją zapamiętać na wypadek procesu.",
+      "options": [
+        {
+          "id": "slucham",
+          "text": "Słucham.",
+          "goto": "klauzule"
+        }
+      ]
+    },
+    "klauzule": {
+      "speaker": "Głos pierwszy",
+      "text": "„Klauzula siódma: kontrahent dostarcza ostrze, które dotrze do stolicy. Klauzula ósma: porządek na ziemi pozostaje nietknięty, dopóki obowiązuje pakt z tutejszym panem. Przypominam, że ludzie oddawani Rdzeniowi jako danina nie podlegają negocjacji.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "straz"
+        }
+      ]
+    },
+    "straz": {
+      "speaker": "Głos drugi",
+      "text": "„Dla was to danina, dla mnie rachunek. Upiory są waszą strażą, a nie moim wynalazkiem, i nie pytajcie, kto im to powiedział. Nie chcę zniszczyć tego świata, kontrahencie. Chcę z niego wyjść.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "wynajem"
+        }
+      ]
+    },
+    "wynajem": {
+      "speaker": "Głos pierwszy",
+      "text": "„Wasz ocalały jest wynajęty na warunkach tymczasowych. Dług nie jest darem, tylko wynajmem, i ma datę końca. Zwłoka w płatności będzie odnotowana.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "ksiegowosc"
+        }
+      ]
+    },
+    "ksiegowosc": {
+      "speaker": "Głos drugi",
+      "text": "„Zniszczenie to wasze słowo, nie moje. Ostrze dotrze do stolicy. Reszta to księgowość. Nie wzywajcie mnie ponownie, dopóki nie skończycie liczyć.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "cisza"
+        }
+      ]
+    },
+    "cisza": {
+      "speaker": "Zapis w szkle",
+      "text": "Szkło milknie. Ma gładką jak lód powierzchnię i jeden odłamek, który da się zabrać. Wszystko, co usłyszałeś, brzmi jak rachunek, w którym ty jesteś pozycją, a nie stroną. Ktoś się o ciebie targował jak o worek zboża i nie zapytał, czy się zgadzasz.",
+      "options": [
+        {
+          "id": "wola",
+          "text": "Zabieram odłamek. Zobaczymy, kto kogo wynajął.",
+          "goto": "zabieram_wola"
+        },
+        {
+          "id": "dlug",
+          "text": "Zabieram odłamek. Dług to dług.",
+          "goto": "zabieram_dlug"
+        }
+      ]
+    },
+    "zabieram_wola": {
+      "speaker": "Zapis w szkle",
+      "text": "Chowasz odłamek za pazuchę, jakbyś chował cudzą sakiewkę. „Zobaczymy, kto kogo wynajął”, mówisz do szkła, a szkło, zdaje się, nie ma nic do dodania. Przynajmniej raz ostatnie słowo należy do ciebie.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wracam do ludzi.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "odlamek_krateru"
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        },
+        {
+          "setFlag": "szklo_wola"
+        },
+        {
+          "setFlag": "szklo_wziete"
+        }
+      ]
+    },
+    "zabieram_dlug": {
+      "speaker": "Zapis w szkle",
+      "text": "„Dług to dług”, mówisz na głos, bo to łatwiejsze, niż przyznać, że nie masz wyboru. Odłamek chłodzi dłoń, jakby ktoś właśnie podpisał coś w twoim imieniu. Może i tak jest.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wracam do ludzi.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "odlamek_krateru"
+        },
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        },
+        {
+          "setFlag": "szklo_wziete"
+        }
+      ]
+    }
+  }
+}

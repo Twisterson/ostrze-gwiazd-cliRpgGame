@@ -5,7 +5,7 @@
   "nodes": {
     "powitanie": {
       "speaker": "Siostra Halina",
-      "text": "Siostra Halina zamiata kapliczkę miotłą, która pamięta lepsze czasy i gorsze lata. „Bóg przyjmuje każdego, ale zamiatam ja. Co cię przywiało? Tylko nie mów, że przypadek, bo przypadków tu się nie wita.”",
+      "text": "Siostra Halina zamiata kapliczkę starą miotłą. „Bóg przyjmuje każdego, ale zamiatam ja. Co cię przywiało? Tylko nie mów, że przypadek, bo przypadków tu się nie wita.”",
       "options": [
         {
           "id": "q3_list",
@@ -53,6 +53,14 @@
           }
         },
         {
+          "id": "osada_plotka",
+          "text": "Słyszałaś o spalonej osadzie?",
+          "goto": "osada_plotka",
+          "requires": {
+            "notFlag": "osada_wiem"
+          }
+        },
+        {
           "id": "bywaj",
           "text": "Bywaj.",
           "goto": "end"
@@ -65,7 +73,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Zapamiętam ci to.",
+          "text": "Rozumiem.",
           "goto": "powitanie"
         }
       ],
@@ -94,11 +102,11 @@
     },
     "q6_start": {
       "speaker": "Siostra Halina",
-      "text": "Halina patrzy na ciebie, jakby ważyła na dłoni coś, co łatwo kruszy się w palcach. „Wosk do pieczęci. Czyli chcesz papierów, których nie ma. Nie pytam po co, bo wiem. Wosk dam, ale nie tobie, tylko kowalowi Bogdanowi, co robi najlepsze sygnety w okolicy. Zanieś mu ten wosk i powiedz, że od siostry. Resztę sam załatwi.”",
+      "text": "Halina długo na ciebie patrzy. „Wosk do pieczęci. Czyli chcesz papierów, których nie ma. Nie pytam po co, bo wiem. Wosk dam, ale nie tobie, tylko kowalowi Bogdanowi, co robi najlepsze sygnety w okolicy. Zanieś mu ten wosk i powiedz, że od siostry. Resztę sam załatwi.”",
       "options": [
         {
           "id": "dalej",
-          "text": "Zapamiętam ci to.",
+          "text": "Zaniosę.",
           "goto": "powitanie"
         }
       ],
@@ -113,7 +121,7 @@
     },
     "q12_halina": {
       "speaker": "Siostra Halina",
-      "text": "Halina odstawia miotłę i długo patrzy na kapliczkę, jakby tam szukała znaku. „Głos z kamieni. Starzy gadali, że po burzy iskier takie kamienie zostają na grobach tych, co nie powinni byli umrzeć. To nie anioł i nie diabeł, tylko coś trzeciego, o czym Kościół nic nie wie. Chcesz mądrej rady: idź stąd, zanim zwiadowcy znajdą chałupę, w której śpisz. A jak rady nie chcesz, to i tak idź.”",
+      "text": "Halina odstawia miotłę i długo patrzy na kapliczkę, jakby tam szukała znaku. „Głos z kamieni. Starzy gadali, że po burzy iskier takie kamienie zostają na grobach tych, co nie powinni byli umrzeć. To nie anioł i nie diabeł, tylko coś trzeciego, o czym Kościół nic nie wie. Chcesz mądrej rady: idź stąd, zanim zwiadowcy znajdą chałupę, w której śpisz. A jak rady nie chcesz, to i tak idź. Na północ, dwa dni drogi, jest Obserwatorium na Szklanym Wzgórzu. Siedzi tam astrolog Hieronim, co od trzydziestu lat liczy to, co spadło z nieba. Jak ktoś ci powie, co mówią te kamienie, to on albo jego kot.”",
       "options": [
         {
           "id": "dalej",
@@ -124,6 +132,25 @@
       "actions": [
         {
           "setFlag": "halina_echo"
+        }
+      ]
+    },
+    "osada_plotka": {
+      "speaker": "Siostra Halina",
+      "text": "„Spalona osada, dwa dni na północ.” Halina składa ręce. „Wieś, co kowala ukrywała. Wojsko nie pytało, tylko paliło. Grób jej zrobiliśmy, ale nie wszystkich pochowano.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "reveal": "spalona_osada"
+        },
+        {
+          "setFlag": "osada_wiem"
         }
       ]
     }

@@ -5,7 +5,7 @@
   "nodes": {
     "powitanie": {
       "speaker": "Karczmarz Mruk",
-      "text": "Karczmarz Mruk wyciera kufel tą samą szmatą, którą przed chwilą przetarł ławę. „Nowy? Nowych tu nie lubimy, ale grosz od nich taki sam jak od starych. Co podać? Bo gapić się możesz za darmo, tylko mi gości płoszysz.”",
+      "text": "Karczmarz Mruk nawet nie wstaje zza szynkwasu. „Nowy? Nowych tu nie lubimy, ale grosz od nich taki sam jak od starych. Co podać? Bo gapić się możesz za darmo, tylko mi gości płoszysz.”",
       "options": [
         {
           "id": "plotki",
@@ -78,7 +78,7 @@
     },
     "plotki": {
       "speaker": "Karczmarz Mruk",
-      "text": "Mruk pochyla się nad szynkwasem i ścisza głos tak, że słychać go w całej izbie. „Gadają, że ktoś pytał o ocalałych. Cesarscy, w płaszczach czerwonych jak sumienie poborcy. Nikt nic nie wie, bo nikt nic nie widział, a kto widział, ten teraz bardzo pilnie pije swoje piwo.” Za to kamieniarze z kamieniołomu pod wzgórzem chleją u niego od świtu do nocy i przechwalają się, że tam jeszcze jest co kuć.",
+      "text": "Mruk pochyla się nad szynkwasem. „Gadają, że ktoś pytał o ocalałych. Cesarscy, w czerwonych płaszczach. Nikt nic nie wie, bo nikt nic nie widział, a kto widział, ten teraz bardzo pilnie pije swoje piwo.” Za to kamieniarze z kamieniołomu pod wzgórzem chleją u niego od świtu do nocy i przechwalają się, że tam jeszcze jest co kuć.",
       "options": [
         {
           "id": "dalej",
@@ -129,7 +129,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Zapamiętam ci to.",
+          "text": "Zapamiętam.",
           "goto": "powitanie"
         }
       ],
@@ -144,7 +144,7 @@
     },
     "q2_start": {
       "speaker": "Karczmarz Mruk",
-      "text": "Mruk wyciera szynkwas z takim żalem, jakby opłakiwał krewniaka. „Młynarz Radosz wisi mi dwanaście groszy za piwo, które żłopał, kiedy jeszcze miał co mleć. Teraz młyn stoi, a Radosz udaje, że mnie nie zna. Idź do niego, powiedz, że mu przypominam. Jak zapłaci, przynieś, dostaniesz działkę. Nie cały dług, tylko okruch, bo ja nie przytułek.”",
+      "text": "Mruk wyciera szynkwas. „Młynarz Radosz wisi mi dwanaście groszy za piwo, które żłopał, kiedy jeszcze miał co mleć. Teraz młyn stoi, a Radosz udaje, że mnie nie zna. Idź do niego, powiedz, że mu przypominam. Jak zapłaci, przynieś, dostaniesz działkę. Nie cały dług, tylko okruch, bo ja nie przytułek.”",
       "options": [
         {
           "id": "dalej",
@@ -163,11 +163,11 @@
     },
     "q2_zaplacil": {
       "speaker": "Karczmarz Mruk",
-      "text": "Mruk przelicza monety dwa razy, raz na ucho, raz na ząb. „Dwanaście. Rzadki widok, żeby dłużnik płacił. Masz szóstkę za fatygę, bo uczciwość trzeba karmić, żeby nie zdechła.”",
+      "text": "Mruk przelicza monety dwa razy, raz na ucho, raz na ząb. „Dwanaście. Rzadki widok, żeby dłużnik płacił. Masz szóstkę za fatygę. Nie przyzwyczajaj się.”",
       "options": [
         {
           "id": "dalej",
-          "text": "Zapamiętam ci to.",
+          "text": "Zapamiętam.",
           "goto": "powitanie"
         }
       ],

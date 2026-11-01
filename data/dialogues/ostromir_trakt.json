@@ -4,7 +4,7 @@
   "nodes": {
     "wozu": {
       "speaker": "Kupiec Ostromir",
-      "text": "Ostromir siedzi na koźle i liczy na palcach coś, co kiedyś było pieniędzmi. „Wędrowiec! Albo czegoś chcesz, albo coś sprzedajesz, albo mnie okradniesz. Które, gadaj?”",
+      "text": "Ostromir siedzi na koźle i liczy coś na palcach, a wychodzi mu za mało. „Wędrowiec! Albo czegoś chcesz, albo coś sprzedajesz, albo mnie okradniesz. Które, gadaj?”",
       "options": [
         {
           "text": "Mam weksel od Wrzoska.",
@@ -45,7 +45,7 @@
     },
     "weksel": {
       "speaker": "Kupiec Ostromir",
-      "text": "Ostromir patrzy na weksel jak na dawno pochowanego krewniaka. „Wrzosek. A jakże. Trzy beczki piwa, których nie wypiłem, bo się w drodze skwasiło.” Bazgrze coś na kawałku kory i podaje ci. „Pokwitowanie. Niech je ściska i niech nie skamle.”",
+      "text": "Ostromir krzywi się na widok weksla. „Wrzosek. A jakże. Trzy beczki piwa, których nie wypiłem, bo się w drodze skwasiło.” Bazgrze coś na kawałku kory i podaje ci. „Pokwitowanie. Niech je ściska i niech nie skamle.”",
       "options": [
         {
           "text": "Przekażę.",

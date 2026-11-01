@@ -1,6 +1,6 @@
 # Licencja treści gry
 
-Treść gry „Ostrze Gwiazd” (katalog `data/`: fabuła, dialogi, opisy, napisy interfejsu, grafiki `.pix`, mapy) jest udostępniona na licencji
+Treść gry „Voided: na przekór gwiazdom” (katalog `data/`: fabuła, dialogi, opisy, napisy interfejsu, grafiki `.pix`, mapy) jest udostępniona na licencji
 
 **Creative Commons Uznanie autorstwa – Użycie niekomercyjne – Na tych samych warunkach 4.0 Międzynarodowa (CC BY-NC-SA 4.0)**
 
@@ -20,6 +20,6 @@ pod warunkiem że:
 - **nie użyjesz treści w celach komercyjnych** (nie sprzedajesz jej ani nie zarabiasz na niej),
 - **przeróbki rozpowszechniasz na tej samej licencji.**
 
-Kod programu (katalogi `bin/`, `src/`) jest na licencji MIT, zob. plik `LICENSE`.
+Kod programu (katalogi `bin/`, `src/`, `test/`) jest na licencji MIT, zob. plik `LICENSE`.
 
 Chcesz użyć treści komercyjnie? Napisz: twisterson@gmail.com.

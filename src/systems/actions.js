@@ -9,8 +9,12 @@ import { getStats } from "./stats.js";
 import { placeIds, revealPlace, hintPlace } from "./places.js";
 import { addSearch } from "./search.js";
 import { questById, startQuest, finishQuest, advanceErrands } from "./quests.js";
+import { lootTableById, rollLootTable } from "./loot.js";
 
-export const ACTION_KEYS = ["giveItem", "takeItem", "giveMoney", "takeMoney", "setFlag", "clearFlag", "addVar", "xp", "time", "addEffect", "removeEffect", "healFull", "reveal", "hint", "startQuest", "completeQuest", "search", "startCombat"];
+import { HUNGER } from "./food.js";
+import { resetAppetite } from "./appetite.js";
+
+export const ACTION_KEYS = ["giveItem", "giveRandom", "takeItem", "giveMoney", "takeMoney", "setFlag", "clearFlag", "addVar", "xp", "time", "addEffect", "removeEffect", "healFull", "meal", "reveal", "hint", "startQuest", "completeQuest", "search", "startCombat"];
 
 const isObject = (v) => typeof v === "object" && v !== null && !Array.isArray(v);
 const isCount = (v) => Number.isInteger(v) && v >= 1;
@@ -38,8 +42,10 @@ function validateAction(action, at, data) {
   switch (key) {
     case "giveItem":
     case "takeItem": return validateItemRef(value, here, data);
+    case "giveRandom": return typeof value === "string" && lootTableById(data, value) ? [] : [`${here}: nieznana tabela łupów ${JSON.stringify(value)}`];
     case "giveMoney":
     case "takeMoney":
+    case "meal":
     case "xp":
     case "time": return isCount(value) ? [] : [`${here}: oczekiwano liczby całkowitej ≥ 1`];
     case "setFlag":
@@ -96,6 +102,12 @@ export function runActions(state, data, actions, rng) {
         if (addItem(state, data, id, qty).ok) events.push({ type: "otrzymano", id, qty });
         break;
       }
+      case "giveRandom": {
+        const drawn = runActions(state, data, [{ giveItem: rollLootTable(data, value, rng) }], rng);
+        events.push(...drawn.events);
+        if (drawn.events.some((e) => e.type === "za_ciezko")) { state.world.heavyLoot = true; return { events }; }
+        break;
+      }
       case "takeItem": {
         const { id, qty } = itemRef(value);
         const taken = Math.min(qty, freeCount(state, id));
@@ -144,6 +156,15 @@ export function runActions(state, data, actions, rng) {
         const gained = hpMax - ch.hp;
         ch.hp = hpMax;
         if (gained > 0) events.push({ type: "leczenie", amount: gained });
+        break;
+      }
+      case "meal": {
+        // A hot meal at a table: all the hunger gone, the appetite gauge back to zero and `value` HP.
+        removeEffect(state, HUNGER);
+        resetAppetite(state);
+        const hp = Math.min(value, getStats(state, data).derived.hpMax - ch.hp);
+        ch.hp += hp;
+        events.push({ type: "goraca_strawa", hp });
         break;
       }
       case "search": addSearch(state, data, value); break;

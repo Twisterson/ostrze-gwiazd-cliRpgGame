@@ -1,0 +1,84 @@
+{
+  "id": "rozstrzygniecie_furman_z_beczkami",
+  "start": "wozu",
+  "nodes": {
+    "wozu": {
+      "speaker": "Furman Wit",
+      "text": "Furman siedzi na koźle bez bata i bez konia, i sprawia wrażenie człowieka, któremu wszystko jedno. „Beczki. Smoła, podobno. Jedna od cesarskich, jedna od wyspiarzy, bo obie strony zamówiły u tej samej baby. Obie zapłaciły. Mnie zostaje wybrać, komu je dowieźć.”",
+      "options": [
+        {
+          "id": "cesarz",
+          "text": "Zawieź je do cesarskich.",
+          "goto": "cesarscy"
+        },
+        {
+          "id": "wyspiarze",
+          "text": "Zawieź je do Jarnowian.",
+          "goto": "jarnowianie"
+        },
+        {
+          "id": "rzeka",
+          "text": "Wylej to do Szarej. Smoła jest dla smolarzy.",
+          "goto": "rzeka"
+        }
+      ]
+    },
+    "cesarscy": {
+      "speaker": "Furman Wit",
+      "text": "Wit klepie wóz po boku. „Cesarscy i tak mają wszystko, to im jeszcze dołożę. Mniejszej krzywdy nie wymyślisz.” Sztab dowie się później, że beczki doszły na miejsce. Reszta frontu pozna to po dymie.",
+      "actions": [
+        {
+          "setFlag": "wojna_beczki_cesarscy"
+        },
+        {
+          "setFlag": "furman_z_beczkami_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "jarnowianie": {
+      "speaker": "Furman Wit",
+      "text": "Wit spluwa na kopyta nieistniejącego konia. „Wyspiarze płacili lepiej. Nie mówię, że o to chodzi. Mówię, że wiem, kto zapłacił.” Wóz rusza w stronę jarnowskiego obozu, a ty zostajesz z wrażeniem, że ktoś będzie ci to kiedyś liczył.",
+      "actions": [
+        {
+          "setFlag": "wojna_beczki_jarnowianie"
+        },
+        {
+          "setFlag": "furman_z_beczkami_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "rzeka": {
+      "speaker": "Furman Wit",
+      "text": "Beczki toczą się do wody jedna po drugiej, plusk, plusk, i Szara robi się czarna jak atrament. Wit patrzy w nurt z miną człowieka, który właśnie stracił dwa zlecenia i pół życia. „Teraz obie strony będą mnie szukać. Dzięki, wędrowcze.”",
+      "actions": [
+        {
+          "setFlag": "wojna_beczki_rzeka"
+        },
+        {
+          "setFlag": "furman_z_beczkami_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

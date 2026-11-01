@@ -73,7 +73,17 @@ export function runEnemyTurns(state, data, combat, rng) {
     if (outcomeOf(state, combat)) break;
     events.push(...endTurn(state, data, combat));
   }
+  events.push(...lowHpHint(state, data, combat));
   return events;
+}
+
+/** Once per fight, when the hero's HP first drops to `lowHpPercent` of the maximum: a nudge to bandage up or run. */
+export function lowHpHint(state, data, combat) {
+  const { lowHpPercent } = data.rules.combat;
+  const hp = state.character.hp;
+  if (combat.lowHpHinted || !lowHpPercent || hp <= 0 || hp * 100 > getStats(state, data).derived.hpMax * lowHpPercent) return [];
+  combat.lowHpHinted = true;
+  return [{ type: "slabosc" }];
 }
 
 /**

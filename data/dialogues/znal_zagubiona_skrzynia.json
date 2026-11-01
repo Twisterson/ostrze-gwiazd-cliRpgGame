@@ -1,0 +1,22 @@
+{
+  "id": "znal_zagubiona_skrzynia",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Gościniec",
+      "text": "W błocie koło gościńca sterczy skrzynia z pękniętym wiekiem, jakby ktoś ją zrzucił z wozu w biegu. W środku siano, a pod sianem to, czego szukali złodzieje.",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveRandom": "lupy_znalezisko_glusz"
+        }
+      ]
+    }
+  }
+}

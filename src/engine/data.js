@@ -13,6 +13,7 @@ import { validateEnemies, validateArt, enemyById, validateLoot } from "../system
 import { validatePhenomena, phenomenonById } from "../systems/phenomena.js";
 import { validateTravel, locationById, routeById, EVENT_END } from "../systems/travel.js";
 import { validateQuests, questById } from "../systems/quests.js";
+import { validateLootTables } from "../systems/loot.js";
 
 export class DataLoadError extends Error {
   constructor(message) {
@@ -120,7 +121,8 @@ export async function loadData(dir = dataDir()) {
   const story = await readJson(dir, "story.json");
   const travel = await readJson(dir, "travel.json");
   const quests = await readJson(dir, "quests.json");
-  return deepFreeze({ ui, rules, attributes, skills, classes, perks, effects, enemies, phenomena, art, maps, items, shops, dialogues, story, travel, quests });
+  const loot = await readJson(dir, "loot.json");
+  return deepFreeze({ ui, rules, attributes, skills, classes, perks, effects, enemies, phenomena, art, maps, items, shops, dialogues, story, travel, quests, loot });
 }
 
 const ID = { type: "string", pattern: /^[a-z0-9_]+$/ };
@@ -193,8 +195,8 @@ const RULES_SCHEMA = {
       bluntCritStun: INT_MIN0, bluntDaze: INT_MIN0, dazedPenalty: INT_MIN0,
       defendPerAp: INT_MIN0, defendMinAp: INT_MIN1,
       fleeBase: INT, fleePerZrecznosc: INT_MIN0, fleePerMeleeEnemy: INT_MIN0, fleeAp: INT_MIN1,
-      bagUseExtraAp: INT_MIN0, moveAp: INT_MIN1, swapAp: INT_MIN1,
-      moraleThreshold: INT_MIN0, moraleOnAllyDeath: INT_MIN0, lowMoraleHitPenalty: INT_MIN0, cautiousHpPercent: INT_MIN0,
+      bagUseExtraAp: INT_MIN0, moveAp: INT_MIN1, swapAp: INT_MIN1, veteranFromLevel: INT_MIN1,
+      moraleThreshold: INT_MIN0, lowHpPercent: { type: "integer", min: 1, max: 100 }, moraleOnAllyDeath: INT_MIN0, lowMoraleHitPenalty: INT_MIN0, cautiousHpPercent: INT_MIN0,
       missEffectMultiplier: { type: "number", min: 0 }, fumbleRoll: INT_MIN1, fumbleFart: INT_MIN0,
       defaultMinutes: INT_MIN0, logSize: INT_MIN1, reachReadyAp: INT_MIN1,
       dual: strictObject({
@@ -210,6 +212,7 @@ const RULES_SCHEMA = {
         xpDiv: INT_MIN1, max: INT_MIN1, hitAt100: INT_MIN0, damagePercentAt100: INT_MIN0, defenseAt100: INT_MIN0, classStart: INT_MIN0,
       }),
       firearm: strictObject({ misfirePerProch: INT_MIN0 }),
+      noise: strictObject({ fastRounds: INT_MIN1, chance: { type: "integer", min: 0, max: 100 }, tags: { type: "array", items: ID } }),
     }),
     artifacts: strictObject({ carriedRegenMultiplier: { type: "number", min: 0 } }),
     exposure: strictObject({
@@ -217,11 +220,16 @@ const RULES_SCHEMA = {
       thiefMoneyPercent: { type: "array", items: INT_MIN0 }, thiefArtifactChance: INT_MIN0,
     }),
     phenomena: strictObject({ maxPerDay: INT_MIN0 }),
+    appetite: strictObject({ fullHours: INT_MIN1, hintAt: { type: "integer", min: 1, max: 100 } }),
     quests: strictObject({ maxActive: INT_MIN1, microXp: INT_MIN0 }),
     search: strictObject({ levels: strictObject({ czujnosc: INT_MIN1, poscig: INT_MIN1, oblawa: INT_MIN1 }), decayPerDay: INT_MIN0 }),
     travel: strictObject({
       startLocation: ID, maxRouteDays: INT_MIN1, departHour: INT_MIN0, marchHours: INT_MIN1, eventHourRange: { type: "array", items: INT_MIN0 },
       eventChance: INT_MIN0, dangerousEventChance: INT_MIN0, localEventChance: INT_MIN0, localDangerBonus: INT_MIN0, dangerousAttackWeight: INT_MIN1, slowMinHours: INT_MIN1,
+      repeat: strictObject({ decay: { type: "number", min: 0.05, max: 0.99 }, floorWalk: INT_MIN1, floorStage: INT_MIN1 }),
+      walkSegmentMinutes: { type: "integer", min: 30 }, walkMaxEvents: { type: "integer", min: 1, max: 5 }, huntCooldownDays: INT_MIN1, maxNearMinutes: { type: "integer", min: 60 },
+      crowd: strictObject({ above: INT_MIN0, perPlace: INT_MIN0, max: INT_MIN0 }),
+      night: strictObject({ periods: { type: "array", items: ID }, eventBonus: INT_MIN0, attackWeight: INT_MIN1 }),
       forage: strictObject({ minutes: INT_MIN1, base: INT_MIN0, perBystrosc: INT_MIN0, max: INT_MIN0, night: INT, slow: INT }),
     }),
   },
@@ -368,6 +376,7 @@ function validateScenes(scenes, vars, data, { prefix: listPrefix = "story.json",
     const id = typeof scene?.id === "string" ? scene.id : null;
     const prefix = `${listPrefix} › ${id ?? `#${index}`}`;
     if (id !== null) {
+      if (event && id === EVENT_END) errors.push(`${prefix}: id sceny „${EVENT_END}” jest zarezerwowane (kończy zdarzenie)`);
       if (ids.has(id)) errors.push(`${prefix}: zduplikowane id`);
       else if (taken.has(id)) errors.push(`${prefix}: id sceny ${JSON.stringify(id)} już zajęte`);
       ids.add(id);
@@ -568,6 +577,7 @@ function validateGameplayData(data) {
   errors.push(...validatePhenomena(data.phenomena, data));
   errors.push(...validateArt(data.art));
   errors.push(...validateItems(data.items, data));
+  errors.push(...validateLootTables(data.loot, data));
   errors.push(...validateRules(data, attrIds));
   errors.push(...validateDialogues(data.dialogues ?? [], data));
   return errors;
@@ -592,6 +602,9 @@ function validateRules(data, attrIds) {
   }
   if (isPlainObject(dialogue) && Number.isInteger(dialogue.chanceMin) && Number.isInteger(dialogue.chanceMax) && dialogue.chanceMin > dialogue.chanceMax) {
     errors.push("rules.json › dialogue: chanceMin większe niż chanceMax");
+  }
+  if (isPlainObject(dialogue) && Number.isInteger(dialogue.chanceMax) && dialogue.chanceMax > 100) {
+    errors.push("rules.json › dialogue: chanceMax większe niż 100");
   }
   if (isPlainObject(creator)) {
     for (const key of Object.keys(isPlainObject(creator.gifts) ? creator.gifts : {})) {
@@ -694,7 +707,8 @@ function validateTravelData(data) {
   for (const l of Array.isArray(data.travel?.locations) ? data.travel.locations : []) {
     for (const v of Array.isArray(l?.visitors) ? l.visitors : []) sceneList(v?.scenes, `travel.json › locations › ${l.id} › visitors › ${v?.id}`);
     for (const s of Array.isArray(l?.spots) ? l.spots : []) {
-      if (s?.type === "scene") sceneList(s.scenes, `travel.json › locations › ${l.id} › spots › ${s.id}`);
+      if (s?.type === "scene" || s?.type === "hunt") sceneList(s.scenes, `travel.json › locations › ${l.id} › spots › ${s.id}`);
+      if (s?.ambush && typeof s.ambush === "object") sceneList(s.ambush.scenes, `travel.json › locations › ${l.id} › spots › ${s.id} › ambush`);
     }
   }
   errors.push(...validateMaps(data));
@@ -708,6 +722,13 @@ function validateTravelData(data) {
     const at = (field) => `rules.json › travel.${field}`;
     for (const field of ["eventChance", "dangerousEventChance", "localEventChance", "localDangerBonus"]) {
       if (Number.isInteger(t[field]) && t[field] > 100) errors.push(`${at(field)}: wartość poza zakresem 0–100`);
+    }
+    if (Number.isInteger(t.walkMaxEvents) && t.walkMaxEvents > 5) errors.push(`${at("walkMaxEvents")}: wartość poza zakresem 1–5`);
+    if (isPlainObject(t.repeat)) {
+      if (typeof t.repeat.decay === "number" && t.repeat.decay >= 1) errors.push(`${at("repeat.decay")}: wartość poza zakresem (0, 1)`);
+      for (const field of ["floorWalk", "floorStage"]) {
+        if (Number.isInteger(t.repeat[field]) && t.repeat[field] > 100) errors.push(`${at(`repeat.${field}`)}: wartość poza zakresem 1–100`);
+      }
     }
     if (isPlainObject(t.forage) && Number.isInteger(t.forage.max) && t.forage.max > 100) errors.push(`${at("forage.max")}: wartość poza zakresem 0–100`);
     if (Number.isInteger(t.departHour) && t.departHour > 23) errors.push(`${at("departHour")}: wartość większa niż 23`);
@@ -730,7 +751,6 @@ export function validateData(data) {
   const errors = [];
   errors.push(...check(data.ui, UI_SCHEMA).map((m) => `ui.json › ${m}`));
   errors.push(...check(data.rules, RULES_SCHEMA).map((m) => `rules.json › ${m}`));
-  // schema.js has no "max" keyword
   for (const [part, entry] of Object.entries(isPlainObject(data.rules?.combat?.aimed) ? data.rules.combat.aimed : {})) {
     if (isPlainObject(entry) && typeof entry.effect === "string" && !(data.effects ?? []).some((e) => e?.id === entry.effect)) {
       errors.push(`rules.json › combat.aimed.${part}.effect: nieznany efekt ${JSON.stringify(entry.effect)}`);

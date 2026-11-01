@@ -39,7 +39,7 @@
     },
     "skarimir": {
       "speaker": "Skarimir",
-      "text": "„Cztery imiona na liście i ani jednej opłaconej gęby! Jak nas po drodze nie zeżrą, to chociaż sami zjemy porządnie, co, bohaterze?” Skarimir szczerzy zęby, jakby jechali na wesele.",
+      "text": "„Do stolicy, na cesarski koszt! Jak nas po drodze nic nie zeżre, to chociaż się tam najemy, co, bohaterze?” Skarimir szczerzy zęby, jakby szli na wesele.",
       "portrait": "portret_skarimir",
       "options": [
         {
@@ -61,7 +61,7 @@
     },
     "skarimir_smiech": {
       "speaker": "Skarimir",
-      "text": "„No! O to idzie!” Wali cię w plecy tak, że ledwo ustoisz. „Jak się wszystko zesra, powiem, żeś mnie rozśmieszył przed śmiercią.”",
+      "text": "„No! O to idzie!” Wali cię w plecy tak, że ledwo ustoisz. „W kupie zawsze raźniej, nawet do grobu.”",
       "portrait": "portret_skarimir",
       "actions": [
         {
@@ -106,7 +106,7 @@
     },
     "ragnoslawa_ok": {
       "speaker": "Ragnosława",
-      "text": "„Stoi!” Parska i pierwszy raz się uśmiecha. „Tylko się nie spóźnij, bo piwo wystygnie.”",
+      "text": "„Stoi!” Parska śmiechem, pierwszy raz od rana. „Tylko nie myśl, że dam ci wygrać.”",
       "portrait": "portret_ragnoslawa",
       "actions": [
         {
@@ -144,7 +144,7 @@
     },
     "wojmir_ok": {
       "speaker": "Wojmir Cienki",
-      "text": "Wojmir kiwa głową, a wargi drżą mu w czymś, co mogłoby uchodzić za uśmiech. „Bóg zapłać. Zapamiętam, kto mnie nie wyśmiał.”",
+      "text": "Wojmir kiwa głową i próbuje się uśmiechnąć. „Bóg zapłać. Zapamiętam, kto mnie nie wyśmiał.”",
       "portrait": "portret_wojmir",
       "actions": [
         {

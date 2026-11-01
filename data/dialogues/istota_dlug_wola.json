@@ -1,0 +1,34 @@
+{
+  "id": "istota_dlug_wola",
+  "portrait": "portret_istota",
+  "start": "komora",
+  "nodes": {
+    "komora": {
+      "speaker": "Istota",
+      "text": "„Cesarz nie żyje, jego straż nie istnieje. Dług spłacony. Możesz odejść.” Mówi to jak do równego, bez rozkazu. Tylko gwiazdy w jej twarzy drgają, jakby nie były pewne, czy to powinno brzmieć jak koniec.",
+      "options": [
+        {
+          "id": "wyrok",
+          "text": "Dług spłacony, więc teraz zaczyna się mój rachunek. Ty i ci, którzy z tobą przyszli, nie wrócicie tam, skąd przylecieliście.",
+          "goto": "wyrok"
+        }
+      ]
+    },
+    "wyrok": {
+      "speaker": "Istota",
+      "text": "Nie ma w niej gniewu. Przyjmuje to tak, jak przyjmuje się wyrok z dalekiego kraju: do wiadomości. „Zapisane. Rdzeń zostaje bez właściciela, a ja zostaję przy nim. Resztę rozstrzygnie to, co zrobisz.”",
+      "actions": [
+        {
+          "setFlag": "istota_wyrok"
+        }
+      ],
+      "options": [
+        {
+          "id": "wychodze",
+          "text": "Wychodzę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

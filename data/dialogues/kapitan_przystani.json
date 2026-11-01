@@ -1,0 +1,711 @@
+{
+  "id": "kapitan_przystani",
+  "portrait": "portret_kapitan_przystani",
+  "start": "biuro",
+  "returnStart": "powrot",
+  "nodes": {
+    "biuro": {
+      "speaker": "Kapitan Wars",
+      "text": "Kapitan siedzi za stołem zbitym z desek po rozbitej łodzi, a na ścianie wisi mapa, na której ktoś wyskrobał nożem nazwę „Wir”. „Z lądu, ale z pożytkiem – tak o panu mówią. Czym mogę służyć? I niech pan pamięta: obóz hetmana jest za wzgórzem nad zatoką, gdyby kiedyś hetman o pana zapytał.”",
+      "actions": [
+        {
+          "setFlag": "kapitan_przystani_poznany"
+        },
+        {
+          "reveal": "oboz_hetmana"
+        }
+      ],
+      "options": [
+        {
+          "id": "zlecenia",
+          "text": "Jak to działa z tablicą?",
+          "goto": "zlecenia"
+        },
+        {
+          "id": "plotki",
+          "text": "Co ludzie mówią o wyspie?",
+          "goto": "plotki"
+        },
+        {
+          "id": "meld_jarnowo_proch_zatopiony",
+          "text": "Rozliczam: Łódź bez załogi.",
+          "goto": "meld_jarnowo_proch_zatopiony",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_proch_zatopiony"
+              },
+              {
+                "notFlag": "lodz_bez_zalogi_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_proch_kapitan",
+          "text": "Rozliczam: Łódź bez załogi.",
+          "goto": "meld_jarnowo_proch_kapitan",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_proch_kapitan"
+              },
+              {
+                "notFlag": "lodz_bez_zalogi_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_proch_ukryty",
+          "text": "Rozliczam: Łódź bez załogi.",
+          "goto": "meld_jarnowo_proch_ukryty",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_proch_ukryty"
+              },
+              {
+                "notFlag": "lodz_bez_zalogi_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_kuznia_stop",
+          "text": "Rozliczam: Kowal i jego rusznice.",
+          "goto": "meld_jarnowo_kuznia_stop",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_kuznia_stop"
+              },
+              {
+                "notFlag": "kowal_i_rusznice_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_kuznia_dalej",
+          "text": "Rozliczam: Kowal i jego rusznice.",
+          "goto": "meld_jarnowo_kuznia_dalej",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_kuznia_dalej"
+              },
+              {
+                "notFlag": "kowal_i_rusznice_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_kuznia_sabotaz",
+          "text": "Rozliczam: Kowal i jego rusznice.",
+          "goto": "meld_jarnowo_kuznia_sabotaz",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_kuznia_sabotaz"
+              },
+              {
+                "notFlag": "kowal_i_rusznice_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_wiesc_przekazana",
+          "text": "Rozliczam: Wieści z lądu.",
+          "goto": "meld_jarnowo_wiesc_przekazana",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_wiesc_przekazana"
+              },
+              {
+                "notFlag": "wiesci_z_ladu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_wiesc_zatrzymana",
+          "text": "Rozliczam: Wieści z lądu.",
+          "goto": "meld_jarnowo_wiesc_zatrzymana",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_wiesc_zatrzymana"
+              },
+              {
+                "notFlag": "wiesci_z_ladu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_przejscie_uzyte",
+          "text": "Rozliczam: Przejście Smyka.",
+          "goto": "meld_jarnowo_przejscie_uzyte",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_przejscie_uzyte"
+              },
+              {
+                "notFlag": "przejscie_smyka_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_przejscie_odrzucone",
+          "text": "Rozliczam: Przejście Smyka.",
+          "goto": "meld_jarnowo_przejscie_odrzucone",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_przejscie_odrzucone"
+              },
+              {
+                "notFlag": "przejscie_smyka_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_rozpoznanie_zapis",
+          "text": "Rozliczam: Rozpoznanie urządzenia.",
+          "goto": "meld_jarnowo_rozpoznanie_zapis",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_rozpoznanie_zapis"
+              },
+              {
+                "notFlag": "rozpoznanie_urzadzenia_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_rozpoznanie_zniszczone",
+          "text": "Rozliczam: Rozpoznanie urządzenia.",
+          "goto": "meld_jarnowo_rozpoznanie_zniszczone",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_rozpoznanie_zniszczone"
+              },
+              {
+                "notFlag": "rozpoznanie_urzadzenia_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "powrot": {
+      "speaker": "Kapitan Wars",
+      "text": "Kapitan Wars podnosi głowę znad map i odsuwa nóż, którym czyścił paznokcie. „A, pan z lądu. Skoro pan znów tutaj, to widać mamy jeszcze o czym mówić. Czym tym razem mogę służyć?”",
+      "actions": [
+        {
+          "setFlag": "kapitan_przystani_poznany"
+        },
+        {
+          "reveal": "oboz_hetmana"
+        }
+      ],
+      "options": [
+        {
+          "id": "zlecenia",
+          "text": "Jak to działa z tablicą?",
+          "goto": "zlecenia"
+        },
+        {
+          "id": "plotki",
+          "text": "Co ludzie mówią o wyspie?",
+          "goto": "plotki"
+        },
+        {
+          "id": "meld_jarnowo_proch_zatopiony",
+          "text": "Rozliczam: Łódź bez załogi.",
+          "goto": "meld_jarnowo_proch_zatopiony",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_proch_zatopiony"
+              },
+              {
+                "notFlag": "lodz_bez_zalogi_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_proch_kapitan",
+          "text": "Rozliczam: Łódź bez załogi.",
+          "goto": "meld_jarnowo_proch_kapitan",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_proch_kapitan"
+              },
+              {
+                "notFlag": "lodz_bez_zalogi_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_proch_ukryty",
+          "text": "Rozliczam: Łódź bez załogi.",
+          "goto": "meld_jarnowo_proch_ukryty",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_proch_ukryty"
+              },
+              {
+                "notFlag": "lodz_bez_zalogi_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_kuznia_stop",
+          "text": "Rozliczam: Kowal i jego rusznice.",
+          "goto": "meld_jarnowo_kuznia_stop",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_kuznia_stop"
+              },
+              {
+                "notFlag": "kowal_i_rusznice_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_kuznia_dalej",
+          "text": "Rozliczam: Kowal i jego rusznice.",
+          "goto": "meld_jarnowo_kuznia_dalej",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_kuznia_dalej"
+              },
+              {
+                "notFlag": "kowal_i_rusznice_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_kuznia_sabotaz",
+          "text": "Rozliczam: Kowal i jego rusznice.",
+          "goto": "meld_jarnowo_kuznia_sabotaz",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_kuznia_sabotaz"
+              },
+              {
+                "notFlag": "kowal_i_rusznice_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_wiesc_przekazana",
+          "text": "Rozliczam: Wieści z lądu.",
+          "goto": "meld_jarnowo_wiesc_przekazana",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_wiesc_przekazana"
+              },
+              {
+                "notFlag": "wiesci_z_ladu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_wiesc_zatrzymana",
+          "text": "Rozliczam: Wieści z lądu.",
+          "goto": "meld_jarnowo_wiesc_zatrzymana",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_wiesc_zatrzymana"
+              },
+              {
+                "notFlag": "wiesci_z_ladu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_przejscie_uzyte",
+          "text": "Rozliczam: Przejście Smyka.",
+          "goto": "meld_jarnowo_przejscie_uzyte",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_przejscie_uzyte"
+              },
+              {
+                "notFlag": "przejscie_smyka_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_przejscie_odrzucone",
+          "text": "Rozliczam: Przejście Smyka.",
+          "goto": "meld_jarnowo_przejscie_odrzucone",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_przejscie_odrzucone"
+              },
+              {
+                "notFlag": "przejscie_smyka_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_rozpoznanie_zapis",
+          "text": "Rozliczam: Rozpoznanie urządzenia.",
+          "goto": "meld_jarnowo_rozpoznanie_zapis",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_rozpoznanie_zapis"
+              },
+              {
+                "notFlag": "rozpoznanie_urzadzenia_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_jarnowo_rozpoznanie_zniszczone",
+          "text": "Rozliczam: Rozpoznanie urządzenia.",
+          "goto": "meld_jarnowo_rozpoznanie_zniszczone",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_rozpoznanie_zniszczone"
+              },
+              {
+                "notFlag": "rozpoznanie_urzadzenia_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zlecenia": {
+      "speaker": "Kapitan Wars",
+      "text": "„Tablica wisi na nabrzeżu. Bierz, co ci pasuje. Po robocie przychodzisz do mnie, ja zapisuję w księdze, ktoś płaci. Księga jest jedyną rzeczą na wyspie, której nikt jeszcze nie spalił.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "plotki": {
+      "speaker": "Kapitan Wars",
+      "text": "„Mówią, że na Łysej Skale coś świeci po nocach, ale tam nikt nie chodzi, bo łodzie wracają bez sterników. Mówią też, że w Domu z Czarnego Szkła, za stocznią, stoi ściana, która odpowiada, jeśli się jej przyłoży odpowiednie żelazo. W obozie hetmana, za wzgórzem nad zatoką, rzadko ktoś bywa bez zaproszenia. I że na północy leżą wraki całej floty, z której nikt nie pamięta, kto ją wysłał.”",
+      "actions": [
+        {
+          "reveal": "dom_czarnego_szkla"
+        },
+        {
+          "reveal": "wraki_floty"
+        },
+        {
+          "reveal": "oboz_hetmana"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_proch_zatopiony": {
+      "speaker": "Kapitan Wars",
+      "text": "„Zatopił pan cały ładunek? Starszyzna portowa będzie płakać, a ryby kichać. Zapisane.”",
+      "actions": [
+        {
+          "setFlag": "lodz_bez_zalogi_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_proch_kapitan": {
+      "speaker": "Kapitan Wars",
+      "text": "„Proch przekazany do arsenału portowego? Uczciwie. Hetman będzie miał czym strzelać, a pan czyste sumienie, i jedno z dwóch na pewno się przyda.”",
+      "actions": [
+        {
+          "setFlag": "lodz_bez_zalogi_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_proch_ukryty": {
+      "speaker": "Kapitan Wars",
+      "text": "„Ukrył pan beczki? Gdzie, nie pytam. Ważne, że ktoś wie, gdzie są, a ktoś inny nie.”",
+      "actions": [
+        {
+          "setFlag": "lodz_bez_zalogi_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_kuznia_stop": {
+      "speaker": "Kapitan Wars",
+      "text": "„Kowal przestał kuć rusznice? Hetman się wścieknie, ale kowale rzadko słuchają hetmana, kiedy mają ciężki młot.”",
+      "actions": [
+        {
+          "setFlag": "kowal_i_rusznice_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_kuznia_dalej": {
+      "speaker": "Kapitan Wars",
+      "text": "„Kuje dalej? No tak. Kowal ma ręce, rusznice mają zamówienia, wojna ma apetyt. Zapisuję bez ocen.”",
+      "actions": [
+        {
+          "setFlag": "kowal_i_rusznice_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_kuznia_sabotaz": {
+      "speaker": "Kapitan Wars",
+      "text": "„Wadliwe lufy? Zapamiętam, żeby nie stawać blisko strzelca, który dostał pańskie rusznice. Zapisane.”",
+      "actions": [
+        {
+          "setFlag": "kowal_i_rusznice_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_wiesc_przekazana": {
+      "speaker": "Kapitan Wars",
+      "text": "„Przekazał pan wieść hetmanowi? Dobrze, że ktoś tu jeszcze mówi, co wie. Przyda się.”",
+      "actions": [
+        {
+          "setFlag": "wiesci_z_ladu_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_wiesc_zatrzymana": {
+      "speaker": "Kapitan Wars",
+      "text": "„Zatrzymał pan wieść dla siebie? Rozsądnie albo nieładnie, zależy, od której strony się patrzy. Zapisane.”",
+      "actions": [
+        {
+          "setFlag": "wiesci_z_ladu_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_przejscie_uzyte": {
+      "speaker": "Kapitan Wars",
+      "text": "„Poszedł pan przejściem Smyka? Dobrze. Chłopak jest jedynym człowiekiem na wyspie, który zna trzy wyjścia z każdego pokoju.”",
+      "actions": [
+        {
+          "setFlag": "przejscie_smyka_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_przejscie_odrzucone": {
+      "speaker": "Kapitan Wars",
+      "text": "„Poszedł pan bramą? Odważnie albo głupio. W obozie hetmana to prawie to samo.”",
+      "actions": [
+        {
+          "setFlag": "przejscie_smyka_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_rozpoznanie_zapis": {
+      "speaker": "Kapitan Wars",
+      "text": "„Rysunki Brygidy zostają? Dobrze. Rzeczy, których nie rozumiemy, zapisuje się przynajmniej po to, żeby po nas ktoś je zrozumiał.”",
+      "actions": [
+        {
+          "setFlag": "rozpoznanie_urzadzenia_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "meld_jarnowo_rozpoznanie_zniszczone": {
+      "speaker": "Kapitan Wars",
+      "text": "„Spalił pan notatki? Rozsądnie. Rzeczy, których nikt nie rozumie, bywają najbezpieczniejsze, gdy ich nie ma.”",
+      "actions": [
+        {
+          "setFlag": "rozpoznanie_urzadzenia_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_jarnowa": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "powrot"
+        }
+      ]
+    }
+  }
+}

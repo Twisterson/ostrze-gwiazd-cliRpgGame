@@ -1,0 +1,216 @@
+{
+  "id": "hjalmar",
+  "portrait": "portret_hjalmar",
+  "start": "lad",
+  "returnStart": "powrot",
+  "nodes": {
+    "lad": {
+      "speaker": "Hjalmar",
+      "text": "Za szynkwasem łysy chłop z wąsami poleruje kufel tak długo, że kufel zaczyna się wstydzić. Nad nim wisi deska z wypalonym napisem: „Hjalmar. Na kredyt nie dajemy”. „Nic nie widziałem, nic nie słyszałem, a piwo kosztuje dwa grosze. Co podać, żebyśmy oboje mieli o czym nie mówić?”",
+      "options": [
+        {
+          "id": "szukam",
+          "text": "Szukam Hjalmara.",
+          "goto": "szukam",
+          "requires": {
+            "notFlag": "hjalmar_poznany"
+          }
+        },
+        {
+          "id": "miasto",
+          "text": "Co się dzieje w mieście?",
+          "goto": "miasto"
+        },
+        {
+          "id": "most_zerwany",
+          "text": "Słyszałeś o moście na Szarej?",
+          "goto": "most_zerwany",
+          "requires": {
+            "flag": "wojna_most_zerwany"
+          }
+        },
+        {
+          "id": "most_otwarty",
+          "text": "Most na Szarej stoi otworem, słyszałeś?",
+          "goto": "most_otwarty",
+          "requires": {
+            "flag": "wojna_most_otwarty"
+          }
+        },
+        {
+          "id": "most_strzezony",
+          "text": "Most na Szarej ktoś teraz pilnuje.",
+          "goto": "most_strzezony",
+          "requires": {
+            "flag": "wojna_most_strzezony"
+          }
+        },
+        {
+          "id": "beczki",
+          "text": "Podobno ktoś wylał całą smołę do rzeki.",
+          "goto": "beczki",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_beczki_rzeka"
+              },
+              {
+                "flag": "wojna_beczki_cesarscy"
+              },
+              {
+                "flag": "wojna_beczki_jarnowianie"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "powrot": {
+      "speaker": "Hjalmar",
+      "text": "Hjalmar nie przestaje polerować kufla, ale kiwa głową tak, że widać: pamięta, kto tu był ostatnim razem. „Znowu pan. Niech zgadnę, nadal nic nie widziałem, a piwo nadal kosztuje dwa grosze.”",
+      "options": [
+        {
+          "id": "szukam",
+          "text": "Szukam Hjalmara.",
+          "goto": "szukam",
+          "requires": {
+            "notFlag": "hjalmar_poznany"
+          }
+        },
+        {
+          "id": "miasto",
+          "text": "Co się dzieje w mieście?",
+          "goto": "miasto"
+        },
+        {
+          "id": "most_zerwany",
+          "text": "Słyszałeś o moście na Szarej?",
+          "goto": "most_zerwany",
+          "requires": {
+            "flag": "wojna_most_zerwany"
+          }
+        },
+        {
+          "id": "most_otwarty",
+          "text": "Most na Szarej stoi otworem, słyszałeś?",
+          "goto": "most_otwarty",
+          "requires": {
+            "flag": "wojna_most_otwarty"
+          }
+        },
+        {
+          "id": "most_strzezony",
+          "text": "Most na Szarej ktoś teraz pilnuje.",
+          "goto": "most_strzezony",
+          "requires": {
+            "flag": "wojna_most_strzezony"
+          }
+        },
+        {
+          "id": "beczki",
+          "text": "Podobno ktoś wylał całą smołę do rzeki.",
+          "goto": "beczki",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_beczki_rzeka"
+              },
+              {
+                "flag": "wojna_beczki_cesarscy"
+              },
+              {
+                "flag": "wojna_beczki_jarnowianie"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "miasto": {
+      "speaker": "Hjalmar",
+      "text": "„Miasto? Miasto się boi. Cesarz nie wychodzi z pałacu od miesiąca, marszałek zaciąga każdego, kto stoi prosto, a stać prosto umie coraz mniej ludzi. Pytałeś mnie? Nie. Ja ci nie mówiłem.” Dolewa ci czegoś, co wygląda jak piwo, a smakuje jak woda po ogórkach.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hjalmar_poznany"
+        }
+      ]
+    },
+    "most_zerwany": {
+      "speaker": "Hjalmar",
+      "text": "„Zerwany? A, ten most. Podobno przewoźnik zrobił na tym majątek: jeden dzień i już mu się opłaca nie spać. Ja tam nic nie wiem, ale kupcy z północy przestali przyjeżdżać i piwo podrożało. Zbieg okoliczności, jak mówią ci, którzy wystawiają rachunki.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "most_otwarty": {
+      "speaker": "Hjalmar",
+      "text": "„Otwarty to otwarty. Przechodzą jedni i drudzy, a ja słyszę o tym tylko w pół zdania, bo przy stole milkną, jak wchodzę. Dobry znak. Znaczy, że mówią coś ciekawego.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "most_strzezony": {
+      "speaker": "Hjalmar",
+      "text": "„Pilnowany? To niespotykane. U nas most pilnuje się zwykle dopóty, dopóki ktoś nie zapłaci, żeby nie pilnować. Szkoda, że nie znam człowieka, który tam stoi. Może by mi kiedyś wino przewoził.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "beczki": {
+      "speaker": "Hjalmar",
+      "text": "„Smoła? Ludzie szeptają, że ktoś jednym ruchem narobił sobie tylu wrogów, ile inny przez całe życie. Nie pytam kto. Tylko nie siadaj plecami do drzwi.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "szukam": {
+      "speaker": "Hjalmar",
+      "text": "Karczmarz nie podnosi wzroku znad kufla, tylko wskazuje brodą deskę nad głową. „Szukasz, a stoisz przed nim. Hjalmar, od dwudziestu lat, i przez ten czas nikt jeszcze nie szukał mnie w dobrej sprawie. Jak chcesz wiedzieć, co się dzieje w mieście, to pytaj. Odpowiem ci, że nic nie wiem, ale dłużej.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobrze wiedzieć.",
+          "goto": "powrot"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "hjalmar_poznany"
+        }
+      ]
+    }
+  }
+}

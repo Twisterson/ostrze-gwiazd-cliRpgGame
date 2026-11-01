@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_chleb_dla_grabarza",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Grabarz",
+      "text": "Grabarz kopie. Przerywa, żeby spojrzeć na ciebie z nadzieją, i znowu kopie, gdy widzi, że nie masz nic w rękach.",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Oddaję chleb od piekarki.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "bochen_dla_grabarza"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Grabarz",
+      "text": "Grabarz zjada pół bochna na stojąco, opierając łokieć na łopacie. „Dobry chleb. Piekarce powiedz, że nie ma na cmentarzu miejsca dla jej złości, a dla niej samej mogę coś znaleźć, ale nie prędko.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "bochen_dla_grabarza"
+        },
+        {
+          "setFlag": "chleb_dla_grabarza_dostarczone"
+        }
+      ]
+    }
+  }
+}

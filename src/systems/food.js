@@ -3,6 +3,7 @@ import { itemById } from "./items.js";
 import { countOf } from "./inventory.js";
 import { applyEffect, effectById } from "./effects.js";
 import { getStats } from "./stats.js";
+import { resetAppetite } from "./appetite.js";
 
 export const HUNGER = "glod";
 
@@ -41,7 +42,12 @@ export function eatItem(state, data, itemId, rng) {
     state.inventory.items = state.inventory.items.filter((s) => s !== stack);
     state.inventory.quickSlots = state.inventory.quickSlots.filter((id) => id !== itemId);
   }
+  resetAppetite(state);
   const events = [{ type: "posilek", id: itemId, left: mealsLeft(state, data) }];
+  for (const id of item.applies ?? []) {
+    const r = applyEffect(state, data, id, rng);
+    events.push({ type: r.resisted ? "efekt_odparty" : "efekt_nalozony", id });
+  }
   const eased = easeHunger(state);
   if (eased) events.push(eased);
   const risk = item.food.risk;

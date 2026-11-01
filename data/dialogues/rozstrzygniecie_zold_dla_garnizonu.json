@@ -1,0 +1,126 @@
+{
+  "id": "rozstrzygniecie_zold_dla_garnizonu",
+  "start": "brama",
+  "nodes": {
+    "brama": {
+      "speaker": "Sierżant Gniewko",
+      "text": "Sierżant stoi w bramie fortu, której nie ma, i pilnuje jej z powagą generała. „Żołd? Dwa miesiące, kurwa, spóźniony. Chłopaki od tygodnia gotują buty i udają, że to gulasz. Dawaj, co masz.”",
+      "options": [
+        {
+          "id": "oddaj",
+          "text": "Oto skrzynia. Liczcie.",
+          "goto": "oddany"
+        },
+        {
+          "id": "zatrzymaj",
+          "text": "Skrzynia jest lżejsza, niż była. Taka jest wojna.",
+          "goto": "zatrzymany"
+        },
+        {
+          "id": "targ",
+          "text": "Połowa dla garnizonu, połowa dla kuriera. Dla mnie.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 35
+          },
+          "success": "podzielony",
+          "failure": "przylapany"
+        }
+      ]
+    },
+    "oddany": {
+      "speaker": "Sierżant Gniewko",
+      "text": "Sierżant otwiera wieko, liczy, liczy jeszcze raz i milknie. „Pierwszy raz mi ktoś przyniósł wszystko. Powiem chłopakom, że nie zwariowałem.” Odwraca się i woła na plac dwa razy głośniej, niż trzeba.",
+      "actions": [
+        {
+          "setFlag": "wojna_zold_oddany"
+        },
+        {
+          "setFlag": "zold_dla_garnizonu_zrobione"
+        },
+        {
+          "takeItem": "skrzynia_zoldu"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zatrzymany": {
+      "speaker": "Sierżant Gniewko",
+      "text": "Sierżant patrzy na ciebie długo. „Nie widziałem skrzyni. Nie widziałem ciebie. Widziałem tylko, że chłopaki jeszcze trochę pogłodują.” Kieszeń masz cięższą. Sumienie podobno też.",
+      "actions": [
+        {
+          "setFlag": "wojna_zold_zatrzymany"
+        },
+        {
+          "setFlag": "zold_dla_garnizonu_zrobione"
+        },
+        {
+          "takeItem": "skrzynia_zoldu"
+        },
+        {
+          "giveMoney": 40
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "podzielony": {
+      "speaker": "Sierżant Gniewko",
+      "text": "Sierżant prycha, potem się uśmiecha, potem znowu prycha. „Ty masz gadane, wędrowcze. Połowa to i tak więcej, niż dostaliśmy od cesarza.” Żołnierze dostają połowę, ty swoją, a sztab sprawia wrażenie, że nigdy nie liczył.",
+      "actions": [
+        {
+          "setFlag": "wojna_zold_podzielony"
+        },
+        {
+          "setFlag": "zold_dla_garnizonu_zrobione"
+        },
+        {
+          "takeItem": "skrzynia_zoldu"
+        },
+        {
+          "giveMoney": 20
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "przylapany": {
+      "speaker": "Sierżant Gniewko",
+      "text": "„Połowa dla kuriera? Kurier, który sam sobie płaci.” Sierżant wyrywa ci skrzynię i liczy ją z miną człowieka, który wolałby jednak kogoś uderzyć. „Idź, zanim zmienię zdanie o twojej głowie.”",
+      "actions": [
+        {
+          "setFlag": "wojna_zold_oddany"
+        },
+        {
+          "setFlag": "zold_dla_garnizonu_zrobione"
+        },
+        {
+          "takeItem": "skrzynia_zoldu"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

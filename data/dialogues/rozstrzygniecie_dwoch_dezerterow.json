@@ -1,0 +1,120 @@
+{
+  "id": "rozstrzygniecie_dwoch_dezerterow",
+  "start": "namiot",
+  "nodes": {
+    "namiot": {
+      "speaker": "Porucznik Rogala",
+      "text": "Porucznik jest chudy, wysuszony i sztywny jak własny kołnierz, a mówi tak, jakby czytał kazanie. „Dwóch moich ludzi zniknęło w noc po bitwie. Wiem, gdzie są. Kapitan ich chowa, bo ma słabość do wymówek. Znajdź ich i sprowadź, a dostaniesz sakiewkę. Albo ich nie znajdź i zamilknij, a dostaniesz kłopoty.”",
+      "options": [
+        {
+          "id": "wydaj",
+          "text": "Wiem, gdzie są. Wskażę.",
+          "goto": "wydani"
+        },
+        {
+          "id": "klam",
+          "text": "Nie widziałem żadnych dezerterów. Przeszli za rzekę.",
+          "goto": "puszczeni"
+        },
+        {
+          "id": "wykup",
+          "text": "Ile za dwóch? Wykupię ich od ciebie.",
+          "goto": "wykupieni",
+          "requires": {
+            "money": 30
+          }
+        },
+        {
+          "id": "tomasz",
+          "text": "Tomasz ręczy za nich. Zna ich lepiej niż ty.",
+          "goto": "tomasz",
+          "requires": {
+            "flag": "sojusz_dezerter"
+          }
+        }
+      ]
+    },
+    "wydani": {
+      "speaker": "Porucznik Rogala",
+      "text": "Rogala notuje coś w zeszycie, nawet nie podnosząc wzroku. „Dobry obywatel. Cesarz dowie się, że jego sprawy mają jeszcze czyste ręce.” Do wieczora z jaru słychać krzyk, który przestaje o zmroku. Kapitan nie zapyta, skąd wiedzieli.",
+      "actions": [
+        {
+          "setFlag": "wojna_dezerterzy_wydani"
+        },
+        {
+          "setFlag": "dwoch_dezerterow_zrobione"
+        },
+        {
+          "giveMoney": 25
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "puszczeni": {
+      "speaker": "Porucznik Rogala",
+      "text": "Rogala mruży oczy. „Za rzekę, mówisz.” Długo się w ciebie wpatruje, potem macha ręką. „Niech będzie. Niech ich Jarnowianie wykarmią, może się czegoś nauczą.” Wiesz, że ci nie wierzy, ale nie ma ochoty sprawdzać.",
+      "actions": [
+        {
+          "setFlag": "wojna_dezerterzy_puszczeni"
+        },
+        {
+          "setFlag": "dwoch_dezerterow_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wykupieni": {
+      "speaker": "Porucznik Rogala",
+      "text": "Porucznik liczy w pamięci, potem na głos. „Trzydzieści. Za dwóch dezerterów, którzy i tak nic nie są warci.” Bierze monety, pisze w zeszycie: „Odnaleziono”. Dezerterów już nie ma w rejestrze i nie ma ich też na świecie, przynajmniej tym cesarskim.",
+      "actions": [
+        {
+          "setFlag": "wojna_dezerterzy_wykupieni"
+        },
+        {
+          "setFlag": "dwoch_dezerterow_zrobione"
+        },
+        {
+          "takeMoney": 30
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    },
+    "tomasz": {
+      "speaker": "Porucznik Rogala",
+      "text": "Rogala słucha, jak Tomasz mówi – o chłopakach z jednego plutonu, o głodzie i o tym, że ktoś musi czasem powiedzieć „dosyć”. Milczy bardzo długo. „Niech idą. Ale nie pod moim sztandarem.”",
+      "actions": [
+        {
+          "setFlag": "wojna_dezerterzy_tomasz"
+        },
+        {
+          "setFlag": "dwoch_dezerterow_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do obozu.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

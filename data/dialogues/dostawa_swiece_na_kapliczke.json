@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_swiece_na_kapliczke",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Skrzynka przy kapliczce",
+      "text": "Skrzynka stoi otwarta i pusta, jakby czekała na świece.",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Wkładam świece do skrzynki.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "swiece_woskowe"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Skrzynka przy kapliczce",
+      "text": "Wkładasz świece do skrzynki. W środku leży kilka groszy zostawionych dla posłańca, bo Halina zna Tobiasza i wie, że kto go zastępuje, nie robi tego za darmo.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "swiece_woskowe"
+        },
+        {
+          "setFlag": "swiece_na_kapliczke_dostarczone"
+        }
+      ]
+    }
+  }
+}

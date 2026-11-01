@@ -1,0 +1,87 @@
+{
+  "id": "rozstrzygniecie_przemyt_z_portu",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "speaker": "Chłopak od skrzyni",
+      "text": "Przy fontannie siedzi chłopak z wielką skrzynią na kolanach i miną niewiniątka. „Jak pan się zbliży, to krzyknę. Nie żebym musiał, ale tu tak się robi. Skrzynia nie jest moja, ale ja ją niosę, a to znaczy, że jest trochę moja. Co pan chce?”",
+      "options": [
+        {
+          "id": "przepusc",
+          "text": "Nic nie chcę. Idź dalej, ja nie widziałem.",
+          "goto": "wynik_przepusc"
+        },
+        {
+          "id": "zglos",
+          "text": "Skrzynia idzie do straży. Przemyt to przemyt.",
+          "goto": "wynik_zglos"
+        },
+        {
+          "id": "przejmij",
+          "text": "Połowa skrzyni dla mnie. Reszta dla ciebie i dla zapomnienia.",
+          "goto": "wynik_przejmij"
+        }
+      ]
+    },
+    "wynik_przepusc": {
+      "speaker": "Chłopak od skrzyni",
+      "text": "Chłopak ściska skrzynię mocniej i patrzy na ciebie z mieszanką ulgi i pogardy. „Mądry człowiek.” Znika w tłumie szybciej, niż zdążyłbyś mrugnąć. Nikt nie zadaje pytań, bo nikt nie dostał żadnych odpowiedzi.",
+      "actions": [
+        {
+          "setFlag": "stolica_przemyt_przepuszczony"
+        },
+        {
+          "setFlag": "przemyt_z_portu_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_zglos": {
+      "speaker": "Chłopak od skrzyni",
+      "text": "Chłopak otwiera usta, żeby krzyknąć, ale wtedy zauważa strażnika za twoimi plecami. Skrzynia ląduje w rękach prawa, a chłopak w ich uścisku. „Zdrajca!” – woła, ale już bez przekonania.",
+      "actions": [
+        {
+          "setFlag": "stolica_przemyt_zgloszony"
+        },
+        {
+          "setFlag": "przemyt_z_portu_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_przejmij": {
+      "speaker": "Chłopak od skrzyni",
+      "text": "Chłopak mruga, potem wzdycha, potem otwiera skrzynię. W środku butelki, zwoje i coś, co się rusza. Zabierasz połowę, chłopak resztę. „Interes” – mówi. „A pan się przyda.”",
+      "actions": [
+        {
+          "setFlag": "stolica_przemyt_przejety"
+        },
+        {
+          "setFlag": "przemyt_z_portu_zrobione"
+        },
+        {
+          "giveMoney": 30
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

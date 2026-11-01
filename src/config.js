@@ -7,7 +7,7 @@ export const GAME_NAME = "ostrze";
 export const GAME_VERSION = JSON.parse(
   fs.readFileSync(new URL("../package.json", import.meta.url), "utf8"),
 ).version;
-export const SAVE_FORMAT_VERSION = 11;
+export const SAVE_FORMAT_VERSION = 12;
 
 export function homeDir() {
   return process.env.OSTRZE_HOME || path.join(os.homedir(), ".ostrze");

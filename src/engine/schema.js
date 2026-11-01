@@ -38,6 +38,9 @@ export function check(value, schema, path = "") {
   if ((schema.type === "number" || schema.type === "integer") && schema.min !== undefined && value < schema.min) {
     errors.push(withPath(path, `wartość mniejsza niż ${schema.min}`));
   }
+  if ((schema.type === "number" || schema.type === "integer") && schema.max !== undefined && value > schema.max) {
+    errors.push(withPath(path, `wartość większa niż ${schema.max}`));
+  }
   if (schema.type === "array" && schema.items) {
     value.forEach((item, i) => errors.push(...check(item, schema.items, `${path}[${i}]`)));
   }

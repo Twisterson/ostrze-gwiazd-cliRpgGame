@@ -1,0 +1,149 @@
+{
+  "id": "setnik_hauk",
+  "portrait": "portret_hauk",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "W namiocie siedzi jasnobrody setnik i smaruje buty, jakby na tej wojnie to było najważniejsze. Nie sięga po broń. „Nie jesteś jeńcem, bo byłbyś związany. Nie jesteś dezerterem, bo by cię śmierdziało strachem. Czyli przyszedłeś zarobić. Hauk. Interesuje mnie jedno: którędy idą wozy z prochem na Wronią Górę. Płacę dziewięćdziesiąt groszy, srebrem, bez pokwitowania.”",
+      "options": [
+        {
+          "id": "prawda",
+          "text": "Nocą przez przeprawę. Bez straży.",
+          "goto": "prawda"
+        },
+        {
+          "id": "falsz",
+          "text": "Starym traktem pod fortem, co trzeci dzień.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 55
+          },
+          "success": "falsz_ok",
+          "failure": "falsz_zle"
+        },
+        {
+          "id": "proch",
+          "text": "Pomyślę. Wychodzę tyłem, koło waszego prochu.",
+          "check": {
+            "skill": "skradanie",
+            "difficulty": 50
+          },
+          "success": "proch_ok",
+          "failure": "proch_zle"
+        },
+        {
+          "id": "nie",
+          "text": "Nie handluję swoimi.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "prawda": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "Hauk odkłada szmatę i pisze dwa słowa na kawałku kory. Odlicza srebro bez targowania, a to najgorszy znak. „Dobrze się z tobą robi interesy. Ci z wozów pewnie by się nie zgodzili, ale ich nikt nie pytał.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bierzemy i idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 90
+        },
+        {
+          "setFlag": "wojna_wywiad_prawda"
+        },
+        {
+          "setFlag": "wywiad_zalatwiony"
+        }
+      ]
+    },
+    "falsz_ok": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "Hauk patrzy na ciebie długo, potem sprawdza coś na mapie i kiwa głową. „Pod fortem. Tak myślałem, że nie są aż tak głupi, żeby iść przeprawą.” Dostajesz pięćdziesiąt groszy zadatku. „Reszta, jak wozy spłoną.” Reszty nie zobaczysz. Pod fortem za to czeka dziś cesarska kusza, a kapitan pewnie doceni, że ktoś mu napędza ludzi pod lufę.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do zobaczenia.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 50
+        },
+        {
+          "setFlag": "wojna_wywiad_falsz"
+        },
+        {
+          "setFlag": "wywiad_zalatwiony"
+        }
+      ]
+    },
+    "falsz_zle": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "Hauk uśmiecha się i dalej smaruje but. „Pod fortem? Mój zwiadowca leżał pod tym fortem trzy noce i widział dwa zające. Dobrze kłamiesz, widać praktykę, ale jeszcze raz i przyjdą chłopcy z rusznicami. Masz teraz drugą szansę na prawdę. Tej oferty nie dostają wszyscy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Jeszcze pomyślę.",
+          "goto": "s"
+        }
+      ]
+    },
+    "proch_ok": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "Wychodzisz tyłem, jak powiedziałeś. Za namiotem stoją beczki z prochem pod płachtą, a kawałek dalej wiadro. Wiadra są dwa, a beczek dziewięć, ale szpunty siedzą luźno, a wartownik akurat opowiada coś o swojej żonie. Zanim skończy, proch w dziewięciu beczkach jest już mokrą kaszą. Nikt tego nie zauważy aż do pierwszej salwy.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Znikam.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "xp": 40
+        },
+        {
+          "setFlag": "wojna_wywiad_proch"
+        },
+        {
+          "setFlag": "wywiad_zalatwiony"
+        }
+      ]
+    },
+    "proch_zle": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "Masz już rękę na szpuncie, kiedy wartownik przestaje mówić o żonie. Patrzy na ciebie, ty na niego, a beczka na was obu. Mówisz, że szukasz wychodka. Wartownik pokazuje palcem w drugą stronę, nie odrywając drugiej ręki od rusznicy. Z namiotu woła Hauk: „Wróć i porozmawiajmy jak ludzie, bo beczki nie przeproszą.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wracam.",
+          "goto": "s"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "„Swoimi.” Hauk powtarza to, jakby próbował smaku. „Twoi nie płacą ci od trzech miesięcy, ale dobrze, szanuję. Oferta jest ważna, póki wojna trwa. Czyli długo.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

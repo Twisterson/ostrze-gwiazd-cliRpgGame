@@ -5,7 +5,7 @@
   "nodes": {
     "powitanie": {
       "speaker": "Kwatermistrz Dobrogost",
-      "text": "Dobrogost wyrasta zza kontuaru jak zmora o niezapłaconym rachunku. „No? Kupujesz, czy tylko moje powietrze żresz? Jedno i drugie kosztuje, mówię ci!”",
+      "text": "Dobrogost podnosi się zza kontuaru. „No? Kupujesz, czy tylko moje powietrze żresz? Jedno i drugie kosztuje, mówię ci! Darowanemu koniowi w zęby się nie zagląda, ale u mnie nic darowane nie jest, więc oglądaj, ile chcesz, i płać.”",
       "options": [
         {
           "id": "targ",
@@ -169,7 +169,7 @@
     },
     "targ_ok": {
       "speaker": "Kwatermistrz Dobrogost",
-      "text": "Dobrogost sapie, mruży oko i liczy coś na paluchach. „Tfu, żebyś ty się na jarmarku nie urodził! Dobra, utnę ci z każdego towaru, ale matce nie mów, bo mnie z chałupy pogoni.” Spluwa w garść i wyciąga ją na zgodę.",
+      "text": "Dobrogost sapie, mruży oko i liczy coś na paluchach. „Tfu, toś ty się chyba na jarmarku urodził! Dobra, utnę ci z każdego towaru, tylko nikomu ani słowa, bo mnie z torbami puszczą.” Spluwa w garść i wyciąga ją na zgodę.",
       "actions": [
         {
           "setFlag": "kwatermistrz_rabat"
@@ -184,7 +184,7 @@
     },
     "targ_zle": {
       "speaker": "Kwatermistrz Dobrogost",
-      "text": "„Zbić cenę?! Moje opatrunki, jak własne dzieci! Wynocha z takimi fanaberiami, bo ci jeszcze doliczę za gadanie!” Krzywi się, jakby mu ząb wyleciał, i wpycha sakiewkę głębiej za pazuchę.",
+      "text": "„Zbić cenę?! Moje opatrunki, jak własne dzieci! Wynocha z takimi fanaberiami, bo ci jeszcze doliczę za gadanie!” Krzywi się, jakby go ząb rozbolał, i wpycha sakiewkę głębiej za pazuchę.",
       "options": [
         {
           "text": "Dalej.",

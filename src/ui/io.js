@@ -12,11 +12,17 @@ export class InputExhaustedError extends Error {
   constructor(message = "Skończyły się zaplanowane odpowiedzi.") { super(message); this.name = "InputExhaustedError"; }
 }
 
-/** @typedef {{ name: "up"|"down"|"left"|"right"|"enter"|"escape"|"backspace"|"char", char?: string }} Key */
+/**
+ * `resize` is not a real key: the window changed size and whoever waits for a key should draw the screen again.
+ * @typedef {{ name: "up"|"down"|"left"|"right"|"enter"|"escape"|"backspace"|"char"|"resize", char?: string }} Key
+ */
+
+/** A window being dragged sends a burst of size changes: the screen is drawn once they stop for this long. */
+const RESIZE_SETTLE_MS = 40;
 
 const KEY_TOKENS = {
   "<up>": "up", "<down>": "down", "<left>": "left", "<right>": "right",
-  "<enter>": "enter", "<esc>": "escape", "<backspace>": "backspace",
+  "<enter>": "enter", "<esc>": "escape", "<backspace>": "backspace", "<resize>": "resize",
 };
 const NAMED_KEYS = {
   up: "up", down: "down", left: "left", right: "right",
@@ -92,12 +98,25 @@ export function createTerminalIO({ input = process.stdin, output = process.stdou
   let heldResize = null;
   /** keys arriving before this time (ms since epoch) are ignored, see discardInput */
   let discardUntil = 0;
+  let resizeTimer = null;
+  /** the window changed size while nobody waited for a key: the next readKey reports it */
+  let resizePending = false;
+
+  const onResize = () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if (keyWaiter) keyWaiter.resize();
+      else resizePending = true;
+    }, RESIZE_SETTLE_MS);
+    resizeTimer.unref?.();
+  };
+  if (output.isTTY) output.on("resize", onResize);
 
   function suspendReadline() {
     if (held) return;
     held = input.listeners("keypress");
     for (const l of held) input.off("keypress", l);
-    heldResize = output.listeners("resize");
+    heldResize = output.listeners("resize").filter((l) => l !== onResize);
     for (const l of heldResize) output.off("resize", l);
   }
   function resumeReadline() {
@@ -128,6 +147,8 @@ export function createTerminalIO({ input = process.stdin, output = process.stdou
   });
   rl.on("close", () => {
     closed = true;
+    output.off("resize", onResize);
+    clearTimeout(resizeTimer);
     if (keyWaiter) keyWaiter.reject(new InputClosedError());
     if (!waiter || lines.length > 0) return;
     const w = waiter;
@@ -138,11 +159,15 @@ export function createTerminalIO({ input = process.stdin, output = process.stdou
   return {
     rl,
     isTTY: Boolean(output.isTTY),
+    diffFrames: Boolean(output.isTTY), // a frame is updated row by row; `shown` is what is on the screen (see drawFrame)
+    shown: null,
+    written: [], // the lines written since the last clear: a screen without frames is repainted from them after a resize
     get columns() { return output.columns || 80; },
     get rows() { return output.rows || 24; },
-    write(text) { output.write(`${text}\n`); },
+    write(text) { this.shown = null; this.written.push(text); output.write(`${text}\n`); },
     writeRaw(text) { output.write(text); },
     ask(question) {
+      this.shown = null; // the prompt is written past the frame: the next frame starts from a clean screen
       return new Promise((resolve, reject) => {
         endTail?.();
         resumeReadline();
@@ -161,6 +186,7 @@ export function createTerminalIO({ input = process.stdin, output = process.stdou
     readKey() {
       if (!output.isTTY) return Promise.reject(new Error("readKey wymaga terminala"));
       if (closed) return Promise.reject(new InputClosedError());
+      if (resizePending) { resizePending = false; return Promise.resolve({ name: "resize" }); }
       if (ahead.length) { // the rest of a pasted chunk
         const next = ahead.shift();
         return next === INTERRUPT ? Promise.reject(new InterruptError()) : Promise.resolve(next);
@@ -192,7 +218,7 @@ export function createTerminalIO({ input = process.stdin, output = process.stdou
           settle();
           resolve(mapped);
         };
-        keyWaiter = { reject: (e) => { settle(); reject(e); } };
+        keyWaiter = { reject: (e) => { settle(); reject(e); }, resize: () => { settle(); resolve({ name: "resize" }); } };
         suspendReadline();
         input.on("keypress", onKey);
       });

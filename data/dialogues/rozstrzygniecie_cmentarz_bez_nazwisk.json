@@ -1,0 +1,92 @@
+{
+  "id": "rozstrzygniecie_cmentarz_bez_nazwisk",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "speaker": "Grabarz Łopata",
+      "text": "Grabarz opiera łopatę o płot i patrzy na rzędy niezapisanych kopców. „Panie, tu leży pół miasta i nikt nie wie kto. Ja pamiętam jak dwudziestu, ale reszta? Reszta to zima i tyfus. Spisać by trzeba, na papier, na kamień. Ale kamień kosztuje, a papier ma gorszą pamięć niż ja.”",
+      "options": [
+        {
+          "id": "spisz",
+          "text": "Spiszę wszystkie, które pamiętasz, i dam do kościoła.",
+          "goto": "wynik_spisz"
+        },
+        {
+          "id": "zataj",
+          "text": "Lepiej nie spisywać. Imię zostawia ślad, a ślad prowadzi do żywych.",
+          "goto": "wynik_zataj"
+        },
+        {
+          "id": "sprzedaj",
+          "text": "Wezmę listę. Znam ludzi, którzy płacą za takie informacje.",
+          "goto": "wynik_sprzedaj"
+        }
+      ]
+    },
+    "wynik_spisz": {
+      "speaker": "Grabarz Łopata",
+      "text": "Grabarz dyktuje, ty piszesz. Imiona, przezwiska, miejsca. Trzydzieści osiem imion, potem kolejne czterdzieści jeden. Kończycie o zmierzchu, w milczeniu. Grabarz zawiązuje worek z kartkami i wręcza go tobie z szacunkiem.",
+      "actions": [
+        {
+          "setFlag": "stolica_nazwiska_spisane"
+        },
+        {
+          "setFlag": "cmentarz_bez_nazwisk_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_zataj": {
+      "speaker": "Grabarz Łopata",
+      "text": "Grabarz milczy długo, potem kiwa głową. „Ma pan rację. Z niektórych imion lepiej zrobić ciszę.” Przysypuje kopce kolejną warstwą ziemi.",
+      "actions": [
+        {
+          "setFlag": "stolica_nazwiska_zatajone"
+        },
+        {
+          "setFlag": "cmentarz_bez_nazwisk_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_sprzedaj": {
+      "speaker": "Grabarz Łopata",
+      "text": "Grabarz patrzy na ciebie jak na człowieka, który właśnie wyrzekł się czegoś ważnego. „Sprzedaje pan zmarłych?” Ale lista leży już w twojej dłoni.",
+      "actions": [
+        {
+          "setFlag": "stolica_nazwiska_sprzedane"
+        },
+        {
+          "setFlag": "cmentarz_bez_nazwisk_zrobione"
+        },
+        {
+          "giveMoney": 25
+        },
+        {
+          "addVar": {
+            "wola": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

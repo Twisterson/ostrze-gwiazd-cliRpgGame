@@ -32,7 +32,7 @@
       {
         "id": "nora_po_walce",
         "type": "narration",
-        "text": "Wataha leży pokotem w kałuży krwi. Odcinasz uszy na dowód dla komendanta – bez tego nikt w strażnicy nie uwierzy, że to ty, a nie zaraza."
+        "text": "Wataha leży pokotem w kałuży krwi. Odcinasz uszy na dowód, bo komendant na słowo nie uwierzy."
       },
       {
         "id": "nora_flaga",
@@ -50,19 +50,8 @@
       {
         "id": "nora_ucieczka",
         "type": "narration",
-        "text": "Cofasz się wąwozem, a wycie goni cię aż do traktu. Wataha zostaje – komendant będzie pluł jadem."
-      },
-      {
-        "id": "nora_flaga_przepadla",
-        "type": "flag",
-        "set": {
-          "nora_przepadla": true
-        }
-      },
-      {
-        "id": "nora_porazka",
-        "type": "quest",
-        "fail": "wilcza_nora"
+        "text": "Cofasz się wąwozem, a wycie goni cię aż do traktu. Wataha zostaje w norze i nigdzie się nie wybiera, więc możesz wrócić, kiedy będziesz gotów.",
+        "goto": "koniec"
       }
     ],
     "report": true,
@@ -139,7 +128,7 @@
         "id": "przelecz_dotarcie",
         "type": "narration",
         "title": "Kamienna Przełęcz",
-        "text": "Wóz Ostromira wtacza się na przełęcz, gdzie czeka jego szwagier z dwoma mułami. Kupiec odlicza srebro, jakby każdy grosz był jego dzieckiem, ale płaci co do grosza i dorzuca jeszcze wór suszonego mięsa na drogę."
+        "text": "Wóz Ostromira wtacza się na przełęcz, gdzie czeka jego szwagier z dwoma mułami. Kupiec trzy razy przelicza każdą monetę, ale płaci co do grosza i dorzuca jeszcze wór suszonego mięsa na drogę."
       },
       {
         "id": "przelecz_akt",
@@ -152,6 +141,11 @@
         "id": "przelecz_wykonane",
         "type": "quest",
         "complete": "eskorta_ostromira"
+      },
+      {
+        "id": "przelecz_rada",
+        "type": "dialogue",
+        "dialogue": "ostromir_pozegnanie"
       },
       {
         "id": "przelecz_zaplata",
@@ -209,7 +203,7 @@
     "kind": "errand",
     "name": "Zboże dla młyna",
     "hub": "wilczy_brod",
-    "description": "Kramarz pozbywa się worka zboża, którego nikt nie chce, i prosi, by zanieść go młynarzowi Ostapowi. Młynarz ma pewnie coś do powiedzenia karczmarzowi.",
+    "description": "Na tablicy wisi ogłoszenie: ktoś pozbywa się worka zboża, którego nikt nie chce, i szuka kogoś, kto zaniesie go młynarzowi Ostapowi. Młynarz ma pewnie coś do powiedzenia karczmarzowi.",
     "deadlineDays": null,
     "objectives": [
       {
@@ -289,7 +283,7 @@
     "kind": "errand",
     "name": "List do leśniczego",
     "hub": "wilczy_brod",
-    "description": "Komendant każe zanieść list leśniczemu i wrócić z odpowiedzią. Nie czytać, oczywiście.",
+    "description": "Komendant każe zanieść list leśniczemu do Leśniczówki, dwa dni drogi na wschód, i wrócić z odpowiedzią. Nie czytać, oczywiście.",
     "deadlineDays": null,
     "objectives": [
       {
@@ -319,7 +313,10 @@
       {
         "reveal": "ruiny_straznicy"
       }
-    ]
+    ],
+    "closedBy": {
+      "flag": "list_odpowiedz"
+    }
   },
   {
     "id": "kto_pyta_o_ocalalych",
@@ -437,14 +434,17 @@
       {
         "xp": 60
       }
-    ]
+    ],
+    "closedBy": {
+      "flag": "zona_poinformowana"
+    }
   },
   {
     "id": "amulet_z_ruin",
     "kind": "errand",
     "name": "Amulet z ruin",
     "hub": "wilczy_brod",
-    "description": "Córka dawnego strażnika rozpoznała znak na twoim amulecie. Sprawdź w ruinach, czy pasuje do muru, i wróć do niej.",
+    "description": "Córka dawnego strażnika rozpoznała znak na twoim amulecie. Sprawdź w Ruinach strażnicy, dzień drogi na południe, czy pasuje do muru, i wróć do niej.",
     "deadlineDays": null,
     "objectives": [
       {
@@ -478,7 +478,10 @@
       {
         "setFlag": "technologia_wiedza"
       }
-    ]
+    ],
+    "closedBy": {
+      "flag": "amulet_oddany"
+    }
   },
   {
     "id": "przyjecie_w_osadzie",
@@ -858,7 +861,8 @@
       {
         "xp": 45
       }
-    ]
+    ],
+    "random": true
   },
   {
     "id": "zaginiona_karawana",
@@ -928,7 +932,7 @@
     "kind": "errand",
     "name": "Przyjęcie w Obserwatorium",
     "hub": "obserwatorium",
-    "description": "Astronom Hieronim nie lubi obcych, a Brygida jeszcze mniej. Trzeba się przedstawić obojgu i zameldować, że wszyscy przeżyli.",
+    "description": "Astronom Hieronim nie lubi obcych, a Brygida jeszcze mniej. Trzeba się przedstawić obojgu i wrócić do Hieronima z wieścią, że Brygida cię nie przegnała.",
     "deadlineDays": null,
     "objectives": [
       {
@@ -1171,7 +1175,10 @@
       {
         "xp": 50
       }
-    ]
+    ],
+    "closedBy": {
+      "flag": "oblawa_ucieczka"
+    }
   },
   {
     "id": "ostatnia_strazica_zlecenie",
@@ -1247,5 +1254,1947 @@
         "setFlag": "akt3b_koniec"
       }
     ]
+  },
+  {
+    "id": "paczka_dla_mlynarki",
+    "kind": "errand",
+    "name": "Paczka dla młynarki",
+    "hub": "wilczy_brod",
+    "description": "Wędrowny kupiec Radogost nie zdąży do młyna przed zmrokiem i prosi, byś zaniósł paczkę młynarce.",
+    "deadlineDays": null,
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Zanieś paczkę młynarce w Starym młynie.",
+        "at": "stary_mlyn.mlynarka",
+        "done": {
+          "flag": "paczka_dostarczona"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "paczka_kupca"
+      },
+      {
+        "reveal": "stary_mlyn"
+      },
+      {
+        "reveal": "stary_mlyn.mlynarka"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 18
+      },
+      {
+        "giveItem": "miod_pitny"
+      },
+      {
+        "xp": 35
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "list_od_gonca",
+    "kind": "errand",
+    "name": "List od gońca",
+    "hub": "wilczy_brod",
+    "description": "Ranny goniec prosi, byś schował jego wojskowy list w dębie w Lesie Rubieży, zanim dopadną go ci, co go postrzelili.",
+    "deadlineDays": null,
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Schowaj list gońca w starym dębie w Lesie Rubieży.",
+        "at": "wilczy_las.stary_dab",
+        "done": {
+          "flag": "list_gonca_schowany"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "list_gonca"
+      },
+      {
+        "reveal": "wilczy_las"
+      },
+      {
+        "reveal": "wilczy_las.stary_dab"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 25
+      },
+      {
+        "xp": 40
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "ostatni_list_zolnierza",
+    "kind": "errand",
+    "name": "Ostatni list żołnierza",
+    "hub": "gluszec",
+    "description": "Umierający żołnierz prosi, byś zaniósł jego ostatni list na grób przy kapliczce na rozstajach.",
+    "deadlineDays": null,
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Połóż list żołnierza na grobie przy kapliczce.",
+        "at": "kapliczka_rozstaje.grob_zolnierza",
+        "done": {
+          "flag": "list_zolnierza_zlozony"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "list_zolnierza"
+      },
+      {
+        "reveal": "kapliczka_rozstaje"
+      },
+      {
+        "reveal": "kapliczka_rozstaje.grob_zolnierza"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 12
+      },
+      {
+        "giveItem": "amulet_wilczy"
+      },
+      {
+        "xp": 40
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "kobialka_dla_zielarki",
+    "kind": "errand",
+    "name": "Kobiałka dla zielarki",
+    "hub": "gluszec",
+    "description": "Zielarz wędrowny z bolącym kolanem prosi o zaniesienie kobiałki ziół do szałasu zielarki na bagnach.",
+    "deadlineDays": null,
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Zanieś kobiałkę ziół zielarce na Bagnach Szarej Wody.",
+        "at": "bagna_szarej_wody.szalas_zielarki",
+        "done": {
+          "flag": "kobialka_oddana"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "kobialka_ziol"
+      },
+      {
+        "reveal": "bagna_szarej_wody"
+      },
+      {
+        "reveal": "bagna_szarej_wody.szalas_zielarki"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 10
+      },
+      {
+        "giveItem": {
+          "id": "odtrutka",
+          "qty": 2
+        }
+      },
+      {
+        "xp": 35
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "notatnik_ucznia",
+    "kind": "errand",
+    "name": "Notatnik ucznia",
+    "hub": "obserwatorium",
+    "description": "Zbłąkany uczeń Hieronima prosi, byś odniósł jego zgubiony notatnik do skrzynki uczniów w Obserwatorium.",
+    "deadlineDays": null,
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Wrzuć notatnik ucznia do skrzynki uczniów w Obserwatorium.",
+        "at": "obserwatorium.skrzynka_uczniow",
+        "done": {
+          "flag": "notatnik_odniesiony"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "notatnik_ucznia"
+      },
+      {
+        "reveal": "obserwatorium"
+      },
+      {
+        "reveal": "obserwatorium.skrzynka_uczniow"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 15
+      },
+      {
+        "giveItem": "oklad_ziolowy"
+      },
+      {
+        "xp": 45
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "odlamki_dla_zbieracza",
+    "kind": "errand",
+    "name": "Odłamki dla zbieracza",
+    "hub": "obserwatorium",
+    "description": "Zbieracz odłamków Wacław prosi o zaniesienie sakiewki szkła do jego kryjówki na Polu Szkła.",
+    "deadlineDays": null,
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Zanieś sakiewkę odłamków do kryjówki Wacława na Polu Szkła.",
+        "at": "pole_szkla.zbieracz_odlamkow",
+        "done": {
+          "flag": "sakiewka_oddana"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "sakiewka_odlamkow"
+      },
+      {
+        "reveal": "pole_szkla"
+      },
+      {
+        "reveal": "pole_szkla.zbieracz_odlamkow"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 20
+      },
+      {
+        "giveItem": "bursztyn_blednika"
+      },
+      {
+        "xp": 50
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "watek_wilczy_brod",
+    "kind": "errand",
+    "main": true,
+    "name": "Dokąd dalej: Wilczy Bród",
+    "hub": "wilczy_brod",
+    "description": "Wilczy Bród nie jest końcem drogi. Trzeba załatwić sprawy we wsi i dogadać się z kupcem Ostromirem, który jedzie dalej, za Kamienną Przełęcz.",
+    "deadlineDays": null,
+    "objectives": [
+      {
+        "id": "wrzosek",
+        "text": "Pogadaj z Wrzoskiem w karczmie: ma sprawę długu kupca, ale najpierw trzeba mu pomóc.",
+        "at": "wilczy_brod.karczma",
+        "done": {
+          "any": [
+            {
+              "flag": "wrzosek_ziola_oddane"
+            },
+            {
+              "flag": "dlug_oddany"
+            },
+            {
+              "flag": "akt2_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "ostap",
+        "text": "Zanieś młynarzowi Ostapowi worek zboża (zlecenie z tablicy ogłoszeń).",
+        "at": "stary_mlyn.mlynarz",
+        "done": {
+          "any": [
+            {
+              "flag": "ostap_zboze"
+            },
+            {
+              "flag": "dlug_oddany"
+            },
+            {
+              "flag": "akt2_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "dlug",
+        "text": "Wróć do Wrzoska z wieścią od Ostapa: potem odda ci sprawę długu kupca.",
+        "at": "wilczy_brod.karczma",
+        "done": {
+          "any": [
+            {
+              "questStatus": {
+                "id": "dlug_kupca",
+                "is": "active"
+              }
+            },
+            {
+              "flag": "dlug_oddany"
+            },
+            {
+              "flag": "akt2_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "weksel",
+        "text": "Zanieś weksel Wrzoska kupcowi Ostromirowi na Trakcie Kupieckim.",
+        "at": "trakt_kupiecki.ostromir",
+        "done": {
+          "any": [
+            {
+              "flag": "ostromir_dlug"
+            },
+            {
+              "flag": "dlug_oddany"
+            },
+            {
+              "flag": "akt2_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "zwrot",
+        "text": "Oddaj Wrzoskowi pokwitowanie od Ostromira.",
+        "at": "wilczy_brod.karczma",
+        "done": {
+          "any": [
+            {
+              "flag": "dlug_oddany"
+            },
+            {
+              "flag": "akt2_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "ostromir",
+        "text": "Porozmawiaj z Ostromirem przy bramie: potrzebuje eskorty do Kamiennej Przełęczy.",
+        "at": "wilczy_brod.woz_ostromira",
+        "done": {
+          "any": [
+            {
+              "any": [
+                {
+                  "questStatus": {
+                    "id": "eskorta_ostromira",
+                    "is": "active"
+                  }
+                },
+                {
+                  "questStatus": {
+                    "id": "eskorta_ostromira",
+                    "is": "done"
+                  }
+                }
+              ]
+            },
+            {
+              "flag": "akt2_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "przelecz",
+        "text": "Odprowadź wóz Ostromira na Kamienną Przełęcz.",
+        "at": "wilczy_brod",
+        "done": {
+          "flag": "akt2_koniec"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 30
+      }
+    ]
+  },
+  {
+    "id": "watek_gluszec",
+    "kind": "errand",
+    "main": true,
+    "name": "Dokąd dalej: Głuszec",
+    "hub": "gluszec",
+    "description": "W Głuszcu ktoś sprzedaje nazwiska przybyszów, a stare kamienie na cmentarzu mówią własnym głosem. Trzeba to złożyć w całość, a potem ruszyć do Obserwatorium na Szklanym Wzgórzu, dwa dni na północ.",
+    "deadlineDays": null,
+    "objectives": [
+      {
+        "id": "osada",
+        "text": "Przyjmij się w osadzie: zamelduj się u sołtysa Wawrzyna.",
+        "at": "gluszec.soltys",
+        "done": {
+          "any": [
+            {
+              "questStatus": {
+                "id": "przyjecie_w_osadzie",
+                "is": "done"
+              }
+            },
+            {
+              "flag": "akt3a_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "trop",
+        "text": "Znajdź ślad ocalałych: zbadaj dym na wzgórzu albo ustal, kto sprzedaje nazwiska.",
+        "at": "gluszec",
+        "done": {
+          "any": [
+            {
+              "any": [
+                {
+                  "questStatus": {
+                    "id": "zwiad_na_wzgorzu",
+                    "is": "done"
+                  }
+                },
+                {
+                  "questStatus": {
+                    "id": "kto_sprzedal_ocalalego",
+                    "is": "done"
+                  }
+                }
+              ]
+            },
+            {
+              "flag": "akt3a_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "cmentarz",
+        "text": "Po zmroku odwiedź cmentarz w Głuszcu i posłuchaj głosu z kamieni.",
+        "at": "gluszec.cmentarz",
+        "done": {
+          "any": [
+            {
+              "flag": "echo_slyszal"
+            },
+            {
+              "flag": "akt3a_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "halina",
+        "text": "Opowiedz siostrze Halinie w kapliczce o głosie z kamieni.",
+        "at": "kapliczka_rozstaje.halina",
+        "done": {
+          "flag": "akt3a_koniec"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 30
+      }
+    ]
+  },
+  {
+    "id": "watek_obserwatorium",
+    "kind": "errand",
+    "main": true,
+    "name": "Dokąd dalej: Obserwatorium",
+    "hub": "obserwatorium",
+    "description": "Dawne cesarskie Obserwatorium zna odpowiedzi na pytania, których wolałbyś nie zadawać. Zostaje wyprawa do krateru, a po niej droga do Obozu na Wroniej Górze.",
+    "deadlineDays": null,
+    "objectives": [
+      {
+        "id": "przyjecie",
+        "text": "Przedstaw się Hieronimowi i Brygidzie.",
+        "at": "obserwatorium.wieza",
+        "done": {
+          "any": [
+            {
+              "questStatus": {
+                "id": "przyjecie_w_obserwatorium",
+                "is": "done"
+              }
+            },
+            {
+              "flag": "akt3b_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "dlug",
+        "text": "Dowiedz się od Brygidy, co mówi rdzeń z wraku maszyny.",
+        "at": "obserwatorium.warsztat",
+        "done": {
+          "any": [
+            {
+              "questStatus": {
+                "id": "dlug_istoty_zlecenie",
+                "is": "done"
+              }
+            },
+            {
+              "flag": "akt3b_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "wyprawa",
+        "text": "Hieronim wzywa do przygotowań: wpadnij do wieży, zanim ruszysz do krateru.",
+        "at": "obserwatorium.wieza",
+        "done": {
+          "any": [
+            {
+              "any": [
+                {
+                  "questStatus": {
+                    "id": "przygotowania",
+                    "is": "active"
+                  }
+                },
+                {
+                  "questStatus": {
+                    "id": "przygotowania",
+                    "is": "done"
+                  }
+                }
+              ]
+            },
+            {
+              "flag": "akt3b_koniec"
+            }
+          ]
+        }
+      },
+      {
+        "id": "krater",
+        "text": "Pożegnaj się z Brygidą, odpowiedz Hieronimowi i ruszaj do krateru.",
+        "at": "obserwatorium.wieza",
+        "done": {
+          "flag": "akt3b_koniec"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 30
+      }
+    ]
+  },
+  {
+    "id": "zold_dla_garnizonu",
+    "kind": "errand",
+    "name": "Żołd dla garnizonu",
+    "hub": "oboz_wronia",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Garnizon w ruinach fortu nie widział żołdu od dwóch miesięcy. Kapitan wciska ci skrzynię z pieczęcią sztabu i prosi, żebyś ją doniósł. Co w niej jest, masz nie pytać.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Żołd dla garnizonu.",
+        "at": "ruiny_fortu.brama_fortu",
+        "done": {
+          "flag": "zold_dla_garnizonu_zrobione"
+        }
+      },
+      {
+        "id": "zamelduj",
+        "text": "Zamelduj kapitanowi w namiocie sztabu, co z tego wyszło.",
+        "at": "oboz_wronia.namiot_sztabu",
+        "done": {
+          "flag": "zold_dla_garnizonu_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "skrzynia_zoldu"
+      },
+      {
+        "reveal": "ruiny_fortu"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 45
+      },
+      {
+        "xp": 50
+      }
+    ]
+  },
+  {
+    "id": "most_bez_straznika",
+    "kind": "errand",
+    "name": "Most bez strażnika",
+    "hub": "oboz_wronia",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Wartownik z mostu na Szarej zniknął razem z kocem, kubkiem i połową zapasów. Kapitan chce wiedzieć, co z mostem, bo obie strony wiedzą, że istnieje.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Most bez strażnika.",
+        "at": "przeprawa_szarej.most",
+        "done": {
+          "flag": "most_bez_straznika_zrobione"
+        }
+      },
+      {
+        "id": "zamelduj",
+        "text": "Zamelduj kapitanowi w namiocie sztabu, co z tego wyszło.",
+        "at": "oboz_wronia.namiot_sztabu",
+        "done": {
+          "flag": "most_bez_straznika_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "przeprawa_szarej"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 35
+      },
+      {
+        "xp": 45
+      }
+    ]
+  },
+  {
+    "id": "furman_z_beczkami",
+    "kind": "errand",
+    "name": "Furman z beczkami",
+    "hub": "oboz_wronia",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Na przeprawie stoi furman z wozem beczek bez papierów i z miną człowieka, który dawno przestał się spieszyć. Kapitan chce wiedzieć, kto je dostanie, zanim ktoś zacznie liczyć, kto za nie zapłaci.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Furman z beczkami.",
+        "at": "przeprawa_szarej.straznik_mostu",
+        "done": {
+          "flag": "furman_z_beczkami_zrobione"
+        }
+      },
+      {
+        "id": "zamelduj",
+        "text": "Zamelduj kapitanowi w namiocie sztabu, co z tego wyszło.",
+        "at": "oboz_wronia.namiot_sztabu",
+        "done": {
+          "flag": "furman_z_beczkami_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "przeprawa_szarej"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 40
+      },
+      {
+        "xp": 45
+      }
+    ]
+  },
+  {
+    "id": "studnia_pod_skjeldowem",
+    "kind": "errand",
+    "name": "Studnia pod Skjeldowem",
+    "hub": "oboz_wronia",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Jedyna studnia w okolicy leży w spalonej wsi. Kto ją trzyma, ten ma wodę i ruchy wojsk. Ktoś musi tam pójść i zdecydować, komu ta woda ma służyć.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Studnia pod Skjeldowem.",
+        "at": "spalona_wies.studnia",
+        "done": {
+          "flag": "studnia_pod_skjeldowem_zrobione"
+        }
+      },
+      {
+        "id": "zamelduj",
+        "text": "Zamelduj kapitanowi w namiocie sztabu, co z tego wyszło.",
+        "at": "oboz_wronia.namiot_sztabu",
+        "done": {
+          "flag": "studnia_pod_skjeldowem_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "spalona_wies"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 40
+      },
+      {
+        "xp": 50
+      }
+    ]
+  },
+  {
+    "id": "rannych_sie_nie_liczy",
+    "kind": "errand",
+    "name": "Rannych się nie liczy",
+    "hub": "oboz_wronia",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Na polu po wczorajszej bitwie leżą ranni. Wrony już ich liczą. Sztab ich nie liczy, bo nie ma w rubryce takiej kolumny.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Rannych się nie liczy.",
+        "at": "pole_bitwy.pole",
+        "done": {
+          "flag": "rannych_sie_nie_liczy_zrobione"
+        }
+      },
+      {
+        "id": "zamelduj",
+        "text": "Zamelduj kapitanowi w namiocie sztabu, co z tego wyszło.",
+        "at": "oboz_wronia.namiot_sztabu",
+        "done": {
+          "flag": "rannych_sie_nie_liczy_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "pole_bitwy"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 35
+      },
+      {
+        "xp": 55
+      }
+    ]
+  },
+  {
+    "id": "dwoch_dezerterow",
+    "kind": "errand",
+    "name": "Dwóch dezerterów",
+    "hub": "oboz_wronia",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Cesarski porucznik zgubił dwóch ludzi i twierdzi, że to sprawka kapitana. Kapitan twierdzi, że to sprawka porucznika. Ktoś musi to rozstrzygnąć, a ty jesteś pod ręką i nie masz munduru.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Dwóch dezerterów.",
+        "at": "oboz_cesarski_przedni.namiot_oficera",
+        "done": {
+          "flag": "dwoch_dezerterow_zrobione"
+        }
+      },
+      {
+        "id": "zamelduj",
+        "text": "Zamelduj kapitanowi w namiocie sztabu, co z tego wyszło.",
+        "at": "oboz_wronia.namiot_sztabu",
+        "done": {
+          "flag": "dwoch_dezerterow_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "oboz_cesarski_przedni"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 50
+      },
+      {
+        "xp": 55
+      }
+    ]
+  },
+  {
+    "id": "watek_front",
+    "kind": "errand",
+    "main": true,
+    "name": "Dokąd dalej: front",
+    "hub": "oboz_wronia",
+    "deadlineDays": null,
+    "description": "Obóz na Wroniej Górze to nie koniec drogi. Kapitan potrzebuje rąk, a Ulfgród, stolica, potrzebuje wieści, których nikt tam nie chce usłyszeć.",
+    "objectives": [
+      {
+        "id": "sztab",
+        "text": "Zgłoś się do kapitana w namiocie sztabu: ktoś musi mu pomóc w tym bałaganie.",
+        "at": "oboz_wronia.namiot_sztabu",
+        "done": {
+          "flag": "kapitan_poznany"
+        }
+      },
+      {
+        "id": "zlecenia",
+        "text": "Załatw co najmniej trzy sprawy z tablicy sztabu: kapitan musi zobaczyć, że się nadajesz.",
+        "at": "oboz_wronia.tablica_front",
+        "done": {
+          "var": "zlecenia_frontu",
+          "gte": 3
+        }
+      },
+      {
+        "id": "stolica",
+        "text": "Odbierz od kapitana list i wyrusz do Ulfgrodu, do stolicy.",
+        "at": "oboz_wronia.namiot_sztabu",
+        "done": {
+          "flag": "akt4a_koniec"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 30
+      }
+    ]
+  },
+  {
+    "id": "kto_pali_w_zaulku",
+    "kind": "errand",
+    "name": "Kto pali w Zaułku Szklarzy",
+    "hub": "ulfgrod",
+    "board": true,
+    "deadlineDays": null,
+    "description": "W Zaułku Szklarzy co noc ktoś podpala komuś pracownię. Szklarze twierdzą, że to zbieg okoliczności, a strażnicy, że szklarze. Pisarz chce wiedzieć, kto to naprawdę robi.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Kto pali w Zaułku Szklarzy.",
+        "at": "zaulek_szklarzy.pracownia_alchemika",
+        "done": {
+          "flag": "kto_pali_w_zaulku_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u pisarza w biurze.",
+        "at": "ulfgrod.biuro_pisarza",
+        "done": {
+          "flag": "kto_pali_w_zaulku_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "zaulek_szklarzy"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 40
+      },
+      {
+        "xp": 50
+      }
+    ]
+  },
+  {
+    "id": "zaginiony_skarbnik",
+    "kind": "errand",
+    "name": "Zaginiony skarbnik",
+    "hub": "ulfgrod",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Skarbnik koszar zniknął razem z koszarową szkatułą. Pisarz podejrzewa, że siedzi w Domu Ciszy, bo tam chowa się wszystko, co nie chce być znalezione.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Zaginiony skarbnik.",
+        "at": "dom_ciszy.krypta_ciszy",
+        "done": {
+          "flag": "zaginiony_skarbnik_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u pisarza w biurze.",
+        "at": "ulfgrod.biuro_pisarza",
+        "done": {
+          "flag": "zaginiony_skarbnik_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "dom_ciszy"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 45
+      },
+      {
+        "xp": 55
+      }
+    ]
+  },
+  {
+    "id": "wino_dla_koszar",
+    "kind": "errand",
+    "name": "Wino dla koszar",
+    "hub": "ulfgrod",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Kwatermistrz koszar szuka beczek wina na święto, którego nikt nie chce obchodzić. Pisarz podejrzewa, że wino jest potrzebne, żeby żołnierze nie słyszeli, co dzieje się za murem.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Wino dla koszar.",
+        "at": "koszary.plac_apelowy",
+        "done": {
+          "flag": "wino_dla_koszar_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u pisarza w biurze.",
+        "at": "ulfgrod.biuro_pisarza",
+        "done": {
+          "flag": "wino_dla_koszar_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "koszary"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 35
+      },
+      {
+        "xp": 45
+      }
+    ]
+  },
+  {
+    "id": "dlug_przekupki",
+    "kind": "errand",
+    "name": "Dług przekupki",
+    "hub": "ulfgrod",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Przekupka Rzepa ma dłużnika, który nie płaci od czterech miesięcy, bo wie, że ona nie ma kogo wysłać. Pisarz zaproponował, że ma kogoś. To ty.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Dług przekupki.",
+        "at": "targ_pod_murem.plotki",
+        "done": {
+          "flag": "dlug_przekupki_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u pisarza w biurze.",
+        "at": "ulfgrod.biuro_pisarza",
+        "done": {
+          "flag": "dlug_przekupki_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "targ_pod_murem"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 30
+      },
+      {
+        "xp": 45
+      }
+    ]
+  },
+  {
+    "id": "cmentarz_bez_nazwisk",
+    "kind": "errand",
+    "name": "Cmentarz bez nazwisk",
+    "hub": "ulfgrod",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Na cmentarzu zbiorowym leżą ludzie, których nikt nie spisał. Grabarz chce spisać nazwiska. Pisarz uważa, że to niebezpieczne, bo imię zostawia ślad.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Cmentarz bez nazwisk.",
+        "at": "cmentarz_zbiorowy.grabarz",
+        "done": {
+          "flag": "cmentarz_bez_nazwisk_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u pisarza w biurze.",
+        "at": "ulfgrod.biuro_pisarza",
+        "done": {
+          "flag": "cmentarz_bez_nazwisk_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "cmentarz_zbiorowy"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 40
+      },
+      {
+        "xp": 55
+      }
+    ]
+  },
+  {
+    "id": "list_dla_marszalka",
+    "kind": "errand",
+    "name": "List dla marszałka",
+    "hub": "ulfgrod",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Na nabrzeżu leży zabity goniec z listem za pazuchą. Adresat: marszałek. Pisarz twierdzi, że to nie jego sprawa, ale prosi, żebyś się tym zajął.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: List dla marszałka.",
+        "at": "port_rzeczny.nabrzeze",
+        "done": {
+          "flag": "list_dla_marszalka_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u pisarza w biurze.",
+        "at": "ulfgrod.biuro_pisarza",
+        "done": {
+          "flag": "list_dla_marszalka_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "port_rzeczny"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 45
+      },
+      {
+        "xp": 55
+      }
+    ]
+  },
+  {
+    "id": "przemyt_z_portu",
+    "kind": "errand",
+    "name": "Przemyt z portu",
+    "hub": "ulfgrod",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Na rynku chłopak pilnuje skrzyni z portu, która nie jest jego. Pisarz twierdzi, że w środku są rzeczy, które wolałby, żeby nikt nie widział.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Przemyt z portu.",
+        "at": "ulfgrod.fontanna",
+        "done": {
+          "flag": "przemyt_z_portu_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u pisarza w biurze.",
+        "at": "ulfgrod.biuro_pisarza",
+        "done": {
+          "flag": "przemyt_z_portu_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "ulfgrod"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 40
+      },
+      {
+        "xp": 50
+      }
+    ]
+  },
+  {
+    "id": "smyk_i_klucz",
+    "kind": "errand",
+    "name": "Smyk i klucz",
+    "hub": "ulfgrod",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Smyk zgubił klucz, który ma otwierać coś bardzo ważnego i bardzo niejasnego. Zgubił go w starych wodociągach, trzy dni drogi stąd.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Smyk i klucz.",
+        "at": "stare_wodociagi.kanal_glowny",
+        "done": {
+          "flag": "smyk_i_klucz_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u pisarza w biurze.",
+        "at": "ulfgrod.biuro_pisarza",
+        "done": {
+          "flag": "smyk_i_klucz_zameldowane"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "stare_wodociagi"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 50
+      },
+      {
+        "xp": 60
+      }
+    ]
+  },
+  {
+    "id": "watek_ulfgrod",
+    "kind": "errand",
+    "main": true,
+    "name": "Dokąd dalej: Ulfgród",
+    "hub": "ulfgrod",
+    "deadlineDays": null,
+    "description": "Ulfgród wie o tobie więcej, niż chciałbyś. Trzeba znaleźć dowód, że żyjesz, i drogę do człowieka, który nie wychodzi z pałacu.",
+    "objectives": [
+      {
+        "id": "znajomi",
+        "text": "Pogadaj z karczmarzem Hjalmarem w karczmie i ze Smykiem na ulicy: miasto należy do tych, co je znają.",
+        "at": "ulfgrod.karczma",
+        "done": {
+          "any": [
+            {
+              "all": [
+                {
+                  "flag": "hjalmar_poznany"
+                },
+                {
+                  "flag": "smyk_poznany"
+                }
+              ]
+            },
+            {
+              "flag": "palac_otwarty"
+            }
+          ]
+        }
+      },
+      {
+        "id": "zlecenia",
+        "text": "Załatw co najmniej trzy sprawy z tablicy i rozlicz się u pisarza: nikt tu nie ufa komuś bez rachunku.",
+        "at": "ulfgrod.tablica_ulfgrod",
+        "done": {
+          "var": "zlecenia_stolicy",
+          "gte": 3
+        }
+      },
+      {
+        "id": "dowod",
+        "text": "Zdobądź dowód, że jesteś żywy i że widziałeś daninę: pieczęć siostry Jadwigi w Domu Ciszy albo fałszerstwo kwatermistrza koszar.",
+        "at": "ulfgrod.biuro_pisarza",
+        "done": {
+          "flag": "dowod_zywego"
+        }
+      },
+      {
+        "id": "smyk",
+        "text": "Powiedz Smykowi, że masz dowód: to on otwiera pałac.",
+        "at": "ulfgrod.smyk_ulica",
+        "done": {
+          "flag": "palac_otwarty"
+        }
+      },
+      {
+        "id": "palac",
+        "text": "Wejdź nocą do pałacu schodami dla służby i dojdź do komnaty tronowej na górze.",
+        "at": "palac.komnata_tronowa",
+        "done": {
+          "flag": "akt4b_koniec"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 40
+      }
+    ]
+  },
+  {
+    "id": "watek_loch",
+    "kind": "errand",
+    "main": true,
+    "name": "Dokąd dalej: Pod pałacem",
+    "hub": "loch_pod_palacem",
+    "deadlineDays": null,
+    "description": "Cesarz nie żyje, ale to, co z nim spisano, wciąż pracuje pod pałacem. Dopóki Rdzeń ma kogoś, kto go pilnuje, miasto nie odetchnie. Potem trzeba będzie płynąć do Przystani Jarnowo.",
+    "objectives": [
+      {
+        "id": "straznicy",
+        "text": "Przejdź korytarz pod pałacem i pokonaj trzech strażników: Próg, galerię szeptów i śluzę kablową.",
+        "at": "loch_pod_palacem.wejscie",
+        "done": {
+          "all": [
+            {
+              "flag": "loch_straznik_progu_pokonany"
+            },
+            {
+              "flag": "loch_szeptacz_pokonany"
+            },
+            {
+              "flag": "loch_kustosz_kabli_pokonany"
+            }
+          ]
+        }
+      },
+      {
+        "id": "niespiacy",
+        "text": "Zejdź do celi Nieśpiącego, który stoi między tobą a Rdzeniem.",
+        "at": "loch_pod_palacem.niespiacy",
+        "done": {
+          "flag": "loch_niespiacy_pokonany"
+        }
+      },
+      {
+        "id": "rdzen",
+        "text": "Wejdź do komnaty Rdzenia i rozmów się z Pełnomocnikiem na jego warunkach albo na swoich.",
+        "at": "loch_pod_palacem.komnata_rdzenia",
+        "done": {
+          "flag": "pelnomocnik_pokonany"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 60
+      }
+    ]
+  },
+  {
+    "id": "lodz_bez_zalogi",
+    "kind": "errand",
+    "name": "Łódź bez załogi",
+    "hub": "przystan_jarnowo",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Na Cmentarzu Łodzi ktoś zostawił łódź z beczkami prochu. Kapitan przystani nie chce tego w swoich księgach, więc prosi, żebyś zdecydował, co z tym zrobić.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Łódź bez załogi.",
+        "at": "cmentarz_lodzi.lodzie_na_piasku",
+        "done": {
+          "flag": "lodz_bez_zalogi_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "at": "przystan_jarnowo.biuro_kapitana",
+        "done": {
+          "flag": "lodz_bez_zalogi_zameldowane"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 40
+      },
+      {
+        "xp": 55
+      }
+    ]
+  },
+  {
+    "id": "kowal_i_rusznice",
+    "kind": "errand",
+    "name": "Kowal i jego rusznice",
+    "hub": "przystan_jarnowo",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Kowal z kuźni wyspiarzy ma zamówienie na sto rusznic i coraz mniej ochoty na kucie. Kapitan podejrzewa, że kowal czeka, aż ktoś mu powie, co zrobić.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Kowal i jego rusznice.",
+        "at": "kuznie.zar_paleniska",
+        "done": {
+          "flag": "kowal_i_rusznice_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "at": "przystan_jarnowo.biuro_kapitana",
+        "done": {
+          "flag": "kowal_i_rusznice_zameldowane"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 45
+      },
+      {
+        "xp": 55
+      }
+    ]
+  },
+  {
+    "id": "wiesci_z_ladu",
+    "kind": "errand",
+    "name": "Wieści z lądu",
+    "hub": "przystan_jarnowo",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Do przystani dotarł posłaniec z zapieczętowanym listem z lądu. Kapitan twierdzi, że to nie jego sprawa, i prosi, żebyś się tym zajął.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Wieści z lądu.",
+        "at": "stocznia.szkielet_lodzi",
+        "done": {
+          "flag": "wiesci_z_ladu_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "at": "przystan_jarnowo.biuro_kapitana",
+        "done": {
+          "flag": "wiesci_z_ladu_zameldowane"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 35
+      },
+      {
+        "xp": 55
+      }
+    ]
+  },
+  {
+    "id": "przejscie_smyka",
+    "kind": "errand",
+    "name": "Przejście Smyka",
+    "hub": "przystan_jarnowo",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Smyk, który nie wiadomo jak znalazł się na wyspie, twierdzi, że zna wejście do obozu hetmana, o którym nikt nie pamięta. Kapitan woli nie pytać.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Przejście Smyka.",
+        "at": "oboz_hetmana.plac_obozowy",
+        "done": {
+          "flag": "przejscie_smyka_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "at": "przystan_jarnowo.biuro_kapitana",
+        "done": {
+          "flag": "przejscie_smyka_zameldowane"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 35
+      },
+      {
+        "xp": 55
+      }
+    ],
+    "requires": {
+      "flag": "palac_otwarty"
+    }
+  },
+  {
+    "id": "rozpoznanie_urzadzenia",
+    "kind": "errand",
+    "name": "Rozpoznanie urządzenia",
+    "hub": "przystan_jarnowo",
+    "board": true,
+    "deadlineDays": null,
+    "description": "Brygida rysuje przy nabrzeżu urządzenie z Łysej Skały i chce, żebyś zobaczył jej rysunki, zanim pomyślisz o podróży. Kapitan prosi, żebyś jej wysłuchał.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Załatw sprawę na miejscu: Rozpoznanie urządzenia.",
+        "at": "przystan_jarnowo.stol_kreslarski",
+        "done": {
+          "flag": "rozpoznanie_urzadzenia_zrobione"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "at": "przystan_jarnowo.biuro_kapitana",
+        "done": {
+          "flag": "rozpoznanie_urzadzenia_zameldowane"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 50
+      },
+      {
+        "xp": 55
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "lysa_skala"
+      }
+    ]
+  },
+  {
+    "id": "watek_jarnowo",
+    "kind": "errand",
+    "main": true,
+    "name": "Dokąd dalej: Jarnowo",
+    "hub": "przystan_jarnowo",
+    "deadlineDays": null,
+    "description": "Wyspa kowali ma wojnę, której nie rozumie, i urządzenie, które rozumie jeszcze mniej. Trzeba znaleźć człowieka, który ją zaczął, i dopłynąć na Łysą Skałę, gdzie ona się kończy.",
+    "objectives": [
+      {
+        "id": "znajomi",
+        "text": "Zgłoś się do kapitana przystani w biurze: wyspa nie lubi przybyszów, którzy nie wiedzą, komu podlegają.",
+        "at": "przystan_jarnowo.biuro_kapitana",
+        "done": {
+          "flag": "kapitan_przystani_poznany"
+        }
+      },
+      {
+        "id": "zlecenia",
+        "text": "Załatw co najmniej trzy sprawy z tablicy na nabrzeżu albo znajdź inną drogę do hetmana: hetman rozmawia tylko z tymi, których zna ze słyszenia.",
+        "at": "przystan_jarnowo.tablica_jarnowo",
+        "done": {
+          "any": [
+            {
+              "var": "zlecenia_jarnowa",
+              "gte": 3
+            },
+            {
+              "flag": "jarnowo_przejscie_uzyte"
+            }
+          ]
+        }
+      },
+      {
+        "id": "hetman",
+        "text": "Porozmawiaj z hetmanem Skjeldomirem w jego namiocie w obozie hetmana.",
+        "at": "oboz_hetmana.namiot_hetmana",
+        "done": {
+          "flag": "hetman_rozmowa"
+        }
+      },
+      {
+        "id": "brama",
+        "text": "Popłyń na Łysą Skałę i rozstrzygnij o bramie z wiru, zanim ktoś rozstrzygnie za ciebie.",
+        "at": "lysa_skala.brama",
+        "done": {
+          "any": [
+            {
+              "flag": "portal_rozbrojony"
+            },
+            {
+              "flag": "portal_sprawny"
+            }
+          ]
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 60
+      }
+    ]
+  },
+  {
+    "id": "watek_wir",
+    "kind": "errand",
+    "main": true,
+    "name": "Dokąd dalej: Wir",
+    "hub": "wir_lysa_skala",
+    "deadlineDays": null,
+    "description": "Skała ma wnętrze z czarnego szkła i tylko jeden powód, żeby się do niego wspinać. Na samej górze czeka ktoś, kto od dawna wie, że przyjdziesz.",
+    "objectives": [
+      {
+        "id": "progi",
+        "text": "Przejdź trzy progi Wiru: galerię luster, halę cewek i pomost nad wirem.",
+        "at": "wir_lysa_skala.wejscie",
+        "done": {
+          "all": [
+            {
+              "flag": "wir_galeria_lustr_pokonany"
+            },
+            {
+              "flag": "wir_hala_cewek_pokonany"
+            },
+            {
+              "flag": "wir_pomost_wiru_pokonany"
+            }
+          ]
+        }
+      },
+      {
+        "id": "komnata",
+        "text": "Wejdź do komnaty wiru i stań twarzą w twarz z Istotą.",
+        "at": "wir_lysa_skala.komnata_wiru",
+        "done": {
+          "flag": "istota_rozmowa_odbyta"
+        }
+      },
+      {
+        "id": "rozstrzygniecie",
+        "text": "Rozstrzygnij sprawę z Istotą.",
+        "at": "wir_lysa_skala.komnata_wiru",
+        "done": {
+          "any": [
+            {
+              "flag": "istota_zginela"
+            },
+            {
+              "flag": "istota_uciekla"
+            }
+          ]
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 100
+      }
+    ]
+  },
+  {
+    "id": "siodlo_dla_zwiadowcow",
+    "kind": "errand",
+    "name": "Siodło dla zwiadowców",
+    "hub": "wilczy_brod",
+    "deadlineDays": null,
+    "description": "Rymarz Jaromił prosi, byś zaniósł przesyłkę: naprawione siodło czeka na odbiorcę w miejscu zwanym Trakt kupiecki.",
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Zanieś: naprawione siodło (Trakt kupiecki).",
+        "at": "trakt_kupiecki.odbior_siodla",
+        "done": {
+          "flag": "siodlo_dla_zwiadowcow_dostarczone"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "naprawione_siodlo"
+      },
+      {
+        "reveal": "trakt_kupiecki"
+      },
+      {
+        "reveal": "trakt_kupiecki.odbior_siodla"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 20
+      },
+      {
+        "giveItem": "opatrunek"
+      },
+      {
+        "xp": 35
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "swiece_na_kapliczke",
+    "kind": "errand",
+    "name": "Świece na kapliczkę",
+    "hub": "gluszec",
+    "deadlineDays": null,
+    "description": "Świecarz Tobiasz prosi, byś zaniósł przesyłkę: świece woskowe czeka na odbiorcę w miejscu zwanym Kapliczka na rozstajach.",
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Zanieś: świece woskowe (Kapliczka na rozstajach).",
+        "at": "kapliczka_rozstaje.skrzynka_ofiarna",
+        "done": {
+          "flag": "swiece_na_kapliczke_dostarczone"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "swiece_woskowe"
+      },
+      {
+        "reveal": "kapliczka_rozstaje"
+      },
+      {
+        "reveal": "kapliczka_rozstaje.skrzynka_ofiarna"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 18
+      },
+      {
+        "giveItem": "napar_ziol"
+      },
+      {
+        "xp": 35
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "zwoj_dla_pustelnika",
+    "kind": "errand",
+    "name": "Zwój dla pustelnika",
+    "hub": "obserwatorium",
+    "deadlineDays": null,
+    "description": "Uczony Anzelm prosi, byś zaniósł przesyłkę: zwój pustelnika czeka na odbiorcę w miejscu zwanym Krater Spadłej Gwiazdy.",
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Zanieś: zwój pustelnika (Krater Spadłej Gwiazdy).",
+        "at": "krater_gwiazdy.skrytka_pustelnika",
+        "done": {
+          "flag": "zwoj_dla_pustelnika_dostarczone"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "zwoj_pustelnika"
+      },
+      {
+        "reveal": "krater_gwiazdy"
+      },
+      {
+        "reveal": "krater_gwiazdy.skrytka_pustelnika"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 25
+      },
+      {
+        "giveItem": "miod_pitny"
+      },
+      {
+        "xp": 40
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "zold_w_kosciach",
+    "kind": "errand",
+    "name": "Żołd w kościach",
+    "hub": "oboz_wronia",
+    "deadlineDays": null,
+    "description": "Szuler Mszczuj ograł drużynę kaprala Żegoty z całego żołdu, sześćdziesięciu groszy, i pojechał na pole bitwy. Kapral chce mieszek z powrotem i nie może po niego pójść, bo ma nogę.",
+    "objectives": [
+      {
+        "id": "odzyskaj",
+        "text": "Odzyskaj mieszek z żołdem od szulera (wóz na skraju pola bitwy).",
+        "at": "pole_bitwy.woz_szulera",
+        "done": {
+          "flag": "zold_odzyskany"
+        }
+      },
+      {
+        "id": "rozlicz",
+        "text": "Rozlicz się z kapralem Żegotą w kantynie.",
+        "at": "oboz_wronia.kantyna",
+        "done": {
+          "flag": "zold_rozliczony"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "pole_bitwy"
+      },
+      {
+        "reveal": "pole_bitwy.woz_szulera"
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 60
+      }
+    ]
+  },
+  {
+    "id": "mul_imieniem_cesarz",
+    "kind": "errand",
+    "name": "Muł imieniem Cesarz",
+    "hub": "oboz_wronia",
+    "deadlineDays": null,
+    "description": "Druciarz Ziemowit szuka szarego muła, który wabi się Cesarz i uciekł ku spalonej wsi. Wołanie za nim po obozie skończyło się już dwoma przesłuchaniami.",
+    "objectives": [
+      {
+        "id": "znajdz",
+        "text": "Znajdź muła w spalonej wsi.",
+        "at": "spalona_wies.mul_na_zgliszczach",
+        "done": {
+          "flag": "mul_odzyskany"
+        }
+      },
+      {
+        "id": "oddaj",
+        "text": "Powiedz druciarzowi w kantynie, że Cesarz wrócił.",
+        "at": "oboz_wronia.kantyna",
+        "done": {
+          "flag": "mul_rozliczony"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "reveal": "spalona_wies"
+      },
+      {
+        "reveal": "spalona_wies.mul_na_zgliszczach"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 30
+      },
+      {
+        "giveItem": "napar_ziol"
+      },
+      {
+        "xp": 50
+      }
+    ]
+  },
+  {
+    "id": "jar_bez_wyjscia",
+    "kind": "errand",
+    "name": "Jar bez wyjścia",
+    "hub": "oboz_wronia",
+    "deadlineDays": null,
+    "description": "Sierżant Gniewosz i trzydziestu dwóch dezerterów ma jedzenia na dziewięć dni i pościg na karku. Mogą wrócić z listem żelaznym od kapitana albo uciec za wzgórza, jeśli ktoś przyniesie sześć worków prowiantu. Można też powiedzieć kapitanowi, którędy do nich wejść.",
+    "objectives": [
+      {
+        "id": "rozstrzygnij",
+        "text": "Rozstrzygnij los dezerterów: list od kapitana, prowiant dla Gniewosza albo meldunek w sztabie.",
+        "at": "jar_dezerterow.szalas_gniewosza",
+        "done": {
+          "flag": "jar_rozstrzygniety"
+        }
+      }
+    ],
+    "onComplete": [
+      {
+        "xp": 70
+      }
+    ]
+  },
+  {
+    "id": "buty_dla_wartownika",
+    "kind": "errand",
+    "name": "Buty dla wartownika",
+    "hub": "oboz_wronia",
+    "deadlineDays": null,
+    "description": "Szewc Mojżesz prosi, byś zaniósł przesyłkę: buty wartownika czeka na odbiorcę w miejscu zwanym Przeprawa przez Szarą.",
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Zanieś: buty wartownika (Przeprawa przez Szarą).",
+        "at": "przeprawa_szarej.odbior_butow",
+        "done": {
+          "flag": "buty_dla_wartownika_dostarczone"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "buty_wartownika"
+      },
+      {
+        "reveal": "przeprawa_szarej"
+      },
+      {
+        "reveal": "przeprawa_szarej.odbior_butow"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 22
+      },
+      {
+        "giveItem": "opatrunek"
+      },
+      {
+        "xp": 40
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "chleb_dla_grabarza",
+    "kind": "errand",
+    "name": "Chleb dla grabarza",
+    "hub": "ulfgrod",
+    "deadlineDays": null,
+    "description": "Piekarka Luiza prosi, byś zaniósł przesyłkę: bochen dla grabarza czeka na odbiorcę w miejscu zwanym Cmentarz zbiorowy.",
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Zanieś: bochen dla grabarza (Cmentarz zbiorowy).",
+        "at": "cmentarz_zbiorowy.odbior_chleba",
+        "done": {
+          "flag": "chleb_dla_grabarza_dostarczone"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "bochen_dla_grabarza"
+      },
+      {
+        "reveal": "cmentarz_zbiorowy"
+      },
+      {
+        "reveal": "cmentarz_zbiorowy.odbior_chleba"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 24
+      },
+      {
+        "giveItem": "gulasz"
+      },
+      {
+        "xp": 40
+      }
+    ],
+    "random": true
+  },
+  {
+    "id": "gwozdzie_dla_stoczni",
+    "kind": "errand",
+    "name": "Gwoździe dla stoczni",
+    "hub": "przystan_jarnowo",
+    "deadlineDays": null,
+    "description": "Kowal Gudrun prosi, byś zaniósł przesyłkę: skrzynka gwoździ czeka na odbiorcę w miejscu zwanym Stocznia.",
+    "objectives": [
+      {
+        "id": "dostawa",
+        "text": "Zanieś: skrzynka gwoździ (Stocznia).",
+        "at": "stocznia.odbior_gwozdzi",
+        "done": {
+          "flag": "gwozdzie_dla_stoczni_dostarczone"
+        }
+      }
+    ],
+    "onStart": [
+      {
+        "giveItem": "skrzynka_gwozdzi"
+      },
+      {
+        "reveal": "stocznia"
+      },
+      {
+        "reveal": "stocznia.odbior_gwozdzi"
+      }
+    ],
+    "onComplete": [
+      {
+        "giveMoney": 28
+      },
+      {
+        "giveItem": "napar_ziol"
+      },
+      {
+        "xp": 45
+      }
+    ],
+    "random": true
   }
 ]

@@ -3,8 +3,9 @@ import { itemById } from "./items.js";
 import { timeOfDay } from "../engine/time.js";
 import { enemyById } from "./combat/data.js";
 import { livingEnemies } from "./combat/state.js";
-import { dealDamage } from "./combat/formulas.js";
+import { dealDamage, mitigate } from "./combat/formulas.js";
 import { applyToPlayer, applyToEnemy } from "./combat/effects.js";
+import { onEnemyDeath, noiseOfKill } from "./combat/strike.js";
 import { activePhenomenon } from "./phenomena.js";
 import { getStats } from "./stats.js";
 import { unequip, removeItem } from "./inventory.js";
@@ -88,11 +89,18 @@ export function passiveModifiers(state, data) {
   return item ? (item.passive ?? []).filter((p) => charge >= p.minCharge).map((p) => p.modifiers) : [];
 }
 
-/** Marks every artifact in the bag as exposed (rest) or not. */
+/** Worn artifacts with room for more charge: the ones worth exposing (one in the bag has to be put on first). */
+export function unchargedArtifacts(state, data) {
+  const worn = Object.values(state.inventory?.equipped ?? {});
+  return carriedArtifacts(state, data).filter((item) => worn.includes(item.id) && (artifactState(state, item.id)?.charge ?? item.charge.start) < item.charge.max);
+}
+
+/** Exposes the worn artifacts that are not full (a full one would only tempt a thief), or takes all of them back in. */
 export function setExposed(state, data, on) {
+  const uncharged = unchargedArtifacts(state, data);
   for (const item of carriedArtifacts(state, data)) {
     registerArtifact(state, item);
-    state.artifacts[item.id].exposed = on;
+    state.artifacts[item.id].exposed = on && uncharged.includes(item);
   }
 }
 
@@ -105,8 +113,8 @@ function chargeCostOf(item, ability, charge) {
 }
 
 /**
- * Abilities of the worn artifact with their costs. Greyed out (`disabled`, `reason` ui key): `combat.noAp`, `artifact.notFull`
- * (`requiresFull`), `artifact.noCharge`; with `whenEmpty.usable` an ability the charge cannot pay is offered for `viaHp` HP
+ * Abilities of the worn artifact with their costs. Greyed out (`disabled`, `reason` ui key): `combat.noAp`, `combat.notThrown`
+ * (`recall` with nothing thrown), `artifact.notFull` (`requiresFull`), `artifact.noCharge`; with `whenEmpty.usable` an ability the charge cannot pay is offered for `viaHp` HP
  * instead (`artifact.noHp` when HP ≤ that cost — it never kills).
  * @returns {Array<{ id: string, name: string, apCost: number, chargeCost: number, disabled: boolean, reason?: string, viaHp?: number, target: string, effect: string }>}
  */
@@ -120,6 +128,7 @@ export function abilityOptions(state, data, combat) {
     let reason;
     let viaHp;
     if (combat.playerAp < ability.apCost) reason = "combat.noAp";
+    else if (ability.recall && !combat.thrown) reason = "combat.notThrown";
     else if (ability.requiresFull && charge < item.charge.max) reason = "artifact.notFull";
     else if (short && item.whenEmpty?.usable) {
       viaHp = item.whenEmpty.costHp;
@@ -128,13 +137,16 @@ export function abilityOptions(state, data, combat) {
     return {
       id: ability.id, name: ability.name, apCost: ability.apCost, chargeCost, disabled: !!reason,
       ...(reason ? { reason } : {}), ...(viaHp !== undefined ? { viaHp } : {}), target: ability.effect.target, effect: ability.effect.id,
+      ...(ability.description ? { description: ability.description } : {}),
     };
   });
 }
 
 /**
- * Uses ability `abilityId` of the worn artifact: spends AP and charge (or HP through `whenEmpty`), then puts its effect on
- * the player or on `target` (uid of a living enemy, required for enemy effects). A player's mistake changes nothing.
+ * Uses ability `abilityId` of the worn artifact: spends AP and charge (or HP through `whenEmpty`), brings a thrown weapon back
+ * (`recall`), deals its `damage` to the target (no hit roll, no flat armor; the target's reduction counts), then puts its effect
+ * (at `effect.chance` %, if any) on the player or on `target` (uid of a living enemy, required for enemy effects); an enemy killed
+ * by the damage gets no effect. A player's mistake changes nothing.
  * @returns {{ ok: true, events: object[] } | { ok: false, reason: string }}
  */
 export function useAbility(state, data, combat, abilityId, target, rng) {
@@ -155,7 +167,23 @@ export function useAbility(state, data, combat, abilityId, target, rng) {
     entry.charge = Math.max(0, entry.charge - option.chargeCost);
     events.push({ type: "zdolnosc", artifact: item.id, ability: abilityId });
   }
-  const duration = ability.effect.duration;
+  if (ability.recall) combat.thrown = null;
+  if (ability.damage) {
+    const base = enemyById(data, foe.id);
+    const amount = mitigate({
+      raw: rng.int(ability.damage[0], ability.damage[1]),
+      reductionPercent: base.reduction?.[ability.damageType] ?? 0, taken: base.damageTaken?.[ability.damageType] ?? 1,
+    });
+    const damage = dealDamage(combat, foe, amount);
+    events.push({ type: "atak", attacker: "player", target: foe.uid, hit: true, damage, crit: false, chance: 100, weapon: item.id });
+    if (foe.dead) {
+      onEnemyDeath(data, combat, foe, events);
+      noiseOfKill(data, combat, foe, rng, events);
+      return { ok: true, events };
+    }
+  }
+  const { chance, duration } = ability.effect;
+  if (chance !== undefined && rng.int(1, 100) > chance) return { ok: true, events };
   if (foe) events.push(...effectEventsOnEnemy(data, combat, foe, ability.effect.id, rng, duration));
   else {
     const r = applyToPlayer(state, data, ability.effect.id, rng, { duration });

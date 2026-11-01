@@ -5,6 +5,7 @@ const STYLES = {
   dim: "gray",
   damage: "red",
   heal: "green",
+  foe_down: "blue",
   check: "yellow",
   mystic: "magenta",
   warn: ["yellow", "bold"],
@@ -15,6 +16,8 @@ const STYLES = {
   ap: "blue",
   gold: "yellow",
   bad: "red",
+  worn: "greenBright",
+  leading: "cyanBright",
 };
 
 /** Frame colours from the 256-colour palette (dark green lines, brown titles), with plain fallbacks. */
@@ -22,6 +25,7 @@ const RICH = {
   frame: { on: "\x1b[38;5;28m", off: "\x1b[39m", fallback: "green" },
   frame_shade: { on: "\x1b[38;5;22m", off: "\x1b[39m", fallback: "green" },
   frame_title: { on: "\x1b[1;38;5;130m", off: "\x1b[22;39m", fallback: ["yellow", "bold"] },
+  heading: { on: "\x1b[1;38;5;179m", off: "\x1b[22;39m", fallback: ["yellow", "bold"] },
 };
 
 let enabled = null;

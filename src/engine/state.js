@@ -18,7 +18,7 @@ export function createNewState({ seed, startScene, rules }) {
     artifacts: {},
     world: {
       location: rules.travel?.startLocation ?? null, locations: {}, travel: null, eventsSeen: [], failedChecks: [], finishedDialogues: [], dialogueProgress: {}, finishedCombats: {}, shops: {}, claimedRewards: [],
-      phenomenon: null, phenomenonRolledDay: 0, map: null, discovered: [], hinted: [], search: 0,
+      phenomenon: null, phenomenonRolledDay: 0, map: null, discovered: [], hinted: [], search: 0, passes: {}, hunts: {},
     },
     quests: {},
   };

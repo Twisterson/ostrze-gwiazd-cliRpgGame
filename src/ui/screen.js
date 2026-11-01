@@ -8,7 +8,7 @@ import { effectById } from "../systems/effects.js";
 import { activePhenomenon, announcedPhenomenon } from "../systems/phenomena.js";
 import { equippedArtifact, artifactState } from "../systems/artifacts.js";
 import { locationById, tripEnds } from "../systems/travel.js";
-import { composeFrame, sceneWidth, frameWidth, ART_GAP } from "./frame.js";
+import { composeFrame, sceneWidth, frameWidth, sceneLines, fitWidth, ART_GAP } from "./frame.js";
 import { heroPanel } from "./hero_panel.js";
 import { wrap } from "./text.js";
 
@@ -65,15 +65,22 @@ export function fitPieces(pieces, width) {
   return out;
 }
 
-/** Clears the screen, home position, and the scrollback (\x1b[3J), so nothing of the previous screens stays above the window. */
+/**
+ * Clears the screen, then the scrollback (ESC[3J), then goes home, so nothing of the previous screens stays above the window.
+ * The order matters: Windows Terminal pushes the cleared screen into the scrollback on ESC[2J, so ESC[3J has to come after it;
+ * the other way round the previous frame stayed above the new one (two game windows one above the other).
+ */
 const NL = String.fromCharCode(10);
 const ESC_HOME = String.fromCharCode(27) + "[H";
-const CLEAR_SCREEN = "\x1b[3J\x1b[2J\x1b[H";
+const CLEAR_SCREEN = "\x1b[2J\x1b[3J\x1b[H";
 
 /** Clears the terminal (a no-op when the output is not a TTY) and forgets the current frame. */
 export function clear(io) {
   if (io.isTTY) io.writeRaw(CLEAR_SCREEN);
   io.frame = null;
+  io.shown = null;
+  io.written = [];
+  io.reopen = null;
 }
 
 /** True when screens are drawn as frames: a terminal of at least 80×24. */
@@ -93,8 +100,51 @@ export function drawFrame(io, choices = [], { page, info, redraw = false } = {})
   const f = io.frame;
   f.lastChoices = choices;
   f.choiceInfo = info === undefined ? (f.choiceInfo ?? null) : info;
-  // `redraw`: paint over the previous frame from the top (no clearing), for animations without flicker
-  io.writeRaw(`${redraw ? ESC_HOME : CLEAR_SCREEN}${compose(io, choices, { page, info: f.choiceInfo }).lines.join(NL)}${NL}`);
+  const small = io.isTTY && !framesOn(io);
+  if (!small) refit(io);
+  const lines = small ? smallWindowLines(io, choices) : compose(io, choices, { page, info: f.choiceInfo }).lines;
+  const shown = io.shown;
+  const sameSize = shown && shown.columns === io.columns && shown.rows === io.rows;
+  if (io.diffFrames && sameSize && shown.lines.length === lines.length && lines.length < io.rows) {
+    // The same screen with something changed (a cursor move): only the changed rows are rewritten, so a big picture does not flicker.
+    const changed = lines.flatMap((line, i) => (line === shown.lines[i] ? [] : `\x1b[${i + 1};1H\x1b[2K${line}`));
+    if (changed.length) io.writeRaw(`${changed.join("")}\x1b[${lines.length + 1};1H`);
+  } else {
+    // `redraw`: paint over the previous frame from the top (no clearing), for animations without flicker
+    io.writeRaw(`${redraw && (!shown || sameSize) ? ESC_HOME : CLEAR_SCREEN}${lines.join(NL)}${NL}`);
+  }
+  if (io.diffFrames) io.shown = { lines, columns: io.columns, rows: io.rows };
+}
+
+/** Brings what was laid out for the old size (the hero panel, the wrapped text) to the current one; `f.fit` is set by whoever made the frame. */
+function refit(io) {
+  const f = io.frame;
+  if (!f.fit || (f.fitted?.columns === io.columns && f.fitted?.rows === io.rows)) return;
+  f.fitted = { columns: io.columns, rows: io.rows };
+  f.fit();
+}
+
+/** A frame whose window was made too small for the panels: the hint, as much of the text as fits, and always the choices. */
+function smallWindowLines(io, choices) {
+  const f = io.frame;
+  const width = Math.max(1, io.columns - 1);
+  const hint = f.tooSmall ? [paint("dim", f.tooSmall)] : [];
+  const room = Math.max(0, io.rows - 1 - hint.length - choices.length);
+  const text = f.bare ? [] : sceneLines(f.body, width).slice(0, room);
+  return [...hint, ...text, ...choices].map((l) => fitWidth(l, width)).slice(-Math.max(1, io.rows - 1));
+}
+
+/** Draws the current screen again after the window changed size: the frame, or the text written since the last clear. */
+export function redrawScreen(io) {
+  if (io.frame) drawFrame(io, io.frame.lastChoices ?? []);
+  else if (io.isTTY) io.writeRaw(`${CLEAR_SCREEN}${(io.written ?? []).map((l) => `${l}${NL}`).join("")}`);
+}
+
+/** A screen opened without frames in a window now big enough for them gets its frame; false when there is nothing to do. */
+export function reopenFrame(io) {
+  if (io.frame || !io.reopen || !framesOn(io)) return false;
+  io.reopen();
+  return true;
 }
 
 /** Rows of the scene panel for the current frame (what a text must fit in to stay on one page). */
@@ -107,6 +157,25 @@ export function choiceCapacity(io, { info = false } = {}) {
   return compose(io, [], { info: info ? "" : null }).choiceRows;
 }
 
+/** Sets `io.frame` for a scene screen (see `showScreen`), with its text and hero panel laid out for the current window size. */
+function openFrame(ctx, { title, text, lines = [], side = [], hero: withHero = true, art: artId, bare = false }, notices) {
+  const { state, data, io } = ctx;
+  const image = artId ? data.art?.[artId] : null;
+  const art = image ? { lines: renderPixels(image, { color: useColor() }), width: image.w } : null;
+  const f = { hero: null, title, body: [], commands: [], notices, page: 0, choiceTitle: null, choiceInfo: null, side, art, bare, tooSmall: data?.ui["frame.tooSmall"] };
+  io.frame = f;
+  let laidOut = f.body;
+  f.fit = () => {
+    f.hero = state && withHero ? heroPanel(state, data, { cols: frameWidth(io.columns) }) : null;
+    // beside an illustration the text is wrapped narrower
+    const wrapWidth = sceneWidth(io.columns) - (compose(io, []).artMode === "side" ? art.width + ART_GAP : 0);
+    const body = [...(text ? wrap(text, wrapWidth).split("\n") : []), ...(typeof lines === "function" ? lines() : lines)];
+    if (f.body === laidOut) f.body = body; // a body put in by someone else (a preview, a question) is theirs
+    laidOut = body;
+  };
+  refit(io);
+}
+
 /**
  * Shows a scene screen: `title`, prose `text` (wrapped) and preformatted `lines` in the left panel. In a frame (see `framesOn`)
  * the pending notices go to the notice zone and a long text is paged (Enter between pages); widgets drawn next fill the
@@ -116,11 +185,20 @@ export function choiceCapacity(io, { info = false } = {}) {
  *   lines at the top of the choice panel, above the choices – the character sheet's skills; `blank: false`: no
  *   empty line after the notices in line mode; `hero: false`: a frame without the hero panel, for screens that show the hero themselves)
  */
-export async function showScreen(ctx, { title, text, lines = [], side = [], blank = true, hero: withHero = true, art: artId, bare = false }) {
+export async function showScreen(ctx, spec) {
+  const { title, text, lines = [], blank = true } = spec;
   const { state, data, io } = ctx;
   clear(io);
   io.discardInput?.();
   if (!framesOn(io)) {
+    if (io.isTTY) {
+      const notices = [...(ctx.notices ?? [])];
+      io.reopen = () => {
+        clear(io);
+        openFrame(ctx, spec, notices);
+        io.frame.page = Number.MAX_SAFE_INTEGER;
+      };
+    }
     // A terminal that is too small for the frames says so once per screen, ahead of the status line.
     if (io.isTTY) io.write(paint("dim", data.ui["frame.tooSmall"]));
     io.write(statusBar(state, data, { debug: ctx.debug, width: io.columns }));
@@ -131,19 +209,13 @@ export async function showScreen(ctx, { title, text, lines = [], side = [], blan
     for (const line of lines) io.write(line);
     return;
   }
-  const notices = (ctx.notices ?? []).splice(0);
-  const hero = state && withHero ? heroPanel(state, data, { cols: frameWidth(io.columns) }) : null;
-  const image = artId ? data.art?.[artId] : null;
-  const art = image ? { lines: renderPixels(image, { color: useColor() }), width: image.w } : null;
-  io.frame = { hero, title, body: [], commands: [], notices, page: 0, choiceTitle: null, choiceInfo: null, side, art, bare };
-  // beside an illustration the text is wrapped narrower
-  const wrapWidth = sceneWidth(io.columns) - (compose(io, []).artMode === "side" ? art.width + ART_GAP : 0);
-  io.frame.body = [...(text ? wrap(text, wrapWidth).split("\n") : []), ...lines];
-  const { pages } = compose(io, []);
-  for (let page = 0; page < pages - 1; page++) {
-    drawFrame(io, [paint("title", `▶ ${t(data.ui, "frame.next")}`)], { page });
+  openFrame(ctx, spec, (ctx.notices ?? []).splice(0));
+  for (let page = 0; page < compose(io, []).pages - 1; page++) {
+    const next = [paint("title", `▶ ${t(data.ui, "frame.next")}`)];
+    drawFrame(io, next, { page });
     for (;;) {
       const key = await io.readKey();
+      if (key.name === "resize") drawFrame(io, next, { page });
       if (key.name === "enter" || (key.name === "char" && key.char === "1")) break;
     }
   }

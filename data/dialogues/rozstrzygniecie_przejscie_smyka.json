@@ -1,0 +1,60 @@
+{
+  "id": "rozstrzygniecie_przejscie_smyka",
+  "start": "plot",
+  "nodes": {
+    "plot": {
+      "speaker": "Smyk",
+      "text": "Spod beczki wysuwa się brudna twarz i dwoje bystrych oczu. „Hej, panie. Tak, to ja. Gapowicz na dziobówce, bo rejs był za darmo, a przejście jeszcze tańsze. Mam wejście z drugiej strony obozu, między latryną a kuźnią. Nikt nie pilnuje, bo nikt nie chce tam stać.”",
+      "options": [
+        {
+          "id": "uzyj",
+          "text": "Idę za Smykiem tym przejściem.",
+          "goto": "wynik_uzyte"
+        },
+        {
+          "id": "odrzuc",
+          "text": "Idę główną bramą, jak człowiek.",
+          "goto": "wynik_odrzucone"
+        }
+      ]
+    },
+    "wynik_uzyte": {
+      "speaker": "Smyk",
+      "text": "Smyk prowadzi cię między beczkami i płachtami, mijacie zapach smoły, potem dym kuźni, potem cień namiotu. Wartownik odwraca się dokładnie wtedy, gdy ty się nie odwracasz. „Mówiłem, że nikt nie chce tam stać” – szepcze Smyk i znika.",
+      "actions": [
+        {
+          "setFlag": "jarnowo_przejscie_uzyte"
+        },
+        {
+          "setFlag": "przejscie_smyka_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_odrzucone": {
+      "speaker": "Smyk",
+      "text": "Smyk wzrusza ramionami. „Brama to brama. Każdy może na niej stać i dostać pałką.” Idziesz głównym traktem między ogniskami, a wartownicy patrzą na ciebie tak, jakby już liczyli, ile za ciebie dostaną.",
+      "actions": [
+        {
+          "setFlag": "jarnowo_przejscie_odrzucone"
+        },
+        {
+          "setFlag": "przejscie_smyka_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do przystani.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

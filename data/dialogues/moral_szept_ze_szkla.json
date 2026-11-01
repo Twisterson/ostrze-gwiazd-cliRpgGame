@@ -1,0 +1,80 @@
+{
+  "id": "moral_szept_ze_szkla",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Szkło",
+      "text": "W szkle odbija się twoja twarz, ale ruchy nie są twoje. Odłamek szepcze: «Weź mnie. Obiecuję, że to nic nie kosztuje.»",
+      "options": [
+        {
+          "id": "wez",
+          "text": "Weź odłamek.",
+          "goto": "wez"
+        },
+        {
+          "id": "odrzuc",
+          "text": "Odrzuć go butem.",
+          "goto": "odrzuc"
+        },
+        {
+          "id": "zostaw",
+          "text": "Zostaw w spokoju.",
+          "goto": "zostaw"
+        }
+      ]
+    },
+    "wez": {
+      "speaker": "Szkło",
+      "text": "Odłamek wchodzi w dłoń jak ciepłe jajko. Nic nie boli, a mimo to czujesz, że coś właśnie zostało zapisane w księdze, której nie czytasz.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "addVar": {
+            "dlug": 1
+          }
+        },
+        {
+          "xp": 20
+        }
+      ]
+    },
+    "odrzuc": {
+      "speaker": "Szkło",
+      "text": "Odłamek rozpryskuje się na tysiąc drobnych, każdy z innym odbiciem. Żaden nie jest twój. Zostaje w uszach przekleństwo, które nie brzmi jak ludzkie.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "addVar": {
+            "wola": 1
+          }
+        },
+        {
+          "xp": 10
+        }
+      ]
+    },
+    "zostaw": {
+      "speaker": "Szkło",
+      "text": "Odchodzisz, a szept ciągnie się za tobą jak wstążka. Tym razem nie zdołał cię zatrzymać.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

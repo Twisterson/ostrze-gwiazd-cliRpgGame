@@ -178,5 +178,6 @@ export async function runApp({ data, io, options = {} }) {
   } catch (err) {
     if (!(err instanceof InterruptError || err instanceof InputClosedError)) throw err;
   }
+  clear(io); // leaving the game leaves a clean terminal (a crash above keeps what it printed)
   return { lastState };
 }

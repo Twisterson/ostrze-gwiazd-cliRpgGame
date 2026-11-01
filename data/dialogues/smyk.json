@@ -1,0 +1,467 @@
+{
+  "id": "smyk",
+  "portrait": "portret_smyk",
+  "start": "ulica",
+  "returnStart": "powrot",
+  "nodes": {
+    "ulica": {
+      "speaker": "Smyk",
+      "text": "Smyk opiera się o mur i poprawia zieloną czapkę. Patrzy na twoje ręce, potem za twoje plecy, z przyzwyczajenia. „No. To o co chodzi?”",
+      "options": [
+        {
+          "id": "drobne",
+          "text": "Drobne za wskazówki (25 gr).",
+          "goto": "miasto",
+          "requires": {
+            "all": [
+              {
+                "money": 25
+              },
+              {
+                "flag": "smyk_wydal"
+              },
+              {
+                "notFlag": "smyk_kupiony"
+              },
+              {
+                "var": "zlecenia_stolicy",
+                "lte": 0
+              }
+            ]
+          },
+          "actions": [
+            {
+              "takeMoney": 25
+            },
+            {
+              "setFlag": "smyk_kupiony"
+            }
+          ]
+        },
+        {
+          "id": "miasto",
+          "text": "Pokaż mi miasto.",
+          "goto": "miasto",
+          "requires": {
+            "any": [
+              {
+                "flag": "smyk_zaufal"
+              },
+              {
+                "flag": "smyk_interes"
+              },
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 1
+              },
+              {
+                "flag": "smyk_kupiony"
+              }
+            ]
+          }
+        },
+        {
+          "id": "przejscia",
+          "text": "Znasz jakieś ukryte przejścia?",
+          "goto": "przejscia",
+          "requires": {
+            "any": [
+              {
+                "flag": "smyk_zaufal"
+              },
+              {
+                "flag": "smyk_interes"
+              },
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "dezerterzy",
+          "text": "Słyszałeś o dwóch dezerterach z frontu?",
+          "goto": "dezerterzy",
+          "requires": {
+            "all": [
+              {
+                "any": [
+                  {
+                    "flag": "smyk_zaufal"
+                  },
+                  {
+                    "flag": "smyk_interes"
+                  },
+                  {
+                    "var": "zlecenia_stolicy",
+                    "gte": 1
+                  }
+                ]
+              },
+              {
+                "flag": "wojna_dezerterzy_wydani"
+              }
+            ]
+          }
+        },
+        {
+          "id": "zold",
+          "text": "Ktoś podobno przywiózł żołd i nie oddał całego.",
+          "goto": "zold",
+          "requires": {
+            "all": [
+              {
+                "any": [
+                  {
+                    "flag": "smyk_zaufal"
+                  },
+                  {
+                    "flag": "smyk_interes"
+                  },
+                  {
+                    "var": "zlecenia_stolicy",
+                    "gte": 1
+                  }
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "flag": "wojna_zold_zatrzymany"
+                  },
+                  {
+                    "flag": "wojna_zold_podzielony"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "otwiera",
+          "text": "Mam dowód. Wprowadź mnie do pałacu.",
+          "goto": "otwiera",
+          "requires": {
+            "all": [
+              {
+                "flag": "dowod_zywego"
+              },
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 3
+              },
+              {
+                "notFlag": "palac_otwarty"
+              }
+            ]
+          }
+        },
+        {
+          "id": "klucz_oddany",
+          "text": "Odniosłem twój klucz.",
+          "goto": "klucz_oddany",
+          "requires": {
+            "flag": "stolica_klucz_oddany"
+          }
+        },
+        {
+          "id": "klucz_zatrzymany",
+          "text": "Co do tego klucza z kanału…",
+          "goto": "klucz_zatrzymany",
+          "requires": {
+            "flag": "stolica_klucz_zatrzymany"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "powrot": {
+      "speaker": "Smyk",
+      "text": "Smyk wyrasta obok ciebie, jakby cały czas stał za rogiem i tylko czekał, aż na niego spojrzysz. „A, to pan znowu. Ulica się zmienia szybciej niż ceny. Co tym razem?”",
+      "options": [
+        {
+          "id": "drobne",
+          "text": "Drobne za wskazówki (25 gr).",
+          "goto": "miasto",
+          "requires": {
+            "all": [
+              {
+                "money": 25
+              },
+              {
+                "flag": "smyk_wydal"
+              },
+              {
+                "notFlag": "smyk_kupiony"
+              },
+              {
+                "var": "zlecenia_stolicy",
+                "lte": 0
+              }
+            ]
+          },
+          "actions": [
+            {
+              "takeMoney": 25
+            },
+            {
+              "setFlag": "smyk_kupiony"
+            }
+          ]
+        },
+        {
+          "id": "miasto",
+          "text": "Pokaż mi miasto.",
+          "goto": "miasto",
+          "requires": {
+            "any": [
+              {
+                "flag": "smyk_zaufal"
+              },
+              {
+                "flag": "smyk_interes"
+              },
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 1
+              },
+              {
+                "flag": "smyk_kupiony"
+              }
+            ]
+          }
+        },
+        {
+          "id": "przejscia",
+          "text": "Znasz jakieś ukryte przejścia?",
+          "goto": "przejscia",
+          "requires": {
+            "any": [
+              {
+                "flag": "smyk_zaufal"
+              },
+              {
+                "flag": "smyk_interes"
+              },
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 1
+              }
+            ]
+          }
+        },
+        {
+          "id": "dezerterzy",
+          "text": "Słyszałeś o dwóch dezerterach z frontu?",
+          "goto": "dezerterzy",
+          "requires": {
+            "all": [
+              {
+                "any": [
+                  {
+                    "flag": "smyk_zaufal"
+                  },
+                  {
+                    "flag": "smyk_interes"
+                  },
+                  {
+                    "var": "zlecenia_stolicy",
+                    "gte": 1
+                  }
+                ]
+              },
+              {
+                "flag": "wojna_dezerterzy_wydani"
+              }
+            ]
+          }
+        },
+        {
+          "id": "zold",
+          "text": "Ktoś podobno przywiózł żołd i nie oddał całego.",
+          "goto": "zold",
+          "requires": {
+            "all": [
+              {
+                "any": [
+                  {
+                    "flag": "smyk_zaufal"
+                  },
+                  {
+                    "flag": "smyk_interes"
+                  },
+                  {
+                    "var": "zlecenia_stolicy",
+                    "gte": 1
+                  }
+                ]
+              },
+              {
+                "any": [
+                  {
+                    "flag": "wojna_zold_zatrzymany"
+                  },
+                  {
+                    "flag": "wojna_zold_podzielony"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "otwiera",
+          "text": "Mam dowód. Wprowadź mnie do pałacu.",
+          "goto": "otwiera",
+          "requires": {
+            "all": [
+              {
+                "flag": "dowod_zywego"
+              },
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 3
+              },
+              {
+                "notFlag": "palac_otwarty"
+              }
+            ]
+          }
+        },
+        {
+          "id": "klucz_oddany",
+          "text": "Odniosłem twój klucz.",
+          "goto": "klucz_oddany",
+          "requires": {
+            "flag": "stolica_klucz_oddany"
+          }
+        },
+        {
+          "id": "klucz_zatrzymany",
+          "text": "Co do tego klucza z kanału…",
+          "goto": "klucz_zatrzymany",
+          "requires": {
+            "flag": "stolica_klucz_zatrzymany"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "miasto": {
+      "speaker": "Smyk",
+      "text": "„Dobra, słuchaj. Zaułek Szklarzy za rogiem, tam kupisz ziółka i szkło do wszystkiego, co się warzy. Dom Ciszy, bo tam przyjmują tych, co za dużo widzieli. Port, jeśli chcesz przewieźć coś, czego nie wolno nosić. Koszary, jeśli chcesz kogoś zostawić z kwitkiem. Cmentarz zbiorowy, jeśli już wszystko jedno.” Wskazuje palcem w cztery strony, jakby oganiał muchy.",
+      "actions": [
+        {
+          "reveal": "dom_ciszy"
+        },
+        {
+          "reveal": "port_rzeczny"
+        },
+        {
+          "reveal": "koszary"
+        },
+        {
+          "reveal": "cmentarz_zbiorowy"
+        },
+        {
+          "setFlag": "smyk_poznany"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "przejscia": {
+      "speaker": "Smyk",
+      "text": "„Przejścia? Jak już jesteśmy tacy znajomi. Są stare wodociągi, trzy dni szlakiem od murów. Chowa się tam pół ulicy, kiedy wojsko robi nalot. A w środku widać rzeczy, które cesarz wolałby zakopać głębiej.” Mruga. „Ja nic nie mówiłem.”",
+      "actions": [
+        {
+          "reveal": "stare_wodociagi"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "dezerterzy": {
+      "speaker": "Smyk",
+      "text": "„Dwóch dezerterów, jeden szpieg? U nas na ulicy to się nazywa fachowo: komu, za ile, na jak długo. Nie mówię, że źle ci poszło. Tylko następnym razem zastanów się, kto nosi mundur, a kto go tylko pożyczył.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "zold": {
+      "speaker": "Smyk",
+      "text": "„Żołd? Słyszałem. Na ulicy nikt by nie miał wyrzutów, tu sumienie jest tańsze od chleba. Mówią, że sierżant z fortu do dziś klnie na kogoś w szarym płaszczu. Ciekawe na kogo.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "otwiera": {
+      "speaker": "Smyk",
+      "text": "Smyk rozgląda się w prawo, w lewo, a potem w górę, na wypadek obserwatorów z dachów. „Dobra. Masz papier, masz historię i masz minę kogoś, kto wie, że nie powinien. Jest kuchnia pałacowa, jest kucharz, który mi wisi przysługę. Wejście schodami dla służby, w nocy. Nikt cię nie zatrzyma, bo nikt nie będzie patrzył.”",
+      "actions": [
+        {
+          "setFlag": "palac_otwarty"
+        },
+        {
+          "reveal": "palac"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki. Do zobaczenia po drugiej stronie.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "klucz_oddany": {
+      "speaker": "Smyk",
+      "text": "„Klucz? A, ten.” Smyk udaje, że wcale go nie szukał. „Szczur z kanału oddał, tak? To znaczy, że komuś głupio, a komuś nie. Pasuje do dwóch zamków, których nie powiem.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "klucz_zatrzymany": {
+      "speaker": "Smyk",
+      "text": "„Klucz? Słyszałem, że go masz. Nic nie mówię, ale jak chłopak z ulicy zgubi coś raz, to drugi raz pilnuje lepiej, a ty to pamiętasz.” Wzrusza ramionami, jakby mu było wszystko jedno, i patrzy w bok.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    }
+  }
+}

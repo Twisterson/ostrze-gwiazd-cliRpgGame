@@ -121,6 +121,7 @@ export function techniqueActions(state, data, combat) {
     list.push({
       ...entry(`${ARTIFACT_PREFIX}${o.id}`, o.apCost, o.reason, o.name),
       artifact: true, chargeCost: o.chargeCost, target: o.target, effect: o.effect, ...(o.viaHp !== undefined ? { viaHp: o.viaHp } : {}),
+      ...(o.description ? { description: o.description } : {}),
     });
   }
   return list;

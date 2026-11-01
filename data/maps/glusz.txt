@@ -6,4 +6,7 @@
           |
       {gluszec}-----------{bor_klusownikow}----------{kamieniolom}
           |
-      {stary_trakt}-------{bagna_szarej_wody}
+      {bagna_szarej_wody}
+
+   dalekie szlaki (dni drogi)
+      {stary_trakt}    {spalona_osada}    {stara_kopalnia}

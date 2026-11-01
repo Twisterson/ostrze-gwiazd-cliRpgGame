@@ -1,0 +1,230 @@
+{
+  "id": "hetman",
+  "portrait": "portret_hetman",
+  "start": "namiot",
+  "nodes": {
+    "namiot": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "Namiot hetmana pachnie smołą, solą i nowym żelazem. Skjeldomir siedzi za stołem z mapą, na której ołowiane żołnierzyki stoją równo jak na defiladzie. „Przybysz z lądu, bez barw. Wsiewłod przysyła takich, kiedy wojna przestaje mu się opłacać. Siadaj.”",
+      "actions": [
+        {
+          "setFlag": "hetman_rozmowa"
+        }
+      ],
+      "options": [
+        {
+          "id": "wojna_po",
+          "text": "Czyja to była ta wojna, hetmanie?",
+          "goto": "wojna_po",
+          "requires": {
+            "flag": "hetman_przekonany"
+          }
+        },
+        {
+          "id": "pycha",
+          "text": "Mówią, że wojna jest twoim pomysłem.",
+          "goto": "wojna",
+          "requires": {
+            "notFlag": "hetman_przekonany"
+          }
+        },
+        {
+          "id": "urzadzenie",
+          "text": "Co wiesz o urządzeniu na Łysej Skale?",
+          "goto": "urzadzenie"
+        },
+        {
+          "id": "dowod",
+          "text": "Mam zapis ze szkła. Posłuchaj go.",
+          "goto": "dowod",
+          "requires": {
+            "all": [
+              {
+                "flag": "jarnowo_dowod"
+              },
+              {
+                "notFlag": "hetman_przekonany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ton_wyrok",
+          "text": "Przyszedłem skończyć z Istotą i z tymi, co przy niej stoją.",
+          "goto": "ton_wyrok",
+          "requires": {
+            "flag": "istota_wyrok"
+          }
+        },
+        {
+          "id": "ton_przetarg",
+          "text": "Ktoś tu handluje twoimi ludźmi, hetmanie. Chcę wiedzieć, kto.",
+          "goto": "ton_przetarg",
+          "requires": {
+            "flag": "istota_przetarg"
+          }
+        },
+        {
+          "id": "ton_zwloka",
+          "text": "Zostały rzeczy do dokończenia, hetmanie. Pomóż mi je dokończyć.",
+          "goto": "ton_zwloka",
+          "requires": {
+            "flag": "istota_zwloka"
+          }
+        },
+        {
+          "id": "wywiad_prawda",
+          "text": "Hauk pisał o mnie?",
+          "goto": "wywiad_prawda",
+          "requires": {
+            "flag": "wojna_wywiad_prawda"
+          }
+        },
+        {
+          "id": "wywiad_falsz",
+          "text": "Hauk pisał o mnie?",
+          "goto": "wywiad_falsz",
+          "requires": {
+            "flag": "wojna_wywiad_falsz"
+          }
+        },
+        {
+          "id": "wywiad_proch",
+          "text": "Rusznice wam dobrze strzelają?",
+          "goto": "wywiad_proch",
+          "requires": {
+            "flag": "wojna_wywiad_proch"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Wychodzę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wojna": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "„Moja. Ja ją zacząłem, ja ją prowadzę, a że ktoś dał mi proch i stal, to zwykła uprzejmość sąsiada. Nie pytaj kto. W moim kraju daje się, a nie pyta.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "namiot"
+        }
+      ]
+    },
+    "urzadzenie": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "„Na Łysej Skale? Tam nikt nie chodzi. Łodzie wracają bez sterników, a ci, co wrócili, mówią o świetle w ziemi. Jeśli chcesz tam płynąć, popłyniesz na mojej łodzi, bo tylko ja mam sternika, który nie pyta.”",
+      "actions": [
+        {
+          "reveal": "lysa_skala"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "namiot"
+        }
+      ]
+    },
+    "dowod": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "Hetman słucha do końca, a kiedy zapis milknie, długo nie mówi nic. „Ona mówiła »klient«. O mnie.” Odsuwa ołowiane figurki ręką, jakby zrzucał pył. „Miałem rację w jednym: wojna była pomysłem kogoś. Tylko nie moim.”",
+      "actions": [
+        {
+          "setFlag": "hetman_przekonany"
+        },
+        {
+          "setFlag": "hetman_rozmowa"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "namiot"
+        }
+      ]
+    },
+    "ton_wyrok": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "Skjeldomir unosi wzrok, a w jego oczach pojawia się coś, czego wcześniej nie było: uwaga. „Skończyć. To słowo, które rozumiem. Mówisz jak ktoś, kto już zdecydował. Dobrze. Ja też, tylko wolałbym wiedzieć, o kim.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "namiot"
+        }
+      ]
+    },
+    "ton_przetarg": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "„Handlować to ja umiem. Jeśli ktoś sprzedaje mnie albo moich ludzi, chcę znać cenę. Bo jeśli jest niska, to obrażę się podwójnie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "namiot"
+        }
+      ]
+    },
+    "ton_zwloka": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "„Dokończyć. To znaczy, że coś się zaczęło dawno temu i nikt nie zgasił światła. Dobrze. Dokończymy, tylko powiedz najpierw, co zostało.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "namiot"
+        }
+      ]
+    },
+    "wojna_po": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "„Wojna miała być moja. Ktoś mi dał do niej proch i stal, a ja nie zapytałem, po co. Teraz pytam, i to jest chyba jedyna rzecz, w której nikt mnie nie uprzedził.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "namiot"
+        }
+      ]
+    },
+    "wywiad_prawda": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "Hetman nie podnosi wzroku znad żołnierzyków. „Pisał. Ktoś z lądu sprzedał mu tabor za dziewięćdziesiąt groszy. Wielki człowiek, tani człowiek.” Przesuwa ołowianą figurkę o palec w lewo. „Tak się wygrywa wojny. Nie lubię takich ludzi i tak ich sobie cenię.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "namiot"
+        }
+      ]
+    },
+    "wywiad_falsz": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "Skjeldomir przestaje poruszać figurkami. „Czterdziestu pod fortem. Hauk nie wie, jak ci było na imię. Ma tylko opis i bardzo dokładnie go wszystkim rozsyła.” Patrzy na ciebie, potem na ołowianych żołnierzyków. „Gdybym miał pewność, nie rozmawialibyśmy. Mam tylko złe przeczucie, więc rozmawiamy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "namiot"
+        }
+      ]
+    },
+    "wywiad_proch": {
+      "speaker": "Hetman Skjeldomir",
+      "text": "„Dziewięć beczek mokrego prochu w przednim obozie. Wychłostałem kwatermistrza, a to on pewnie jedyny nic nie zrobił.” Hetman odstawia kubek. „Dobra, czysta robota. Kimkolwiek był, wolałbym go mieć u siebie. Ale pytasz dziwnie dokładnie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Tak tylko pytam.",
+          "goto": "namiot"
+        }
+      ]
+    }
+  }
+}

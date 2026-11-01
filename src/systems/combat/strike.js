@@ -1,7 +1,8 @@
 /** The one player weapon blow used by every attack (plain attack, techniques, later reach and firearms). */
 import { getStats } from "../stats.js";
 import { enemyById } from "./data.js";
-import { onAllyDeath } from "./state.js";
+import { onAllyDeath, livingEnemies } from "./state.js";
+import { addReinforcements } from "./firearm.js";
 import { playerHitChance, rollDamage, mitigate, dealDamage } from "./formulas.js";
 import { applyToEnemy } from "./effects.js";
 import { masteryTypeOf, masteryBonuses } from "./mastery.js";
@@ -19,6 +20,19 @@ export function effectOnEnemy(data, combat, enemy, id, rng, events, opts) {
 export function onEnemyDeath(data, combat, enemy, events) {
   events.push({ type: "wrog_pokonany", target: enemy.uid });
   onAllyDeath(data, combat);
+}
+
+/**
+ * A quick kill is loud: when `enemy` falls within `noise.fastRounds` while others still stand, a person or beast may
+ * hear it and come (`noise.chance` %, once per fight, never in training or a `quiet` scene). The newcomer is the scene's
+ * `reinforcements`, else one more of the fallen kind.
+ */
+export function noiseOfKill(data, combat, enemy, rng, events) {
+  const noise = data.rules.combat.noise;
+  if (!noise || combat.reinforced || combat.training || combat.def.quiet || combat.round > noise.fastRounds) return;
+  if (livingEnemies(combat).length === 0 || !enemyById(data, enemy.id).tags?.some((tag) => noise.tags.includes(tag))) return;
+  if (rng.int(1, 100) > noise.chance) return;
+  events.push(...addReinforcements(null, data, combat, rng, combat.def.reinforcements ?? [{ id: enemy.id }]));
 }
 
 /**
@@ -77,7 +91,7 @@ export function strike(state, data, combat, { weapon, target, rng, hitPenalty = 
   ev.crit = crit;
   // The finishing blow (in training: the blow that left the enemy spared at 1 HP) credits its weapon kind.
   if (masteryType && target.hp <= (combat.training ? 1 : 0)) target.killedBy = masteryType;
-  if (target.dead) { onEnemyDeath(data, combat, target, events); return events; }
+  if (target.dead) { onEnemyDeath(data, combat, target, events); noiseOfKill(data, combat, target, rng, events); return events; }
   if (weapon.damageType === "obuchowe") {
     if (crit) { if (roll100(rng) <= c.bluntCritStun) effectOnEnemy(data, combat, target, "ogluszenie", rng, events); }
     else if (roll100(rng) <= c.bluntDaze) effectOnEnemy(data, combat, target, "zamroczenie", rng, events);

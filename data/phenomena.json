@@ -23,5 +23,10 @@
     "duration": [3, 6], "timeOfDay": ["dzien"], "frequency": { "chancePerDay": 15 },
     "onArtifacts": {},
     "modifiers": { "rangedHitChance": -10 }, "enemyModifiers": {}, "blocks": [],
-    "world": { "visibility": -20, "travel": "slow" } }
+    "world": { "visibility": -20, "travel": "slow" } },
+  {"id":"mgla_poranna","name":"Gęsta mgła","kind":"pogodowe","omen":{"hoursBefore":1,"text":"Znad rzeki unosi się biała zasłona, a w lesie cichną ptaki."},"duration":[2,4],"timeOfDay":["swit"],"frequency":{"chancePerDay":10},"onArtifacts":{},"modifiers":{"rangedHitChance":-15},"enemyModifiers":{},"blocks":[],"world":{"visibility":-30,"travel":"slow"}},
+  {"id":"upal","name":"Upał","kind":"pogodowe","omen":{"hoursBefore":1,"text":"Powietrze stoi, a cień kurczy się pod stopami."},"duration":[4,8],"timeOfDay":["dzien"],"frequency":{"chancePerDay":8},"onArtifacts":{},"modifiers":{},"enemyModifiers":{},"blocks":[],"world":{"visibility":0,"travel":"slow"}},
+  {"id":"wichura","name":"Wichura","kind":"pogodowe","omen":{"hoursBefore":1,"text":"Gałęzie zaczynają trzeszczeć, a po polu przetacza się pierwszy pęd wiatru."},"duration":[2,5],"timeOfDay":null,"frequency":{"chancePerDay":8},"onArtifacts":{},"modifiers":{"rangedHitChance":-20},"enemyModifiers":{},"blocks":[],"world":{"visibility":-10,"travel":"slow"}},
+  {"id":"grad","name":"Grad","kind":"pogodowe","omen":{"hoursBefore":1,"text":"Niebo żółknie, a zza horyzontu dochodzi suchy stukot."},"duration":[1,2],"timeOfDay":["dzien"],"frequency":{"chancePerDay":6},"onArtifacts":{},"modifiers":{"rangedHitChance":-10},"enemyModifiers":{},"blocks":[],"world":{"visibility":-10,"travel":"dangerous"}},
+  {"id":"przymrozek","name":"Przymrozek","kind":"pogodowe","omen":{"hoursBefore":1,"text":"Powietrze ostro pachnie żelazem, a trawa sztywnieje od szronu."},"duration":[4,8],"timeOfDay":["noc","swit"],"frequency":{"chancePerDay":8},"onArtifacts":{},"modifiers":{},"enemyModifiers":{},"blocks":[],"world":{"visibility":0,"travel":"slow"}}
 ]

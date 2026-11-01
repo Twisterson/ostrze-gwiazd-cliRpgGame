@@ -1,0 +1,64 @@
+{
+  "id": "moral_jeniec_pod_straza",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Strażnik",
+      "text": "Strażnik stoi nad jeńcem z pochyloną głową. „Rozkazano mi go odstawić do obozu. Ale po drodze padło, że obóz jest zajęty, a trakt długi.” Znacząco spogląda na lasek. „Ty nic nie widziałeś, ja nic nie słyszałem, a on jest tak samo głodny jak ja.”",
+      "options": [
+        {
+          "id": "puszczam",
+          "text": "Puść go. Jest tylko chłopakiem z drugiej strony.",
+          "goto": "puszczony"
+        },
+        {
+          "id": "zostaw",
+          "text": "To nie moja sprawa. Idę dalej.",
+          "goto": "end"
+        },
+        {
+          "id": "pomoc",
+          "text": "Odprowadzę go do obozu razem z tobą.",
+          "goto": "obozowy"
+        }
+      ]
+    },
+    "puszczony": {
+      "speaker": "Strażnik",
+      "text": "Strażnik rozcina sznur jednym ruchem i odwraca się plecami. Jeniec przez chwilę nie rozumie, potem rozumie za dużo, i zanim cokolwiek powie, już go nie ma. „Nie wiem, co się stało” – mruczy strażnik. „I tobie radzę nie wiedzieć.”",
+      "actions": [
+        {
+          "addVar": {
+            "wola": 1
+          }
+        },
+        {
+          "xp": 20
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "obozowy": {
+      "speaker": "Strażnik",
+      "text": "Idziecie we trzech. Po drodze jeniec milczy, a strażnik klnie pod nosem na rozkazy, których nikt nie wymyślił, a wszyscy wykonują. W obozie ktoś zapisuje jego imię w kajecie. Imię znika w kajecie na zawsze.",
+      "actions": [
+        {
+          "xp": 15
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę dalej.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

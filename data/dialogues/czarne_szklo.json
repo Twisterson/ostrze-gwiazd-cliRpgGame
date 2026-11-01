@@ -1,0 +1,39 @@
+{
+  "id": "czarne_szklo",
+  "portrait": "portret_istota",
+  "start": "szklo",
+  "nodes": {
+    "szklo": {
+      "speaker": "Czarne szkło",
+      "text": "W Domu z Czarnego Szkła ściany są gładkie jak lód i cicho świecą od środka. Ostrze przy twoim pasie zaczyna dzwonić cienko, jakby rozpoznawało znajomego. Jedna ze ścian ciemnieje i przybiera kształt, który przypomina twarz. Czeka, aż przyłożysz żelazo.",
+      "options": [
+        {
+          "id": "przyloz",
+          "text": "Przykładam Ostrze do ściany.",
+          "goto": "zapis"
+        },
+        {
+          "id": "zostaw",
+          "text": "Cofam się i zostawiam szkło w spokoju.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zapis": {
+      "speaker": "Czarne szkło",
+      "text": "Szkło wypełnia się głosem, który znasz. Istota mówi do kogoś, kogo nie widzisz: „Hetman jest dobrym klientem. Nie wie, że jest klientem. Daj mu proch, daj stal, pozwól mu myśleć, że wojna to jego pomysł. Rdzeń będzie nasz, zanim dowie się, co kupił.” Zapis milknie, a szkło gaśnie do czerni.",
+      "actions": [
+        {
+          "setFlag": "jarnowo_dowod"
+        }
+      ],
+      "options": [
+        {
+          "id": "wychodze",
+          "text": "Wychodzę z domu.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

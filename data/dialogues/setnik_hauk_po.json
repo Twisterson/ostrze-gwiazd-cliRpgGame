@@ -1,0 +1,79 @@
+{
+  "id": "setnik_hauk_po",
+  "portrait": "portret_hauk",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "Hauk nie wstaje. Buty ma już czyste, teraz czyści rusznicę.",
+      "options": [
+        {
+          "id": "prawda",
+          "text": "Jak tam wozy?",
+          "goto": "po_prawda",
+          "requires": {
+            "flag": "wojna_wywiad_prawda"
+          }
+        },
+        {
+          "id": "falsz",
+          "text": "Jak tam wozy?",
+          "goto": "po_falsz",
+          "requires": {
+            "flag": "wojna_wywiad_falsz"
+          }
+        },
+        {
+          "id": "proch",
+          "text": "Jak tam proch?",
+          "goto": "po_proch",
+          "requires": {
+            "flag": "wojna_wywiad_proch"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Nic. Tylko przechodzę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "po_prawda": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "„Spłonęły. Trzy wozy i woźnice. Dobrze się paliły, proch tak ma.” Patrzy w lufę. „Jak będziesz miał coś jeszcze, wiesz, gdzie siedzę. Nikomu nie powiem, że tu byłeś. Ty też nikomu nie powiesz, bo komu.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "po_falsz": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "Hauk odkłada wycior. „Pod fortem straciłem czterdziestu ludzi. Dwóch z nich było moimi krewnymi, a jednego nawet lubiłem.” Mówi to tym samym głosem co o butach. „Teraz stoisz w moim namiocie i masz dwa wyjścia: to, którym wszedłeś, póki się nie rozmyślę. Drugiego nie ma.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wychodzę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "po_proch": {
+      "speaker": "Setnik Hauk",
+      "portrait": "portret_hauk",
+      "text": "„Proch?” Hauk unosi brew. „Proch mamy mokry, jak nasze nastroje. Rusznice nie wypaliły w połowie pierwszej salwy, a oficer kazał wychłostać kwatermistrza. Nie wiesz czasem, kto to mógł zrobić?” Wyciera lufę i nie patrzy na ciebie. Bardzo starannie nie patrzy.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pojęcia nie mam.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

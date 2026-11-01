@@ -91,13 +91,27 @@ export function equip(state, data, itemId, slot) {
   if (!SLOTS.includes(slot)) throw new Error(`Nieznany slot: ${slot}`);
   if (countOf(state, itemId) === 0) return fail("inv.notOwned");
   if (!slotAccepts(item, slot)) return fail("inv.wrongSlot");
+  // A spare of the same kind as the weapon in hand (sword and sword, spears and spears) would be no choice at all.
+  const inHand = state.inventory.equipped.bron ? known(data, state.inventory.equipped.bron) : null;
+  if (slot === "bron_zapas" && item.masteryType && inHand?.masteryType === item.masteryType) return fail("inv.sameKind");
+  if (slot === "bron_druga" && inHand?.pair) return fail("inv.pairHands");
   // The copy already in this slot does not count against availability.
   const current = state.inventory.equipped[slot] === itemId ? 1 : 0;
   if (freeCount(state, itemId) + current < 1) return fail("inv.noFreeCopy");
   state.inventory.equipped[slot] = itemId;
+  const freed = freeOffhand(state, data);
   const trimmed = trimQuick(state, data);
   clampHp(state, data);
-  return { ok: true, trimmed };
+  return { ok: true, trimmed, ...(freed && { freed }) };
+}
+
+/** A pair of weapons takes both hands: with one in hand the off-hand weapon goes back to the bag. Returns its id, if there was one. */
+function freeOffhand(state, data) {
+  const eq = state.inventory.equipped;
+  if (!eq.bron_druga || !eq.bron || !known(data, eq.bron).pair) return null;
+  const id = eq.bron_druga;
+  delete eq.bron_druga;
+  return id;
 }
 
 /** Takes off whatever is in `slot`. */
@@ -119,14 +133,15 @@ export function destroyEquipped(state, data, slot) {
 }
 
 /** Swaps the main and spare weapon slots (either may be empty). */
-export function swapWeapons(state) {
+export function swapWeapons(state, data) {
   const eq = state.inventory.equipped;
   const [a, b] = [eq.bron, eq.bron_zapas];
   delete eq.bron;
   delete eq.bron_zapas;
   if (b) eq.bron = b;
   if (a) eq.bron_zapas = a;
-  return { ok: true };
+  const freed = freeOffhand(state, data);
+  return { ok: true, ...(freed && { freed }) };
 }
 
 /** Puts a throwable/consumable on the quick belt. */
@@ -161,6 +176,7 @@ export function isOverloaded(state, data) {
 
 /** True when `qty` of `itemId` still fits under the hard weight limit. */
 export function canAdd(state, data, itemId, qty) {
+  if (known(data, itemId).unburdened) return true; // a story item (a shard, a Blade from the sky) always fits
   const hardLimit = (getStats(state, data).derived.carry * data.rules.inventory.hardLimitPercent) / 100;
   return carriedWeight(state, data) + known(data, itemId).weight * qty <= hardLimit;
 }

@@ -7,7 +7,7 @@ import { itemById } from "../items.js";
 import { ART_LIMITS } from "../../engine/pix.js";
 
 export const AI_TYPES = ["aggressive", "cautious", "ranged"];
-const LOOT_ACTIONS = ["giveItem", "giveMoney", "setFlag"];
+const LOOT_ACTIONS = ["giveItem", "giveRandom", "giveMoney", "setFlag"];
 
 const ID = { type: "string", pattern: /^[a-z0-9_]+$/ };
 const TEXT = { type: "string", nonEmpty: true };
@@ -34,7 +34,7 @@ const ENEMY_SCHEMA = {
     id: ID, name: TEXT, nameAcc: TEXT, art: ID, hp: INT_MIN1, ap: INT_MIN1, initiative: { type: "integer" }, defense: INT_MIN0,
     armor: INT_MIN0, reduction: { type: "object", values: INT_MIN0 }, damageTaken: { type: "object", values: { type: "number", min: 0 } },
     immune: { type: "array", items: ID }, effectResist: { type: "object", values: INT_MIN0 }, tags: { type: "array", items: ID },
-    attacks: { type: "array", items: ATTACK_SCHEMA }, ai: { type: "string" }, xp: INT_MIN0, loot: { type: "array" }, leap: { type: "boolean" },
+    attacks: { type: "array", items: ATTACK_SCHEMA }, ai: { type: "string" }, xp: INT_MIN0, loot: { type: "array" }, leap: { type: "boolean" }, veteran: ID, veteranFrom: INT_MIN1,
   },
   additional: false,
 };
@@ -114,6 +114,7 @@ function validateEnemy(enemy, prefix, data) {
       if (!DAMAGE_TYPES.includes(type)) errors.push(`${at(`damageTaken.${type}`)}: nieznany typ obrażeń ${JSON.stringify(type)}`);
     }
   }
+  if (typeof enemy.veteran === "string" && !(data.enemies ?? []).some((e) => e?.id === enemy.veteran)) errors.push(`${at("veteran")}: nieznany wróg ${JSON.stringify(enemy.veteran)}`);
   if (Array.isArray(enemy.immune)) {
     enemy.immune.forEach((id, i) => {
       if (typeof id === "string" && !effectById(data, id)) errors.push(`${at(`immune[${i}]`)}: nieznany efekt ${JSON.stringify(id)}`);

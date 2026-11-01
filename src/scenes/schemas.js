@@ -26,6 +26,7 @@ const COMBAT_FIELDS = {
   onDefeat: { type: "string" },
   nonLethal: { type: "boolean" },
   training: { type: "boolean" },
+  quiet: { type: "boolean" },
   minutes: { type: "integer", min: 1 },
   title: { type: "string" },
   // Scene loot, given once after a win (entries as in enemy loot; checked in validateScenes).
@@ -73,6 +74,7 @@ export const SCENE_TYPES = {
   // `dialogue` must name a file from dialogues/ (checked in validateScenes); `onCombat` starts a fight after a `walka` result.
   dialogue: scene(["dialogue"], {
     dialogue: { type: "string", nonEmpty: true },
+    camp: { type: "boolean" }, // false: no camp menu after the talk (the next scene is a fight, a menu would be an empty screen)
     onCombat: { type: "object", required: ["enemies"], fields: COMBAT_FIELDS, additional: false },
   }),
   combat: scene(["enemies"], COMBAT_FIELDS),
@@ -83,8 +85,8 @@ export const SCENE_TYPES = {
   map: {
     type: "object", required: ["id", "type", "hub", "main"], additional: false,
     fields: (({ time: _t, goto: _g, ...rest }) => ({ ...rest, hub: { type: "string", nonEmpty: true }, title: { type: "string", nonEmpty: true },
-      arriveAt: { type: "string" }, leaves: { type: "string" }, starts: { type: "array", items: { type: "string" } }, exitWhen: { type: "object", required: ["if", "goto"], fields: { if: { type: "object" }, goto: { type: "string" } }, additional: false },
-      main: { type: "object", required: ["label", "goto"], fields: { label: { type: "string", nonEmpty: true }, goto: { type: "string" } }, additional: false } }))(common),
+      arriveAt: { type: "string" }, leaves: { type: "string" }, starts: { type: "array", items: { type: "string" } }, exitWhen: { type: "object", required: ["if", "goto"], fields: { if: { type: "object" }, goto: { type: "string" }, warn: { type: "boolean" }, forced: { type: "object" } }, additional: false },
+      main: { type: "object", required: ["label", "goto"], fields: { label: { type: "string", nonEmpty: true }, doneLabel: { type: "string", nonEmpty: true }, goto: { type: "string" } }, additional: false } }))(common),
   },
   // Exactly one of start / complete / fail, naming a quest of quests.json (checked in validateScenes).
   quest: scene([], { start: { type: "string" }, complete: { type: "string" }, fail: { type: "string" }, report: { type: "string" } }),

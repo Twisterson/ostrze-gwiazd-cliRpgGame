@@ -6,14 +6,14 @@
       "art": "wstep_gwiazdy",
       "type": "narration",
       "title": "Ziemia pod gwiazdami",
-      "text": "Cesarstwo ciągnie się od słonego morza po góry, których nikt nie zliczył, a w jego cieniu obowiązuje jeden porządek: podatek płać, łba nie podnoś, o gwiazdach nie gadaj. Starzy powiadają, że dawniej nocne niebo było spokojniejsze. Teraz co parę lat coś w nim zapłonie i runie za lasem, a po burzy iskier i dziwnych mgłach we wsiach ubywa ludzi. Cesarscy pisarze wpisują to do ksiąg jako klęski żywiołowe, bo urzędnik klęskę rozumie, a gwiazdy nie. Chłopi plują przez lewe ramię, dorzucają do ognia i udają, że nic nie widzieli."
+      "text": "Cesarstwo ciągnie się od słonego morza po góry, których jeszcze nikt nie przemierzył, a w jego granicach obowiązuje jeden porządek: podatek płać, łba nie podnoś, o gwiazdach nie gadaj. Starzy powiadają, że dawniej nocne niebo było spokojniejsze. Teraz co parę lat coś w nim zapłonie i runie za lasem, a po burzy iskier i dziwnych mgłach we wsiach ubywa ludzi. Cesarscy pisarze wpisują to do ksiąg jako klęski żywiołowe i sprawa załatwiona. Chłopi plują przez lewe ramię, dorzucają do ognia i udają, że nic nie widzieli."
     },
     {
       "id": "prolog_wstep_wies",
       "art": "wstep_brzezina",
       "type": "narration",
       "title": "Brzezina",
-      "text": "Brzezina to ostatnia wieś przed Pogórzem, tak daleko od stolicy, że cesarza zna się tu z monety, a poborcę ze strachu. Na jej skraju stoi szkoła ostrza, gdzie z biedaków robi się wojów, a z wojów mięso dla tych, co płacą. Kto tu trafi, ma do wyboru miecz albo włócznię, kaszę bez omasty i mistrza Hjalmira Gnieworada, który co rano przypomina, że chleb za darmo nie rośnie. Szkoła stoi tu od stu lat, bo nikt w stolicy nie pamięta, po co ją postawiono. Dziś zwykły dzień. Przynajmniej tak wygląda od rana."
+      "text": "Brzezina to ostatnia wieś przed Pogórzem, zapomniana przez bogów i tak daleko od stolicy, że cesarza zna się tu tylko z monety, a poborcę aż za dobrze. Na jej skraju od stuleci stoi szkoła ostrza, gdzie z biedaków robi się wojów, a z wojów mięso dla tych, co płacą. Kto tu trafi, ma do wyboru miecz albo włócznię, kaszę bez omasty i mistrza Hjalmira Gnieworada, który co rano przypomina, że za darmo to się nawet w głupi ryj nie dostanie. Dziś zwykły dzień. Przynajmniej tak wygląda od rana."
     },
     {
       "id": "demo_swit",
@@ -21,7 +21,7 @@
       "type": "narration",
       "title": "Prolog",
       "time": 30,
-      "text": "Mgła leży na placu ćwiczeń jak kożuch na zimnej kaszy, a z kuchni ciągnie dymem i przypaloną cebulą. Mistrz Hjalmir Gnieworad stoi w bramie i łypie, jakby każdy z was był mu winien. „Wy tam, ślimaki! Imię podać, bo nad grobem nie będę ryczał »ej, ty«!”"
+      "text": "Nad placem ćwiczeń wisi mgła gęsta jak śmietana, a z kuchni ciągnie dymem i przypaloną cebulą. Mistrz Hjalmir Gnieworad stoi w bramie i łypie, jakby każdy z was był mu winien dozgonną wdzięczność za codzienne krzyki, nauki, z których nic nie wynika, i katorżniczy trening. „Wy tam, ślimaki! Imię podać, bo nad grobem nie będę ryczał »ej, ty«!”"
     },
     {
       "id": "demo_kreator",
@@ -33,7 +33,7 @@
       "type": "narration",
       "title": "Sparing",
       "time": 120,
-      "text": "Gnieworad wciska ci w garść drewnianą pałę i spycha na środek placu. „Trzymasz to jak baba żmiję. Radogost, pokaż tym ślimakom, jak się z nich robi ludzi!” Instruktor strzela knykciami, a reszta uczniów rechocze; jeden aż zapomina zamknąć gębę."
+      "text": "Gnieworad wciska ci w garść drewnianą pałę i spycha na środek placu. „Trzymasz to jak baba miotłę. Radogost, pokaż tym ślimakom, jak się z nich robi ludzi!” Instruktor strzela knykciami, a reszta uczniów rechocze."
     },
     {
       "id": "demo_sparing_walka",
@@ -55,7 +55,7 @@
       "if": {
         "flag": "combat_demo_sparing_walka_wygrana"
       },
-      "text": "Radogost łapie się za żebra i klnie w trzech językach naraz. „A niech cię licho, chłopie, walisz jak wół, którego bąk ugryzł!” Gnieworad kiwa głową, co u niego znaczy tyle, co u innych uścisk dłoni."
+      "text": "Radogost łapie się za żebra i klnie, aż uszy więdną. „A niech cię licho, chłopie, walisz jak kowal w kowadło!” Gnieworad nic nie mówi, tylko kiwa głową, a to u niego rzadkość."
     },
     {
       "id": "demo_sparing_porazka",
@@ -63,7 +63,7 @@
       "if": {
         "flag": "combat_demo_sparing_walka_porazka"
       },
-      "text": "Leżysz w błocie i widzisz gwiazdy, choć jest środek dnia. „Wstawaj”, rzuca Radogost, „bo błoto jeszcze pomyśli, że się z nim żenisz!” Uczniowie rżą tak, że aż wrony się płoszą."
+      "text": "Leżysz w błocie i widzisz gwiazdy, choć jest środek dnia. „Wstawaj”, rzuca Radogost, „nie na pierzynie leżysz!” Uczniowie rżą tak, że aż wrony się płoszą."
     },
     {
       "id": "demo_postawa_miecz",
@@ -101,7 +101,7 @@
       "type": "narration",
       "title": "Kurier",
       "waitUntil": 12,
-      "text": "Koło południa na plac wpada koń w pianie, a na nim chłop w czerwonym płaszczu, jakiego we wsi nie widziano od ostatniego poboru. Uczniowie zamierają z drewnianymi pałami w garściach. Gnieworad wychodzi z bramy powoli, jakby wiedział, co usłyszy, i wcale nie chciał tego słuchać."
+      "text": "Koło południa na plac wpada koń w pianie, a na nim chłop w czerwonym płaszczu, jakiego we wsi nie widziano od ostatniego poboru. Uczniowie zamierają z drewnianymi pałami w garściach. Gnieworad wychodzi z bramy wolnym krokiem, z miną, jakby już wiedział, co usłyszy."
     },
     {
       "id": "prolog_kurier",
@@ -120,7 +120,7 @@
       "art": "kram",
       "type": "narration",
       "title": "Kram",
-      "text": "Kwatermistrz siedzi za kontuarem z nieheblowanych desek i liczy opatrunki palcem, jakby któryś miał mu zwiać. „Co, ślepia wam z łbów powyłaziły? Kupować, a nie się gapić, bo od gapienia grosza nie przybędzie!” Burczy jeszcze, że za jego czasów uczeń sam sobie darł szmaty na bandaże."
+      "text": "Kwatermistrz siedzi za kontuarem z nieheblowanych desek i przelicza opatrunki. „Co, ślepia wam z łbów powyłaziły? Kupować, a nie się gapić, bo od gapienia grosza nie przybędzie!” Burczy jeszcze, że za jego czasów uczeń sam sobie darł szmaty na bandaże."
     },
     {
       "id": "demo_kram_rozmowa",
@@ -145,7 +145,7 @@
       "type": "narration",
       "title": "W drogę",
       "waitUntil": 6,
-      "text": "Nazajutrz o świcie Gnieworad nie żegna się, tylko liczy was po łbach. Czworo. „Cztery imiona, cztery głowy, kurier będzie rad”, mruczy i nawet na ciebie nie spojrzy. Trakt do Wilczego Brodu to dwa dni marszu przez pogórze, a stamtąd dalej, do stolicy. Zarzucacie tobołki i wychodzicie za bramę, zanim mistrz wymyśli coś gorszego."
+      "text": "Nazajutrz o świcie Gnieworad nie żegna się, tylko liczy was po łbach. Czworo. „Cztery imiona, cztery głowy, kurier będzie rad”, mruczy i nawet na ciebie nie spojrzy. Dopiero w bramie dorzuca: „I nie trzęście portkami. Nie taki upiór straszny, jak go malują. Zresztą malują go ci, co go nie widzieli, bo ci, co widzieli, już nic nie malują.” Kurier zostawił wam przewodnika, małomównego chłopa z Pogórza. Do Wilczego Brodu są dwa dni marszu, a stamtąd dalej, do stolicy. Zarzucacie tobołki i wychodzicie za bramę, zanim mistrz wymyśli coś gorszego."
     },
     {
       "id": "demo_podroz",
@@ -159,7 +159,7 @@
       "type": "narration",
       "title": "Wilczy Bród",
       "time": 480,
-      "text": "Strażnica Wilczy Bród to palisada, wieża i błoto po kostki. Brama otwiera się z niechęcią przed półżywym wędrowcem w pogniecionym mundurze szkoły, uwalanym błotem do kolan, z oczami człowieka, który widział za dużo. Komendant Wszebor mierzy cię od stóp do głów i każe wejść pod dach. Insygnia delegacji leżą na dnie tobołka; nikt jeszcze nie pytał, a ty nie zamierzasz odpowiadać."
+      "text": "Strażnica Wilczy Bród to palisada, wieża i błoto po kostki. Wartownik długo się namyśla, zanim otworzy bramę półżywemu wędrowcowi w pogniecionym mundurze szkoły, uwalanym błotem do kolan. Komendant Wszebor mierzy cię od stóp do głów i każe wejść pod dach. Insygnia delegacji leżą na dnie tobołka; nikt jeszcze nie pytał, a ty nie zamierzasz odpowiadać."
     },
     {
       "id": "demo_mapa",
@@ -168,9 +168,13 @@
       "hub": "wilczy_brod",
       "title": "Wilczy Bród",
       "main": {
-        "label": "Zamknij dzień",
+        "label": "Prześpij noc",
+        "doneLabel": "Wyrusz do Głuszca, za Kamienną Przełęczą",
         "goto": "demo_odpoczynek"
-      }
+      },
+      "starts": [
+        "watek_wilczy_brod"
+      ]
     },
     {
       "id": "demo_odpoczynek",
@@ -198,16 +202,21 @@
       "if": {
         "flag": "akt2_koniec"
       },
-      "text": "Wóz Ostromira skrzypi pod górę ku Kamiennej Przełęczy, a ty idziesz obok i nie oglądasz się za siebie. Za plecami zostaje Wilczy Bród, jego wilki, jego łgarstwa i jego zupa. Przed tobą czeka coś, czego jeszcze nie umiesz nazwać, ale co na pewno już cię wypatrzyło.",
+      "text": "Wóz Ostromira skrzypi pod górę ku Kamiennej Przełęczy, a ty idziesz obok i nie oglądasz się za siebie. Za plecami zostaje Wilczy Bród, jego wilki, jego łgarstwa i jego zupa. Co cię czeka za przełęczą, nie wiesz. Ostromir twierdzi, że same dobre rzeczy, ale Ostromir to kupiec.",
       "title": "Kamienna Przełęcz"
+    },
+    {
+      "id": "akt3_droga",
+      "type": "travel",
+      "route": "wilczy_brod_gluszec",
+      "title": "Droga do Głuszca"
     },
     {
       "id": "akt3_wejscie",
       "type": "narration",
-      "art": "koniec",
+      "art": "gluszec",
       "title": "Głuszec",
-      "time": 240,
-      "text": "Za przełęczą droga rozłazi się w ścieżkę, a ścieżka w błoto. Po południu zza wzgórza wypełza Głuszec: tuzin chałup, cmentarz większy od osady i dym z komina karczmy, jedyny, co wygląda na zadowolony. Psy ujadają, nim cię zobaczą. Ludzie trzaskają okiennicami, nim usłyszą, kim jesteś. Niech tak będzie. Tu zaczyna się robota, której nie ma w żadnej umowie."
+      "text": "Za przełęczą droga rozłazi się w ścieżkę, a ścieżka w błoto. Po południu zza wzgórza wypełza Głuszec: tuzin chałup, cmentarz większy od osady i dym z komina karczmy, jedyny, co wygląda na zadowolony. Psy ujadają, nim cię zobaczą. Ludzie trzaskają okiennicami, nim usłyszą, kim jesteś. Gościnna okolica, nie ma co."
     },
     {
       "id": "akt3_mapa",
@@ -216,18 +225,24 @@
       "arriveAt": "gluszec",
       "title": "Głuszec",
       "main": {
-        "label": "Zamknij dzień",
+        "label": "Prześpij noc",
+        "doneLabel": "Wyrusz do Obserwatorium na Szklanym Wzgórzu",
         "goto": "akt3_odpoczynek"
       },
       "exitWhen": {
         "if": {
           "flag": "akt3a_koniec"
         },
-        "goto": "akt3_zapis"
+        "goto": "akt3_zapis",
+        "warn": true,
+        "forced": {
+          "flag": "oblawa_ucieczka"
+        }
       },
       "leaves": "wilczy_brod",
       "starts": [
-        "przyjecie_w_osadzie"
+        "przyjecie_w_osadzie",
+        "watek_gluszec"
       ]
     },
     {
@@ -262,7 +277,7 @@
           }
         ]
       },
-      "text": "Głuszec zostaje za plecami, z psami, cmentarzem i łgarstwami, których nikt ci nie zdążył wytłumaczyć. Zwiadowcy znają już trop, a ty znasz kierunek. Dalej będą gwiazdy.",
+      "text": "Głuszec zostaje za plecami, z psami, cmentarzem i Mrukowymi pchłami. Zwiadowcy znają już twój trop, więc lepiej się nie zatrzymywać. Następny przystanek: Obserwatorium, gdzie podobno ktoś gapi się w niebo zawodowo.",
       "title": "Za Głuszcem"
     },
     {
@@ -278,15 +293,20 @@
           }
         ]
       },
-      "text": "Obława spada na Głuszec o świcie. Uciekasz przez piwnicę i stodołę kowala, a za plecami zostają psy, wrzaski i sołtys, który cię nigdy na oczy nie widział. Las połyka cię razem z przekleństwami. Cesarscy mają już twoją gębę na papierze i wiesz, że wracać nie ma po co. Dalej będą gwiazdy.",
+      "text": "Obława spada na Głuszec o świcie. Uciekasz przez piwnicę i stodołę kowala, a za plecami zostają psy, wrzaski i sołtys, który cię nigdy na oczy nie widział. Wpadasz w las i biegniesz, póki starczy tchu. Cesarscy mają już twoją gębę na papierze, więc wracać nie ma po co. Zostaje Obserwatorium, gdzie podobno ktoś gapi się w niebo zawodowo.",
       "title": "Za Głuszcem"
+    },
+    {
+      "id": "akt3b_droga",
+      "type": "travel",
+      "route": "gluszec_obserwatorium",
+      "title": "Droga do Obserwatorium"
     },
     {
       "id": "akt3b_wejscie",
       "type": "narration",
       "art": "obserwatorium",
       "title": "Obserwatorium",
-      "time": 480,
       "text": "Leziesz cały dzień na północ, aż do nocy, tam gdzie las przechodzi w spaloną ziemię, a ziemia w szkło. Wzgórza błyszczą, choć słońca nie ma. Na jednym stoi wieża z okrągłą kopułą i strzaskanym teleskopem, a z komina u jej stóp ciągnie dym, jakby sam się dziwił, że jeszcze jest. To dawne cesarskie Obserwatorium. Tu ktoś liczył gwiazdy, zanim zaczęły spadać."
     },
     {
@@ -303,11 +323,13 @@
         "goto": "akt3b_final"
       },
       "main": {
-        "label": "Zamknij dzień",
+        "label": "Prześpij noc",
+        "doneLabel": "Wyrusz do Obozu na Wroniej Górze",
         "goto": "akt3b_odpoczynek"
       },
       "starts": [
-        "przyjecie_w_obserwatorium"
+        "przyjecie_w_obserwatorium",
+        "watek_obserwatorium"
       ]
     },
     {
@@ -332,221 +354,909 @@
     {
       "id": "akt3b_final",
       "type": "dialogue",
-      "dialogue": "rozdroze_final",
-      "art": "koniec"
+      "dialogue": "szklo_pamieta",
+      "art": "krater_gwiazdy"
     },
     {
-      "id": "koniec_uleglosc_z",
-      "type": "ending",
-      "art": "koniec",
+      "id": "akt3b_kuznia",
+      "type": "dialogue",
+      "dialogue": "ostrze_z_nieba",
+      "art": "obserwatorium"
+    },
+    {
+      "id": "akt3b_przejscie",
+      "type": "narration",
+      "art": "obserwatorium",
+      "title": "Z Obserwatorium",
+      "text": "Ostrze leży w dłoni ciężej, niż wygląda. Z Obserwatorium schodzisz o świcie, bo nikt tu nie ma ci nic więcej do powiedzenia, a gwiazdy i tak nie odpowiadają. Wiesz już, kto cię wynajął i po co. Wiesz też, że ten, kto wynajmuje, rzadko poprzestaje na jednym zleceniu. Droga na wschód, trzy dni, prowadzi do Obozu na Wroniej Górze i do wojny, o którą nikt nie prosił. Przynajmniej ostrze masz teraz własne."
+    },
+    {
+      "id": "akt4_droga",
+      "type": "travel",
+      "route": "obserwatorium_front",
+      "title": "Droga na front"
+    },
+    {
+      "id": "akt4_wejscie",
+      "type": "narration",
+      "art": "oboz",
+      "title": "Pod czerwonym sztandarem",
+      "text": "Trzeciego dnia wchodzisz na wzgórze, które miejscowi nazywają Wronią Górą, bo wrony nie odlatują stąd, odkąd zaczęła się wojna. Poniżej rozłożył się obóz: konie, wozy, namioty w kolorze, który kiedyś był czerwony, i sztandar, którego nikt już nie podnosi do końca. Przy bramie nikt cię nie zatrzymuje. Wojna ma braki w ludziach, a wartownik widzi w tobie dwie ręce do roboty, nie podejrzanego."
+    },
+    {
+      "id": "akt4_mapa",
+      "type": "map",
+      "hub": "oboz_wronia",
+      "arriveAt": "oboz_wronia",
+      "leaves": "obserwatorium",
+      "title": "Obóz na Wroniej Górze",
+      "exitWhen": {
+        "if": {
+          "flag": "akt4a_koniec"
+        },
+        "goto": "akt4a_przejscie"
+      },
+      "main": {
+        "label": "Prześpij noc",
+        "doneLabel": "Wyrusz do Ulfgrodu",
+        "goto": "akt4_odpoczynek"
+      },
+      "starts": [
+        "watek_front"
+      ]
+    },
+    {
+      "id": "akt4_odpoczynek",
+      "type": "rest"
+    },
+    {
+      "id": "akt4_zapis",
+      "type": "save_point"
+    },
+    {
+      "id": "akt4_dalej",
+      "type": "flag",
+      "set": {
+        "akt4_dzien_zamkniety": true
+      },
+      "goto": "akt4_mapa",
+      "if": {
+        "notFlag": "akt4a_koniec"
+      }
+    },
+    {
+      "id": "akt4a_przejscie",
+      "type": "narration",
+      "art": "wymarsz",
+      "title": "Do stolicy",
+      "text": "List z pieczęcią sztabu leży za pazuchą. Zwijasz koc, zostawiasz sprawy, których nie zdążyłeś załatwić, i ruszasz w stronę stolicy. Za plecami zostaje obóz, a przed tobą droga do miasta, w którym nikt cię nie lubi, ale wszyscy zdają się wiedzieć, kim jesteś."
+    },
+    {
+      "id": "akt4_stolica_droga",
+      "type": "travel",
+      "route": "oboz_wronia_ulfgrod",
+      "title": "Droga do Ulfgrodu"
+    },
+    {
+      "id": "akt4_stolica_wejscie",
+      "type": "narration",
+      "art": "ulfgrod",
+      "title": "Ulfgród w stanie wojennym",
+      "text": "Trzeciego dnia widzisz mury. Są wyższe, niż obiecywały opowieści, i bardziej zniszczone, niż przyznają zbrojmistrze. Przy bramie kolejka tych, którzy uciekają, i tych, którzy wracają, bo nie mieli dokąd. Strażnik bierze od ciebie grosz i pyta, czy masz coś do oclenia. Mówisz, że nie, a on mruga, jakby znał lepszą wersję. Ulfgród pachnie dymem, smołą i rynsztokiem."
+    },
+    {
+      "id": "akt4_stolica_mapa",
+      "type": "map",
+      "hub": "ulfgrod",
+      "arriveAt": "ulfgrod",
+      "leaves": "oboz_wronia",
+      "title": "Ulfgród",
+      "exitWhen": {
+        "if": {
+          "flag": "akt4b_koniec"
+        },
+        "goto": "akt4b_przejscie"
+      },
+      "main": {
+        "label": "Prześpij noc",
+        "doneLabel": "Zejdź do lochów pod pałacem",
+        "goto": "akt4_stolica_odpoczynek"
+      },
+      "starts": [
+        "watek_ulfgrod"
+      ]
+    },
+    {
+      "id": "akt4_stolica_odpoczynek",
+      "type": "rest"
+    },
+    {
+      "id": "akt4_stolica_zapis",
+      "type": "save_point"
+    },
+    {
+      "id": "akt4_stolica_dalej",
+      "type": "flag",
+      "set": {
+        "akt4_stolica_dzien_zamkniety": true
+      },
+      "goto": "akt4_stolica_mapa",
+      "if": {
+        "notFlag": "akt4b_koniec"
+      }
+    },
+    {
+      "id": "akt4b_przejscie",
+      "type": "narration",
+      "title": "Schody w dół",
+      "text": "Cesarz nie żyje, a miasto jeszcze o tym nie wie. Schodzisz po schodach dla służby, mijasz kucharza, który udaje, że cię nie zna, i zamiast wyjść w noc, skręcasz tam, gdzie kucharz, nie patrząc na ciebie, wskazuje brodą: do spiżarni, za którą zaczynają się inne schody. Prowadzą w dół, głębiej, niż pozwala fundament pałacu. Ostrze u pasa zaczyna cicho brzęczeć, a im niżej schodzisz, tym głośniej.",
+      "art": "wrak_maszyny"
+    },
+    {
+      "id": "schody_1_wstep",
+      "type": "narration",
+      "title": "Schody, pierwszy poziom",
+      "art": "noc_upiory",
+      "text": "Po czterdziestu stopniach kończy się pałac. Cegła ustępuje kamieniowi, którego nikt tu nie ciosał. Na półpiętrze stoją dwie postacie w kapturach, blade jak mąka, skóra przy samych kościach. Nie oddychają, ale patrzą. Oficer powiedziałby: warta. Cesarz nie żyje od godziny, a im nikt o tym nie powiedział."
+    },
+    {
+      "id": "schody_1_walka",
+      "type": "combat",
+      "title": "Schody, pierwszy poziom",
+      "enemies": [
+        {
+          "id": "upior_schodow",
+          "count": 2
+        }
+      ],
+      "start": "far",
+      "canFlee": false,
+      "onDefeat": "schody_1_porazka"
+    },
+    {
+      "id": "schody_1_po",
+      "type": "narration",
+      "title": "Schody, pierwszy poziom",
+      "art": "noc_upiory",
+      "text": "Kaptury opadają na stopnie, puste. Ostrze brzęczy głośniej. Schody idą dalej, a poręczy nikt tu nigdy nie zamontował.",
+      "goto": "schody_2_wstep"
+    },
+    {
+      "id": "schody_1_porazka",
+      "type": "narration",
+      "title": "Schody, pierwszy poziom",
+      "art": "noc_upiory",
+      "text": "Budzisz się kilka stopni niżej, z twarzą na kamieniu i bólem we wszystkim. Kaptury stoją nad tobą, ale już nie podchodzą. Patrzą, jak wstajesz i schodzisz dalej. Nie pilnują, żeby nikt nie wszedł. Pilnują, żeby nikt stąd nie wyszedł.",
+      "goto": "schody_2_wstep"
+    },
+    {
+      "id": "schody_2_wstep",
+      "type": "narration",
+      "title": "Schody, drugi poziom",
+      "art": "noc_upiory",
+      "text": "Schody skręcają w spiralę tak ciasną, że idziesz bokiem. Na ścianach nacięcia, kreski liczone piątkami, tysiące. Ktoś tu odliczał daninę, a potem ktoś odliczał tych, co ją nosili. Spod sklepienia schodzą trzy kaptury, jeden po drugim, jakby wracały z obiadu."
+    },
+    {
+      "id": "schody_2_walka",
+      "type": "combat",
+      "title": "Schody, drugi poziom",
+      "enemies": [
+        {
+          "id": "upior_schodow",
+          "count": 3
+        }
+      ],
+      "start": "far",
+      "canFlee": false,
+      "onDefeat": "schody_2_porazka"
+    },
+    {
+      "id": "schody_2_po",
+      "type": "narration",
+      "title": "Schody, drugi poziom",
+      "art": "noc_upiory",
+      "text": "Na stopniach zostają szmaty i zimno. Kreski na ścianie kończą się w połowie piątki. Nie liczysz, ile jeszcze. Schody też nie liczą.",
+      "goto": "schody_3_wstep"
+    },
+    {
+      "id": "schody_2_porazka",
+      "type": "narration",
+      "title": "Schody, drugi poziom",
+      "art": "noc_upiory",
+      "text": "Budzisz się kilka stopni niżej, z twarzą na kamieniu i bólem we wszystkim. Kaptury stoją nad tobą, ale już nie podchodzą. Patrzą, jak wstajesz i schodzisz dalej. Nie pilnują, żeby nikt nie wszedł. Pilnują, żeby nikt stąd nie wyszedł.",
+      "goto": "schody_3_wstep"
+    },
+    {
+      "id": "schody_3_wstep",
+      "type": "narration",
+      "title": "Schody, trzeci poziom",
+      "art": "noc_upiory",
+      "text": "Tu powietrze jest ciepłe jak z pieca i pachnie żelazem. Ostrze brzęczy już tak, że czujesz je w zębach. Na ostatnim podeście stoją dwa kaptury, większe od tamtych, a za nimi widać korytarz. Dalej nikt już nie sprząta i widać, że dawno nie było po co."
+    },
+    {
+      "id": "schody_3_walka",
+      "type": "combat",
+      "title": "Schody, trzeci poziom",
+      "enemies": [
+        {
+          "id": "upior_schodow",
+          "count": 2
+        }
+      ],
+      "start": "far",
+      "canFlee": false,
+      "onDefeat": "schody_3_porazka"
+    },
+    {
+      "id": "schody_3_po",
+      "type": "narration",
+      "title": "Schody, trzeci poziom",
+      "art": "noc_upiory",
+      "text": "Ostatni kaptur osuwa się bez dźwięku. Za nim kończą się schody i zaczyna coś, co ma ściany, drzwi i własny hałas. Gdzieś daleko pracuje coś wielkiego. Wracać i tak nie ma którędy.",
+      "goto": "akt4c_loch_mapa"
+    },
+    {
+      "id": "schody_3_porazka",
+      "type": "narration",
+      "title": "Schody, trzeci poziom",
+      "art": "noc_upiory",
+      "text": "Budzisz się kilka stopni niżej, z twarzą na kamieniu i bólem we wszystkim. Kaptury stoją nad tobą, ale już nie podchodzą. Patrzą, jak wstajesz i schodzisz dalej. Nie pilnują, żeby nikt nie wszedł. Pilnują, żeby nikt stąd nie wyszedł.",
+      "goto": "akt4c_loch_mapa"
+    },
+    {
+      "id": "akt4c_loch_mapa",
+      "type": "map",
+      "hub": "loch_pod_palacem",
+      "arriveAt": "loch_pod_palacem",
+      "leaves": "ulfgrod",
+      "title": "Pod pałacem",
+      "exitWhen": {
+        "if": {
+          "flag": "pelnomocnik_pokonany"
+        },
+        "goto": "akt4c_cisza_wstep"
+      },
+      "main": {
+        "label": "Odpocznij i zapisz",
+        "doneLabel": "Wyrusz do Przystani Jarnowo",
+        "goto": "akt4c_loch_odpoczynek"
+      },
+      "starts": [
+        "watek_loch"
+      ]
+    },
+    {
+      "id": "akt4c_loch_odpoczynek",
+      "type": "rest"
+    },
+    {
+      "id": "akt4c_loch_zapis",
+      "type": "save_point"
+    },
+    {
+      "id": "akt4c_loch_dalej",
+      "type": "flag",
+      "set": {
+        "akt4c_loch_dzien_zamkniety": true
+      },
+      "goto": "akt4c_loch_mapa",
+      "if": {
+        "notFlag": "pelnomocnik_pokonany"
+      }
+    },
+    {
+      "id": "akt4c_cisza_wstep",
+      "type": "narration",
+      "title": "Cisza po cesarzu",
+      "text": "Gdy wychodzisz z lochu, pałac jest inny. Nikt już nie wydaje poleceń, ale nikt jeszcze nie wie, co zrobić z ciszą. Na schodach siedzą kucharz i lokaj, obaj bez tac, i patrzą w ścianę jak ludzie po pogrzebie, na którym nie wypada płakać."
+    },
+    {
+      "id": "akt4c_cisza_bunt",
+      "type": "narration",
+      "text": "Tomasz stoi przy bramie z tymi, których nikt nie liczył. Marszałek Wsiewłod patrzy na niego długo, potem kiwa głową: bramy zostają otwarte, a kto chce wrócić do domu, dostaje przepustkę. Tomasz nie dziękuje. Wie, ile ta przepustka kosztowała.",
+      "if": {
+        "flag": "noc_bunt"
+      }
+    },
+    {
+      "id": "akt4c_cisza_zamach",
+      "type": "narration",
+      "text": "Stary żołnierz z Ostatniej Strażnicy siedzi na stopniach pałacu z nożem na kolanach. Nikt go nie aresztuje. Sam oddaje nóż marszałkowi rękojeścią do przodu. „Za tych, których nie policzono” – mówi jeszcze raz, cicho, i wraca do swoich.",
+      "if": {
+        "flag": "noc_zamach"
+      }
+    },
+    {
+      "id": "akt4c_cisza_pekniecie",
+      "type": "narration",
+      "text": "Nikt nie zabił cesarza, więc nikt nie może za to odpowiadać. Dworzanie szepczą o chorobie, o przekleństwie, o Ostrzu u twojego pasa. Marszałek Wsiewłod, który nie wierzy w przekleństwa, wydaje komunikat o naturalnej śmierci i każe go wywiesić na bramie. Mało kto dowierza. Wszyscy wolą ten komunikat od prawdy.",
+      "if": {
+        "flag": "noc_pekniecie"
+      }
+    },
+    {
+      "id": "akt4c_cisza_wsiewlod",
+      "type": "narration",
+      "text": "Do rana marszałek Wsiewłod ma pałac, miasto i armię, w tej kolejności. Mówi krótko, bez uroczystości: wojna trwa, rozkazy się nie zmieniają, kto ma dość, dostanie chleb i papier, ale nie dzisiaj. Armia, która nie wiedziała tej nocy, czy ma jeszcze cesarza, przypomina sobie, że ma wroga. Najazd cofa się z pierwszego wzgórza, potem z drugiego, kosztem tych, którzy już się nie zmęczą. Miasto dostaje komendanta. Pod pałacem wyłączono to, co go trzymało."
+    },
+    {
+      "id": "akt4c_cisza_most",
+      "type": "narration",
+      "text": "Zerwany most na Szarej opóźnia odwrót Jarnowian o trzy dni. Marszałek nie pyta, kto go zerwał, i wpisuje stratę w rubrykę zysków.",
+      "if": {
+        "flag": "wojna_most_zerwany"
+      }
+    },
+    {
+      "id": "akt4c_cisza_studnia",
+      "type": "narration",
+      "text": "Ze studni pod Skjeldowem nikt już nie pije, a Jarnowianie zawracają wozy. Nikt też nie wspomina, co w niej pływało.",
+      "if": {
+        "flag": "wojna_studnia_zatruta"
+      }
+    },
+    {
+      "id": "akt4c_cisza_ranni",
+      "type": "narration",
+      "text": "Medyczka Dobromiła przysyła do miasta wozy z rannymi, cesarskimi i jarnowskimi pod jednym dachem. Marszałek patrzy, jak je wprowadzają, i po raz pierwszy tego dnia nic nie rozkazuje.",
+      "if": {
+        "flag": "wojna_ranni_wszyscy"
+      }
+    },
+    {
+      "id": "akt4c_cisza_wywiad_prawda",
+      "type": "narration",
+      "text": "Spalony tabor pod przeprawą wchodzi do raportu jako zbieg okoliczności. Marszałek każe powiesić dwóch woźniców, którzy przeżyli, i szuka dalej. Nikt nie pyta o dziewięćdziesiąt groszy.",
+      "if": {
+        "flag": "wojna_wywiad_prawda"
+      }
+    },
+    {
+      "id": "akt4c_cisza_wywiad_falsz",
+      "type": "narration",
+      "text": "Czterdziestu Jarnowian pod fortem na starym trakcie staje się największym zwycięstwem tej wojny. W mieście mówią już o trzystu. Sztab bierze zasługę na siebie i pisze o przenikliwości.",
+      "if": {
+        "flag": "wojna_wywiad_falsz"
+      }
+    },
+    {
+      "id": "akt4c_cisza_wywiad_proch",
+      "type": "narration",
+      "text": "Nad Szarą Jarnowianie stracili bród przez jedną salwę, która nie wypaliła. Marszałek uznaje to za zasługę cesarskiego ducha, a kwatermistrz po tamtej stronie rzeki przez miesiąc nie siada.",
+      "if": {
+        "flag": "wojna_wywiad_proch"
+      }
+    },
+    {
+      "id": "akt4c_cisza_jar_powrot",
+      "type": "narration",
+      "text": "Trzydziestu dwóch chłopa bez naszywek stoi na szańcach, kiedy Najazd się cofa. Wsiewłod mija ich bez słowa, ale nikt nie pyta o list żelazny. Dobrze jest, kiedy trzeba mniej wieszać.",
+      "if": {
+        "flag": "wojna_jar_powrot"
+      }
+    },
+    {
+      "id": "akt4c_cisza_jar_wydani",
+      "type": "narration",
+      "text": "Ze Wzgórza Wisielców przywożą raport: trzydziestu dwóch, jeden po drugim. Marszałek podpisuje, nie czytając nazwisk. W obozie na Wroniej Górze rano już nikt nie ucieka, a w nocy też mało kto śpi.",
+      "if": {
+        "flag": "wojna_jar_wydani"
+      }
+    },
+    {
+      "id": "akt4c_cisza_jar_ucieczka",
+      "type": "narration",
+      "text": "Zza wzgórz przychodzą pogłoski o wsi, w której nagle jest dużo chłopów, a nikt nie pyta skąd. Nie ma ich w żadnym raporcie, co w tym roku uchodzi za cud.",
+      "if": {
+        "flag": "wojna_jar_ucieczka"
+      }
+    },
+    {
+      "id": "akt4c_dlug_wstep",
+      "type": "narration",
+      "title": "Dług spłacony",
+      "text": "Nad ranem, gdy hałas miasta cichnie, schodzisz jeszcze raz do pustej komory Rdzenia. Światło miedzianych kabli gaśnie do końca. W miejscu, gdzie stał Pełnomocnik, stoi ktoś, kogo nie widziałeś od nocy, w której obudziłeś się z zasklepionymi ranami: Istota o czarnej, szklanej twarzy, w której świecą gwiazdy. Kable pod jej stopami kurczą się jak węże przed ogniem. Po raz pierwszy nie wydaje polecenia. Po raz pierwszy czeka, aż coś powiesz.",
+      "art": "wrak_maszyny"
+    },
+    {
+      "id": "akt4c_dlug_wola",
+      "type": "dialogue",
+      "dialogue": "istota_dlug_wola",
+      "if": {
+        "var": "wola",
+        "gte": 3
+      },
+      "goto": "akt4c_dlug_flaga"
+    },
+    {
+      "id": "akt4c_dlug_dlug",
+      "type": "dialogue",
+      "dialogue": "istota_dlug_dlug",
+      "if": {
+        "var": "dlug",
+        "gte": 3
+      },
+      "goto": "akt4c_dlug_flaga"
+    },
+    {
+      "id": "akt4c_dlug_krotko",
+      "type": "dialogue",
+      "dialogue": "istota_dlug_krotko"
+    },
+    {
+      "id": "akt4c_dlug_flaga",
+      "type": "flag",
+      "set": {
+        "dlug_splacony": true
+      }
+    },
+    {
+      "id": "akt4c_przejscie",
+      "type": "narration",
+      "title": "Przepustka na wyspę",
+      "text": "Marszałek Wsiewłod podpisuje przepustkę, nie podnosząc głowy znad mapy. „Człowiek bez barw. Na wyspie ktoś w końcu musi z nimi rozmawiać, a ja nie mam nikogo, kto by nie strzelał.” Pieczętuje woskiem i podaje ci ją jak rachunek za coś, co już zjadłeś. W porcie czeka łódź bez nazwy, bez chorągwi i bez pytań. Płynie do Przystani Jarnowo, trzy dni drogi stąd, na wyspę kowali."
+    },
+    {
+      "id": "akt5_droga",
+      "type": "travel",
+      "route": "loch_jarnowo",
+      "title": "Przeprawa na Jarnowo"
+    },
+    {
+      "id": "akt5_wejscie",
+      "type": "narration",
+      "title": "Przystań Jarnowo",
+      "text": "Trzeciego dnia widzisz komin stoczni, a potem szkielet łodzi, który sterczy z pochylni jak żebra. Przystań Jarnowo pachnie smołą, solą i spalonym drewnem, a wartownik przy pomoście patrzy na twoją przepustkę dłużej, niż wymaga czytanie. Nie wiesza cię. Wojna ma braki w wiszących."
+    },
+    {
+      "id": "akt5_mapa",
+      "type": "map",
+      "hub": "przystan_jarnowo",
+      "arriveAt": "przystan_jarnowo",
+      "leaves": "loch_pod_palacem",
+      "title": "Przystań Jarnowo",
+      "exitWhen": {
+        "if": {
+          "any": [
+            {
+              "flag": "portal_rozbrojony"
+            },
+            {
+              "flag": "portal_sprawny"
+            }
+          ]
+        },
+        "goto": "akt5a_przejscie"
+      },
+      "main": {
+        "label": "Prześpij noc",
+        "doneLabel": "Wejdź na Łysą Skałę",
+        "goto": "akt5_odpoczynek"
+      },
+      "starts": [
+        "watek_jarnowo"
+      ]
+    },
+    {
+      "id": "akt5_odpoczynek",
+      "type": "rest"
+    },
+    {
+      "id": "akt5_zapis",
+      "type": "save_point"
+    },
+    {
+      "id": "akt5_dalej",
+      "type": "flag",
+      "set": {
+        "akt5_dzien_zamkniety": true
+      },
+      "goto": "akt5_mapa",
       "if": {
         "all": [
           {
-            "flag": "final_uleglosc"
+            "notFlag": "portal_rozbrojony"
+          },
+          {
+            "notFlag": "portal_sprawny"
+          }
+        ]
+      }
+    },
+    {
+      "id": "akt5a_przejscie",
+      "type": "narration",
+      "title": "Wyżej",
+      "text": "Z podejścia do Łysej Skały prowadzą w górę schody wycięte w czarnym szkle. Łódź hetmana czeka u stóp, a sternik patrzy w ziemię. „Dalej już ty” – powtarza. Wspinasz się. Na schodach nie ma śladów, tylko cienka mgła i niskie dudnienie, jakby ktoś na górze przesuwał ciężkie meble.",
+      "art": "krater_gwiazdy"
+    },
+    {
+      "id": "akt6_wir_mapa",
+      "type": "map",
+      "hub": "wir_lysa_skala",
+      "arriveAt": "wir_lysa_skala",
+      "leaves": "przystan_jarnowo",
+      "title": "Wir na Łysej Skale",
+      "exitWhen": {
+        "if": {
+          "any": [
+            {
+              "flag": "istota_zginela"
+            },
+            {
+              "flag": "istota_uciekla"
+            }
+          ]
+        },
+        "goto": "akt6_wojna_wstep"
+      },
+      "main": {
+        "label": "Odpocznij i zapisz",
+        "goto": "akt6_wir_odpoczynek"
+      },
+      "starts": [
+        "watek_wir"
+      ]
+    },
+    {
+      "id": "akt6_wir_odpoczynek",
+      "type": "rest"
+    },
+    {
+      "id": "akt6_wir_zapis",
+      "type": "save_point"
+    },
+    {
+      "id": "akt6_wir_dalej",
+      "type": "flag",
+      "set": {
+        "akt6_dzien_zamkniety": true
+      },
+      "goto": "akt6_wir_mapa",
+      "if": {
+        "all": [
+          {
+            "notFlag": "istota_zginela"
+          },
+          {
+            "notFlag": "istota_uciekla"
+          }
+        ]
+      }
+    },
+    {
+      "id": "akt6_wojna_wstep",
+      "type": "narration",
+      "title": "Koniec wojny",
+      "text": "Rusznice przestają się odzywać po kolei, jak psy, kiedy wiatr zmienia kierunek. Do Przystani dociera wieść, że Istota nie podtrzymuje już wojny, i że bez niej proch i stal nie mają adresata. Na wyspie nie słychać niczego, co dałoby się nazwać zwycięstwem."
+    },
+    {
+      "id": "akt6_wojna_hetman_p",
+      "type": "narration",
+      "text": "Hetman Skjeldomir kończy wojnę publicznie, na nabrzeżu, przed swoimi ludźmi. Mówi krótko, że była cudzym pomysłem, i że zrozumiał to po zapisie ze szkła, który usłyszał w namiocie, za późno, ale jeszcze nie za późno na to, żeby powiedzieć. Ołowiane żołnierzyki z jego mapy rozdaje dzieciom z Przystani, każdemu po jednym, dla żartu albo na pamiątkę.",
+      "if": {
+        "flag": "hetman_przekonany"
+      }
+    },
+    {
+      "id": "akt6_wojna_hetman_b",
+      "type": "narration",
+      "text": "Hetman Skjeldomir składa broń bez uroczystości, w swoim namiocie, przy zgaszonej lampie. Nikt nie dowiaduje się, co go do tego przekonało, a on nie powie nikomu. Wojna kończy się tak, jak się zaczęła: z czyjegoś rozkazu, którego nikt nie pamięta.",
+      "if": {
+        "notFlag": "hetman_przekonany"
+      }
+    },
+    {
+      "id": "akt6_wojna_wiesc",
+      "type": "narration",
+      "text": "List z lądu, który oddałeś hetmanowi, leżał na jego stole do końca. Mówi się, że czytał go więcej niż raz.",
+      "if": {
+        "flag": "jarnowo_wiesc_przekazana"
+      }
+    },
+    {
+      "id": "akt6_wojna_proch_z",
+      "type": "narration",
+      "text": "W arsenale brakuje prochu na ostatnie salwy, więc ostatnie strzały są oszczędne i rzadkie. Szyper mówi, że beczki leżą na dnie przy Cmentarzu Łodzi, i że ryby od tego wesołe.",
+      "if": {
+        "flag": "jarnowo_proch_zatopiony"
+      }
+    },
+    {
+      "id": "akt6_wojna_proch_k",
+      "type": "narration",
+      "text": "Arsenał Przystani wydaje ostatnie beczki bez entuzjazmu i bez pytań. Proch spala się w ostatnich salwach nad zatoką i wojna kończy się z hukiem, którego nikt już nie chciał słyszeć.",
+      "if": {
+        "flag": "jarnowo_proch_kapitan"
+      }
+    },
+    {
+      "id": "akt6_wojna_proch_u",
+      "type": "narration",
+      "text": "Gdzieś w wydmach leżą cztery beczki, o których wie tylko szyper i ty. Nikt ich nie szuka. Na razie.",
+      "if": {
+        "flag": "jarnowo_proch_ukryty"
+      }
+    },
+    {
+      "id": "akt6_wojna_kuznia_s",
+      "type": "narration",
+      "text": "W kuźniach wyspiarzy milczą młoty. Ostatnie rusznice nigdy nie opuściły warsztatu, a Ragnar kuje teraz podkowy i nie narzeka.",
+      "if": {
+        "flag": "jarnowo_kuznia_stop"
+      }
+    },
+    {
+      "id": "akt6_wojna_kuznia_b",
+      "type": "narration",
+      "text": "Co dziesiąta rusznica z kuźni Ragnara rozerwała się w rękach strzelca i hetman uznał to za znak. Nikt nie dowiedział się, że to było rzemiosło.",
+      "if": {
+        "flag": "jarnowo_kuznia_sabotaz"
+      }
+    },
+    {
+      "id": "akt6_epilog_s",
+      "type": "narration",
+      "title": "Święty spokój",
+      "text": "Trzy tygodnie później siedzisz w przydrożnej karczmie, której nazwy nie zapamiętałeś, nad miską zupy, której nie zamawiałeś. Nikt nie pyta o imię. Przy sąsiednim stole dwóch furmanów kłóci się o to, który z nich ma gorsze konie. Nie sięgasz już do pasa. Nie ma po co.",
+      "if": {
+        "flag": "istota_zginela"
+      }
+    },
+    {
+      "id": "akt6_epilog_c",
+      "type": "narration",
+      "title": "Cisza po wirze",
+      "text": "Trzy tygodnie później siedzisz w przydrożnej karczmie, której nazwy nie zapamiętałeś, nad miską zupy, której nie zamawiałeś. Nikt nie pyta o imię. Raz na jakiś czas, nie myśląc o tym, zerkasz w niebo. Jest granatowe, bez szram, bez światła w szczelinie. Mówisz sobie, że to nie twoja sprawa, i prawie w to wierzysz.",
+      "if": {
+        "flag": "istota_uciekla"
+      }
+    },
+    {
+      "id": "akt6_epilog_list_tomasz",
+      "type": "narration",
+      "text": "Tomasz pisze z jaru, że ludzie wracają do domów, a on sam jeszcze nie. Dopisuje, że ma nadzieję, iż nie masz mu za złe, że pisze rzadko.",
+      "if": {
+        "flag": "sojusz_dezerter"
+      }
+    },
+    {
+      "id": "akt6_epilog_list_wedrowcy",
+      "type": "narration",
+      "text": "Z Głuszca przychodzi list podpisany kilkoma rękami. Karczma ma nowy dach, a przy ogniu wciąż czeka ława dla kogoś, kto ma na imię jak ty.",
+      "if": {
+        "flag": "sojusz_wedrowcy"
+      }
+    },
+    {
+      "id": "akt6_epilog_list_straznik",
+      "type": "narration",
+      "text": "Stary żołnierz z Ostatniej Strażnicy przysyła wiadomość w trzech słowach: „Strażnica stoi. Wróć.” Czytasz ją dłużej, niż trzeba.",
+      "if": {
+        "flag": "sojusz_straznicy"
+      }
+    },
+    {
+      "id": "akt6_epilog_list_astrolog",
+      "type": "narration",
+      "text": "Hieronim pisze długo i niewyraźnie o tym, co jeszcze udało mu się odczytać z odłamków. Brygida dopisuje na marginesie jedno zdanie: „Nie czytaj jego listów od razu, bo nie skończysz do wiosny.”",
+      "if": {
+        "flag": "sojusz_astrolog"
+      }
+    },
+    {
+      "id": "akt6_epilog_list_smyk",
+      "type": "narration",
+      "text": "Smyk przysyła kartkę z jednym zdaniem napisanym lewą ręką: „Pałac zamknęli, ale ja znam inne drzwi.” Pod spodem narysował ślimaka. Nie wiesz, po co.",
+      "if": {
+        "flag": "palac_otwarty"
+      }
+    },
+    {
+      "id": "akt6_epilog_ostrze_w",
+      "type": "narration",
+      "text": "Broń z gwiezdnego metalu wisi nad kominkiem karczmy, bo karczmarz się uparł, a tobie zabrakło sił na spór. Gdy ktoś pyta, co to jest, mówisz, że rodzinna pamiątka.",
+      "if": {
+        "flag": "istota_wyrok"
+      }
+    },
+    {
+      "id": "akt6_epilog_ostrze_p",
+      "type": "narration",
+      "text": "Broń z gwiezdnego metalu tkwi wbita w pniak przy drzwiach karczmy, żeby ktoś, kto rąbie drewno, miał czym rąbać. Nikt nie zgaduje, że widziała więcej niż las.",
+      "if": {
+        "flag": "istota_przetarg"
+      }
+    },
+    {
+      "id": "akt6_epilog_ostrze_z",
+      "type": "narration",
+      "text": "Broń z gwiezdnego metalu oddałeś kowalowi na podkowy, bo uznałeś, że ostatnią rzeczą, jaką może zrobić, jest coś pożytecznego dla koni.",
+      "if": {
+        "all": [
+          {
+            "notFlag": "istota_wyrok"
+          },
+          {
+            "notFlag": "istota_przetarg"
+          },
+          {
+            "notFlag": "ostrze_bogdana"
+          }
+        ]
+      }
+    },
+    {
+      "id": "akt6_epilog_ostrze_zb",
+      "type": "narration",
+      "text": "Broń z gwiezdnego metalu oddałeś Bogdanowi na podkowy. Kowal obejrzał ją pod światło, pokiwał głową i powiedział, że szkoda, ale konie nie pytają o rodowód.",
+      "if": {
+        "all": [
+          {
+            "notFlag": "istota_wyrok"
+          },
+          {
+            "notFlag": "istota_przetarg"
+          },
+          {
+            "flag": "ostrze_bogdana"
+          }
+        ]
+      }
+    },
+    {
+      "id": "akt6_epilog_bogdana",
+      "type": "narration",
+      "text": "Robota Bogdana trzyma się dalej. Ani jednej szczerby.",
+      "if": {
+        "all": [
+          {
+            "flag": "ostrze_bogdana"
           },
           {
             "any": [
               {
-                "all": [
-                  {
-                    "flag": "sojusz_dezerter"
-                  },
-                  {
-                    "flag": "sojusz_straznicy"
-                  }
-                ]
+                "flag": "istota_wyrok"
               },
               {
-                "all": [
-                  {
-                    "flag": "sojusz_dezerter"
-                  },
-                  {
-                    "flag": "sojusz_astrolog"
-                  }
-                ]
-              },
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_dezerter"
-                  },
-                  {
-                    "flag": "sojusz_wedrowcy"
-                  }
-                ]
-              },
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_straznicy"
-                  },
-                  {
-                    "flag": "sojusz_astrolog"
-                  }
-                ]
-              },
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_straznicy"
-                  },
-                  {
-                    "flag": "sojusz_wedrowcy"
-                  }
-                ]
-              },
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_astrolog"
-                  },
-                  {
-                    "flag": "sojusz_wedrowcy"
-                  }
-                ]
+                "flag": "istota_przetarg"
               }
             ]
           }
         ]
-      },
-      "text": "NARZĘDZIE, KTÓRE PAMIĘTA\n\nWchodzisz w krater i światło zamyka się nad tobą jak woda nad topielcem. Dług spłacony. Stajesz się narzędziem w rękach istoty, która nie zna litości ani gniewu. Ale ci, co szli z tobą, nie zapominają: ktoś wpisuje twoje imię do księgi, której nikt nie przeczyta, ktoś stawia ci krzyż na brzegu, ktoś jeszcze przez rok patrzy w noc, jakby czekał. Ktoś pamięta, że byłeś człowiekiem. To prawie starcza."
+      }
     },
     {
-      "id": "koniec_uleglosc",
-      "type": "ending",
-      "art": "koniec",
-      "if": {
-        "flag": "final_uleglosc"
-      },
-      "text": "NARZĘDZIE\n\nWchodzisz w krater. Światło zamyka się nad tobą i to, co zostaje, jest już bardziej głosem niż człowiekiem. Dług spłacony, rachunek wyrównany. Cesarstwo nigdy się nie dowie, kim byłeś. Kamienie na grobie w Głuszcu świecą jeszcze kilka nocy, potem gasną. Nikt nie płacze, bo nikt nie wie, po kim."
-    },
-    {
-      "id": "koniec_opor_z",
-      "type": "ending",
-      "art": "koniec",
+      "id": "akt6_epilog_cesarz_bunt",
+      "type": "narration",
+      "text": "O cesarzu mówi się w karczmach coraz rzadziej. Ci, którzy pamiętają noc, gdy otwarto bramy, nie opowiadają jej głośno.",
       "if": {
         "all": [
           {
-            "flag": "final_opor"
+            "flag": "cesarz_nie_zyje"
           },
           {
-            "any": [
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_dezerter"
-                  },
-                  {
-                    "flag": "sojusz_straznicy"
-                  }
-                ]
-              },
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_dezerter"
-                  },
-                  {
-                    "flag": "sojusz_astrolog"
-                  }
-                ]
-              },
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_dezerter"
-                  },
-                  {
-                    "flag": "sojusz_wedrowcy"
-                  }
-                ]
-              },
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_straznicy"
-                  },
-                  {
-                    "flag": "sojusz_astrolog"
-                  }
-                ]
-              },
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_straznicy"
-                  },
-                  {
-                    "flag": "sojusz_wedrowcy"
-                  }
-                ]
-              },
-              {
-                "all": [
-                  {
-                    "flag": "sojusz_astrolog"
-                  },
-                  {
-                    "flag": "sojusz_wedrowcy"
-                  }
-                ]
-              }
-            ]
+            "flag": "noc_bunt"
           }
         ]
-      },
-      "text": "WSPÓLNA SPRAWA\n\nStajesz na brzegu krateru, a za tobą stoją ludzie: ci, których zjednałeś słowem, pomocą albo odwagą. Żaden z nich nie bohater, każdy ma co stracić i właśnie dlatego stoi. Głos z krateru milknie, zbity z tropu. Cesarstwo przyśle wojsko, ale już wiesz, że nie jesteś sam. Walka potrwa lata. Pierwszy raz od rzezi masz jednak drużynę, a ta jest warta więcej niż gwiazdy."
+      }
     },
     {
-      "id": "koniec_opor",
-      "type": "ending",
-      "art": "koniec",
-      "if": {
-        "flag": "final_opor"
-      },
-      "text": "SAMOTNY PŁOMIEŃ\n\nStajesz na brzegu krateru z tym, coś zdobył, i z tym, co ci zostało. Głos z krateru śmieje się cicho, a cesarscy zwiadowcy podchodzą z dwóch stron jak kleszcze. Masz wolę i pali się mocniej, niż myślałeś. Kiedy ogień w kraterze zgaśnie, po Pogórzu pójdzie gadka o młodym w pogniecionym mundurze. Nikt nie będzie pewien, czy to prawda. Ty też nie."
-    },
-    {
-      "id": "koniec_ucieczka_ludzie",
-      "type": "ending",
-      "art": "koniec",
+      "id": "akt6_epilog_cesarz_zamach",
+      "type": "narration",
+      "text": "O cesarzu mówi się w karczmach coraz rzadziej. Ci, którzy pamiętają nóż w komnacie, mówią o nim jak o rachunku, który wreszcie ktoś wyrównał.",
       "if": {
         "all": [
           {
-            "flag": "final_ucieczka"
+            "flag": "cesarz_nie_zyje"
           },
           {
-            "flag": "glusz_pomoc"
+            "flag": "noc_zamach"
           }
         ]
-      },
-      "text": "Z LUDŹMI, KTÓRYM POMOGŁEŚ\n\nOdchodzisz, ale nie sam. Za tobą idą wędrowcy z Głuszca, ci, którym posłałeś pieniądze i którzy mają dług wdzięczności większy niż twój. Stawiacie osadę na skraju świata, za górami, gdzie ręka cesarza nie sięga. Czasem ktoś pyta, skąd się wzięła. Odpowiadasz: z jednej decyzji, której nie musiałeś podejmować."
+      }
     },
     {
-      "id": "koniec_ucieczka_oblawa",
-      "type": "ending",
-      "art": "koniec",
+      "id": "akt6_epilog_cesarz_pekniecie",
+      "type": "narration",
+      "text": "O cesarzu mówi się w karczmach coraz rzadziej. Komunikat o naturalnej śmierci wciąż wisi na bramie. Ale ty wiesz swoje.",
       "if": {
         "all": [
           {
-            "flag": "final_ucieczka"
+            "flag": "cesarz_nie_zyje"
           },
           {
-            "flag": "oblawa_ucieczka"
+            "flag": "noc_pekniecie"
           }
         ]
-      },
-      "text": "ZA HORYZONTEM\n\nOdchodzisz na wschód, tam gdzie kończą się mapy. Za plecami zostaje Głuszec, który przez ciebie oberwał, i Obserwatorium z teleskopem i kotem. Czasem w nocy śni ci się karczma pod Zdechłym Kogutem i dym z komina, co wyglądał na zadowolony. Cesarz zapomina o tobie po roku. Ty nie zapominasz o niczym."
+      }
     },
     {
-      "id": "koniec_ucieczka",
+      "id": "akt6_epilog_ranni",
+      "type": "narration",
+      "text": "Dobromiła wciąż zszywa jarnowskich i cesarskich pod jednym dachem i nikt już nie pyta o mundury.",
+      "if": {
+        "flag": "wojna_ranni_wszyscy"
+      }
+    },
+    {
+      "id": "akt6_epilog_studnia",
+      "type": "narration",
+      "text": "Studnia pod Skjeldowem pozostała zatruta, a w okolicy mówi się o niej szeptem.",
+      "if": {
+        "flag": "wojna_studnia_zatruta"
+      }
+    },
+    {
+      "id": "akt6_epilog_most",
+      "type": "narration",
+      "text": "Zerwany most na Szarej odbudowano z desek po rozbitych łodziach, a woźnice mówią, że skrzypi inaczej niż stary.",
+      "if": {
+        "flag": "wojna_most_zerwany"
+      }
+    },
+    {
+      "id": "akt6_epilog_prawda",
+      "type": "narration",
+      "text": "Czasem pamiętasz, co powiedziała na końcu: że nie była lepsza od cesarza, tylko bardziej zmęczona. Nie wiesz, czy to była prawda, czy ostatni targ. Mówisz sobie, że to bez znaczenia, i trzy dni później znów o tym myślisz.",
+      "if": {
+        "flag": "istota_prawda"
+      }
+    },
+    {
+      "id": "akt6_epilog_dlug",
+      "type": "narration",
+      "text": "Dług jest spłacony. Czasem sprawdzasz, czy to nie tylko słowo, ale nic nie ciąży, a to chyba odpowiedź.",
+      "if": {
+        "flag": "dlug_splacony"
+      }
+    },
+    {
+      "id": "akt6_epilog_szklo",
+      "type": "narration",
+      "text": "Czasem przypominasz sobie szkło z krateru. Wziąłeś je sam, nikt ci nie kazał. Za to też nikogo nie możesz winić.",
+      "if": {
+        "flag": "szklo_wola"
+      }
+    },
+    {
+      "id": "akt6_pods_zginela",
+      "type": "narration",
+      "text": "Zamknąłeś drzwi, które ktoś zostawił otwarte, i nikt już przez nie nie przejdzie. Czy dobrze zrobiłeś, nie wiesz. Ale tych drzwi już nikt nie otworzy, i z tym da się spać.",
+      "if": {
+        "flag": "istota_zginela"
+      }
+    },
+    {
+      "id": "akt6_pods_uciekla",
+      "type": "narration",
+      "text": "Zostawiłeś drzwi, przez które ktoś odszedł, i nie wiesz, czy zamknęły się za nim na zawsze. Pytanie zostaje otwarte, jak wiele pytań po wojnie.",
+      "if": {
+        "flag": "istota_uciekla"
+      }
+    },
+    {
+      "id": "akt6_podsumowanie",
+      "type": "narration",
+      "text": "Wyplątałeś się z cudzej sprawy, której nie wybierałeś. Zostały po niej listy, dług, którego już nie ma, i miska zupy, która stygnie szybciej, niż zdążysz ją zjeść. Dziś nie masz nic, co musisz zrobić, i to jest wszystko, czego chciałeś."
+    },
+    {
+      "id": "akt6_koniec_swiety_spokoj",
       "type": "ending",
       "art": "koniec",
       "if": {
-        "flag": "final_ucieczka"
+        "flag": "istota_zginela"
       },
-      "text": "W POJEDYNKĘ\n\nOdchodzisz i nie oglądasz się. Chodzisz od wsi do wsi i każdemu prawisz o sobie co innego. Po latach nie pamiętasz, która z tych historii była prawdziwa. Gwiazdy dalej spadają, a ty nauczyłeś się patrzeć w ziemię."
+      "text": "ŚWIĘTY SPOKÓJ\n\nPrzydrożna karczma, miska zupy, nikt nie pyta o imię. „Tak, to ja, ten od tej chryi” – mówisz, gdy ktoś w końcu pyta. „A, to pan od zup?” – odpowiada karczmarz i nalewa."
+    },
+    {
+      "id": "akt6_koniec_cisza_po_wirze",
+      "type": "ending",
+      "art": "koniec",
+      "if": {
+        "flag": "istota_uciekla"
+      },
+      "text": "CISZA PO WIRZE\n\nPrzydrożna karczma, miska zupy, czasem spojrzenie w niebo. „Pan się czegoś boi?” – pyta karczmarz. „Nie” – mówisz. „Sprawdzam tylko, czy jest na miejscu.” Niebo jest. Na razie."
     }
   ]
 }

@@ -4,7 +4,7 @@ import { effectById } from "./effects.js";
 import { DAMAGE_TYPES, validateModifiers } from "./modifiers.js";
 
 export const SLOTS = ["bron", "bron_zapas", "bron_druga", "glowa", "tulow", "rece", "nogi", "plaszcz", "talizman", "pas"];
-export const ITEM_TYPES = ["weapon", "armor", "ammo", "throwable", "consumable", "artifact", "misc"];
+export const ITEM_TYPES = ["weapon", "armor", "ammo", "throwable", "consumable", "artifact", "misc", "material"];
 
 /** Artifact regeneration conditions without a parameter; `phenomenon:<id>` and `near:<tag>` take one. */
 export const REGEN_CONDITIONS = ["night", "day", "in_combat"];
@@ -26,7 +26,7 @@ const strict = (required, fields) => ({ type: "object", required, fields, additi
 const COMMON = {
   id: ID, name: { type: "string", nonEmpty: true }, type: { type: "string" },
   weight: { type: "number", min: 0 }, value: INT_MIN0,
-  description: { type: "string", nonEmpty: true }, hidden: { type: "boolean" },
+  description: { type: "string", nonEmpty: true }, hidden: { type: "boolean" }, tier: INT_MIN1, unburdened: { type: "boolean" },
   // Food (consumables only; content checked by validateFood).
   food: {
     type: "object", required: ["order"], additional: false,
@@ -39,6 +39,8 @@ const COMMON_REQUIRED = ["id", "name", "type", "weight", "value", "description"]
 const TYPE_SCHEMAS = {
   // Story items: nothing to use, wear or sell.
   misc: { required: [], fields: {} },
+  // Trade goods (hides, fangs, valuables): sold to merchants, no other use.
+  material: { required: [], fields: {} },
   weapon: {
     required: ["skill", "damageType", "damage", "apCost", "range", "minStrength"],
     fields: {
@@ -81,10 +83,11 @@ const TYPE_SCHEMAS = {
         type: "array",
         items: strict(["id", "name", "cost", "apCost", "effect"], {
           id: ID, name: { type: "string", nonEmpty: true }, cost: { type: "object" }, requiresFull: { type: "boolean" }, apCost: INT_MIN1,
-          effect: strict(["id", "target"], { id: ID, target: { type: "string", enum: ["self", "enemy"] }, duration: INT_MIN1 }),
+          description: { type: "string", nonEmpty: true }, recall: { type: "boolean" }, damage: PAIR, damageType: { type: "string", enum: DAMAGE_TYPES },
+          effect: strict(["id", "target"], { id: ID, target: { type: "string", enum: ["self", "enemy"] }, duration: INT_MIN1, chance: INT_MIN1 }),
         }),
       },
-      whenEmpty: strict(["usable", "costHp", "text"], { usable: { type: "boolean" }, costHp: INT_MIN0, text: { type: "string", nonEmpty: true } }),
+      whenEmpty: strict(["usable", "costHp", "text"], { usable: { type: "boolean" }, costHp: INT_MIN1, text: { type: "string", nonEmpty: true } }),
     },
   },
   consumable: {
@@ -164,7 +167,7 @@ function validateItem(item, prefix, items, data) {
       if (Number.isInteger(item[field]) && item[field] > 100) errors.push(`${at(field)}: wartość poza zakresem 0–100`);
     }
     if (typeof item.masteryType === "string" && !MASTERY_TYPES.includes(item.masteryType)) errors.push(`${at("masteryType")}: nieznany rodzaj ${JSON.stringify(item.masteryType)}`);
-    else if (item.masteryType === undefined && !item.hidden) errors.push(`${at("masteryType")}: brak wymaganego pola`);
+    else if (item.masteryType === undefined && !item.hidden && item.skill !== "wrecz") errors.push(`${at("masteryType")}: brak wymaganego pola`);
     if (item.pair === true && item.range !== "melee") errors.push(`${at("pair")}: dozwolone tylko dla broni melee`);
     if (item.pair === true && item.offhand === true) errors.push(`${at("pair")}: wyklucza się z offhand`);
   }
@@ -196,6 +199,10 @@ function validateItem(item, prefix, items, data) {
   if (item.food !== undefined) {
     if (typeKey !== "consumable") errors.push(`${at("food")}: dozwolone tylko dla consumable`);
     else if (isObject(item.food)) errors.push(...validateFood(item.food, at, skillIds, effectRef));
+  }
+  if ((weaponLike || typeKey === "armor") && !item.hidden) {
+    if (item.tier === undefined) errors.push(`${at("tier")}: brak wymaganego pola`);
+    else if (Number.isInteger(item.tier) && item.tier > 4) errors.push(`${at("tier")}: wartość poza zakresem 1–4`);
   }
   if (typeKey === "armor") {
     if (typeof item.slot === "string" && (!SLOTS.includes(item.slot) || WEAPON_SLOTS.includes(item.slot))) {
@@ -252,6 +259,7 @@ function validateArtifact(item, at, data, effectRef) {
       else if (type === "all" && value !== undefined) errors.push(`${here("cost.value")}: niedozwolone dla typu all`);
     }
     if (isObject(a.effect)) effectRef(a.effect.id, `abilities[${i}].effect.id`, false);
+    if (a.damage !== undefined && (a.damageType === undefined || a.effect?.target !== "enemy")) errors.push(`${here("damage")}: wymaga damageType i efektu na wroga`);
   });
   return errors;
 }

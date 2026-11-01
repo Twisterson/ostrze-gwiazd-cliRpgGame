@@ -100,7 +100,7 @@
     },
     "wies": {
       "speaker": "Sołtys Wawrzyn",
-      "text": "„Dwadzieścia dymów, trzydzieści psów i jeden cmentarz, największy w okolicy. Ludzie tu wolą umrzeć, niż się wynieść, i wiedzą czemu. Najbliższy większy gród to Rzeczka, dzień drogi stąd, a w niej cesarski garnizon, więc kto ma rozum, ten tam nie łazi.”",
+      "text": "„Dwadzieścia dymów, trzydzieści psów i jeden cmentarz, największy w okolicy. Ludzie tu wolą umrzeć, niż się wynieść, i nikt nie wie czemu. Najbliższy większy gród to Rzeczka, dzień drogi stąd, a w niej cesarski garnizon, więc kto ma rozum, ten tam nie łazi.”",
       "options": [
         {
           "id": "dalej",
@@ -148,7 +148,7 @@
     },
     "p3": {
       "speaker": "Sołtys Wawrzyn",
-      "text": "Sołtys pochyla się i szepcze tak, że słychać w sąsiedniej chałupie: „A cesarscy? Nie szukają cię aby? Bo jak szukają, to dachu nie dam, a jak nie, to dam, ale za pięć groszy za to, że nie pytam.”",
+      "text": "Sołtys pochyla się i ścisza głos: „A cesarscy? Nie szukają cię aby? Bo jak szukają, to dachu nie dam, a jak nie, to dam, ale za pięć groszy za to, że nie pytam.”",
       "options": [
         {
           "id": "p3a",

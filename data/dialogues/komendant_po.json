@@ -4,7 +4,7 @@
   "nodes": {
     "po": {
       "speaker": "Komendant Wszebor",
-      "text": "Komendant nie odrywa oczu od zupy. „A, to ty. Czego? Chyba że się nudzisz, bo wtedy mam dla ciebie parę roboty, a żadna nie pachnie różami.”",
+      "text": "Komendant nie odrywa oczu od zupy. „A, to ty. Czego? Chyba że się nudzisz, bo wtedy mam dla ciebie parę spraw, a żadna nie pachnie różami.”",
       "options": [
         {
           "text": "Masz dla mnie robotę?",
@@ -45,7 +45,7 @@
     },
     "robota": {
       "speaker": "Komendant Wszebor",
-      "text": "„Zanieś ten list leśniczemu. Za lasem, po drugiej stronie. Nie czytaj.” Komendant podsuwa kartkę z pieczęcią i patrzy w bok. „A jak przeczytasz, to rób głupiego, że nie wiesz, co tam stoi.”",
+      "text": "„Zanieś ten list leśniczemu. Leśniczówka, dwa dni na wschód, za Lasem Rubieży. Weźmiesz prowiant, bo tam nikt nie karmi. Nie czytaj.” Komendant podsuwa kartkę z pieczęcią i patrzy w bok. „A jak przeczytasz, to rób głupiego, że nie wiesz, co tam stoi.”",
       "options": [
         {
           "text": "Zaniosę.",

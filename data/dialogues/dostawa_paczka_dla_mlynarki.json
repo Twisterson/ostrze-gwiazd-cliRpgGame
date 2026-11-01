@@ -1,0 +1,44 @@
+{
+  "id": "dostawa_paczka_dla_mlynarki",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Młynarka Dobrosława",
+      "text": "Młynarka wyciera ręce w fartuch i mierzy cię wzrokiem. „Czego? Mąka jest po drugiej stronie rzeki, a mąż w piekle.”",
+      "options": [
+        {
+          "id": "daj",
+          "text": "Radogost przysyła paczkę.",
+          "goto": "odebrane",
+          "requires": {
+            "item": "paczka_kupca"
+          }
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze tu wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odebrane": {
+      "speaker": "Młynarka Dobrosława",
+      "text": "Dobrosława rozwiązuje trzy węzły i unosi brwi. „Łyżki. Dwanaście. Po co mi dwanaście łyżek? A, żeby miał kto jeść zupę, jak mąż wróci.” Kiwa ci głową. „Idź, nie mam tu miejsca na dziękowanie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywajcie.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "paczka_kupca"
+        },
+        {
+          "setFlag": "paczka_dostarczona"
+        }
+      ]
+    }
+  }
+}

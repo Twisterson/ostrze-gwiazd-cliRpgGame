@@ -5,7 +5,7 @@
   "nodes": {
     "kontrola": {
       "speaker": "Cesarscy zwiadowcy",
-      "text": "Dwaj ludzie w czerwonych płaszczach zatrzymują cię w pół kroku. Jeden obmacuje wzrokiem twoje buty, drugi twoją gębę. „Imię. Skąd. Dokąd. Kto za ciebie ręczy?” Karczmarz Mruk w progu karczmy krzywi się, jakby trzymał cię za dłużnika i chętnie się ciebie pozbył. Kątem oka widzisz drzwiczki za beczkami, których przedtem nie było widać.",
+      "text": "Dwaj ludzie w czerwonych płaszczach zatrzymują cię w pół kroku. Jeden obmacuje wzrokiem twoje buty, drugi twoją gębę. „Imię. Skąd. Dokąd. Kto za ciebie ręczy?” Karczmarz Mruk stoi w progu karczmy i udaje, że cię nie zna. Kątem oka widzisz drzwiczki za beczkami, których przedtem nie było widać.",
       "options": [
         {
           "id": "papiery",
@@ -159,7 +159,7 @@
     },
     "schowaj": {
       "speaker": "Cesarscy zwiadowcy",
-      "text": "Zanim zwiadowcy dokończą pytanie, już jesteś za beczkami i za drzwiczkami. W piwnicy cuchnie kiszoną kapustą i strachem. Siedzisz tam ponad dwie godziny, a nad głową dudnią kroki i głosy. W końcu cichnie. Mruk uchyla klapę. „Poszli. Ale pamiętaj, że matką ci nie jestem.”",
+      "text": "Zanim zwiadowcy dokończą pytanie, już jesteś za beczkami i za drzwiczkami. W piwnicy cuchnie kiszoną kapustą i mysimi bobkami. Siedzisz tam ponad dwie godziny, a nad głową dudnią kroki i głosy. W końcu cichnie. Mruk uchyla klapę. „Poszli. Ale pamiętaj, że matką ci nie jestem.”",
       "options": [
         {
           "id": "dalej",
@@ -189,7 +189,7 @@
     },
     "obszukaj_zle": {
       "speaker": "Cesarscy zwiadowcy",
-      "text": "Młodszy zwiadowca wyciąga z plecaka zwinięte insygnia delegacji i unosi je pod światło jak złowioną rybę. Starszy milczy, potem uśmiecha się zimno jak szron. „Szkoła ostrza. Patrz no, co za traf.” Kończy się to dla ciebie biegiem przez podwórzec, kuleniem się w ciemnym kącie i pewnością, że zaraz będzie gorzej. Zwiadowcy nie gonią, ale zapisują.",
+      "text": "Młodszy zwiadowca wyciąga z plecaka zwinięte insygnia delegacji i unosi je pod światło jak złowioną rybę. Starszy milczy, potem uśmiecha się krzywo. „Szkoła ostrza. Patrz no, co za traf.” Kończy się to dla ciebie biegiem przez podwórzec, kuleniem się w ciemnym kącie i pewnością, że zaraz będzie gorzej. Zwiadowcy nie gonią, ale zapisują.",
       "options": [
         {
           "id": "dalej",

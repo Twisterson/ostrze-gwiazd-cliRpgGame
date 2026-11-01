@@ -21,7 +21,7 @@
     },
     "zgoda": {
       "speaker": "Komendant Wszebor",
-      "text": "„No i widzisz. Mądrego poznać po tym, że zmienia zdanie, nim mu je życie zmieni kijem. Dzień w górę strumienia, uszy na dowód.”",
+      "text": "„No i widzisz. Jednak masz trochę oleju w głowie. Dzień w górę strumienia, uszy na dowód.”",
       "actions": [
         {
           "setFlag": "nora_zgoda"

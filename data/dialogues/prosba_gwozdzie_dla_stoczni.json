@@ -1,0 +1,49 @@
+{
+  "id": "prosba_gwozdzie_dla_stoczni",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Kowal Gudrun",
+      "text": "Z drogi odzywa się potężna kobieta z młotem na ramieniu. „Gudrun, kowal. Obiecałam stoczni skrzynkę gwoździ na dziś i nie mam kiedy iść, bo zamówienie na rusznice mi leży. Zaniesiesz? Cieśla ci zapłaci. A jak będzie marudził, że za małe, to powiedz, że tyle gwoździ, ile statków, a statków tyle, ile umiem.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Nie mam czasu.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Kowal Gudrun",
+      "text": "Gudrun podaje ci skrzynkę jedną ręką, jakby ważyła tyle co jabłko. Ty łapiesz ją dwiema i nie jesteś pewien, czy jabłko. „Do stoczni, zaraz za przystanią. Nie zgub.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "gwozdzie_dla_stoczni"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Kowal Gudrun",
+      "text": "„Mówisz, że nie? No dobrze. Pójdę sama, to się chłopy dowiedzą, co to znaczy nie mieć gwoździ.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

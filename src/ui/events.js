@@ -9,7 +9,7 @@ import { paint } from "./colors.js";
 import { pushNotice } from "./screen.js";
 import { t } from "./strings.js";
 import { questById } from "../systems/quests.js";
-import { placeName } from "../systems/places.js";
+import { placeName, placeById } from "../systems/places.js";
 
 const MAX_NOTICES = 8;
 
@@ -44,6 +44,7 @@ function noticeFor(ctx, e) {
     case "otrzymano": return paint("heal", withQty("event.got"));
     case "oddano": return paint("dim", withQty("event.gave"));
     case "pieniadze": {
+      if (e.delta === 0) return null;
       const currency = t(ui, "currency.short");
       return e.delta >= 0
         ? paint("heal", t(ui, "event.moneyUp", { n: e.delta, currency }))
@@ -62,7 +63,7 @@ function noticeFor(ctx, e) {
     case "zdolnosc": return paint("mystic", abilityText(ui, data, e));
     case "zlodziej": return paint("warn", t(ui, "event.thief"));
     case "zlodziej_przylapany": return paint("heal", t(ui, "event.thiefCaught"));
-    case "zlodziej_kradnie": return paint("warn", t(ui, "event.thiefStole", { n: e.money, currency: t(ui, "currency.short") }));
+    case "zlodziej_kradnie": return e.money === 0 ? null : paint("warn", t(ui, "event.thiefStole", { n: e.money, currency: t(ui, "currency.short") }));
     case "zlodziej_artefakt": return paint("warn", t(ui, "event.thiefArtifact", { name: itemName() }));
     case "zadanie_start": return paint("title", t(ui, "event.questStart", { name: questById(data, e.id)?.name ?? e.id }));
     case "zadanie_wykonane": return paint("heal", t(ui, "event.questDone", { name: questById(data, e.id)?.name ?? e.id }));
@@ -71,11 +72,21 @@ function noticeFor(ctx, e) {
       if (e.expired && quest?.client) return paint("warn", t(ui, "event.questExpired", { client: quest.client }));
       return paint("warn", t(ui, "event.questFailed", { name: quest?.name ?? e.id }));
     }
-    case "odkryto": return paint("title", t(ui, "event.revealed", { name: placeName(data, e.id) }));
+    case "odkryto": {
+      // A place in another region is not on the map in front of the player: say where it is instead of promising it.
+      const place = placeById(data, e.id);
+      const here = placeById(data, ctx.state?.world?.location)?.location;
+      if (place && here && place.location.region !== here.region) {
+        return paint("title", t(ui, "event.revealedElsewhere", { name: placeName(data, e.id), where: place.location.name }));
+      }
+      return paint("title", t(ui, "event.revealed", { name: placeName(data, e.id) }));
+    }
     case "zapowiedz_miejsca": return paint("mystic", t(ui, "event.hinted"));
     case "zadanie_limit": return paint("warn", t(ui, "event.questLimit", { name: questById(data, e.id)?.name ?? e.id }));
+    case "goraca_strawa": return paint("heal", t(ui, e.hp > 0 ? "event.hotMeal" : "event.hotMealFull", { hp: e.hp }));
     case "posilek": return paint("dim", t(ui, "event.meal", { item: itemName(), left: e.left }));
     case "glod": return paint("warn", t(ui, "event.hunger", { stacks: e.stacks }));
+    case "glod_pora": return paint("warn", t(ui, "event.hungerHint"));
     case "glod_mniej": return paint("heal", t(ui, "event.hungerLess", { stacks: e.stacks }));
     case "zatrucie_jedzeniem": return paint("warn", t(ui, "event.foodPoison", { item: itemName() }));
     default: return null; // flaga, zmienna and unknown events stay silent
@@ -96,6 +107,20 @@ function enemyLabel(data, combat, uid, acc = false) {
   const base = enemyById(data, enemy.id);
   if (!acc || !base?.nameAcc) return enemy.name;
   return base.nameAcc + enemy.name.slice(base.name.length); // keeps the instance number
+}
+
+/** Colour role of a journal entry: red when the hero is hurt, green for the hero's hits, blue when a foe falls or flees. */
+export function combatEventRole(e) {
+  switch (e.type) {
+    case "atak":
+      if (!e.hit) return "dim";
+      return e.attacker === "player" ? "heal" : e.target === "player" ? "damage" : "dim";
+    case "efekt_obrazenia": return e.target === "player" ? "damage" : "dim";
+    case "rozerwanie": return "damage";
+    case "wrog_pokonany":
+    case "wrog_ucieka": return "foe_down";
+    default: return "dim";
+  }
 }
 
 /** The plain journal text of one combat event, or null when it has no entry. */
@@ -139,6 +164,7 @@ export function combatEventText(ui, data, combat, e) {
     case "wrog_pokonany": return t(ui, "combat.defeated", { target: who() });
     case "wrog_ucieka": return t(ui, "combat.flees", { target: who() });
     case "tura_przepada": return e.target === "player" ? t(ui, "combat.youStunned") : t(ui, "combat.stunned", { name: who() });
+    case "slabosc": return t(ui, "combat.lowHp");
     case "remis": return t(ui, "combat.draw", { rounds: MAX_ROUNDS });
     case "bieglosc": return t(ui, "combat.mastery", { name: t(ui, `mastery.${e.masteryType}`), after: e.after });
     case "niewypal": return t(ui, "combat.misfire", { weapon: itemName(e.weapon) });

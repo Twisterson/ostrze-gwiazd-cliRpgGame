@@ -1,0 +1,124 @@
+{
+  "id": "medyczka",
+  "portrait": "portret_medyczka",
+  "start": "lazaret",
+  "nodes": {
+    "lazaret": {
+      "speaker": "Medyczka Dobromiła",
+      "text": "Medyczka wyciera ręce w fartuch, który dawno przestał być biały. „Siadaj, gdzie jest wolne, bo długo wolne nie będzie. Opatrunek, kropla, szycie: wszystko po cenie. Za darmo to możesz najwyżej umrzeć.”",
+      "options": [
+        {
+          "id": "lecz",
+          "text": "Opatrz mnie. Zapłacę.",
+          "goto": "leczenie",
+          "requires": {
+            "money": 10
+          }
+        },
+        {
+          "id": "rozmowa",
+          "text": "Dużo ich tu?",
+          "goto": "ranni",
+          "requires": {
+            "notFlag": "rannych_sie_nie_liczy_zrobione"
+          }
+        },
+        {
+          "id": "r_wszyscy",
+          "text": "Wozy z pola już przyjechały?",
+          "goto": "ranni_wszyscy",
+          "requires": {
+            "flag": "wojna_ranni_wszyscy"
+          }
+        },
+        {
+          "id": "r_swoi",
+          "text": "Cesarscy z pola są u ciebie?",
+          "goto": "ranni_swoi",
+          "requires": {
+            "flag": "wojna_ranni_swoi"
+          }
+        },
+        {
+          "id": "r_lupy",
+          "text": "Słyszałaś coś o polu?",
+          "goto": "ranni_lupy",
+          "requires": {
+            "flag": "wojna_ranni_lupy"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "leczenie": {
+      "speaker": "Medyczka Dobromiła",
+      "text": "Medyczka pracuje szybko i bez pytań. Szczypie, zszywa, owija, mówi „nie ruszaj się” trzy razy i raz „dobry chłopak”. Trzy kwadranse później wychodzisz łatany jak sztandar, ale cały.",
+      "actions": [
+        {
+          "takeMoney": 10
+        },
+        {
+          "healFull": true
+        },
+        {
+          "time": 45
+        }
+      ],
+      "options": [
+        {
+          "id": "dzieki",
+          "text": "Dzięki.",
+          "goto": "lazaret"
+        }
+      ]
+    },
+    "ranni": {
+      "speaker": "Medyczka Dobromiła",
+      "text": "„Więcej niż łóżek, mniej niż trzeba. Cesarscy, jarnowscy, miejscowi, wszyscy krwawią tak samo i tak samo klną.” Wzrusza ramionami. „Jeśli któreś ze zleceń zaprowadzi cię na pole, przyprowadź mi ich, zanim wrony zdążą przeliczyć.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Postaram się.",
+          "goto": "lazaret"
+        }
+      ]
+    },
+    "ranni_wszyscy": {
+      "speaker": "Medyczka Dobromiła",
+      "text": "„Wszystkich, bez pytania o mundury. Połowa dnia, trzy wozy i mój kapitan z miną, jakbym oszalała. Nie oszalałam. Dziękuję.” Wyciera ręce w fartuch. „Jak znów zobaczysz pole, wiesz, gdzie mnie szukać.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "lazaret"
+        }
+      ]
+    },
+    "ranni_swoi": {
+      "speaker": "Medyczka Dobromiła",
+      "text": "„Tylko tych w czerwonym. Zabrałeś, położyłeś, posłusznie.” Medyczka nie podnosi wzroku znad bandaża. „Reszta została wronom. Nie mówię, że źle. Mówię, że liczę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "lazaret"
+        }
+      ]
+    },
+    "ranni_lupy": {
+      "speaker": "Medyczka Dobromiła",
+      "text": "Medyczka patrzy na twoje ręce, potem na twoją sakwę. „Z pola wróciłeś lżejszy o sumienie i cięższy o cudze rzeczy.” Odwraca się do rannego. „Opatrunki kosztują. Tobie zniżki nie dam.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "lazaret"
+        }
+      ]
+    }
+  }
+}

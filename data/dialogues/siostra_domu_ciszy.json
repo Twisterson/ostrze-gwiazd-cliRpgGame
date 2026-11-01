@@ -1,0 +1,166 @@
+{
+  "id": "siostra_domu_ciszy",
+  "portrait": "portret_siostra_jadwiga",
+  "start": "cisza",
+  "returnStart": "powrot",
+  "nodes": {
+    "cisza": {
+      "speaker": "Siostra Jadwiga",
+      "text": "Siostra ma głos cichy jak kurz na ołtarzu i oczy szybsze od lisa. „Dom Ciszy przyjmuje tych, którzy się zgubili, i tych, którzy się znaleźli o jeden raz za dużo. Szukasz pocieszenia, braciszku, czy raczej pytań bez odpowiedzi?”",
+      "options": [
+        {
+          "id": "dom",
+          "text": "Co tu właściwie robicie?",
+          "goto": "dom"
+        },
+        {
+          "id": "klasztor",
+          "text": "Gdzie szukać tych, co zniknęli z miasta?",
+          "goto": "klasztor"
+        },
+        {
+          "id": "ranni",
+          "text": "Z pola bitwy przywieziono rannych.",
+          "goto": "ranni",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_ranni_wszyscy"
+              },
+              {
+                "flag": "wojna_ranni_swoi"
+              }
+            ]
+          }
+        },
+        {
+          "id": "dowod",
+          "text": "Słyszałem, że siostra wystawia dowody życia.",
+          "goto": "dowod",
+          "requires": {
+            "all": [
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 3
+              },
+              {
+                "notFlag": "dowod_zywego"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "powrot": {
+      "speaker": "Siostra Jadwiga",
+      "text": "Siostra Jadwiga nie podnosi wzroku od świec, które przycina, ale w jej głosie jest coś cieplejszego niż poprzednim razem. „Braciszek wrócił. Dom Ciszy ma cierpliwość do tych, którzy wracają. Czego tym razem szukasz?”",
+      "options": [
+        {
+          "id": "dom",
+          "text": "Co tu właściwie robicie?",
+          "goto": "dom"
+        },
+        {
+          "id": "klasztor",
+          "text": "Gdzie szukać tych, co zniknęli z miasta?",
+          "goto": "klasztor"
+        },
+        {
+          "id": "ranni",
+          "text": "Z pola bitwy przywieziono rannych.",
+          "goto": "ranni",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_ranni_wszyscy"
+              },
+              {
+                "flag": "wojna_ranni_swoi"
+              }
+            ]
+          }
+        },
+        {
+          "id": "dowod",
+          "text": "Słyszałem, że siostra wystawia dowody życia.",
+          "goto": "dowod",
+          "requires": {
+            "all": [
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 3
+              },
+              {
+                "notFlag": "dowod_zywego"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "dom": {
+      "speaker": "Siostra Jadwiga",
+      "text": "„Modlimy się, żeby nikt nie pytał, i karmimy tych, co pytają. Cesarz wysyła nam swoich chorych, a my wysyłamy mu rachunek. Wiadomo, że nigdy nie płaci, ale rachunek ma po co istnieć.” Uśmiecha się, a uśmiech nie sięga oczu.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "klasztor": {
+      "speaker": "Siostra Jadwiga",
+      "text": "„Ci, co zniknęli? Są tacy, co chodzą do starego klasztoru za miastem, cztery dni drogi. Dawniej były tam zakonnice, teraz są tam tylko echa i kilku uciekinierów. Nie mówię, że ich tam zostawiłam. Mówię, że wiem, gdzie szukać, jak ktoś pyta jak należy.”",
+      "actions": [
+        {
+          "reveal": "opuszczony_klasztor"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "ranni": {
+      "speaker": "Siostra Jadwiga",
+      "text": "„Tak, słyszałam. Na wozach, w workach, w czyichś kocach. Jedni z jednej strony, drudzy z drugiej, wszyscy z tym samym wyrazem. Dobrze zrobiłeś, że ich zabrałeś, i nie mówię tego, bo to ładnie brzmi, tylko dlatego, że tu nikt inny nie zabiera.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "powrot"
+        }
+      ]
+    },
+    "dowod": {
+      "speaker": "Siostra Jadwiga",
+      "text": "Siostra słucha w ciszy i nie przerywa. Na koniec wyciąga z rękawa pieczęć i przybija ją na kawałku pergaminu z zimną pewnością. „Zaświadczam, że ten człowiek żyje, bo go dotykałam. A czy widział to, co widział, tego pieczęć nie potwierdza, ale też temu nie przeczy.” Podaje ci dokument jak ostatni sakrament.",
+      "actions": [
+        {
+          "setFlag": "dowod_zywego"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dziękuję.",
+          "goto": "powrot"
+        }
+      ]
+    }
+  }
+}

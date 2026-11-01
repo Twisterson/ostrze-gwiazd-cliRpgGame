@@ -1,0 +1,87 @@
+{
+  "id": "rozstrzygniecie_kto_pali_w_zaulku",
+  "start": "start",
+  "nodes": {
+    "start": {
+      "speaker": "Alchemik Zgryzota",
+      "text": "Alchemik stoi w zwęglonych drzwiach pracowni i obwąchuje własną brodę. „Trzecia pracownia w tym miesiącu. Nie, żebym liczył. Złapałem wczoraj na gorącym uczynku jednego chłopaka z beczką oleju. Płacze i mówi, że mu kazali. Co z nim zrobić? Bo ja bym go oddał strażnikom, ale strażnicy go wypuszczą.”",
+      "options": [
+        {
+          "id": "zglos",
+          "text": "Do straży z nim. Niech sąd się nauczy czytać.",
+          "goto": "wynik_zglos"
+        },
+        {
+          "id": "ukryj",
+          "text": "Puść go. Chłopak ma dwanaście lat, a olej dostał od kogoś większego.",
+          "goto": "wynik_ukryj"
+        },
+        {
+          "id": "szantaz",
+          "text": "Powiedz mi, kto go posłał. Za dyskrecję zapłacisz.",
+          "goto": "wynik_szantaz"
+        }
+      ]
+    },
+    "wynik_zglos": {
+      "speaker": "Alchemik Zgryzota",
+      "text": "Chłopak idzie do straży z opuszczoną głową. Alchemik wzdycha: „No, niech przynajmniej strażnik zapisze, jak mu na imię, to się później nie wypiera.” Ręce ma poczernione od sadzy, ale uśmiecha się pierwszy raz od tygodnia.",
+      "actions": [
+        {
+          "setFlag": "stolica_pozar_zgloszony"
+        },
+        {
+          "setFlag": "kto_pali_w_zaulku_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_ukryj": {
+      "speaker": "Alchemik Zgryzota",
+      "text": "Alchemik patrzy na ciebie jak na wariata. „Puścić? A kto zapłaci za pracownię?” Chłopak znika w mgnieniu oka, zostawiając beczkę i słowo „dziękuję” rzucone bez patrzenia w oczy. Szklarze będą mieć o czym gadać.",
+      "actions": [
+        {
+          "setFlag": "stolica_pozar_ukryty"
+        },
+        {
+          "setFlag": "kto_pali_w_zaulku_zrobione"
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wynik_szantaz": {
+      "speaker": "Alchemik Zgryzota",
+      "text": "Alchemik waha się, potem wzrusza ramionami. „Pan Skorupa z Zaułka Garncarzy, mój konkurent. Za pańskie milczenie dam jeszcze dwadzieścia groszy, żeby było jasne, że to pan wie, a ja nie.” Bierzesz pieniądze, notujesz nazwisko i czujesz, że miasto właśnie zrobiło się trochę bardziej twoje.",
+      "actions": [
+        {
+          "setFlag": "stolica_pozar_szantaz"
+        },
+        {
+          "setFlag": "kto_pali_w_zaulku_zrobione"
+        },
+        {
+          "giveMoney": 20
+        }
+      ],
+      "options": [
+        {
+          "id": "wracam",
+          "text": "Wracam do miasta.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

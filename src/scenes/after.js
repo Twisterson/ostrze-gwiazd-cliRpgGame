@@ -40,8 +40,13 @@ export async function levelUpHook(ctx) {
   if (attributePoints > 0 && data.attributes.some((a) => attrBase[a.id] < rules.creator.attributeMax)) {
     await header("levelUp.attributes");
     const vals = await sliders(io, ui, {
-      rows: data.attributes.map((a) => ({ label: a.name, value: attrBase[a.id], min: attrBase[a.id], max: rules.creator.attributeMax, note: a.description })),
+      // In the frame the description of the attribute under the cursor fills the scene panel (as in the creator); without it, it trails the row.
+      rows: data.attributes.map((a) => ({ label: a.name, value: attrBase[a.id], min: attrBase[a.id], max: rules.creator.attributeMax, note: io.frame ? undefined : a.description })),
       budget: attributePoints,
+      preview: (vals, cursor) => {
+        const current = data.attributes[Math.min(cursor, data.attributes.length - 1)];
+        return [paint("title", t(ui, "levelUp.title", { level: character.level })), paint("title", t(ui, "levelUp.attributes")), "", `${current.name}: ${current.description}`];
+      },
     });
     data.attributes.forEach((a, i) => { if (vals[i] > attrBase[a.id]) attributes[a.id] = vals[i] - attrBase[a.id]; });
   }

@@ -5,7 +5,7 @@
   "nodes": {
     "kuznia": {
       "speaker": "Kowal Zbych",
-      "text": "Kowal dmucha w żar, jakby to był zdradziecki sąsiad. „Podkowy, haki, gwoździe. Czarów nie kuję, bo za nie nikt nie płaci. Co tam masz?”",
+      "text": "Kowal rozdmuchuje żar miechem. „Podkowy, haki, gwoździe. Czarów nie kuję, bo za nie nikt nie płaci. Co tam masz?”",
       "options": [
         {
           "text": "Odłamek szkła z młyna.",
@@ -43,6 +43,27 @@
           "goto": "kamien_po",
           "requires": {
             "flag": "kamien_rozpoznany"
+          }
+        },
+        {
+          "id": "towar",
+          "text": "Co masz na sprzedaż?",
+          "goto": "towar"
+        },
+        {
+          "id": "proch",
+          "text": "Gdzie kupić proch i kusze?",
+          "goto": "proch",
+          "requires": {
+            "notFlag": "szkarad_odkryty"
+          }
+        },
+        {
+          "id": "ostoja_plotka",
+          "text": "Słyszałeś o zbójach w lesie?",
+          "goto": "ostoja_plotka",
+          "requires": {
+            "notFlag": "ostoja_wiem"
           }
         },
         {
@@ -104,6 +125,60 @@
           "id": "dalej",
           "text": "Tak to bywa.",
           "goto": "kuznia"
+        }
+      ]
+    },
+    "towar": {
+      "speaker": "Kowal Zbych",
+      "text": "Zbych wyciera dłonie w fartuch i otwiera skrzynię pod ścianą. „Żelazo na każdą kieszeń. No, prawie każdą. Patrz, nie obślinij mi stali.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zerknę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "kowal_sklep"
+        }
+      ]
+    },
+    "proch": {
+      "speaker": "Kowal Zbych",
+      "text": "„Proch? To nie do mnie, ja kuję, a nie strzelam.” Kowal wskazuje brodą w stronę zaułka za karczmą. „Szkarad, ruszniczarz. Czarny od sadzy i mrukliwy jak pień. Tam znajdziesz i kusze, i te diabelskie rury z wyspy. Powiedz, że od Zbycha, to nie wyrzuci cię od razu.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "kuznia"
+        }
+      ],
+      "actions": [
+        {
+          "reveal": "wilczy_brod.szkarad"
+        },
+        {
+          "setFlag": "szkarad_odkryty"
+        }
+      ]
+    },
+    "ostoja_plotka": {
+      "speaker": "Kowal Zbych",
+      "text": "„Zbójów? Co chwila ktoś tu przychodzi i skarży się na zbójów. Ale ci z ostoi to inna sztuka. Trzy dni na wschód, tam gdzie las robi się taki gęsty, że i wilk by się zgubił. Herszt siedzi i pije z cudzych kubków. Idź, jeśli ci życie zbywa.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "kuznia"
+        }
+      ],
+      "actions": [
+        {
+          "reveal": "ostoja_zbojcow"
+        },
+        {
+          "setFlag": "ostoja_wiem"
         }
       ]
     }

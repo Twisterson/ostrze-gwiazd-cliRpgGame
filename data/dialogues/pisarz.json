@@ -1,0 +1,889 @@
+{
+  "id": "pisarz",
+  "portrait": "portret_pisarz",
+  "start": "biuro",
+  "nodes": {
+    "biuro": {
+      "speaker": "Pisarz Atrament",
+      "text": "Pisarz podnosi głowę znad księgi tak wolno, że księga zdąża się zestarzeć. „Zlecenia? Mam. Rozliczenia? Mam. Cierpliwość? Skończyła się w zeszłym kwartale. Co pana sprowadza, obywatelu: sprawy czy nadzieje?”",
+      "options": [
+        {
+          "id": "zlecenia",
+          "text": "Jak to działa z tablicą?",
+          "goto": "zlecenia"
+        },
+        {
+          "id": "meld_stolica_pozar_zgloszony",
+          "text": "Rozliczam: Kto pali w Zaułku Szklarzy.",
+          "goto": "meld_stolica_pozar_zgloszony",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_pozar_zgloszony"
+              },
+              {
+                "notFlag": "kto_pali_w_zaulku_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_pozar_ukryty",
+          "text": "Rozliczam: Kto pali w Zaułku Szklarzy.",
+          "goto": "meld_stolica_pozar_ukryty",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_pozar_ukryty"
+              },
+              {
+                "notFlag": "kto_pali_w_zaulku_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_pozar_szantaz",
+          "text": "Rozliczam: Kto pali w Zaułku Szklarzy.",
+          "goto": "meld_stolica_pozar_szantaz",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_pozar_szantaz"
+              },
+              {
+                "notFlag": "kto_pali_w_zaulku_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_skarbnik_wydany",
+          "text": "Rozliczam: Zaginiony skarbnik.",
+          "goto": "meld_stolica_skarbnik_wydany",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_skarbnik_wydany"
+              },
+              {
+                "notFlag": "zaginiony_skarbnik_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_skarbnik_ukryty",
+          "text": "Rozliczam: Zaginiony skarbnik.",
+          "goto": "meld_stolica_skarbnik_ukryty",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_skarbnik_ukryty"
+              },
+              {
+                "notFlag": "zaginiony_skarbnik_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_skarbnik_polowa",
+          "text": "Rozliczam: Zaginiony skarbnik.",
+          "goto": "meld_stolica_skarbnik_polowa",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_skarbnik_polowa"
+              },
+              {
+                "notFlag": "zaginiony_skarbnik_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_wino_przemyt",
+          "text": "Rozliczam: Wino dla koszar.",
+          "goto": "meld_stolica_wino_przemyt",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_wino_przemyt"
+              },
+              {
+                "notFlag": "wino_dla_koszar_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_wino_kupione",
+          "text": "Rozliczam: Wino dla koszar.",
+          "goto": "meld_stolica_wino_kupione",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_wino_kupione"
+              },
+              {
+                "notFlag": "wino_dla_koszar_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_wino_nic",
+          "text": "Rozliczam: Wino dla koszar.",
+          "goto": "meld_stolica_wino_nic",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_wino_nic"
+              },
+              {
+                "notFlag": "wino_dla_koszar_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_dlug_splacony",
+          "text": "Rozliczam: Dług przekupki.",
+          "goto": "meld_stolica_dlug_splacony",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_dlug_splacony"
+              },
+              {
+                "notFlag": "dlug_przekupki_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_dlug_zastraszony",
+          "text": "Rozliczam: Dług przekupki.",
+          "goto": "meld_stolica_dlug_zastraszony",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_dlug_zastraszony"
+              },
+              {
+                "notFlag": "dlug_przekupki_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_dlug_umorzony",
+          "text": "Rozliczam: Dług przekupki.",
+          "goto": "meld_stolica_dlug_umorzony",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_dlug_umorzony"
+              },
+              {
+                "notFlag": "dlug_przekupki_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_nazwiska_spisane",
+          "text": "Rozliczam: Cmentarz bez nazwisk.",
+          "goto": "meld_stolica_nazwiska_spisane",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_nazwiska_spisane"
+              },
+              {
+                "notFlag": "cmentarz_bez_nazwisk_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_nazwiska_zatajone",
+          "text": "Rozliczam: Cmentarz bez nazwisk.",
+          "goto": "meld_stolica_nazwiska_zatajone",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_nazwiska_zatajone"
+              },
+              {
+                "notFlag": "cmentarz_bez_nazwisk_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_nazwiska_sprzedane",
+          "text": "Rozliczam: Cmentarz bez nazwisk.",
+          "goto": "meld_stolica_nazwiska_sprzedane",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_nazwiska_sprzedane"
+              },
+              {
+                "notFlag": "cmentarz_bez_nazwisk_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_list_dostarczony",
+          "text": "Rozliczam: List dla marszałka.",
+          "goto": "meld_stolica_list_dostarczony",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_list_dostarczony"
+              },
+              {
+                "notFlag": "list_dla_marszalka_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_list_przeczytany",
+          "text": "Rozliczam: List dla marszałka.",
+          "goto": "meld_stolica_list_przeczytany",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_list_przeczytany"
+              },
+              {
+                "notFlag": "list_dla_marszalka_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_list_spalony",
+          "text": "Rozliczam: List dla marszałka.",
+          "goto": "meld_stolica_list_spalony",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_list_spalony"
+              },
+              {
+                "notFlag": "list_dla_marszalka_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_przemyt_przepuszczony",
+          "text": "Rozliczam: Przemyt z portu.",
+          "goto": "meld_stolica_przemyt_przepuszczony",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_przemyt_przepuszczony"
+              },
+              {
+                "notFlag": "przemyt_z_portu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_przemyt_zgloszony",
+          "text": "Rozliczam: Przemyt z portu.",
+          "goto": "meld_stolica_przemyt_zgloszony",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_przemyt_zgloszony"
+              },
+              {
+                "notFlag": "przemyt_z_portu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_przemyt_przejety",
+          "text": "Rozliczam: Przemyt z portu.",
+          "goto": "meld_stolica_przemyt_przejety",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_przemyt_przejety"
+              },
+              {
+                "notFlag": "przemyt_z_portu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_klucz_oddany",
+          "text": "Rozliczam: Smyk i klucz.",
+          "goto": "meld_stolica_klucz_oddany",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_klucz_oddany"
+              },
+              {
+                "notFlag": "smyk_i_klucz_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meld_stolica_klucz_zatrzymany",
+          "text": "Rozliczam: Smyk i klucz.",
+          "goto": "meld_stolica_klucz_zatrzymany",
+          "requires": {
+            "all": [
+              {
+                "flag": "stolica_klucz_zatrzymany"
+              },
+              {
+                "notFlag": "smyk_i_klucz_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "dowod",
+          "text": "Potrzebuję dowodu, że jestem żywy i że coś widziałem.",
+          "goto": "dowod",
+          "requires": {
+            "all": [
+              {
+                "var": "zlecenia_stolicy",
+                "gte": 3
+              },
+              {
+                "notFlag": "dowod_zywego"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zlecenia": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Tablica wisi tam, gdzie wisi. Brać z niej może każdy, kto umie czytać albo udaje. Po zrobieniu przychodzi pan do mnie, ja stempluję, ktoś płaci. W międzyczasie nikt nie zadaje pytań, bo pytania są drogie. Reklamacje przyjmuję we wtorki. Wtorków u nas nie ma.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_pozar_zgloszony": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Zgłosił pan sprawę? Czyli sprawiedliwość miała dziś dobry dzień. Ciekawe, kto jej to zaplanował.” Pisarz notuje coś, czego nie pokazuje.",
+      "actions": [
+        {
+          "setFlag": "kto_pali_w_zaulku_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_pozar_ukryty": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Puścił pan dzieciaka? Szlachetnie. I nierozsądnie, ale szlachetne zapisuje się szybciej.” Pisarz stempluje bez entuzjazmu.",
+      "actions": [
+        {
+          "setFlag": "kto_pali_w_zaulku_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_pozar_szantaz": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Zarobił pan na tym? Szacunek. Sam bym tak zrobił, gdybym miał ładniejszy płaszcz.” Pisarz podsuwa ci pokwitowanie.",
+      "actions": [
+        {
+          "setFlag": "kto_pali_w_zaulku_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_skarbnik_wydany": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Wydał go pan? Ciężka sprawa. Ale pieniądze wróciły do skrzyni, a to ten rodzaj dobrej wiadomości, który nikogo nie cieszy.” Pisarz zamyka księgę.",
+      "actions": [
+        {
+          "setFlag": "zaginiony_skarbnik_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_skarbnik_ukryty": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Ukrył pan człowieka? Cóż, pieniądze gdzieś są, więc księga się zgadza. Nie widzę tu żadnej sprzeczności.” Pisarz stempluje i nie pyta.",
+      "actions": [
+        {
+          "setFlag": "zaginiony_skarbnik_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_skarbnik_polowa": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Po połowie? Po ludzku. Szkoda, że tu liczy się nie po ludzku, tylko po kwitach.” Pisarz uśmiecha się półgębkiem.",
+      "actions": [
+        {
+          "setFlag": "zaginiony_skarbnik_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_wino_przemyt": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Przemyt? Wspaniale. W tym mieście wszystko, co dobre, przychodzi bokiem.” Pisarz przybija pieczątkę z lekkim uśmiechem.",
+      "actions": [
+        {
+          "setFlag": "wino_dla_koszar_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_wino_kupione": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Kupił pan uczciwie? To dziwne, ale zapiszę bez komentarza.” Pisarz zerka na ciebie podejrzliwie.",
+      "actions": [
+        {
+          "setFlag": "wino_dla_koszar_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_wino_nic": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Powiedział pan, że wina nie będzie? Marszałek się ucieszy. Nie, żartuję: marszałek pana znienawidzi.” Pisarz wzdycha. „Trudno, przynajmniej to coś nowego.”",
+      "actions": [
+        {
+          "setFlag": "wino_dla_koszar_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_dlug_splacony": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Spłacił pan z własnych? Człowieku, tu się tak nie robi.” Pisarz kręci głową z podziwem. „Ale zapiszę jako dar na cele miłosierne.”",
+      "actions": [
+        {
+          "setFlag": "dlug_przekupki_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_dlug_zastraszony": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Zastraszył pan? Skutecznie. I taniej niż wynajęcie rajcy.” Pisarz stempluje, nie patrząc ci w oczy.",
+      "actions": [
+        {
+          "setFlag": "dlug_przekupki_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_dlug_umorzony": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Umorzyła? Ona? To musiał być bardzo przekonujący argument.” Pisarz unosi brew. „Kiedyś zapytam, co pan jej obiecał.”",
+      "actions": [
+        {
+          "setFlag": "dlug_przekupki_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_nazwiska_spisane": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Spisał pan nazwiska? Miasto odzyskało swoich zmarłych. Kto by pomyślał, że to takie kłopotliwe.” Pisarz podpisuje bez słowa.",
+      "actions": [
+        {
+          "setFlag": "cmentarz_bez_nazwisk_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_nazwiska_zatajone": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Zataił pan? Cicho, ostrożnie, rozsądnie. Rzadkie połączenie w tej okolicy.” Pisarz zamyka księgę.",
+      "actions": [
+        {
+          "setFlag": "cmentarz_bez_nazwisk_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_nazwiska_sprzedane": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Sprzedał pan listę? Lubię pana, choć nie powinienem. Tylko niech pan pamięta, że ten, kto kupuje, rzadko bywa dobrym człowiekiem.” Pisarz podsuwa ci pieczątkę.",
+      "actions": [
+        {
+          "setFlag": "cmentarz_bez_nazwisk_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_list_dostarczony": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Dostarczył pan i nie przeczytał? Taka wstrzemięźliwość to najrzadsza cnota.” Pisarz stempluje z szacunkiem.",
+      "actions": [
+        {
+          "setFlag": "list_dla_marszalka_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_list_przeczytany": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Przeczytał pan? To dobrze, to źle, to… zależy, co tam było. Na wszelki wypadek niech pan nic nie mówi.” Pisarz zaciera ręce, jakby chciał je umyć.",
+      "actions": [
+        {
+          "setFlag": "list_dla_marszalka_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_list_spalony": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Spalił pan? Marszałek się nie dowie, a ja się nie dowiem, że się nie dowie. Piękny porządek.” Pisarz wzdycha z ulgą.",
+      "actions": [
+        {
+          "setFlag": "list_dla_marszalka_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_przemyt_przepuszczony": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Przepuścił pan? Roztropnie. W tym mieście niewidzenie jest cnotą.” Pisarz stempluje, patrząc w sufit.",
+      "actions": [
+        {
+          "setFlag": "przemyt_z_portu_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_przemyt_zgloszony": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Zgłosił pan? Obywatelsko. Bezlitośnie. Ciekawe, ilu ludzi pana za to znienawidzi.” Pisarz uśmiecha się szeroko.",
+      "actions": [
+        {
+          "setFlag": "przemyt_z_portu_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_przemyt_przejety": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Przejął pan część? Nie zapytam o szczegóły. Uczciwość nie jest mocną stroną tego miasta, więc rozumiem.” Pisarz podsuwa ci kwit.",
+      "actions": [
+        {
+          "setFlag": "przemyt_z_portu_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_klucz_oddany": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Smyk dostał klucz? Zaraz się rozpłacze albo kogoś okradnie z radości.” Pisarz stempluje z lekkim uśmiechem.",
+      "actions": [
+        {
+          "setFlag": "smyk_i_klucz_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "meld_stolica_klucz_zatrzymany": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Zatrzymał pan klucz? Smyk i tak się dowie. Ten chłopak ma uszy w całym mieście.” Pisarz zamyka księgę.",
+      "actions": [
+        {
+          "setFlag": "smyk_i_klucz_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_stolicy": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "biuro"
+        }
+      ]
+    },
+    "dowod": {
+      "speaker": "Pisarz Atrament",
+      "text": "„Dowód, że pan żyje? Piękna prośba. W tym mieście żywych jest mniej niż papierów, które to potwierdzają. Proszę poszukać w Domu Ciszy, siostra Jadwiga ma pieczęć, a pieczęci wierzą nawet strażnicy. Albo u kwatermistrza koszar, jeśli ma pan talent do fałszerstw.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "biuro"
+        }
+      ]
+    }
+  }
+}

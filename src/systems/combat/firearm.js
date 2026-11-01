@@ -2,7 +2,7 @@
 import { getStats } from "../stats.js";
 import { effectById, addToList } from "../effects.js";
 import { destroyEquipped } from "../inventory.js";
-import { livingEnemies, spawnEnemies } from "./state.js";
+import { livingEnemies, spawnEnemies, seasoned } from "./state.js";
 import { dealDamage } from "./formulas.js";
 import { strike } from "./strike.js";
 
@@ -18,15 +18,14 @@ export function misfireChance(state, data, weapon) {
 }
 
 /**
- * Adds the scene's `reinforcements` on the `far` band, once per fight (`combat.reinforced`); nothing when the scene has none.
+ * Adds `groups` (default: the scene's `reinforcements`) on the `far` band, once per fight (`combat.reinforced`); nothing when the scene has none.
  * Newcomers are numbered on from the enemies of the same id and join the end of the initiative order (no initiative roll).
  * @returns {object[]} `[{ type: "posilki", enemies: uids }]` or `[]`
  */
-export function addReinforcements(state, data, combat, rng) { // eslint-disable-line no-unused-vars
-  const groups = combat.def.reinforcements ?? [];
+export function addReinforcements(state, data, combat, rng, groups = combat.def.reinforcements ?? []) { // eslint-disable-line no-unused-vars
   if (combat.reinforced || groups.length === 0) return [];
   const before = combat.enemies.length;
-  spawnEnemies(data, combat.enemies, groups, "far");
+  spawnEnemies(data, combat.enemies, seasoned(data, combat.heroLevel ?? null, groups), "far");
   const joined = combat.enemies.slice(before);
   combat.order.push(...joined.map((e) => e.uid));
   combat.reinforced = true;

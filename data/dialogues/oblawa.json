@@ -23,7 +23,7 @@
     },
     "ucieczka": {
       "speaker": "Głuszec",
-      "text": "Dopadasz klapy piwnicy, przeciskasz się przez ciasną komórkę i wyłazisz w stodole kowala. Stamtąd już tylko skok do lasu. Za plecami wrzask, tętent kopyt i ujadanie psów. Biegniesz, aż płuca palą jak żarem, a Głuszec zostaje za wzgórzem, z sołtysem, karczmarzem i całym światem, któryś zdążył poznać.",
+      "text": "Dopadasz klapy piwnicy, przeciskasz się przez ciasną komórkę i wyłazisz w stodole kowala. Stamtąd już tylko skok do lasu. Za plecami wrzask, tętent kopyt i ujadanie psów. Biegniesz, aż płuca palą jak żarem, a Głuszec zostaje za wzgórzem, z sołtysem i karczmarzem.",
       "options": [
         {
           "id": "dalej",
@@ -64,7 +64,7 @@
     },
     "zostan_ok": {
       "speaker": "Głuszec",
-      "text": "Jeździec słucha, mrużąc oczy. Sołtys, nie czekając na pytanie, trajkocze, że cały ten rwetes to wina dwóch pijanych furmanów. Cesarscy wymieniają spojrzenia i po chwili wracają na siodła. Odjeżdżają, zostawiając kurz i gorzką pewność, że wrócą.",
+      "text": "Jeździec słucha, mrużąc oczy. Sołtys, nie czekając na pytanie, trajkocze, że cały ten rwetes to wina dwóch pijanych furmanów. Cesarscy wymieniają spojrzenia i po chwili wracają na siodła. Odjeżdżają. Wrócą, to pewne.",
       "options": [
         {
           "id": "dalej",

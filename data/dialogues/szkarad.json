@@ -1,0 +1,230 @@
+{
+  "id": "szkarad",
+  "portrait": "portret_szkarad",
+  "start": "powitanie",
+  "nodes": {
+    "powitanie": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "Za kontuarem z beczki po prochu siedzi chłop czarny od sadzy po łokcie. Przeżuwa słomkę i mierzy cię wzrokiem. „Za prochem się rozglądasz, pachołku? Jak nie masz grosza, to się nie rozglądaj.”",
+      "options": [
+        {
+          "id": "pierwszy",
+          "text": "Dzień dobry, mistrzu. Słyszałem, że u was kupić można żelazo, co strzela.",
+          "goto": "pierwszy",
+          "requires": {
+            "notFlag": "szkarad_znamy"
+          }
+        },
+        {
+          "id": "znowu",
+          "text": "Znowu ja. Bez pytań dziś nie wyjdę.",
+          "goto": "znowu",
+          "requires": {
+            "all": [
+              {
+                "flag": "szkarad_znamy"
+              },
+              {
+                "notFlag": "szkarad_gadal"
+              }
+            ]
+          }
+        },
+        {
+          "id": "wyspa",
+          "text": "Skąd ten proch? Śmierdzi inaczej niż nasz.",
+          "goto": "wyspa_test",
+          "requires": {
+            "all": [
+              {
+                "flag": "szkarad_znamy"
+              },
+              {
+                "notFlag": "szkarad_wyspa"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cesarz",
+          "text": "Cesarscy pytali o ciebie?",
+          "goto": "cesarscy",
+          "requires": {
+            "all": [
+              {
+                "flag": "szkarad_znamy"
+              },
+              {
+                "notFlag": "szkarad_ostrzegl"
+              }
+            ]
+          }
+        },
+        {
+          "id": "towar",
+          "text": "Pokaż towar.",
+          "goto": "towar",
+          "requires": {
+            "flag": "szkarad_znamy"
+          }
+        },
+        {
+          "id": "twierdza_plotka",
+          "text": "Gdzie jest ta twierdza, o której gadają wojacy?",
+          "goto": "twierdza_plotka",
+          "requires": {
+            "all": [
+              {
+                "flag": "szkarad_wyspa"
+              },
+              {
+                "notFlag": "twierdza_wiem"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "pierwszy": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "„Żelazo, co strzela. Dobre sobie.” Szkarad spluwa słomkę w ogień. „Pistolety, rusznice, łuki, kusze. Proch z wyspy rzemieślników, a nie z podwórka sąsiada. Pamiętaj: kula leci tam, gdzie chce, a nie tam, gdzie ty chcesz. Zwłaszcza po trzech kuflach.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Pokaż, co masz.",
+          "goto": "towar"
+        },
+        {
+          "id": "wroc",
+          "text": "Jeszcze pogadam.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "szkarad_znamy"
+        }
+      ]
+    },
+    "znowu": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "„A, to ty. Ten, co się pyta, zamiast kupić.” Szkarad ociera dłonie o fartuch. „No gadaj, zanim mi proch zwilgotnieje od twojego gadania.”",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Chodzi o to, co się dzieje na pograniczu.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "szkarad_gadal"
+        }
+      ]
+    },
+    "wyspa_test": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "Szkarad mruży oko i milczy dłużej, niż wypada. „Skąd, skąd. Z wyspy, mówiłem.”",
+      "options": [
+        {
+          "id": "naciskaj",
+          "text": "Gadaj, mistrzu, bo kupić nie kupię.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 40
+          },
+          "success": "wyspa_ok",
+          "failure": "wyspa_zle"
+        },
+        {
+          "id": "odpusc",
+          "text": "Dobra, nic nie mówiłem.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "wyspa_ok": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "Szkarad rozgląda się, czy nikt nie podsłuchuje. „Rzemieślnicy z wyspy kują z metalu, którego sami nie znają. Mówią, że ich ojcowie przypłynęli z nieba, w żelaznej łodzi. Ja tam w niebo nie wierzę, ale proch od nich kupuję. Ładnie bije.” Pociera nos. „Tylko nikomu nie mów, że ode mnie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Nikomu.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "szkarad_wyspa"
+        }
+      ]
+    },
+    "wyspa_zle": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "Szkarad prycha jak koń na pokrzywy. „Wierzysz, że kupię od ciebie język za dwa grosze? Idź do wieprza po radę, ten przynajmniej nie udaje mądrego. Proch jest mój, a skąd, to mój interes.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Trudno.",
+          "goto": "powitanie"
+        }
+      ]
+    },
+    "cesarscy": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "„Pytali, juści.” Szkarad kaszle. „Szukają ocalałych z rzezi na północy i każdego, kto ma w torbie siarkę z wyspy. Mnie dotąd ominęli, bo siedzę na beczce z prochem i oni to wiedzą. Ty się lepiej ludziom w oczy nie pchaj. A jak co, to wołaj, narobię takiego dymu, że cię rodzona matka nie znajdzie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki za ostrzeżenie.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "szkarad_ostrzegl"
+        }
+      ]
+    },
+    "towar": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "Szkarad otwiera skrzynię z takim hukiem, że z półki spadają garnki. „Patrz, ale nie dotykaj, jak nie masz za co. Za oglądanie też powinienem brać, ale dziś jestem dobry.”",
+      "options": [
+        {
+          "id": "kup",
+          "text": "Zerknę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "szkarad_sklep"
+        }
+      ]
+    },
+    "twierdza_plotka": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "„Twierdza na granicy, cztery dni na wschód. Cesarski proch idzie stamtąd. Stary fort, pełen ludzi, którzy nie chcą być widziani. Weź dużo strzał i mało gadania.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "powitanie"
+        }
+      ],
+      "actions": [
+        {
+          "reveal": "twierdza_graniczna"
+        },
+        {
+          "setFlag": "twierdza_wiem"
+        }
+      ]
+    }
+  }
+}

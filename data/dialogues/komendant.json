@@ -5,7 +5,7 @@
   "nodes": {
     "przybycie": {
       "speaker": "Komendant Wszebor",
-      "text": "Komendant podnosi łeb znad rozlanej zupy i mierzy cię od butów po czuprynę, jak dziurawy garnek na targu. „Patrzcie go. Łachmaniarz, a bramę przelazł jak przez własne podwórze. Kim jesteś, psiakrew? Tutejszy to ty nie jesteś.”",
+      "text": "Komendant podnosi łeb znad rozlanej zupy i mierzy cię od butów po czuprynę. „Patrzcie go. Łachmaniarz, a bramę przelazł jak przez własne podwórze. Kim ty, kurwa, jesteś? Tutejszy to ty nie jesteś.”",
       "options": [
         {
           "id": "wedrowiec",
@@ -64,7 +64,7 @@
     },
     "trzecie": {
       "speaker": "Komendant Wszebor",
-      "text": "Komendant długo milczy, żuje wąs i gapi się na ciebie jak na zagadkę, której rozwiązywać się nie opłaca. „Dobra. Więcej nie pytam, bo odpowiedź byłaby gorsza od pytania. Ale skoro tu siedzisz i żresz moje powietrze, to je odrobisz.”",
+      "text": "Komendant długo milczy i żuje wąs. „Dobra. Więcej nie pytam, bo odpowiedź byłaby gorsza od pytania. Ale skoro już tu jesteś i jesz moją zupę, to ją odrobisz.”",
       "options": [
         {
           "id": "dalej",

@@ -14,21 +14,31 @@ import { mysticTags, fitPieces } from "./screen.js";
 import { visibleWidth } from "./frame.js";
 
 const BLOCK_ROWS = 7;
-const ART_WIDTH = 40;
-const RIGHT_COLUMN = ART_WIDTH + 1; // the right column starts at column 42 (1-based)
+const INFO_MIN = 43; // columns the enemies' text needs beside the picture
+const LOG_MIN = 8; // rows left for the log below a tall picture
 
-/** The target's picture (`color`: 256-colour half blocks, else ASCII), each row padded to the art column. */
-function artRows(data, target, color) {
+/**
+ * The target's picture beside the info (`color`: 256-colour half blocks, else ASCII): `rows` padded to the picture's width
+ * plus one, and `left` (that width). Empty when there is no picture, when the text would not fit beside it in `width`
+ * columns, or when a tall picture would leave fewer than LOG_MIN rows of `height` for the log.
+ */
+function artColumn(data, target, { color, width, height, minInfo = INFO_MIN }) {
   const image = target && data.art?.[enemyById(data, target.id)?.art];
-  if (!image) return [];
-  return renderPixels(image, { color }).map((row) => row + " ".repeat(Math.max(0, RIGHT_COLUMN - visibleWidth(row))));
+  const none = { rows: [], left: 0 };
+  if (!image) return none;
+  const rowCount = image.h / 2;
+  if (width < image.w + 1 + minInfo) return none;
+  if (rowCount > BLOCK_ROWS + 1 && height !== undefined && height - rowCount < LOG_MIN) return none;
+  const left = image.w + 1; // the right column starts after the picture (column 42 for the 40-pixel ones)
+  return { rows: renderPixels(image, { color }).map((row) => row + " ".repeat(Math.max(0, left - visibleWidth(row)))), left };
 }
+const INFO_HEAD_ROWS = 2; // the target's name and its effects, above the enemy list
 const BAR_MAX = 14;
 const BAR_MIN = 4;
 const LIST_ROWS = 2;
-const MAX_LIST_ROWS = 4; // the enemies listed in a frame's panel
+const MIN_LIST_ROWS = 4; // the enemies a frame's panel can always list
 const ACTION_HOTKEYS = { attack: "a", reload: "p", use: "u", swap: "z", move: "b", defend: "o", flee: "c", end: "k", log: "l", techniques: "t" };
-const NO_COST_HINT = new Set(["use", "defend", "end", "log", "techniques"]); // variable or free: the cost is not shown
+const NO_COST_HINT = new Set(["use", "end", "log", "techniques"]); // variable or free: the cost is not shown (defend takes all remaining AP, shown as that number)
 
 const pad2 = (n) => String(n).padStart(2, "0");
 
@@ -56,9 +66,17 @@ function effectTags(ui, data, effects) {
 function logLines(data, combat, budget, logSeen) {
   const { log } = combat;
   const fresh = logSeen === undefined ? 0 : log.length - logSeen;
-  if (fresh <= budget) return { marker: null, entries: log.slice(log.length - Math.min(budget, log.length)) };
+  const tail = (n) => log.map((text, i) => ({ text, role: combat.logRoles?.[i] ?? "dim" })).slice(log.length - n);
+  if (fresh <= budget) return { marker: null, entries: tail(Math.min(budget, log.length)) };
   const shown = budget - 1;
-  return { marker: t(data.ui, "combat.logMore", { n: fresh - shown }), entries: shown > 0 ? log.slice(-shown) : [] };
+  return { marker: t(data.ui, "combat.logMore", { n: fresh - shown }), entries: shown > 0 ? tail(shown) : [] };
+}
+
+/** The first `count` of the living enemies, in their order; the target is always among them. */
+function listedEnemies(living, target, count) {
+  const listed = living.slice(0, count);
+  if (target && !listed.includes(target)) listed[count - 1] = target;
+  return listed;
 }
 
 /** Right column of the top block: target name + HP bar, target effects, enemy list, last log entries. */
@@ -81,7 +99,7 @@ function rightColumn(state, data, combat, target, width, logSeen, { listRows = L
     mark: e === target ? t(ui, "combat.targetMark") : " ", n: e.uid.split("#")[1], name: e.name.padEnd(nameW),
     pct: String(percent(e.hp, e.hpMax)).padStart(3), band: t(ui, `range.${e.band === "melee" ? "melee" : "far"}`),
   });
-  const shown = living.length <= listRows ? living.map(entry) : [entry(target ?? living[0]), t(ui, "combat.enemiesMore", { n: living.length - 1 })];
+  const shown = living.length <= listRows ? living.map(entry) : [...listedEnemies(living, target, listRows - 1).map(entry), t(ui, "combat.enemiesMore", { n: living.length - (listRows - 1) })];
   for (let i = 0; i < (log ? listRows : Math.min(shown.length, listRows)); i++) rows.push({ role: null, text: fit(shown[i] ?? "", width) });
   if (!log) return rows;
 
@@ -89,7 +107,7 @@ function rightColumn(state, data, combat, target, width, logSeen, { listRows = L
   const { marker, entries } = logLines(data, combat, Math.min(data.rules.combat.logSize, logRows), logSeen);
   for (let i = 0; i < logRows - entries.length - (marker ? 1 : 0); i++) rows.push({ role: null, text: "" });
   if (marker) rows.push({ role: "warn", text: fit(marker, width) });
-  for (const text of entries) rows.push({ role: "dim", text: fit(`· ${text}`, width) });
+  for (const { text, role } of entries) rows.push({ role, text: fit(`· ${text}`, width) });
   return rows;
 }
 
@@ -137,12 +155,14 @@ export function renderCombat(state, data, combat, { columns, rows, tty, targetUi
   const withArt = Boolean(tty) && columns >= 80 && rows >= 24;
   const living = livingEnemies(combat);
   const target = living.find((e) => e.uid === targetUid) ?? living[0];
-  const art = withArt ? artRows(data, target, false).slice(0, 7) : []; // no frame: plain ASCII, at most 7 rows (the screen budget of the old 80×24 layout)
-  const left = withArt ? RIGHT_COLUMN : 0;
+  const column = withArt ? artColumn(data, target, { color: false, width: columns, minInfo: 38 }) : { rows: [], left: 0 };
+  const tall = column.rows.length > BLOCK_ROWS + 1; // no frame: plain ASCII, at most 7 rows (the screen budget of the old 80×24 layout) – a much taller picture is left out, not cropped to its top
+  const art = tall ? [] : column.rows.slice(0, BLOCK_ROWS);
+  const left = tall ? 0 : column.left;
   const right = rightColumn(state, data, combat, target, maxWidth - left, logSeen);
   const block = Array.from({ length: Math.max(right.length, art.length) }, (_, i) => {
     const { role, text } = right[i] ?? { role: null, text: "" };
-    const grid = withArt ? art[i] ?? " ".repeat(left) : "";
+    const grid = left ? art[i] ?? " ".repeat(left) : "";
     return grid + (role && text ? paint(role, text) : text);
   });
   return [
@@ -161,10 +181,13 @@ export function renderCombat(state, data, combat, { columns, rows, tty, targetUi
 function renderCombatPanel(state, data, combat, { tty, targetUid, logSeen, width, height, color }) {
   const living = livingEnemies(combat);
   const target = living.find((e) => e.uid === targetUid) ?? living[0];
-  const withArt = Boolean(tty) && width >= 84;
-  const art = withArt ? artRows(data, target, color) : [];
-  const left = withArt ? RIGHT_COLUMN : 0;
-  const info = rightColumn(state, data, combat, target, width - left, logSeen, { listRows: MAX_LIST_ROWS, log: false });
+  const column = tty ? artColumn(data, target, { color, width, height }) : { rows: [], left: 0 };
+  const art = column.rows;
+  const left = column.left;
+  const withArt = left > 0;
+  // Beside the picture the list has the picture's height; without one it leaves rows for the log.
+  const room = (withArt ? art.length : height - 1 - LOG_MIN) - INFO_HEAD_ROWS;
+  const info = rightColumn(state, data, combat, target, width - left, logSeen, { listRows: Math.max(MIN_LIST_ROWS, room), log: false });
   const blockRows = withArt ? Math.max(BLOCK_ROWS, info.length, art.length) : info.length;
   const block = Array.from({ length: blockRows }, (_, i) => {
     const { role, text } = info[i] ?? { role: null, text: "" };
@@ -176,7 +199,7 @@ function renderCombatPanel(state, data, combat, { tty, targetUid, logSeen, width
   if (budget > 0) {
     const { marker, entries } = logLines(data, combat, budget, logSeen);
     if (marker) lines.push(paint("warn", fit(marker, width)));
-    for (const text of entries) lines.push(paint("dim", fit(`· ${text}`, width)));
+    for (const { text, role } of entries) lines.push(paint(role, fit(`· ${text}`, width)));
   }
   return lines.slice(0, height);
 }
@@ -219,14 +242,14 @@ export function techniqueItems(data, techniques) {
   });
 }
 
-/** An artifact ability row: "Artefakt: Płonące ostrze (◆50 · 2 PA)" or "(−10 HP · 2 PA)" when paid with HP; greyed with the reason. */
+/** An artifact ability row: "Płonące ostrze (◆50 · 2 PA)" or "(−10 HP · 2 PA)" when paid with HP; greyed with the reason. */
 function artifactItem(data, a) {
   const { ui } = data;
   const effect = effectById(data, a.effect);
   const label = a.viaHp !== undefined
     ? t(ui, "combat.tech.artifactHp", { name: a.label, hp: a.viaHp, ap: a.apCost })
     : t(ui, "combat.tech.artifact", { name: a.label, cost: Math.round(a.chargeCost), ap: a.apCost });
-  const description = t(ui, "combat.techDesc.artifact", { effect: effect?.name ?? a.effect, description: effect?.description ?? "" });
+  const description = a.description ?? t(ui, "combat.techDesc.artifact", { effect: effect?.name ?? a.effect, description: effect?.description ?? "" });
   return { label, description, ...(a.disabled ? { disabled: true, hint: `(${t(ui, a.reason)})` } : {}) };
 }
 

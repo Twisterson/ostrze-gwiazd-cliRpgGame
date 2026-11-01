@@ -1,0 +1,49 @@
+{
+  "id": "prosba_chleb_dla_grabarza",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Piekarka Luiza",
+      "text": "Przy ulicy stoi piekarka z koszem bochnów, który zasłania jej pół twarzy. „Luiza, piekarka. Grabarz z cmentarza zbiorowego nie ma kiedy przyjść po chleb, bo ma za dużo pracy. Zaniesiesz mu? Ja nie pójdę, bo z cmentarzami mam gorzką historię. Zapłaci ci, a jak nie, to przynajmniej będziesz wiedział, gdzie go potem pochować.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Nie mam czasu.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Piekarka Luiza",
+      "text": "Luiza wsuwa ci bochen za pazuchę i otrzepuje mąkę z twojej kurtki. „Idź, póki ciepły. Zimny chleb to nie to samo, tak jak zimny grabarz.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "chleb_dla_grabarza"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Piekarka Luiza",
+      "text": "„Trudno. Niech mu głód podpowie, że ma żonę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

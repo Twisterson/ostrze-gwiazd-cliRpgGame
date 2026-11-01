@@ -1,0 +1,106 @@
+{
+  "id": "przekupka",
+  "portrait": "portret_przekupka",
+  "start": "kram",
+  "nodes": {
+    "kram": {
+      "speaker": "Przekupka Rzepa",
+      "text": "Przekupka ma głos jak piła i uśmiech jak sprzedawca grzebieni dla łysych. „Jabłka! Jabłka tak soczyste, że aż szkoda je jeść! Panie, co pan tak patrzy, wygląda pan na człowieka, który zna się na jabłkach. Albo na kłopotach.”",
+      "options": [
+        {
+          "id": "targ",
+          "text": "Ile za koszyk?",
+          "check": {
+            "skill": "handel",
+            "difficulty": 30
+          },
+          "success": "taniej",
+          "failure": "drozej",
+          "requires": {
+            "money": 2
+          }
+        },
+        {
+          "id": "plotki",
+          "text": "Co ludzie gadają na targu?",
+          "goto": "plotki"
+        },
+        {
+          "id": "beczki",
+          "text": "Słyszałaś o smole do rzeki?",
+          "goto": "beczki",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_beczki_rzeka"
+              },
+              {
+                "flag": "wojna_beczki_cesarscy"
+              },
+              {
+                "flag": "wojna_beczki_jarnowianie"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "taniej": {
+      "speaker": "Przekupka Rzepa",
+      "text": "„No dobrze, dobrze, ma pan gadane jak rajca miejski. Dwa grosze i proszę zjeść, zanim zmienię zdanie.” Wciska ci koszyk jabłek, których nie zamierzasz jeść, ale warto było.",
+      "actions": [
+        {
+          "takeMoney": 2
+        },
+        {
+          "giveItem": "prowiant"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kram"
+        }
+      ]
+    },
+    "drozej": {
+      "speaker": "Przekupka Rzepa",
+      "text": "„Taniej? Panie, to targ, nie jałmużna! Za targowanie się biorę dodatkową opłatę, a wynosi ona tyle, że lepiej się nie targować.” Odwraca się do następnego klienta, jakbyś nie istniał.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kram"
+        }
+      ]
+    },
+    "plotki": {
+      "speaker": "Przekupka Rzepa",
+      "text": "„Że marszałek zbiera ludzi, że cesarz nie wychodzi, że ktoś pali w Zaułku Szklarzy po nocach i nikt nie wie po co. Że chłopcy ze straży nie biorą już łapówek, bo nie ma od kogo. Poza tym wszystko po staremu, czyli źle.” Zerka na ciebie. „A pan skąd taki znajomy?”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kram"
+        }
+      ]
+    },
+    "beczki": {
+      "speaker": "Przekupka Rzepa",
+      "text": "„O smole? Cały targ o tym gada! Że ktoś wylał ją w rzekę i cały front się od niej lepi, a nikt nie wie, od kogo. Pan wie? Nie? Nic nie szkodzi, ja też nie wiem, a opowiadam lepiej od tych, co wiedzą.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "kram"
+        }
+      ]
+    }
+  }
+}

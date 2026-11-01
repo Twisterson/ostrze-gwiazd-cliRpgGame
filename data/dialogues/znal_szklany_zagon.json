@@ -1,0 +1,22 @@
+{
+  "id": "znal_szklany_zagon",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Szkło",
+      "text": "Między odłamkami szkła ktoś kiedyś ułożył ścieżkę z kamieni. Na jej końcu leży prosty schowek z czegoś, co przypomina dziecięcą pamiątkę. Zabierasz to, co się da.",
+      "options": [
+        {
+          "id": "ok",
+          "text": "Zabierz, co się da.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "giveRandom": "lupy_znalezisko_gwiazdy"
+        }
+      ]
+    }
+  }
+}

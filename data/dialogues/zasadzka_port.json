@@ -1,0 +1,140 @@
+{
+  "id": "zasadzka_port",
+  "start": "wybor",
+  "nodes": {
+    "wybor": {
+      "speaker": "Węszyciel",
+      "text": "Węszyciel obraca w palcach coś cienkiego i błyszczącego. „Nic osobistego, panie. Poszukujemy człowieka z ostrzem, a pan ma ostrze, a kto ma ostrze, ten musi się wytłumaczyć.”",
+      "options": [
+        {
+          "id": "walka",
+          "text": "Tłumaczyć będziemy się na ostrzu.",
+          "goto": "walka"
+        },
+        {
+          "id": "wymowa",
+          "text": "Kapitan portu pozna mnie po śniadaniu. Nie lubi niespodzianek bez świadków.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 35
+          },
+          "success": "wymowa_ok",
+          "failure": "wymowa_pudlo",
+          "retry": true
+        },
+        {
+          "id": "skradanie",
+          "text": "Znikam między beczkami, zanim skończy zdanie.",
+          "check": {
+            "skill": "skradanie",
+            "difficulty": 35
+          },
+          "success": "skradanie_ok",
+          "failure": "skradanie_pudlo",
+          "retry": true
+        },
+        {
+          "id": "ucieczka",
+          "text": "Skaczę do łodzi i odpycham się od nabrzeża.",
+          "goto": "ucieczka"
+        }
+      ]
+    },
+    "walka": {
+      "speaker": "Węszyciel",
+      "text": "Węszyciel uśmiecha się jak ktoś, kto dostał to, na co czekał. Dryblas robi krok do przodu.",
+      "actions": [
+        {
+          "setFlag": "amb_port_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do dzieła.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_ok": {
+      "speaker": "Węszyciel",
+      "text": "Węszyciel mruga. Przez chwilę ocenia, czy jego rozkaz mieści w sobie awanturę z kapitanem portu. Nie mieści. „Innym razem” – mówi i rozpływa się w mroku.",
+      "actions": [
+        {
+          "xp": 10
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Ruszam dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_pudlo": {
+      "speaker": "Węszyciel",
+      "text": "„Kapitan portu śpi, a pan nie ma pojęcia, kto tu kogo pozna.” Węszyciel wyjmuje z rękawa cienką igłę i obraca ją w palcach. „Przestańmy udawać, że to rozmowa.”",
+      "actions": [
+        {
+          "setFlag": "amb_port_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No to walczymy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skradanie_ok": {
+      "speaker": "Węszyciel",
+      "text": "Wśród beczek jest ciemno jak w worku. Węszyciel obraca się, rozgląda, wzrusza ramionami i wraca do swojego dryblasa.",
+      "actions": [
+        {
+          "xp": 10
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Ruszam dalej.",
+          "goto": "end"
+        }
+      ]
+    },
+    "skradanie_pudlo": {
+      "speaker": "Węszyciel",
+      "text": "Potykasz się o linę, a hałas niesie się po nabrzeżu jak dzwon. „Ha, tu pan jest!” – woła dryblas i rusza z pałką, a węszyciel szepcze coś, co brzmi jak rozkaz.",
+      "actions": [
+        {
+          "setFlag": "amb_port_walka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No to walczymy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "ucieczka": {
+      "speaker": "Węszyciel",
+      "text": "Odpychasz łódź i wiatr bierze cię na falę. Z nabrzeża słychać gwizd i przekleństwo, a potem tylko rzekę.",
+      "actions": [
+        {
+          "setFlag": "amb_port_ucieczka"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dawaj nogę.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

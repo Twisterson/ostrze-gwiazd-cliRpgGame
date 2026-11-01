@@ -1,0 +1,102 @@
+{
+  "id": "mul_cesarz",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Maruder",
+      "text": "Za spaloną chatą stoi szary muł z liną na szyi i żre, co zostało z czyjegoś ogrodu. Dwóch maruderów ostrzy przy nim jeden nóż na zmianę i dzieli go na oko. „Zad mój, łeb twój.” „Czemu zawsze łeb mój?” Muł nie przerywa jedzenia. Widać, że nazwa do niego pasuje.",
+      "options": [
+        {
+          "id": "wymowa",
+          "text": "To jest Cesarz. Kto go zarżnie, tłumaczy się potem w sztabie.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 50
+          },
+          "success": "wymowa_ok",
+          "failure": "wymowa_zle"
+        },
+        {
+          "id": "kupno",
+          "text": "Piętnaście groszy za muła i idziecie kraść gdzie indziej.",
+          "goto": "kupno",
+          "requires": {
+            "money": 15
+          }
+        },
+        {
+          "id": "walka",
+          "text": "Nóż w dół. To cudzy muł.",
+          "goto": "walka"
+        },
+        {
+          "id": "nic",
+          "text": "Jeszcze wrócę.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wymowa_ok": {
+      "speaker": "Maruder",
+      "text": "Maruderzy patrzą po sobie. „Jaki Cesarz?” „Ten tu. Tak się wabi, spytajcie w obozie. Pół wojska o nim słyszało, dwa razy było przesłuchanie.” Starszy powoli chowa nóż. „Mówiłem ci, że za spokojny. Zwykły muł by uciekł.” Odchodzą tyłem. Bierzesz linę. „Wasza Wysokość” działa.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idziemy, Wasza Wysokość.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "mul_odzyskany"
+        }
+      ]
+    },
+    "wymowa_zle": {
+      "speaker": "Maruder",
+      "text": "Starszy maruder parska. „Cesarz? Czyli jak go zjem, to będzie zdrada?” Sprawdza nóż na kciuku. „No i dobrze. Dawno nie jadłem nic z takim smakiem.” Młodszy pyta, czy teraz łeb jest cenniejszy. Nie dostaje odpowiedzi, ale dostaje w ucho.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobra.",
+          "goto": "s"
+        }
+      ]
+    },
+    "kupno": {
+      "speaker": "Maruder",
+      "text": "Starszy gryzie każdą monetę. „Piętnaście. Mięsa tam więcej, ale mięso trzeba by piec, a dym widać z daleka.” Rzuca ci koniec liny. Muł pozwala się prowadzić, ale tylko dlatego, że akurat skończyła się kapusta.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idziemy, Wasza Wysokość.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 15
+        },
+        {
+          "setFlag": "mul_odzyskany"
+        }
+      ]
+    },
+    "walka": {
+      "speaker": "Maruder",
+      "text": "„Cudzy?” Starszy rozgląda się po spalonej wsi, po czym spogląda na ciebie z wyrzutem. „Tu wszystko było cudze.” Wyciąga drugi nóż, więc jednak mieli dwa.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No to chodź.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "mul_cesarz_walka"
+        }
+      ]
+    }
+  }
+}

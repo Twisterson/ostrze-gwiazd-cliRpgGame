@@ -77,7 +77,7 @@
     },
     "klam_ok": {
       "speaker": "Najemnik Kruk",
-      "text": "Kruk kiwa głową powoli. „Góry. Daleko. Dobrze, że mi kto powiedział, zanim zacząłem szukać nie tam, gdzie trzeba. Masz dwie monety za fatygę. Powiem im, że widziałem człowieka z dwoma tobołami.” Wstaje i wychodzi bez słowa.",
+      "text": "Kruk kiwa głową powoli. „Góry. Daleko. Dobrze, że mi kto powiedział, zanim zacząłem szukać nie tam, gdzie trzeba. Masz dwie monety za fatygę.” Wstaje i wychodzi bez słowa.",
       "options": [
         {
           "id": "dalej",
@@ -140,7 +140,7 @@
     },
     "nie": {
       "speaker": "Najemnik Kruk",
-      "text": "„Nie lubisz takich jak ja? Wielu nie lubi, a wielu płaci. Zapamiętam twoją gębę, nowy.” Wychodzi, a drzwi trzaskają za nim jak obietnica.",
+      "text": "„Nie lubisz takich jak ja? Wielu nie lubi, a wielu płaci. Zapamiętam twoją gębę, nowy.” Wychodzi i trzaska drzwiami.",
       "options": [
         {
           "id": "dalej",

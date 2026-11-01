@@ -13,7 +13,7 @@
         },
         {
           "id": "waham",
-          "text": "Stoję i patrzę. Jedno i drugie wygląda gorzej, niż pachnie.",
+          "text": "Stoję i patrzę. Obie drogi wyglądają do dupy.",
           "goto": "wahanie"
         },
         {
@@ -25,7 +25,7 @@
     },
     "odrzucenie": {
       "speaker": "Rozdroże",
-      "text": "Spluwasz w pył drogi do stolicy. Rozkaz cesarza jest długi, cesarz jeszcze dłuższy, a ty masz jedną głowę i tym razem chcesz ją zachować na karku. Ruszasz na bezdroża, kopiąc kamień przed sobą.",
+      "text": "Spluwasz w pył drogi do stolicy. Cesarz może sobie rozkazywać, a ty masz jedną głowę i chcesz ją zachować na karku. Ruszasz na bezdroża, kopiąc kamień przed sobą.",
       "actions": [
         {
           "addVar": {
@@ -45,7 +45,7 @@
     },
     "wahanie": {
       "speaker": "Rozdroże",
-      "text": "Stoisz długo, aż słońce wylezie znad lasu i przestanie być wymówką. Decyzji żadnej nie ma. Jest tylko druga odnoga, bliższa, i nogi, które same wybrały.",
+      "text": "Stoisz tak długo, że słońce zdąży wyleźć znad lasu. W końcu nogi same skręcają tam, gdzie bliżej do ciepłej strawy.",
       "actions": [
         {
           "setFlag": "waha_sie"
@@ -60,7 +60,7 @@
     },
     "pokora": {
       "speaker": "Rozdroże",
-      "text": "Kłaniasz się słupowi, jakby to on wydawał rozkazy. Najpierw niech ci ktoś powie, gdzie dziś jest cesarstwo, a pytać zawsze lepiej cudzą gębą niż własnymi nogami. Wybierasz drogę do Brodu.",
+      "text": "Kłaniasz się słupowi, jakby to on wydawał rozkazy. Najpierw się w Brodzie dowiesz, co słychać, a potem pomyślisz. Wybierasz drogę do Brodu.",
       "actions": [
         {
           "addVar": {

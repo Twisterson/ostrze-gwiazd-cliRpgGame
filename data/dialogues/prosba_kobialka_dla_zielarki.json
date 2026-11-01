@@ -1,0 +1,49 @@
+{
+  "id": "prosba_kobialka_dla_zielarki",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Zielarz Mirogost",
+      "text": "Na drodze zielarz z koszem pełnym zbóż i ziół. „Mirogost. Nie zdążę do szałasu zielarki na bagnach, bo kolano mnie zawiodło. Zaniesiesz jej kobiałkę? Ona wie, co z tym zrobić.”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Zaniosę.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "nie",
+          "text": "Bagna nie dla mnie.",
+          "goto": "nie"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Zielarz Mirogost",
+      "text": "Mirogost podaje kobiałkę z ceremonią, jakby oddawał dziecko. „Nie otwieraj, bo ulecą. Zioła mają swoje zdanie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Idę.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "startQuest": "kobialka_dla_zielarki"
+        }
+      ]
+    },
+    "nie": {
+      "speaker": "Zielarz Mirogost",
+      "text": "„Szkoda. Pójdę, jak kolano pozwoli.” Zielarz wzdycha i klnie pod nosem po łacinie.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

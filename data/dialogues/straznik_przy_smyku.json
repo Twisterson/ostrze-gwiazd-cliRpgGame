@@ -1,0 +1,441 @@
+{
+  "id": "straznik_przy_smyku",
+  "portrait": "portret_straznik_miejski",
+  "start": "s",
+  "nodes": {
+    "s": {
+      "speaker": "Strażnik miejski",
+      "portrait": "portret_straznik_miejski",
+      "text": "Zanim dojdziesz do muru, drogę zachodzi ci strażnik miejski, pałka pod pachą, moneta między palcami. „Stać. Nowy? Szukam gówniarza w zielonej czapce. Smyk na niego wołają, handluje tym, czym nie wolno, i kręci się gdzieś tutaj. Dziesięć groszy srebrem dla tego, kto powie, gdzie jest. Widziałeś go?” Kawałek za jego plecami, pod murem, stoi chłopak w zielonej czapce i ogląda swoje paznokcie.",
+      "options": [
+        {
+          "id": "zmyl",
+          "text": "Widziałem. Poszedł w stronę portu.",
+          "goto": "zmyl"
+        },
+        {
+          "id": "milcz",
+          "text": "Nie znam. Jestem tu nowy.",
+          "goto": "milcz"
+        },
+        {
+          "id": "wydaj",
+          "text": "Stoi pod murem, za tobą.",
+          "goto": "wydaj",
+          "requires": {
+            "all": [
+              {
+                "notFlag": "wojna_dezerterzy_wydani"
+              },
+              {
+                "notFlag": "wojna_studnia_zatruta"
+              },
+              {
+                "notFlag": "wojna_jar_wydani"
+              },
+              {
+                "notFlag": "wojna_wywiad_prawda"
+              },
+              {
+                "notFlag": "wojna_zold_zatrzymany"
+              },
+              {
+                "notFlag": "wojna_ranni_lupy"
+              },
+              {
+                "notFlag": "zold_oszukany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "wydaj_interes",
+          "text": "Stoi pod murem, za tobą.",
+          "goto": "wydaj_interes",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_dezerterzy_wydani"
+              },
+              {
+                "flag": "wojna_studnia_zatruta"
+              },
+              {
+                "flag": "wojna_jar_wydani"
+              },
+              {
+                "flag": "wojna_wywiad_prawda"
+              },
+              {
+                "flag": "wojna_zold_zatrzymany"
+              },
+              {
+                "flag": "wojna_ranni_lupy"
+              },
+              {
+                "flag": "zold_oszukany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "odmowa",
+          "text": "Szukaj sam. Nie jestem od tego.",
+          "goto": "odmowa"
+        }
+      ]
+    },
+    "zmyl": {
+      "speaker": "Smyk",
+      "portrait": "portret_smyk",
+      "text": "„Do portu, mówisz.” Strażnik patrzy na ciebie chwilę dłużej, niż trzeba, chowa monetę i odchodzi. Nie do portu. Mijając chłopaka pod murem, puszcza do niego oko. Chłopak podchodzi i poprawia czapkę. „To mój szwagier. Stoi tu dla każdego, kto do mnie idzie, bo prowokatorów mieliśmy w tym miesiącu trzech, a dwóch pływa już w porcie. Okłamał pan straż dla obcego chłopaka i srebra pan nie wziął. Dobra. To kim pan jest?”",
+      "options": [
+        {
+          "id": "dobra",
+          "text": "Może słyszałeś o mnie z frontu.",
+          "goto": "rep_dobra",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_ranni_wszyscy"
+              },
+              {
+                "flag": "wojna_dezerterzy_puszczeni"
+              },
+              {
+                "flag": "wojna_dezerterzy_tomasz"
+              },
+              {
+                "flag": "wojna_dezerterzy_wykupieni"
+              },
+              {
+                "flag": "wojna_studnia_czysta"
+              },
+              {
+                "flag": "wojna_zold_oddany"
+              },
+              {
+                "flag": "wojna_jar_powrot"
+              },
+              {
+                "flag": "wojna_jar_ucieczka"
+              },
+              {
+                "flag": "sojusz_dezerter"
+              },
+              {
+                "flag": "ranny_pomoc"
+              }
+            ]
+          }
+        },
+        {
+          "id": "zla",
+          "text": "Mówią o mnie różne rzeczy.",
+          "goto": "rep_zla",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_dezerterzy_wydani"
+              },
+              {
+                "flag": "wojna_studnia_zatruta"
+              },
+              {
+                "flag": "wojna_jar_wydani"
+              },
+              {
+                "flag": "wojna_wywiad_prawda"
+              },
+              {
+                "flag": "wojna_zold_zatrzymany"
+              },
+              {
+                "flag": "wojna_ranni_lupy"
+              },
+              {
+                "flag": "zold_oszukany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "nikt",
+          "text": "Kimś, kogo cesarscy szukają.",
+          "goto": "rep_nic"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "smyk_proba_byla"
+        },
+        {
+          "setFlag": "smyk_zaufal"
+        },
+        {
+          "xp": 25
+        }
+      ]
+    },
+    "milcz": {
+      "speaker": "Smyk",
+      "portrait": "portret_smyk",
+      "text": "„Wszyscy tu nowi.” Strażnik chowa monetę i odchodzi, a mijając chłopaka pod murem, puszcza do niego oko. Chłopak podchodzi i poprawia czapkę. „To mój szwagier. Stoi tu dla każdego, kto do mnie idzie, bo prowokatorów mieliśmy w tym miesiącu trzech, a dwóch pływa już w porcie. Nie sprzedał mnie pan, nie nakłamał, nic pan nie zaryzykował. Tacy żyją najdłużej. To kim pan jest?”",
+      "options": [
+        {
+          "id": "dobra",
+          "text": "Może słyszałeś o mnie z frontu.",
+          "goto": "rep_dobra",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_ranni_wszyscy"
+              },
+              {
+                "flag": "wojna_dezerterzy_puszczeni"
+              },
+              {
+                "flag": "wojna_dezerterzy_tomasz"
+              },
+              {
+                "flag": "wojna_dezerterzy_wykupieni"
+              },
+              {
+                "flag": "wojna_studnia_czysta"
+              },
+              {
+                "flag": "wojna_zold_oddany"
+              },
+              {
+                "flag": "wojna_jar_powrot"
+              },
+              {
+                "flag": "wojna_jar_ucieczka"
+              },
+              {
+                "flag": "sojusz_dezerter"
+              },
+              {
+                "flag": "ranny_pomoc"
+              }
+            ]
+          }
+        },
+        {
+          "id": "zla",
+          "text": "Mówią o mnie różne rzeczy.",
+          "goto": "rep_zla",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_dezerterzy_wydani"
+              },
+              {
+                "flag": "wojna_studnia_zatruta"
+              },
+              {
+                "flag": "wojna_jar_wydani"
+              },
+              {
+                "flag": "wojna_wywiad_prawda"
+              },
+              {
+                "flag": "wojna_zold_zatrzymany"
+              },
+              {
+                "flag": "wojna_ranni_lupy"
+              },
+              {
+                "flag": "zold_oszukany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "nikt",
+          "text": "Kimś, kogo cesarscy szukają.",
+          "goto": "rep_nic"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "smyk_proba_byla"
+        },
+        {
+          "setFlag": "smyk_zaufal"
+        }
+      ]
+    },
+    "odmowa": {
+      "speaker": "Smyk",
+      "portrait": "portret_smyk",
+      "text": "Strażnik mierzy cię od butów po czapkę, a potem parska śmiechem i odchodzi. Mijając chłopaka pod murem, puszcza do niego oko. Chłopak podchodzi i poprawia czapkę. „To mój szwagier. Stoi tu dla każdego, kto do mnie idzie, bo prowokatorów mieliśmy w tym miesiącu trzech. Prowokator by mu przytaknął i poszedł szukać razem z nim. Pan mu kazał spadać. To albo odwaga, albo głupota, obie się tu przydają. Kim pan jest?”",
+      "options": [
+        {
+          "id": "dobra",
+          "text": "Może słyszałeś o mnie z frontu.",
+          "goto": "rep_dobra",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_ranni_wszyscy"
+              },
+              {
+                "flag": "wojna_dezerterzy_puszczeni"
+              },
+              {
+                "flag": "wojna_dezerterzy_tomasz"
+              },
+              {
+                "flag": "wojna_dezerterzy_wykupieni"
+              },
+              {
+                "flag": "wojna_studnia_czysta"
+              },
+              {
+                "flag": "wojna_zold_oddany"
+              },
+              {
+                "flag": "wojna_jar_powrot"
+              },
+              {
+                "flag": "wojna_jar_ucieczka"
+              },
+              {
+                "flag": "sojusz_dezerter"
+              },
+              {
+                "flag": "ranny_pomoc"
+              }
+            ]
+          }
+        },
+        {
+          "id": "zla",
+          "text": "Mówią o mnie różne rzeczy.",
+          "goto": "rep_zla",
+          "requires": {
+            "any": [
+              {
+                "flag": "wojna_dezerterzy_wydani"
+              },
+              {
+                "flag": "wojna_studnia_zatruta"
+              },
+              {
+                "flag": "wojna_jar_wydani"
+              },
+              {
+                "flag": "wojna_wywiad_prawda"
+              },
+              {
+                "flag": "wojna_zold_zatrzymany"
+              },
+              {
+                "flag": "wojna_ranni_lupy"
+              },
+              {
+                "flag": "zold_oszukany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "nikt",
+          "text": "Kimś, kogo cesarscy szukają.",
+          "goto": "rep_nic"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "smyk_proba_byla"
+        },
+        {
+          "setFlag": "smyk_zaufal"
+        }
+      ]
+    },
+    "wydaj": {
+      "speaker": "Smyk",
+      "portrait": "portret_smyk",
+      "text": "Strażnik wciska ci dziesięć groszy i idzie pod mur. Nikogo nie łapie. Staje obok chłopaka w czapce i zaczynają rozmawiać o rybach. Po chwili chłopak patrzy na ciebie ponad jego ramieniem. „To mój szwagier. Stoi tu dla każdego, kto do mnie idzie. Srebro niech pan zatrzyma, bo drożej już pan na tej ulicy nie sprzeda. Za drobne powiem panu to, co każdy wie. Reszty nie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Trudno.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "smyk_proba_byla"
+        },
+        {
+          "giveMoney": 10
+        },
+        {
+          "setFlag": "smyk_wydal"
+        }
+      ]
+    },
+    "wydaj_interes": {
+      "speaker": "Smyk",
+      "portrait": "portret_smyk",
+      "text": "Strażnik wciska ci dziesięć groszy i idzie pod mur. Nikogo nie łapie. Staje obok chłopaka w czapce i obaj się śmieją. Chłopak podchodzi, wcale niezdziwiony. „To mój szwagier. Wiedziałem, że pan to zrobi, pół ulicy wie, co pan robił na froncie. Prowokator by nie wziął, bo chciałby wyjść na porządnego. Pan sprzedaje każdego, ale przynajmniej wiadomo za ile. Z takim można robić interesy.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Więc robimy interesy.",
+          "goto": "end"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "smyk_proba_byla"
+        },
+        {
+          "giveMoney": 10
+        },
+        {
+          "setFlag": "smyk_interes"
+        }
+      ]
+    },
+    "rep_dobra": {
+      "speaker": "Smyk",
+      "portrait": "portret_smyk",
+      "text": "Smyk pierwszy raz patrzy ci prosto w oczy. „No tak. Furmani gadają, że był taki jeden, co nie zostawił ludzi na polu i nie wziął pieniędzy, choć mógł, a cesarscy mają na niego opis. Kiepski, ale buty się zgadzają. Taką bajkę opowie każdy, tyle że pan przed chwilą w niej wystąpił.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "To pogadajmy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "rep_zla": {
+      "speaker": "Smyk",
+      "portrait": "portret_smyk",
+      "text": "„Słyszałem. Wiem, co pan robił na froncie, pół ulicy wie. Szwagra mi pan dziś nie sprzedał, więc albo się pan zmienił, albo czeka na lepszą cenę. Jedno i drugie da się przeżyć, byle wiedzieć które.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "To pogadajmy.",
+          "goto": "end"
+        }
+      ]
+    },
+    "rep_nic": {
+      "speaker": "Smyk",
+      "portrait": "portret_smyk",
+      "text": "„Cesarscy szukają połowy miasta. Drugiej połowy nie muszą, bo sama przychodzi.” Smyk drapie się pod czapką. „O panu nic nie słyszałem, a to może być dobrze. Na razie wierzę szwagrowi. Szwagier się rzadko myli, chociaż ryby kupuje fatalnie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "To pogadajmy.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

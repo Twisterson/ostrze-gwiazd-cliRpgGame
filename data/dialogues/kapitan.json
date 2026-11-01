@@ -1,0 +1,1167 @@
+{
+  "id": "kapitan",
+  "portrait": "portret_kapitan",
+  "start": "sztab",
+  "nodes": {
+    "sztab": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan stoi nad mapą, której nie czyta od godziny. Na stole kubek z zimną herbatą i kajet pełen skreśleń. „Mów krótko. Albo, kurwa, nic nie mów, bo mam dość na głowie.”",
+      "options": [
+        {
+          "id": "poznanie",
+          "text": "Przyszedłem się zameldować. Gdzie mogę się przydać?",
+          "goto": "poznanie",
+          "requires": {
+            "notFlag": "kapitan_poznany"
+          }
+        },
+        {
+          "id": "sytuacja",
+          "text": "Jak wygląda sytuacja na froncie?",
+          "goto": "sytuacja",
+          "requires": {
+            "flag": "kapitan_poznany"
+          }
+        },
+        {
+          "id": "wzgorze",
+          "text": "Co jest za wzgórzami na wschodzie?",
+          "goto": "wzgorze",
+          "requires": {
+            "flag": "kapitan_poznany"
+          }
+        },
+        {
+          "id": "jar",
+          "text": "Gdzie się chowają dezerterzy?",
+          "goto": "jar",
+          "requires": {
+            "flag": "kapitan_poznany"
+          }
+        },
+        {
+          "id": "meldunek_wojna_zold_oddany",
+          "text": "Zgłaszam: Żołd dla garnizonu.",
+          "goto": "meldunek_wojna_zold_oddany",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_zold_oddany"
+              },
+              {
+                "notFlag": "zold_dla_garnizonu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_zold_zatrzymany",
+          "text": "Zgłaszam: Żołd dla garnizonu.",
+          "goto": "meldunek_wojna_zold_zatrzymany",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_zold_zatrzymany"
+              },
+              {
+                "notFlag": "zold_dla_garnizonu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_zold_podzielony",
+          "text": "Zgłaszam: Żołd dla garnizonu.",
+          "goto": "meldunek_wojna_zold_podzielony",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_zold_podzielony"
+              },
+              {
+                "notFlag": "zold_dla_garnizonu_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_most_strzezony",
+          "text": "Zgłaszam: Most bez strażnika.",
+          "goto": "meldunek_wojna_most_strzezony",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_most_strzezony"
+              },
+              {
+                "notFlag": "most_bez_straznika_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_most_zerwany",
+          "text": "Zgłaszam: Most bez strażnika.",
+          "goto": "meldunek_wojna_most_zerwany",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_most_zerwany"
+              },
+              {
+                "notFlag": "most_bez_straznika_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_most_otwarty",
+          "text": "Zgłaszam: Most bez strażnika.",
+          "goto": "meldunek_wojna_most_otwarty",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_most_otwarty"
+              },
+              {
+                "notFlag": "most_bez_straznika_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_beczki_cesarscy",
+          "text": "Zgłaszam: Furman z beczkami.",
+          "goto": "meldunek_wojna_beczki_cesarscy",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_beczki_cesarscy"
+              },
+              {
+                "notFlag": "furman_z_beczkami_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_beczki_jarnowianie",
+          "text": "Zgłaszam: Furman z beczkami.",
+          "goto": "meldunek_wojna_beczki_jarnowianie",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_beczki_jarnowianie"
+              },
+              {
+                "notFlag": "furman_z_beczkami_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_beczki_rzeka",
+          "text": "Zgłaszam: Furman z beczkami.",
+          "goto": "meldunek_wojna_beczki_rzeka",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_beczki_rzeka"
+              },
+              {
+                "notFlag": "furman_z_beczkami_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_studnia_czysta",
+          "text": "Zgłaszam: Studnia pod Skjeldowem.",
+          "goto": "meldunek_wojna_studnia_czysta",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_studnia_czysta"
+              },
+              {
+                "notFlag": "studnia_pod_skjeldowem_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_studnia_zatruta",
+          "text": "Zgłaszam: Studnia pod Skjeldowem.",
+          "goto": "meldunek_wojna_studnia_zatruta",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_studnia_zatruta"
+              },
+              {
+                "notFlag": "studnia_pod_skjeldowem_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_studnia_zasypana",
+          "text": "Zgłaszam: Studnia pod Skjeldowem.",
+          "goto": "meldunek_wojna_studnia_zasypana",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_studnia_zasypana"
+              },
+              {
+                "notFlag": "studnia_pod_skjeldowem_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_ranni_wszyscy",
+          "text": "Zgłaszam: Rannych się nie liczy.",
+          "goto": "meldunek_wojna_ranni_wszyscy",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_ranni_wszyscy"
+              },
+              {
+                "notFlag": "rannych_sie_nie_liczy_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_ranni_swoi",
+          "text": "Zgłaszam: Rannych się nie liczy.",
+          "goto": "meldunek_wojna_ranni_swoi",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_ranni_swoi"
+              },
+              {
+                "notFlag": "rannych_sie_nie_liczy_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_ranni_lupy",
+          "text": "Zgłaszam: Rannych się nie liczy.",
+          "goto": "meldunek_wojna_ranni_lupy",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_ranni_lupy"
+              },
+              {
+                "notFlag": "rannych_sie_nie_liczy_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_dezerterzy_wydani",
+          "text": "Zgłaszam: Dwóch dezerterów.",
+          "goto": "meldunek_wojna_dezerterzy_wydani",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_dezerterzy_wydani"
+              },
+              {
+                "notFlag": "dwoch_dezerterow_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_dezerterzy_puszczeni",
+          "text": "Zgłaszam: Dwóch dezerterów.",
+          "goto": "meldunek_wojna_dezerterzy_puszczeni",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_dezerterzy_puszczeni"
+              },
+              {
+                "notFlag": "dwoch_dezerterow_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_dezerterzy_wykupieni",
+          "text": "Zgłaszam: Dwóch dezerterów.",
+          "goto": "meldunek_wojna_dezerterzy_wykupieni",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_dezerterzy_wykupieni"
+              },
+              {
+                "notFlag": "dwoch_dezerterow_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "meldunek_wojna_dezerterzy_tomasz",
+          "text": "Zgłaszam: Dwóch dezerterów.",
+          "goto": "meldunek_wojna_dezerterzy_tomasz",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_dezerterzy_tomasz"
+              },
+              {
+                "notFlag": "dwoch_dezerterow_zameldowane"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jar_list",
+          "text": "Dezerterzy z jaru chcą wrócić z listem.",
+          "goto": "jar_list",
+          "requires": {
+            "all": [
+              {
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "jar_bez_wyjscia",
+                      "is": "active"
+                    }
+                  },
+                  {
+                    "notFlag": "jar_rozstrzygniety"
+                  }
+                ]
+              },
+              {
+                "notFlag": "jar_list_napisany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "jar_wydaj",
+          "text": "Wiem, którędy wejść do jaru.",
+          "goto": "jar_wydaj",
+          "requires": {
+            "all": [
+              {
+                "questStatus": {
+                  "id": "jar_bez_wyjscia",
+                  "is": "active"
+                }
+              },
+              {
+                "notFlag": "jar_rozstrzygniety"
+              }
+            ]
+          }
+        },
+        {
+          "id": "wywiad_falsz",
+          "text": "Jarnowianie kupili ode mnie złą drogę.",
+          "goto": "wywiad_falsz",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_wywiad_falsz"
+              },
+              {
+                "notFlag": "wywiad_zameldowany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "wywiad_proch",
+          "text": "Zamoczyłem wyspiarzom proch.",
+          "goto": "wywiad_proch",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_wywiad_proch"
+              },
+              {
+                "notFlag": "wywiad_zameldowany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "wywiad_prawda",
+          "text": "Podobno są złe wieści spod przeprawy?",
+          "goto": "wywiad_prawda",
+          "requires": {
+            "all": [
+              {
+                "flag": "wojna_wywiad_prawda"
+              },
+              {
+                "notFlag": "wywiad_zameldowany"
+              }
+            ]
+          }
+        },
+        {
+          "id": "stolica",
+          "text": "Jestem gotów jechać do stolicy.",
+          "goto": "stolica",
+          "requires": {
+            "all": [
+              {
+                "flag": "kapitan_poznany"
+              },
+              {
+                "var": "zlecenia_frontu",
+                "gte": 3
+              },
+              {
+                "notFlag": "akt4a_koniec"
+              }
+            ]
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "poznanie": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Zameldować? Wspaniale, jeszcze jeden, co się zamelduje i nie wie po co.” Kapitan mierzy cię od stóp do głów. „Dobra. Przeprawa na Szarej, spalona wieś, pole po bitwie, ruiny fortu, dwa obozy: nasz i jarnowski, to wszystko jest w zasięgu dnia drogi. Na tablicy wiszą sprawy, których nie zdążyłem załatwić albo których nie chcę załatwiać. Zrób trzy, a pogadamy o czymś poważniejszym.”",
+      "actions": [
+        {
+          "setFlag": "kapitan_poznany"
+        },
+        {
+          "startQuest": "watek_front"
+        },
+        {
+          "reveal": "ruiny_fortu"
+        },
+        {
+          "reveal": "pole_bitwy"
+        },
+        {
+          "reveal": "spalona_wies"
+        },
+        {
+          "reveal": "oboz_cesarski_przedni"
+        },
+        {
+          "reveal": "oboz_jarnowian_przedni"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zrozumiałem.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "sytuacja": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Wojna? Cesarz uważa, że wygrywa, bo nikt mu tego nie wyprowadził z błędu. Jarnowianie uważają, że wygrywają, bo mają prochy. A my, między nimi, uważamy, że przeżyjemy do wiosny. Ktoś się pomylił, a teraz ludzie giną, żeby nie wyszło na jaw, kto.” Kapitan pociera oczy. „Z Ulfgrodu przychodzą rozkazy, których nikt nie czyta do końca. Jeśli masz wrażenie, że ktoś ciągnie za sznurki, to masz rację. Tylko nie wiem, za które.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "wzgorze": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Wzgórze Wisielców? Trzy dni marszu. Stare szubienice, kamienne kręgi i dozorca, który pamięta, kto na nich wisiał. Jeśli szukasz spokoju, to dobre miejsce. Jeśli szukasz roboty, też.” Kapitan wzrusza ramionami. „Wracają stamtąd różni. Niektórzy w ogóle.”",
+      "actions": [
+        {
+          "reveal": "wzgorze_wisielcow"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "stolica": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan opiera się o stół. „Jedziesz? Pamiętaj, że co niezameldowane, to jakby niezrobione. Co masz u mnie na papierze, zamelduj teraz, bo po drodze nikt cię nie rozliczy. A jeśli wieziesz coś mojego, zostaje tutaj.”",
+      "options": [
+        {
+          "id": "jade",
+          "text": "Jadę.",
+          "goto": "wyjazd",
+          "requires": {
+            "questStatus": {
+              "id": "zold_dla_garnizonu",
+              "is": "none"
+            }
+          }
+        },
+        {
+          "id": "jade_koniec",
+          "text": "Jadę.",
+          "goto": "wyjazd",
+          "requires": {
+            "questStatus": {
+              "id": "zold_dla_garnizonu",
+              "is": "done"
+            }
+          }
+        },
+        {
+          "id": "jade_zold",
+          "text": "Jadę. Skrzynię zostawiam.",
+          "goto": "wyjazd_skrzynia",
+          "requires": {
+            "questStatus": {
+              "id": "zold_dla_garnizonu",
+              "is": "active"
+            }
+          }
+        },
+        {
+          "id": "jeszcze_nie",
+          "text": "Jeszcze nie.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_zold_oddany": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Wszystko doszło? Dwa razy sprawdzałeś? Dobra, pierwszy raz mi się zdarza człowiek, co nie ma nic do ukrycia.” Notuje w kajecie i nie komentuje.",
+      "actions": [
+        {
+          "setFlag": "zold_dla_garnizonu_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_zold_zatrzymany": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan patrzy na ciebie jak na deszcz w sianokosy. „Zatrzymałeś część? To przynajmniej szczerze. Garnizon będzie wiedział, komu dziękować.” W jego głosie nie ma ani wyrzutu, ani zdziwienia.",
+      "actions": [
+        {
+          "setFlag": "zold_dla_garnizonu_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_zold_podzielony": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Połowę zabrałeś? Wiesz, że to niezgodne z regulaminem?” Kapitan patrzy w sufit namiotu. „Dobrze. Mniej się o tym dowiedzą.”",
+      "actions": [
+        {
+          "setFlag": "zold_dla_garnizonu_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_most_strzezony": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Spędziłeś noc na moście? Słusznie. Zaraz wyślę tam kogoś na stałe.” Kapitan odkłada pióro. „Dobra robota, wędrowcze.”",
+      "actions": [
+        {
+          "setFlag": "most_bez_straznika_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_most_zerwany": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan długo milczy. „Zerwałeś most. Zerwałeś jedyny most na Szarej.” Przeciera oczy. „No, przynajmniej teraz wiem, że nikt przez niego nie przejdzie w nocy.”",
+      "actions": [
+        {
+          "setFlag": "most_bez_straznika_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_most_otwarty": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Zostawiłeś otwarty?” Kapitan zerka na mapę. „No, rzeka jest szeroka. A my mamy swoje patrole. Dobra, wiem, co zrobić.”",
+      "actions": [
+        {
+          "setFlag": "most_bez_straznika_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_beczki_cesarscy": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Cesarscy dostali smołę? Wspaniale, będą palić, co im się spodoba.” Kapitan wzdycha. „Dziękuję. Nie wiedziałem, że dziękuje się za takie rzeczy.”",
+      "actions": [
+        {
+          "setFlag": "furman_z_beczkami_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_beczki_jarnowianie": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Jarnowianie dostali beczki? No dobrze.” Kapitan w milczeniu odkłada kubek. „Będziemy to pamiętać. Nie ty, my.”",
+      "actions": [
+        {
+          "setFlag": "furman_z_beczkami_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_beczki_rzeka": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Do rzeki?” Kapitan parska, potem śmieje się naprawdę, pierwszy raz odkąd go znasz. „Nikt nie ma smoły. Obie strony. Rozumiem teraz, dlaczego mówią, że jesteś niebezpieczny.”",
+      "actions": [
+        {
+          "setFlag": "furman_z_beczkami_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_studnia_czysta": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Oczyściłeś studnię? Ktoś tam teraz poi konie, nie pytając o pozwolenie.” Kapitan kiwa głową. „Dobrze. To znaczy, że się nie biją.”",
+      "actions": [
+        {
+          "setFlag": "studnia_pod_skjeldowem_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_studnia_zatruta": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan milknie. „Zatrułeś?” Przez chwilę milczy, potem odsuwa mapę. „Nie pytam o szczegóły. Powiesz mi tylko, kto będzie pił.” Nie odpowiadasz.",
+      "actions": [
+        {
+          "setFlag": "studnia_pod_skjeldowem_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_studnia_zasypana": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Zasypałeś?” Kapitan unosi brwi. „No cóż, mniej kłopotów dla patroli. Więcej dla ludzi, którzy tam mieszkają. Tak to jest, jak się decyduje za innych.”",
+      "actions": [
+        {
+          "setFlag": "studnia_pod_skjeldowem_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_ranni_wszyscy": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Wszystkich? Zabrałeś wszystkich?” Kapitan długo na ciebie patrzy. „Medyczka mi powiedziała. Nie wierzyłem. Dobra robota.”",
+      "actions": [
+        {
+          "setFlag": "rannych_sie_nie_liczy_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_ranni_swoi": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Tylko swoich? Rozumiem, praktyczne.” Kapitan wzrusza ramionami. „Wojna to praktyczna sprawa. Nie jestem pewien, czy to komplement.”",
+      "actions": [
+        {
+          "setFlag": "rannych_sie_nie_liczy_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_ranni_lupy": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan patrzy na worek, potem na ciebie. „Cóż, ktoś musi to robić.” Odwraca wzrok. „Nie mów medyczce.”",
+      "actions": [
+        {
+          "setFlag": "rannych_sie_nie_liczy_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_dezerterzy_wydani": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Wydałeś? Wiedziałem, że się nadasz do tej roboty.” Kapitan nie uśmiecha się. „Ale będę pamiętał, że to umiesz.”",
+      "actions": [
+        {
+          "setFlag": "dwoch_dezerterow_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_dezerterzy_puszczeni": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Porucznik ci uwierzył? Rogala nie wierzy własnej matce.” Kapitan kręci głową. „Dobrze. Zostawmy to jak jest.”",
+      "actions": [
+        {
+          "setFlag": "dwoch_dezerterow_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_dezerterzy_wykupieni": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Wykupiłeś ich? Z własnej kieszeni?” Kapitan patrzy dłuższą chwilę. „Zwariowałeś. Ale w dobrym kierunku.”",
+      "actions": [
+        {
+          "setFlag": "dwoch_dezerterow_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "meldunek_wojna_dezerterzy_tomasz": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Tomasz ich uratował? Tomasz?” Kapitan kiwa powoli głową. „Dobry człowiek. Tylko na wojnę się nie nadaje, i to go czyni lepszym niż reszta z nas.”",
+      "actions": [
+        {
+          "setFlag": "dwoch_dezerterow_zameldowane"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "jar": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Dezerterzy? Jest taki jar na północnym wschodzie, cztery dni stąd. Wszyscy wiedzą, że tam są, i nikt nie chce ich szukać, bo musiałby wtedy zrobić z nimi coś konkretnego.” Kapitan pociera czoło. „Jeśli kiedyś będziesz musiał się gdzieś schować, wiesz, gdzie szukać.”",
+      "actions": [
+        {
+          "reveal": "jar_dezerterow"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dzięki.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "wyjazd": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan pieczętuje list woskiem i wciska ci go w garść. „Do Ulfgrodu. Trzy dni drogi, jeśli nie zabłądzisz. Oddaj w ręce kogoś, kto czyta. Powiedz, że front trzyma, ale nie na długo. I że ludzie tu nie są ślepi.” Zaciska usta. „Jedź. Tutaj zrobiłeś, co mogłeś.”",
+      "actions": [
+        {
+          "setFlag": "akt4a_koniec"
+        }
+      ],
+      "options": [
+        {
+          "id": "jade",
+          "text": "Ruszam.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wyjazd_skrzynia": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan pieczętuje list woskiem i wciska ci go w garść. „Do Ulfgrodu. Trzy dni drogi, jeśli nie zabłądzisz. Oddaj w ręce kogoś, kto czyta. Powiedz, że front trzyma, ale nie na długo. I że ludzie tu nie są ślepi.” Zaciska usta. „Jedź. Tutaj zrobiłeś, co mogłeś.”",
+      "actions": [
+        {
+          "takeItem": "skrzynia_zoldu"
+        },
+        {
+          "setFlag": "akt4a_koniec"
+        }
+      ],
+      "options": [
+        {
+          "id": "jade",
+          "text": "Ruszam.",
+          "goto": "end"
+        }
+      ]
+    },
+    "jar_list": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan przestaje pisać. „List żelazny. Dla dezerterów. Trzydziestu dwóch chłopa, którzy rzucili broń, kiedy ta sama pika szła na ich kolegów.” Stuka piórem w kajet. „Mam trzystu, którzy zostali. Co im powiem? Że kto ucieknie, ten wróci z papierem?”",
+      "options": [
+        {
+          "id": "wymowa",
+          "text": "Że masz trzydziestu dwóch chłopa więcej na szańcach.",
+          "check": {
+            "skill": "wymowa",
+            "difficulty": 50
+          },
+          "success": "jar_list_tak",
+          "failure": "jar_list_nie"
+        },
+        {
+          "id": "lapowka",
+          "text": "Sztab ma drogie pieczęcie. Mam sześćdziesiąt groszy.",
+          "goto": "jar_list_lapowka",
+          "requires": {
+            "money": 60
+          }
+        },
+        {
+          "id": "dalej",
+          "text": "Pomyślę.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "jar_list_tak": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan długo milczy, potem szuka czystego arkusza, którego nie ma, i pisze na odwrocie rozkazu o sucharach. „Bez naszywek. Bez żołdu przez trzy miesiące. Pierwsi na szańce.” Pieczętuje, jakby gniótł karalucha. „I nie mów nikomu, że się dałem przekonać.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "sztab"
+        }
+      ],
+      "actions": [
+        {
+          "giveItem": "list_zelazny"
+        },
+        {
+          "setFlag": "jar_list_napisany"
+        }
+      ]
+    },
+    "jar_list_nie": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Pięknie mówisz. Tak samo mówił ten, co prowadził ich na piki.” Kapitan wraca do kajetu i pociera czoło. „Nie napiszę. Masz inne sprawy, to je załatw. Jak będą chcieli wrócić bez papieru, to sznura mi na nich nie zabraknie, a tobie nie będzie głupio, że nie próbowałeś.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "sztab"
+        }
+      ]
+    },
+    "jar_list_lapowka": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan patrzy na monety, potem na ciebie. Nie bierze ich do ręki, tylko zgarnia kajetem do szuflady. „Na opatrunki. Sami kupimy opatrunki.” Pisze, pieczętuje i nie patrzy więcej w twoją stronę. „Nie widzieliśmy się w tej sprawie. Chociaż wcale nie jestem pewien, czy to o tobie teraz mówię, czy o sobie.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "sztab"
+        }
+      ],
+      "actions": [
+        {
+          "takeMoney": 60
+        },
+        {
+          "giveItem": "list_zelazny"
+        },
+        {
+          "setFlag": "jar_list_napisany"
+        }
+      ]
+    },
+    "jar_wydaj": {
+      "speaker": "Kapitan Bratosław",
+      "text": "„Mów.” Rysujesz na mapie wejście do jaru, ścieżkę nad wodą i miejsce, gdzie chłopak z kijem zasypia na warcie. Kapitan przygląda się temu bez radości, a potem wzywa setnika. Wypłaca ci siedemdziesiąt groszy z kasy, na którą nie ma żołdu. „Dobrze się sprawiłeś. Tak będzie w raporcie. Idź już.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Rozumiem.",
+          "goto": "sztab"
+        }
+      ],
+      "actions": [
+        {
+          "takeItem": "list_zelazny"
+        },
+        {
+          "giveMoney": 70
+        },
+        {
+          "setFlag": "wojna_jar_wydani"
+        },
+        {
+          "setFlag": "jar_rozstrzygniety"
+        }
+      ]
+    },
+    "wywiad_falsz": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan unosi głowę znad mapy. „Czterdziestu Jarnowian pod fortem na starym trakcie. Sztab pisze, że to ich głupota.” Patrzy na ciebie uważnie, potem wyjmuje z szuflady sześćdziesiąt groszy. „Nie pytam, skąd wiedzieli, którędy iść. Ale kasa się zgadza, a ja lubię, jak się zgadza.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 60
+        },
+        {
+          "setFlag": "wywiad_zameldowany"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ]
+    },
+    "wywiad_proch": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan przestaje pocierać czoło. „Mokry proch. Dziewięć beczek.” Pierwszy raz od dawna coś mu drga przy ustach. „Słyszeliśmy salwę, która kaszlnęła. Czterdzieści groszy. Więcej nie mam, a i tak po prostu ci nie wierzę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do usług.",
+          "goto": "sztab"
+        }
+      ],
+      "actions": [
+        {
+          "giveMoney": 40
+        },
+        {
+          "setFlag": "wywiad_zameldowany"
+        },
+        {
+          "addVar": {
+            "zlecenia_frontu": 1
+          }
+        }
+      ]
+    },
+    "wywiad_prawda": {
+      "speaker": "Kapitan Bratosław",
+      "text": "Kapitan nie podnosi wzroku. „Trzy wozy prochu pod przeprawą. Woźnice też. Ktoś im dał drogę i porę.” Skreśla coś w kajecie tak mocno, że papier się rwie. „Szukam, kto. Jak znajdę, nie będzie rozmowy. Coś jeszcze?”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Nie.",
+          "goto": "sztab"
+        }
+      ],
+      "actions": [
+        {
+          "setFlag": "wywiad_zameldowany"
+        }
+      ]
+    }
+  }
+}

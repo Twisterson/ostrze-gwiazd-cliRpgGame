@@ -1,0 +1,106 @@
+{
+  "id": "stoczniowiec",
+  "start": "lad",
+  "nodes": {
+    "lad": {
+      "speaker": "Bosman Hjorn",
+      "text": "Bosman siedzi na beczce przed karczmą i czyści nóż fajką, która nie jest zapalona. „Z lądu? To siadaj, ale nic nie zamawiaj, bo piwo mamy tylko wczorajsze. Dzisiejszego nie warzymy, bo jęczmień poszedł na proch.”",
+      "options": [
+        {
+          "id": "wojna",
+          "text": "Jak ludzie znoszą tę wojnę?",
+          "goto": "wojna"
+        },
+        {
+          "id": "stocznia",
+          "text": "Co się dzieje w stoczni?",
+          "goto": "stocznia"
+        },
+        {
+          "id": "most",
+          "text": "Słyszałeś o moście na Szarej?",
+          "goto": "most",
+          "requires": {
+            "flag": "wojna_most_zerwany"
+          }
+        },
+        {
+          "id": "studnia",
+          "text": "Słyszałeś o studni pod Skjeldowem?",
+          "goto": "studnia",
+          "requires": {
+            "flag": "wojna_studnia_zatruta"
+          }
+        },
+        {
+          "id": "ranni",
+          "text": "Wozy z rannymi z pola bitwy dojechały?",
+          "goto": "ranni",
+          "requires": {
+            "flag": "wojna_ranni_wszyscy"
+          }
+        },
+        {
+          "id": "bywaj",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "wojna": {
+      "speaker": "Bosman Hjorn",
+      "text": "„Jak wszyscy: z jedną ręką przy robocie, z drugą przy rodzinie, z trzecią przy kieliszku, bo dwie nie wystarczają.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "lad"
+        }
+      ]
+    },
+    "stocznia": {
+      "speaker": "Bosman Hjorn",
+      "text": "„Budujemy łodzie, których nikt nie chce kupować, i naprawiamy łodzie, których nikt nie chce naprawiać. Kto ma sternika, ten ma przyszłość. Reszta ma beczkę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "lad"
+        }
+      ]
+    },
+    "most": {
+      "speaker": "Bosman Hjorn",
+      "text": "„Most na Szarej padł, mówisz? Tu słychać, że ktoś zerwał jedną nitkę, i handlarze z drugiego brzegu krzyczą teraz po obu stronach. Niech tak będzie: im mniej mostów, tym mniej wojska przy moście.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "lad"
+        }
+      ]
+    },
+    "studnia": {
+      "speaker": "Bosman Hjorn",
+      "text": "„Słyszałem, że ktoś zatruł studnię pod Skjeldowem. U nas mówi się o tym szeptem, bo każdy ma kogoś po tamtej stronie. Co by nie mówić, trucizna nie pyta o mundur.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "lad"
+        }
+      ]
+    },
+    "ranni": {
+      "speaker": "Bosman Hjorn",
+      "text": "„Jarnowscy i cesarscy pod jednym dachem? Słyszeliśmy. Moja siostra mówi, że to cud. Ja mówię, że to rachunek, tylko jeszcze nikt go nie wystawił.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "No dobrze.",
+          "goto": "lad"
+        }
+      ]
+    }
+  }
+}

@@ -57,7 +57,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Pamiętam.",
+          "text": "Zapytam.",
           "goto": "powitanie"
         }
       ],

@@ -5,11 +5,11 @@
   "nodes": {
     "przybycie": {
       "speaker": "Cesarski kurier",
-      "text": "Kurier w czerwonym płaszczu zwala się z siodła i wyciąga zwój z pieczęcią większą niż jego sumienie. Gnieworad czyta w milczeniu, a szczęka chodzi mu, jakby żuł gwóźdź. Kurier wodzi wzrokiem po uczniach jak rzeźnik po oborze.",
+      "text": "Kurier w czerwonym płaszczu zwala się z siodła i wyciąga zza pazuchy zwój z cesarską pieczęcią. Gnieworad czyta w milczeniu i zaciska szczęki. Kurier tymczasem ogląda uczniów jak handlarz bydło na jarmarku.",
       "options": [
         {
           "id": "wymowa",
-          "text": "Co tam wiozisz, kurierze?",
+          "text": "Co tam wieziesz, kurierze?",
           "check": {
             "skill": "wymowa",
             "difficulty": 40
@@ -52,7 +52,7 @@
     },
     "tresc": {
       "speaker": "Cesarski kurier",
-      "text": "Kurier prycha przez nos, ale rozkaz nie jest tajny, tylko nie w smak. „Cesarz życzy sobie młodych adeptów w stolicy. Czterech z tej budy, imiona wpisane z góry. Zaszczyt, jak powiadają ci, co sami nigdzie nie jadą.”",
+      "text": "Kurier prycha, ale gada, bo rozkaz tajny nie jest. „Cesarz życzy sobie młodych adeptów w stolicy. Czterech z tej budy, imiona wpisane z góry. Zaszczyt, jak powiadają ci, co sami nigdzie nie jadą.”",
       "actions": [
         {
           "setFlag": "rozkaz_danina"
@@ -77,7 +77,7 @@
     },
     "podsluch_ok": {
       "speaker": "Zza węgła",
-      "text": "Z gadki przy koniu wyłapujesz strzępy: „…do stolicy… imiona wpisane… a po powrocie?” – „Jakim powrocie?” I śmiech, od którego nikomu nie robi się wesoło. O drodze z powrotem nikt tu nie piśnie ani słowem.",
+      "text": "Z gadki przy koniu wyłapujesz strzępy: „…do stolicy… imiona wpisane… a po powrocie?” – „Jakim powrocie?” I rechot obu. O drodze z powrotem nikt tu nie mówi ani słowa.",
       "actions": [
         {
           "setFlag": "rozkaz_bez_powrotu"
@@ -92,7 +92,7 @@
     },
     "podsluch_zle": {
       "speaker": "Cesarski kurier",
-      "text": "Kurier przyłapuje cię na podsłuchiwaniu i patrzy tak, że zimno idzie ci aż do pięt. „Chłopcze, uszy jeszcze ci się przydadzą. Nie nadstawiaj ich, gdzie nie trzeba.”",
+      "text": "Kurier przyłapuje cię na podsłuchiwaniu i patrzy na ciebie spode łba. „Chłopcze, uszy jeszcze ci się przydadzą. Nie nadstawiaj ich, gdzie nie trzeba.”",
       "options": [
         {
           "text": "Dalej.",
@@ -102,7 +102,7 @@
     },
     "pokora": {
       "speaker": "Mistrz Gnieworad",
-      "text": "„Tak gada ten, co wie, że łeb ma jeden.” Gnieworad kiwa głową, jakbyś zdał egzamin ważniejszy niż wszystkie, a kurier już na ciebie nie patrzy.",
+      "text": "„Tak gada ten, co wie, że łeb ma jeden.” Gnieworad kiwa głową z uznaniem, a kurier już na ciebie nie patrzy.",
       "portrait": "portret_gnieworad",
       "actions": [
         {

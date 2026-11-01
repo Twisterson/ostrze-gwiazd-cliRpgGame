@@ -1,0 +1,191 @@
+{
+  "id": "istota_bez_maski",
+  "portrait": "portret_istota",
+  "start": "wstep",
+  "nodes": {
+    "wstep": {
+      "speaker": "Szklanna",
+      "text": "Czarne szkło, które brałeś za jej twarz, leży obok na posadzce jak zdjęta przyłbica. Bez niego Istota jest niższa, niż pamiętasz z tamtych nocy. Skóra na jej twarzy jest przezroczysta jak szkło, a pod nią, tam gdzie ludzie mają kości, krążą powolne gwiazdy. Wyspiarze mówią na nią Szklanna i to imię jej zostało. Mówi cicho, bez gniewu, z tym zmęczeniem, które pojawia się po długim pożegnaniu. „Wiem, po co przyszedłeś. Daj mi dokończyć jedno zdanie, a potem robimy, co trzeba. Dług spłacony. To, co teraz robisz, robisz dla siebie.”",
+      "actions": [
+        {
+          "setFlag": "istota_rozmowa_odbyta"
+        }
+      ],
+      "options": [
+        {
+          "id": "mow",
+          "text": "Mów.",
+          "goto": "rozmowa"
+        }
+      ]
+    },
+    "rozmowa": {
+      "speaker": "Szklanna",
+      "text": "Istota czeka. Jej ręce spoczywają luźno wzdłuż ciała, jakby zapomniała, do czego służą.",
+      "options": [
+        {
+          "id": "prawda",
+          "text": "Powiedz mi prawdę o sobie.",
+          "goto": "prawda",
+          "requires": {
+            "notFlag": "istota_prawda"
+          }
+        },
+        {
+          "id": "wojna",
+          "text": "Dlaczego ta wojna?",
+          "goto": "wojna"
+        },
+        {
+          "id": "ja",
+          "text": "Dlaczego ja?",
+          "goto": "dlaczego_ja"
+        },
+        {
+          "id": "ton_wyrok",
+          "text": "Obiecałem ci, że nie wrócicie tam, skąd przylecieliście. Przyszedłem dotrzymać.",
+          "goto": "ton_wyrok",
+          "requires": {
+            "all": [
+              {
+                "flag": "istota_wyrok"
+              },
+              {
+                "flag": "portal_rozbrojony"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ton_wyrok_s",
+          "text": "Obiecałem ci, że nie wrócicie tam, skąd przylecieliście. Zostawiłem ci drzwi. Nie pytaj czemu.",
+          "goto": "ton_wyrok_s",
+          "requires": {
+            "all": [
+              {
+                "flag": "istota_wyrok"
+              },
+              {
+                "flag": "portal_sprawny"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ton_przetarg",
+          "text": "Mówiłaś o przetargu. Jaką ceną miałby być koniec?",
+          "goto": "ton_przetarg",
+          "requires": {
+            "flag": "istota_przetarg"
+          }
+        },
+        {
+          "id": "ton_zwloka",
+          "text": "Obiecałem dokończyć, co zostało. To ostatnia rzecz.",
+          "goto": "ton_zwloka",
+          "requires": {
+            "flag": "istota_zwloka"
+          }
+        },
+        {
+          "id": "dosc",
+          "text": "Dość słów. Biorę Ostrze.",
+          "goto": "walka"
+        }
+      ]
+    },
+    "prawda": {
+      "speaker": "Szklanna",
+      "text": "„Prawdę. Dobrze. Jestem z tych, którzy przylecieli, żeby zbudować dom, a nie wojnę. Moi bliscy zostali w świecie, który zamknął się za nami, i Rdzeń był jedyną rzeczą, która mogła go otworzyć z powrotem. Długo próbowałam go dostać, dłużej, niż cesarz trzyma swój pakt. Cesarz miał pakt, ja miałam cierpliwość.” Milknie. „Nie jestem lepsza od niego. Jestem tylko bardziej zmęczona.”",
+      "actions": [
+        {
+          "setFlag": "istota_prawda"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "rozmowa"
+        }
+      ]
+    },
+    "wojna": {
+      "speaker": "Szklanna",
+      "text": "„Wojna była środkiem, nie celem. Hetman chciał być wielki, więc dostał proch. Cesarz chciał być bezpieczny, więc dostał straż. Nie ode mnie. Obaj dostali to, o co prosili. Nikt nie pytał, co przy tym dostaną inni.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "rozmowa"
+        }
+      ]
+    },
+    "dlaczego_ja": {
+      "speaker": "Szklanna",
+      "text": "„Byłeś pierwszym, który przeżył coś, co zabijało wszystkich. Nie wybierałam cię: znalazłam. Z początku to była tylko praktyczność. Potem… nie wiem. Przywiązanie to błąd, który ludzie popełniają szybciej niż my.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Słucham dalej.",
+          "goto": "rozmowa"
+        }
+      ]
+    },
+    "ton_wyrok": {
+      "speaker": "Szklanna",
+      "text": "„Pamiętam. Przyjęłam to tak, jak przyjmuje się wyrok z dalekiego kraju. Zrób to, co zapisałeś. Ja tylko pozwolę sobie nie udawać, że się nie boję.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zaczynajmy.",
+          "goto": "walka"
+        }
+      ]
+    },
+    "ton_przetarg": {
+      "speaker": "Szklanna",
+      "text": "„Raty. Przetargi. Wszystko, co robiłam, było targiem, nawet gdy leczyłam. Ale tu nie ma już czym handlować. Ostatnia rata to ja.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zaczynajmy.",
+          "goto": "walka"
+        }
+      ]
+    },
+    "ton_zwloka": {
+      "speaker": "Szklanna",
+      "text": "„Rzeczy, które zostały do dokończenia. Ja jestem jedną z nich, prawda? Nie będę udawać, że tego nie widzę.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zaczynajmy.",
+          "goto": "walka"
+        }
+      ]
+    },
+    "walka": {
+      "speaker": "Szklanna",
+      "text": "Istota wyciąga ręce przed siebie, a gwiazdy w jej przezroczystych dłoniach zapalają się jedna po drugiej. „Proszę bardzo” – mówi, jakby zapraszała do stołu.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Do dzieła.",
+          "goto": "end"
+        }
+      ]
+    },
+    "ton_wyrok_s": {
+      "speaker": "Szklanna",
+      "text": "„Nie pytam. Zapamiętam, że to była twoja decyzja, a nie moja prośba. To też coś, co rzadko się zdarza.” Jej dłonie unoszą się powoli, a gwiazdy w nich zapalają się, jakby wiedziały, co robić.",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Zaczynajmy.",
+          "goto": "walka"
+        }
+      ]
+    }
+  }
+}
