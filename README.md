@@ -19,11 +19,11 @@ npx ostrze            # jednorazowo, bez instalacji
 npm install -g ostrze # na stałe; potem polecenie: ostrze
 ```
 
-Z paczki lokalnej (`ostrze-0.2.0.tgz`) lub z repozytorium:
+Z paczki lokalnej (`ostrze-0.2.1.tgz`) lub z repozytorium:
 
 ```
-npx --package=./ostrze-0.2.0.tgz ostrze
-npm install -g ./ostrze-0.2.0.tgz
+npx --package=./ostrze-0.2.1.tgz ostrze
+npm install -g ./ostrze-0.2.1.tgz
 node bin/game.js     # bezpośrednio z katalogu projektu
 ```
 
