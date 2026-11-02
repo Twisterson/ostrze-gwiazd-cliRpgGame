@@ -1,9 +1,11 @@
-# Voided: na przekór gwiazdom
+# Voided: Defying the Stars
 
 [![npm version](https://img.shields.io/npm/v/ostrze)](https://www.npmjs.com/package/ostrze)
 [![npm downloads](https://img.shields.io/npm/dm/ostrze)](https://www.npmjs.com/package/ostrze)
 
 [Wersja polska](README.md)
+
+*Polish title: Voided: na przekór gwiazdom.*
 
 A terminal RPG set in a grim Slavic fantasy world. You are the only survivor of the massacre of a delegation from a blade school. The Empire believes you are dead and is looking for a witness. You look for answers in Pogórze, in Głuszec and on the Glass Hills, and in the end you face three roads: submission, resistance or flight.
 
