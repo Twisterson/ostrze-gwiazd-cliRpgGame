@@ -6,11 +6,11 @@
   "author": "Daniel Twiist Antonik <twisterson@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/twisterson/ostrze-gwiazd-cliRpgGame.git"
+    "url": "git+https://github.com/Twisterson/ostrze-gwiazd-cliRpgGame.git"
   },
-  "homepage": "https://github.com/twisterson/ostrze-gwiazd-cliRpgGame#readme",
+  "homepage": "https://github.com/Twisterson/ostrze-gwiazd-cliRpgGame#readme",
   "bugs": {
-    "url": "https://github.com/twisterson/ostrze-gwiazd-cliRpgGame/issues"
+    "url": "https://github.com/Twisterson/ostrze-gwiazd-cliRpgGame/issues"
   },
   "type": "module",
   "bin": {
@@ -33,6 +33,7 @@
     "src",
     "data",
     "README.md",
+    "README.en.md",
     "LICENSE",
     "LICENSE-TRESC.md"
   ],
