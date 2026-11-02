@@ -6,8 +6,8 @@ import { effectById } from "../systems/effects.js";
 import { countOf } from "../systems/inventory.js";
 import { enemyById } from "../systems/combat/data.js";
 import { livingEnemies } from "../systems/combat/state.js";
-import { paint, useColor } from "./colors.js";
-import { renderPixels } from "./pixels.js";
+import { paint, graphicsMode } from "./colors.js";
+import { renderPixels, tintLines } from "./pixels.js";
 import { t } from "./strings.js";
 import { formatRemaining } from "./events.js";
 import { mysticTags, fitPieces } from "./screen.js";
@@ -18,19 +18,19 @@ const INFO_MIN = 43; // columns the enemies' text needs beside the picture
 const LOG_MIN = 8; // rows left for the log below a tall picture
 
 /**
- * The target's picture beside the info (`color`: 256-colour half blocks, else ASCII): `rows` padded to the picture's width
- * plus one, and `left` (that width). Empty when there is no picture, when the text would not fit beside it in `width`
+ * The target's picture beside the info, in 256-colour half blocks: `rows` padded to the picture's width plus one, and
+ * `left` (that width). Empty without `color`, when there is no picture, when the text would not fit beside it in `width`
  * columns, or when a tall picture would leave fewer than LOG_MIN rows of `height` for the log.
  */
 function artColumn(data, target, { color, width, height, minInfo = INFO_MIN }) {
   const image = target && data.art?.[enemyById(data, target.id)?.art];
   const none = { rows: [], left: 0 };
-  if (!image) return none;
+  if (!image || !color) return none;
   const rowCount = image.h / 2;
   if (width < image.w + 1 + minInfo) return none;
   if (rowCount > BLOCK_ROWS + 1 && height !== undefined && height - rowCount < LOG_MIN) return none;
   const left = image.w + 1; // the right column starts after the picture (column 42 for the 40-pixel ones)
-  return { rows: renderPixels(image, { color }).map((row) => row + " ".repeat(Math.max(0, left - visibleWidth(row)))), left };
+  return { rows: tintLines(renderPixels(image, { color: true })).map((row) => row + " ".repeat(Math.max(0, left - visibleWidth(row)))), left };
 }
 const INFO_HEAD_ROWS = 2; // the target's name and its effects, above the enemy list
 const BAR_MAX = 14;
@@ -143,28 +143,18 @@ function weaponLine(state, data) {
 
 /**
  * The combat screen above the action list; every line fits in `columns - 2` characters.
- * Art needs 80 columns and 24 rows; narrower or lower terminals get the right column only.
- * @param {{ columns: number, rows: number, tty?: boolean, targetUid?: string, logSeen?: number, frame?: boolean }} view (`tty`:
+ * Only the frame's panel has a picture; without a frame there is just the text.
+ * @param {{ columns: number, tty?: boolean, targetUid?: string, logSeen?: number, frame?: boolean }} view (`tty`:
  *   art only on a real terminal; `logSeen`: log length at the previous draw, enables the skipped-entries marker; `frame`:
  *   the scene panel of a frame – see `renderCombatPanel`: `width` and `height` of the panel; the time and the player are in the hero panel)
  * @returns {string[]}
  */
-export function renderCombat(state, data, combat, { columns, rows, tty, targetUid, logSeen, frame = false, width, height, color = useColor() }) {
+export function renderCombat(state, data, combat, { columns, tty, targetUid, logSeen, frame = false, width, height, color = graphicsMode() !== "none" }) {
   if (frame) return renderCombatPanel(state, data, combat, { tty, targetUid, logSeen, width, height, color });
   const maxWidth = columns - 2;
-  const withArt = Boolean(tty) && columns >= 80 && rows >= 24;
   const living = livingEnemies(combat);
   const target = living.find((e) => e.uid === targetUid) ?? living[0];
-  const column = withArt ? artColumn(data, target, { color: false, width: columns, minInfo: 38 }) : { rows: [], left: 0 };
-  const tall = column.rows.length > BLOCK_ROWS + 1; // no frame: plain ASCII, at most 7 rows (the screen budget of the old 80×24 layout) – a much taller picture is left out, not cropped to its top
-  const art = tall ? [] : column.rows.slice(0, BLOCK_ROWS);
-  const left = tall ? 0 : column.left;
-  const right = rightColumn(state, data, combat, target, maxWidth - left, logSeen);
-  const block = Array.from({ length: Math.max(right.length, art.length) }, (_, i) => {
-    const { role, text } = right[i] ?? { role: null, text: "" };
-    const grid = left ? art[i] ?? " ".repeat(left) : "";
-    return grid + (role && text ? paint(role, text) : text);
-  });
+  const block = rightColumn(state, data, combat, target, maxWidth, logSeen).map(({ role, text }) => (role && text ? paint(role, text) : text));
   return [
     ...block, "",
     fitPieces(timeLine(state, data), maxWidth),
@@ -213,6 +203,7 @@ export function combatActionItems(ui, actions) {
   return actions.map((a) => {
     const item = { label: t(ui, `combat.action.${a.id}`), hotkey: ACTION_HOTKEYS[a.id], description: t(ui, `combat.desc.${a.id}`) };
     if (a.disabled) return { ...item, disabled: true, hint: `(${t(ui, a.reason)})` };
+    if (a.id === "flee") return { ...item, hint: `(${a.apCost} PA · ${a.chance}%)` };
     if (a.apCost > 0 && !NO_COST_HINT.has(a.id)) return { ...item, hint: `(${a.apCost} PA)` };
     return item;
   });

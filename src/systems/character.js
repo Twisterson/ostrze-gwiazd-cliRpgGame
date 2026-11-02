@@ -100,7 +100,8 @@ export function addXp(character, amount, data) {
     levelsGained += 1;
     const pending = (character.pendingLevelUp ??= { skillPoints: 0, perks: 0 });
     pending.skillPoints += skillPointsPerLevel(character, rules);
-    if (character.level % perkEveryLevels === 0 && character.perks.length + pending.perks < maxPerks) pending.perks += 1;
+    // Perks earned so far less those taken: a point that had nothing to pick at an earlier level-up (old saves too) comes back now.
+    pending.perks = Math.max(0, Math.min(maxPerks, Math.floor(character.level / perkEveryLevels)) - character.perks.length);
     // An attribute point every `attributeEveryLevels` levels, on the levels without a perk (3, 5, …).
     if ((character.level - 1) % attributeEveryLevels === 0) pending.attributePoints = (pending.attributePoints ?? 0) + 1;
   }

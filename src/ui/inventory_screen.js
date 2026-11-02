@@ -1,10 +1,10 @@
 import { select, sliders } from "./menu.js";
 import { confirm, pressEnter } from "./prompt.js";
-import { clear, pushNotice, flushNotices, framesOn, showScreen } from "./screen.js";
+import { clear, pushNotice, flushNotices, framesOn, showScreen, sceneCapacity } from "./screen.js";
 import { pushEventNotices } from "./events.js";
 import { paint } from "./colors.js";
-import { compareLines } from "./item_compare.js";
-import { sceneWidth, cell, fitWidth } from "./frame.js";
+import { compareLines, wearLines, modifierName } from "./item_compare.js";
+import { sceneWidth, sceneLines, cell, fitWidth } from "./frame.js";
 import { t } from "./strings.js";
 import { itemById, isWeapon, SLOTS } from "../systems/items.js";
 import { artifactState } from "../systems/artifacts.js";
@@ -18,17 +18,6 @@ import {
 
 const round1 = (n) => Math.round(n * 10) / 10;
 const signed = (n) => (n > 0 ? `+${n}` : `-${Math.abs(n)}`);
-
-function modifierName(key, data) {
-  const named = [...data.attributes, ...data.skills].find((e) => e.id === key);
-  if (named) return named.name;
-  const effectName = (id) => (data.effects ?? []).find((e) => e.id === id)?.name ?? id;
-  const resist = /^resist_(.+)$/.exec(key);
-  if (resist) return t(data.ui, "modifier.resist", { name: effectName(resist[1]) });
-  const duration = /^effectDuration_(.+)$/.exec(key);
-  if (duration) return t(data.ui, "modifier.duration", { name: effectName(duration[1]) });
-  return data.ui[`derived.${key}`] ?? key;
-}
 
 /** Name of an artifact regeneration condition ("noc", "w pobliżu upiora", "podczas: Iskrząca Burza"). */
 function conditionName(when, data) {
@@ -69,12 +58,13 @@ function artifactLines(item, state, data) {
   return lines;
 }
 
-/** Pure: the item card (type, weight, value, combat/armor stats, artifact charge and powers, description) as text. */
-export function renderItemCard(item, state, data) {
+/** Pure: the item card (type, weight, value, combat/armor stats, artifact charge and powers, description) as text; `description` and `diff` can be left out. */
+export function renderItemCard(item, state, data, { description = true, diff = true } = {}) {
   const { ui } = data;
   const lines = [
     paint("title", item.name),
     t(ui, "card.type", { type: t(ui, `itemType.${item.type}`), weight: item.weight, value: item.value, currency: t(ui, "currency.short") }),
+    ...wearLines(item, ui),
   ];
   if (isWeapon(item)) {
     const [min, max] = item.damage;
@@ -97,9 +87,21 @@ export function renderItemCard(item, state, data) {
   const modifiers = Object.entries(item.modifiers ?? {})
     .map(([key, value]) => (typeof value === "number" ? `${modifierName(key, data)} ${signed(value)}` : modifierName(key, data)));
   if (modifiers.length) lines.push(t(ui, "card.modifiers", { list: modifiers.join(", ") }));
-  lines.push(...compareLines(item, state, data));
-  lines.push(item.description);
+  lines.push(...compareLines(item, state, data, { diff }));
+  if (description) lines.push(item.description);
   return lines.join("\n");
+}
+
+/**
+ * The card as the lines of a preview in the scene panel, beside `reserved` rows already used there. A preview cannot be paged, so what
+ * does not fit is left out, first what the choice panel repeats (the description), then the difference line; the table stays.
+ */
+export function fittedCard(item, state, data, io, reserved = 0) {
+  const room = sceneCapacity(io) - reserved;
+  const fits = (lines) => sceneLines(lines, sceneWidth(io.columns)).length <= room;
+  const variants = [{}, { description: false }, { description: false, diff: false }];
+  const cards = variants.map((v) => renderItemCard(item, state, data, v).split("\n"));
+  return cards.find(fits) ?? cards.at(-1);
 }
 
 /** Slots in which `itemId` is worn. */
@@ -297,7 +299,7 @@ async function itemMenu(ctx, item) {
   for (;;) {
     const acts = actionsFor(item, ctx);
     const items = [...acts, { label: t(ui, "inv.back"), hotkey: "w" }];
-    const preview = () => [...headerLines(ctx.state, data, io), "", ...renderItemCard(item, ctx.state, data).split("\n")];
+    const preview = () => [...headerLines(ctx.state, data, io), "", ...fittedCard(item, ctx.state, data, io, headerLines(ctx.state, data, io).length + 1)];
     const pick = await select(io, ui, { title: item.name, items, initial: last, preview });
     if (pick === acts.length) return;
     if ((await acts[pick].run()) !== "stay") return;
@@ -331,7 +333,7 @@ export async function showInventory(ctx) {
     const items = [...stacks.map((s) => listItem(s, state, data, strength)), { label: t(ui, "inv.back"), hotkey: "w" }];
     // In a frame the card of the item under the cursor shows at once (stats, comparison with the worn item).
     const preview = (cursor) => (stacks[cursor]
-      ? [...headerLines(state, data, io), "", ...renderItemCard(itemById(data, stacks[cursor].id), state, data).split("\n")]
+      ? [...headerLines(state, data, io), "", ...fittedCard(itemById(data, stacks[cursor].id), state, data, io, headerLines(state, data, io).length + 1)]
       : headerLines(state, data, io));
     const pick = await select(io, ui, { items, initial: last, preview });
     if (pick === stacks.length) return;

@@ -1,7 +1,8 @@
 import { parseArgs } from "node:util";
 import { loadData, validateData, DataLoadError } from "./engine/data.js";
 import { createTerminalIO } from "./ui/io.js";
-import { setColorsEnabled, useColor } from "./ui/colors.js";
+import { setColorsEnabled, setGraphics, useColor } from "./ui/colors.js";
+import { loadGraphics } from "./config.js";
 import { renderPixels } from "./ui/pixels.js";
 import { t } from "./ui/strings.js";
 import { runApp } from "./app.js";
@@ -79,6 +80,7 @@ export async function main(argv, deps = {}) {
 
   if (deps.io) setColorsEnabled(false);
   else setColorsEnabled(Boolean(process.stdout.isTTY) && !process.env.NO_COLOR);
+  setGraphics(loadGraphics());
   const io = deps.io ?? createTerminalIO();
   try {
     await runApp({ data, io, options: { seed, scene: values.scene, debug: Boolean(values.debug) } });

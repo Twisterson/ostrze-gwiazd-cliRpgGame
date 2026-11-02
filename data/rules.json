@@ -69,8 +69,9 @@
     }
   ],
   "appetite": {
-    "fullHours": 18,
-    "hintAt": 85
+    "fullHours": 24,
+    "hintAt": 85,
+    "starveAt": 150
   },
   "rest": {
     "minHours": 1,
@@ -91,7 +92,12 @@
   "inventory": {
     "hardLimitPercent": 150,
     "useMinutes": 10,
-    "maxReductionPercent": 75
+    "maxReductionPercent": 75,
+    "softCap": {
+      "armorFrom": 5,
+      "reductionFrom": 40,
+      "rate": 0.5
+    }
   },
   "shop": {
     "buyBase": 1.5,
@@ -119,6 +125,7 @@
     "critMult": 1.5,
     "meleeStrengthBase": 5,
     "rangedInMeleePenalty": 20,
+    "throwHitBonus": 30,
     "minStrengthPenalty": 10,
     "bluntCritStun": 50,
     "bluntDaze": 15,
@@ -127,7 +134,7 @@
     "defendMinAp": 1,
     "fleeBase": 30,
     "fleePerZrecznosc": 3,
-    "fleePerMeleeEnemy": 10,
+    "fleePerMeleeEnemy": 5,
     "fleeAp": 4,
     "bagUseExtraAp": 2,
     "moveAp": 2,

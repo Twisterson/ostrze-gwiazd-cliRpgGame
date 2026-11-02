@@ -1,3 +1,5 @@
+import { graphicsMode } from "./colors.js";
+
 /** Renders `.pix` images (see src/engine/pix.js) as terminal cells: half blocks in 256 colours, or ASCII by brightness. */
 
 const SYSTEM = [
@@ -20,6 +22,24 @@ export function luminance(index) {
     rgb = [v, v, v];
   }
   return Math.round(0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]);
+}
+
+/** The grayscale colour of the same brightness: pure black and white, or one of the terminal's 24 grays. */
+function grayOf(index) {
+  const lum = luminance(index);
+  if (lum < 4) return 16;
+  if (lum >= 243) return 231;
+  return 232 + Math.min(23, Math.max(0, Math.round((lum - 8) / 10)));
+}
+
+/** Lines of a picture with every 256-colour code turned to gray. */
+export function grayLines(lines) {
+  return lines.map((line) => line.replace(/\x1b\[(38|48);5;(\d+)m/g, (_, layer, index) => `\x1b[${layer};5;${grayOf(Number(index))}m`));
+}
+
+/** Lines of a coloured picture as the player wants them: gray in the black-and-white mode. */
+export function tintLines(lines) {
+  return graphicsMode() === "gray" ? grayLines(lines) : lines;
 }
 
 /**

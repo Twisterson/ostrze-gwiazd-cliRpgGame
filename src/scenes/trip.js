@@ -10,7 +10,6 @@ import {
   startTravel, stageArtId, rollStageEvent, marchHour, finishStage, nextDay, endTravel, forage, markEventSeen, eventById, locationById, turnBack, EVENT_END,
 } from "../systems/travel.js";
 import { questById } from "../systems/quests.js";
-import { eatMeal } from "../systems/food.js";
 import { forcePhenomenon, activePhenomenon } from "../systems/phenomena.js";
 import { unchargedArtifacts } from "../systems/artifacts.js";
 import { itemById } from "../systems/items.js";
@@ -120,7 +119,7 @@ async function march(ctx) {
 }
 
 /**
- * Camp, one screen: how the day went and "go on" as the main choice, foraging (once an evening) beside it; then the meal and a sleep
+ * Camp, one screen: how the day went and "go on" as the main choice, foraging (once an evening) beside it; then a sleep
  * that takes all the time left until dawn, and the next day starts by itself. Only a worn artifact to charge brings the rest's
  * questions back, since exposing it is a real decision.
  */
@@ -148,7 +147,6 @@ async function camp(ctx) {
         : paint("dim", t(ui, "travel.forageNone")));
     }
     trip(state).phase = "sleep";
-    pushEventNotices(ctx, eatMeal(state, data, ctx.rng));
   }
   await rest(ctx, {}, {
     ...(plain ? { quickHours: hoursToDawn(state, data) } : {}),

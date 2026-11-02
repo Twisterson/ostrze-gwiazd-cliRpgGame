@@ -8,7 +8,10 @@ import { paint } from "./ui/colors.js";
 import { clear, flushNotices, pushNotice, framesOn, showScreen, sceneCapacity } from "./ui/screen.js";
 import { sceneFullWidth } from "./ui/frame.js";
 import { titleLines } from "./ui/title_screen.js";
-import { useColor } from "./ui/colors.js";
+import { GRAPHICS, getGraphics, setGraphics, graphicsMode, useColor } from "./ui/colors.js";
+import { tintLines } from "./ui/pixels.js";
+import { select } from "./ui/menu.js";
+import { saveGraphics } from "./config.js";
 import { t } from "./ui/strings.js";
 import { formatDate } from "./ui/save_screen.js";
 import { MissingCharacterError, QuitToMenuError, DefeatError } from "./scenes/errors.js";
@@ -157,22 +160,44 @@ export async function runApp({ data, io, options = {} }) {
     return play(state, rng);
   }
 
+  /** Goes on to the next look of the pictures, at once and for the next runs too. */
+  function nextGraphics() {
+    const next = GRAPHICS[(GRAPHICS.indexOf(getGraphics()) + 1) % GRAPHICS.length];
+    setGraphics(next);
+    try {
+      saveGraphics(next);
+    } catch (err) {
+      pushNotice(screenCtx, paint("warn", t(ui, "menu.graphics.saveFailed", { reason: err.message })));
+    }
+  }
+
   try {
+    let cursor;
     for (;;) {
       let animate;
       if (framesOn(io)) {
         // the title screen: a picture filling the whole scene panel, a little animated while the menu waits
         await showScreen(screenCtx, { lines: [], hero: false, bare: true });
-        const frame = (tick) => titleLines({ width: sceneFullWidth(io.columns), height: sceneCapacity(io), tick, color: useColor() });
+        const frame = (tick) => tintLines(titleLines({ width: sceneFullWidth(io.columns), height: sceneCapacity(io), tick, color: graphicsMode() !== "none" }));
         io.frame.body = frame(0);
         animate = { ms: 140, frame };
       } else {
         flushNotices(screenCtx);
         io.write(paint("title", t(ui, "menu.title")));
       }
-      const pick = await choose(io, ui, [t(ui, "menu.new"), t(ui, "menu.load"), t(ui, "menu.exit")], undefined, { animate });
-      if (pick === 2) break;
-      const next = pick === 0 ? await newGame() : await loadMenu();
+      // the pictures exist only in a frame: line mode has no such row
+      const available = useColor();
+      const graphicsRow = { id: "graphics", disabled: !available, label: t(ui, "menu.graphics", { mode: t(ui, `menu.graphics.${available ? getGraphics() : "off"}`) }) };
+      const items = [{ id: "new", label: t(ui, "menu.new") }, { id: "load", label: t(ui, "menu.load") }, ...(framesOn(io) ? [graphicsRow] : []), { id: "exit", label: t(ui, "menu.exit") }];
+      const { id } = items[await select(io, ui, { items, initial: cursor, animate })];
+      cursor = undefined;
+      if (id === "exit") break;
+      if (id === "graphics") {
+        nextGraphics();
+        cursor = items.indexOf(graphicsRow);
+        continue;
+      }
+      const next = id === "new" ? await newGame() : await loadMenu();
       if (next === "exit") break;
     }
   } catch (err) {

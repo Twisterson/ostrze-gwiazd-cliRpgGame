@@ -164,33 +164,163 @@
                 "flag": "dlug_oddany"
               },
               {
-                "questStatus": {
-                  "id": "eskorta_ostromira",
-                  "is": "none"
-                }
+                "any": [
+                  {
+                    "questStatus": {
+                      "id": "eskorta_ostromira",
+                      "is": "none"
+                    }
+                  },
+                  {
+                    "questStatus": {
+                      "id": "eskorta_ostromira",
+                      "is": "failed"
+                    }
+                  }
+                ]
               }
             ]
           },
           "scenes": [
             {
+              "id": "ostromir_brama_zgoda_od_nowa",
+              "type": "flag",
+              "set": {
+                "ostromir_zgoda": false
+              }
+            },
+            {
+              "id": "ostromir_powrot_napad",
+              "type": "narration",
+              "title": "Kupiec Ostromir",
+              "time": 5,
+              "if": {
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "eskorta_ostromira",
+                      "is": "failed"
+                    }
+                  },
+                  {
+                    "flag": "ostromir_ograbiony"
+                  }
+                ]
+              },
+              "text": "Przy bramie znów stoi wóz Ostromira, z połatanym dyszlem i połową sukna. Zbiry wzięły, co dało się unieść, a resztę zostawiły w rowie razem z wozem. Kupiec ma na nogach cudze buty i tym razem się nie kłania. „Dwóch ich było. Dwóch, z widłami. A ja płaciłem za żelazo.”"
+            },
+            {
+              "id": "ostromir_powrot_termin",
+              "type": "narration",
+              "title": "Kupiec Ostromir",
+              "time": 5,
+              "if": {
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "eskorta_ostromira",
+                      "is": "failed"
+                    }
+                  },
+                  {
+                    "notFlag": "ostromir_ograbiony"
+                  }
+                ]
+              },
+              "text": "Przy bramie znów stoi wóz Ostromira, a koń wygląda na bardziej zmęczonego niż kupiec. „Trzy dni czekałem. Czwartego ruszyłem sam, dojechałem do pierwszego mostku, popatrzyłem w krzaki i zawróciłem.”"
+            },
+            {
+              "id": "ostromir_powrot_rozmowa",
+              "type": "dialogue",
+              "dialogue": "ostromir_powrot",
+              "time": 10,
+              "if": {
+                "questStatus": {
+                  "id": "eskorta_ostromira",
+                  "is": "failed"
+                }
+              }
+            },
+            {
+              "id": "ostromir_powrot_wznowienie",
+              "type": "flag",
+              "if": {
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "eskorta_ostromira",
+                      "is": "failed"
+                    }
+                  },
+                  {
+                    "flag": "ostromir_zgoda"
+                  }
+                ]
+              },
+              "set": {
+                "ostromir_ograbiony": false
+              }
+            },
+            {
+              "id": "ostromir_powrot_zlecenie",
+              "type": "quest",
+              "start": "eskorta_ostromira",
+              "if": {
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "eskorta_ostromira",
+                      "is": "failed"
+                    }
+                  },
+                  {
+                    "flag": "ostromir_zgoda"
+                  }
+                ]
+              },
+              "goto": "koniec"
+            },
+            {
               "id": "ostromir_brama_opis",
               "type": "narration",
               "title": "Kupiec Ostromir",
               "time": 5,
-              "text": "Przy bramie stoi znajomy wóz z pękniętym kołem i pulchny kupiec, który wita cię głębokim ukłonem. „Wyszło na to, że jesteś człowiekiem słownym. Potrzebuję kogoś z żelazem do Kamiennej Przełęczy. Zapłacę, jak nie zapomnę.”"
+              "text": "Przy bramie stoi znajomy wóz z pękniętym kołem i pulchny kupiec, który wita cię głębokim ukłonem. „Wyszło na to, że jesteś człowiekiem słownym. Potrzebuję kogoś z żelazem do Kamiennej Przełęczy. Zapłacę, jak nie zapomnę.”",
+              "if": {
+                "questStatus": {
+                  "id": "eskorta_ostromira",
+                  "is": "none"
+                }
+              }
             },
             {
               "id": "ostromir_brama_rozmowa",
               "type": "dialogue",
               "dialogue": "ostromir_brama",
-              "time": 10
+              "time": 10,
+              "if": {
+                "questStatus": {
+                  "id": "eskorta_ostromira",
+                  "is": "none"
+                }
+              }
             },
             {
               "id": "ostromir_brama_zlecenie",
               "type": "quest",
               "start": "eskorta_ostromira",
               "if": {
-                "flag": "ostromir_zgoda"
+                "all": [
+                  {
+                    "questStatus": {
+                      "id": "eskorta_ostromira",
+                      "is": "none"
+                    }
+                  },
+                  {
+                    "flag": "ostromir_zgoda"
+                  }
+                ]
               },
               "goto": "koniec"
             }
@@ -1027,7 +1157,11 @@
           "id": "ostromir",
           "name": "Kupiec Ostromir",
           "type": "talk",
-          "ref": "ostromir_trakt"
+          "ref": "ostromir_trakt",
+          "secret": true,
+          "if": {
+            "notFlag": "dlug_oddany"
+          }
         },
         {
           "id": "zwiadowcy",
@@ -14132,6 +14266,12 @@
         "all": [
           {
             "flag": "dlug_oddany"
+          },
+          {
+            "questStatus": {
+              "id": "eskorta_ostromira",
+              "is": "none"
+            }
           },
           {
             "region": "pogorze"

@@ -1,0 +1,50 @@
+{
+  "id": "ostromir_powrot",
+  "portrait": "portret_ostromir",
+  "start": "prosba",
+  "nodes": {
+    "prosba": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„Szwagier dalej czeka na przełęczy, a wiszę mu więcej, niż to sukno warte. Sam nie dojadę, to już wiem. Te same czterdzieści groszy. Jedziesz?”",
+      "options": [
+        {
+          "id": "zgoda",
+          "text": "Jedziemy.",
+          "goto": "zgoda"
+        },
+        {
+          "id": "odmowa",
+          "text": "Jeszcze nie.",
+          "goto": "odmowa"
+        }
+      ]
+    },
+    "zgoda": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„No to zaprzęgam, zanim się rozmyślę. Albo ty.”",
+      "actions": [
+        {
+          "setFlag": "ostromir_zgoda"
+        }
+      ],
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    },
+    "odmowa": {
+      "speaker": "Kupiec Ostromir",
+      "text": "„Wóz stoi, koń je, a ja płacę za jedno i drugie. Długo nie czekaj.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Bywaj.",
+          "goto": "end"
+        }
+      ]
+    }
+  }
+}

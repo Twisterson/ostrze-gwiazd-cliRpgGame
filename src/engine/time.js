@@ -1,6 +1,6 @@
 import { decaySearch } from "../systems/search.js";
 import { tickHour } from "../systems/effects.js";
-import { appetiteHour } from "../systems/appetite.js";
+import { hungerHour } from "../systems/food.js";
 import { regenerate } from "../systems/artifacts.js";
 import { rollIfNewDay, update, activePhenomenon } from "../systems/phenomena.js";
 
@@ -49,7 +49,7 @@ export function advanceTime(state, minutes, data, rng, context = {}) {
     }
     const after = timeOfDay(state.time.minutes, data.rules);
     if (after !== before) events.push({ type: "zmiana_pory", to: after, at: state.time.minutes });
-    if (state.character) events.push(...tickHour(state, data, rng), ...appetiteHour(state, data));
+    if (state.character) events.push(...tickHour(state, data, rng), ...hungerHour(state, data, rng));
     for (const hook of HOURLY_HOOKS) events.push(...hook(state, data, state.time.minutes));
   }
   return events;

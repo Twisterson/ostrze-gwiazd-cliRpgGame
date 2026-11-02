@@ -36,11 +36,28 @@ export function setColorsEnabled(on) { enabled = Boolean(on); }
 /** Overrides the 256-colour detection (tests); `null` detects again from the environment. */
 export function setRich256(on) { rich = on === null ? null : Boolean(on); }
 
-/** True when the terminal says it has 256 colours (TERM …256color, or COLORTERM truecolor/24bit). */
+/**
+ * True when the terminal has 256 colours: TERM …256color, COLORTERM truecolor/24bit, or the colour depth Node reports for the
+ * stream (cmd.exe and PowerShell on Windows set neither variable, yet have 24 bits).
+ */
+export function detect256(env, stream) {
+  return /256color/.test(env.TERM ?? "") || ["truecolor", "24bit"].includes(env.COLORTERM ?? "") || (stream.getColorDepth?.() ?? 1) >= 8;
+}
+
 function supports256() {
-  if (rich === null) rich = /256color/.test(process.env.TERM ?? "") || ["truecolor", "24bit"].includes(process.env.COLORTERM ?? "");
+  if (rich === null) rich = detect256(process.env, process.stdout);
   return rich;
 }
+
+/** The player's choice for pictures, in the order the main menu goes through them. */
+export const GRAPHICS = ["color", "gray", "none"];
+let graphics = "color";
+
+export function setGraphics(mode) { graphics = mode; }
+export function getGraphics() { return graphics; }
+
+/** How pictures are drawn now: the player's choice, or "none" on a terminal that cannot show them. Frames and text do not depend on it. */
+export function graphicsMode() { return useColor() ? graphics : "none"; }
 
 /** True when frames and art should use colour: colours are on (a TTY, no NO_COLOR) and the terminal has 256 of them. */
 export function useColor() {

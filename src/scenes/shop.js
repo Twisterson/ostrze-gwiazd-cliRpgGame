@@ -1,7 +1,7 @@
 import { showScreen, clear, statusBar, flushNotices, pushNotice } from "../ui/screen.js";
 import { select, sliders } from "../ui/menu.js";
 import { confirm } from "../ui/prompt.js";
-import { renderItemCard } from "../ui/inventory_screen.js";
+import { fittedCard } from "../ui/inventory_screen.js";
 import { paint } from "../ui/colors.js";
 import { t } from "../ui/strings.js";
 import { itemById } from "../systems/items.js";
@@ -60,7 +60,7 @@ export async function shop(ctx, scene) {
       return row;
     });
     await render();
-    const preview = (cursor) => (rows[cursor] ? renderItemCard(rows[cursor].item, state, data).split("\n") : []);
+    const preview = (cursor) => (rows[cursor] ? fittedCard(rows[cursor].item, state, data, io) : []);
     const pick = await select(io, ui, { items: [...rows, { label: t(ui, "shop.back") }], preview });
     if (pick >= rows.length) return;
     const { item, price, max } = rows[pick];
@@ -78,7 +78,7 @@ export async function shop(ctx, scene) {
     if (list.length === 0) { pushNotice(ctx, t(ui, "shop.empty")); return; }
     const rows = list.map((e) => ({ label: t(ui, "shop.sellEntry", { name: itemById(data, e.id).name, price: e.price, qty: e.qty, ...cur(ui) }), description: itemById(data, e.id).description }));
     await render();
-    const preview = (cursor) => (list[cursor] ? renderItemCard(itemById(data, list[cursor].id), state, data).split("\n") : []);
+    const preview = (cursor) => (list[cursor] ? fittedCard(itemById(data, list[cursor].id), state, data, io) : []);
     const pick = await select(io, ui, { items: [...rows, { label: t(ui, "shop.back") }], preview });
     if (pick >= rows.length) return;
     const { id, qty: free, price } = list[pick];

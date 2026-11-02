@@ -53,7 +53,6 @@
     "weight": 3,
     "value": 40,
     "pair": true,
-    "reach": true,
     "throwName": "Włócznia",
     "throwSkill": "drzewcowa",
     "masteryType": "wlocznie",
@@ -916,7 +915,6 @@
     "range": "melee",
     "minStrength": 3,
     "pair": true,
-    "reach": true,
     "throwName": "Włócznia",
     "throwSkill": "drzewcowa",
     "masteryType": "wlocznie",
@@ -939,7 +937,6 @@
     "range": "melee",
     "minStrength": 4,
     "pair": true,
-    "reach": true,
     "throwName": "Włócznia",
     "throwSkill": "drzewcowa",
     "masteryType": "wlocznie",
@@ -962,7 +959,6 @@
     "range": "melee",
     "minStrength": 4,
     "pair": true,
-    "reach": true,
     "throwName": "Włócznia",
     "throwSkill": "drzewcowa",
     "masteryType": "wlocznie",
@@ -1223,6 +1219,55 @@
     "weight": 8,
     "value": 61,
     "description": "Skóra z naszytymi blaszkami. Skrzypi na każdy krok."
+  },
+  {
+    "id": "kaftan_wlocznika",
+    "name": "Kaftan włócznika",
+    "type": "armor",
+    "tier": 3,
+    "slot": "tulow",
+    "armor": 3,
+    "reduction": {
+      "sieczne": 20,
+      "klute": 30,
+      "obuchowe": 20
+    },
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 7,
+    "value": 120,
+    "description": "Gruby kaftan z naszytą skórą. Nie wiąże rąk, bo drzewcem trzeba jeszcze machać."
+  },
+  {
+    "id": "karwasze_rogowe",
+    "name": "Karwasze z rogu",
+    "type": "armor",
+    "tier": 2,
+    "slot": "rece",
+    "armor": 1,
+    "reduction": {
+      "klute": 15,
+      "obuchowe": 10
+    },
+    "weight": 1,
+    "value": 70,
+    "description": "Płytki z rogu na przedramiona. Śmierdzą krową, ale cios zatrzymują."
+  },
+  {
+    "id": "nagolenice_skorzane",
+    "name": "Nagolenice skórzane",
+    "type": "armor",
+    "tier": 2,
+    "slot": "nogi",
+    "armor": 1,
+    "reduction": {
+      "klute": 10,
+      "obuchowe": 10
+    },
+    "weight": 1.5,
+    "value": 60,
+    "description": "Twarda skóra od kolana w dół. Ktoś wreszcie pomyślał o piszczelach."
   },
   {
     "id": "kolczuga_straznicza",
@@ -1840,7 +1885,6 @@
     "skill": "drzewcowa",
     "masteryType": "wlocznie",
     "pair": true,
-    "reach": true,
     "throwName": "Włócznia",
     "throwSkill": "drzewcowa",
     "weight": 3,
@@ -1920,7 +1964,6 @@
     "skill": "drzewcowa",
     "masteryType": "wlocznie",
     "pair": true,
-    "reach": true,
     "throwName": "Włócznia",
     "throwSkill": "drzewcowa",
     "weight": 3,

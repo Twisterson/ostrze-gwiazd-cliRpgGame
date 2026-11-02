@@ -179,7 +179,7 @@ const RULES_SCHEMA = {
     rest: strictObject({ minHours: INT_MIN1, maxHours: INT_MIN1, healBase: INT_MIN0, healKrzepaDiv: INT_MIN1 }),
     vars: { type: "array", items: ID },
     unlocks: { type: "array", items: ID },
-    inventory: strictObject({ hardLimitPercent: INT_MIN1, useMinutes: INT_MIN0, maxReductionPercent: INT_MIN0 }),
+    inventory: strictObject({ hardLimitPercent: INT_MIN1, useMinutes: INT_MIN0, maxReductionPercent: INT_MIN0, softCap: { type: "object", fields: { armorFrom: INT_MIN0, reductionFrom: INT_MIN0, rate: { type: "number", min: 0 } } } }),
     shop: strictObject({
       buyBase: { type: "number" }, buyHandelDiv: INT_MIN1, sellBase: { type: "number" }, sellHandelDiv: INT_MIN1, minPrice: INT_MIN1,
     }),
@@ -191,7 +191,7 @@ const RULES_SCHEMA = {
     }),
     combat: strictObject({
       hitBase: INT, hitMin: INT_MIN0, hitMax: INT_MIN1, critMult: { type: "number", min: 1 }, meleeStrengthBase: INT_MIN0,
-      rangedInMeleePenalty: INT_MIN0, minStrengthPenalty: INT_MIN0,
+      rangedInMeleePenalty: INT_MIN0, throwHitBonus: INT_MIN0, minStrengthPenalty: INT_MIN0,
       bluntCritStun: INT_MIN0, bluntDaze: INT_MIN0, dazedPenalty: INT_MIN0,
       defendPerAp: INT_MIN0, defendMinAp: INT_MIN1,
       fleeBase: INT, fleePerZrecznosc: INT_MIN0, fleePerMeleeEnemy: INT_MIN0, fleeAp: INT_MIN1,
@@ -220,7 +220,7 @@ const RULES_SCHEMA = {
       thiefMoneyPercent: { type: "array", items: INT_MIN0 }, thiefArtifactChance: INT_MIN0,
     }),
     phenomena: strictObject({ maxPerDay: INT_MIN0 }),
-    appetite: strictObject({ fullHours: INT_MIN1, hintAt: { type: "integer", min: 1, max: 100 } }),
+    appetite: strictObject({ fullHours: INT_MIN1, hintAt: { type: "integer", min: 1, max: 100 }, starveAt: INT_MIN1 }),
     quests: strictObject({ maxActive: INT_MIN1, microXp: INT_MIN0 }),
     search: strictObject({ levels: strictObject({ czujnosc: INT_MIN1, poscig: INT_MIN1, oblawa: INT_MIN1 }), decayPerDay: INT_MIN0 }),
     travel: strictObject({

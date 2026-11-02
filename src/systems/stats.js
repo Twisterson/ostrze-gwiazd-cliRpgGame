@@ -140,11 +140,14 @@ export function getStats(state, data, opts = {}) {
 
   // equipment armor and per-type reduction (capped), not affected by permanentOnly
   const worn = opts.permanentOnly ? [] : wornItems(state, data);
-  derived.armor = worn.reduce((acc, item) => acc + (item.armor ?? 0), 0);
+  // Past `softCap` a full set counts at `rate`: a light kit stays as it is, the sum of many pieces stops making the wearer untouchable.
+  const { softCap } = rules.inventory;
+  const soft = (total, from) => (!softCap || total <= from ? total : Math.floor(from + (total - from) * softCap.rate));
+  derived.armor = soft(worn.reduce((acc, item) => acc + (item.armor ?? 0), 0), softCap?.armorFrom);
   derived.reduction = {};
   for (const type of DAMAGE_TYPES) {
     const total = worn.reduce((acc, item) => acc + (item.reduction?.[type] ?? 0), 0);
-    derived.reduction[type] = Math.min(total, rules.inventory.maxReductionPercent);
+    derived.reduction[type] = soft(Math.min(total, rules.inventory.maxReductionPercent), softCap?.reductionFrom);
   }
 
   const other = {};

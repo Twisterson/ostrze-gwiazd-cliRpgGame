@@ -384,20 +384,20 @@
         "qty": 1
       },
       {
-        "id": "karwasze",
-        "qty": 1
-      },
-      {
         "id": "nagolenniki",
-        "qty": 1
-      },
-      {
-        "id": "buty_wedrowca",
         "qty": 1
       },
       {
         "id": "loj_do_ostrza",
         "qty": 4
+      },
+      {
+        "id": "karwasze_rogowe",
+        "qty": 1
+      },
+      {
+        "id": "nagolenice_skorzane",
+        "qty": 1
       }
     ]
   },
@@ -511,6 +511,18 @@
       },
       {
         "id": "pas_zolnierski",
+        "qty": 1
+      },
+      {
+        "id": "kaftan_wlocznika",
+        "qty": 1
+      },
+      {
+        "id": "karwasze_rogowe",
+        "qty": 1
+      },
+      {
+        "id": "nagolenice_skorzane",
         "qty": 1
       }
     ]

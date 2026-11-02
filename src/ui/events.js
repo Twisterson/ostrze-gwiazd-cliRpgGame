@@ -1,5 +1,6 @@
 import { itemById } from "../systems/items.js";
 import { effectById } from "../systems/effects.js";
+import { HUNGER_DYING } from "../systems/food.js";
 import { enemyById } from "../systems/combat/data.js";
 import { enemyByUid } from "../systems/combat/state.js";
 import { MAX_ROUNDS } from "../systems/combat/turn.js";
@@ -26,6 +27,16 @@ function abilityText(ui, data, e) {
   const item = itemById(data, e.artifact);
   const params = { artifact: item?.name ?? e.artifact, ability: item?.abilities?.find((a) => a.id === e.ability)?.name ?? e.ability };
   return e.viaHp !== undefined ? t(ui, "combat.abilityHp", { ...params, text: e.text, hp: e.viaHp }) : t(ui, "combat.ability", params);
+}
+
+/** "Głodny: Siła -1, Krzepa -1, gorzej się leczysz we śnie." – a stage of hunger with what it takes away. */
+function hungerStage(id, data) {
+  const { ui } = data;
+  const def = effectById(data, id);
+  const names = [...data.attributes, ...data.skills];
+  const list = Object.entries(def.modifiers ?? {}).map(([key, value]) => `${names.find((n) => n.id === key)?.name ?? key} ${value}`);
+  if (def.restHealMultiplier) list.push(t(ui, "event.hungerRest"));
+  return paint("warn", id === HUNGER_DYING ? t(ui, "event.starving", { list: list.join(", ") }) : t(ui, "event.hunger", { name: def.name, list: list.join(", ") }));
 }
 
 /** The painted notice for one event, or null when the event is silent. */
@@ -69,6 +80,8 @@ function noticeFor(ctx, e) {
     case "zadanie_wykonane": return paint("heal", t(ui, "event.questDone", { name: questById(data, e.id)?.name ?? e.id }));
     case "zadanie_przepadlo": {
       const quest = questById(data, e.id);
+      const back = quest?.retryAt ? placeById(data, quest.retryAt)?.spot : null;
+      if (back) return paint("warn", t(ui, "event.questRetry", { name: quest.name, place: back.name }));
       if (e.expired && quest?.client) return paint("warn", t(ui, "event.questExpired", { client: quest.client }));
       return paint("warn", t(ui, "event.questFailed", { name: quest?.name ?? e.id }));
     }
@@ -85,9 +98,8 @@ function noticeFor(ctx, e) {
     case "zadanie_limit": return paint("warn", t(ui, "event.questLimit", { name: questById(data, e.id)?.name ?? e.id }));
     case "goraca_strawa": return paint("heal", t(ui, e.hp > 0 ? "event.hotMeal" : "event.hotMealFull", { hp: e.hp }));
     case "posilek": return paint("dim", t(ui, "event.meal", { item: itemName(), left: e.left }));
-    case "glod": return paint("warn", t(ui, "event.hunger", { stacks: e.stacks }));
+    case "glod_etap": return hungerStage(e.id, data);
     case "glod_pora": return paint("warn", t(ui, "event.hungerHint"));
-    case "glod_mniej": return paint("heal", t(ui, "event.hungerLess", { stacks: e.stacks }));
     case "zatrucie_jedzeniem": return paint("warn", t(ui, "event.foodPoison", { item: itemName() }));
     default: return null; // flaga, zmienna and unknown events stay silent
   }

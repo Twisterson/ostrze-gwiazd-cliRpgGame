@@ -2,6 +2,7 @@ import { getStats } from "../systems/stats.js";
 import { carriedWeight } from "../systems/inventory.js";
 import { itemById, MASTERY_TYPES } from "../systems/items.js";
 import { effectById } from "../systems/effects.js";
+import { modifierName } from "./item_compare.js";
 import { phenomenonById } from "../systems/phenomena.js";
 import { formatRemaining } from "./events.js";
 import { DAMAGE_TYPES } from "../systems/modifiers.js";
@@ -31,9 +32,14 @@ function sourceLabel(source, data) {
   return list.find((e) => e.id === source.id)?.name ?? source.id;
 }
 
-/** "Zatruty · zostało 4 h ×2"; from a day up the remaining time is "1d 5h" without a unit; no time for effects that do not expire. */
-function effectLine(entry, def, ui) {
-  if (def.noExpire) return entry.stacks > 1 ? `${def.name} ×${entry.stacks}` : def.name;
+/** "Zatruty · zostało 4 h ×2"; from a day up the remaining time is "1d 5h" without a unit; an effect that does not expire says what it takes: "Głodny · Siła -1, Krzepa -1". */
+function effectLine(entry, def, data) {
+  const { ui } = data;
+  if (def.noExpire) {
+    const named = entry.stacks > 1 ? `${def.name} ×${entry.stacks}` : def.name;
+    const list = Object.entries(def.modifiers ?? {}).filter(([, v]) => typeof v === "number").map(([key, v]) => `${modifierName(key, data)} ${v > 0 ? "+" : ""}${v}`);
+    return list.length ? `${named} · ${list.join(", ")}` : named;
+  }
   const long = def.unit === "hour" && entry.remaining >= 24;
   const line = long
     ? t(ui, "char.effectLong", { name: def.name, remaining: formatRemaining(ui, entry.remaining) })
@@ -86,7 +92,7 @@ const masterySection = (state, data) => {
 
 const effectsSection = (state, data) => {
   const effects = (state.character.effects ?? []).map((e) => ({ e, def: effectById(data, e.id) })).filter((x) => x.def);
-  return effects.length ? heading(t(data.ui, "char.effects"), effects.map(({ e, def }) => effectLine(e, def, data.ui))) : [];
+  return effects.length ? heading(t(data.ui, "char.effects"), effects.map(({ e, def }) => effectLine(e, def, data))) : [];
 };
 
 /** The perks, names in bold, wrapped to `width`. */

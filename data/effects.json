@@ -30,7 +30,9 @@
     "unit": "turn", "duration": 1, "modifiers": { "defense": 15 }, "stack": "refresh" },
   { "id": "zaslona", "name": "Zasłona", "description": "Mroczna zasłona tłumi każdy cios.",
     "unit": "turn", "duration": 3, "modifiers": { "damageTaken": { "sieczne": 0.6, "klute": 0.6, "obuchowe": 0.6, "ogien": 0.6, "palne": 0.6 } }, "stack": "refresh" },
-  {"id": "glod", "name": "Głodny", "description": "Żołądek skręca się w supeł, a nogi robią się miękkie.", "unit": "hour", "duration": 1, "noExpire": true, "stack": "stack", "maxStacks": 3, "modifiers": {"sila": -1, "krzepa": -1}, "restHealMultiplier": 0.5},
+  {"id": "glod_lekki", "name": "Burczy w brzuchu", "description": "Żołądek przypomina, że jeszcze istnieje.", "unit": "hour", "duration": 1, "noExpire": true, "stack": "refresh", "modifiers": {"sila": -1}},
+  {"id": "glod", "name": "Głodny", "description": "Żołądek skręca się w supeł, a nogi robią się miękkie.", "unit": "hour", "duration": 1, "noExpire": true, "stack": "refresh", "modifiers": {"sila": -1, "krzepa": -1}, "restHealMultiplier": 0.5},
+  {"id": "glod_konanie", "name": "Konający z głodu", "description": "Nogi plączą się same, a przed oczami latają muchy, których nie ma.", "unit": "hour", "duration": 1, "noExpire": true, "stack": "refresh", "modifiers": {"zrecznosc": -2, "bystrosc": -1}},
   {"id":"mocny_napar","name":"Mocny napar","description":"Gorzki napar z korzeni rozgrzewa mięśnie. Krzepa rośnie, dopóki działa.","unit":"hour","duration":6,"modifiers":{"krzepa":2},"stack":"refresh"},
   {"id":"natluszczone_ostrze","name":"Natłuszczone ostrze","description":"Ostrze jedzie po skórze gładziej. Każdy cios kąsa mocniej.","unit":"hour","duration":2,"modifiers":{"extraDamage":{"type":"sieczne","amount":[1,3]}},"stack":"refresh"},
   {"id":"najedzony","name":"Najedzony","description":"Ciepły posiłek w brzuchu. Ręka pewniejsza, noga mocniejsza.","unit":"hour","duration":8,"modifiers":{"sila":1,"krzepa":1},"stack":"refresh"}

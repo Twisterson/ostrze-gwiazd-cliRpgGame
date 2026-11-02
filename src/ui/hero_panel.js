@@ -10,14 +10,14 @@ import { effectById } from "../systems/effects.js";
 import { itemById } from "../systems/items.js";
 import { countOf } from "../systems/inventory.js";
 import { xpToReach } from "../systems/character.js";
-import { appetitePercent } from "../systems/appetite.js";
+import { appetitePercent, appetiteRules } from "../systems/appetite.js";
 import { mealsLeft } from "../systems/food.js";
 
 const BAR = 10;
 const GAP = "   ";
 const pad2 = (n) => String(n).padStart(2, "0");
 /** Hunger and tiredness are a warning (yellow), the other effects are bad (red). */
-const MILD = new Set(["glod", "zmeczenie"]);
+const MILD = new Set(["glod_lekki", "glod", "zmeczenie"]);
 
 /** `left` + `right` on one line of `width` columns; the right part is dropped when both do not fit; the left part is cut. */
 function spread(left, right, width) {
@@ -48,8 +48,8 @@ function effectsText(ui, state, data) {
 /** Purse, the appetite gauge (yellow from the hint level) and the meals in the bag. */
 function suppliesText(ui, state, data) {
   const pct = appetitePercent(state, data);
-  const hunger = t(ui, "hero.hunger", { pct });
-  const mark = pct >= (data.rules.appetite?.hintAt ?? 85) ? paint("hp_mid", hunger) : paint("dim", hunger);
+  const { hintAt, starveAt } = appetiteRules(data);
+  const mark = pct >= starveAt ? paint("hp_low", t(ui, "hero.starving")) : paint(pct >= hintAt ? "hp_mid" : "dim", t(ui, "hero.hunger", { pct }));
   return [t(ui, "hero.money", { n: state.character.money ?? 0, currency: t(ui, "currency.short") }), mark, t(ui, "hero.meals", { n: mealsLeft(state, data) })].join(GAP);
 }
 

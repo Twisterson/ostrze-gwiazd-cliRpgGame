@@ -31,6 +31,19 @@ export class LoadError extends Error {
 
 /** Migrations from format version v to v + 1 (`data` is optional; v5 → v6 needs the classes for the starting mastery, v6 → v7 the artifacts). */
 export const migrations = {
+  // Hunger now follows the gauge. Stacks of the old effect become its level; a gauge that used to stop at 100 starts just below the first stage.
+  12: (state, data) => {
+    const ch = state.character;
+    if (!ch) return { ...state, version: 13 };
+    const full = (data?.rules?.appetite?.fullHours ?? 24) * 60;
+    const now = state.time.minutes;
+    const stacks = (ch.effects ?? []).find((e) => e.id === "glod")?.stacks ?? 0;
+    const effects = (ch.effects ?? []).map((e) => (e.id === "glod" ? { ...e, stacks: 1 } : e));
+    const character = { ...ch, effects };
+    if (stacks > 0) character.lastMeal = now - (stacks >= 2 ? 1.5 : 1) * full;
+    else if (ch.lastMeal !== undefined) character.lastMeal = Math.max(ch.lastMeal, now - Math.floor(0.84 * full));
+    return { ...state, version: 13, character };
+  },
   1: (state) => ({ ...state, version: 2, vars: {} }),
   2: (state) => ({
     ...state,

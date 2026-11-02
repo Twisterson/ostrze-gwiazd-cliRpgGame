@@ -36,6 +36,12 @@ export function dualState(state, data, combat) {
   return { active: !!second && main.range === "melee" && !thrownOut, main, second, thrownOut };
 }
 
+/** The weapon a ready stance strikes with: a melee weapon in hand, unless a thrown one lies by a foe. Bare hands and missile weapons have none. */
+export function readyWeapon(state, data, combat) {
+  const ds = dualState(state, data, combat);
+  return state.inventory.equipped.bron && ds.main.range === "melee" && !ds.thrownOut ? ds.main : null;
+}
+
 /** Whether the thrown weapon can be picked up: its target is in melee with the player, dead or gone. */
 function canPickUp(combat) {
   const foe = enemyByUid(combat, combat.thrown.uid);
@@ -114,8 +120,8 @@ export function techniqueActions(state, data, combat) {
   list.push(entry("throw", throwCost, twoHands ?? afford(throwCost, noTarget("throw")), thrownName(second)));
   const thrownItem = combat.thrown ? itemById(data, combat.thrown.itemId) : null;
   list.push(entry("pickup", c.dual.pickUpAp, !combat.thrown ? "combat.notThrown" : afford(c.dual.pickUpAp, canPickUp(combat) ? undefined : "combat.pickUpFar"), thrownName(thrownItem)));
-  // The stance of a long weapon: enemies stepping into melee until the player's next turn take one blow each. Never automatic.
-  const readyReason = !(ds.active && main.reach) ? "combat.noReach" : combat.ready ? "combat.alreadyReady" : afford(c.reachReadyAp);
+  // The ready stance: enemies stepping into melee until the player's next turn take one blow each. Never automatic.
+  const readyReason = !readyWeapon(state, data, combat) ? "combat.noReach" : combat.ready ? "combat.alreadyReady" : afford(c.reachReadyAp);
   list.push(entry("ready", c.reachReadyAp, readyReason));
   for (const o of abilityOptions(state, data, combat)) {
     list.push({

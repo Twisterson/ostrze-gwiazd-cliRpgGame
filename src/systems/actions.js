@@ -11,7 +11,7 @@ import { addSearch } from "./search.js";
 import { questById, startQuest, finishQuest, advanceErrands } from "./quests.js";
 import { lootTableById, rollLootTable } from "./loot.js";
 
-import { HUNGER } from "./food.js";
+import { syncHunger } from "./food.js";
 import { resetAppetite } from "./appetite.js";
 
 export const ACTION_KEYS = ["giveItem", "giveRandom", "takeItem", "giveMoney", "takeMoney", "setFlag", "clearFlag", "addVar", "xp", "time", "addEffect", "removeEffect", "healFull", "meal", "reveal", "hint", "startQuest", "completeQuest", "search", "startCombat"];
@@ -160,8 +160,8 @@ export function runActions(state, data, actions, rng) {
       }
       case "meal": {
         // A hot meal at a table: all the hunger gone, the appetite gauge back to zero and `value` HP.
-        removeEffect(state, HUNGER);
         resetAppetite(state);
+        events.push(...syncHunger(state, data, rng));
         const hp = Math.min(value, getStats(state, data).derived.hpMax - ch.hp);
         ch.hp += hp;
         events.push({ type: "goraca_strawa", hp });

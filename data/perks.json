@@ -15,5 +15,9 @@
   { "id": "czuly_na_swiat", "name": "Czuły na świat", "description": "Czujesz, że w powietrzu coś drga, i tym razem to nie od piwa.", "requires": { "attributes": { "rozum": 6 }, "skills": { "wiedza_tajemna": 30 } }, "modifiers": { "wiedza_tajemna": 15 } },
   { "id": "cyrulik", "name": "Cyrulik", "description": "Zszyjesz, opatrzysz i jeszcze ząb wyrwiesz, a pacjent prawie nie krzyczy.", "requires": { "skills": { "medycyna": 40 } }, "modifiers": { "medycyna": 15 } },
   { "id": "szczesciarz", "name": "Szczęściarz", "description": "Los uśmiecha się do ciebie, choć pewnie z braku lepszego towarzystwa.", "requires": { "level": 4 }, "modifiers": { "fart": 1 } },
-  { "id": "kocie_zycie", "name": "Kocie życie", "description": "Spadasz zawsze na cztery łapy, a jak nie, to szybko uciekasz.", "requires": { "attributes": { "fart": 7 } }, "modifiers": { "critChance": 5, "fleeChance": 15 } }
+  { "id": "kocie_zycie", "name": "Kocie życie", "description": "Spadasz zawsze na cztery łapy, a jak nie, to szybko uciekasz.", "requires": { "attributes": { "fart": 7 } }, "modifiers": { "critChance": 5, "fleeChance": 15 } },
+  { "id": "pewny_chwyt", "name": "Pewny chwyt", "description": "Raz złapiesz, to się nie wyśliźnie, ani broń, ani kufel.", "requires": { "attributes": { "sila": 8 } }, "modifiers": { "meleeHitChance": 10 } },
+  { "id": "wol_roboczy", "name": "Wół roboczy", "description": "Dźwigasz za dwóch, a narzekasz za trzech.", "requires": { "attributes": { "sila": 9 } }, "modifiers": { "carry": 15, "hpMax": 5 } },
+  { "id": "unik", "name": "Unik", "description": "Jak ktoś bije, to cię akurat tam nie ma.", "requires": { "attributes": { "zrecznosc": 7 } }, "modifiers": { "defense": 5 } },
+  { "id": "szybkie_nogi", "name": "Szybkie nogi", "description": "Odwaga odwagą, ale do lasu i tak dobiegniesz pierwszy.", "requires": { "attributes": { "zrecznosc": 8 } }, "modifiers": { "fleeChance": 15, "initiative": 2 } }
 ]

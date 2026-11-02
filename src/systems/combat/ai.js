@@ -3,7 +3,7 @@ import { enemyById } from "./data.js";
 import { enemyByUid } from "./state.js";
 import { effectById } from "../effects.js";
 import { resolveEnemyAttack, cannotMove } from "./actions.js";
-import { dualState } from "./techniques.js";
+import { readyWeapon } from "./techniques.js";
 import { strike } from "./strike.js";
 
 export { onAllyDeath } from "./state.js";
@@ -23,15 +23,15 @@ function pickWeighted(attacks, rng) {
 }
 
 /**
- * The player's free `reach` blow against `enemy` that just closed into melee: needs the active weapon pair (not thrown)
- * whose main weapon has `reach`, and a player who is not stunned. Marks the first `atak` event `reaction: true`.
+ * The player's free blow from the ready stance against `enemy` that just closed into melee: needs a melee weapon in hand
+ * (see `readyWeapon`) and a player who is not stunned. Marks the first `atak` event `reaction: true`.
  * @returns {object[]} events (empty when no reaction)
  */
 function reachReaction(state, data, combat, enemy, rng) {
-  const ds = dualState(state, data, combat);
+  const weapon = readyWeapon(state, data, combat);
   const stunned = (state.character.effects ?? []).some((e) => effectById(data, e.id)?.skipTurn);
-  if (!combat.ready || !ds.active || !ds.main.reach || stunned || state.character.hp <= 0) return []; // only from the stance the player took
-  const events = strike(state, data, combat, { weapon: ds.main, target: enemy, rng });
+  if (!combat.ready || !weapon || stunned || state.character.hp <= 0) return []; // only from the stance the player took
+  const events = strike(state, data, combat, { weapon, target: enemy, rng });
   events[0].reaction = true;
   return events;
 }
@@ -40,7 +40,7 @@ function reachReaction(state, data, combat, enemy, rng) {
  * Plays the turn of enemy `uid`: cautious enemies flee when HP < cautiousHpPercent% or morale < moraleThreshold;
  * otherwise melee-minded ones close in (a `leap` enemy jumps in for 0 AP, once per turn) and attack, `ranged` ones step
  * back when they can afford step + shot, else shoot from melee (`far` attacks work in both bands). An enemy entering
- * melee with a `reach` pair takes one free blow first (once per turn); if it dies, its turn ends. A `noMove` effect forbids moving and leaping.
+ * melee against a player in the ready stance takes one free blow first (once per turn); if it dies, its turn ends. A `noMove` effect forbids moving and leaping.
  * @returns {object[]} events (`atak`, `ruch`, `wrog_ucieka`, effect events)
  */
 export function enemyTurn(state, data, combat, uid, rng) {

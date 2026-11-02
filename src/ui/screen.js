@@ -1,7 +1,7 @@
 import { clockOf, timeOfDay } from "../engine/time.js";
 import { getStats } from "../systems/stats.js";
-import { paint, useColor } from "./colors.js";
-import { renderPixels } from "./pixels.js";
+import { paint, graphicsMode } from "./colors.js";
+import { renderPixels, tintLines } from "./pixels.js";
 import { t } from "./strings.js";
 import { formatRemaining } from "./events.js";
 import { effectById } from "../systems/effects.js";
@@ -161,7 +161,7 @@ export function choiceCapacity(io, { info = false } = {}) {
 function openFrame(ctx, { title, text, lines = [], side = [], hero: withHero = true, art: artId, bare = false }, notices) {
   const { state, data, io } = ctx;
   const image = artId ? data.art?.[artId] : null;
-  const art = image ? { lines: renderPixels(image, { color: useColor() }), width: image.w } : null;
+  const art = image && graphicsMode() !== "none" ? { lines: tintLines(renderPixels(image, { color: true })), width: image.w } : null; // without a picture the text takes its place
   const f = { hero: null, title, body: [], commands: [], notices, page: 0, choiceTitle: null, choiceInfo: null, side, art, bare, tooSmall: data?.ui["frame.tooSmall"] };
   io.frame = f;
   let laidOut = f.body;

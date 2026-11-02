@@ -69,7 +69,7 @@ export function playerActions(state, data, combat) {
     entry("swap", c.swapAp, afford(c.swapAp, eq.bron || eq.bron_zapas ? undefined : "combat.nothingToSwap")),
     entry("move", c.moveAp, afford(c.moveAp, isSlowed(state, data) ? "combat.slowed" : livingEnemies(combat).length ? undefined : "combat.noTarget")),
     entry("defend", defendCost, afford(c.defendMinAp)),
-    entry("flee", c.fleeAp, combat.def?.canFlee === false ? "combat.noFlee" : afford(c.fleeAp)),
+    { ...entry("flee", c.fleeAp, combat.def?.canFlee === false ? "combat.noFlee" : afford(c.fleeAp)), chance: fleeChance(state, data, combat) },
     entry("end", 0),
     entry("log", 0),
     entry("techniques", 0, techniqueActions(state, data, combat).some((t) => !t.disabled) ? undefined : "combat.noTechnique"),
@@ -140,13 +140,19 @@ function throwItem(state, data, combat, item, aimUid, rng, events) {
       for (const fx of item.effects ?? []) effectOnPlayer(state, data, fx.id, rng, events);
       return;
     }
-    const hit = roll <= playerHitChance(state, data, combat, thrown, aim, { masteryType: masteryTypeOf(item) });
+    const hit = roll <= playerHitChance(state, data, combat, thrown, aim, { masteryType: masteryTypeOf(item), penalty: -c.throwHitBonus });
     use.hit = (use.hit ?? true) && hit;
     const victims = item.target === "single_splash" ? living.filter((e) => e.band === aim.band) : [aim];
     for (const victim of victims) {
       for (const fx of item.effects ?? []) {
+        // Said every time, hit or miss: a player should not waste a second jar finding out.
+        if ((enemyById(data, victim.id).immune ?? []).includes(fx.id)) {
+          events.push({ type: "efekt_odporny", id: fx.id, target: victim.uid });
+          continue;
+        }
         const chance = hit ? fx.chance : Math.floor(fx.chance * c.missEffectMultiplier);
-        if (!hit && effectById(data, fx.id).duration - 1 < 1) continue;
+        // A near miss shortens the effect, so a one-turn one is lost; an explosion still shakes whoever stands near.
+        if (!hit && item.target !== "single_splash" && effectById(data, fx.id).duration - 1 < 1) continue;
         if (roll100(rng) > chance) continue;
         const existed = victim.effects.some((e) => e.id === fx.id);
         const r = effectOnEnemy(data, combat, victim, fx.id, rng, events);

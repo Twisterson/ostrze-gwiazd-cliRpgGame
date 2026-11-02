@@ -48,7 +48,7 @@ const TYPE_SCHEMAS = {
       range: { type: "string", enum: ["melee", "far", "thrown"] }, minStrength: INT_MIN0,
       reload: strict(["apCost", "ammo", "capacity"], { apCost: INT_MIN1, ammo: ID, capacity: INT_MIN1 }),
       armorPierce: INT_MIN0, misfireChance: INT_MIN0, burstChance: INT_MIN0, burstDamage: PAIR, noise: INT_MIN0, fear: INT_MIN0,
-      smoke: INT_MIN0, pair: { type: "boolean" }, offhand: { type: "boolean" }, reach: { type: "boolean" }, throwName: { type: "string" }, throwSkill: { type: "string" }, masteryType: { type: "string" },
+      smoke: INT_MIN0, pair: { type: "boolean" }, offhand: { type: "boolean" }, throwName: { type: "string" }, throwSkill: { type: "string" }, masteryType: { type: "string" },
       modifiers: { type: "object" },
       effects: { type: "array", items: strict(["id", "chance"], { id: ID, chance: INT_MIN1 }) },
     },

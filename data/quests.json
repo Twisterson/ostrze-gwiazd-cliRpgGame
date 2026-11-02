@@ -76,6 +76,7 @@
     "location": "kamienna_przelecz",
     "route": "wilczy_brod_przelecz",
     "deadlineDays": 3,
+    "retryAt": "wilczy_brod.woz_ostromira",
     "eventChance": 50,
     "events": [
       {
@@ -101,7 +102,7 @@
             ],
             "start": "far",
             "canFlee": true,
-            "onFlee": "napad_strata",
+            "onFlee": "napad_ucieczka",
             "onDefeat": "napad_strata"
           },
           {
@@ -113,7 +114,25 @@
           {
             "id": "napad_strata",
             "type": "narration",
+            "goto": "napad_powrot",
             "text": "Kiedy dochodzisz do siebie, wozu już nie ma. Ostromir siedzi w rowie bez butów i bez towaru i nie chce na ciebie patrzeć."
+          },
+          {
+            "id": "napad_ucieczka",
+            "type": "narration",
+            "text": "Kiedy wracasz na drogę, wozu już nie ma. Ostromir siedzi w rowie bez butów i bez towaru i nie chce na ciebie patrzeć."
+          },
+          {
+            "id": "napad_powrot",
+            "type": "narration",
+            "text": "„Do Brodu wracam piechotą”, mówi w końcu do rowu. „Szwagier i tak będzie czekał.”"
+          },
+          {
+            "id": "napad_rabunek",
+            "type": "flag",
+            "set": {
+              "ostromir_ograbiony": true
+            }
           },
           {
             "id": "napad_porazka",
@@ -1631,7 +1650,7 @@
       {
         "id": "przelecz",
         "text": "Odprowadź wóz Ostromira na Kamienną Przełęcz.",
-        "at": "wilczy_brod",
+        "at": "wilczy_brod.woz_ostromira",
         "done": {
           "flag": "akt2_koniec"
         }

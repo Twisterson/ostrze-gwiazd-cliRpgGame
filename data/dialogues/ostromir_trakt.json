@@ -15,28 +15,6 @@
           }
         },
         {
-          "text": "Potrzebujesz eskorty na Przełęcz?",
-          "goto": "eskorta",
-          "id": "eskorta",
-          "requires": {
-            "flag": "dlug_oddany",
-            "any": [
-              {
-                "questStatus": {
-                  "id": "eskorta_ostromira",
-                  "is": "none"
-                }
-              },
-              {
-                "questStatus": {
-                  "id": "eskorta_ostromira",
-                  "is": "failed"
-                }
-              }
-            ]
-          }
-        },
-        {
           "text": "Bywaj.",
           "goto": "end",
           "id": "bywaj"
@@ -61,21 +39,6 @@
         },
         {
           "setFlag": "ostromir_dlug"
-        }
-      ]
-    },
-    "eskorta": {
-      "speaker": "Kupiec Ostromir",
-      "text": "„Przełęcz? Trzy dni pustkowiem, a ja wiozę sukno na tysiąc złotych i ani krzty odwagi. Czterdzieści groszy za odprowadzenie wozu, a będziesz mi najlepszym przyjacielem, póki nie przyjdzie do rachunku.” Wyciąga rękę.",
-      "options": [
-        {
-          "text": "Biorę to. Czekaj w Brodzie.",
-          "goto": "end"
-        }
-      ],
-      "actions": [
-        {
-          "startQuest": "eskorta_ostromira"
         }
       ]
     }

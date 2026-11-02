@@ -7,7 +7,8 @@ import { FONT, SKY, hash, toLine } from "./title_screen.js";
 import { framesOn, showScreen, sceneCapacity, pushNotice } from "./screen.js";
 import { sceneFullWidth } from "./frame.js";
 import { choose } from "./prompt.js";
-import { paint, useColor } from "./colors.js";
+import { paint, graphicsMode } from "./colors.js";
+import { tintLines } from "./pixels.js";
 import { t } from "./strings.js";
 import { clockOf } from "../engine/time.js";
 
@@ -136,7 +137,7 @@ export async function showEndScreen(ctx) {
   }
   pushNotice(ctx, stats);
   await showScreen(ctx, { lines: [], hero: false, bare: true });
-  const frame = (tick) => endLines({ width: sceneFullWidth(io.columns), height: sceneCapacity(io), tick, color: useColor(), plain: t(ui, "end.plain") });
+  const frame = (tick) => tintLines(endLines({ width: sceneFullWidth(io.columns), height: sceneCapacity(io), tick, color: graphicsMode() !== "none", plain: t(ui, "end.plain") }));
   io.frame.body = frame(0);
   await choose(io, ui, [t(ui, "end.close")], undefined, { animate: { ms: 110, frame } });
 }

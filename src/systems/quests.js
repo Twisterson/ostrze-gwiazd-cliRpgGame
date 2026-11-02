@@ -18,7 +18,7 @@ const QUEST_SCHEMA = {
   fields: {
     id: ID, kind: { type: "string", enum: QUEST_KINDS }, name: TEXT, hub: ID, description: TEXT, location: ID, route: ID,
     client: TEXT, clientGen: TEXT, eventChance: { type: "integer", min: 0 }, board: { type: "boolean" }, random: { type: "boolean" }, closedBy: { type: "object" },
-    report: { type: "boolean" }, reportTo: TEXT, onComplete: { type: "array" }, onStart: { type: "array" },
+    report: { type: "boolean" }, reportTo: TEXT, onComplete: { type: "array" }, onStart: { type: "array" }, retryAt: { type: "string" },
     events: { type: "array" }, scenes: { type: "array" },
   },
 };
