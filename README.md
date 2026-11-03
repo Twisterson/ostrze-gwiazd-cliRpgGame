@@ -136,7 +136,7 @@ Jeśli wierzyć filmikom z internetu, z AI taką grę robi się w 15 minut. Wpis
 
 Świat, fabułę i decyzje wymyśliłem ja. Claude Code pisał kod i testy, pomagał przy tekstach i szukał błędów. Ja czytałem, grałem, poprawiałem i mówiłem, co jest do niczego.
 
-Więc jeśli ktoś zapyta, ile to trwało: 15 minut. Plus 89 godzin i 45 minut, o których w tytułach filmików się nie wspomina.
+Więc jeśli ktoś zapyta, ile to trwało: 15 minut plus 89 godzin i 45 minut, o których w tytułach filmików się nie wspomina.
 
 ## Licencja
 

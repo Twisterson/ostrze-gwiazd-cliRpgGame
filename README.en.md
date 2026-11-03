@@ -136,7 +136,7 @@ If you believe the videos online, with AI you make a game like this in 15 minute
 
 The world, the story and the decisions are mine. Claude Code wrote the code and the tests, helped with the text and hunted bugs. I read, played, fixed and said what was rubbish.
 
-So if anyone asks how long it took: 15 minutes. Plus the 89 hours and 45 minutes the video titles never mention.
+So if anyone asks how long it took: 15 minutes plus the 89 hours and 45 minutes the video titles never mention.
 
 ## License
 
