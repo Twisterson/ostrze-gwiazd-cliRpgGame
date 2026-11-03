@@ -122,6 +122,22 @@ All content lives in `data/` as JSON, text and pixels:
 
 After changing the data, run `node bin/game.js --validate`. It checks references between files, conditions, actions, scenes, quests and pictures.
 
+## How this game was made
+
+This game was made with Claude Code. I'm not hiding it, because there's nothing to hide: a good tool makes the work faster, but it doesn't do it for you.
+
+If you believe the videos online, with AI you make a game like this in 15 minutes. You type "make me an RPG", go get a coffee, come back and play. My coffee got a bit cold:
+
+- about 90 hours of joint work over two weeks;
+- at least 4 hours of building the world and the story before the AI saw a single file;
+- over 480 commits and nearly 1,900 tests;
+- 62,000 words of text that had to be read, and most of it fixed, because a machine left to itself writes pretty sentences about nothing;
+- dozens of playthroughs just to find the bug the tests didn't see.
+
+The world, the story and the decisions are mine. Claude Code wrote the code and the tests, helped with the text and hunted bugs. I read, played, fixed and said what was rubbish.
+
+So if anyone asks how long it took: 15 minutes. Plus the 89 hours and 45 minutes the video titles never mention.
+
 ## License
 
 Dual license, author: Daniel Twiist Antonik (twisterson@gmail.com).

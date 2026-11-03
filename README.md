@@ -122,6 +122,22 @@ Cała treść leży w `data/` jako JSON, tekst i piksele:
 
 Po zmianie danych uruchom `node bin/game.js --validate`. Walidacja sprawdza odwołania między plikami, warunki, akcje, sceny, zlecenia i grafiki.
 
+## Jak powstała ta gra
+
+Gra powstała z pomocą Claude Code. Nie ukrywam tego, bo nie ma czego: dobrym narzędziem robi się szybciej, ale nie samo.
+
+Jeśli wierzyć filmikom z internetu, z AI taką grę robi się w 15 minut. Wpisujesz „zrób mi RPG”, idziesz po kawę, wracasz i grasz. U mnie kawa trochę ostygła:
+
+- około 90 godzin wspólnej pracy w dwa tygodnie;
+- co najmniej 4 godziny samego wymyślania świata i fabuły, zanim AI zobaczyło pierwszy plik;
+- ponad 480 commitów i prawie 1900 testów;
+- 62 tysiące słów tekstu, które trzeba było przeczytać, a większość poprawić, bo maszyna puszczona samopas pisze ładnie i o niczym;
+- dziesiątki partii rozegranych tylko po to, żeby znaleźć błąd, którego testy nie widziały.
+
+Świat, fabułę i decyzje wymyśliłem ja. Claude Code pisał kod i testy, pomagał przy tekstach i szukał błędów. Ja czytałem, grałem, poprawiałem i mówiłem, co jest do niczego.
+
+Więc jeśli ktoś zapyta, ile to trwało: 15 minut. Plus 89 godzin i 45 minut, o których w tytułach filmików się nie wspomina.
+
 ## Licencja
 
 Podwójna licencja, autor: Daniel Twiist Antonik (twisterson@gmail.com).
