@@ -1,5 +1,5 @@
 /** Shared actions of dialogues and events: validation and execution. */
-import { addItem, removeItem, freeCount, canAdd } from "./inventory.js";
+import { addItem, removeItem, freeCount, canAdd, unequip } from "./inventory.js";
 import { addXp } from "./character.js";
 import { addVar } from "./vars.js";
 import { applyEffect, removeEffect, effectById } from "./effects.js";
@@ -14,7 +14,7 @@ import { lootTableById, rollLootTable } from "./loot.js";
 import { syncHunger } from "./food.js";
 import { resetAppetite } from "./appetite.js";
 
-export const ACTION_KEYS = ["giveItem", "giveRandom", "takeItem", "giveMoney", "takeMoney", "setFlag", "clearFlag", "addVar", "xp", "time", "addEffect", "removeEffect", "healFull", "meal", "reveal", "hint", "startQuest", "completeQuest", "search", "startCombat"];
+export const ACTION_KEYS = ["giveItem", "giveRandom", "takeItem", "unequipItem", "giveMoney", "takeMoney", "setFlag", "clearFlag", "addVar", "xp", "time", "addEffect", "removeEffect", "healFull", "meal", "reveal", "hint", "startQuest", "completeQuest", "search", "startCombat"];
 
 const isObject = (v) => typeof v === "object" && v !== null && !Array.isArray(v);
 const isCount = (v) => Number.isInteger(v) && v >= 1;
@@ -42,6 +42,7 @@ function validateAction(action, at, data) {
   switch (key) {
     case "giveItem":
     case "takeItem": return validateItemRef(value, here, data);
+    case "unequipItem": return typeof value === "string" ? validateItemRef(value, here, data) : [`${here}: oczekiwano id przedmiotu`];
     case "giveRandom": return typeof value === "string" && lootTableById(data, value) ? [] : [`${here}: nieznana tabela łupów ${JSON.stringify(value)}`];
     case "giveMoney":
     case "takeMoney":
@@ -91,14 +92,20 @@ export function validateActions(actions, path, data) {
 export function runActions(state, data, actions, rng) {
   const events = [];
   const ch = state.character;
+  // Weight that this run's `takeItem` actions removed: an item given back for at most that much is an exchange
+  // (a smith's upgrade) and skips the weight check, so a hero over the limit does not lose the old item for nothing.
+  let removedWeight = 0;
   for (const action of actions) {
     const [key] = Object.keys(action);
     const value = action[key];
     switch (key) {
       case "giveItem": {
         const { id, qty } = itemRef(value);
+        const weight = itemById(data, id).weight * qty;
+        const exchange = weight <= removedWeight + 1e-9;
         // A second copy of an artifact is silently skipped (addItem refuses it; the charge stays).
-        if (!canAdd(state, data, id, qty)) { events.push({ type: "za_ciezko", id, qty }); return { events }; } // too heavy: the rest of the node (flags that say "taken") is not run either
+        if (!exchange && !canAdd(state, data, id, qty)) { events.push({ type: "za_ciezko", id, qty }); return { events }; } // too heavy: the rest of the node (flags that say "taken") is not run either
+        if (exchange) removedWeight -= weight;
         if (addItem(state, data, id, qty).ok) events.push({ type: "otrzymano", id, qty });
         break;
       }
@@ -112,7 +119,16 @@ export function runActions(state, data, actions, rng) {
         const { id, qty } = itemRef(value);
         const taken = Math.min(qty, freeCount(state, id));
         if (taken > 0) removeItem(state, data, id, taken);
+        if (taken > 0) removedWeight += itemById(data, id).weight * taken;
         if (taken > 0) events.push({ type: "oddano", id, qty: taken });
+        break;
+      }
+      case "unequipItem": {
+        // The last copy is worn: take it off so a following takeItem can remove it. A spare copy means nothing to do.
+        if (freeCount(state, value) < 1) {
+          const slot = Object.keys(state.inventory.equipped).find((s) => state.inventory.equipped[s] === value);
+          if (slot) unequip(state, data, slot);
+        }
         break;
       }
       case "giveMoney":

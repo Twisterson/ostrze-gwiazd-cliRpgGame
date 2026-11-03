@@ -1,0 +1,712 @@
+{
+  "id": "ulepszenia_bogdan",
+  "portrait": "portret_bogdan",
+  "start": "warsztat",
+  "nodes": {
+    "warsztat": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan odkłada młot na kowadło i zerka na drzwi. „Mieczy nie kuję, ale cudze poprawić, to co innego. Cesarz o tym nie wie, i niech tak zostanie. Co dajesz?”",
+      "options": [
+        {
+          "id": "u_miecz_krotki_u1",
+          "text": "Krótki miecz: uchwyt (20 gr)",
+          "requires": {
+            "item": "miecz_krotki",
+            "money": 20
+          },
+          "actions": [
+            {
+              "unequipItem": "miecz_krotki"
+            },
+            {
+              "takeItem": "miecz_krotki"
+            },
+            {
+              "takeMoney": 20
+            },
+            {
+              "giveItem": "miecz_krotki_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_miecz_krotki_u1",
+          "text": "Krótki miecz: uchwyt (20 gr)",
+          "requires": {
+            "item": "miecz_krotki",
+            "moneyBelow": 20
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_para_wloczni_u1",
+          "text": "Para włóczni: uchwyt (20 gr)",
+          "requires": {
+            "item": "para_wloczni",
+            "money": 20
+          },
+          "actions": [
+            {
+              "unequipItem": "para_wloczni"
+            },
+            {
+              "takeItem": "para_wloczni"
+            },
+            {
+              "takeMoney": 20
+            },
+            {
+              "giveItem": "para_wloczni_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_para_wloczni_u1",
+          "text": "Para włóczni: uchwyt (20 gr)",
+          "requires": {
+            "item": "para_wloczni",
+            "moneyBelow": 20
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_kaftan_przeszywany_u1",
+          "text": "Kaftan przeszywany: skóra (20 gr)",
+          "requires": {
+            "item": "kaftan_przeszywany",
+            "money": 20
+          },
+          "actions": [
+            {
+              "unequipItem": "kaftan_przeszywany"
+            },
+            {
+              "takeItem": "kaftan_przeszywany"
+            },
+            {
+              "takeMoney": 20
+            },
+            {
+              "giveItem": "kaftan_przeszywany_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_kaftan_przeszywany_u1",
+          "text": "Kaftan przeszywany: skóra (20 gr)",
+          "requires": {
+            "item": "kaftan_przeszywany",
+            "moneyBelow": 20
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_kolczuga_u1",
+          "text": "Kolczuga: skóra (42 gr)",
+          "requires": {
+            "item": "kolczuga",
+            "money": 42
+          },
+          "actions": [
+            {
+              "unequipItem": "kolczuga"
+            },
+            {
+              "takeItem": "kolczuga"
+            },
+            {
+              "takeMoney": 42
+            },
+            {
+              "giveItem": "kolczuga_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_kolczuga_u1",
+          "text": "Kolczuga: skóra (42 gr)",
+          "requires": {
+            "item": "kolczuga",
+            "moneyBelow": 42
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_miecz_zolnierski_u1",
+          "text": "Miecz żołnierski: uchwyt (31 gr)",
+          "requires": {
+            "item": "miecz_zolnierski",
+            "money": 31
+          },
+          "actions": [
+            {
+              "unequipItem": "miecz_zolnierski"
+            },
+            {
+              "takeItem": "miecz_zolnierski"
+            },
+            {
+              "takeMoney": 31
+            },
+            {
+              "giveItem": "miecz_zolnierski_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_miecz_zolnierski_u1",
+          "text": "Miecz żołnierski: uchwyt (31 gr)",
+          "requires": {
+            "item": "miecz_zolnierski",
+            "moneyBelow": 31
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_miecz_straznika_u1",
+          "text": "Miecz strażnika: uchwyt (68 gr)",
+          "requires": {
+            "item": "miecz_straznika",
+            "money": 68
+          },
+          "actions": [
+            {
+              "unequipItem": "miecz_straznika"
+            },
+            {
+              "takeItem": "miecz_straznika"
+            },
+            {
+              "takeMoney": 68
+            },
+            {
+              "giveItem": "miecz_straznika_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_miecz_straznika_u1",
+          "text": "Miecz strażnika: uchwyt (68 gr)",
+          "requires": {
+            "item": "miecz_straznika",
+            "moneyBelow": 68
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_miecz_mistrza_u1",
+          "text": "Miecz mistrza: uchwyt (325 gr)",
+          "requires": {
+            "item": "miecz_mistrza",
+            "money": 325
+          },
+          "actions": [
+            {
+              "unequipItem": "miecz_mistrza"
+            },
+            {
+              "takeItem": "miecz_mistrza"
+            },
+            {
+              "takeMoney": 325
+            },
+            {
+              "giveItem": "miecz_mistrza_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_miecz_mistrza_u1",
+          "text": "Miecz mistrza: uchwyt (325 gr)",
+          "requires": {
+            "item": "miecz_mistrza",
+            "moneyBelow": 325
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_topor_zbojecki_u1",
+          "text": "Topór zbójecki: uchwyt (28 gr)",
+          "requires": {
+            "item": "topor_zbojecki",
+            "money": 28
+          },
+          "actions": [
+            {
+              "unequipItem": "topor_zbojecki"
+            },
+            {
+              "takeItem": "topor_zbojecki"
+            },
+            {
+              "takeMoney": 28
+            },
+            {
+              "giveItem": "topor_zbojecki_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_topor_zbojecki_u1",
+          "text": "Topór zbójecki: uchwyt (28 gr)",
+          "requires": {
+            "item": "topor_zbojecki",
+            "moneyBelow": 28
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_maczuga_kolkowa_u1",
+          "text": "Maczuga kolkowa: uchwyt (22 gr)",
+          "requires": {
+            "item": "maczuga_kolkowa",
+            "money": 22
+          },
+          "actions": [
+            {
+              "unequipItem": "maczuga_kolkowa"
+            },
+            {
+              "takeItem": "maczuga_kolkowa"
+            },
+            {
+              "takeMoney": 22
+            },
+            {
+              "giveItem": "maczuga_kolkowa_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_maczuga_kolkowa_u1",
+          "text": "Maczuga kolkowa: uchwyt (22 gr)",
+          "requires": {
+            "item": "maczuga_kolkowa",
+            "moneyBelow": 22
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_bulawa_u1",
+          "text": "Buława: uchwyt (60 gr)",
+          "requires": {
+            "item": "bulawa",
+            "money": 60
+          },
+          "actions": [
+            {
+              "unequipItem": "bulawa"
+            },
+            {
+              "takeItem": "bulawa"
+            },
+            {
+              "takeMoney": 60
+            },
+            {
+              "giveItem": "bulawa_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_bulawa_u1",
+          "text": "Buława: uchwyt (60 gr)",
+          "requires": {
+            "item": "bulawa",
+            "moneyBelow": 60
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_para_wloczni_lowieckich_u1",
+          "text": "Para włóczni łowieckich: uchwyt (31 gr)",
+          "requires": {
+            "item": "para_wloczni_lowieckich",
+            "money": 31
+          },
+          "actions": [
+            {
+              "unequipItem": "para_wloczni_lowieckich"
+            },
+            {
+              "takeItem": "para_wloczni_lowieckich"
+            },
+            {
+              "takeMoney": 31
+            },
+            {
+              "giveItem": "para_wloczni_lowieckich_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_para_wloczni_lowieckich_u1",
+          "text": "Para włóczni łowieckich: uchwyt (31 gr)",
+          "requires": {
+            "item": "para_wloczni_lowieckich",
+            "moneyBelow": 31
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_para_wloczni_strazniczych_u1",
+          "text": "Para włóczni strażniczych: uchwyt (65 gr)",
+          "requires": {
+            "item": "para_wloczni_strazniczych",
+            "money": 65
+          },
+          "actions": [
+            {
+              "unequipItem": "para_wloczni_strazniczych"
+            },
+            {
+              "takeItem": "para_wloczni_strazniczych"
+            },
+            {
+              "takeMoney": 65
+            },
+            {
+              "giveItem": "para_wloczni_strazniczych_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_para_wloczni_strazniczych_u1",
+          "text": "Para włóczni strażniczych: uchwyt (65 gr)",
+          "requires": {
+            "item": "para_wloczni_strazniczych",
+            "moneyBelow": 65
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_para_wloczni_kutych_u1",
+          "text": "Para włóczni kutych: uchwyt (320 gr)",
+          "requires": {
+            "item": "para_wloczni_kutych",
+            "money": 320
+          },
+          "actions": [
+            {
+              "unequipItem": "para_wloczni_kutych"
+            },
+            {
+              "takeItem": "para_wloczni_kutych"
+            },
+            {
+              "takeMoney": 320
+            },
+            {
+              "giveItem": "para_wloczni_kutych_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_para_wloczni_kutych_u1",
+          "text": "Para włóczni kutych: uchwyt (320 gr)",
+          "requires": {
+            "item": "para_wloczni_kutych",
+            "moneyBelow": 320
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_kastet_u1",
+          "text": "Kastet: uchwyt (10 gr)",
+          "requires": {
+            "item": "kastet",
+            "money": 10
+          },
+          "actions": [
+            {
+              "unequipItem": "kastet"
+            },
+            {
+              "takeItem": "kastet"
+            },
+            {
+              "takeMoney": 10
+            },
+            {
+              "giveItem": "kastet_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_kastet_u1",
+          "text": "Kastet: uchwyt (10 gr)",
+          "requires": {
+            "item": "kastet",
+            "moneyBelow": 10
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_rekawice_nabijane_u1",
+          "text": "Rękawice nabijane: uchwyt (20 gr)",
+          "requires": {
+            "item": "rekawice_nabijane",
+            "money": 20
+          },
+          "actions": [
+            {
+              "unequipItem": "rekawice_nabijane"
+            },
+            {
+              "takeItem": "rekawice_nabijane"
+            },
+            {
+              "takeMoney": 20
+            },
+            {
+              "giveItem": "rekawice_nabijane_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_rekawice_nabijane_u1",
+          "text": "Rękawice nabijane: uchwyt (20 gr)",
+          "requires": {
+            "item": "rekawice_nabijane",
+            "moneyBelow": 20
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_piesc_zelazna_u1",
+          "text": "Pięść żelazna: uchwyt (58 gr)",
+          "requires": {
+            "item": "piesc_zelazna",
+            "money": 58
+          },
+          "actions": [
+            {
+              "unequipItem": "piesc_zelazna"
+            },
+            {
+              "takeItem": "piesc_zelazna"
+            },
+            {
+              "takeMoney": 58
+            },
+            {
+              "giveItem": "piesc_zelazna_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_piesc_zelazna_u1",
+          "text": "Pięść żelazna: uchwyt (58 gr)",
+          "requires": {
+            "item": "piesc_zelazna",
+            "moneyBelow": 58
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_kurta_skorzana_u1",
+          "text": "Kurta skórzana: skóra (23 gr)",
+          "requires": {
+            "item": "kurta_skorzana",
+            "money": 23
+          },
+          "actions": [
+            {
+              "unequipItem": "kurta_skorzana"
+            },
+            {
+              "takeItem": "kurta_skorzana"
+            },
+            {
+              "takeMoney": 23
+            },
+            {
+              "giveItem": "kurta_skorzana_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_kurta_skorzana_u1",
+          "text": "Kurta skórzana: skóra (23 gr)",
+          "requires": {
+            "item": "kurta_skorzana",
+            "moneyBelow": 23
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_skorznia_nabijana_u1",
+          "text": "Skórznia nabijana: skóra (31 gr)",
+          "requires": {
+            "item": "skorznia_nabijana",
+            "money": 31
+          },
+          "actions": [
+            {
+              "unequipItem": "skorznia_nabijana"
+            },
+            {
+              "takeItem": "skorznia_nabijana"
+            },
+            {
+              "takeMoney": 31
+            },
+            {
+              "giveItem": "skorznia_nabijana_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_skorznia_nabijana_u1",
+          "text": "Skórznia nabijana: skóra (31 gr)",
+          "requires": {
+            "item": "skorznia_nabijana",
+            "moneyBelow": 31
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_kaftan_wlocznika_u1",
+          "text": "Kaftan włócznika: skóra (60 gr)",
+          "requires": {
+            "item": "kaftan_wlocznika",
+            "money": 60
+          },
+          "actions": [
+            {
+              "unequipItem": "kaftan_wlocznika"
+            },
+            {
+              "takeItem": "kaftan_wlocznika"
+            },
+            {
+              "takeMoney": 60
+            },
+            {
+              "giveItem": "kaftan_wlocznika_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_kaftan_wlocznika_u1",
+          "text": "Kaftan włócznika: skóra (60 gr)",
+          "requires": {
+            "item": "kaftan_wlocznika",
+            "moneyBelow": 60
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_kolczuga_straznicza_u1",
+          "text": "Kolczuga strażnicza: skóra (68 gr)",
+          "requires": {
+            "item": "kolczuga_straznicza",
+            "money": 68
+          },
+          "actions": [
+            {
+              "unequipItem": "kolczuga_straznicza"
+            },
+            {
+              "takeItem": "kolczuga_straznicza"
+            },
+            {
+              "takeMoney": 68
+            },
+            {
+              "giveItem": "kolczuga_straznicza_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_kolczuga_straznicza_u1",
+          "text": "Kolczuga strażnicza: skóra (68 gr)",
+          "requires": {
+            "item": "kolczuga_straznicza",
+            "moneyBelow": 68
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_polpancerz_u1",
+          "text": "Półpancerz: skóra (85 gr)",
+          "requires": {
+            "item": "polpancerz",
+            "money": 85
+          },
+          "actions": [
+            {
+              "unequipItem": "polpancerz"
+            },
+            {
+              "takeItem": "polpancerz"
+            },
+            {
+              "takeMoney": 85
+            },
+            {
+              "giveItem": "polpancerz_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_polpancerz_u1",
+          "text": "Półpancerz: skóra (85 gr)",
+          "requires": {
+            "item": "polpancerz",
+            "moneyBelow": 85
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "wyjscie",
+          "text": "Innym razem.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zrobione": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan dmucha na robotę i oddaje ci ją. „Gotowe. Załóż to na siebie, bo w torbie ci się nie przyda.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobra.",
+          "goto": "warsztat"
+        }
+      ]
+    },
+    "bez_groszy": {
+      "speaker": "Kowal Bogdan",
+      "text": "Bogdan patrzy na twoją sakiewkę, potem na ciebie. „Na kredyt to ja tylko żonie wierzę. Zbierz resztę i wróć.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wrócę z całością.",
+          "goto": "warsztat"
+        }
+      ]
+    }
+  }
+}

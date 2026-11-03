@@ -43,11 +43,11 @@ npx ostrze            # jednorazowo, bez instalacji
 npm install -g ostrze # na stałe; potem polecenie: ostrze
 ```
 
-Z paczki lokalnej (`ostrze-0.2.2.tgz`) lub z repozytorium:
+Z paczki lokalnej (`ostrze-0.2.3.tgz`) lub z repozytorium:
 
 ```
-npx --package=./ostrze-0.2.2.tgz ostrze
-npm install -g ./ostrze-0.2.2.tgz
+npx --package=./ostrze-0.2.3.tgz ostrze
+npm install -g ./ostrze-0.2.3.tgz
 node bin/game.js     # bezpośrednio z katalogu projektu
 ```
 
@@ -82,43 +82,32 @@ Zapisy gry leżą w `~/.ostrze` (zmienna `OSTRZE_HOME` zmienia katalog).
 - walka turowa z punktami akcji, zasięgiem, ciosami celowanymi, parą broni, rzutami i biegłością w broniach; wojsko i panowie lochu rosną w siłę razem z bohaterem;
 - mistyka: zjawiska nieba, artefakty, dług i wola jako dwie osie wyborów.
 
-## Zmiany w wersji 0.2.2
+## Bieżące zmiany (0.2.3)
 
-**Grafiki i terminale**
+**Broń dystansowa**
 
-- Ilustracje działają w `cmd` i PowerShellu na Windowsie. Wcześniej gra pokazywała tam obrazki ze znaków ASCII, bo nie wykrywała kolorów.
-- W menu głównym można wybrać grafiki kolorowe, czarno-białe albo ich brak. Znaki ASCII zniknęły z gry: terminal bez 256 kolorów pokazuje sam tekst.
+- Kusza albo pistolet mogą czekać na plecach, w slocie broni zapasowej. Zmiana na broń dystansową i z powrotem kosztuje 1 PA, a nie 2.
+- Strzał z kuszy i pistoletu kosztuje 3 PA, z rusznicy 4 PA. Ładowanie w walce kosztuje 6 PA.
+- Broń ładuje się sama, za darmo, po walce i przy zakładaniu, jeśli masz amunicję.
+- Każda broń strzela inaczej. Lekka kusza jest najlepsza z bliska. Kusze żołnierska i cesarska biją celnie z daleka, ale w zwarciu tracą 20 punktów celności. Pistolety trafiają tak samo z daleka i z bliska.
+- Trafienie z kuszy albo broni palnej w połowie przypadków spowalnia wroga: −2 PA i brak ruchu przez 2 tury.
+- Nowa technika „Odskok ze strzałem” (5 PA, rusznica i kusze z korbą 6 PA). Bohater odskakuje od wroga w zwarciu, przyjmuje jego darmowy cios, strzela z broni zapasowej i wraca do broni głównej.
+- Strzał z broni palnej zawsze daje dym, chyba że był niewypał. Wróg, który wchodzi w zwarcie przez dym, ma −15 do trafienia w tej turze. Dym i świeca dymna dają przy ucieczce +20 zamiast +40.
 
-**Sklep i ekwipunek**
+**Ulepszanie u kowali**
 
-- Karta przedmiotu mówi, na co się go zakłada, i porównuje go w tabeli z tym, co masz założone.
-- Trzy lekkie pancerze bez kary do punktów akcji, dobre przeciw pchnięciom i obuchowi: Kaftan włócznika, Karwasze z rogu, Nagolenice skórzane. Karwasze i nagolenice są już w Kuźni Zbycha, więc zniknęły z niej zwykłe karwasze i Buty wędrowca, dostępne u innych kupców.
+- Kowale ulepszają broń i pancerz na tułów w dwóch stopniach. Oddajesz przedmiot i pieniądze, dostajesz ulepszoną wersję o tej samej wadze.
+- Miecze i włócznie: lepszy uchwyt (+5 do umiejętności), potem ostrzenie (+1 przebicia pancerza). Kusze: lepsze łoże, potem mocniejsze ramię. Broń palna: muszka, potem lekki spust (mniej niewypałów). Pancerz: warstwa skóry (+5% redukcji), potem lżejsze płyty bez kary do PA.
+- Pierwszy stopień kosztuje około połowy wartości przedmiotu, drugi około całej.
+- Ulepszają: Zbych i Bogdan (pierwszy stopień broni białej i pancerza), kowal polowy i Brygida (oba stopnie, także kusze; u kowala polowego także muszka), Szkarad (broń palna, oba stopnie). Warsztat Zbycha otwiera się po pierwszej rozmowie z nim, a Szkarada trzeba najpierw znaleźć.
 
-**Walka**
+**Bełty**
 
-- Gotowość do ciosu działa z każdą bronią do zwarcia, nie tylko z włóczniami.
-- Pełny komplet pancerza nie robi już z bohatera nietykalnego: pancerz powyżej 5 i redukcje powyżej 40% liczą się w połowie. Lekki strój nic nie traci.
-- Menu walki pokazuje szansę ucieczki, a każdy wróg w zwarciu obniża ją o 5 punktów zamiast 10.
-- Rzucane przedmioty mają +30 do celności. Garnek huku może ogłuszyć także po chybieniu, a gra zawsze mówi, gdy wróg jest odporny na rzucony przedmiot.
+- Bełt wzmocniony zadaje +1 do obrażeń. Bełt wybuchowy też ma +1, a przy trafieniu rani odłamkami innych wrogów w tej samej strefie. Odłamki liczą pancerz i mogą spowolnić. Przy pudle bełt wybucha w połowie przypadków. Gdy strzelasz do wroga w zwarciu, odłamki ranią też ciebie.
+- Kowal polowy i Brygida wymieniają bełty paczkami po 10: zwykłe na wzmocnione za 20 gr, wzmocnione na wybuchowe za 100 gr.
+- W ekwipunku, przy kuszy, jest przełącznik ładowania bełtów wybuchowych. Bez niego kusza nie bierze drogich bełtów do każdej drobnej walki.
 
-**Głód**
-
-- Licznik głodu ma teraz skutki i działa wszędzie, nie tylko w podróży. Pełen jest po 24 godzinach.
-- Od 85% można się najeść, zanim zrobi to automat, a brzuch zaczyna przeszkadzać: Siła −1.
-- Przy 100% bohater sam zjada posiłek. Bez jedzenia jest głodny: Siła −1, Krzepa −1 i gorsze leczenie snem.
-- Od 150% konasz z głodu: dochodzą Zręczność −2 i Bystrość −1.
-- Na start dostajesz 3 prowianty zamiast 2.
-
-**Rozwój postaci**
-
-- Cztery nowe perki dla bohaterów z punktami w sile albo zręczności: Pewny chwyt, Wół roboczy, Unik, Szybkie nogi.
-- Punkt perka, którego nie ma na co wydać, nie przepada, tylko wraca przy następnym awansie. Dotyczy to także starych zapisów.
-
-**Fabuła**
-
-- Eskortę Ostromira można wznowić po przegranej walce, ucieczce albo po upływie terminu: wóz czeka przy bramie Wilczego Brodu. Nie trzeba już iść po to zlecenie na Trakt.
-
-Stare zapisy wczytują się bez zmian w postępie. Żaden bohater nie dostaje kary za głód w chwili wczytania.
+Stare zapisy wczytują się bez zmian w postępie.
 
 ## Dane zamiast kodu
 

@@ -48,7 +48,7 @@ export function addItem(state, data, itemId, qty) {
   return { ok: true };
 }
 
-/** Removes `qty` free copies; drops the empty stack and its quick-belt entry. */
+/** Removes `qty` free copies; drops the empty stack, its quick-belt entry and, for the last copy of a weapon, what was loaded in it. */
 export function removeItem(state, data, itemId, qty) {
   known(data, itemId);
   assertQty(qty);
@@ -59,6 +59,9 @@ export function removeItem(state, data, itemId, qty) {
   if (stack.qty <= 0) {
     inv.items = inv.items.filter((s) => s !== stack);
     inv.quickSlots = inv.quickSlots.filter((id) => id !== itemId);
+    // The next copy bought or found arrives empty, not with this one's rounds.
+    if (inv.loaded) delete inv.loaded[itemId];
+    if (inv.loadedAmmo) delete inv.loadedAmmo[itemId];
   }
   return { ok: true };
 }
@@ -102,7 +105,74 @@ export function equip(state, data, itemId, slot) {
   const freed = freeOffhand(state, data);
   const trimmed = trimQuick(state, data);
   clampHp(state, data);
+  if (slot === "bron" || slot === "bron_zapas") loadWeapon(state, data, itemId);
   return { ok: true, trimmed, ...(freed && { freed }) };
+}
+
+/** True when `item` is ammunition a weapon with this `reload` can fire: the base ammunition itself or one of its kinds (`ammoOf`). */
+const fitsReload = (item, reload) => item.type === "ammo" && (item.id === reload.ammo || item.ammoOf === reload.ammo);
+
+/**
+ * The ammunition a reload of `weapon` takes from the bag: an explosive kind (only with `inventory.loadExplosive`), else a reinforced one, else the plain one.
+ * Returns the item id, or null when the weapon has no `reload` or no usable ammunition is free.
+ */
+export function pickAmmo(state, data, weapon) {
+  const reload = weapon?.reload;
+  if (!reload) return null;
+  const rank = (item) => (item.explosive ? 0 : item.damageBonus ? 1 : 2);
+  const usable = state.inventory.items
+    .map((s) => itemById(data, s.id))
+    .filter((item) => item && fitsReload(item, reload) && freeCount(state, item.id) > 0 && (!item.explosive || state.inventory.loadExplosive))
+    .sort((a, b) => rank(a) - rank(b));
+  return usable[0]?.id ?? null;
+}
+
+/** True when `weapon` fires ammunition that has an explosive kind in the data (the loading switch matters only for those). */
+export function takesExplosive(data, weapon) {
+  const ammo = weapon?.reload?.ammo;
+  return !!ammo && data.items.some((a) => a.explosive && a.ammoOf === ammo);
+}
+
+/** True when the loading switch is off and the bag holds a free explosive kind `weapon` could load: why `pickAmmo` may find nothing. */
+export function explosiveHeldBack(state, data, weapon) {
+  const ammo = weapon?.reload?.ammo;
+  return !!ammo && !state.inventory.loadExplosive
+    && data.items.some((a) => a.explosive && a.ammoOf === ammo && freeCount(state, a.id) > 0);
+}
+
+/** The ammunition id sitting in `weapon`; a weapon loaded before kinds existed (no entry) holds the plain ammunition. */
+export function loadedAmmoOf(state, weapon) {
+  return state.inventory.loadedAmmo?.[weapon.id] ?? weapon.reload?.ammo;
+}
+
+/** Loads the weapon from `pickAmmo` up to its capacity and remembers the kind; a partly loaded weapon only takes the kind already in it. Returns the rounds added. */
+export function reloadWeapon(state, data, weapon) {
+  const reload = weapon.reload;
+  const have = state.inventory.loaded?.[weapon.id] ?? 0;
+  const ammoId = pickAmmo(state, data, weapon);
+  if (!ammoId || (have > 0 && ammoId !== loadedAmmoOf(state, weapon))) return 0;
+  const n = Math.min(reload.capacity - have, freeCount(state, ammoId));
+  if (n < 1) return 0;
+  removeItem(state, data, ammoId, n);
+  state.inventory.loaded ??= {};
+  state.inventory.loaded[weapon.id] = have + n;
+  state.inventory.loadedAmmo ??= {};
+  state.inventory.loadedAmmo[weapon.id] = ammoId;
+  return n;
+}
+
+/** Tops up a weapon with a `reload` to its capacity from the bag's ammunition; does nothing for other weapons. */
+export function loadWeapon(state, data, itemId) {
+  const weapon = known(data, itemId);
+  if (weapon.reload) reloadWeapon(state, data, weapon);
+}
+
+/** Loads the weapons in the main and spare slots. */
+export function loadWorn(state, data) {
+  for (const slot of ["bron", "bron_zapas"]) {
+    const id = state.inventory.equipped[slot];
+    if (id) loadWeapon(state, data, id);
+  }
 }
 
 /** A pair of weapons takes both hands: with one in hand the off-hand weapon goes back to the bag. Returns its id, if there was one. */

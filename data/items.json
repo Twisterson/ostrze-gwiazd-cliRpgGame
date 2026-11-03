@@ -93,19 +93,29 @@
       8,
       14
     ],
-    "apCost": 5,
+    "apCost": 3,
     "range": "far",
     "minStrength": 4,
     "reload": {
-      "apCost": 4,
+      "apCost": 6,
       "ammo": "belt",
       "capacity": 1
     },
     "armorPierce": 3,
     "weight": 4,
-    "value": 33,
+    "value": 60,
     "masteryType": "kusza",
-    "description": "Powolna, ale wali mocno i przebija pancerz."
+    "description": "Napina się szybko, o udo. Trafia dobrze tylko z bliska.",
+    "hitFar": 0,
+    "hitClose": 15,
+    "noMeleePenalty": true,
+    "retreatShotAp": 5,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ]
   },
   {
     "id": "sztylet",
@@ -138,12 +148,12 @@
       10,
       18
     ],
-    "apCost": 4,
+    "apCost": 3,
     "range": "far",
     "armorPierce": 4,
     "minStrength": 3,
     "reload": {
-      "apCost": 5,
+      "apCost": 6,
       "ammo": "kula_z_prochem",
       "capacity": 1
     },
@@ -155,11 +165,21 @@
     ],
     "noise": 3,
     "fear": 20,
-    "smoke": 30,
+    "smoke": 100,
     "masteryType": "palna",
     "weight": 1.5,
     "value": 66,
-    "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha."
+    "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha.",
+    "hitFar": 10,
+    "hitClose": 10,
+    "noMeleePenalty": true,
+    "retreatShotAp": 5,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ]
   },
   {
     "id": "kula_z_prochem",
@@ -184,6 +204,27 @@
     "weight": 0.1,
     "value": 2,
     "description": "Krótki, kuty bełt do kuszy."
+  },
+  {
+    "id": "belt_wzmocniony",
+    "name": "Bełt wzmocniony",
+    "type": "ammo",
+    "ammoOf": "belt",
+    "damageBonus": 1,
+    "weight": 0.1,
+    "value": 5,
+    "description": "Grot na tulei, drzewce okute. Wchodzi głębiej niż zwykły."
+  },
+  {
+    "id": "belt_wybuchowy",
+    "name": "Bełt wybuchowy",
+    "type": "ammo",
+    "ammoOf": "belt",
+    "damageBonus": 1,
+    "explosive": true,
+    "weight": 0.15,
+    "value": 10,
+    "description": "Do grotu przywiązany woreczek z prochem i lont. Kusznicy nie lubią ich nosić."
   },
   {
     "id": "kaftan_przeszywany",
@@ -1079,11 +1120,11 @@
       10,
       17
     ],
-    "apCost": 5,
+    "apCost": 3,
     "range": "far",
     "minStrength": 4,
     "reload": {
-      "apCost": 4,
+      "apCost": 6,
       "ammo": "belt",
       "capacity": 1
     },
@@ -1091,7 +1132,17 @@
     "masteryType": "kusza",
     "weight": 4.5,
     "value": 125,
-    "description": "Napina się korbą. Bełt przebija kolczugę i gadkę."
+    "description": "Napina się korbą. Bełt przebija kolczugę i gadkę.",
+    "hitFar": 15,
+    "hitClose": 15,
+    "noMeleePenalty": false,
+    "retreatShotAp": 6,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ]
   },
   {
     "id": "kusza_cesarska",
@@ -1104,11 +1155,11 @@
       12,
       20
     ],
-    "apCost": 5,
+    "apCost": 3,
     "range": "far",
     "minStrength": 5,
     "reload": {
-      "apCost": 4,
+      "apCost": 6,
       "ammo": "belt",
       "capacity": 1
     },
@@ -1116,7 +1167,17 @@
     "masteryType": "kusza",
     "weight": 4.5,
     "value": 700,
-    "description": "Cesarski arsenał nie rozdaje takich ludziom. Ta jakoś wyszła."
+    "description": "Cesarski arsenał nie rozdaje takich ludziom. Ta jakoś wyszła.",
+    "hitFar": 15,
+    "hitClose": 15,
+    "noMeleePenalty": false,
+    "retreatShotAp": 6,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ]
   },
   {
     "id": "pistolet_wojskowy",
@@ -1129,11 +1190,11 @@
       12,
       20
     ],
-    "apCost": 4,
+    "apCost": 3,
     "range": "far",
     "minStrength": 3,
     "reload": {
-      "apCost": 5,
+      "apCost": 6,
       "ammo": "kula_z_prochem",
       "capacity": 1
     },
@@ -1146,11 +1207,21 @@
     ],
     "noise": 3,
     "fear": 20,
-    "smoke": 30,
+    "smoke": 100,
     "masteryType": "palna",
     "weight": 1.8,
     "value": 145,
-    "description": "Dłuższa lufa, lepszy zamek. Zacina się rzadziej, ale też."
+    "description": "Dłuższa lufa, lepszy zamek. Zacina się rzadziej, ale też.",
+    "hitFar": 10,
+    "hitClose": 10,
+    "noMeleePenalty": true,
+    "retreatShotAp": 5,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ]
   },
   {
     "id": "rusznica",
@@ -1163,7 +1234,7 @@
       16,
       26
     ],
-    "apCost": 6,
+    "apCost": 4,
     "range": "far",
     "minStrength": 5,
     "reload": {
@@ -1180,11 +1251,21 @@
     ],
     "noise": 4,
     "fear": 30,
-    "smoke": 40,
+    "smoke": 100,
     "masteryType": "palna",
     "weight": 5,
     "value": 165,
-    "description": "Huk słychać do sąsiedniej wsi. Wróg fika w powietrzu, a ty w ucho."
+    "description": "Huk słychać do sąsiedniej wsi. Wróg fika w powietrzu, a ty w ucho.",
+    "hitFar": 10,
+    "hitClose": 10,
+    "noMeleePenalty": false,
+    "retreatShotAp": 6,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ]
   },
   {
     "id": "kurta_skorzana",
@@ -2057,5 +2138,1422 @@
     "weight": 0.4,
     "value": 0,
     "description": "Mała skrzynka okuta żelazem, w środku grzechoczą gwoździe. Ciężka jak na swój rozmiar."
+  },
+  {
+    "id": "miecz_krotki_u1",
+    "name": "Krótki miecz (uchwyt)",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      4,
+      8
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "weight": 2,
+    "value": 60,
+    "masteryType": "miecz",
+    "description": "Krótkie, szerokie ostrze. W ciasnocie jak znalazł. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "sieczna": 5
+    }
+  },
+  {
+    "id": "miecz_krotki_u2",
+    "name": "Krótki miecz (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      4,
+      8
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "weight": 2,
+    "value": 100,
+    "masteryType": "miecz",
+    "description": "Krótkie, szerokie ostrze. W ciasnocie jak znalazł. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "sieczna": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "para_wloczni_u1",
+    "name": "Para włóczni (uchwyt)",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      3,
+      7
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "weight": 3,
+    "value": 60,
+    "pair": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "description": "Dwie krótkie włócznie o długich grotach. Kłują i tną. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "drzewcowa": 5
+    }
+  },
+  {
+    "id": "para_wloczni_u2",
+    "name": "Para włóczni (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      3,
+      7
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "weight": 3,
+    "value": 100,
+    "pair": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "description": "Dwie krótkie włócznie o długich grotach. Kłują i tną. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "drzewcowa": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "kusza_lekka_u1",
+    "name": "Lekka kusza (łoże)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      8,
+      14
+    ],
+    "apCost": 3,
+    "range": "far",
+    "minStrength": 4,
+    "reload": {
+      "apCost": 6,
+      "ammo": "belt",
+      "capacity": 1
+    },
+    "armorPierce": 3,
+    "weight": 4,
+    "value": 90,
+    "masteryType": "kusza",
+    "description": "Napina się szybko, o udo. Trafia dobrze tylko z bliska. Łoże wymienione na nowe, kusza trzyma celnie.",
+    "hitFar": 0,
+    "hitClose": 15,
+    "noMeleePenalty": true,
+    "retreatShotAp": 5,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "strzelecka": 5
+    }
+  },
+  {
+    "id": "kusza_lekka_u2",
+    "name": "Lekka kusza (łoże, ramię)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      8,
+      14
+    ],
+    "apCost": 3,
+    "range": "far",
+    "minStrength": 4,
+    "reload": {
+      "apCost": 6,
+      "ammo": "belt",
+      "capacity": 1
+    },
+    "armorPierce": 4,
+    "weight": 4,
+    "value": 150,
+    "masteryType": "kusza",
+    "description": "Napina się szybko, o udo. Trafia dobrze tylko z bliska. Ramię wzmocnione, bełt mocniej przebija pancerz.",
+    "hitFar": 0,
+    "hitClose": 15,
+    "noMeleePenalty": true,
+    "retreatShotAp": 5,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "strzelecka": 5
+    }
+  },
+  {
+    "id": "pistolet_skalkowy_u1",
+    "name": "Pistolet skałkowy (muszka)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "proch",
+    "damageType": "palne",
+    "damage": [
+      10,
+      18
+    ],
+    "apCost": 3,
+    "range": "far",
+    "armorPierce": 4,
+    "minStrength": 3,
+    "reload": {
+      "apCost": 6,
+      "ammo": "kula_z_prochem",
+      "capacity": 1
+    },
+    "misfireChance": 15,
+    "burstChance": 2,
+    "burstDamage": [
+      4,
+      8
+    ],
+    "noise": 3,
+    "fear": 20,
+    "smoke": 100,
+    "masteryType": "palna",
+    "weight": 1.5,
+    "value": 99,
+    "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha. Kowal dorobił nową muszkę, łatwiej wycelować.",
+    "hitFar": 10,
+    "hitClose": 10,
+    "noMeleePenalty": true,
+    "retreatShotAp": 5,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "proch": 5
+    }
+  },
+  {
+    "id": "pistolet_skalkowy_u2",
+    "name": "Pistolet skałkowy (muszka, spust)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "proch",
+    "damageType": "palne",
+    "damage": [
+      10,
+      18
+    ],
+    "apCost": 3,
+    "range": "far",
+    "armorPierce": 4,
+    "minStrength": 3,
+    "reload": {
+      "apCost": 6,
+      "ammo": "kula_z_prochem",
+      "capacity": 1
+    },
+    "misfireChance": 12,
+    "burstChance": 2,
+    "burstDamage": [
+      4,
+      8
+    ],
+    "noise": 3,
+    "fear": 20,
+    "smoke": 100,
+    "masteryType": "palna",
+    "weight": 1.5,
+    "value": 165,
+    "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha. Spust przetarty i wyregulowany, rzadziej zawodzi.",
+    "hitFar": 10,
+    "hitClose": 10,
+    "noMeleePenalty": true,
+    "retreatShotAp": 5,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "proch": 5
+    }
+  },
+  {
+    "id": "kaftan_przeszywany_u1",
+    "name": "Kaftan przeszywany (skóra)",
+    "type": "armor",
+    "tier": 1,
+    "slot": "tulow",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 20,
+      "obuchowe": 25,
+      "klute": 10
+    },
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 5,
+    "value": 60,
+    "description": "Gruba warstwa pikowanego płótna. Latem parzy jak kożuch. Podszewka wymieniona na grubszą skórę."
+  },
+  {
+    "id": "kaftan_przeszywany_u2",
+    "name": "Kaftan przeszywany (skóra, płyty)",
+    "type": "armor",
+    "tier": 1,
+    "slot": "tulow",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 25,
+      "obuchowe": 30,
+      "klute": 15
+    },
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 5,
+    "value": 100,
+    "description": "Gruba warstwa pikowanego płótna. Latem parzy jak kożuch. Dołożono płyty w miejscach, gdzie najczęściej tną."
+  },
+  {
+    "id": "kolczuga_u1",
+    "name": "Kolczuga (skóra)",
+    "type": "armor",
+    "tier": 2,
+    "slot": "tulow",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 35,
+      "klute": 15
+    },
+    "modifiers": {
+      "ap": -1,
+      "skradanie": -20
+    },
+    "weight": 12,
+    "value": 125,
+    "description": "Ciężka i brzęczy, ale trzyma ostrze z dala od skóry. Podszewka wymieniona na grubszą skórę."
+  },
+  {
+    "id": "kolczuga_u2",
+    "name": "Kolczuga (skóra, płyty)",
+    "type": "armor",
+    "tier": 2,
+    "slot": "tulow",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 35,
+      "klute": 15
+    },
+    "modifiers": {
+      "skradanie": -20
+    },
+    "weight": 12,
+    "value": 208,
+    "description": "Ciężka i brzęczy, ale trzyma ostrze z dala od skóry. Dołożono płyty w miejscach, gdzie najczęściej tną."
+  },
+  {
+    "id": "miecz_zolnierski_u1",
+    "name": "Miecz żołnierski (uchwyt)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "masteryType": "miecz",
+    "weight": 2.5,
+    "value": 92,
+    "description": "Prosty, pewny i wyszczerbiony w sam raz. Wojsko takie lubi. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "sieczna": 5
+    }
+  },
+  {
+    "id": "miecz_zolnierski_u2",
+    "name": "Miecz żołnierski (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "masteryType": "miecz",
+    "weight": 2.5,
+    "value": 153,
+    "description": "Prosty, pewny i wyszczerbiony w sam raz. Wojsko takie lubi. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "sieczna": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "miecz_straznika_u1",
+    "name": "Miecz strażnika (uchwyt)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      7,
+      12
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 3,
+    "value": 203,
+    "description": "Kuty w dobrej kuźni, z rękojeścią, co nie ślizga się we krwi. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "sieczna": 5
+    }
+  },
+  {
+    "id": "miecz_straznika_u2",
+    "name": "Miecz strażnika (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      7,
+      12
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 3,
+    "value": 338,
+    "description": "Kuty w dobrej kuźni, z rękojeścią, co nie ślizga się we krwi. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "sieczna": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "miecz_mistrza_u1",
+    "name": "Miecz mistrza (uchwyt)",
+    "type": "weapon",
+    "tier": 4,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      9,
+      15
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 2.5,
+    "value": 975,
+    "description": "Ktoś nad nim spędził cały zimowy sezon. Nie dla wsi, nie dla bandy. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "sieczna": 5
+    }
+  },
+  {
+    "id": "miecz_mistrza_u2",
+    "name": "Miecz mistrza (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 4,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      9,
+      15
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 2.5,
+    "value": 1625,
+    "description": "Ktoś nad nim spędził cały zimowy sezon. Nie dla wsi, nie dla bandy. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "sieczna": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "topor_zbojecki_u1",
+    "name": "Topór zbójecki (uchwyt)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      6,
+      11
+    ],
+    "apCost": 4,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 3,
+    "value": 83,
+    "description": "Rąbie drwa i kości z równą ochotą. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "sieczna": 5
+    }
+  },
+  {
+    "id": "topor_zbojecki_u2",
+    "name": "Topór zbójecki (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "sieczne",
+    "damage": [
+      6,
+      11
+    ],
+    "apCost": 4,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 3,
+    "value": 138,
+    "description": "Rąbie drwa i kości z równą ochotą. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "sieczna": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "maczuga_kolkowa_u1",
+    "name": "Maczuga kolkowa (uchwyt)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "obuchowe",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 4,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 3.5,
+    "value": 66,
+    "description": "Kij z żelaznymi kolcami. Argument, nie broń. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "sieczna": 5
+    }
+  },
+  {
+    "id": "maczuga_kolkowa_u2",
+    "name": "Maczuga kolkowa (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "sieczna",
+    "damageType": "obuchowe",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 4,
+    "range": "melee",
+    "minStrength": 4,
+    "masteryType": "miecz",
+    "weight": 3.5,
+    "value": 110,
+    "description": "Kij z żelaznymi kolcami. Argument, nie broń. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "sieczna": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "bulawa_u1",
+    "name": "Buława (uchwyt)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "sieczna",
+    "damageType": "obuchowe",
+    "damage": [
+      8,
+      14
+    ],
+    "apCost": 4,
+    "range": "melee",
+    "minStrength": 5,
+    "masteryType": "miecz",
+    "weight": 4,
+    "value": 180,
+    "description": "Ciężka głowica na żelaznym trzonku. Kto oberwie, ten nie zapyta za co. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "sieczna": 5
+    }
+  },
+  {
+    "id": "bulawa_u2",
+    "name": "Buława (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "sieczna",
+    "damageType": "obuchowe",
+    "damage": [
+      8,
+      14
+    ],
+    "apCost": 4,
+    "range": "melee",
+    "minStrength": 5,
+    "masteryType": "miecz",
+    "weight": 4,
+    "value": 300,
+    "description": "Ciężka głowica na żelaznym trzonku. Kto oberwie, ten nie zapyta za co. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "sieczna": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "para_wloczni_lowieckich_u1",
+    "name": "Para włóczni łowieckich (uchwyt)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      4,
+      8
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "pair": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "weight": 3,
+    "value": 92,
+    "description": "Szerokie groty na dziki. Na ludzi też się nadają. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "drzewcowa": 5
+    }
+  },
+  {
+    "id": "para_wloczni_lowieckich_u2",
+    "name": "Para włóczni łowieckich (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      4,
+      8
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 3,
+    "pair": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "weight": 3,
+    "value": 153,
+    "description": "Szerokie groty na dziki. Na ludzi też się nadają. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "drzewcowa": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "para_wloczni_strazniczych_u1",
+    "name": "Para włóczni strażniczych (uchwyt)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "pair": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "weight": 3.5,
+    "value": 195,
+    "description": "Wyważone, z grotami od porządnego kowala. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "drzewcowa": 5
+    }
+  },
+  {
+    "id": "para_wloczni_strazniczych_u2",
+    "name": "Para włóczni strażniczych (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      5,
+      10
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "pair": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "weight": 3.5,
+    "value": 325,
+    "description": "Wyważone, z grotami od porządnego kowala. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "drzewcowa": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "para_wloczni_kutych_u1",
+    "name": "Para włóczni kutych (uchwyt)",
+    "type": "weapon",
+    "tier": 4,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      7,
+      13
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "pair": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "weight": 3,
+    "value": 960,
+    "description": "Groty kute tak, że wchodzą w blachę jak w masło. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "drzewcowa": 5
+    }
+  },
+  {
+    "id": "para_wloczni_kutych_u2",
+    "name": "Para włóczni kutych (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 4,
+    "skill": "drzewcowa",
+    "damageType": "klute",
+    "damage": [
+      7,
+      13
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 4,
+    "pair": true,
+    "throwName": "Włócznia",
+    "throwSkill": "drzewcowa",
+    "masteryType": "wlocznie",
+    "weight": 3,
+    "value": 1600,
+    "description": "Groty kute tak, że wchodzą w blachę jak w masło. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "drzewcowa": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "kastet_u1",
+    "name": "Kastet (uchwyt)",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      2,
+      4
+    ],
+    "apCost": 2,
+    "range": "melee",
+    "minStrength": 1,
+    "weight": 0.5,
+    "value": 30,
+    "description": "Żelazo na palce. Rozmowa staje się krótsza. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "wrecz": 5
+    }
+  },
+  {
+    "id": "kastet_u2",
+    "name": "Kastet (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 1,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      2,
+      4
+    ],
+    "apCost": 2,
+    "range": "melee",
+    "minStrength": 1,
+    "weight": 0.5,
+    "value": 50,
+    "description": "Żelazo na palce. Rozmowa staje się krótsza. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "wrecz": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "rekawice_nabijane_u1",
+    "name": "Rękawice nabijane (uchwyt)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      3,
+      6
+    ],
+    "apCost": 2,
+    "range": "melee",
+    "minStrength": 2,
+    "weight": 1,
+    "value": 59,
+    "description": "Skóra, gwoździe i dobre chęci. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "wrecz": 5
+    }
+  },
+  {
+    "id": "rekawice_nabijane_u2",
+    "name": "Rękawice nabijane (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 2,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      3,
+      6
+    ],
+    "apCost": 2,
+    "range": "melee",
+    "minStrength": 2,
+    "weight": 1,
+    "value": 98,
+    "description": "Skóra, gwoździe i dobre chęci. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "wrecz": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "piesc_zelazna_u1",
+    "name": "Pięść żelazna (uchwyt)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      5,
+      9
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 5,
+    "weight": 1.5,
+    "value": 173,
+    "description": "Żelazna rękawica z wypustkami. Zęby liczy się później. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "modifiers": {
+      "wrecz": 5
+    }
+  },
+  {
+    "id": "piesc_zelazna_u2",
+    "name": "Pięść żelazna (uchwyt, ostrzony)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "wrecz",
+    "damageType": "obuchowe",
+    "damage": [
+      5,
+      9
+    ],
+    "apCost": 3,
+    "range": "melee",
+    "minStrength": 5,
+    "weight": 1.5,
+    "value": 288,
+    "description": "Żelazna rękawica z wypustkami. Zęby liczy się później. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "modifiers": {
+      "wrecz": 5
+    },
+    "armorPierce": 1
+  },
+  {
+    "id": "kusza_zolnierska_u1",
+    "name": "Kusza żołnierska (łoże)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      10,
+      17
+    ],
+    "apCost": 3,
+    "range": "far",
+    "minStrength": 4,
+    "reload": {
+      "apCost": 6,
+      "ammo": "belt",
+      "capacity": 1
+    },
+    "armorPierce": 4,
+    "masteryType": "kusza",
+    "weight": 4.5,
+    "value": 188,
+    "description": "Napina się korbą. Bełt przebija kolczugę i gadkę. Łoże wymienione na nowe, kusza trzyma celnie.",
+    "hitFar": 15,
+    "hitClose": 15,
+    "noMeleePenalty": false,
+    "retreatShotAp": 6,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "strzelecka": 5
+    }
+  },
+  {
+    "id": "kusza_zolnierska_u2",
+    "name": "Kusza żołnierska (łoże, ramię)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      10,
+      17
+    ],
+    "apCost": 3,
+    "range": "far",
+    "minStrength": 4,
+    "reload": {
+      "apCost": 6,
+      "ammo": "belt",
+      "capacity": 1
+    },
+    "armorPierce": 5,
+    "masteryType": "kusza",
+    "weight": 4.5,
+    "value": 313,
+    "description": "Napina się korbą. Bełt przebija kolczugę i gadkę. Ramię wzmocnione, bełt mocniej przebija pancerz.",
+    "hitFar": 15,
+    "hitClose": 15,
+    "noMeleePenalty": false,
+    "retreatShotAp": 6,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "strzelecka": 5
+    }
+  },
+  {
+    "id": "kusza_cesarska_u1",
+    "name": "Kusza cesarska (łoże)",
+    "type": "weapon",
+    "tier": 4,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      12,
+      20
+    ],
+    "apCost": 3,
+    "range": "far",
+    "minStrength": 5,
+    "reload": {
+      "apCost": 6,
+      "ammo": "belt",
+      "capacity": 1
+    },
+    "armorPierce": 5,
+    "masteryType": "kusza",
+    "weight": 4.5,
+    "value": 1050,
+    "description": "Cesarski arsenał nie rozdaje takich ludziom. Ta jakoś wyszła. Łoże wymienione na nowe, kusza trzyma celnie.",
+    "hitFar": 15,
+    "hitClose": 15,
+    "noMeleePenalty": false,
+    "retreatShotAp": 6,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "strzelecka": 5
+    }
+  },
+  {
+    "id": "kusza_cesarska_u2",
+    "name": "Kusza cesarska (łoże, ramię)",
+    "type": "weapon",
+    "tier": 4,
+    "skill": "strzelecka",
+    "damageType": "klute",
+    "damage": [
+      12,
+      20
+    ],
+    "apCost": 3,
+    "range": "far",
+    "minStrength": 5,
+    "reload": {
+      "apCost": 6,
+      "ammo": "belt",
+      "capacity": 1
+    },
+    "armorPierce": 6,
+    "masteryType": "kusza",
+    "weight": 4.5,
+    "value": 1750,
+    "description": "Cesarski arsenał nie rozdaje takich ludziom. Ta jakoś wyszła. Ramię wzmocnione, bełt mocniej przebija pancerz.",
+    "hitFar": 15,
+    "hitClose": 15,
+    "noMeleePenalty": false,
+    "retreatShotAp": 6,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "strzelecka": 5
+    }
+  },
+  {
+    "id": "pistolet_wojskowy_u1",
+    "name": "Pistolet wojskowy (muszka)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "proch",
+    "damageType": "palne",
+    "damage": [
+      12,
+      20
+    ],
+    "apCost": 3,
+    "range": "far",
+    "minStrength": 3,
+    "reload": {
+      "apCost": 6,
+      "ammo": "kula_z_prochem",
+      "capacity": 1
+    },
+    "armorPierce": 4,
+    "misfireChance": 12,
+    "burstChance": 2,
+    "burstDamage": [
+      4,
+      8
+    ],
+    "noise": 3,
+    "fear": 20,
+    "smoke": 100,
+    "masteryType": "palna",
+    "weight": 1.8,
+    "value": 218,
+    "description": "Dłuższa lufa, lepszy zamek. Zacina się rzadziej, ale też. Kowal dorobił nową muszkę, łatwiej wycelować.",
+    "hitFar": 10,
+    "hitClose": 10,
+    "noMeleePenalty": true,
+    "retreatShotAp": 5,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "proch": 5
+    }
+  },
+  {
+    "id": "pistolet_wojskowy_u2",
+    "name": "Pistolet wojskowy (muszka, spust)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "proch",
+    "damageType": "palne",
+    "damage": [
+      12,
+      20
+    ],
+    "apCost": 3,
+    "range": "far",
+    "minStrength": 3,
+    "reload": {
+      "apCost": 6,
+      "ammo": "kula_z_prochem",
+      "capacity": 1
+    },
+    "armorPierce": 4,
+    "misfireChance": 9,
+    "burstChance": 2,
+    "burstDamage": [
+      4,
+      8
+    ],
+    "noise": 3,
+    "fear": 20,
+    "smoke": 100,
+    "masteryType": "palna",
+    "weight": 1.8,
+    "value": 363,
+    "description": "Dłuższa lufa, lepszy zamek. Zacina się rzadziej, ale też. Spust przetarty i wyregulowany, rzadziej zawodzi.",
+    "hitFar": 10,
+    "hitClose": 10,
+    "noMeleePenalty": true,
+    "retreatShotAp": 5,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "proch": 5
+    }
+  },
+  {
+    "id": "rusznica_u1",
+    "name": "Rusznica (muszka)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "proch",
+    "damageType": "palne",
+    "damage": [
+      16,
+      26
+    ],
+    "apCost": 4,
+    "range": "far",
+    "minStrength": 5,
+    "reload": {
+      "apCost": 6,
+      "ammo": "kula_z_prochem",
+      "capacity": 1
+    },
+    "armorPierce": 6,
+    "misfireChance": 18,
+    "burstChance": 3,
+    "burstDamage": [
+      6,
+      10
+    ],
+    "noise": 4,
+    "fear": 30,
+    "smoke": 100,
+    "masteryType": "palna",
+    "weight": 5,
+    "value": 248,
+    "description": "Huk słychać do sąsiedniej wsi. Wróg fika w powietrzu, a ty w ucho. Kowal dorobił nową muszkę, łatwiej wycelować.",
+    "hitFar": 10,
+    "hitClose": 10,
+    "noMeleePenalty": false,
+    "retreatShotAp": 6,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "proch": 5
+    }
+  },
+  {
+    "id": "rusznica_u2",
+    "name": "Rusznica (muszka, spust)",
+    "type": "weapon",
+    "tier": 3,
+    "skill": "proch",
+    "damageType": "palne",
+    "damage": [
+      16,
+      26
+    ],
+    "apCost": 4,
+    "range": "far",
+    "minStrength": 5,
+    "reload": {
+      "apCost": 6,
+      "ammo": "kula_z_prochem",
+      "capacity": 1
+    },
+    "armorPierce": 6,
+    "misfireChance": 15,
+    "burstChance": 3,
+    "burstDamage": [
+      6,
+      10
+    ],
+    "noise": 4,
+    "fear": 30,
+    "smoke": 100,
+    "masteryType": "palna",
+    "weight": 5,
+    "value": 413,
+    "description": "Huk słychać do sąsiedniej wsi. Wróg fika w powietrzu, a ty w ucho. Spust przetarty i wyregulowany, rzadziej zawodzi.",
+    "hitFar": 10,
+    "hitClose": 10,
+    "noMeleePenalty": false,
+    "retreatShotAp": 6,
+    "effects": [
+      {
+        "id": "spowolnienie",
+        "chance": 50
+      }
+    ],
+    "modifiers": {
+      "proch": 5
+    }
+  },
+  {
+    "id": "kurta_skorzana_u1",
+    "name": "Kurta skórzana (skóra)",
+    "type": "armor",
+    "tier": 1,
+    "slot": "tulow",
+    "armor": 1,
+    "reduction": {
+      "sieczne": 15,
+      "klute": 10
+    },
+    "weight": 3,
+    "value": 68,
+    "description": "Wygarbowana, cuchnie, ale trzyma. Podszewka wymieniona na grubszą skórę."
+  },
+  {
+    "id": "kurta_skorzana_u2",
+    "name": "Kurta skórzana (skóra, płyty)",
+    "type": "armor",
+    "tier": 1,
+    "slot": "tulow",
+    "armor": 1,
+    "reduction": {
+      "sieczne": 20,
+      "klute": 15
+    },
+    "weight": 3,
+    "value": 113,
+    "description": "Wygarbowana, cuchnie, ale trzyma. Dołożono płyty w miejscach, gdzie najczęściej tną."
+  },
+  {
+    "id": "skorznia_nabijana_u1",
+    "name": "Skórznia nabijana (skóra)",
+    "type": "armor",
+    "tier": 2,
+    "slot": "tulow",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 25,
+      "obuchowe": 20,
+      "klute": 15
+    },
+    "modifiers": {
+      "skradanie": -10
+    },
+    "weight": 8,
+    "value": 92,
+    "description": "Skóra z naszytymi blaszkami. Skrzypi na każdy krok. Podszewka wymieniona na grubszą skórę."
+  },
+  {
+    "id": "skorznia_nabijana_u2",
+    "name": "Skórznia nabijana (skóra, płyty)",
+    "type": "armor",
+    "tier": 2,
+    "slot": "tulow",
+    "armor": 2,
+    "reduction": {
+      "sieczne": 30,
+      "obuchowe": 25,
+      "klute": 20
+    },
+    "modifiers": {
+      "skradanie": -10
+    },
+    "weight": 8,
+    "value": 153,
+    "description": "Skóra z naszytymi blaszkami. Skrzypi na każdy krok. Dołożono płyty w miejscach, gdzie najczęściej tną."
+  },
+  {
+    "id": "kaftan_wlocznika_u1",
+    "name": "Kaftan włócznika (skóra)",
+    "type": "armor",
+    "tier": 3,
+    "slot": "tulow",
+    "armor": 3,
+    "reduction": {
+      "sieczne": 25,
+      "klute": 35,
+      "obuchowe": 25
+    },
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 7,
+    "value": 180,
+    "description": "Gruby kaftan z naszytą skórą. Nie wiąże rąk, bo drzewcem trzeba jeszcze machać. Podszewka wymieniona na grubszą skórę."
+  },
+  {
+    "id": "kaftan_wlocznika_u2",
+    "name": "Kaftan włócznika (skóra, płyty)",
+    "type": "armor",
+    "tier": 3,
+    "slot": "tulow",
+    "armor": 3,
+    "reduction": {
+      "sieczne": 30,
+      "klute": 40,
+      "obuchowe": 30
+    },
+    "modifiers": {
+      "skradanie": -5
+    },
+    "weight": 7,
+    "value": 300,
+    "description": "Gruby kaftan z naszytą skórą. Nie wiąże rąk, bo drzewcem trzeba jeszcze machać. Dołożono płyty w miejscach, gdzie najczęściej tną."
+  },
+  {
+    "id": "kolczuga_straznicza_u1",
+    "name": "Kolczuga strażnicza (skóra)",
+    "type": "armor",
+    "tier": 3,
+    "slot": "tulow",
+    "armor": 3,
+    "reduction": {
+      "sieczne": 40,
+      "klute": 20,
+      "obuchowe": 15
+    },
+    "modifiers": {
+      "ap": -1,
+      "skradanie": -25
+    },
+    "weight": 13,
+    "value": 203,
+    "description": "Drobne, gęste oczka. Kowal, co ją plótł, ślepł dla chleba. Podszewka wymieniona na grubszą skórę."
+  },
+  {
+    "id": "kolczuga_straznicza_u2",
+    "name": "Kolczuga strażnicza (skóra, płyty)",
+    "type": "armor",
+    "tier": 3,
+    "slot": "tulow",
+    "armor": 3,
+    "reduction": {
+      "sieczne": 40,
+      "klute": 20,
+      "obuchowe": 15
+    },
+    "modifiers": {
+      "skradanie": -25
+    },
+    "weight": 13,
+    "value": 338,
+    "description": "Drobne, gęste oczka. Kowal, co ją plótł, ślepł dla chleba. Dołożono płyty w miejscach, gdzie najczęściej tną."
+  },
+  {
+    "id": "polpancerz_u1",
+    "name": "Półpancerz (skóra)",
+    "type": "armor",
+    "tier": 3,
+    "slot": "tulow",
+    "armor": 4,
+    "reduction": {
+      "sieczne": 45,
+      "klute": 30,
+      "obuchowe": 25
+    },
+    "modifiers": {
+      "ap": -1,
+      "skradanie": -25
+    },
+    "weight": 16,
+    "value": 255,
+    "description": "Blacha na piersi i plecach. W takim kroczysz jak beczka, ale beczka nie umiera od strzały. Podszewka wymieniona na grubszą skórę."
+  },
+  {
+    "id": "polpancerz_u2",
+    "name": "Półpancerz (skóra, płyty)",
+    "type": "armor",
+    "tier": 3,
+    "slot": "tulow",
+    "armor": 4,
+    "reduction": {
+      "sieczne": 45,
+      "klute": 30,
+      "obuchowe": 25
+    },
+    "modifiers": {
+      "skradanie": -25
+    },
+    "weight": 16,
+    "value": 425,
+    "description": "Blacha na piersi i plecach. W takim kroczysz jak beczka, ale beczka nie umiera od strzały. Dołożono płyty w miejscach, gdzie najczęściej tną."
   }
 ]

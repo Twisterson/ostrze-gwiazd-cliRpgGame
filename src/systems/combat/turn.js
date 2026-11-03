@@ -9,6 +9,7 @@ import { enemyByUid, livingEnemies, onAllyDeath, outcomeOf } from "./state.js";
 import { startTurnEffects, endTurnEffects, endRoundBattlefield, clearTurnEffects } from "./effects.js";
 import { enemyTurn } from "./ai.js";
 import { applyMasteryGrowth } from "./mastery.js";
+import { loadWorn } from "../inventory.js";
 
 export { outcomeOf };
 
@@ -88,7 +89,7 @@ export function lowHpHint(state, data, combat) {
 
 /**
  * Wraps the fight up: clears turn effects and the thrown weapon, advances world time, and on a win pays XP (defeated + half for fled, rounded down
- * each) mastery growth (per enemy finished by the player's blow) and loot (from the defeated, then the scene's own `loot`), then sets `combat_<scene>_wygrana|_ucieczka|_porazka`. A draw counts as fleeing.
+ * each) mastery growth (per enemy finished by the player's blow) and loot (from the defeated, then the scene's own `loot`), then sets `combat_<scene>_wygrana|_ucieczka|_porazka` and reloads the worn ranged weapons. A draw counts as fleeing.
  * @returns {{ outcome: string, xp: number, events: object[] }}
  */
 export function finishCombat(state, data, combat, rng) {
@@ -118,5 +119,6 @@ export function finishCombat(state, data, combat, rng) {
   }
   const suffix = outcome === "win" ? "wygrana" : outcome === "defeat" ? "porazka" : "ucieczka";
   (state.flags ??= {})[`combat_${combat.def.id}_${suffix}`] = true;
+  loadWorn(state, data); // after the loot, so ammunition found in this fight counts
   return { outcome, xp, events };
 }

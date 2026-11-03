@@ -186,6 +186,9 @@ const INVENTORY_SCHEMA = {
     equipped: { type: "object", values: { type: "string" } },
     quickSlots: { type: "array", items: { type: "string" } },
     loaded: { type: "object", values: { type: "integer", min: 0 } },
+    // Optional: older saves have neither (a loaded weapon then holds the plain ammunition).
+    loadedAmmo: { type: "object", values: { type: "string" } },
+    loadExplosive: { type: "boolean" },
   },
 };
 const WORLD_SCHEMA = {
@@ -310,6 +313,19 @@ export function repairInventory(state, data) {
     else if (rounds > capacity) { badLoaded.push(id); inv.loaded[id] = capacity; }
   }
   report("load.repair.loaded", badLoaded);
+
+  // 4b. kinds of the loaded ammunition: only for a known reloadable weapon and ammunition it can fire, else the plain one (or no entry)
+  const badKinds = [];
+  for (const [id, ammoId] of Object.entries(inv.loadedAmmo ?? {})) {
+    const reload = itemById(data, id)?.reload;
+    if (!reload) { badKinds.push(id); delete inv.loadedAmmo[id]; continue; }
+    const ammo = itemById(data, ammoId);
+    if (!ammo || ammo.type !== "ammo" || (ammoId !== reload.ammo && ammo.ammoOf !== reload.ammo)) {
+      badKinds.push(ammoId);
+      inv.loadedAmmo[id] = reload.ammo;
+    }
+  }
+  report("load.repair.loadedAmmo", badKinds);
   return warnings;
 }
 

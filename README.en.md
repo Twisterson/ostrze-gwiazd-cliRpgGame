@@ -82,43 +82,32 @@ Saves are kept in `~/.ostrze` (the `OSTRZE_HOME` variable changes the directory)
 - turn-based combat with action points, range, aimed blows, paired weapons, throwing and weapon mastery; soldiers and dungeon masters grow stronger along with the hero;
 - mysticism: phenomena in the sky, artifacts, and debt and will as two axes of choice.
 
-## Changes in version 0.2.2
+## Current changes (0.2.3)
 
-**Graphics and terminals**
+**Ranged weapons**
 
-- Illustrations now work in `cmd` and PowerShell on Windows. The game used to show ASCII pictures there because it did not detect the colours.
-- The main menu lets you choose colour graphics, black and white, or none. ASCII pictures are gone from the game: a terminal without 256 colours shows text only.
+- A crossbow or pistol can wait on your back in the spare weapon slot. Switching to a ranged weapon and back costs 1 AP instead of 2.
+- A shot costs 3 AP with a crossbow or pistol and 4 AP with a musket (rusznica). Reloading in combat costs 6 AP.
+- Weapons reload by themselves, for free, after a fight and when you equip them, if you have ammunition.
+- Each weapon shoots differently. The light crossbow is best up close. The soldier's and imperial crossbows hit well from afar but lose 20 points of accuracy in melee. Pistols hit the same at range and up close.
+- A hit from a crossbow or firearm slows the enemy half of the time: −2 AP and no movement for 2 turns.
+- New technique, Odskok ze strzałem (retreat shot), costs 5 AP, or 6 AP with a musket or a crank crossbow. The hero steps back from an enemy in melee, takes that enemy's free blow, shoots with the spare weapon and goes back to the main weapon.
+- A firearm shot always makes smoke unless it misfires. An enemy who closes to melee through smoke gets −15 to hit that turn. Smoke and the smoke candle give +20 to fleeing instead of +40.
 
-**Shop and inventory**
+**Upgrades at the smiths**
 
-- The item card tells you where an item is worn and compares it in a table with what you are wearing.
-- Three light armour pieces with no action point penalty, good against thrusts and blunt blows: Kaftan włócznika, Karwasze z rogu, Nagolenice skórzane. The bracers and greaves are sold at Kuźnia Zbycha, which no longer stocks plain bracers and Buty wędrowca; other merchants still have them.
+- Smiths upgrade weapons and body armour in two stages. You hand over the item and money and get an upgraded version of the same weight.
+- Swords and spears: better grip (+5 to skill), then sharpening (+1 armour piercing). Crossbows: better stock, then a stronger bow arm. Firearms: front sight, then a light trigger (fewer misfires). Armour: a leather layer (+5% reduction), then lighter plates with no AP penalty.
+- The first stage costs about half the item's value, the second about its full value.
+- Who upgrades what: Zbych and Bogdan do the first stage of melee weapons and armour. The field smith (kowal polowy) and Brygida do both stages, crossbows included, and the field smith also fits front sights. Szkarad does both stages of firearms. Zbych's workshop opens after your first talk with him, and Szkarad has to be found first.
 
-**Combat**
+**Bolts**
 
-- The ready stance (Gotowość do ciosu) works with any melee weapon, not only spears.
-- A full armour set no longer makes the hero untouchable: armour above 5 and damage reduction above 40% count at half. Light gear loses nothing.
-- The combat menu shows your chance to flee, and each enemy in melee lowers it by 5 points instead of 10.
-- Thrown items get +30 to accuracy. A blast pot (Garnek huku) can stun even on a miss, and the game always says when an enemy is immune to what you threw.
+- A reinforced bolt deals +1 damage. An explosive bolt also has +1, and on a hit its fragments wound other enemies in the same zone. Fragments count armour and can slow. On a miss the bolt explodes half of the time. If you shoot an enemy in melee, the fragments wound you too.
+- The field smith and Brygida exchange bolts in packs of 10: plain for reinforced for 20 gr, reinforced for explosive for 100 gr.
+- The inventory has a toggle on the crossbow for loading explosive bolts. Without it the crossbow would burn expensive bolts in every minor fight.
 
-**Hunger**
-
-- The hunger gauge now has effects and runs everywhere, not only while travelling. It fills in 24 hours.
-- From 85% you can eat before the automatic meal, and your stomach starts to get in the way: Siła (Strength) −1.
-- At 100% the hero eats a meal automatically. With no food the hero goes hungry: Siła −1, Krzepa (Constitution) −1 and worse healing from sleep.
-- From 150% you are starving: Zręczność (Dexterity) −2 and Bystrość (Perception) −1 on top of that.
-- You start with 3 rations instead of 2.
-
-**Character progress**
-
-- Four new perks for heroes who put their points into strength or dexterity: Pewny chwyt, Wół roboczy, Unik, Szybkie nogi.
-- A perk point with nothing to spend it on is no longer lost; it comes back at the next level-up. This includes old saves.
-
-**Story**
-
-- Ostromir's escort can be resumed after a lost fight, after fleeing or after the deadline passes: the wagon waits at the gate of Wilczy Bród. You no longer have to walk to the Trakt to get the job back.
-
-Old saves load with their progress intact. No hero gets a hunger penalty at the moment of loading.
+Old saves load with their progress intact.
 
 ## Data instead of code
 

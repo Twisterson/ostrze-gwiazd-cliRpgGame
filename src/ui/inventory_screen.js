@@ -13,7 +13,7 @@ import { getStats } from "../systems/stats.js";
 import { DAMAGE_TYPES } from "../systems/modifiers.js";
 import {
   equip, unequip, swapWeapons, assignQuick, unassignQuick, removeItem, useConsumable,
-  carriedWeight, isOverloaded, freeCount, quickCapacity,
+  carriedWeight, isOverloaded, freeCount, quickCapacity, takesExplosive,
 } from "../systems/inventory.js";
 
 const round1 = (n) => Math.round(n * 10) / 10;
@@ -250,6 +250,15 @@ export function actionsFor(item, ctx) {
   if (isWeapon(item)) {
     const eq = state.inventory.equipped;
     add("inv.swap", () => apply(swapWeapons(state, data)), eq.bron || eq.bron_zapas ? undefined : "inv.emptySlot");
+  }
+  // Whether loading (on equip, after a fight, in combat) takes explosive ammunition first: only for a weapon whose
+  // ammunition has an explosive kind, shown while the bag has some, or while the switch is on, so it can still be turned off.
+  const explosiveInBag = takesExplosive(data, item) && data.items.some((a) => a.explosive && a.ammoOf === item.reload.ammo && freeCount(state, a.id) > 0);
+  if (takesExplosive(data, item) && (explosiveInBag || state.inventory.loadExplosive)) {
+    add(state.inventory.loadExplosive ? "inv.loadExplosiveOff" : "inv.loadExplosiveOn", () => {
+      state.inventory.loadExplosive = !state.inventory.loadExplosive;
+      return "stay";
+    });
   }
   // Food without healing is not for a fight, so it has no place on the belt.
   if ((item.type === "consumable" || item.type === "throwable") && !(item.food && !item.heal)) {

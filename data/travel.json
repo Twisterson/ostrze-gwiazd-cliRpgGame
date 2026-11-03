@@ -652,6 +652,38 @@
           "type": "talk",
           "ref": "corka",
           "secret": true
+        },
+        {
+          "id": "ulepszenia",
+          "name": "Kuźnia Zbycha: ulepszenia",
+          "type": "scene",
+          "secret": true,
+          "if": {
+            "flag": "dialog_met_kowal"
+          },
+          "scenes": [
+            {
+              "id": "ulepszenia_zbych_scena",
+              "type": "dialogue",
+              "dialogue": "ulepszenia_zbych"
+            }
+          ]
+        },
+        {
+          "id": "szkarad_ulepszenia",
+          "name": "Ruszniczarz Szkarad: ulepszenia",
+          "type": "scene",
+          "secret": true,
+          "if": {
+            "known": "wilczy_brod.szkarad"
+          },
+          "scenes": [
+            {
+              "id": "ulepszenia_szkarad_scena",
+              "type": "dialogue",
+              "dialogue": "ulepszenia_szkarad"
+            }
+          ]
         }
       ],
       "visitors": [
@@ -2465,6 +2497,18 @@
           "type": "talk",
           "ref": "wdowa",
           "secret": true
+        },
+        {
+          "id": "ulepszenia",
+          "name": "Kuźnia Bogdana: ulepszenia",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "ulepszenia_bogdan_scena",
+              "type": "dialogue",
+              "dialogue": "ulepszenia_bogdan"
+            }
+          ]
         }
       ],
       "visitors": [
@@ -4239,6 +4283,18 @@
               "type": "dialogue",
               "dialogue": "dostawa_notatnik_ucznia",
               "goto": "koniec"
+            }
+          ]
+        },
+        {
+          "id": "ulepszenia",
+          "name": "Warsztat Brygidy: ulepszenia",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "ulepszenia_brygida_scena",
+              "type": "dialogue",
+              "dialogue": "ulepszenia_brygida"
             }
           ]
         }
@@ -7093,6 +7149,18 @@
           "id": "tablica_front",
           "name": "Tablica sztabu",
           "type": "board"
+        },
+        {
+          "id": "ulepszenia",
+          "name": "Kuźnia polowa: ulepszenia",
+          "type": "scene",
+          "scenes": [
+            {
+              "id": "ulepszenia_polowa_scena",
+              "type": "dialogue",
+              "dialogue": "ulepszenia_polowa"
+            }
+          ]
         }
       ],
       "visitors": [

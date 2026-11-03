@@ -28,6 +28,7 @@ const OPTION_SCHEMA = {
   fields: {
     id: ID, text: TEXT, requires: { type: "object" }, showLocked: { type: "boolean" }, actions: { type: "array" }, job: ID,
     goto: { type: "string" }, check: { type: "object" }, success: { type: "string" }, failure: { type: "string" }, retry: { type: "boolean" },
+    tooHeavy: { type: "string" },
   },
   additional: false,
 };
@@ -90,6 +91,11 @@ function validateOption(option, at, nodes, seenKeys, index, data) {
   }
   if (isObject(option.requires)) errors.push(...validateCondition(option.requires, `${at}.requires`, conditionOpts(data)));
   if (Array.isArray(option.actions)) errors.push(...validateActions(option.actions, `${at}.actions`, data));
+  if (option.tooHeavy !== undefined) {
+    // Where the talk goes when a giveItem of the option does not fit and its actions stop.
+    if (typeof option.tooHeavy === "string") errors.push(...validateTarget(option.tooHeavy, `${at}.tooHeavy`, nodes));
+    if (!option.actions?.some?.((a) => isObject(a) && ("giveItem" in a || "giveRandom" in a))) errors.push(`${at}.tooHeavy: opcja bez giveItem ani giveRandom`);
+  }
   return errors;
 }
 
@@ -103,7 +109,7 @@ function reachable(d) {
     seen.add(id);
     for (const o of Array.isArray(d.nodes[id].options) ? d.nodes[id].options : []) {
       if (!isObject(o)) continue;
-      for (const t of [o.goto, o.success, o.failure]) if (typeof t === "string" && !isEndTarget(t)) queue.push(t);
+      for (const t of [o.goto, o.success, o.failure, o.tooHeavy]) if (typeof t === "string" && !isEndTarget(t)) queue.push(t);
     }
   }
   return seen;
@@ -257,6 +263,7 @@ export function chooseOption(state, data, dialogId, nodeId, key, rng) {
     if (!success && !option.retry) state.world.failedChecks.push(failedKey(dialogId, nodeId, key)); // `retry`: a check that comes back (a control, a roundup) may be tried again
   }
   const { events, combat } = runActions(state, data, option.actions ?? [], rng);
+  if (option.tooHeavy && events.some((e) => e.type === "za_ciezko")) target = option.tooHeavy; // the actions stopped: not the success node
   const result = { events };
   if (checkResult) result.check = checkResult;
   if (combat) return { ...result, end: "walka", combat };

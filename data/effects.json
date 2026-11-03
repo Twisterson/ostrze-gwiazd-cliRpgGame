@@ -9,7 +9,7 @@
     "unit": "turn", "duration": 3, "modifiers": { "hitChance": -20, "defense": -15 },
     "tick": { "loseApChance": 30, "loseAp": 2 }, "resist": "bystrosc", "stack": "extend" },
   { "id": "zadymienie", "name": "W dymie", "description": "Gryzący dym zasłania pole walki. Strzały idą w mgłę, łatwiej zbiec.",
-    "unit": "turn", "duration": 3, "scope": "battlefield", "modifiers": { "rangedHitChance": -35, "fleeChance": 40 }, "stack": "refresh" },
+    "unit": "turn", "duration": 3, "scope": "battlefield", "modifiers": { "rangedHitChance": -35, "fleeChance": 20 }, "stack": "refresh" },
   { "id": "podpalenie", "name": "Płonie", "description": "Ogień liże ubranie i skórę.",
     "unit": "turn", "duration": 2, "tick": { "damage": [3, 6], "damageType": "ogien" }, "stack": "refresh" },
   { "id": "krwawienie", "name": "Krwawi", "description": "Rana nie chce się zamknąć. Opatrunek pomoże.",

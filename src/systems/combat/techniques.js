@@ -6,8 +6,9 @@ import { livingEnemies, enemyByUid } from "./state.js";
 import { strike } from "./strike.js";
 import { isFirearm, fireWeapon } from "./firearm.js";
 import { masteryTypeOf } from "./mastery.js";
+import { retreatShotOption, doRetreatShot } from "./retreat_shot.js";
 
-export const TECHNIQUE_IDS = ["aimed", "dual", "guard", "throw", "pickup", "ready"];
+export const TECHNIQUE_IDS = ["aimed", "dual", "guard", "throw", "pickup", "ready", "odskok"];
 const ARTIFACT_PREFIX = "artifact:";
 
 /** True for a technique id: a fixed one or an artifact ability (`artifact:<abilityId>`). */
@@ -55,7 +56,7 @@ function targetsOf(id, ds, combat, state, data) {
     return ability?.target === "enemy" ? livingEnemies(combat).map((e) => e.uid) : [];
   }
   if (id === "aimed") return reachable(combat, ds.main);
-  if (id === "dual" || id === "guard") return inMelee(combat);
+  if (id === "dual" || id === "guard" || id === "odskok") return inMelee(combat);
   if (id === "throw") return livingEnemies(combat).map((e) => e.uid);
   return [];
 }
@@ -123,6 +124,9 @@ export function techniqueActions(state, data, combat) {
   // The ready stance: enemies stepping into melee until the player's next turn take one blow each. Never automatic.
   const readyReason = !readyWeapon(state, data, combat) ? "combat.noReach" : combat.ready ? "combat.alreadyReady" : afford(c.reachReadyAp);
   list.push(entry("ready", c.reachReadyAp, readyReason));
+  // The retreat shot: only offered with a ranged weapon of the right kind in the spare slot.
+  const retreat = retreatShotOption(state, data, combat);
+  if (retreat) list.push(entry("odskok", retreat.apCost, retreat.reason));
   for (const o of abilityOptions(state, data, combat)) {
     list.push({
       ...entry(`${ARTIFACT_PREFIX}${o.id}`, o.apCost, o.reason, o.name),
@@ -175,6 +179,10 @@ export function doTechnique(state, data, combat, action, rng) {
   const target = enemyByUid(combat, uid);
   const cost = listed.apCost;
   if (cost > combat.playerAp) return fail("combat.noAp");
+  if (action.id === "odskok") {
+    events.push(...doRetreatShot(state, data, combat, uid, rng));
+    return done();
+  }
   combat.playerAp -= cost;
 
   switch (action.id) {

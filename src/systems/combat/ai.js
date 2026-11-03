@@ -61,6 +61,7 @@ export function enemyTurn(state, data, combat, uid, rng) {
   const relocate = (extra) => {
     enemy.band = enemy.band === "melee" ? "far" : "melee";
     events.push({ type: "ruch", mover: uid, target: uid, band: enemy.band, ...extra });
+    if (enemy.band === "melee" && combat.battlefield.some((e) => e.id === "zadymienie")) enemy.enteredSmoke = true;
     if (enemy.band !== "melee" || reacted) return false;
     reacted = true;
     events.push(...reachReaction(state, data, combat, enemy, rng));
@@ -86,5 +87,6 @@ export function enemyTurn(state, data, combat, uid, rng) {
       if (relocate()) break;
     } else break;
   }
+  delete enemy.enteredSmoke; // transient: only for this turn
   return events;
 }

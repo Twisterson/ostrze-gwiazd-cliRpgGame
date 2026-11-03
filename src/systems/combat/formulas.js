@@ -24,14 +24,15 @@ const isDazed = (data, enemy) => (enemy.effects ?? []).some((e) => effectById(da
  * Player's chance (%) to hit `enemy` with `weapon`. `penalty`: extra technique penalty; `masteryType`: the kind whose
  * mastery bonus applies (default: the weapon's own). A pair with one weapon thrown (`combat.thrown`) gets `oneLeftPenalty`.
  */
-export function playerHitChance(state, data, combat, weapon, enemy, { penalty = 0, masteryType = masteryTypeOf(weapon) } = {}) {
+export function playerHitChance(state, data, combat, weapon, enemy, { penalty = 0, masteryType = masteryTypeOf(weapon), pointBlank = false } = {}) {
   const c = data.rules.combat;
   const { skills, attributes, derived } = getStats(state, data);
   const melee = weapon.range === "melee";
   const defense = enemyById(data, enemy.id).defense + effectMod(data, enemy, "defense") + phenomenonEnemyModifiers(state, data, enemy).defense;
   const chance = c.hitBase + (skills[weapon.skill] ?? 0) - defense + derived.hitChance
     + (melee ? derived.meleeHitChance : derived.rangedHitChance + battlefieldMod(data, combat, "rangedHitChance"))
-    - (!melee && enemy.band === "melee" ? c.rangedInMeleePenalty : 0)
+    + (!melee ? ((enemy.band === "melee" || pointBlank) ? weapon.hitClose : weapon.hitFar) ?? 0 : 0)
+    - (!melee && enemy.band === "melee" && !weapon.noMeleePenalty ? c.rangedInMeleePenalty : 0)
     - c.minStrengthPenalty * Math.max(0, (weapon.minStrength ?? 0) - attributes.sila)
     - penalty - (weapon.pair && combat?.thrown?.itemId === weapon.id ? c.dual.oneLeftPenalty : 0)
     + masteryBonuses(state, data, masteryType).hit;
@@ -47,6 +48,7 @@ export function enemyHitChance(state, data, combat, enemy, attack) {
   const chance = attack.hit - defense + effectMod(data, enemy, "hitChance") + phenomenonEnemyModifiers(state, data, enemy).hitChance
     + (attack.range === "far" ? battlefieldMod(data, combat, "rangedHitChance") : 0)
     - (attack.range === "far" && enemy.band === "melee" ? c.rangedInMeleePenalty : 0)
+    - (enemy.enteredSmoke && attack.range !== "far" ? c.smokeEnterPenalty : 0) // entered melee through smoke this turn
     - (isDazed(data, enemy) ? c.dazedPenalty : 0)
     - (enemy.morale !== null && enemy.morale !== undefined && enemy.morale < c.moraleThreshold ? c.lowMoraleHitPenalty : 0);
   return clamp(chance, c.hitMin, c.hitMax);

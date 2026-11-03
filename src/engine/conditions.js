@@ -9,7 +9,7 @@ const withPath = (path, text) => (path ? `${path}: ${text}` : text);
 
 /**
  * Evaluates a condition against the game state. Assumes `cond` already passed validateCondition.
- * Character-dependent keys (item/money/attribute/skill/effect/effectStacks) are false without a character.
+ * Character-dependent keys (item/money/moneyBelow/attribute/skill/effect/effectStacks) are false without a character.
  */
 export function evaluate(cond, state, data) {
   if (Object.hasOwn(cond, "var")) return evaluateVar(cond, state);
@@ -47,6 +47,7 @@ function evaluateCharacter(key, value, state, data) {
       return countOf(state, id) >= qty;
     }
     case "money": return state.character.money >= value;
+    case "moneyBelow": return state.character.money < value;
     case "attribute": return getStats(state, data).attributes[value.id] >= value.gte;
     case "skill": return getStats(state, data).skills[value.id] >= value.gte;
     case "effect": return hasEffect(state, value);
@@ -146,6 +147,9 @@ export function validateCondition(cond, path, opts = {}) {
         break;
       }
       case "money":
+        if (!Number.isInteger(value) || value < 0) errors.push(`${keyPath}: oczekiwano liczby całkowitej ≥ 0`);
+        break;
+      case "moneyBelow":
         if (!Number.isInteger(value) || value < 0) errors.push(`${keyPath}: oczekiwano liczby całkowitej ≥ 0`);
         break;
       case "attribute":

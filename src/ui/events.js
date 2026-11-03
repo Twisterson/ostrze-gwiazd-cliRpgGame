@@ -129,6 +129,7 @@ export function combatEventRole(e) {
       return e.attacker === "player" ? "heal" : e.target === "player" ? "damage" : "dim";
     case "efekt_obrazenia": return e.target === "player" ? "damage" : "dim";
     case "rozerwanie": return "damage";
+    case "wybuch": return e.selfDamage > 0 ? "damage" : e.victims.some((v) => v.damage > 0) ? "heal" : "dim";
     case "wrog_pokonany":
     case "wrog_ucieka": return "foe_down";
     default: return "dim";
@@ -181,6 +182,15 @@ export function combatEventText(ui, data, combat, e) {
     case "bieglosc": return t(ui, "combat.mastery", { name: t(ui, `mastery.${e.masteryType}`), after: e.after });
     case "niewypal": return t(ui, "combat.misfire", { weapon: itemName(e.weapon) });
     case "rozerwanie": return t(ui, "combat.burst", { weapon: itemName(e.weapon), damage: e.damage });
+    case "wybuch": {
+      // A fragment that did nothing (armor, immunity) is left out; all of them doing nothing gets its own line.
+      const names = e.victims.filter((v) => v.damage > 0).map((v) => `${enemyLabel(data, combat, v.target, true)} za ${v.damage}`).join(", ");
+      return [
+        t(ui, e.hit ? "combat.blast" : "combat.blastMiss"),
+        names ? t(ui, "combat.blastVictims", { names }) : t(ui, e.victims.length ? "combat.blastNoHarm" : "combat.blastNobody"),
+        ...(e.selfDamage > 0 ? [t(ui, "combat.blastSelf", { damage: e.selfDamage })] : []),
+      ].join(" ");
+    }
     case "strach_bronia": return t(ui, "combat.fear", { fear: e.fear });
     case "posilki": return t(ui, "combat.reinforcements", { names: e.enemies.map((uid) => enemyLabel(data, combat, uid)).join(", ") });
     case "dym": return t(ui, "combat.effectField", { name: effectName() });

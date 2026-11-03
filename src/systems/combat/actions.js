@@ -2,7 +2,7 @@
 import { getStats } from "../stats.js";
 import { itemById } from "../items.js";
 import { effectById, addToList } from "../effects.js";
-import { countOf, removeItem, swapWeapons, useConsumable } from "../inventory.js";
+import { countOf, removeItem, pickAmmo, explosiveHeldBack, reloadWeapon, swapWeapons, useConsumable } from "../inventory.js";
 import { enemyById } from "./data.js";
 import { livingEnemies, enemyByUid } from "./state.js";
 import { playerHitChance, enemyHitChance, rollDamage, mitigate, fleeChance, dealDamage } from "./formulas.js";
@@ -24,6 +24,14 @@ const fail = (reason) => ({ ok: false, reason });
 /** True when `holder` (the player's character or an enemy) has an active effect that forbids moving (`noMove`). */
 export const cannotMove = (data, holder) => (holder.effects ?? []).some((e) => effectById(data, e.id)?.noMove);
 const isSlowed = (state, data) => cannotMove(data, state.character);
+
+/** AP for swapping weapons: cheaper when either the wielded or the spare weapon is a reloadable ranged one. */
+export function swapCost(state, data) {
+  const c = rules(data);
+  const eq = state.inventory.equipped;
+  const ranged = [eq.bron, eq.bron_zapas].some((id) => id && itemById(data, id)?.reload);
+  return ranged ? c.swapRangedAp : c.swapAp;
+}
 
 /** uids of living enemies the equipped weapon can reach (melee weapons: only enemies in melee). */
 export function attackTargets(state, data, combat) {
@@ -55,7 +63,7 @@ export function playerActions(state, data, combat) {
   const weapon = weaponOf(state, data);
   const eq = state.inventory.equipped;
   const options = useOptions(state, data, combat);
-  const ammo = weapon.reload ? countOf(state, weapon.reload.ammo) : 0;
+  const ammo = pickAmmo(state, data, weapon);
   const entry = (id, apCost, reason) => ({ id, apCost, disabled: !!reason, ...(reason ? { reason } : {}) });
   const afford = (cost, other) => (ap < cost ? "combat.noAp" : other);
   const defendCost = Math.max(c.defendMinAp, ap);
@@ -63,10 +71,11 @@ export function playerActions(state, data, combat) {
     entry("attack", weapon.apCost, blockedSkill(state, data, weapon.skill) ? "combat.blockedByPhenomenon" : afford(weapon.apCost,
       weapon.reload && loadedOf(state, weapon) < 1 ? "combat.notLoaded" : attackTargets(state, data, combat).length === 0 ? "combat.noTarget" : undefined)),
     entry("reload", weapon.reload?.apCost ?? 0, !weapon.reload ? "combat.noReload" : afford(weapon.reload.apCost,
-      loadedOf(state, weapon) >= weapon.reload.capacity ? "combat.alreadyLoaded" : ammo < 1 ? "combat.noAmmo" : undefined)),
+      loadedOf(state, weapon) >= weapon.reload.capacity ? "combat.alreadyLoaded"
+        : !ammo ? (explosiveHeldBack(state, data, weapon) ? "combat.explosiveOff" : "combat.noAmmo") : undefined)),
     entry("use", options.length ? Math.min(...options.map((o) => o.apCost)) : 0,
       options.length === 0 ? "combat.nothingToUse" : afford(Math.min(...options.map((o) => o.apCost)))),
-    entry("swap", c.swapAp, afford(c.swapAp, eq.bron || eq.bron_zapas ? undefined : "combat.nothingToSwap")),
+    entry("swap", swapCost(state, data), afford(swapCost(state, data), eq.bron || eq.bron_zapas ? undefined : "combat.nothingToSwap")),
     entry("move", c.moveAp, afford(c.moveAp, isSlowed(state, data) ? "combat.slowed" : livingEnemies(combat).length ? undefined : "combat.noTarget")),
     entry("defend", defendCost, afford(c.defendMinAp)),
     { ...entry("flee", c.fleeAp, combat.def?.canFlee === false ? "combat.noFlee" : afford(c.fleeAp)), chance: fleeChance(state, data, combat) },
@@ -110,6 +119,14 @@ export function resolveEnemyAttack(state, data, combat, uid, attack, rng) {
   if (attack.damage && attack.damageType === "obuchowe" && roll100(rng) <= c.bluntDaze - penalty) effectOnPlayer(state, data, "zamroczenie", rng, events);
   for (const fx of attack.effects ?? []) if (roll100(rng) <= fx.chance - penalty) effectOnPlayer(state, data, fx.id, rng, events);
   return events;
+}
+
+/** The free attack of a melee `enemy` against a player stepping away from it (none when it is stunned or not in melee). */
+export function stepBackAttack(state, data, combat, enemy, rng) {
+  const stunned = enemy.effects.some((e) => effectById(data, e.id)?.skipTurn);
+  if (enemy.band !== "melee" || stunned) return [];
+  const attack = enemyById(data, enemy.id).attacks.find((a) => (a.range ?? "melee") === "melee");
+  return attack ? resolveEnemyAttack(state, data, combat, enemy.uid, attack, rng) : [];
 }
 
 /** Throws `item` (already validated); consumes one copy. */
@@ -198,11 +215,8 @@ export function doAction(state, data, combat, action, rng) {
     }
     case "reload": {
       const weapon = weaponOf(state, data);
-      const n = Math.min(weapon.reload.capacity - loadedOf(state, weapon), countOf(state, weapon.reload.ammo));
       combat.playerAp -= weapon.reload.apCost;
-      removeItem(state, data, weapon.reload.ammo, n);
-      state.inventory.loaded ??= {};
-      state.inventory.loaded[weapon.id] = loadedOf(state, weapon) + n;
+      reloadWeapon(state, data, weapon);
       events.push({ type: "przeladowanie", weapon: weapon.id });
       return done();
     }
@@ -218,18 +232,14 @@ export function doAction(state, data, combat, action, rng) {
       return done();
     }
     case "swap":
-      combat.playerAp -= c.swapAp;
+      combat.playerAp -= swapCost(state, data);
       swapWeapons(state, data);
       events.push({ type: "zmiana_broni" });
       return done();
     case "move": {
       if (!aimed) return fail("combat.noTarget");
       combat.playerAp -= c.moveAp;
-      const stunned = aimed.effects.some((e) => effectById(data, e.id)?.skipTurn);
-      if (aimed.band === "melee" && !stunned) {
-        const attack = enemyById(data, aimed.id).attacks.find((a) => (a.range ?? "melee") === "melee");
-        if (attack) events.push(...resolveEnemyAttack(state, data, combat, aimed.uid, attack, rng));
-      }
+      events.push(...stepBackAttack(state, data, combat, aimed, rng));
       aimed.band = aimed.band === "melee" ? "far" : "melee";
       events.push({ type: "ruch", mover: "player", target: aimed.uid, band: aimed.band });
       return done();

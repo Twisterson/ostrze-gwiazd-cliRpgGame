@@ -48,6 +48,7 @@ const TYPE_SCHEMAS = {
       range: { type: "string", enum: ["melee", "far", "thrown"] }, minStrength: INT_MIN0,
       reload: strict(["apCost", "ammo", "capacity"], { apCost: INT_MIN1, ammo: ID, capacity: INT_MIN1 }),
       armorPierce: INT_MIN0, misfireChance: INT_MIN0, burstChance: INT_MIN0, burstDamage: PAIR, noise: INT_MIN0, fear: INT_MIN0,
+      hitFar: { type: "integer" }, hitClose: { type: "integer" }, noMeleePenalty: { type: "boolean" }, retreatShotAp: INT_MIN1,
       smoke: INT_MIN0, pair: { type: "boolean" }, offhand: { type: "boolean" }, throwName: { type: "string" }, throwSkill: { type: "string" }, masteryType: { type: "string" },
       modifiers: { type: "object" },
       effects: { type: "array", items: strict(["id", "chance"], { id: ID, chance: INT_MIN1 }) },
@@ -60,7 +61,8 @@ const TYPE_SCHEMAS = {
       modifiers: { type: "object" }, quickSlots: INT_MIN0,
     },
   },
-  ammo: { required: [], fields: {} },
+  // A bolt kind: `ammoOf` is the base ammunition it can replace, `damageBonus` and `explosive` are applied in combat.
+  ammo: { required: [], fields: { ammoOf: ID, damageBonus: INT_MIN1, explosive: { type: "boolean" } } },
   throwable: {
     required: ["skill", "apCost", "target", "effects"],
     fields: {
@@ -175,6 +177,9 @@ function validateItem(item, prefix, items, data) {
   if (typeKey === "consumable") skillRef("healSkill");
   if (isObject(item.reload) && typeof item.reload.ammo === "string" && items.find((i) => i?.id === item.reload.ammo)?.type !== "ammo") {
     errors.push(`${at("reload.ammo")}: oczekiwano przedmiotu typu ammo`);
+  }
+  if (typeof item.ammoOf === "string" && items.find((i) => i?.id === item.ammoOf)?.type !== "ammo") {
+    errors.push(`${at("ammoOf")}: oczekiwano przedmiotu typu ammo`);
   }
   if (isObject(item.modifiers)) errors.push(...validateModifiers(item.modifiers, at("modifiers"), data));
   if ((typeKey === "throwable" || weaponLike) && Array.isArray(item.effects)) {

@@ -1,0 +1,232 @@
+{
+  "id": "ulepszenia_szkarad",
+  "portrait": "portret_szkarad",
+  "start": "warsztat",
+  "nodes": {
+    "warsztat": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "Szkarad przeżuwa słomkę i obraca w palcach czyjąś rusznicę. „Muszka, spust. Naprawię, co trzeba, ale nie za darmo, pachołku.”",
+      "options": [
+        {
+          "id": "u_pistolet_skalkowy_u1",
+          "text": "Pistolet skałkowy: muszka (33 gr)",
+          "requires": {
+            "item": "pistolet_skalkowy",
+            "money": 33
+          },
+          "actions": [
+            {
+              "unequipItem": "pistolet_skalkowy"
+            },
+            {
+              "takeItem": "pistolet_skalkowy"
+            },
+            {
+              "takeMoney": 33
+            },
+            {
+              "giveItem": "pistolet_skalkowy_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_pistolet_skalkowy_u1",
+          "text": "Pistolet skałkowy: muszka (33 gr)",
+          "requires": {
+            "item": "pistolet_skalkowy",
+            "moneyBelow": 33
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_pistolet_skalkowy_u2",
+          "text": "Pistolet skałkowy: muszka, spust (66 gr)",
+          "requires": {
+            "item": "pistolet_skalkowy_u1",
+            "money": 66
+          },
+          "actions": [
+            {
+              "unequipItem": "pistolet_skalkowy_u1"
+            },
+            {
+              "takeItem": "pistolet_skalkowy_u1"
+            },
+            {
+              "takeMoney": 66
+            },
+            {
+              "giveItem": "pistolet_skalkowy_u2"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_pistolet_skalkowy_u2",
+          "text": "Pistolet skałkowy: muszka, spust (66 gr)",
+          "requires": {
+            "item": "pistolet_skalkowy_u1",
+            "moneyBelow": 66
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_pistolet_wojskowy_u1",
+          "text": "Pistolet wojskowy: muszka (73 gr)",
+          "requires": {
+            "item": "pistolet_wojskowy",
+            "money": 73
+          },
+          "actions": [
+            {
+              "unequipItem": "pistolet_wojskowy"
+            },
+            {
+              "takeItem": "pistolet_wojskowy"
+            },
+            {
+              "takeMoney": 73
+            },
+            {
+              "giveItem": "pistolet_wojskowy_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_pistolet_wojskowy_u1",
+          "text": "Pistolet wojskowy: muszka (73 gr)",
+          "requires": {
+            "item": "pistolet_wojskowy",
+            "moneyBelow": 73
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_pistolet_wojskowy_u2",
+          "text": "Pistolet wojskowy: muszka, spust (145 gr)",
+          "requires": {
+            "item": "pistolet_wojskowy_u1",
+            "money": 145
+          },
+          "actions": [
+            {
+              "unequipItem": "pistolet_wojskowy_u1"
+            },
+            {
+              "takeItem": "pistolet_wojskowy_u1"
+            },
+            {
+              "takeMoney": 145
+            },
+            {
+              "giveItem": "pistolet_wojskowy_u2"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_pistolet_wojskowy_u2",
+          "text": "Pistolet wojskowy: muszka, spust (145 gr)",
+          "requires": {
+            "item": "pistolet_wojskowy_u1",
+            "moneyBelow": 145
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_rusznica_u1",
+          "text": "Rusznica: muszka (83 gr)",
+          "requires": {
+            "item": "rusznica",
+            "money": 83
+          },
+          "actions": [
+            {
+              "unequipItem": "rusznica"
+            },
+            {
+              "takeItem": "rusznica"
+            },
+            {
+              "takeMoney": 83
+            },
+            {
+              "giveItem": "rusznica_u1"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_rusznica_u1",
+          "text": "Rusznica: muszka (83 gr)",
+          "requires": {
+            "item": "rusznica",
+            "moneyBelow": 83
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "u_rusznica_u2",
+          "text": "Rusznica: muszka, spust (165 gr)",
+          "requires": {
+            "item": "rusznica_u1",
+            "money": 165
+          },
+          "actions": [
+            {
+              "unequipItem": "rusznica_u1"
+            },
+            {
+              "takeItem": "rusznica_u1"
+            },
+            {
+              "takeMoney": 165
+            },
+            {
+              "giveItem": "rusznica_u2"
+            }
+          ],
+          "goto": "zrobione"
+        },
+        {
+          "id": "b_rusznica_u2",
+          "text": "Rusznica: muszka, spust (165 gr)",
+          "requires": {
+            "item": "rusznica_u1",
+            "moneyBelow": 165
+          },
+          "goto": "bez_groszy"
+        },
+        {
+          "id": "wyjscie",
+          "text": "Innym razem.",
+          "goto": "end"
+        }
+      ]
+    },
+    "zrobione": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "Szkarad rzuca ci broń przez kontuar. „Teraz to się nawet nie wstydzi. Załóż, zanim ktoś strzeli ci w plecy, a ty nie będziesz miał czym oddać.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobra.",
+          "goto": "warsztat"
+        }
+      ]
+    },
+    "bez_groszy": {
+      "speaker": "Ruszniczarz Szkarad",
+      "text": "„Jak nie masz grosza, to się nie rozglądaj. Mówiłem ci to na wejściu.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Wrócę z całością.",
+          "goto": "warsztat"
+        }
+      ]
+    }
+  }
+}

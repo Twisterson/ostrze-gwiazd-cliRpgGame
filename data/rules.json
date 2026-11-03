@@ -125,6 +125,7 @@
     "critMult": 1.5,
     "meleeStrengthBase": 5,
     "rangedInMeleePenalty": 20,
+    "smokeEnterPenalty": 15,
     "throwHitBonus": 30,
     "minStrengthPenalty": 10,
     "bluntCritStun": 50,
@@ -140,6 +141,7 @@
     "moveAp": 2,
     "veteranFromLevel": 7,
     "swapAp": 2,
+    "swapRangedAp": 1,
     "moraleThreshold": 25,
     "lowHpPercent": 35,
     "moraleOnAllyDeath": 20,
@@ -208,6 +210,12 @@
     },
     "firearm": {
       "misfirePerProch": 10
+    },
+    "explosive": {
+      "fragDamage": [4, 8],
+      "slowChance": 30,
+      "missBurstChance": 50,
+      "selfDamage": [4, 8]
     }
   },
   "artifacts": {
