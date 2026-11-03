@@ -39,9 +39,11 @@ Ramki i kolory tekstu nie zależą od tego wyboru. Wybór zostaje na następne u
 Z npm:
 
 ```
-npx ostrze            # jednorazowo, bez instalacji
-npm install -g ostrze # na stałe; potem polecenie: ostrze
+npx ostrze@latest            # jednorazowo, bez instalacji
+npm install -g ostrze@latest # na stałe albo aktualizacja; potem polecenie: ostrze
 ```
+
+Samo `npm install ostrze`, bez `-g`, instaluje grę tylko w bieżącym katalogu. Jeśli masz starszą wersję zainstalowaną globalnie, polecenie `ostrze` dalej ją uruchamia. Zainstalowaną wersję pokaże `npm ls -g ostrze`.
 
 Z paczki lokalnej (`ostrze-0.2.3.tgz`) lub z repozytorium:
 

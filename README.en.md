@@ -41,9 +41,11 @@ Frames and text colours do not depend on this choice. The choice is remembered f
 ## Installation and running
 
 ```
-npx ostrze            # once, without installing
-npm install -g ostrze # permanently; then run: ostrze
+npx ostrze@latest            # once, without installing
+npm install -g ostrze@latest # permanently or to update; then run: ostrze
 ```
+
+A plain `npm install ostrze`, without `-g`, installs the game only in the current directory. If you have an older version installed globally, the `ostrze` command keeps running it. `npm ls -g ostrze` shows the installed version.
 
 From the project directory:
 
