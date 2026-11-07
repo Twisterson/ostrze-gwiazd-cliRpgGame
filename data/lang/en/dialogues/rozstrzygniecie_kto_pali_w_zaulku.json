@@ -1,0 +1,16 @@
+{
+  "nodes.start.options.[szantaz].text": {"t":"Tell me who sent him. You'll pay for my discretion.","h":"676a8c92"},
+  "nodes.start.options.[ukryj].text": {"t":"Let him go. The boy is twelve, and he got the oil from somebody bigger.","h":"90e3b116"},
+  "nodes.start.options.[zglos].text": {"t":"Take him to the watch. Let the court learn to read.","h":"d27a10d7"},
+  "nodes.start.speaker": {"t":"Alchemist Gloom","h":"88a44a61"},
+  "nodes.start.text": {"t":"The alchemist stands in the charred doorway of his workshop, sniffing his own beard. \"Third workshop this month. Not that I'm counting. Yesterday I caught a lad red-handed with a barrel of oil. He's crying and says they made him. What do I do with him? I'd hand him to the watch, but the watch will let him go.\"","h":"c6532712"},
+  "nodes.wynik_szantaz.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_szantaz.speaker": {"t":"Alchemist Gloom","h":"88a44a61"},
+  "nodes.wynik_szantaz.text": {"t":"The alchemist hesitates, then shrugs. \"Master Shard, from Potters' Alley. My competitor. For your silence I'll add twenty groats, so it's clear that you know, and I don't.\" You take the money, note the name, and feel the town has just become a little bit more yours.","h":"34d8c6e5"},
+  "nodes.wynik_ukryj.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_ukryj.speaker": {"t":"Alchemist Gloom","h":"88a44a61"},
+  "nodes.wynik_ukryj.text": {"t":"The alchemist looks at you like you've lost your mind. \"Let him go? And who's going to pay for the workshop?\" The boy vanishes in a blink, leaving the barrel and a \"thank you\" tossed out without looking you in the eye. The glassmakers will have something to talk about.","h":"894837af"},
+  "nodes.wynik_zglos.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_zglos.speaker": {"t":"Alchemist Gloom","h":"88a44a61"},
+  "nodes.wynik_zglos.text": {"t":"The boy goes off to the watch with his head down. The alchemist sighs. \"Well, at least let the guard write down his name, so he can't deny it later.\" His hands are black with soot, but he smiles for the first time in a week.","h":"78294c4b"}
+}

@@ -1,0 +1,20 @@
+{
+  "nodes.aneks.options.[odmowa].text": {"t":"I refuse.","h":"2e59c8bb"},
+  "nodes.aneks.speaker": {"t":"Steward","h":"7b64398f"},
+  "nodes.aneks.text": {"t":"\"Annex one: the Core remains in my care, you remain alive, and the city goes on paying with people nobody counts. Terms favourable to all parties but the third.\" The mask hums softly. \"The third party is people.\"","h":"5bad38f2"},
+  "nodes.dlug.options.[dalej].text": {"t":"Change the contract.","h":"e2f6ddec"},
+  "nodes.dlug.speaker": {"t":"Steward","h":"7b64398f"},
+  "nodes.dlug.text": {"t":"\"A debt is an obligation between parties. You are a party, I am a party, the Core is the security. I do not provide for transfer of the debt to a third person, and you, within the meaning of the contract, are precisely a third person.\"","h":"ce431870"},
+  "nodes.umowa.options.[aneks].text": {"t":"What's in this annex?","h":"f1695ed4"},
+  "nodes.umowa.options.[dlug].text": {"t":"I have a debt. The Core is part of it, so I'll take it.","h":"48b57b94"},
+  "nodes.umowa.options.[walka].text": {"t":"We won't negotiate.","h":"a08cb581"},
+  "nodes.umowa.options.[wola].text": {"t":"I didn't come with a contract. I came to finish this.","h":"0af7f50f"},
+  "nodes.umowa.speaker": {"t":"Steward","h":"7b64398f"},
+  "nodes.umowa.text": {"t":"\"Counterparty. Twenty years of arrears in servicing the debt were closed with a single signature under someone else's sentence. The Core has no owner, and my job is to guard it. Your status: unauthorised. My proposal: an annex.\"","h":"33f806b6"},
+  "nodes.walka.options.[dalej].text": {"t":"Let's get to it.","h":"28706ef5"},
+  "nodes.walka.speaker": {"t":"Steward","h":"7b64398f"},
+  "nodes.walka.text": {"t":"The Steward straightens up and the tubes on its mask light up one after another. \"Compulsory procedure initiated. Please do not obstruct its execution. This conversation is being recorded to improve the quality of service.\"","h":"e85329de"},
+  "nodes.wola.options.[dalej].text": {"t":"Go ahead.","h":"06eb70b7"},
+  "nodes.wola.speaker": {"t":"Steward","h":"7b64398f"},
+  "nodes.wola.text": {"t":"The Steward tilts its head and the mask buzzes like a swarm. \"Declaration of intent. Recorded. The regulations provide no such clause, so I shall apply the final one.\"","h":"a7c32baa"}
+}

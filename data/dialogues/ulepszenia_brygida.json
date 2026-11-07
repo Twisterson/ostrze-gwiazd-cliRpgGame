@@ -1,6 +1,7 @@
 {
   "id": "ulepszenia_brygida",
   "portrait": "portret_brygida",
+  "wideList": true,
   "start": "warsztat",
   "nodes": {
     "warsztat": {
@@ -41,7 +42,7 @@
         },
         {
           "id": "u_miecz_krotki_u2",
-          "text": "Krótki miecz: uchwyt, ostrzony (40 gr)",
+          "text": "Krótki miecz: ostrzony (40 gr)",
           "requires": {
             "item": "miecz_krotki_u1",
             "money": 40
@@ -64,7 +65,7 @@
         },
         {
           "id": "b_miecz_krotki_u2",
-          "text": "Krótki miecz: uchwyt, ostrzony (40 gr)",
+          "text": "Krótki miecz: ostrzony (40 gr)",
           "requires": {
             "item": "miecz_krotki_u1",
             "moneyBelow": 40
@@ -105,7 +106,7 @@
         },
         {
           "id": "u_para_wloczni_u2",
-          "text": "Para włóczni: uchwyt, ostrzony (40 gr)",
+          "text": "Para włóczni: ostrzony (40 gr)",
           "requires": {
             "item": "para_wloczni_u1",
             "money": 40
@@ -128,7 +129,7 @@
         },
         {
           "id": "b_para_wloczni_u2",
-          "text": "Para włóczni: uchwyt, ostrzony (40 gr)",
+          "text": "Para włóczni: ostrzony (40 gr)",
           "requires": {
             "item": "para_wloczni_u1",
             "moneyBelow": 40
@@ -169,7 +170,7 @@
         },
         {
           "id": "u_kusza_lekka_u2",
-          "text": "Lekka kusza: łoże, ramię (60 gr)",
+          "text": "Lekka kusza: ramię (60 gr)",
           "requires": {
             "item": "kusza_lekka_u1",
             "money": 60
@@ -192,7 +193,7 @@
         },
         {
           "id": "b_kusza_lekka_u2",
-          "text": "Lekka kusza: łoże, ramię (60 gr)",
+          "text": "Lekka kusza: ramię (60 gr)",
           "requires": {
             "item": "kusza_lekka_u1",
             "moneyBelow": 60
@@ -220,7 +221,7 @@
               "giveItem": "kaftan_przeszywany_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kaftan_przeszywany_u1",
@@ -233,7 +234,7 @@
         },
         {
           "id": "u_kaftan_przeszywany_u2",
-          "text": "Kaftan przeszywany: skóra, płyty (40 gr)",
+          "text": "Kaftan przeszywany: płyty (40 gr)",
           "requires": {
             "item": "kaftan_przeszywany_u1",
             "money": 40
@@ -252,11 +253,11 @@
               "giveItem": "kaftan_przeszywany_u2"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kaftan_przeszywany_u2",
-          "text": "Kaftan przeszywany: skóra, płyty (40 gr)",
+          "text": "Kaftan przeszywany: płyty (40 gr)",
           "requires": {
             "item": "kaftan_przeszywany_u1",
             "moneyBelow": 40
@@ -284,7 +285,7 @@
               "giveItem": "kolczuga_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kolczuga_u1",
@@ -297,7 +298,7 @@
         },
         {
           "id": "u_kolczuga_u2",
-          "text": "Kolczuga: skóra, płyty (83 gr)",
+          "text": "Kolczuga: płyty (83 gr)",
           "requires": {
             "item": "kolczuga_u1",
             "money": 83
@@ -316,11 +317,11 @@
               "giveItem": "kolczuga_u2"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kolczuga_u2",
-          "text": "Kolczuga: skóra, płyty (83 gr)",
+          "text": "Kolczuga: płyty (83 gr)",
           "requires": {
             "item": "kolczuga_u1",
             "moneyBelow": 83
@@ -361,7 +362,7 @@
         },
         {
           "id": "u_miecz_zolnierski_u2",
-          "text": "Miecz żołnierski: uchwyt, ostrzony (61 gr)",
+          "text": "Miecz żołnierski: ostrzony (61 gr)",
           "requires": {
             "item": "miecz_zolnierski_u1",
             "money": 61
@@ -384,7 +385,7 @@
         },
         {
           "id": "b_miecz_zolnierski_u2",
-          "text": "Miecz żołnierski: uchwyt, ostrzony (61 gr)",
+          "text": "Miecz żołnierski: ostrzony (61 gr)",
           "requires": {
             "item": "miecz_zolnierski_u1",
             "moneyBelow": 61
@@ -425,7 +426,7 @@
         },
         {
           "id": "u_miecz_straznika_u2",
-          "text": "Miecz strażnika: uchwyt, ostrzony (135 gr)",
+          "text": "Miecz strażnika: ostrzony (135 gr)",
           "requires": {
             "item": "miecz_straznika_u1",
             "money": 135
@@ -448,7 +449,7 @@
         },
         {
           "id": "b_miecz_straznika_u2",
-          "text": "Miecz strażnika: uchwyt, ostrzony (135 gr)",
+          "text": "Miecz strażnika: ostrzony (135 gr)",
           "requires": {
             "item": "miecz_straznika_u1",
             "moneyBelow": 135
@@ -489,7 +490,7 @@
         },
         {
           "id": "u_miecz_mistrza_u2",
-          "text": "Miecz mistrza: uchwyt, ostrzony (650 gr)",
+          "text": "Miecz mistrza: ostrzony (650 gr)",
           "requires": {
             "item": "miecz_mistrza_u1",
             "money": 650
@@ -512,7 +513,7 @@
         },
         {
           "id": "b_miecz_mistrza_u2",
-          "text": "Miecz mistrza: uchwyt, ostrzony (650 gr)",
+          "text": "Miecz mistrza: ostrzony (650 gr)",
           "requires": {
             "item": "miecz_mistrza_u1",
             "moneyBelow": 650
@@ -553,7 +554,7 @@
         },
         {
           "id": "u_topor_zbojecki_u2",
-          "text": "Topór zbójecki: uchwyt, ostrzony (55 gr)",
+          "text": "Topór zbójecki: ostrzony (55 gr)",
           "requires": {
             "item": "topor_zbojecki_u1",
             "money": 55
@@ -576,7 +577,7 @@
         },
         {
           "id": "b_topor_zbojecki_u2",
-          "text": "Topór zbójecki: uchwyt, ostrzony (55 gr)",
+          "text": "Topór zbójecki: ostrzony (55 gr)",
           "requires": {
             "item": "topor_zbojecki_u1",
             "moneyBelow": 55
@@ -585,7 +586,7 @@
         },
         {
           "id": "u_maczuga_kolkowa_u1",
-          "text": "Maczuga kolkowa: uchwyt (22 gr)",
+          "text": "Maczuga z kolcami: uchwyt (22 gr)",
           "requires": {
             "item": "maczuga_kolkowa",
             "money": 22
@@ -608,7 +609,7 @@
         },
         {
           "id": "b_maczuga_kolkowa_u1",
-          "text": "Maczuga kolkowa: uchwyt (22 gr)",
+          "text": "Maczuga z kolcami: uchwyt (22 gr)",
           "requires": {
             "item": "maczuga_kolkowa",
             "moneyBelow": 22
@@ -617,7 +618,7 @@
         },
         {
           "id": "u_maczuga_kolkowa_u2",
-          "text": "Maczuga kolkowa: uchwyt, ostrzony (44 gr)",
+          "text": "Maczuga z kolcami: okuty (44 gr)",
           "requires": {
             "item": "maczuga_kolkowa_u1",
             "money": 44
@@ -640,7 +641,7 @@
         },
         {
           "id": "b_maczuga_kolkowa_u2",
-          "text": "Maczuga kolkowa: uchwyt, ostrzony (44 gr)",
+          "text": "Maczuga z kolcami: okuty (44 gr)",
           "requires": {
             "item": "maczuga_kolkowa_u1",
             "moneyBelow": 44
@@ -681,7 +682,7 @@
         },
         {
           "id": "u_bulawa_u2",
-          "text": "Buława: uchwyt, ostrzony (120 gr)",
+          "text": "Buława: okuty (120 gr)",
           "requires": {
             "item": "bulawa_u1",
             "money": 120
@@ -704,7 +705,7 @@
         },
         {
           "id": "b_bulawa_u2",
-          "text": "Buława: uchwyt, ostrzony (120 gr)",
+          "text": "Buława: okuty (120 gr)",
           "requires": {
             "item": "bulawa_u1",
             "moneyBelow": 120
@@ -745,7 +746,7 @@
         },
         {
           "id": "u_para_wloczni_lowieckich_u2",
-          "text": "Para włóczni łowieckich: uchwyt, ostrzony (61 gr)",
+          "text": "Para włóczni łowieckich: ostrzony (61 gr)",
           "requires": {
             "item": "para_wloczni_lowieckich_u1",
             "money": 61
@@ -768,7 +769,7 @@
         },
         {
           "id": "b_para_wloczni_lowieckich_u2",
-          "text": "Para włóczni łowieckich: uchwyt, ostrzony (61 gr)",
+          "text": "Para włóczni łowieckich: ostrzony (61 gr)",
           "requires": {
             "item": "para_wloczni_lowieckich_u1",
             "moneyBelow": 61
@@ -809,7 +810,7 @@
         },
         {
           "id": "u_para_wloczni_strazniczych_u2",
-          "text": "Para włóczni strażniczych: uchwyt, ostrzony (130 gr)",
+          "text": "Para włóczni strażniczych: ostrzony (130 gr)",
           "requires": {
             "item": "para_wloczni_strazniczych_u1",
             "money": 130
@@ -832,7 +833,7 @@
         },
         {
           "id": "b_para_wloczni_strazniczych_u2",
-          "text": "Para włóczni strażniczych: uchwyt, ostrzony (130 gr)",
+          "text": "Para włóczni strażniczych: ostrzony (130 gr)",
           "requires": {
             "item": "para_wloczni_strazniczych_u1",
             "moneyBelow": 130
@@ -873,7 +874,7 @@
         },
         {
           "id": "u_para_wloczni_kutych_u2",
-          "text": "Para włóczni kutych: uchwyt, ostrzony (640 gr)",
+          "text": "Para włóczni kutych: ostrzony (640 gr)",
           "requires": {
             "item": "para_wloczni_kutych_u1",
             "money": 640
@@ -896,7 +897,7 @@
         },
         {
           "id": "b_para_wloczni_kutych_u2",
-          "text": "Para włóczni kutych: uchwyt, ostrzony (640 gr)",
+          "text": "Para włóczni kutych: ostrzony (640 gr)",
           "requires": {
             "item": "para_wloczni_kutych_u1",
             "moneyBelow": 640
@@ -937,7 +938,7 @@
         },
         {
           "id": "u_kastet_u2",
-          "text": "Kastet: uchwyt, ostrzony (20 gr)",
+          "text": "Kastet: okuty (20 gr)",
           "requires": {
             "item": "kastet_u1",
             "money": 20
@@ -960,7 +961,7 @@
         },
         {
           "id": "b_kastet_u2",
-          "text": "Kastet: uchwyt, ostrzony (20 gr)",
+          "text": "Kastet: okuty (20 gr)",
           "requires": {
             "item": "kastet_u1",
             "moneyBelow": 20
@@ -1001,7 +1002,7 @@
         },
         {
           "id": "u_rekawice_nabijane_u2",
-          "text": "Rękawice nabijane: uchwyt, ostrzony (39 gr)",
+          "text": "Rękawice nabijane: okuty (39 gr)",
           "requires": {
             "item": "rekawice_nabijane_u1",
             "money": 39
@@ -1024,7 +1025,7 @@
         },
         {
           "id": "b_rekawice_nabijane_u2",
-          "text": "Rękawice nabijane: uchwyt, ostrzony (39 gr)",
+          "text": "Rękawice nabijane: okuty (39 gr)",
           "requires": {
             "item": "rekawice_nabijane_u1",
             "moneyBelow": 39
@@ -1065,7 +1066,7 @@
         },
         {
           "id": "u_piesc_zelazna_u2",
-          "text": "Pięść żelazna: uchwyt, ostrzony (115 gr)",
+          "text": "Pięść żelazna: okuty (115 gr)",
           "requires": {
             "item": "piesc_zelazna_u1",
             "money": 115
@@ -1088,7 +1089,7 @@
         },
         {
           "id": "b_piesc_zelazna_u2",
-          "text": "Pięść żelazna: uchwyt, ostrzony (115 gr)",
+          "text": "Pięść żelazna: okuty (115 gr)",
           "requires": {
             "item": "piesc_zelazna_u1",
             "moneyBelow": 115
@@ -1129,7 +1130,7 @@
         },
         {
           "id": "u_kusza_zolnierska_u2",
-          "text": "Kusza żołnierska: łoże, ramię (125 gr)",
+          "text": "Kusza żołnierska: ramię (125 gr)",
           "requires": {
             "item": "kusza_zolnierska_u1",
             "money": 125
@@ -1152,7 +1153,7 @@
         },
         {
           "id": "b_kusza_zolnierska_u2",
-          "text": "Kusza żołnierska: łoże, ramię (125 gr)",
+          "text": "Kusza żołnierska: ramię (125 gr)",
           "requires": {
             "item": "kusza_zolnierska_u1",
             "moneyBelow": 125
@@ -1193,7 +1194,7 @@
         },
         {
           "id": "u_kusza_cesarska_u2",
-          "text": "Kusza cesarska: łoże, ramię (700 gr)",
+          "text": "Kusza cesarska: ramię (700 gr)",
           "requires": {
             "item": "kusza_cesarska_u1",
             "money": 700
@@ -1216,7 +1217,7 @@
         },
         {
           "id": "b_kusza_cesarska_u2",
-          "text": "Kusza cesarska: łoże, ramię (700 gr)",
+          "text": "Kusza cesarska: ramię (700 gr)",
           "requires": {
             "item": "kusza_cesarska_u1",
             "moneyBelow": 700
@@ -1244,7 +1245,7 @@
               "giveItem": "kurta_skorzana_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kurta_skorzana_u1",
@@ -1257,7 +1258,7 @@
         },
         {
           "id": "u_kurta_skorzana_u2",
-          "text": "Kurta skórzana: skóra, płyty (45 gr)",
+          "text": "Kurta skórzana: płyty (45 gr)",
           "requires": {
             "item": "kurta_skorzana_u1",
             "money": 45
@@ -1276,11 +1277,11 @@
               "giveItem": "kurta_skorzana_u2"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kurta_skorzana_u2",
-          "text": "Kurta skórzana: skóra, płyty (45 gr)",
+          "text": "Kurta skórzana: płyty (45 gr)",
           "requires": {
             "item": "kurta_skorzana_u1",
             "moneyBelow": 45
@@ -1308,7 +1309,7 @@
               "giveItem": "skorznia_nabijana_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_skorznia_nabijana_u1",
@@ -1321,7 +1322,7 @@
         },
         {
           "id": "u_skorznia_nabijana_u2",
-          "text": "Skórznia nabijana: skóra, płyty (61 gr)",
+          "text": "Skórznia nabijana: płyty (61 gr)",
           "requires": {
             "item": "skorznia_nabijana_u1",
             "money": 61
@@ -1340,11 +1341,11 @@
               "giveItem": "skorznia_nabijana_u2"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_skorznia_nabijana_u2",
-          "text": "Skórznia nabijana: skóra, płyty (61 gr)",
+          "text": "Skórznia nabijana: płyty (61 gr)",
           "requires": {
             "item": "skorznia_nabijana_u1",
             "moneyBelow": 61
@@ -1372,7 +1373,7 @@
               "giveItem": "kaftan_wlocznika_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kaftan_wlocznika_u1",
@@ -1385,7 +1386,7 @@
         },
         {
           "id": "u_kaftan_wlocznika_u2",
-          "text": "Kaftan włócznika: skóra, płyty (120 gr)",
+          "text": "Kaftan włócznika: płyty (120 gr)",
           "requires": {
             "item": "kaftan_wlocznika_u1",
             "money": 120
@@ -1404,11 +1405,11 @@
               "giveItem": "kaftan_wlocznika_u2"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kaftan_wlocznika_u2",
-          "text": "Kaftan włócznika: skóra, płyty (120 gr)",
+          "text": "Kaftan włócznika: płyty (120 gr)",
           "requires": {
             "item": "kaftan_wlocznika_u1",
             "moneyBelow": 120
@@ -1436,7 +1437,7 @@
               "giveItem": "kolczuga_straznicza_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kolczuga_straznicza_u1",
@@ -1449,7 +1450,7 @@
         },
         {
           "id": "u_kolczuga_straznicza_u2",
-          "text": "Kolczuga strażnicza: skóra, płyty (135 gr)",
+          "text": "Kolczuga strażnicza: płyty (135 gr)",
           "requires": {
             "item": "kolczuga_straznicza_u1",
             "money": 135
@@ -1468,11 +1469,11 @@
               "giveItem": "kolczuga_straznicza_u2"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kolczuga_straznicza_u2",
-          "text": "Kolczuga strażnicza: skóra, płyty (135 gr)",
+          "text": "Kolczuga strażnicza: płyty (135 gr)",
           "requires": {
             "item": "kolczuga_straznicza_u1",
             "moneyBelow": 135
@@ -1500,7 +1501,7 @@
               "giveItem": "polpancerz_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_polpancerz_u1",
@@ -1513,7 +1514,7 @@
         },
         {
           "id": "u_polpancerz_u2",
-          "text": "Półpancerz: skóra, płyty (170 gr)",
+          "text": "Półpancerz: płyty (170 gr)",
           "requires": {
             "item": "polpancerz_u1",
             "money": 170
@@ -1532,11 +1533,11 @@
               "giveItem": "polpancerz_u2"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_polpancerz_u2",
-          "text": "Półpancerz: skóra, płyty (170 gr)",
+          "text": "Półpancerz: płyty (170 gr)",
           "requires": {
             "item": "polpancerz_u1",
             "moneyBelow": 170
@@ -1635,6 +1636,17 @@
       ]
     },
     "zrobione": {
+      "speaker": "Mechanik Brygida",
+      "text": "Brygida wciska ci robotę w ręce. „Gotowe. Bierz i nie wracaj, dopóki się nie zepsuje. A jak się zepsuje, to nie moja wina.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobra.",
+          "goto": "warsztat"
+        }
+      ]
+    },
+    "zrobione_pancerz": {
       "speaker": "Mechanik Brygida",
       "text": "Brygida wciska ci robotę w ręce. „Gotowe. Załóż i nie wracaj, dopóki się nie zepsuje. A jak się zepsuje, to nie moja wina.”",
       "options": [

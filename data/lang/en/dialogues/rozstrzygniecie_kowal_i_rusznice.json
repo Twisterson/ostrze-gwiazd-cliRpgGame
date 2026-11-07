@@ -1,0 +1,16 @@
+{
+  "nodes.kuznia.options.[dalej].text": {"t":"Keep forging. The war will end, but the bills won't.","h":"c16933f1"},
+  "nodes.kuznia.options.[sabotaz].text": {"t":"Make the barrels with a small flaw. Let nobody know.","h":"4edbad26"},
+  "nodes.kuznia.options.[stop].text": {"t":"Stop forging. Let the hetman understand that something is coming to an end.","h":"4f28f548"},
+  "nodes.kuznia.speaker": {"t":"Ragnar the Smith","h":"323bd534"},
+  "nodes.kuznia.text": {"t":"The smith stands at the anvil, and beside him lies a heap of handgun barrels, every one a hand's breadth shorter than ordered. \"The hetman wants a hundred handguns by the end of the month. I forge them because he pays, but he pays less and less, and my conscience bites more and more. I've two apprentices and one wife, so I can't forge the way my conscience tells me. Any advice?\"","h":"0f65ee4b"},
+  "nodes.wynik_dalej.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_dalej.speaker": {"t":"Ragnar the Smith","h":"323bd534"},
+  "nodes.wynik_dalej.text": {"t":"The smith nods and goes back to the anvil. \"Hands for the work, handguns for the orders, war for the appetite,\" he says, as if reciting a proverb. Sparks fall on the earthen floor and nothing in the forge changes.","h":"9650653c"},
+  "nodes.wynik_sabotaz.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_sabotaz.speaker": {"t":"Ragnar the Smith","h":"323bd534"},
+  "nodes.wynik_sabotaz.text": {"t":"The smith doesn't move for a moment, then picks up the thinnest barrel and turns it in his fingers, looking for a spot for a hairline flaw. \"One in ten. Nobody will guess which marksman got which.\" He spits into the embers. \"If anyone ever asks, I don't know you.\"","h":"f76e0e47"},
+  "nodes.wynik_stop.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_stop.speaker": {"t":"Ragnar the Smith","h":"323bd534"},
+  "nodes.wynik_stop.text": {"t":"The smith puts down his hammer and, for the first time in months, breathes with a full chest. The journeymen gape at him with their mouths open. \"I'll tell the hetman the steel ran out,\" he mutters. \"He won't believe it, but he won't be able to prove otherwise.\"","h":"5789de99"}
+}

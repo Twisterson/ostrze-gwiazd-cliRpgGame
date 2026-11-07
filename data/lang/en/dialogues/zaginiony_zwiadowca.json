@@ -1,0 +1,12 @@
+{
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[znajdz].text": {"t":"Go to him and show him the way out.","h":"dc0f5a71"},
+  "nodes.powitanie.speaker": {"t":"Lost Scout","h":"62280db5"},
+  "nodes.powitanie.text": {"t":"In the fog sits a man in a torn cloak with the Emperor's crest. He opens his mouth, but nothing comes out, not even a whisper. He looks at you, and you can't tell if he's glad or afraid.","h":"564fe0a3"},
+  "nodes.wyprowadzony.options.[dalej].text": {"t":"All right.","h":"94860be9"},
+  "nodes.wyprowadzony.speaker": {"t":"Lost Scout","h":"62280db5"},
+  "nodes.wyprowadzony.text": {"t":"You go hand in hand. Every half step you lose track of which way is forward and which is back, but he leads as if his feet remembered the path on their own. When the fog thins, sound comes back like the back of an axe to the skull. The scout croaks: \"Thanks. My name's Tomasz.\" And he goes quiet at once, as if he'd blurted out too much.","h":"6c0a4e0b"},
+  "nodes.znaleziony.options.[wyprowadz].text": {"t":"Lead him out.","h":"423289bd"},
+  "nodes.znaleziony.speaker": {"t":"Lost Scout","h":"62280db5"},
+  "nodes.znaleziony.text": {"t":"The scout grabs your sleeve like a drowning man grabs a rope. He points at his throat, then his ears, then the fog. You already know that's how the whole conversation will go. He nods. At your side he'll get out of the fog, as long as you don't lose the way yourself.","h":"75088031"}
+}

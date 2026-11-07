@@ -1,0 +1,17 @@
+{
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[q7_koniec].text": {"t":"I've tended your man.","h":"90e592a5"},
+  "nodes.powitanie.options.[q7_start].text": {"t":"Trouble in the tunnel?","h":"70778de0"},
+  "nodes.powitanie.options.[ranny_po].text": {"t":"How's your miner?","h":"4cd0650d"},
+  "nodes.powitanie.speaker": {"t":"Wincenty the Caretaker","h":"d79e001a"},
+  "nodes.powitanie.text": {"t":"Wincenty the caretaker sits on a stone outside the tunnel, chewing a blade of grass as if he'd gone sick of that too. Grumbling's the only thing that still tastes good to him. \"The stone bites, men die, and the Emperor collects his tax. What d'you want?\"","h":"42df3824"},
+  "nodes.q7_koniec.options.[dalej].text": {"t":"As you say.","h":"0155f7de"},
+  "nodes.q7_koniec.speaker": {"t":"Wincenty the Caretaker","h":"d79e001a"},
+  "nodes.q7_koniec.text": {"t":"Wincenty pulls off his cap, which from him is as good as drinking your health. \"Right. You're a decent sort, though devil knows where your kind come from these days. Take eighteen groats from the Quarry's till. There's no more, the stone sells about as fast as pitch pours.\"","h":"e166701a"},
+  "nodes.q7_start.options.[dalej].text": {"t":"I'll do that.","h":"3dda598e"},
+  "nodes.q7_start.speaker": {"t":"Wincenty the Caretaker","h":"d79e001a"},
+  "nodes.q7_start.text": {"t":"Wincenty spits out the grass. \"Yesterday a prop gave way and buried one of mine. Torn up, but still breathing, 'cause he's tough as a root. I know nothing about dressings, and it's a fair walk to the wise woman. Look in the tunnel and do what you can. If you can't dress a wound, at least carry him to Dobrawa in Głuszec. Just don't leave him lying there, the devil's only waiting for that.\"","h":"ee1bca5b"},
+  "nodes.ranny_po.options.[dalej].text": {"t":"All right, then.","h":"1442dab3"},
+  "nodes.ranny_po.speaker": {"t":"Wincenty the Caretaker","h":"d79e001a"},
+  "nodes.ranny_po.text": {"t":"Wincenty very nearly smiles. \"Hobbles about on a stick and curses everyone who made him lie still. Says the leg's better than before the accident. I don't believe it, but let him talk. You'd make a fine barber-surgeon, though I expect you know that.\"","h":"7603c60e"}
+}

@@ -3,8 +3,8 @@
   "start": "s",
   "nodes": {
     "s": {
-      "speaker": "Kupiec Radogost",
-      "text": "Na pniu przysiadł kupiec z wozem, który stoi bokiem w błocie. „Radogost, handel i bieda. Wiozłem paczkę dla młynarki ze Starego młyna, ale koło mi pękło, a termin mnie goni. Zaniesiesz? Młynarka się odwdzięczy, to dobra kobieta. Tylko nie dopytuj o męża.”",
+      "speaker": "Kupiec Sulisław",
+      "text": "Na pniu przysiadł kupiec z wozem, który stoi bokiem w błocie. „Sulisław, handel i bieda. Wiozłem paczkę dla młynarki ze Starego młyna, ale koło mi pękło, a termin mnie goni. Zaniesiesz? Młynarka się odwdzięczy, to dobra kobieta. Tylko nie dopytuj o męża.”",
       "options": [
         {
           "id": "zgoda",
@@ -19,8 +19,8 @@
       ]
     },
     "zgoda": {
-      "speaker": "Kupiec Radogost",
-      "text": "Radogost wciska ci paczkę w rękę i obie dłonie. „Niech ci Pan Bóg i droga sprzyjają. Młyn nad rzeką, nie przegapisz, bo jedyny.”",
+      "speaker": "Kupiec Sulisław",
+      "text": "Sulisław wciska ci paczkę w rękę i obie dłonie. „Niech ci Pan Bóg i droga sprzyjają. Młyn nad rzeką, nie przegapisz, bo jedyny.”",
       "options": [
         {
           "id": "dalej",
@@ -35,7 +35,7 @@
       ]
     },
     "nie": {
-      "speaker": "Kupiec Radogost",
+      "speaker": "Kupiec Sulisław",
       "text": "„Trudno. Pewnie sam doniosę, jak koło sklecę.” Kupiec odwraca się do wozu i wzdycha.",
       "options": [
         {

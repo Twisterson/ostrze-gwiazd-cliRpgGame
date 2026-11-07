@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odebrane.speaker": {"t":"Bridge Guard","h":"6d50e2b7"},
+  "nodes.odebrane.text": {"t":"The guard pulls off his old boot and puts on the new one with the air of a man putting on his dignity. \"Tell Mojżesz I'm alive. And that one's too tight, but I won't complain.\"","h":"e5d8934c"},
+  "nodes.s.options.[daj].text": {"t":"Boots from the cobbler.","h":"a57735ba"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back.","h":"554def87"},
+  "nodes.s.speaker": {"t":"Bridge Guard","h":"6d50e2b7"},
+  "nodes.s.text": {"t":"The guard on the bridge stands with the look of a man who expects nothing, and certainly not boots.","h":"03fb68eb"}
+}

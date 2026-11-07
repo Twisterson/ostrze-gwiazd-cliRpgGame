@@ -1,0 +1,15 @@
+{
+  "nodes.pozegnanie.options.[dokad].text": {"t":"Where do the roads lead?","h":"d0d05d5d"},
+  "nodes.pozegnanie.options.[nic].text": {"t":"I'll manage.","h":"499a656b"},
+  "nodes.pozegnanie.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.pozegnanie.text": {"t":"His brother-in-law is already unloading the wagon, and Ostromir draws you aside and pulls the cap off his bald head. \"You got me here, so you got me here. I won't thank you twice, or it'll become a habit. But I'll tell you something for free, and I rarely talk for free. You won't stay put round here, I can see it in you.\"","h":"945d2502"},
+  "nodes.szlaki.options.[dalej].text": {"t":"I'll do that.","h":"02bfe53b"},
+  "nodes.szlaki.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.szlaki.text": {"t":"\"Past the pass lies Głuszec, three days' march from the Ford. Beyond that the mines and the Hills, but that's not my patch. East, three days as well, smoke over the forest: the Brigands' Roost, and don't go there with an empty pocket, or you'll come back with no pocket at all. And four days north stands the Border Stronghold.\" He counts on his fingers and loses track at the third. \"In short, it's far everywhere. This is no stroll to the tavern. Go back to Wolf's Ford, buy rations and bandages, get a night's sleep under a roof and only then set out. Nobody on the trail will hand you soup.\" He looks at you longer than a merchant should. \"You're looking for something, everyone's looking for something. Maybe you'll find it in one of those places, or maybe it'll find you. Call it destiny, fate or rotten luck – I call it a bargain where you don't know the price.\"","h":"aca38f16"},
+  "nodes.zegnaj.options.[idz].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.zegnaj.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.zegnaj.text": {"t":"\"And take something sharp with you. Or someone who's got something sharp and less sense.\" He claps you on the back and goes back to his wagon.","h":"acf755b5"},
+  "nodes.zegnaj_nic.options.[idz].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.zegnaj_nic.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.zegnaj_nic.text": {"t":"\"Manage, manage. Everyone manages, right up till they get a thrashing.\" He shrugs and goes back to his wagon. \"When you wise up, you know where I won't be.\"","h":"06b4e7a1"}
+}

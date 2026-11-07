@@ -139,6 +139,8 @@ export function combatEventRole(e) {
 /** The plain journal text of one combat event, or null when it has no entry. */
 export function combatEventText(ui, data, combat, e) {
   const effectName = () => effectById(data, e.id)?.name ?? e.id;
+  // An enemy line puts the effect after the enemy, so it takes the noun: "Żmija leśna 2: zatrucie mija", not "Zatruty".
+  const effectNoun = () => { const effect = effectById(data, e.id); return effect?.noun ?? effect?.name ?? e.id; };
   const who = () => enemyLabel(data, combat, e.target);
   const itemName = (id) => itemById(data, id)?.name ?? id;
   switch (e.type) {
@@ -184,7 +186,7 @@ export function combatEventText(ui, data, combat, e) {
     case "rozerwanie": return t(ui, "combat.burst", { weapon: itemName(e.weapon), damage: e.damage });
     case "wybuch": {
       // A fragment that did nothing (armor, immunity) is left out; all of them doing nothing gets its own line.
-      const names = e.victims.filter((v) => v.damage > 0).map((v) => `${enemyLabel(data, combat, v.target, true)} za ${v.damage}`).join(", ");
+      const names = e.victims.filter((v) => v.damage > 0).map((v) => t(ui, "combat.blastVictim", { name: enemyLabel(data, combat, v.target, true), damage: v.damage })).join(", ");
       return [
         t(ui, e.hit ? "combat.blast" : "combat.blastMiss"),
         names ? t(ui, "combat.blastVictims", { names }) : t(ui, e.victims.length ? "combat.blastNoHarm" : "combat.blastNobody"),
@@ -198,17 +200,17 @@ export function combatEventText(ui, data, combat, e) {
     case "zdolnosc": return abilityText(ui, data, e);
     case "efekt_nalozony":
       if (e.target === "player") return t(ui, "effect.applied", { name: effectName() });
-      return e.target === "battlefield" ? t(ui, "combat.effectField", { name: effectName() }) : t(ui, "combat.effect", { target: who(), name: effectName() });
+      return e.target === "battlefield" ? t(ui, "combat.effectField", { name: effectName() }) : t(ui, "combat.effect", { target: who(), noun: effectNoun() });
     case "efekt_odparty":
-      return e.target === "player" ? t(ui, "effect.resisted", { name: effectName() }) : t(ui, "combat.resisted", { target: who(), name: effectName() });
+      return e.target === "player" ? t(ui, "effect.resisted", { name: effectName() }) : t(ui, "combat.resisted", { target: who(), noun: effectNoun() });
     case "efekt_odporny":
-      return e.target === "player" ? t(ui, "combat.immuneYou", { name: effectName() }) : t(ui, "combat.immune", { target: who(), name: effectName() });
+      return e.target === "player" ? t(ui, "combat.immuneYou", { name: effectName() }) : t(ui, "combat.immune", { target: who(), noun: effectNoun() });
     case "efekt_obrazenia":
-      return e.target === "player" ? t(ui, "effect.tick", { name: effectName(), damage: e.damage }) : t(ui, "combat.tick", { target: who(), name: effectName(), damage: e.damage });
+      return e.target === "player" ? t(ui, "effect.tick", { name: effectName(), damage: e.damage }) : t(ui, "combat.tick", { target: who(), noun: effectNoun(), damage: e.damage });
     case "efekt_koniec":
-      return e.target === "player" || e.target === "battlefield" ? t(ui, "effect.ended", { name: effectName() }) : t(ui, "combat.effectEnd", { target: who(), name: effectName() });
+      return e.target === "player" || e.target === "battlefield" ? t(ui, "effect.ended", { name: effectName() }) : t(ui, "combat.effectEnd", { target: who(), noun: effectNoun() });
     case "efekt_ap":
-      return e.target === "player" ? t(ui, "combat.apLossYou", { name: effectName(), ap: e.ap }) : t(ui, "combat.apLoss", { target: who(), name: effectName(), ap: e.ap });
+      return e.target === "player" ? t(ui, "combat.apLossYou", { name: effectName(), ap: e.ap }) : t(ui, "combat.apLoss", { target: who(), noun: effectNoun(), ap: e.ap });
     default: return null;
   }
 }

@@ -1,0 +1,16 @@
+{
+  "nodes.start.options.[spisz].text": {"t":"I'll write down everyone you remember and take it to the church.","h":"83915376"},
+  "nodes.start.options.[sprzedaj].text": {"t":"I'll take the list. I know people who pay for that kind of information.","h":"89158656"},
+  "nodes.start.options.[zataj].text": {"t":"Better not to write them down. A name leaves a trail, and a trail leads to the living.","h":"eb9a2f33"},
+  "nodes.start.speaker": {"t":"Gravedigger Shovel","h":"bef1dcad"},
+  "nodes.start.text": {"t":"The gravedigger leans his shovel against the fence and looks over the rows of unmarked mounds. \"Mister, half the town lies here and nobody knows who. I remember maybe twenty, but the rest? The rest is winter and typhus. Somebody should write them down, on paper, on stone. But stone costs, and paper has a worse memory than I do.\"","h":"b6cd5591"},
+  "nodes.wynik_spisz.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_spisz.speaker": {"t":"Gravedigger Shovel","h":"bef1dcad"},
+  "nodes.wynik_spisz.text": {"t":"The gravedigger dictates, you write. Names, nicknames, places. Thirty-eight names, then another forty-one. You finish at dusk, in silence. The gravedigger ties up the sack of slips and hands it to you with respect.","h":"06abf7fa"},
+  "nodes.wynik_sprzedaj.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_sprzedaj.speaker": {"t":"Gravedigger Shovel","h":"bef1dcad"},
+  "nodes.wynik_sprzedaj.text": {"t":"The gravedigger looks at you as at a man who has just renounced something important. \"You sell the dead?\" But the list is already in your hand.","h":"1083149a"},
+  "nodes.wynik_zataj.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_zataj.speaker": {"t":"Gravedigger Shovel","h":"bef1dcad"},
+  "nodes.wynik_zataj.text": {"t":"The gravedigger is quiet for a long while, then nods. \"You're right. Some names are better made into silence.\" He covers the mounds with another layer of earth.","h":"13de1b91"}
+}

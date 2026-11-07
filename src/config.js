@@ -37,11 +37,29 @@ export function loadGraphics() {
   return ["color", "gray", "none"].includes(graphics) ? graphics : "color";
 }
 
-/** Stores the choice beside the other settings; throws when the file cannot be written. */
-export function saveGraphics(graphics) {
-  const config = { ...readConfig(), graphics };
+/** Writes one setting beside the others; throws when the file cannot be written. */
+function writeSetting(key, value) {
+  const config = { ...readConfig(), [key]: value };
   fs.mkdirSync(homeDir(), { recursive: true });
   fs.writeFileSync(configPath(), `${JSON.stringify(config, null, 2)}\n`);
+}
+
+/** Stores the choice beside the other settings; throws when the file cannot be written. */
+export function saveGraphics(graphics) {
+  writeSetting("graphics", graphics);
+}
+
+export const LANGUAGES = ["pl", "en"];
+
+/** The chosen language of the game: "pl" or "en", null when there is none yet (no file, a damaged one, an unknown value). */
+export function loadLanguage() {
+  const { language } = readConfig();
+  return LANGUAGES.includes(language) ? language : null;
+}
+
+/** Stores the language beside the other settings; throws when the file cannot be written. */
+export function saveLanguage(language) {
+  writeSetting("language", language);
 }
 
 export function dataDir() {

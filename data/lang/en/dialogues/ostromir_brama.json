@@ -1,0 +1,12 @@
+{
+  "nodes.odmowa.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odmowa.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.odmowa.text": {"t":"Ostromir sighs as if someone had paid his wages in hay. \"Too bad. If you change your mind, I'll be here a while yet.\"","h":"9fc4a49e"},
+  "nodes.prosba.options.[odmowa].text": {"t":"Not this time.","h":"c2f2548b"},
+  "nodes.prosba.options.[zgoda].text": {"t":"I'll take it. We go when you're ready.","h":"39799440"},
+  "nodes.prosba.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.prosba.text": {"t":"Ostromir pulls off his cap and wipes his bald pate with it. \"Debt paid, word kept, that's rare in these parts. I'll take the wagon to Stone Pass, but I won't get there alone: the roads are crooked and the folk are crookeder. I'll pay forty groats and throw in rations.\"","h":"75b0bb94"},
+  "nodes.zgoda.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.zgoda.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.zgoda.text": {"t":"\"Good work.\" Ostromir claps you on the shoulder so hard you sway. \"I'll hitch up the horse and wait by the gate. Just don't dawdle, because time is money, and the money's mine.\"","h":"c07d9b1d"}
+}

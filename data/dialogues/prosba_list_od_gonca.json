@@ -3,8 +3,8 @@
   "start": "s",
   "nodes": {
     "s": {
-      "speaker": "Goniec Wsiebor",
-      "text": "W rowie leży młody goniec w czerwonym płaszczu, z bandażem przez pół twarzy. „Wsiebor. Wojskowa poczta. Mam list, który nie może trafić do tych, co mnie postrzelili. Schowaj go w dębie w Lesie Rubieży. Kto go znajdzie, ten zapłaci.” Wciska ci zalakowany list.",
+      "speaker": "Goniec Jarogniew",
+      "text": "W rowie leży młody goniec w czerwonym płaszczu, z bandażem przez pół twarzy. „Jarogniew. Wojskowa poczta. Mam list, który nie może trafić do tych, co mnie postrzelili. Schowaj go w dębie w Lesie Rubieży. Kto go znajdzie, ten zapłaci.” Wciska ci zalakowany list.",
       "options": [
         {
           "id": "zgoda",
@@ -19,8 +19,8 @@
       ]
     },
     "zgoda": {
-      "speaker": "Goniec Wsiebor",
-      "text": "Wsiebor opada na trawę z ulgą. „Dąb z dziuplą po południowej stronie. Nie czytaj. Wiem, że chcesz.”",
+      "speaker": "Goniec Jarogniew",
+      "text": "Jarogniew opada na trawę z ulgą. „Dąb z dziuplą po południowej stronie. Nie czytaj. Wiem, że chcesz.”",
       "options": [
         {
           "id": "dalej",
@@ -35,7 +35,7 @@
       ]
     },
     "nie": {
-      "speaker": "Goniec Wsiebor",
+      "speaker": "Goniec Jarogniew",
       "text": "„Rozumiem.” Goniec zamyka oczy. „Nikt nie chce mieć w kieszeni cudzej śmierci.”",
       "options": [
         {

@@ -1,0 +1,16 @@
+{
+  "nodes.lupy.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.lupy.speaker": {"t":"Wounded Soldier","h":"ffb04743"},
+  "nodes.lupy.text": {"t":"You walk the field with a sack. The hand that asked for water drops. The ground is heavy with blood and the purses light with other men's savings. It's a job like any other, but when you get back you can't look anyone in the eye.","h":"4a23ffb2"},
+  "nodes.pole.options.[lupy].text": {"t":"I'll walk the field. The wounded are past helping. The loot isn't.","h":"2ad79b15"},
+  "nodes.pole.options.[swoi].text": {"t":"I'll take only the imperials. The rest can wait for their own.","h":"508d73bd"},
+  "nodes.pole.options.[wszyscy].text": {"t":"I'll take everyone who's still breathing.","h":"d8f18da5"},
+  "nodes.pole.speaker": {"t":"Wounded Soldier","h":"ffb04743"},
+  "nodes.pole.text": {"t":"A hand rises out of the grass. \"Water.\" A few more lie further on, in different uniforms, all equally grey in the face. Crows sit on the fence pretending to wait for something else. \"I haven't the strength to choose who you save. But you do.\"","h":"bd06c747"},
+  "nodes.swoi.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.swoi.speaker": {"t":"Wounded Soldier","h":"ffb04743"},
+  "nodes.swoi.text": {"t":"You take the ones with the red patches and leave the rest to the crows, who look at you as if someone had just cut their dinner short. The Captain will be pleased. You, somehow, less so.","h":"f6590a8d"},
+  "nodes.wszyscy.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.wszyscy.speaker": {"t":"Wounded Soldier","h":"ffb04743"},
+  "nodes.wszyscy.text": {"t":"It takes half a day, three wagons and one curse from a healer who doesn't like having her uniforms mixed up. But they all end up under one roof, Jarnowians and imperials alike. The healer doesn't ask about colours. She only says: \"What was that for?\" And hands you a bandage.","h":"c7d36347"}
+}

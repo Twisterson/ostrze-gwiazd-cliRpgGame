@@ -122,7 +122,7 @@
     },
     "falsz_ok": {
       "speaker": "Kwatermistrz Burczymucha",
-      "text": "Kwatermistrz przez chwilę mruży oczy, a potem z rezygnacją przybija pieczątkę. „Dla bezpieczeństwa państwa. Mojego własnego.” Wręcza ci dokument, który wygląda tak urzędowo, że mógłby sam przejść przez bramę.",
+      "text": "Kwatermistrz przez chwilę mruży oczy, a potem z rezygnacją przybija pieczątkę. „Dla bezpieczeństwa państwa. Mojego własnego.” Wręcza ci pismo, które wygląda tak urzędowo, że mogłoby samo przejść przez bramę.",
       "actions": [
         {
           "setFlag": "dowod_zywego"

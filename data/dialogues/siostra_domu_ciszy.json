@@ -148,7 +148,7 @@
     },
     "dowod": {
       "speaker": "Siostra Jadwiga",
-      "text": "Siostra słucha w ciszy i nie przerywa. Na koniec wyciąga z rękawa pieczęć i przybija ją na kawałku pergaminu z zimną pewnością. „Zaświadczam, że ten człowiek żyje, bo go dotykałam. A czy widział to, co widział, tego pieczęć nie potwierdza, ale też temu nie przeczy.” Podaje ci dokument jak ostatni sakrament.",
+      "text": "Siostra słucha w ciszy i nie przerywa. Na koniec wyciąga z rękawa pieczęć i przybija ją na kawałku pergaminu z zimną pewnością. „Zaświadczam, że ten człowiek żyje, bo go dotykałam. A czy widział to, co widział, tego pieczęć nie potwierdza, ale też temu nie przeczy.” Podaje ci pismo jak ostatni sakrament.",
       "actions": [
         {
           "setFlag": "dowod_zywego"

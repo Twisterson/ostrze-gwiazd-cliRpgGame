@@ -1,11 +1,12 @@
 {
   "id": "ulepszenia_szkarad",
   "portrait": "portret_szkarad",
+  "wideList": true,
   "start": "warsztat",
   "nodes": {
     "warsztat": {
-      "speaker": "Ruszniczarz Szkarad",
-      "text": "Szkarad przeżuwa słomkę i obraca w palcach czyjąś rusznicę. „Muszka, spust. Naprawię, co trzeba, ale nie za darmo, pachołku.”",
+      "speaker": "Rusznikarz Szkarad",
+      "text": "Szkarad przeżuwa słomkę i obraca w rękach czyjąś rusznicę. „Muszka, spust. Naprawię, co trzeba, ale nie za darmo, pachołku.”",
       "options": [
         {
           "id": "u_pistolet_skalkowy_u1",
@@ -41,7 +42,7 @@
         },
         {
           "id": "u_pistolet_skalkowy_u2",
-          "text": "Pistolet skałkowy: muszka, spust (66 gr)",
+          "text": "Pistolet skałkowy: spust (66 gr)",
           "requires": {
             "item": "pistolet_skalkowy_u1",
             "money": 66
@@ -64,7 +65,7 @@
         },
         {
           "id": "b_pistolet_skalkowy_u2",
-          "text": "Pistolet skałkowy: muszka, spust (66 gr)",
+          "text": "Pistolet skałkowy: spust (66 gr)",
           "requires": {
             "item": "pistolet_skalkowy_u1",
             "moneyBelow": 66
@@ -105,7 +106,7 @@
         },
         {
           "id": "u_pistolet_wojskowy_u2",
-          "text": "Pistolet wojskowy: muszka, spust (145 gr)",
+          "text": "Pistolet wojskowy: spust (145 gr)",
           "requires": {
             "item": "pistolet_wojskowy_u1",
             "money": 145
@@ -128,7 +129,7 @@
         },
         {
           "id": "b_pistolet_wojskowy_u2",
-          "text": "Pistolet wojskowy: muszka, spust (145 gr)",
+          "text": "Pistolet wojskowy: spust (145 gr)",
           "requires": {
             "item": "pistolet_wojskowy_u1",
             "moneyBelow": 145
@@ -169,7 +170,7 @@
         },
         {
           "id": "u_rusznica_u2",
-          "text": "Rusznica: muszka, spust (165 gr)",
+          "text": "Rusznica: spust (165 gr)",
           "requires": {
             "item": "rusznica_u1",
             "money": 165
@@ -192,7 +193,7 @@
         },
         {
           "id": "b_rusznica_u2",
-          "text": "Rusznica: muszka, spust (165 gr)",
+          "text": "Rusznica: spust (165 gr)",
           "requires": {
             "item": "rusznica_u1",
             "moneyBelow": 165
@@ -207,8 +208,8 @@
       ]
     },
     "zrobione": {
-      "speaker": "Ruszniczarz Szkarad",
-      "text": "Szkarad rzuca ci broń przez kontuar. „Teraz to się nawet nie wstydzi. Załóż, zanim ktoś strzeli ci w plecy, a ty nie będziesz miał czym oddać.”",
+      "speaker": "Rusznikarz Szkarad",
+      "text": "Szkarad rzuca ci broń przez kontuar. „Teraz to się nawet nie wstydzi. Bierz, zanim ktoś strzeli ci w plecy, a ty nie będziesz miał czym oddać.”",
       "options": [
         {
           "id": "dalej",
@@ -218,7 +219,7 @@
       ]
     },
     "bez_groszy": {
-      "speaker": "Ruszniczarz Szkarad",
+      "speaker": "Rusznikarz Szkarad",
       "text": "„Jak nie masz grosza, to się nie rozglądaj. Mówiłem ci to na wejściu.”",
       "options": [
         {

@@ -1,0 +1,11 @@
+   ~~~~ Jarnowo Island ~~~~
+
+ {stocznia}      {kuznie}
+      \          /
+ {cmentarz_lodzi}--{przystan_jarnowo}
+              /      |
+ {dom_czarnego_szkla}  \
+                   distant trails (days away)
+                      {oboz_hetmana}
+                      {wraki_floty}
+                      {lysa_skala}

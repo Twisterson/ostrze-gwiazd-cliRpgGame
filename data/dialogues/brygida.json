@@ -166,11 +166,11 @@
     },
     "q4_koniec": {
       "speaker": "Mechanik Brygida",
-      "text": "Brygida bierze walec oburącz jak niemowlę i długo milczy. „Ciężki. Ciepły. I bije, słyszysz? Jak serce, psiamać. Dobra robota. Tyle mam: kilka groszy, kilka papierów i to paskudne czucie, że wyciągnęliśmy z ziemi coś, co powinno było w niej zgnić. No. Dzięki ci.”",
+      "text": "Brygida bierze walec oburącz jak niemowlę i długo milczy. „Ciężki. Ciepły. I bije, słyszysz? Jak serce, psiamać. Dobra robota. Tyle mam: kilka groszy, kilka papierów i to paskudne uczucie, że wyciągnęliśmy z ziemi coś, co powinno było w niej zgnić. No. Dzięki ci.”",
       "options": [
         {
           "id": "dalej",
-          "text": "Tak zrobię.",
+          "text": "Nie ma za co.",
           "goto": "powitanie"
         }
       ],
@@ -249,11 +249,11 @@
     },
     "dlug_pamietam": {
       "speaker": "Głos z rdzenia",
-      "text": "»Pamiętasz. To dobrze. Pamięć dla nas obu jest ciężarem.« Obrazy spływają szybko i ostro, a z nimi czucie, że ktoś dopisuje w księdze dłużników jeszcze jedną linijkę. »Dług narasta.« Rdzeń milknie. Brygida pyta: „Co ci powiedział?”, a ty nie masz na to słów.",
+      "text": "»Pamiętasz. To dobrze. Pamięć dla nas obu jest ciężarem.« Obrazy spływają szybko i ostro, a z nimi uczucie, że ktoś dopisuje w księdze dłużników jeszcze jedną linijkę. »Dług narasta.« Rdzeń milknie. Brygida pyta: „Co ci powiedział?”, a ty nie masz na to słów.",
       "options": [
         {
           "id": "dalej",
-          "text": "Tak zrobię.",
+          "text": "Nie umiem tego opisać.",
           "goto": "powitanie"
         }
       ],
@@ -301,7 +301,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Tak zrobię.",
+          "text": "Rozumiem.",
           "goto": "powitanie"
         }
       ]

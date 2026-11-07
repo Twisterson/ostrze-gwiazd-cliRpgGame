@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care, all.","h":"30caaebd"},
+  "nodes.odebrane.speaker": {"t":"The Apprentices' Box","h":"3df54487"},
+  "nodes.odebrane.text": {"t":"The notebook slides into the slot with a rustle, as if it wanted to go in. A moment later there are footsteps on the stairs, then Brygida's voice: \"Someone's brought another one?\" Something is left in the box for you.","h":"666d91cc"},
+  "nodes.s.options.[daj].text": {"t":"Drop the notebook in.","h":"e1c7ec7e"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back later.","h":"7eabaf21"},
+  "nodes.s.speaker": {"t":"The Apprentices' Box","h":"3df54487"},
+  "nodes.s.text": {"t":"By the tower door stands an iron box with a slot for letters. Someone has scrawled on it in chalk: \"Only the important things get lost in here.\"","h":"f5ee02ac"}
+}

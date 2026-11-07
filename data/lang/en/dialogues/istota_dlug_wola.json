@@ -1,0 +1,8 @@
+{
+  "nodes.komora.options.[wyrok].text": {"t":"The debt is paid, so now my reckoning begins. You and those who came with you will not go back where you flew in from.","h":"3b95cda5"},
+  "nodes.komora.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.komora.text": {"t":"\"The Emperor is dead, his guard no longer exists. The debt is paid. You may go.\" She says it as to an equal, without command. Only the stars in her face flicker, as if unsure whether this should sound like an ending.","h":"77a31b2e"},
+  "nodes.wyrok.options.[wychodze].text": {"t":"I'm leaving.","h":"c4b7872a"},
+  "nodes.wyrok.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.wyrok.text": {"t":"There is no anger in her. She takes it the way one takes a sentence from a distant country: noted. \"Recorded. The Core is left without an owner, and I stay with it. The rest will be decided by what you do.\"","h":"ab3e862b"}
+}

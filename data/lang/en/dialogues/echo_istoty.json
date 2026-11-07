@@ -1,0 +1,23 @@
+{
+  "nodes.chce.options.[dalej].text": {"t":"Thanks.","h":"32c07e9d"},
+  "nodes.chce.speaker": {"t":"Voice from the Grave","h":"3065b9df"},
+  "nodes.chce.text": {"t":"\"I want you not to drop dead like a fool. Go and ask those who pray what they hear at night. My words carry further than you think, but they only reach those who want to listen.\" The glow fades, and the stones are just stones again.","h":"adad7987"},
+  "nodes.dlug.options.[dalej].text": {"t":"Go on.","h":"05cb95b6"},
+  "nodes.dlug.speaker": {"t":"Voice from the Grave","h":"3065b9df"},
+  "nodes.dlug.text": {"t":"\"You remember. Good. The debt binds us. You won't pay it off in coin or in mercy, only in knowledge. Go where the stars fell.\"","h":"f097784d"},
+  "nodes.nie_chce.options.[dalej].text": {"t":"I'm off.","h":"c4b7872a"},
+  "nodes.nie_chce.speaker": {"t":"Voice from the Grave","h":"3065b9df"},
+  "nodes.nie_chce.text": {"t":"\"You don't. That is an answer too. But don't say later that I didn't warn you.\" The glow fades. The grass on the grave is cold as ice, though the night is warm.","h":"8ff52dc4"},
+  "nodes.powitanie.options.[dlug].text": {"t":"I remember the debt.","h":"4a2b4512"},
+  "nodes.powitanie.options.[slucham].text": {"t":"I'm listening.","h":"0ce9c0ad"},
+  "nodes.powitanie.options.[uciekaj].text": {"t":"I'm leaving.","h":"98963af5"},
+  "nodes.powitanie.speaker": {"t":"Voice from the Grave","h":"3065b9df"},
+  "nodes.powitanie.text": {"t":"Three stones laid out in a star on one of the graves give off a pale glow that vanishes when you look straight at it. The air shimmers as over a campfire, and the earth smells of frost. From the soil, from the stones or from inside your own head comes a voice, the same one you heard after the slaughter.","h":"dd2c7de4"},
+  "nodes.slucham.options.[nie].text": {"t":"I want nothing from you.","h":"48504207"},
+  "nodes.slucham.options.[tak].text": {"t":"Tell me what you want from me.","h":"7b4b41ec"},
+  "nodes.slucham.speaker": {"t":"Voice from the Grave","h":"3065b9df"},
+  "nodes.slucham.text": {"t":"\"You are close to the place where something fell. Not from the sky, but from within. Your companion saw it before she died. Ragnosława. Ask those who survived. Ask about the sound that is not a sound. About the stones that remember whose hand touched them.\"","h":"945f21a5"},
+  "nodes.uciekam.options.[dalej].text": {"t":"I'm off.","h":"c4b7872a"},
+  "nodes.uciekam.speaker": {"t":"Voice from the Grave","h":"3065b9df"},
+  "nodes.uciekam.text": {"t":"The glow fades before you take a step. What's left is a ringing in your ears and a shiver down your neck, as if someone had just learned your name by heart.","h":"c2349eb2"}
+}

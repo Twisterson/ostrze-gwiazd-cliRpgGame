@@ -1,0 +1,12 @@
+{
+  "nodes.plot.options.[odrzuc].text": {"t":"I'm going through the main gate, like a man.","h":"5dfb72c0"},
+  "nodes.plot.options.[uzyj].text": {"t":"I'm following Nipper through that passage.","h":"67f0e169"},
+  "nodes.plot.speaker": {"t":"Nipper","h":"5c0aa1ff"},
+  "nodes.plot.text": {"t":"A dirty face and two sharp eyes poke out from under a barrel. \"Hey, sir. Yes, it's me. Stowaway in the forecastle, 'cause the crossing was free and the way in is cheaper still. I've got an entrance on the far side of the camp, between the latrine and the forge. Nobody guards it, because nobody wants to stand there.\"","h":"d17560dc"},
+  "nodes.wynik_odrzucone.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_odrzucone.speaker": {"t":"Nipper","h":"5c0aa1ff"},
+  "nodes.wynik_odrzucone.text": {"t":"Nipper shrugs. \"A gate's a gate. Anyone can stand at it and get clubbed.\" You walk the main road between the campfires, and the sentries look at you as if they were already counting what they'll get for you.","h":"82d075fc"},
+  "nodes.wynik_uzyte.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_uzyte.speaker": {"t":"Nipper","h":"5c0aa1ff"},
+  "nodes.wynik_uzyte.text": {"t":"Nipper leads you between barrels and tarpaulins, past the smell of tar, then forge smoke, then the shade of a tent. The sentry turns away at the exact moment you don't turn around. \"Told you nobody wants to stand there,\" Nipper whispers and disappears.","h":"72426f61"}
+}

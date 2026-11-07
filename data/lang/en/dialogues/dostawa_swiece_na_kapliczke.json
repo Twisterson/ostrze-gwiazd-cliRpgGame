@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odebrane.speaker": {"t":"Box by the Shrine","h":"067da423"},
+  "nodes.odebrane.text": {"t":"You put the candles in the box. Inside lie a few groats left for the messenger, because Halina knows Tobiasz, and she knows whoever runs his errands doesn't run them for nothing.","h":"d2a19429"},
+  "nodes.s.options.[daj].text": {"t":"Put the candles in.","h":"efa945c4"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back.","h":"554def87"},
+  "nodes.s.speaker": {"t":"Box by the Shrine","h":"067da423"},
+  "nodes.s.text": {"t":"The box stands open and empty, as if waiting for candles.","h":"0fa69928"}
+}

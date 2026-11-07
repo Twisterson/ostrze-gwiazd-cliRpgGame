@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Anzelm the Scholar","h":"c62be148"},
+  "nodes.nie.text": {"t":"\"I understand. We all have our knees. I'll find someone with worse ones.\"","h":"8e85eac9"},
+  "nodes.s.options.[nie].text": {"t":"No time.","h":"2aa81813"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll take it.","h":"44302728"},
+  "nodes.s.speaker": {"t":"Anzelm the Scholar","h":"c62be148"},
+  "nodes.s.text": {"t":"A man in spectacles has perched on a stone, busy reckoning something on his knee. \"Anzelm, stargazer at Starwatch. I've worked out the path of that star that fell, and the hermit in the crater has been asking for it these three years. Will you take him the scroll? I'm not climbing that slope a second time. My knees are made for thinking, not for walking.\"","h":"315d6ba4"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Anzelm the Scholar","h":"c62be148"},
+  "nodes.zgoda.text": {"t":"Anzelm hands you the scroll and scribbles something more in the corner. \"Just tell him not to read it backwards, or he'll work out that the star fell last Thursday.\"","h":"08c2c098"}
+}

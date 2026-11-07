@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care, all.","h":"30caaebd"},
+  "nodes.odebrane.speaker": {"t":"The Old Oak","h":"363c367b"},
+  "nodes.odebrane.text": {"t":"The letter vanishes into the dark of the hollow, and somewhere down by the roots something cracks softly. A moment later a purse turns up under the moss, with a handful of groats in it. Someone was waiting for this delivery.","h":"a8289844"},
+  "nodes.s.options.[daj].text": {"t":"Slip the letter inside.","h":"e8065703"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back later.","h":"7eabaf21"},
+  "nodes.s.speaker": {"t":"The Old Oak","h":"363c367b"},
+  "nodes.s.text": {"t":"The oak stands alone, with a hollow at chest height. Inside it's empty and dry, as if someone has hidden things here before.","h":"b6bc8bb5"}
+}

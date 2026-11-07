@@ -6,7 +6,7 @@ import { pressEnter } from "../ui/prompt.js";
 import { pushEventNotices, combatEventText, combatEventRole } from "../ui/events.js";
 import { renderCombat, combatActionItems, techniqueItems, zoneItems } from "../ui/combat_screen.js";
 import { paint } from "../ui/colors.js";
-import { t } from "../ui/strings.js";
+import { t, hotkey, isHotkey } from "../ui/strings.js";
 import { itemById } from "../systems/items.js";
 import { createCombat, livingEnemies, outcomeOf } from "../systems/combat/state.js";
 import { playerActions, doAction, attackTargets, useOptions } from "../systems/combat/actions.js";
@@ -35,7 +35,7 @@ function drawScreen(ctx, combat, targetUid, extra = []) {
   const view = { columns: io.columns, rows: io.rows, tty: io.isTTY, targetUid, logSeen: logSeen.get(combat) ?? 0 };
   if (framesOn(io)) {
     const notices = (ctx.notices ?? []).splice(0);
-    const f = { hero: null, title: combat.def?.title ?? null, body: [], commands: [], notices, page: 0, choiceTitle: null, tooSmall: data.ui["frame.tooSmall"] };
+    const f = { hero: null, title: combat.def?.title ?? null, body: [], commands: [], notices, page: 0, choiceTitle: null, tooSmall: data.ui["frame.tooSmall"], ui: data.ui };
     io.frame = f;
     let laidOut = f.body;
     f.fit = () => {
@@ -67,7 +67,7 @@ async function pickTarget(ctx, combat, uids, targetUid) {
     const pct = Math.max(1, Math.round((e.hp / e.hpMax) * 100));
     return { label: t(ui, "combat.targetRow", { name: e.name, pct, band: t(ui, `range.${e.band === "melee" ? "melee" : "far"}`) }) };
   });
-  items.push({ label: t(ui, "combat.back"), hotkey: "w" });
+  items.push({ label: t(ui, "combat.back"), hotkey: hotkey(ui, "key.back") });
   const pick = await select(io, ui, { title: t(ui, "combat.pickTarget"), items, initial: Math.max(0, uids.indexOf(targetUid)) });
   return pick === uids.length ? null : uids[pick];
 }
@@ -80,7 +80,7 @@ async function showLog(ctx, combat) {
   const { data, io } = ctx;
   const { ui } = data;
   if (framesOn(io)) return showLogFrame(ctx, combat);
-  const back = { label: t(ui, "combat.back"), hotkey: "w" };
+  const back = { label: t(ui, "combat.back"), hotkey: hotkey(ui, "key.back") };
   const empty = combat.log.length === 0;
   const note = empty ? [paint("title", t(ui, "combat.logTitle")), paint("dim", t(ui, "combat.logEmpty"))] : [];
   if (framesOn(io)) drawScreen(ctx, combat, undefined, note);
@@ -112,9 +112,9 @@ async function showLogFrame(ctx, combat) {
     maxTop = Math.max(0, lines.length - rows);
     top = Math.min(top, maxTop);
     io.frame.body = lines.slice(top, top + rows);
-    drawFrame(io, [paint("dim", t(ui, "combat.logScroll")), "", paint("title", `▶ [W] ${t(ui, "combat.back")}`)]);
+    drawFrame(io, [paint("dim", t(ui, "combat.logScroll")), "", paint("title", `▶ [${hotkey(ui, "key.back").toUpperCase()}] ${t(ui, "combat.back")}`)]);
     const key = await io.readKey();
-    if (key.name === "enter" || (key.name === "char" && key.char.toLowerCase() === "w")) return;
+    if (key.name === "enter" || (key.name === "char" && isHotkey(ui, "key.back", key.char))) return;
     if (key.name === "up") top = Math.max(0, top - 1);
     else if (key.name === "down") top = Math.min(maxTop, top + 1);
   }
@@ -129,7 +129,7 @@ async function pickTechnique(ctx, combat, targetUid) {
   const { ui } = data;
   drawScreen(ctx, combat, targetUid);
   const techniques = techniqueActions(state, data, combat);
-  const items = [...techniqueItems(data, techniques), { label: t(ui, "combat.back"), hotkey: "w" }];
+  const items = [...techniqueItems(data, techniques), { label: t(ui, "combat.back"), hotkey: hotkey(ui, "key.back") }];
   const pick = await select(io, ui, { title: t(ui, "combat.pickTechnique"), items });
   if (pick === techniques.length) return null;
   const action = { id: techniques[pick].id };
@@ -152,7 +152,7 @@ async function pickUse(ctx, combat, targetUid) {
     label: t(ui, "combat.useRow", { item: itemById(data, o.itemId).name, ap: o.apCost }) + (o.from === "bag" ? t(ui, "combat.useBag") : ""),
     ...(o.apCost > combat.playerAp ? { disabled: true } : {}),
   }));
-  items.push({ label: t(ui, "combat.back"), hotkey: "w" });
+  items.push({ label: t(ui, "combat.back"), hotkey: hotkey(ui, "key.back") });
   const pick = await select(io, ui, { title: t(ui, "combat.pickItem"), items });
   return pick === options.length ? null : options[pick];
 }

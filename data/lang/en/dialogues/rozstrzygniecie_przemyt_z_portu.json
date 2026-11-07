@@ -1,0 +1,16 @@
+{
+  "nodes.start.options.[przejmij].text": {"t":"Half the crate for me. The rest for you, and for forgetting.","h":"0b95f1e7"},
+  "nodes.start.options.[przepusc].text": {"t":"I don't want anything. Move along, I didn't see a thing.","h":"0f644933"},
+  "nodes.start.options.[zglos].text": {"t":"The crate goes to the watch. Smuggling is smuggling.","h":"8f8a7234"},
+  "nodes.start.speaker": {"t":"Boy with the Crate","h":"6ff0ee23"},
+  "nodes.start.text": {"t":"By the fountain sits a boy with a huge crate on his knees and the look of an innocent. \"If you come any closer, I'll shout. Not that I have to, but that's how it's done here. The crate isn't mine, but I'm the one carrying it, which means it's a bit mine. What do you want, sir?\"","h":"62fb7eb5"},
+  "nodes.wynik_przejmij.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_przejmij.speaker": {"t":"Boy with the Crate","h":"6ff0ee23"},
+  "nodes.wynik_przejmij.text": {"t":"The boy blinks, then sighs, then opens the crate. Inside are bottles, scrolls and something that moves. You take half, the boy takes the rest. \"Business,\" he says. \"And you'll come in handy.\"","h":"906d1e30"},
+  "nodes.wynik_przepusc.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_przepusc.speaker": {"t":"Boy with the Crate","h":"6ff0ee23"},
+  "nodes.wynik_przepusc.text": {"t":"The boy clutches the crate tighter and looks at you with a mix of relief and contempt. \"Wise man.\" He vanishes into the crowd faster than you could blink. Nobody asks any questions, because nobody got any answers.","h":"ff208649"},
+  "nodes.wynik_zglos.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_zglos.speaker": {"t":"Boy with the Crate","h":"6ff0ee23"},
+  "nodes.wynik_zglos.text": {"t":"The boy opens his mouth to shout, but then he spots the guard behind you. The crate lands in the hands of the law, and the boy lands in its grip. \"Traitor!\" he cries, but his heart's no longer in it.","h":"3b3dff3f"}
+}

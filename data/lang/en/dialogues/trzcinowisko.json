@@ -1,0 +1,9 @@
+{
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[zbieraj].text": {"t":"Cut grey reed.","h":"a903aca6"},
+  "nodes.powitanie.speaker": {"t":"The Reed Bed","h":"47882b3b"},
+  "nodes.powitanie.text": {"t":"The reed bed rustles with no wind, and the water between the stalks lies smooth as glass. It stinks of silt and rot.","h":"79fdf89e"},
+  "nodes.zbieraj.options.[dalej].text": {"t":"That's enough mud.","h":"26b8fa9a"},
+  "nodes.zbieraj.speaker": {"t":"The Reed Bed","h":"47882b3b"},
+  "nodes.zbieraj.text": {"t":"You wade knee-deep in mud, cutting stalks with your knife and stopping every moment to listen. Birds burst out of the reeds, shrieking loud enough to hear in Głuszec. The bundle is heavy and wet. You climb back onto the causeway filthy to the waist, with a feeling that someone was watching you the whole time.","h":"ce66a996"}
+}

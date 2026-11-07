@@ -1,0 +1,16 @@
+{
+  "nodes.start.options.[polowa].text": {"t":"Half goes back to the barracks, half to me, and nobody asks questions.","h":"b528638d"},
+  "nodes.start.options.[ukryj].text": {"t":"You stay here. So does the money. When the Marshal pays, you go back.","h":"a8a7deef"},
+  "nodes.start.options.[wydaj].text": {"t":"You're coming with me. The money goes back to the barracks.","h":"0d7bbcd6"},
+  "nodes.start.speaker": {"t":"Treasurer Seal","h":"aa47290d"},
+  "nodes.start.text": {"t":"A man in a rumpled doublet crouches in the shadow of a pillar with a sack under his arm. \"I'm no treasurer. And if I am, I'm a former one. I took what I was owed, because the Marshal hasn't paid in three months. You're from the scribe? Please, don't turn me in, I've got a wife and a cat.\"","h":"37e923e3"},
+  "nodes.wynik_polowa.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_polowa.speaker": {"t":"Treasurer Seal","h":"aa47290d"},
+  "nodes.wynik_polowa.text": {"t":"The treasurer thinks aloud and counts fast on his fingers while he's at it. \"Fifty-fifty is fair. At least somebody in this town knows fractions.\" The whole time he counts out your coins, he stares at the ground.","h":"ab1fb6ad"},
+  "nodes.wynik_ukryj.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_ukryj.speaker": {"t":"Treasurer Seal","h":"aa47290d"},
+  "nodes.wynik_ukryj.text": {"t":"The treasurer clasps your hand in both of his. \"You're a good man. Too good for this town.\" You nod, uneasily, because kindness in this town usually costs more than you reckon. You leave him in the shadow of the pillar with the sack in his arms.","h":"66fcf590"},
+  "nodes.wynik_wydaj.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_wydaj.speaker": {"t":"Treasurer Seal","h":"aa47290d"},
+  "nodes.wynik_wydaj.text": {"t":"The treasurer hands over the sack like a child who has just lost his favourite toy. \"You don't understand. They won't pay me, they'll audit me.\" He follows you meekly, because nobody has the strength to resist twice in one week.","h":"806f04ee"}
+}

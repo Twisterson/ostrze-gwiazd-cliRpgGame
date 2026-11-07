@@ -21,7 +21,7 @@
         },
         {
           "id": "q9_start_z",
-          "text": "Twoja córka ma problem z amuletem.",
+          "text": "Byłem u twojej córki. Chodzi o amulet.",
           "goto": "q9_start_z",
           "requires": {
             "questStatus": {
@@ -53,7 +53,7 @@
     },
     "q9_start": {
       "speaker": "Wdowa Jaga",
-      "text": "Jaga mruga powoli. „Moja Ela? Przyszła dwa dni temu z amuletem i przepłakała cały wieczór. Mąż był strażnikiem ruin i zginął, kiedy cesarscy zamknęli to miejsce. Nie wiem, gdzie go zakopali. Kopacz Jerzy pewnie wie, ale mnie odwagi brak, żeby pytać. Zapytasz za mnie?”",
+      "text": "Jaga mruga powoli. „Moja Ela? Przyszła kilka dni temu z amuletem i przepłakała cały wieczór. Mąż był strażnikiem ruin i zginął, kiedy cesarscy zamknęli to miejsce. Nie wiem, gdzie go zakopali. Kopacz Jerzy pewnie wie, ale mnie odwagi brak, żeby pytać. Zapytasz za mnie?”",
       "options": [
         {
           "id": "dalej",

@@ -74,7 +74,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Jak mówisz.",
+          "text": "Chowam go.",
           "goto": "powitanie"
         }
       ],

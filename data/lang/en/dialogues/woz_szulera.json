@@ -1,0 +1,23 @@
+{
+  "nodes.s.options.[nic].text": {"t":"Another time.","h":"539d11b8"},
+  "nodes.s.options.[skradanie].text": {"t":"I ask about the stake while my fingers go for the purse.","h":"ac1262c7"},
+  "nodes.s.options.[walka].text": {"t":"Hand over the purse or you'll go lie in the field with the rest.","h":"d85922bc"},
+  "nodes.s.options.[wymowa].text": {"t":"The corporal knows your dice are loaded. So do his twelve men.","h":"563fbbf1"},
+  "nodes.s.speaker": {"t":"Cardsharp Mszczuj","h":"10e1b476"},
+  "nodes.s.text": {"t":"At the edge of the field stands a wagon with all its wheels, the only one for miles. On the box sits Mszczuj, thin as wire, throwing dice against himself. And winning. Two looters carry sacks for him, and a purse with a corporal's seal hangs at his belt. \"Fancy a game? Any stake you like. The result too, but we'll get to that later.\"","h":"90d18ffe"},
+  "nodes.skradanie_ok.options.[dalej].text": {"t":"Moving on.","h":"b0bbb19b"},
+  "nodes.skradanie_ok.speaker": {"t":"Cardsharp Mszczuj","h":"10e1b476"},
+  "nodes.skradanie_ok.text": {"t":"You ask whether he takes buttons too. Mszczuj is just explaining that he does, but he prices them himself, and the purse is already up your sleeve. You thank him for the lesson and walk off at the unhurried pace only thieves and tax collectors use. The shouting starts behind the second wagon.","h":"efb4d923"},
+  "nodes.skradanie_zle.options.[dalej].text": {"t":"All right.","h":"a8072584"},
+  "nodes.skradanie_zle.speaker": {"t":"Cardsharp Mszczuj","h":"10e1b476"},
+  "nodes.skradanie_zle.text": {"t":"Your fingers reach the purse at the same moment as his hand. Mszczuj grips your wrist, surprisingly hard for someone so thin. \"Good try. Not good enough, but I started with my hands too.\" He lets go and pats the purse. The looters are no longer carrying sacks.","h":"53b0cfb8"},
+  "nodes.walka.options.[dalej].text": {"t":"Let's get to work.","h":"a953e144"},
+  "nodes.walka.speaker": {"t":"Cardsharp Mszczuj","h":"10e1b476"},
+  "nodes.walka.text": {"t":"Mszczuj sighs, scoops the dice into his pocket and climbs down off the box on the far side, away from you. \"Boys. Somebody's come for the rest.\" The looters drop their sacks.","h":"678c1173"},
+  "nodes.wymowa_ok.options.[dalej].text": {"t":"I'll pass it on.","h":"0d80b316"},
+  "nodes.wymowa_ok.speaker": {"t":"Cardsharp Mszczuj","h":"10e1b476"},
+  "nodes.wymowa_ok.text": {"t":"Mszczuj stops throwing. He is counting something in his head, and it doesn't look like dice. \"Sixty groats is cheap for twelve men with clubs, even drunk ones.\" He unhooks the purse and tosses it to you without getting up. \"Tell the corporal I'll give him a rematch whenever he likes. Once his leg grows back.\"","h":"60ae57cb"},
+  "nodes.wymowa_zle.options.[dalej].text": {"t":"We'll see.","h":"f18a6799"},
+  "nodes.wymowa_zle.speaker": {"t":"Cardsharp Mszczuj","h":"10e1b476"},
+  "nodes.wymowa_zle.text": {"t":"Mszczuj laughs without a sound, only his Adam's apple bobbing. \"Twelve? Żegota couldn't get twelve to the latrine. And the dice are honest, they just have their own opinions.\" The looters put down the sacks and step closer. Nobody's in a hurry yet.","h":"678082d3"}
+}

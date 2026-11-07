@@ -1,0 +1,12 @@
+{
+  "nodes.start.options.[odda].text": {"t":"The key is Nipper's. Hand it over and don't be clever.","h":"c637f5fe"},
+  "nodes.start.options.[zatrzymaj].text": {"t":"I'm keeping the key. Nipper will get something else.","h":"c39638cb"},
+  "nodes.start.speaker": {"t":"Waterworks Rat","h":"e90bded9"},
+  "nodes.start.text": {"t":"In the half-dark of the culvert someone sits on a stone, playing with a key on a string. \"Looking for this? Nipper lost it. I found it. I'll give it back when somebody tells me what he wants it for. And if nobody tells me, I won't, and if I don't, Nipper has no reason to come back to town.\"","h":"3fbab98f"},
+  "nodes.wynik_odda.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_odda.speaker": {"t":"Waterworks Rat","h":"e90bded9"},
+  "nodes.wynik_odda.text": {"t":"The rat shakes his head, but hands the key over without a fight. \"Someone once told me that whoever robs kids ends up in a culvert. I'd rather end up in the culvert standing up.\" The key lands in your palm.","h":"82aab1c4"},
+  "nodes.wynik_zatrzymaj.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_zatrzymaj.speaker": {"t":"Waterworks Rat","h":"e90bded9"},
+  "nodes.wynik_zatrzymaj.text": {"t":"The rat shrugs and tosses you the key. \"Your business. But remember, kids have longer memories than grown-ups.\" You tuck the key in your pocket.","h":"d444339e"}
+}

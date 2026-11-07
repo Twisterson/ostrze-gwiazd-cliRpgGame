@@ -1,0 +1,20 @@
+{
+  "nodes.kupno.options.[dalej].text": {"t":"Let's go, Your Highness.","h":"58117a02"},
+  "nodes.kupno.speaker": {"t":"Marauder","h":"0f8013af"},
+  "nodes.kupno.text": {"t":"The elder bites every coin. \"Fifteen. There's more meat on it, but meat would need roasting, and smoke shows from far off.\" He tosses you the end of the rope. The mule lets itself be led, but only because the cabbage has just run out.","h":"5d3551b7"},
+  "nodes.s.options.[kupno].text": {"t":"Fifteen groats for the mule, and you go thieving somewhere else.","h":"c89ba599"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back.","h":"554def87"},
+  "nodes.s.options.[walka].text": {"t":"Knife down. Not yours.","h":"fe5a9783"},
+  "nodes.s.options.[wymowa].text": {"t":"That's the Emperor. Whoever butchers him explains himself to command afterwards.","h":"96abde26"},
+  "nodes.s.speaker": {"t":"Marauder","h":"0f8013af"},
+  "nodes.s.text": {"t":"Behind a burnt cottage stands a grey mule with a rope round its neck, munching what's left of somebody's garden. Two marauders are sharpening a single knife between them and dividing the animal by eye. \"Arse is mine, head's yours.\" \"Why's it always my head?\" The mule doesn't stop eating. The name clearly suits it.","h":"1ce8e3c7"},
+  "nodes.walka.options.[dalej].text": {"t":"Then come on.","h":"3c57b525"},
+  "nodes.walka.speaker": {"t":"Marauder","h":"0f8013af"},
+  "nodes.walka.text": {"t":"\"Somebody else's?\" The elder looks around the burnt village, then at you, reproachfully. \"Everything here was somebody else's.\" He pulls out a second knife, so they had two after all.","h":"f8c4fdf1"},
+  "nodes.wymowa_ok.options.[dalej].text": {"t":"Let's go, Your Highness.","h":"58117a02"},
+  "nodes.wymowa_ok.speaker": {"t":"Marauder","h":"0f8013af"},
+  "nodes.wymowa_ok.text": {"t":"The marauders look at each other. \"What Emperor?\" \"This one. That's what he's called, ask in the camp. Half the army's heard of him, there were two inquiries.\" The elder slowly puts away his knife. \"Told you he was too calm. A normal mule would've run.\" They back away. You take the rope. \"Your Highness\" works.","h":"7ff06b3f"},
+  "nodes.wymowa_zle.options.[dalej].text": {"t":"Fine.","h":"a8072584"},
+  "nodes.wymowa_zle.speaker": {"t":"Marauder","h":"0f8013af"},
+  "nodes.wymowa_zle.text": {"t":"The elder marauder snorts. \"Emperor? So if I eat him, that's treason?\" He tests the knife on his thumb. \"Well, good. Haven't had anything with that kind of flavour in ages.\" The younger one asks whether the head is worth more now. He gets no answer, but he gets a clout round the ear.","h":"eaa095aa"}
+}

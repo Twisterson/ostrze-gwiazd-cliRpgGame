@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Jarogniew the Runner","h":"e978b62f"},
+  "nodes.nie.text": {"t":"\"I understand.\" The runner closes his eyes. \"Nobody wants another man's death in his pocket.\"","h":"f6d5d23e"},
+  "nodes.s.options.[nie].text": {"t":"I'm keeping out of it.","h":"b727db6b"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll hide it.","h":"b28bd692"},
+  "nodes.s.speaker": {"t":"Jarogniew the Runner","h":"e978b62f"},
+  "nodes.s.text": {"t":"In the ditch lies a young runner in a red cloak, with a bandage across half his face. \"Jarogniew. Army post. I've a letter that mustn't reach the ones who shot me. Hide it in the oak in Marchwood. Whoever finds it will pay.\" He presses a wax-sealed letter into your hand.","h":"6e4963f9"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Jarogniew the Runner","h":"e978b62f"},
+  "nodes.zgoda.text": {"t":"Jarogniew sinks back onto the grass, relieved. \"The oak with the hollow, on the south side. Don't read it. I know you want to.\"","h":"3a7f90b3"}
+}

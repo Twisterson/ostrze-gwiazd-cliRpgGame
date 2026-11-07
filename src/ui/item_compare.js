@@ -34,6 +34,8 @@ export function modifierName(key, data) {
 
 const LABEL_WIDTH = 19; // "Redukcja (obuchowe)"
 const VALUE_WIDTH = 10; // label + two values fit the scene panel of an 80×24 frame (43 columns)
+/** Columns of the table; a narrower panel (beside the wide list of the shop and the inventory) gets one row per value instead. */
+export const TABLE_WIDTH = LABEL_WIDTH + 2 * (VALUE_WIDTH + 1);
 const fitLabel = (text) => {
   const chars = [...text];
   return (chars.length <= LABEL_WIDTH ? text : `${chars.slice(0, LABEL_WIDTH - 1).join("")}…`).padEnd(LABEL_WIDTH);
@@ -69,19 +71,35 @@ function tableRows(item, worn, data) {
   return rows;
 }
 
-/** The table of the item against what is worn in its slot; empty when the slot is empty (bare hands too) or the item is what is worn. */
-function compareTable(item, state, data) {
+/**
+ * The table of the item against what is worn in its slot; empty when the slot is empty (bare hands too) or the item is what is worn.
+ * Narrower than TABLE_WIDTH it is a list instead: "Obrażenia: 4–8 → 5–10", the values under the label when the row is too long.
+ */
+function compareTable(item, state, data, width = Infinity) {
   const { ui } = data;
   const wornId = state.inventory.equipped[wearSlot(item)];
   if (!wornId || wornId === item.id) return [];
   const worn = itemById(data, wornId);
+  const mark = (row, text) => (row.score === null || row.score === 0 ? text : paint(row.score > 0 ? "heal" : "warn", text));
+  if (width < TABLE_WIDTH) {
+    const lines = [t(ui, "compare.tableWorn", { item: worn.name })];
+    // the narrow form shows what differs (and the weight, always): a row with the same value twice is left out
+    const weight = t(ui, "compare.weight");
+    for (const row of tableRows(item, worn, data).filter((r) => r.worn !== r.next || r.label === weight)) {
+      const values = `${row.worn} → ${mark(row, row.next)}`;
+      const one = `${row.label}: ${row.worn} → ${row.next}`;
+      if ([...one].length <= width) lines.push(`${row.label}: ${values}`);
+      else lines.push(`${row.label}:`, `  ${values}`);
+    }
+    return lines;
+  }
   const cell = (text) => text.padStart(VALUE_WIDTH);
   const lines = [
     t(ui, "compare.tableWorn", { item: worn.name }),
     paint("dim", `${" ".repeat(LABEL_WIDTH)} ${cell(t(ui, "compare.colWorn"))} ${cell(t(ui, "compare.colNew"))}`),
   ];
   for (const row of tableRows(item, worn, data)) {
-    const next = row.score === null || row.score === 0 ? cell(row.next) : paint(row.score > 0 ? "heal" : "warn", cell(row.next));
+    const next = mark(row, cell(row.next));
     lines.push(`${fitLabel(row.label)} ${cell(row.worn)} ${next}`);
   }
   return lines;
@@ -118,14 +136,17 @@ function statChanges(item, state, data) {
   return { rows, replaced: state.inventory.equipped[slot] };
 }
 
-/** Pure: lines comparing the item with what is worn in its slot: the table, then "Po założeniu: …" (`diff: false` leaves that out); empty for items that are not worn. */
-export function compareLines(item, state, data, { diff = true } = {}) {
+/**
+ * Pure: lines comparing the item with what is worn in its slot: the table, then "Po założeniu: …" (`diff: false` leaves that out); empty
+ * for items that are not worn. `width`: the columns the lines are shown in (see `compareTable`).
+ */
+export function compareLines(item, state, data, { diff = true, width = Infinity } = {}) {
   if (!state.character || !state.inventory) return [];
   const { ui } = data;
   const slot = wearSlot(item);
   if (!slot) return [];
   if (state.inventory.equipped[slot] === item.id) return [paint("dim", t(ui, "compare.worn"))];
-  const table = compareTable(item, state, data);
+  const table = compareTable(item, state, data, width);
   const changes = statChanges(item, state, data);
   if (!changes || !diff) return table;
   const lines = [...table];

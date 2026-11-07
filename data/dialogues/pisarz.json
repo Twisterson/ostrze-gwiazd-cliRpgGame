@@ -14,7 +14,7 @@
         },
         {
           "id": "meld_stolica_pozar_zgloszony",
-          "text": "Rozliczam: Kto pali w Zaułku Szklarzy.",
+          "text": "Rozliczam: Ogień w Zaułku Szklarzy.",
           "goto": "meld_stolica_pozar_zgloszony",
           "requires": {
             "all": [
@@ -29,7 +29,7 @@
         },
         {
           "id": "meld_stolica_pozar_ukryty",
-          "text": "Rozliczam: Kto pali w Zaułku Szklarzy.",
+          "text": "Rozliczam: Ogień w Zaułku Szklarzy.",
           "goto": "meld_stolica_pozar_ukryty",
           "requires": {
             "all": [
@@ -44,7 +44,7 @@
         },
         {
           "id": "meld_stolica_pozar_szantaz",
-          "text": "Rozliczam: Kto pali w Zaułku Szklarzy.",
+          "text": "Rozliczam: Ogień w Zaułku Szklarzy.",
           "goto": "meld_stolica_pozar_szantaz",
           "requires": {
             "all": [

@@ -1,0 +1,16 @@
+{
+  "nodes.start.options.[kup].text": {"t":"I'll buy it at the market, honestly, and dearer. You'll pay from the barracks chest.","h":"5dd8d629"},
+  "nodes.start.options.[nic].text": {"t":"There won't be any wine. Tell the men the truth.","h":"5465e84b"},
+  "nodes.start.options.[przemyt].text": {"t":"I know people at the harbour. There'll be wine. Don't ask where from.","h":"86387548"},
+  "nodes.start.speaker": {"t":"Sergeant Paunch","h":"fb43eada"},
+  "nodes.start.text": {"t":"The sergeant leans on a bench with the look of a man very busy doing nothing. \"The Quartermaster is looking for wine. I'm looking for who'll find it. The Marshal promised the men a feast, and with no wine there's no feast, and with no feast there's mutiny. Simple arithmetic.\"","h":"d2dc4993"},
+  "nodes.wynik_kup.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_kup.speaker": {"t":"Sergeant Paunch","h":"fb43eada"},
+  "nodes.wynik_kup.text": {"t":"The sergeant counts in his head, sighs and pulls out a purse. \"Honesty costs, and lately it costs more than wine.\" He nods with a respect he has no intention of repeating.","h":"1caa17ca"},
+  "nodes.wynik_nic.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_nic.speaker": {"t":"Sergeant Paunch","h":"fb43eada"},
+  "nodes.wynik_nic.text": {"t":"The sergeant looks at you as if you'd suggested he take a bath in ice. \"The truth? Man, here the truth is like clean boots: not worth it, they'll get dirty anyway.\" But after a moment he nods. \"Fine. Let them know. Let them get angry at whoever deserves it.\"","h":"c7e21e1c"},
+  "nodes.wynik_przemyt.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_przemyt.speaker": {"t":"Sergeant Paunch","h":"fb43eada"},
+  "nodes.wynik_przemyt.text": {"t":"The sergeant opens his mouth to say something, then thinks better of it halfway. \"All right. I'm not asking. Just make sure the barrels don't bear an imperial seal, because then I'm the one who didn't ask.\" He rubs his hands, because you've just saved his feast.","h":"cbc1c712"}
+}

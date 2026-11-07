@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Gudrun the Smith","h":"b92d1d14"},
+  "nodes.nie.text": {"t":"\"Saying no, are you? Fine. I'll go myself, and the lads will find out what it means to have no nails.\"","h":"e4258d0e"},
+  "nodes.s.options.[nie].text": {"t":"I haven't got the time.","h":"2aa81813"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll take it.","h":"44302728"},
+  "nodes.s.speaker": {"t":"Gudrun the Smith","h":"b92d1d14"},
+  "nodes.s.text": {"t":"A hulking woman with a hammer on her shoulder calls out from the road. \"Gudrun, smith. I promised the Shipyard a box of nails for today and I've no time to go, what with the handgun order breathing down my neck. Will you take it? The carpenter will pay you. And if he whines it's too small, tell him there's as many nails as ships, and as many ships as I can manage.\"","h":"a650c14b"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Gudrun the Smith","h":"b92d1d14"},
+  "nodes.zgoda.text": {"t":"Gudrun hands you the box with one hand, as if it weighed no more than an apple. You take it with both hands and start doubting the apple. \"To the Shipyard, just past the harbour. Don't lose it.\"","h":"1cb82d15"}
+}

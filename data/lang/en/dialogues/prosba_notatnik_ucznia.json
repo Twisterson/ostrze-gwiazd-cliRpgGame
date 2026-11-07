@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Stray Apprentice","h":"b8d23053"},
+  "nodes.nie.text": {"t":"The lad hangs his head and hunches over the notebook. \"Oh well. I'll walk back, if the stars allow.\"","h":"14fc577e"},
+  "nodes.s.options.[nie].text": {"t":"Sort it out yourself.","h":"0aa3cd1a"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll take it.","h":"44302728"},
+  "nodes.s.speaker": {"t":"Stray Apprentice","h":"b8d23053"},
+  "nodes.s.text": {"t":"A lad in a stained smock sits on a stone, holding a notebook like a newborn. \"I'm Hieronim's apprentice, and I've lost my way. Will you take this to the apprentices' box at Starwatch? If the master found out I'd lost it, he'd have my hide.\"","h":"bb5f4573"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Stray Apprentice","h":"b8d23053"},
+  "nodes.zgoda.text": {"t":"The lad pushes the notebook into your hands. \"Don't open it! There are drawings of stars in there, and every one has a name.\"","h":"e56235e0"}
+}

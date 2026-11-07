@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Sulisław the Merchant","h":"db9967ad"},
+  "nodes.nie.text": {"t":"\"Too bad. I'll take it myself, I suppose, once I've cobbled the wheel together.\" The merchant turns to his wagon and sighs.","h":"d31a2baa"},
+  "nodes.s.options.[nie].text": {"t":"No time.","h":"2aa81813"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll take it.","h":"44302728"},
+  "nodes.s.speaker": {"t":"Sulisław the Merchant","h":"db9967ad"},
+  "nodes.s.text": {"t":"A merchant has perched on a stump by his wagon, which stands sideways in the mud. \"Sulisław, trade and hardship. I was taking a parcel to the miller's wife at the Old Mill, but my wheel cracked and I'm running late. Will you take it? She'll make it worth your while, she's a good woman. Just don't ask about her husband.\"","h":"ce81f367"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Sulisław the Merchant","h":"db9967ad"},
+  "nodes.zgoda.text": {"t":"Sulisław presses the parcel into your hand with both of his. \"May the Lord God and the road be kind to you. The mill by the river, you can't miss it, it's the only one.\"","h":"8b669756"}
+}

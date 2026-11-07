@@ -4,7 +4,7 @@
   "nodes": {
     "s": {
       "speaker": "Skrytka pustelnika",
-      "text": "Skrzynka stoi pod głazem. Nikt z niej nie wyszedł, ale pewnie ktoś ją sprawdza.",
+      "text": "Skrzynka stoi pod głazem. Nikogo przy niej nie ma, ale pewnie ktoś ją sprawdza.",
       "options": [
         {
           "id": "daj",

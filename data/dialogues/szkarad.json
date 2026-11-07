@@ -4,7 +4,7 @@
   "start": "powitanie",
   "nodes": {
     "powitanie": {
-      "speaker": "Ruszniczarz Szkarad",
+      "speaker": "Rusznikarz Szkarad",
       "text": "Za kontuarem z beczki po prochu siedzi chłop czarny od sadzy po łokcie. Przeżuwa słomkę i mierzy cię wzrokiem. „Za prochem się rozglądasz, pachołku? Jak nie masz grosza, to się nie rozglądaj.”",
       "options": [
         {
@@ -91,7 +91,7 @@
       ]
     },
     "pierwszy": {
-      "speaker": "Ruszniczarz Szkarad",
+      "speaker": "Rusznikarz Szkarad",
       "text": "„Żelazo, co strzela. Dobre sobie.” Szkarad spluwa słomkę w ogień. „Pistolety, rusznice, łuki, kusze. Proch z wyspy rzemieślników, a nie z podwórka sąsiada. Pamiętaj: kula leci tam, gdzie chce, a nie tam, gdzie ty chcesz. Zwłaszcza po trzech kuflach.”",
       "options": [
         {
@@ -112,7 +112,7 @@
       ]
     },
     "znowu": {
-      "speaker": "Ruszniczarz Szkarad",
+      "speaker": "Rusznikarz Szkarad",
       "text": "„A, to ty. Ten, co się pyta, zamiast kupić.” Szkarad ociera dłonie o fartuch. „No gadaj, zanim mi proch zwilgotnieje od twojego gadania.”",
       "options": [
         {
@@ -128,7 +128,7 @@
       ]
     },
     "wyspa_test": {
-      "speaker": "Ruszniczarz Szkarad",
+      "speaker": "Rusznikarz Szkarad",
       "text": "Szkarad mruży oko i milczy dłużej, niż wypada. „Skąd, skąd. Z wyspy, mówiłem.”",
       "options": [
         {
@@ -149,7 +149,7 @@
       ]
     },
     "wyspa_ok": {
-      "speaker": "Ruszniczarz Szkarad",
+      "speaker": "Rusznikarz Szkarad",
       "text": "Szkarad rozgląda się, czy nikt nie podsłuchuje. „Rzemieślnicy z wyspy kują z metalu, którego sami nie znają. Mówią, że ich ojcowie przypłynęli z nieba, w żelaznej łodzi. Ja tam w niebo nie wierzę, ale proch od nich kupuję. Ładnie bije.” Pociera nos. „Tylko nikomu nie mów, że ode mnie.”",
       "options": [
         {
@@ -165,7 +165,7 @@
       ]
     },
     "wyspa_zle": {
-      "speaker": "Ruszniczarz Szkarad",
+      "speaker": "Rusznikarz Szkarad",
       "text": "Szkarad prycha jak koń na pokrzywy. „Wierzysz, że kupię od ciebie język za dwa grosze? Idź do wieprza po radę, ten przynajmniej nie udaje mądrego. Proch jest mój, a skąd, to mój interes.”",
       "options": [
         {
@@ -176,7 +176,7 @@
       ]
     },
     "cesarscy": {
-      "speaker": "Ruszniczarz Szkarad",
+      "speaker": "Rusznikarz Szkarad",
       "text": "„Pytali, juści.” Szkarad kaszle. „Szukają ocalałych z rzezi na północy i każdego, kto ma w torbie siarkę z wyspy. Mnie dotąd ominęli, bo siedzę na beczce z prochem i oni to wiedzą. Ty się lepiej ludziom w oczy nie pchaj. A jak co, to wołaj, narobię takiego dymu, że cię rodzona matka nie znajdzie.”",
       "options": [
         {
@@ -192,7 +192,7 @@
       ]
     },
     "towar": {
-      "speaker": "Ruszniczarz Szkarad",
+      "speaker": "Rusznikarz Szkarad",
       "text": "Szkarad otwiera skrzynię z takim hukiem, że z półki spadają garnki. „Patrz, ale nie dotykaj, jak nie masz za co. Za oglądanie też powinienem brać, ale dziś jestem dobry.”",
       "options": [
         {
@@ -208,8 +208,8 @@
       ]
     },
     "twierdza_plotka": {
-      "speaker": "Ruszniczarz Szkarad",
-      "text": "„Twierdza na granicy, cztery dni na wschód. Cesarski proch idzie stamtąd. Stary fort, pełen ludzi, którzy nie chcą być widziani. Weź dużo strzał i mało gadania.”",
+      "speaker": "Rusznikarz Szkarad",
+      "text": "„Twierdza na granicy, cztery dni na północ. Cesarski proch idzie stamtąd. Stary fort, pełen ludzi, którzy nie chcą być widziani. Weź dużo strzał i mało gadania.”",
       "options": [
         {
           "id": "dalej",

@@ -1,0 +1,12 @@
+{
+  "nodes.odmowa.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odmowa.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.odmowa.text": {"t":"\"The wagon stands, the horse eats, and I pay for both. Don't keep me waiting long.\"","h":"3080ce04"},
+  "nodes.prosba.options.[odmowa].text": {"t":"Not yet.","h":"479674a4"},
+  "nodes.prosba.options.[zgoda].text": {"t":"Let's go.","h":"53c25ea4"},
+  "nodes.prosba.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.prosba.text": {"t":"\"My brother-in-law's still waiting on the pass, and I owe him more than this cloth is worth. I won't get there alone, that much I know. Same forty groats. Coming?\"","h":"c28c1ff4"},
+  "nodes.zgoda.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.zgoda.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.zgoda.text": {"t":"\"Then I'm hitching up before I change my mind. Or you change yours.\"","h":"93195402"}
+}

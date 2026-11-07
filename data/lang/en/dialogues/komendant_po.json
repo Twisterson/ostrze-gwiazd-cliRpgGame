@@ -1,0 +1,17 @@
+{
+  "nodes.ocalali.options.#0.text": {"t":"No idea who you mean.","h":"f8becf9c"},
+  "nodes.ocalali.speaker": {"t":"Commander Wszebor","h":"638c8fa3"},
+  "nodes.ocalali.text": {"t":"The commander puts down his spoon, and that never bodes well. \"They're asking about survivors from the school. One survivor. They know someone lived, and they've got his description: young, in the school's colours, mud to the knees. Don't happen to know anyone like that?\"","h":"0544e963"},
+  "nodes.odpowiedz.options.#0.text": {"t":"I'll try.","h":"39c35a37"},
+  "nodes.odpowiedz.speaker": {"t":"Commander Wszebor","h":"638c8fa3"},
+  "nodes.odpowiedz.text": {"t":"\"Patrols are to keep to the road, because the forest paths are the brigands' doing. Meaning the worst of everything goes on in the forest. Fine. Here's for your trouble, and don't come back with worse news, because I won't stand it.\"","h":"5f7b4a9f"},
+  "nodes.po.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.po.options.[ocalali].text": {"t":"I overheard scouts on the road.","h":"004fedff"},
+  "nodes.po.options.[odpowiedz].text": {"t":"Word from the forester.","h":"d07d7a9b"},
+  "nodes.po.options.[robota].text": {"t":"Got work for me?","h":"7090dd65"},
+  "nodes.po.speaker": {"t":"Commander Wszebor","h":"638c8fa3"},
+  "nodes.po.text": {"t":"The commander doesn't lift his eyes from the soup. \"Ah, you. What is it? Unless you're bored, in which case I've a few jobs for you, and none of them smells of roses.\"","h":"d609c6e8"},
+  "nodes.robota.options.#0.text": {"t":"I'll deliver it.","h":"44302728"},
+  "nodes.robota.speaker": {"t":"Commander Wszebor","h":"638c8fa3"},
+  "nodes.robota.text": {"t":"\"Take this letter to the forester. Forester's Lodge, two days east, past Marchwood. Take rations, nobody feeds you out there. Don't read it.\" The commander pushes a sealed sheet at you and looks aside. \"And if you do read it, play dumb about what it says.\"","h":"20df54cd"}
+}

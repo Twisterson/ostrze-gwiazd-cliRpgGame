@@ -1,0 +1,17 @@
+{
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[s_czerwony].text": {"t":"Take a shard: red.","h":"c3f63e5c"},
+  "nodes.powitanie.options.[s_niebieski].text": {"t":"Take a shard: blue.","h":"66965e95"},
+  "nodes.powitanie.options.[s_zielony].text": {"t":"Take a shard: green.","h":"d7d74a8a"},
+  "nodes.powitanie.speaker": {"t":"Glass Field","h":"06131f86"},
+  "nodes.powitanie.text": {"t":"The ground has set into waves of glass, cold under your boots. Among the shards sticking up like broken teeth you can pick one of three colours: green, blue or red.","h":"c2ae8b6d"},
+  "nodes.s_czerwony.options.[dalej].text": {"t":"I'll keep it.","h":"fcd8c051"},
+  "nodes.s_czerwony.speaker": {"t":"Glass Field","h":"06131f86"},
+  "nodes.s_czerwony.text": {"t":"You crouch and work a shard loose carefully, so as not to catch the edge. Red, cold as frost. Something flashes inside it, as if someone had looked in from the other side.","h":"cdb3fd07"},
+  "nodes.s_niebieski.options.[dalej].text": {"t":"I'll keep it.","h":"fcd8c051"},
+  "nodes.s_niebieski.speaker": {"t":"Glass Field","h":"06131f86"},
+  "nodes.s_niebieski.text": {"t":"You crouch and work a shard loose carefully, so as not to catch the edge. Blue, cold as frost. Something flashes inside it, as if someone had looked in from the other side.","h":"2e399c3a"},
+  "nodes.s_zielony.options.[dalej].text": {"t":"So be it.","h":"6ed43b65"},
+  "nodes.s_zielony.speaker": {"t":"Glass Field","h":"06131f86"},
+  "nodes.s_zielony.text": {"t":"You crouch and work a shard loose carefully, so as not to catch the edge. Green, cold as frost. Something flashes inside it, as if someone had looked in from the other side.","h":"49b4ba08"}
+}

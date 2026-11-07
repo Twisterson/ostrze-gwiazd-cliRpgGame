@@ -1,0 +1,20 @@
+{
+  "nodes.beczka.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.beczka.options.[gram].text": {"t":"I'm in. Five groats.","h":"ea5ebf00"},
+  "nodes.beczka.options.[zold].text": {"t":"I heard someone blew the garrison's pay.","h":"bcf409e5"},
+  "nodes.beczka.speaker": {"t":"Cardsharp Whistle","h":"a8709dd5"},
+  "nodes.beczka.text": {"t":"Three men at a barrel are throwing dice for whatever is under a hat. The oldest one looks up. \"Looking for work or for fun? Both cost money. Fun just goes faster.\"","h":"7cd225a8"},
+  "nodes.gra.options.[odejdz].text": {"t":"I'm leaving.","h":"98963af5"},
+  "nodes.gra.options.[wymowa].text": {"t":"I'll talk until the dice forget how to land.","h":"d7653c74"},
+  "nodes.gra.speaker": {"t":"Cardsharp Whistle","h":"a8709dd5"},
+  "nodes.gra.text": {"t":"The dice roll across the barrel as if they had opinions of their own. \"The winner is the one who can lose with a smile. Or the one with the dice I've got.\" He winks.","h":"192d1949"},
+  "nodes.przegrana.options.[dalej].text": {"t":"Fine.","h":"1442dab3"},
+  "nodes.przegrana.speaker": {"t":"Cardsharp Whistle","h":"a8709dd5"},
+  "nodes.przegrana.text": {"t":"The dice land the way only one of you wanted, and it wasn't you. \"Bad luck,\" says Whistle, with a respect he has no intention of showing you. Your five groats are already up his sleeve.","h":"fd00fc86"},
+  "nodes.wygrana.options.[dalej].text": {"t":"Fine.","h":"1442dab3"},
+  "nodes.wygrana.speaker": {"t":"Cardsharp Whistle","h":"a8709dd5"},
+  "nodes.wygrana.text": {"t":"Whistle whistles through his teeth. \"That's it for today, or you'll ruin my business.\" \"You're lucky, sir. Or you've got the gift of the gab, and that can be worse than luck.\" He hands back your stake and adds five groats, looking at you like a man who will need a punch in the face one day.","h":"c4ae7d2c"},
+  "nodes.zold.options.[dalej].text": {"t":"Fine.","h":"1442dab3"},
+  "nodes.zold.speaker": {"t":"Cardsharp Whistle","h":"a8709dd5"},
+  "nodes.zold.text": {"t":"\"Pay? A sergeant from the fort cursed in my ear half the evening. Somebody told him a purse of pay was on its way, and then somebody else told him there was no road. I'm not saying it was you. You just look like a man who knows how to have no opinion about it.\"","h":"fac0a13b"}
+}

@@ -7,6 +7,8 @@ import { paint } from "./colors.js";
 import { wrap } from "./text.js";
 import { FRAME, repeatTo } from "./frame_style.js";
 import { displayWidth } from "./screen.js";
+import { t } from "./strings.js";
+import defaultUi from "./default_ui.js";
 
 const MAX_WIDTH = 200;
 /** Art beside the text needs this many text columns left; above the text it needs this many text rows left. */
@@ -15,8 +17,6 @@ export const ART_TOP_TEXT_MIN = 8;
 export const ART_GAP = 2;
 const INFO_ROWS = 4;
 const MAX_NOTICES = 2;
-const GAME_TITLE = "VOIDED: NA PRZEKÓR GWIAZDOM";
-const MORE = "▼ dalej (Enter)";
 const ANSI = /\x1b\[[0-9;]*m/y;
 
 /** Terminal columns of a (possibly painted) line. */
@@ -56,18 +56,32 @@ export const cell = (text, width) => {
 /** Width of the frame: the terminal's, but at most 200 columns. */
 export const frameWidth = (cols) => Math.min(cols, MAX_WIDTH);
 
-/** Text columns of the right (choice) panel: 30% of the frame, 30 to 42. */
-export const choiceWidthOf = (cols) => Math.min(42, Math.max(30, Math.round(frameWidth(cols) * 0.3)));
+/**
+ * Columns of the choice panel of a screen whose list holds item rows: the shop, the inventory and a smith's exchange.
+ * Guaranteed (test/i18n_ui_en.test.js): at 80 columns the name and price of every shop stock row fits, in Polish and in
+ * English (the longest, "[10] Puszka z szerszeniami · 38 gr · ×2", takes 41 with the cursor). In the rows built from what the
+ * player carries an upgraded item shows its highest stage only ("Półpancerz (płyty) · 146 gr"; the full name stands in the card
+ * and in the box under the list) and an exchange the one stage bought ("Półpancerz: płyty (170 gr)"); the tests walk every
+ * sale, inventory and exchange row with one- and two-digit numbers and fail on any row English cuts and Polish does not.
+ * Rows cut in both languages (long names such as „Ostrze Gwiazd (kute przez Bogdana)”) are allowed.
+ */
+export const WIDE_LIST = 42;
+
+/** Text columns of the right (choice) panel: 30% of the frame, 30 to 42; `wide`: at least WIDE_LIST (a list of items). */
+export const choiceWidthOf = (cols, wide = false) => {
+  const normal = Math.min(42, Math.max(30, Math.round(frameWidth(cols) * 0.3)));
+  return wide ? Math.max(normal, WIDE_LIST) : normal;
+};
 
 /** Inner margin of the scene panel: none in a small window, growing with a big one so the text does not stick to the frame. */
 export const scenePad = (cols) => { const w = frameWidth(cols); return w >= 160 ? 4 : w >= 130 ? 3 : w >= 100 ? 2 : 0; };
 /** Text columns of the scene panel with no margins (what a full-panel picture may use). */
-export const sceneFullWidth = (cols) => frameWidth(cols) - 7 - choiceWidthOf(cols);
+export const sceneFullWidth = (cols, wide = false) => frameWidth(cols) - 7 - choiceWidthOf(cols, wide);
 /** Blank rows above the scene text: one in a tall window. */
 export const sceneTopPad = (rows) => (rows >= 34 ? 1 : 0);
 
 /** Width of the scene text: the frame takes 7 columns (edges, margins, the bar), the choice panel the rest, then the inner margins. */
-export const sceneWidth = (cols) => frameWidth(cols) - 7 - choiceWidthOf(cols) - 2 * scenePad(cols);
+export const sceneWidth = (cols, wide = false) => frameWidth(cols) - 7 - choiceWidthOf(cols, wide) - 2 * scenePad(cols);
 
 // A line painted as a whole: colour codes, plain text, reset codes.
 const WHOLE_PAINT = /^((?:\x1b\[[0-9;]*m)+)([^\x1b]*)((?:\x1b\[[0-9;]*m)+)$/;
@@ -101,9 +115,9 @@ export function sceneLines(body, width) {
 }
 
 /** Notice rows: up to two; with more, the latest one and "…i N więcej [L]". */
-function noticeRows(notices) {
+function noticeRows(notices, ui) {
   if (notices.length <= MAX_NOTICES) return notices;
-  return [notices.at(-1), paint("dim", `…i ${notices.length - 1} więcej [L]`)];
+  return [notices.at(-1), paint("dim", t(ui, "frame.noticesMore", { n: notices.length - 1 }))];
 }
 
 /** The command menu in one line: "[P] Postać  [E] Ekwipunek"; from the end the labels drop out ("[M]") until it fits. */
@@ -137,15 +151,15 @@ function infoRows(text, width, rows) {
  *   body: string[], commands: Array<{ key: string, label: string, disabled?: boolean }>, notices: string[], choices: string[],
  *   choiceTitle?: string | null, info?: string | null, page?: number, art?: { lines: string[], width: number } | null }} spec
  *   (`art`: an illustration drawn on page 0 – beside the text, above it, or not at all, see `artMode`; `info`: null – no description field; a string,
- *   even an empty one – a field of 4 rows under the list)
+ *   even an empty one – a field of 4 rows under the list; `wideList`: the wide choice panel of an item list, see `WIDE_LIST`)
  * @returns {{ lines: string[], pages: number, sceneRows: number, choiceRows: number, choiceWidth: number, artMode: "side" | "top" | "none" }}
  */
-export function composeFrame({ cols, rows, hero, title = null, body, commands = [], notices = [], choices = [], choiceTitle = null, info = null, page = 0, art = null, bare = false }) {
+export function composeFrame({ cols, rows, hero, title = null, body, commands = [], notices = [], choices = [], choiceTitle = null, info = null, page = 0, art = null, bare = false, wideList = false, ui = defaultUi }) {
   const W = frameWidth(cols);
-  const R = choiceWidthOf(cols);
+  const R = choiceWidthOf(cols, wideList);
   const L = W - 7 - R;
   const split = L + 3; // column of the bar between the scene and the choice panel
-  const notes = noticeRows(notices);
+  const notes = noticeRows(notices, ui);
   const hasMenu = true; // the menu row is always reserved (blank without commands), so the layout does not jump when commands appear
   const heroRows = hero ? hero.lines.length : 0;
   const M = Math.max(1, rows - 1 - 1 - heroRows - 1 - 1 - notes.length - (notes.length && hasMenu ? 1 : 0) - (hasMenu ? 1 : 0) - 1);
@@ -176,7 +190,7 @@ export function composeFrame({ cols, rows, hero, title = null, body, commands = 
   }
   if (pages > 1 && shown < pages - 1) {
     while (pageLines.length < Mt - 1) pageLines.push("");
-    pageLines.push(paint("dim", MORE));
+    pageLines.push(paint("dim", t(ui, "frame.more")));
   }
   // the margins: blank rows above, spaces left of every line
   pageLines = [...Array(T).fill(""), ...pageLines.map((l) => (l === "" ? l : " ".repeat(P) + l))];
@@ -193,7 +207,7 @@ export function composeFrame({ cols, rows, hero, title = null, body, commands = 
     out.push(`${line(C + FRAME.top, 1)}${paint("frame_title", left)}${line(FRAME.top, fill)}${paint("frame_title", right)}${line(FRAME.top + C, 1)}`);
     for (const l of hero.lines) out.push(side(l, W - 4));
   } else {
-    const left = ` ${GAME_TITLE} `;
+    const left = ` ${t(ui, "frame.title")} `;
     out.push(`${line(C + FRAME.top, 1)}${paint("frame_title", left)}${line(FRAME.top, W - 3 - visibleWidth(left))}${line(C, 1)}`);
   }
   // Title row: the scene's title and the choice panel's title on a shaded band, the junction between them.

@@ -4,8 +4,8 @@
   "start": "powitanie",
   "nodes": {
     "powitanie": {
-      "speaker": "Furman Bolek",
-      "text": "Furman Bolek siedzi na przewróconej beczce i gapi się w puste błoto, gdzie dwa dni temu stał jego wóz. „Ja? Ja już nic nie mam. Gęba mi została, to gadać mogę.”",
+      "speaker": "Furman Sieciech",
+      "text": "Furman Sieciech siedzi na przewróconej beczce i gapi się w puste błoto, gdzie dwa dni temu stał jego wóz. „Ja? Ja już nic nie mam. Gęba mi została, to gadać mogę.”",
       "options": [
         {
           "id": "q11_start",
@@ -63,7 +63,7 @@
       ]
     },
     "q11_start": {
-      "speaker": "Furman Bolek",
+      "speaker": "Furman Sieciech",
       "text": "„Karawana. Cztery wozy, siedmiu chłopa, towar z południa. Ze Starego traktu ruszyliśmy całą karawaną, a wróciłem sam. Konie przylazły same, wozy wcale. Jak wypatrzysz coś na tym szlaku, daj znać, bo mi się ciągle zdaje, że widziałem ślady, tylko czart wie czyje.”",
       "options": [
         {
@@ -79,8 +79,8 @@
       ]
     },
     "q11_mapa": {
-      "speaker": "Furman Bolek",
-      "text": "Bolek ogląda mapę w gasnącym świetle i pociąga nosem. „O, tu. Stary skrót przez wąwóz, o którym nie wiedziałem. Wozy mogły tamtędy pojechać, jak je ktoś pognał. Zajrzyj, jak masz ochotę. Ja się boję, jak Boga kocham.”",
+      "speaker": "Furman Sieciech",
+      "text": "Sieciech ogląda mapę w gasnącym świetle i pociąga nosem. „O, tu. Stary skrót przez wąwóz, o którym nie wiedziałem. Wozy mogły tamtędy pojechać, jak je ktoś pognał. Zajrzyj, jak masz ochotę. Ja się boję, jak Boga kocham.”",
       "options": [
         {
           "id": "dalej",
@@ -95,8 +95,8 @@
       ]
     },
     "q11_koniec": {
-      "speaker": "Furman Bolek",
-      "text": "Bolek słucha, coraz bielszy na gębie, a pod koniec odkłada lejce. „Rozbite w wąwozie, ludzie rozpędzeni, towar zrabowany. Czyli nie zginęli, tylko pouciekali. Znaczy, są gdzieś tu, w okolicy. Bóg zapłać. Weź dwadzieścia groszy, co mi zostały, i kawał szynki z tego, com przywiózł.”",
+      "speaker": "Furman Sieciech",
+      "text": "Sieciech słucha, coraz bielszy na gębie, a pod koniec odkłada lejce. „Rozbite w wąwozie, ludzie rozpędzeni, towar zrabowany. Czyli nie zginęli, tylko pouciekali. Znaczy, są gdzieś tu, w okolicy. Bóg zapłać. Weź dwadzieścia groszy, co mi zostały, i kawał szynki z tego, com przywiózł.”",
       "options": [
         {
           "id": "dalej",
@@ -111,7 +111,7 @@
       ]
     },
     "q11_po": {
-      "speaker": "Furman Bolek",
+      "speaker": "Furman Sieciech",
       "text": "„Poczekam, aż ci, co pouciekali, wrócą. Jak ludzie zaczynają się odnajdywać, to nie wszystko jeszcze diabli wzięli. Poszedłeś tam, gdzie ja bałem się iść. Takich rzeczy się nie zapomina.”",
       "options": [
         {

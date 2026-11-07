@@ -91,9 +91,12 @@ function compose(io, choices, { page, info } = {}) {
   const f = io.frame;
   return composeFrame({
     cols: io.columns, rows: io.rows, hero: f.hero, title: f.title, body: f.body, commands: f.commands, notices: f.notices,
-    choices: f.side?.length ? [...f.side, "", ...choices] : choices, choiceTitle: f.choiceTitle, info: info === undefined ? (f.choiceInfo ?? null) : info, page: page ?? f.page, art: f.art ?? null, bare: Boolean(f.bare),
+    choices: f.side?.length ? [...f.side, "", ...choices] : choices, choiceTitle: f.choiceTitle, info: info === undefined ? (f.choiceInfo ?? null) : info, page: page ?? f.page, art: f.art ?? null, bare: Boolean(f.bare), wideList: Boolean(f.wideList), ui: f.ui,
   });
 }
+
+/** Width of the scene text of the current frame (narrower beside the wide list of the shop and the inventory). */
+export const frameSceneWidth = (io) => sceneWidth(io.columns, Boolean(io.frame?.wideList));
 
 /** Draws the current frame (`io.frame`) with `choices` in the choice panel; `info` is the description field's text (null – no field). */
 export function drawFrame(io, choices = [], { page, info, redraw = false } = {}) {
@@ -158,17 +161,17 @@ export function choiceCapacity(io, { info = false } = {}) {
 }
 
 /** Sets `io.frame` for a scene screen (see `showScreen`), with its text and hero panel laid out for the current window size. */
-function openFrame(ctx, { title, text, lines = [], side = [], hero: withHero = true, art: artId, bare = false }, notices) {
+function openFrame(ctx, { title, text, lines = [], side = [], hero: withHero = true, art: artId, bare = false, wideList = false }, notices) {
   const { state, data, io } = ctx;
   const image = artId ? data.art?.[artId] : null;
   const art = image && graphicsMode() !== "none" ? { lines: tintLines(renderPixels(image, { color: true })), width: image.w } : null; // without a picture the text takes its place
-  const f = { hero: null, title, body: [], commands: [], notices, page: 0, choiceTitle: null, choiceInfo: null, side, art, bare, tooSmall: data?.ui["frame.tooSmall"] };
+  const f = { hero: null, title, body: [], commands: [], notices, page: 0, choiceTitle: null, choiceInfo: null, side, art, bare, wideList, tooSmall: data?.ui["frame.tooSmall"], ui: data?.ui };
   io.frame = f;
   let laidOut = f.body;
   f.fit = () => {
     f.hero = state && withHero ? heroPanel(state, data, { cols: frameWidth(io.columns) }) : null;
     // beside an illustration the text is wrapped narrower
-    const wrapWidth = sceneWidth(io.columns) - (compose(io, []).artMode === "side" ? art.width + ART_GAP : 0);
+    const wrapWidth = sceneWidth(io.columns, wideList) - (compose(io, []).artMode === "side" ? art.width + ART_GAP : 0);
     const body = [...(text ? wrap(text, wrapWidth).split("\n") : []), ...(typeof lines === "function" ? lines() : lines)];
     if (f.body === laidOut) f.body = body; // a body put in by someone else (a preview, a question) is theirs
     laidOut = body;
@@ -180,8 +183,8 @@ function openFrame(ctx, { title, text, lines = [], side = [], hero: withHero = t
  * Shows a scene screen: `title`, prose `text` (wrapped) and preformatted `lines` in the left panel. In a frame (see `framesOn`)
  * the pending notices go to the notice zone and a long text is paged (Enter between pages); widgets drawn next fill the
  * choice panel. Otherwise it writes the status line, the notices, the title and the text as before.
- * @param {{ title?: string, text?: string, lines?: string[], side?: string[], blank?: boolean, hero?: boolean, art?: string }} spec (`art`: id of an
- *   illustration (data.art), drawn in a frame only and on the first page, see `composeFrame`; `side`: static
+ * @param {{ title?: string, text?: string, lines?: string[], side?: string[], blank?: boolean, hero?: boolean, art?: string, wideList?: boolean }} spec (`art`: id of an
+ *   illustration (data.art), drawn in a frame only and on the first page, see `composeFrame`; `wideList`: the wide choice panel of an item list; `side`: static
  *   lines at the top of the choice panel, above the choices – the character sheet's skills; `blank: false`: no
  *   empty line after the notices in line mode; `hero: false`: a frame without the hero panel, for screens that show the hero themselves)
  */

@@ -2,7 +2,7 @@
   {
     "id": "wilcza_nora",
     "kind": "quest",
-    "name": "Wilcza nora",
+    "name": "Wilcza Nora",
     "hub": "wilczy_brod",
     "description": "Komendant płaci dwadzieścia pięć groszy za watahę, która porywa owce spod palisady. Nora jest w wąwozie, dzień drogi w górę strumienia.",
     "location": "wilcza_nora",
@@ -505,7 +505,7 @@
   {
     "id": "przyjecie_w_osadzie",
     "kind": "errand",
-    "name": "Przyjęcie w osadzie",
+    "name": "Swój w osadzie",
     "hub": "gluszec",
     "description": "Nikt w Głuszcu nie lubi obcych, a sołtys Wawrzyn lubi ich najmniej. Trzeba się przedstawić, znaleźć nocleg i wrócić z tym do sołtysa, żeby nikt nie szeptał.",
     "deadlineDays": null,
@@ -888,7 +888,7 @@
     "kind": "errand",
     "name": "Zaginiona karawana",
     "hub": "gluszec",
-    "description": "Furman Bolek wrócił sam z karawany, która zniknęła na Starym trakcie. Szuka śladów swoich ludzi.",
+    "description": "Furman Sieciech wrócił sam z karawany, która zniknęła na Starym trakcie. Szuka śladów swoich ludzi.",
     "deadlineDays": null,
     "objectives": [
       {
@@ -901,7 +901,7 @@
       },
       {
         "id": "furman",
-        "text": "Powiedz furmanowi Bolkowi, co znalazłeś.",
+        "text": "Powiedz furmanowi Sieciechowi, co znalazłeś.",
         "at": "stary_trakt.furman",
         "done": {
           "flag": "furman_zamkniety"
@@ -949,7 +949,7 @@
   {
     "id": "przyjecie_w_obserwatorium",
     "kind": "errand",
-    "name": "Przyjęcie w Obserwatorium",
+    "name": "Swój w Obserwatorium",
     "hub": "obserwatorium",
     "description": "Astronom Hieronim nie lubi obcych, a Brygida jeszcze mniej. Trzeba się przedstawić obojgu i wrócić do Hieronima z wieścią, że Brygida cię nie przegnała.",
     "deadlineDays": null,
@@ -1030,7 +1030,7 @@
     "kind": "errand",
     "name": "Pamięć kamieni",
     "hub": "obserwatorium",
-    "description": "Dwanaście menhirów oferuje każdemu, kto się zbliży, układ. Hieronim chce wiedzieć, czy je przyjmować.",
+    "description": "Dwanaście menhirów proponuje układ każdemu, kto podejdzie. Hieronim chce wiedzieć, czy takie układy warto przyjmować.",
     "deadlineDays": null,
     "objectives": [
       {
@@ -1062,7 +1062,7 @@
   {
     "id": "wrak_maszyny",
     "kind": "errand",
-    "name": "Wrak maszyny",
+    "name": "Wrak Maszyny",
     "hub": "obserwatorium",
     "description": "Brygida chce wydobyć rdzeń z wraku maszyny, ale ma za grube ręce. Trzeba ostrożności albo siły.",
     "deadlineDays": null,
@@ -1096,7 +1096,7 @@
   {
     "id": "mgla_ciszy",
     "kind": "errand",
-    "name": "Mgła ciszy",
+    "name": "Mgła Ciszy",
     "hub": "obserwatorium",
     "description": "Cesarski zwiadowca zniknął w Zapadlisku Ciszy, gdzie mgła zabiera dźwięk. Hieronim chce, żeby ktoś go odnalazł.",
     "deadlineDays": null,
@@ -1202,7 +1202,7 @@
   {
     "id": "ostatnia_strazica_zlecenie",
     "kind": "errand",
-    "name": "Ostatnia strażnica",
+    "name": "Ostatnia Strażnica",
     "hub": "obserwatorium",
     "description": "W Ostatniej Strażnicy mieszka stary żołnierz, który mógłby stanąć po twojej stronie. Można go przekonać słowem, prowiantem albo pamięcią o Wojmirze.",
     "deadlineDays": null,
@@ -1279,7 +1279,7 @@
     "kind": "errand",
     "name": "Paczka dla młynarki",
     "hub": "wilczy_brod",
-    "description": "Wędrowny kupiec Radogost nie zdąży do młyna przed zmrokiem i prosi, byś zaniósł paczkę młynarce.",
+    "description": "Wędrowny kupiec Sulisław nie zdąży do młyna przed zmrokiem i prosi, byś zaniósł paczkę młynarce.",
     "deadlineDays": null,
     "objectives": [
       {
@@ -1441,14 +1441,14 @@
   {
     "id": "notatnik_ucznia",
     "kind": "errand",
-    "name": "Notatnik ucznia",
+    "name": "Kajet ucznia",
     "hub": "obserwatorium",
-    "description": "Zbłąkany uczeń Hieronima prosi, byś odniósł jego zgubiony notatnik do skrzynki uczniów w Obserwatorium.",
+    "description": "Zbłąkany uczeń Hieronima prosi, byś odniósł jego zgubiony kajet do skrzynki uczniów w Obserwatorium.",
     "deadlineDays": null,
     "objectives": [
       {
         "id": "dostawa",
-        "text": "Wrzuć notatnik ucznia do skrzynki uczniów w Obserwatorium.",
+        "text": "Wrzuć kajet ucznia do skrzynki uczniów w Obserwatorium.",
         "at": "obserwatorium.skrzynka_uczniow",
         "done": {
           "flag": "notatnik_odniesiony"
@@ -1588,7 +1588,7 @@
       },
       {
         "id": "weksel",
-        "text": "Zanieś weksel Wrzoska kupcowi Ostromirowi na Trakcie Kupieckim.",
+        "text": "Zanieś weksel Wrzoska kupcowi Ostromirowi na Trakcie kupieckim.",
         "at": "trakt_kupiecki.ostromir",
         "done": {
           "any": [
@@ -1673,7 +1673,7 @@
     "objectives": [
       {
         "id": "osada",
-        "text": "Przyjmij się w osadzie: zamelduj się u sołtysa Wawrzyna.",
+        "text": "Zadomów się w osadzie: zamelduj się u sołtysa Wawrzyna.",
         "at": "gluszec.soltys",
         "done": {
           "any": [
@@ -2122,7 +2122,7 @@
   {
     "id": "kto_pali_w_zaulku",
     "kind": "errand",
-    "name": "Kto pali w Zaułku Szklarzy",
+    "name": "Ogień w Zaułku Szklarzy",
     "hub": "ulfgrod",
     "board": true,
     "deadlineDays": null,
@@ -2130,7 +2130,7 @@
     "objectives": [
       {
         "id": "rozstrzygnij",
-        "text": "Załatw sprawę na miejscu: Kto pali w Zaułku Szklarzy.",
+        "text": "Załatw sprawę na miejscu: Ogień w Zaułku Szklarzy.",
         "at": "zaulek_szklarzy.pracownia_alchemika",
         "done": {
           "flag": "kto_pali_w_zaulku_zrobione"
@@ -2138,7 +2138,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u pisarza w biurze.",
+        "text": "Rozlicz się u pisarza w kancelarii.",
         "at": "ulfgrod.biuro_pisarza",
         "done": {
           "flag": "kto_pali_w_zaulku_zameldowane"
@@ -2178,7 +2178,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u pisarza w biurze.",
+        "text": "Rozlicz się u pisarza w kancelarii.",
         "at": "ulfgrod.biuro_pisarza",
         "done": {
           "flag": "zaginiony_skarbnik_zameldowane"
@@ -2218,7 +2218,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u pisarza w biurze.",
+        "text": "Rozlicz się u pisarza w kancelarii.",
         "at": "ulfgrod.biuro_pisarza",
         "done": {
           "flag": "wino_dla_koszar_zameldowane"
@@ -2258,7 +2258,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u pisarza w biurze.",
+        "text": "Rozlicz się u pisarza w kancelarii.",
         "at": "ulfgrod.biuro_pisarza",
         "done": {
           "flag": "dlug_przekupki_zameldowane"
@@ -2298,7 +2298,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u pisarza w biurze.",
+        "text": "Rozlicz się u pisarza w kancelarii.",
         "at": "ulfgrod.biuro_pisarza",
         "done": {
           "flag": "cmentarz_bez_nazwisk_zameldowane"
@@ -2338,7 +2338,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u pisarza w biurze.",
+        "text": "Rozlicz się u pisarza w kancelarii.",
         "at": "ulfgrod.biuro_pisarza",
         "done": {
           "flag": "list_dla_marszalka_zameldowane"
@@ -2378,7 +2378,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u pisarza w biurze.",
+        "text": "Rozlicz się u pisarza w kancelarii.",
         "at": "ulfgrod.biuro_pisarza",
         "done": {
           "flag": "przemyt_z_portu_zameldowane"
@@ -2418,7 +2418,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u pisarza w biurze.",
+        "text": "Rozlicz się u pisarza w kancelarii.",
         "at": "ulfgrod.biuro_pisarza",
         "done": {
           "flag": "smyk_i_klucz_zameldowane"
@@ -2579,7 +2579,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "text": "Rozlicz się u kapitana przystani w kancelarii.",
         "at": "przystan_jarnowo.biuro_kapitana",
         "done": {
           "flag": "lodz_bez_zalogi_zameldowane"
@@ -2614,7 +2614,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "text": "Rozlicz się u kapitana przystani w kancelarii.",
         "at": "przystan_jarnowo.biuro_kapitana",
         "done": {
           "flag": "kowal_i_rusznice_zameldowane"
@@ -2649,7 +2649,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "text": "Rozlicz się u kapitana przystani w kancelarii.",
         "at": "przystan_jarnowo.biuro_kapitana",
         "done": {
           "flag": "wiesci_z_ladu_zameldowane"
@@ -2684,7 +2684,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "text": "Rozlicz się u kapitana przystani w kancelarii.",
         "at": "przystan_jarnowo.biuro_kapitana",
         "done": {
           "flag": "przejscie_smyka_zameldowane"
@@ -2722,7 +2722,7 @@
       },
       {
         "id": "rozlicz",
-        "text": "Rozlicz się u kapitana przystani w biurze.",
+        "text": "Rozlicz się u kapitana przystani w kancelarii.",
         "at": "przystan_jarnowo.biuro_kapitana",
         "done": {
           "flag": "rozpoznanie_urzadzenia_zameldowane"
@@ -2754,7 +2754,7 @@
     "objectives": [
       {
         "id": "znajomi",
-        "text": "Zgłoś się do kapitana przystani w biurze: wyspa nie lubi przybyszów, którzy nie wiedzą, komu podlegają.",
+        "text": "Zgłoś się do kapitana przystani w kancelarii: wyspa nie lubi przybyszów, którzy nie wiedzą, komu podlegają.",
         "at": "przystan_jarnowo.biuro_kapitana",
         "done": {
           "flag": "kapitan_przystani_poznany"
@@ -2869,7 +2869,7 @@
     "name": "Siodło dla zwiadowców",
     "hub": "wilczy_brod",
     "deadlineDays": null,
-    "description": "Rymarz Jaromił prosi, byś zaniósł przesyłkę: naprawione siodło czeka na odbiorcę w miejscu zwanym Trakt kupiecki.",
+    "description": "Rymarz Przybysław prosi, byś zaniósł przesyłkę: naprawione siodło czeka na odbiorcę w miejscu zwanym Trakt kupiecki.",
     "objectives": [
       {
         "id": "dostawa",
@@ -2910,7 +2910,7 @@
     "name": "Świece na kapliczkę",
     "hub": "gluszec",
     "deadlineDays": null,
-    "description": "Świecarz Tobiasz prosi, byś zaniósł przesyłkę: świece woskowe czeka na odbiorcę w miejscu zwanym Kapliczka na rozstajach.",
+    "description": "Świecarz Tobiasz prosi, byś zaniósł przesyłkę: świece woskowe czekają na odbiorcę w miejscu zwanym Kapliczka na rozstajach.",
     "objectives": [
       {
         "id": "dostawa",
@@ -2989,7 +2989,7 @@
   {
     "id": "zold_w_kosciach",
     "kind": "errand",
-    "name": "Żołd w kościach",
+    "name": "Żołd przegrany w kości",
     "hub": "oboz_wronia",
     "deadlineDays": null,
     "description": "Szuler Mszczuj ograł drużynę kaprala Żegoty z całego żołdu, sześćdziesięciu groszy, i pojechał na pole bitwy. Kapral chce mieszek z powrotem i nie może po niego pójść, bo ma nogę.",

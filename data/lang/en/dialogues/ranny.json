@@ -1,0 +1,19 @@
+{
+  "nodes.opatrz_ok.options.[dalej].text": {"t":"I'll tell him.","h":"538924af"},
+  "nodes.opatrz_ok.speaker": {"t":"Wounded Miner","h":"d8b44308"},
+  "nodes.opatrz_ok.text": {"t":"The beam gives, and the leg's only bruised. The plank splint holds. The miner lets his breath out like a bellows. \"Good work. Tell Wincenty I'm alive, and I'm not speaking to him till the day I die.\"","h":"3051a5b4"},
+  "nodes.opatrz_start.options.[opatrz_n].text": {"t":"Carry him to Dobrawa.","h":"7d00c8e6"},
+  "nodes.opatrz_start.options.[opatrz_t].text": {"t":"Free the leg and splint it.","h":"d72c6dfc"},
+  "nodes.opatrz_start.speaker": {"t":"Wounded Miner","h":"d8b44308"},
+  "nodes.opatrz_start.text": {"t":"The miner grits his teeth. \"Go on, do it. So long as I walk on my own two feet after.\"","h":"b414414b"},
+  "nodes.opatrz_zle.options.[zanies].text": {"t":"Carry him to Dobrawa.","h":"7d00c8e6"},
+  "nodes.opatrz_zle.speaker": {"t":"Wounded Miner","h":"d8b44308"},
+  "nodes.opatrz_zle.text": {"t":"The splint slips, and the miner howls so the echo comes back three times over. \"Leave it! Leave it, or I'll throw you out with my bare hands, plague take you! Somebody carry me to that Dobrawa, and you keep your paws off.\" There's only one sensible way left.","h":"ab002596"},
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[opatrz].text": {"t":"Tend to his leg.","h":"2b61c59a"},
+  "nodes.powitanie.speaker": {"t":"Wounded Miner","h":"d8b44308"},
+  "nodes.powitanie.text": {"t":"Deep in the tunnel, under a collapsed prop, lies a miner with his leg pinned by a beam. Pale as tallow, but he hasn't lost his nerve. \"Don't touch it, or I'll swear till the roof comes down. Or stop gawking, damn it all, and help.\"","h":"9cf44403"},
+  "nodes.zanies.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zanies.speaker": {"t":"Wounded Miner","h":"d8b44308"},
+  "nodes.zanies.text": {"t":"You carry him across half the Quarry and the whole way to Głuszec, as carefully as an egg in your fist. Dobrawa takes him without a word and points to a bench. \"Leave him. If he lived through a night under a beam, he'll live through my hands too. Go, tell the caretaker.\"","h":"0a4273f0"}
+}

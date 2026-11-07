@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care.","h":"30caaebd"},
+  "nodes.odebrane.speaker": {"t":"Grave by the Shrine","h":"2e963158"},
+  "nodes.odebrane.text": {"t":"You tuck the letter under a stone and step back. The wind catches a corner of it, as if someone were tugging from the other side. Behind the grave someone has left a purse. For whoever brings the letter, most likely.","h":"23f399f9"},
+  "nodes.s.options.[daj].text": {"t":"Lay it on the grave.","h":"0495d5da"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back later.","h":"7eabaf21"},
+  "nodes.s.speaker": {"t":"Grave by the Shrine","h":"2e963158"},
+  "nodes.s.text": {"t":"Behind the shrine there's a plain grave with no cross, just initials laid out in stones. Someone brought flowers here not long ago.","h":"3e855eb8"}
+}

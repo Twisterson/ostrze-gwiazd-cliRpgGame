@@ -8,10 +8,11 @@ import { enemyById } from "../systems/combat/data.js";
 import { livingEnemies } from "../systems/combat/state.js";
 import { paint, graphicsMode } from "./colors.js";
 import { renderPixels, tintLines } from "./pixels.js";
-import { t } from "./strings.js";
+import { t, hotkey } from "./strings.js";
 import { formatRemaining } from "./events.js";
 import { mysticTags, fitPieces } from "./screen.js";
 import { visibleWidth } from "./frame.js";
+import { wrap } from "./text.js";
 
 const BLOCK_ROWS = 7;
 const INFO_MIN = 43; // columns the enemies' text needs beside the picture
@@ -37,7 +38,6 @@ const BAR_MAX = 14;
 const BAR_MIN = 4;
 const LIST_ROWS = 2;
 const MIN_LIST_ROWS = 4; // the enemies a frame's panel can always list
-const ACTION_HOTKEYS = { attack: "a", reload: "p", use: "u", swap: "z", move: "b", defend: "o", flee: "c", end: "k", log: "l", techniques: "t" };
 const NO_COST_HINT = new Set(["use", "end", "log", "techniques"]); // variable or free: the cost is not shown (defend takes all remaining AP, shown as that number)
 
 const pad2 = (n) => String(n).padStart(2, "0");
@@ -70,6 +70,48 @@ function logLines(data, combat, budget, logSeen) {
   if (fresh <= budget) return { marker: null, entries: tail(Math.min(budget, log.length)) };
   const shown = budget - 1;
   return { marker: t(data.ui, "combat.logMore", { n: fresh - shown }), entries: shown > 0 ? tail(shown) : [] };
+}
+
+/**
+ * One journal entry as panel rows of at most `width` columns: "· " and the text wrapped to `width - 2` (the same `wrap` the
+ * scene text and the full journal use), every following row indented by two spaces.
+ */
+export function logEntryRows(text, width) {
+  return wrap(text, Math.max(width - 2, 1)).split("\n").map((row, i) => fit(`${i === 0 ? "· " : "  "}${row}`, width));
+}
+
+/**
+ * The journal rows of a frame's panel, at most `budget` of them: whole entries from the newest backwards. When the entries
+ * that arrived since the last draw (`logSeen` entries were shown then) take more rows than fit, the first row is the
+ * "(+n wcześniej – [L])" marker, where n counts the rows of those entries left out. Returns [{ text, role }].
+ */
+function panelLogRows(data, combat, budget, logSeen, width) {
+  const { log } = combat;
+  const firstFresh = logSeen === undefined ? log.length : Math.max(0, logSeen);
+  const entries = log.map((text, i) => ({ i, role: combat.logRoles?.[i] ?? "dim", rows: logEntryRows(text, width) }));
+  const fill = (room) => {
+    const picked = [];
+    let used = 0;
+    for (let k = entries.length - 1; k >= 0 && used + entries[k].rows.length <= room; k--) {
+      picked.unshift(entries[k]);
+      used += entries[k].rows.length;
+    }
+    // the newest entry alone takes more rows than there are: its first rows, the last one cut (no marker, nothing older shows)
+    if (picked.length === 0 && entries.length && room > 0) {
+      const head = entries.at(-1).rows.slice(0, room);
+      head[room - 1] = fit(`${head[room - 1]}…`, width);
+      return { picked: [{ ...entries.at(-1), rows: head }], used: room, cut: true };
+    }
+    return { picked, used, cut: false };
+  };
+  const flat = (picked) => picked.flatMap(({ role, rows }) => rows.map((text) => ({ text, role })));
+  const whole = fill(budget);
+  // every entry since the last draw is shown (or the newest alone overflows): no marker
+  if (whole.cut || whole.picked.length === 0 || whole.picked[0].i <= firstFresh) return flat(whole.picked);
+  const freshRows = entries.slice(firstFresh).reduce((n, e) => n + e.rows.length, 0);
+  const { picked, used, cut } = fill(budget - 1);
+  if (cut) return flat(whole.picked); // the marker would leave room only for a part of the newest entry
+  return [{ text: fit(t(data.ui, "combat.logMore", { n: freshRows - used }), width), role: "warn" }, ...flat(picked)];
 }
 
 /** The first `count` of the living enemies, in their order; the target is always among them. */
@@ -111,7 +153,7 @@ function rightColumn(state, data, combat, target, width, logSeen, { listRows = L
   return rows;
 }
 
-/** "Dzień 1, 16:20 · dzień · ⚡ Iskrząca Burza · ◆ 64%" as painted pieces (time dim, mystic tags violet). */
+/** "Dzień 1, 16:20 · dzień · ⚡ Burza iskier · ◆ 64%" as painted pieces (time dim, mystic tags violet). */
 function timeLine(state, data) {
   const { day, hour, minute } = clockOf(state.time.minutes);
   const pieces = [[`  ${t(data.ui, "status.time", { day, hh: pad2(hour), mm: pad2(minute) })} · ${t(data.ui, `time.${timeOfDay(state.time.minutes, data.rules)}`)}`, "dim"]];
@@ -165,8 +207,8 @@ export function renderCombat(state, data, combat, { columns, tty, targetUid, log
 
 /**
  * The left panel of a combat frame, exactly `height` lines of at most `width` columns: the enemies' block (the target's
- * name and HP bar, effects, the living enemies, the art beside them from 84 columns), an empty line and the newest log entries
- * (with "(+n wcześniej – [L])" when more arrived since the last draw than fit).
+ * name and HP bar, effects, the living enemies, the art beside them from 84 columns), an empty line and the newest log entries,
+ * wrapped (see `panelLogRows`; "(+n wcześniej – [L])" when more rows arrived since the last draw than fit).
  */
 function renderCombatPanel(state, data, combat, { tty, targetUid, logSeen, width, height, color }) {
   const living = livingEnemies(combat);
@@ -187,9 +229,7 @@ function renderCombatPanel(state, data, combat, { tty, targetUid, logSeen, width
   const budget = height - block.length - 1;
   const lines = [...block, ""];
   if (budget > 0) {
-    const { marker, entries } = logLines(data, combat, budget, logSeen);
-    if (marker) lines.push(paint("warn", fit(marker, width)));
-    for (const { text, role } of entries) lines.push(paint(role, fit(`· ${text}`, width)));
+    for (const { text, role } of panelLogRows(data, combat, budget, logSeen, width)) lines.push(paint(role, text));
   }
   return lines.slice(0, height);
 }
@@ -201,16 +241,16 @@ function renderCombatPanel(state, data, combat, { tty, targetUid, logSeen, width
  */
 export function combatActionItems(ui, actions) {
   return actions.map((a) => {
-    const item = { label: t(ui, `combat.action.${a.id}`), hotkey: ACTION_HOTKEYS[a.id], description: t(ui, `combat.desc.${a.id}`) };
+    const item = { label: t(ui, `combat.action.${a.id}`), hotkey: hotkey(ui, `combat.key.${a.id}`), description: t(ui, `combat.desc.${a.id}`) };
     if (a.disabled) return { ...item, disabled: true, hint: `(${t(ui, a.reason)})` };
-    if (a.id === "flee") return { ...item, hint: `(${a.apCost} PA · ${a.chance}%)` };
-    if (a.apCost > 0 && !NO_COST_HINT.has(a.id)) return { ...item, hint: `(${a.apCost} PA)` };
+    if (a.id === "flee") return { ...item, hint: t(ui, "combat.fleeCost", { ap: a.apCost, chance: a.chance }) };
+    if (a.apCost > 0 && !NO_COST_HINT.has(a.id)) return { ...item, hint: t(ui, "combat.apCost", { ap: a.apCost }) };
     return item;
   });
 }
 
 /** "(4 PA)" for an available entry, "(reason)" and greyed for an unavailable one. */
-const costOrReason = (ui, apCost, reason) => (reason ? { disabled: true, hint: `(${t(ui, reason)})` } : { hint: `(${apCost} PA)` });
+const costOrReason = (ui, apCost, reason) => (reason ? { disabled: true, hint: `(${t(ui, reason)})` } : { hint: t(ui, "combat.apCost", { ap: apCost }) });
 
 /**
  * `select` items for `techniqueActions(...)`: "Atak celowany (4 PA)", "Rzuć: Sztylet (2 PA)"; unavailable ones greyed
@@ -244,7 +284,6 @@ function artifactItem(data, a) {
   return { label, description, ...(a.disabled ? { disabled: true, hint: `(${t(ui, a.reason)})` } : {}) };
 }
 
-const ZONE_HOTKEYS = { glowa: "g", tulow: "r", nogi: "n", ogluszenie: "s" };
 const signed = (n) => (n > 0 ? `+${n}` : n < 0 ? `−${Math.abs(n)}` : "±0");
 
 /**
@@ -259,7 +298,7 @@ export function zoneItems(data, zones) {
     return {
       id: a.id,
       label: t(ui, `combat.zone.${a.id}`),
-      hotkey: ZONE_HOTKEYS[a.id],
+      hotkey: hotkey(ui, `combat.key.${a.id}`),
       description: t(ui, `combat.zoneDesc.${a.id}`, {
         hit: signed(-(a.penalty ?? z.penalty)), damage: signed(z.damagePercent ?? 0), crit: z.critBonus ?? 0, chance: z.chance ?? 0,
         bluntChance: (z.chance ?? 0) + (z.bluntBonus ?? 0), effect: z.effect ? effectById(data, z.effect)?.name ?? z.effect : "",

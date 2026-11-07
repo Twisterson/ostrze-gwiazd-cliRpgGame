@@ -1,0 +1,16 @@
+{
+  "nodes.cesarscy.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.cesarscy.speaker": {"t":"Carter Wit","h":"1188654b"},
+  "nodes.cesarscy.text": {"t":"Wit slaps the side of the wagon. \"The imperials have everything anyway, so I'll give them a bit more. You won't find a smaller wrong than that.\" The command will learn later that the barrels arrived. The rest of the front will learn it from the smoke.","h":"56d298ff"},
+  "nodes.jarnowianie.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.jarnowianie.speaker": {"t":"Carter Wit","h":"1188654b"},
+  "nodes.jarnowianie.text": {"t":"Wit spits at the hooves of a horse that isn't there. \"The islanders paid better. Not saying that's the reason. Saying I know who paid.\" The wagon rolls off towards the Jarnowian camp, and you're left with the feeling that someone will count this against you one day.","h":"2344279c"},
+  "nodes.rzeka.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.rzeka.speaker": {"t":"Carter Wit","h":"1188654b"},
+  "nodes.rzeka.text": {"t":"The barrels roll into the water one after another, splash, splash, and the Grey turns black as ink. Wit stares into the current like a man who has just lost two jobs and half his life. \"Now both sides will be looking for me. Thanks, wanderer.\"","h":"279dbdd0"},
+  "nodes.wozu.options.[cesarz].text": {"t":"To the imperials.","h":"4c2dc9d5"},
+  "nodes.wozu.options.[rzeka].text": {"t":"Pour it into the Grey. Pitch is for pitch-burners.","h":"245790ac"},
+  "nodes.wozu.options.[wyspiarze].text": {"t":"To the Jarnowians.","h":"5c34a275"},
+  "nodes.wozu.speaker": {"t":"Carter Wit","h":"1188654b"},
+  "nodes.wozu.text": {"t":"The carter sits on the box with no whip and no horse, and looks like a man who couldn't care less. \"Barrels. Pitch, supposedly. One from the imperials, one from the islanders, because both sides ordered from the same woman. Both paid. All I've got to do is pick who gets them.\"","h":"35b39469"}
+}

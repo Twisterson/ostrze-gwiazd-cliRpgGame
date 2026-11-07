@@ -1,0 +1,17 @@
+{
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[q9_koniec].text": {"t":"Your husband lies by the wall, third row from the shrine.","h":"ef28e7bd"},
+  "nodes.powitanie.options.[q9_start].text": {"t":"Your daughter said you live here.","h":"a8d51566"},
+  "nodes.powitanie.options.[q9_start_z].text": {"t":"I've seen your daughter. It's about the amulet.","h":"d70b46b8"},
+  "nodes.powitanie.speaker": {"t":"Jaga the Widow","h":"b34dd610"},
+  "nodes.powitanie.text": {"t":"Jaga the widow stands by the fence with her hands folded over her belly, looking at you as if you were carrying a letter she's been afraid to read.","h":"84242d46"},
+  "nodes.q9_koniec.options.[dalej].text": {"t":"As you say.","h":"0155f7de"},
+  "nodes.q9_koniec.speaker": {"t":"Jaga the Widow","h":"b34dd610"},
+  "nodes.q9_koniec.text": {"t":"Jaga falls silent, and then does something you don't expect: she smiles, thin as a thread. \"Third row. He liked that corner, the sun looked in there of an afternoon. God repay you. Here, take what I have: a bit of meat to trade. I can't give more, because I haven't got it, but whoever brings good news doesn't leave empty-handed.\"","h":"cd3ce9cb"},
+  "nodes.q9_start.options.[dalej].text": {"t":"I'll ask.","h":"239ed44a"},
+  "nodes.q9_start.speaker": {"t":"Jaga the Widow","h":"b34dd610"},
+  "nodes.q9_start.text": {"t":"Jaga blinks slowly. \"My Ela? She came a few days ago with the amulet and cried the whole evening. My husband was a guard at the ruins, and he died when the Imperials closed the place. I don't know where they buried him. Jerzy the digger likely knows, but I haven't the nerve to ask. Will you ask for me?\"","h":"921aae87"},
+  "nodes.q9_start_z.options.[dalej].text": {"t":"All right.","h":"6ed43b65"},
+  "nodes.q9_start_z.speaker": {"t":"Jaga the Widow","h":"b34dd610"},
+  "nodes.q9_start_z.text": {"t":"Jaga presses her lips together till they vanish. \"You kept it. So be it, it's a keepsake. I won't take it from you. But my man lies somewhere here in the ground, and I want to know where. Jerzy the digger ought to know. Will you ask for me?\"","h":"57570e6f"}
+}

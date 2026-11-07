@@ -3,8 +3,8 @@
   "start": "s",
   "nodes": {
     "s": {
-      "speaker": "Rymarz Jaromił",
-      "text": "Na drodze stoi wóz, a przy nim chudy rymarz z siodłem na plecach, które sięga mu do kolan. „Jaromił, rymarz. Obiecałem zwiadowcom siodło na Trakcie Kupieckim, ale mi się noga skręciła na korzeniu. Zaniesiesz? Zapłacą, bo zwiadowcy płacą zawsze za późno, ale płacą.”",
+      "speaker": "Rymarz Przybysław",
+      "text": "Na drodze stoi wóz, a przy nim chudy rymarz z siodłem na plecach, które sięga mu do kolan. „Przybysław, rymarz. Obiecałem zwiadowcom siodło na Trakcie kupieckim, ale mi się noga skręciła na korzeniu. Zaniesiesz? Zapłacą, bo zwiadowcy płacą zawsze za późno, ale płacą.”",
       "options": [
         {
           "id": "zgoda",
@@ -19,8 +19,8 @@
       ]
     },
     "zgoda": {
-      "speaker": "Rymarz Jaromił",
-      "text": "Jaromił zdejmuje siodło z pleców i oddycha, jakby zdjął z siebie jakiegoś dłużnika. „Niech ci się szlak rozwija, a nie wywija. Zwiadowcy stoją na trakcie, tam gdzie kupcy.”",
+      "speaker": "Rymarz Przybysław",
+      "text": "Przybysław zdejmuje siodło z pleców i oddycha, jakby zdjął z siebie jakiegoś dłużnika. „Niech ci się szlak rozwija, a nie wywija. Zwiadowcy stoją na trakcie, tam gdzie kupcy.”",
       "options": [
         {
           "id": "dalej",
@@ -35,7 +35,7 @@
       ]
     },
     "nie": {
-      "speaker": "Rymarz Jaromił",
+      "speaker": "Rymarz Przybysław",
       "text": "„Trudno. Poleżę z nogą w rowie, może ktoś lepszy się trafi.”",
       "options": [
         {

@@ -1,0 +1,16 @@
+{
+  "nodes.odrzuc.options.[dalej].text": {"t":"Move on.","h":"81af1e33"},
+  "nodes.odrzuc.speaker": {"t":"The Glass","h":"d37f446b"},
+  "nodes.odrzuc.text": {"t":"The shard bursts into a thousand splinters, each with a different reflection. None of them is yours. A curse keeps ringing in your ears, and it doesn't sound human.","h":"f4a6728a"},
+  "nodes.s.options.[odrzuc].text": {"t":"Kick it away.","h":"3e7c3d6d"},
+  "nodes.s.options.[wez].text": {"t":"Take the shard.","h":"1ee7da85"},
+  "nodes.s.options.[zostaw].text": {"t":"Leave it be.","h":"14428dab"},
+  "nodes.s.speaker": {"t":"The Glass","h":"d37f446b"},
+  "nodes.s.text": {"t":"Your face shows in the glass, but the movements aren't yours. The shard whispers: 'Take me. I promise it costs nothing.'","h":"9e62b926"},
+  "nodes.wez.options.[dalej].text": {"t":"Move on.","h":"81af1e33"},
+  "nodes.wez.speaker": {"t":"The Glass","h":"d37f446b"},
+  "nodes.wez.text": {"t":"The shard settles into your palm like a warm egg. Nothing hurts, and still you feel that something has just been written down in a book you never read.","h":"e70fb0eb"},
+  "nodes.zostaw.options.[dalej].text": {"t":"Move on.","h":"81af1e33"},
+  "nodes.zostaw.speaker": {"t":"The Glass","h":"d37f446b"},
+  "nodes.zostaw.text": {"t":"You walk away, and the whisper trails after you like a ribbon. This time it couldn't hold you.","h":"78ddbb88"}
+}

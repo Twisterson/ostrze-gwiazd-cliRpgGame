@@ -1,0 +1,8 @@
+{
+  "nodes.komora.options.[zostaje].text": {"t":"I'm not leaving yet. There are things left to finish.","h":"1ef39e70"},
+  "nodes.komora.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.komora.text": {"t":"\"The Emperor is dead, his guard no longer exists. The debt is paid. You may go.\" She says it as to an equal, without command. Only the stars in her face flicker, as if unsure whether this should sound like an ending.","h":"77a31b2e"},
+  "nodes.zostaje.options.[wychodze].text": {"t":"I'm leaving.","h":"c4b7872a"},
+  "nodes.zostaje.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.zostaje.text": {"t":"\"Things. Yes, there are things.\" She is silent longer than politeness requires. \"Do them. We'll see who finishes them.\"","h":"15b10d48"}
+}

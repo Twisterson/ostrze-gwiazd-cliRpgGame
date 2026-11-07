@@ -1,0 +1,15 @@
+{
+  "nodes.kulawy.options.#0.text": {"t":"Forgive me.","h":"c3730478"},
+  "nodes.kulawy.speaker": {"t":"Borek the Shepherd","h":"0ca1ed88"},
+  "nodes.kulawy.text": {"t":"You set it crooked and Borek bellows till the ravens burst off the walls. The leg holds, after a fashion, but it'll be bent for good. \"No matter. While I live, I walk. Tell the wife I'm lame, but in one piece.\"","h":"77bae036"},
+  "nodes.pozegnanie.options.#0.text": {"t":"You'll be back.","h":"3a73b586"},
+  "nodes.pozegnanie.speaker": {"t":"Borek the Shepherd","h":"0ca1ed88"},
+  "nodes.pozegnanie.text": {"t":"\"Right. Let her have some hope. And if I don't come back, let her know I didn't run off like a dog.\"","h":"474d8f74"},
+  "nodes.zdrow.options.#0.text": {"t":"Follow me.","h":"dd64b568"},
+  "nodes.zdrow.speaker": {"t":"Borek the Shepherd","h":"0ca1ed88"},
+  "nodes.zdrow.text": {"t":"A splint from a stick and two strips off his shirt. Borek swears till dust trickles off the walls, but he stands on his own two feet. \"Damn it, not many can do that. When I'm home, I'll tell them you patched me up proper.\"","h":"c0a07a06"},
+  "nodes.znaleziony.options.[opatrz].text": {"t":"Set his leg.","h":"2b61c59a"},
+  "nodes.znaleziony.options.[zona].text": {"t":"I'll tell her you live.","h":"983d011d"},
+  "nodes.znaleziony.speaker": {"t":"Borek the Shepherd","h":"0ca1ed88"},
+  "nodes.znaleziony.text": {"t":"In the corner of a wrecked room, under a stinking sheepskin, lies a man with a twisted leg, barely alive. \"The wife sent you? Tell her the sheep turned up. Me, less so.\"","h":"321a4630"}
+}

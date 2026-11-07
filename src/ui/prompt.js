@@ -1,4 +1,4 @@
-import { t } from "./strings.js";
+import { t, hotkey, isHotkey } from "./strings.js";
 import { select, showAllNotices } from "./menu.js";
 import { paint } from "./colors.js";
 import { drawFrame, say, redrawScreen } from "./screen.js";
@@ -14,12 +14,14 @@ export function choose(io, ui, labels, question, extra = {}) {
  */
 export async function pressEnter(io, ui, { onCharacter } = {}) {
   const prompt = t(ui, onCharacter ? "prompt.enterOrCharacter" : "prompt.enter");
+  const charKey = hotkey(ui, "key.character").toUpperCase();
+  const noticesKey = hotkey(ui, "key.notices").toUpperCase();
   const keyMode = io.isTTY && (onCharacter || io.frame);
   // In a frame the choice panel offers "▶ Enter – dalej" and [P] goes to the command menu; nothing is written on the answer row.
   const writePrompt = () => {
     if (!io.frame) return io.write(prompt);
-    if (onCharacter && !io.frame.commands.some((c) => c.key === "P")) io.frame.commands.push({ key: "P", label: t(ui, "camp.character") });
-    if (io.frame.notices.length > 2 && !io.frame.commands.some((c) => c.key === "L")) io.frame.commands.push({ key: "L", label: t(ui, "frame.notices") });
+    if (onCharacter && !io.frame.commands.some((c) => c.key === charKey)) io.frame.commands.push({ key: charKey, label: t(ui, "camp.character") });
+    if (io.frame.notices.length > 2 && !io.frame.commands.some((c) => c.key === noticesKey)) io.frame.commands.push({ key: noticesKey, label: t(ui, "frame.notices") });
     return drawFrame(io, [paint("title", `▶ ${t(ui, "frame.next")}`)]);
   };
   // Notices hidden behind "…i N więcej [L]" are read with [L], as in the menus.
@@ -34,17 +36,17 @@ export async function pressEnter(io, ui, { onCharacter } = {}) {
       const key = await io.readKey();
       if (key.name === "resize") redrawScreen(io);
       if (key.name === "enter" || (key.name === "char" && key.char === "1")) return; // "[1] Dalej" and Enter are the same everywhere
-      if (key.name === "char" && onCharacter && (key.char === "p" || key.char === "P")) {
+      if (key.name === "char" && onCharacter && isHotkey(ui, "key.character", key.char)) {
         await onCharacter();
         writePrompt();
-      } else if (key.name === "char" && (key.char === "l" || key.char === "L") && hidden()) {
+      } else if (key.name === "char" && isHotkey(ui, "key.notices", key.char) && hidden()) {
         await showHidden();
         writePrompt();
       }
     } else {
       const answer = (await io.ask(prompt)).trim();
-      if (onCharacter && (answer === "p" || answer === "P")) await onCharacter();
-      else if (hidden() && (answer === "l" || answer === "L")) await showHidden();
+      if (onCharacter && isHotkey(ui, "key.character", answer)) await onCharacter();
+      else if (hidden() && isHotkey(ui, "key.notices", answer)) await showHidden();
       else return;
     }
   }
@@ -57,7 +59,7 @@ export async function confirm(io, ui, question) {
     io.frame.body = [...saved, "", question];
     let pick;
     try {
-      pick = await select(io, ui, { items: [{ label: t(ui, "confirm.yes"), hotkey: "t" }, { label: t(ui, "confirm.no"), hotkey: "n" }], initial: 1, digits: false });
+      pick = await select(io, ui, { items: [{ label: t(ui, "confirm.yes"), hotkey: hotkey(ui, "key.yes") }, { label: t(ui, "confirm.no"), hotkey: hotkey(ui, "key.no") }], initial: 1, digits: false });
     } finally {
       io.frame.body = saved;
     }
@@ -65,8 +67,9 @@ export async function confirm(io, ui, question) {
   }
   for (;;) {
     const answer = (await io.ask(`${question} `)).trim().toLowerCase();
-    if (["t", "tak", "y"].includes(answer)) return true;
-    if (["n", "nie"].includes(answer)) return false;
+    // the letter, the whole word, and "y" (always taken, as before)
+    if ([hotkey(ui, "key.yes"), t(ui, "key.yesWord").toLowerCase(), "y"].includes(answer)) return true;
+    if ([hotkey(ui, "key.no"), t(ui, "key.noWord").toLowerCase()].includes(answer)) return false;
     say(io, t(ui, "prompt.confirmInvalid"));
   }
 }

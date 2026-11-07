@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Przybysław the Saddler","h":"57622008"},
+  "nodes.nie.text": {"t":"\"Too bad. I'll lie here in the ditch nursing my ankle. Maybe someone better will come along.\"","h":"eea202b7"},
+  "nodes.s.options.[nie].text": {"t":"No time.","h":"2aa81813"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll take it.","h":"44302728"},
+  "nodes.s.speaker": {"t":"Przybysław the Saddler","h":"57622008"},
+  "nodes.s.text": {"t":"A wagon stands on the road, and by it a skinny saddler with a saddle on his back that reaches down to his knees. \"Przybysław, saddler. I promised the scouts a saddle on the Merchants' Road, but I've turned my ankle on a root. Will you take it? They'll pay. Scouts always pay late, but they pay.\"","h":"4df584b5"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Przybysław the Saddler","h":"57622008"},
+  "nodes.zgoda.text": {"t":"Przybysław takes the saddle off his back and breathes like a man who's shaken off a debtor. \"May your road run smooth and not trip you up. The scouts are camped on the road, where the merchants stop.\"","h":"f674fe41"}
+}

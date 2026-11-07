@@ -121,7 +121,7 @@
         },
         {
           "id": "szkarad",
-          "name": "Ruszniczarz Szkarad",
+          "name": "Rusznikarz Szkarad",
           "type": "scene",
           "scenes": [
             {
@@ -671,7 +671,7 @@
         },
         {
           "id": "szkarad_ulepszenia",
-          "name": "Ruszniczarz Szkarad: ulepszenia",
+          "name": "Rusznikarz Szkarad: ulepszenia",
           "type": "scene",
           "secret": true,
           "if": {
@@ -895,7 +895,7 @@
               "id": "legowisko_wstep",
               "type": "narration",
               "title": "Legowisko w gęstwinie",
-              "text": "W gęstwinie za Lasem Rubieży ziemia ryta, mech zdarty, a z krzaków wali kwaśnym piżmem. Dzik. I to nie sam: za nim jeszcze coś szura i warczy."
+              "text": "W gęstwinie Lasu Rubieży ziemia ryta, mech zdarty, a z krzaków wali kwaśnym piżmem. Dzik. I to nie sam: za nim jeszcze coś szura i warczy."
             },
             {
               "id": "legowisko_walka",
@@ -1094,7 +1094,7 @@
               "id": "zonamlyn_0",
               "type": "narration",
               "title": "Żona młynarza",
-              "text": "Żona młynarza skrobie ziemniaki i gada, nie podnosząc głowy. „Na Kupałę mnie Ostap pod młyn ciągał, wianki puszczać, a teraz mu tylko światła w młynie w głowie. Ja mówię, że to sumienie mu świeci. Chłopy wolą duchy niż gadać z babą.”",
+              "text": "Żona młynarza skrobie rzepę i gada, nie podnosząc głowy. „Na Kupałę mnie Ostap pod młyn ciągał, wianki puszczać, a teraz mu tylko światła w młynie w głowie. Ja mówię, że to sumienie mu świeci. Chłopy wolą duchy niż gadać z babą.”",
               "if": {
                 "notFlag": "zonamlyn_0"
               }
@@ -1114,7 +1114,7 @@
               "id": "zonamlyn_1",
               "type": "narration",
               "title": "Żona młynarza",
-              "text": "„Ty znowu? Jak ci się nudzi, to ziemniaki skrob, na duchy czas przyjdzie potem.”",
+              "text": "„Ty znowu? Jak ci się nudzi, to rzepę skrob, na duchy czas przyjdzie potem.”",
               "if": {
                 "all": [
                   {
@@ -1148,7 +1148,7 @@
               "id": "zonamlyn_2",
               "type": "narration",
               "title": "Żona młynarza",
-              "text": "Żona młynarza nawet głowy nie podnosi. „Czas mi ucieka jak woda spod koła. Przyjdź jutro, może będę miała jakąś nowinę, a może tylko ziemniaki.”",
+              "text": "Żona młynarza nawet głowy nie podnosi. „Czas mi ucieka jak woda spod koła. Przyjdź jutro, może będę miała jakąś nowinę, a może tylko rzepę.”",
               "if": {
                 "flag": "zonamlyn_1"
               },
@@ -1884,7 +1884,7 @@
               "id": "ruiny_oboz_wstep",
               "type": "narration",
               "title": "Obóz zbójców w ruinach",
-              "text": "Pod osypanym murem ognisko, wokół trzech chłopa i pusta beczka. Jeden dostrzega cię pierwszy: „A to, kurwa, kto?”"
+              "text": "Pod osypanym murem ognisko, wokół trzech chłopa i beczka. Jeden dostrzega cię pierwszy: „A to, kurwa, kto?”"
             },
             {
               "id": "ruiny_oboz_walka",
@@ -1960,7 +1960,7 @@
               "id": "wsiebor_1",
               "type": "narration",
               "title": "Wartownik w bramie",
-              "text": "Starzec salutuje ci kijem. „Wsiebor, wartownik. Dwadzieścia lat stoję i nikt nie przyszedł mnie zluzować. Ale i nikt nie wszedł, więc służba idzie.”",
+              "text": "Starzec salutuje ci kijem. „Czcibor, wartownik. Dwadzieścia lat stoję i nikt nie przyszedł mnie zluzować. Ale i nikt nie wszedł, więc służba idzie.”",
               "if": {
                 "all": [
                   {
@@ -1994,7 +1994,7 @@
               "id": "wsiebor_2",
               "type": "narration",
               "title": "Wartownik w bramie",
-              "text": "„Zbójcy przychodzą pod wieczór po cegły na ognisko. Daję im hasło, oni mi chleb. Układ jest uczciwy.” Wsiebor mruga do ciebie jednym okiem.",
+              "text": "„Zbójcy przychodzą pod wieczór po cegły na ognisko. Daję im hasło, oni mi chleb. Układ jest uczciwy.” Czcibor mruga do ciebie jednym okiem.",
               "if": {
                 "all": [
                   {
@@ -2686,7 +2686,7 @@
       "spots": [
         {
           "id": "polana_klusownikow",
-          "name": "Polana ze sidłami",
+          "name": "Polana z sidłami",
           "type": "scene",
           "scenes": [
             {
@@ -2996,7 +2996,7 @@
         },
         {
           "id": "furman",
-          "name": "Furman Bolek",
+          "name": "Furman Sieciech",
           "type": "talk",
           "ref": "furman"
         },
@@ -3982,7 +3982,7 @@
               "id": "pomocnik_1",
               "type": "narration",
               "title": "Pomocnik",
-              "text": "„A, znowu pan. Gwiazdy nie dają spać. Mistrz mówi, że to przez pecha, a ja myślę, że przez kawę.”",
+              "text": "„A, znowu pan. Gwiazdy nie dają spać. Mistrz mówi, że to przez pecha, a ja myślę, że przez mocny napar.”",
               "if": {
                 "all": [
                   {
@@ -4504,7 +4504,7 @@
             {
               "id": "pole_patrol_po",
               "type": "narration",
-              "text": "Patrol leży rozsypany po szkle jak garść koralików. Skrzynia z odłamkami stoi otwarta, ale lepsze jest to, że nikt już nie opisze twojej gęby w raporcie.",
+              "text": "Patrol leży rozsypany po szkle jak garść koralików. Skrzynia z odłamkami stoi otwarta, ale lepsze jest to, że nikt już nie opisze twojej gęby w meldunku.",
               "goto": "koniec"
             },
             {
@@ -4516,7 +4516,7 @@
             {
               "id": "pole_patrol_porazka",
               "type": "narration",
-              "text": "Budzisz się pod osypanym szkłem, bez miecza w ręku, ale z oddechem. Patrol uznał cię za martwego albo za mało ważnego.",
+              "text": "Budzisz się pod osypanym szkłem, bez broni w ręku, ale z oddechem. Patrol uznał cię za martwego albo za mało ważnego.",
               "goto": "koniec"
             }
           ]
@@ -5235,7 +5235,7 @@
             {
               "id": "zapadlisko_gniazdo_porazka",
               "type": "narration",
-              "text": "Ocykasz się w mgle bez poczucia czasu. Obmacujesz kieszenie, wszystko jest, tylko ciebie jakby mniej. Ktoś cię stąd wyniósł, ale nie chce być znany.",
+              "text": "Ocykasz się we mgle bez poczucia czasu. Obmacujesz kieszenie, wszystko jest, tylko ciebie jakby mniej. Ktoś cię stąd wyniósł, ale nie chce być znany.",
               "goto": "koniec"
             }
           ]
@@ -5690,7 +5690,7 @@
               "id": "ostoja_gnat_3",
               "type": "narration",
               "title": "Kuchcik Gnat",
-              "text": "Gnat macha chochlą bez słowa. „Idź no stąd, bo mi się zupa przypali od twojego gadania.”",
+              "text": "Gnat macha na ciebie chochlą. „Idź no stąd, bo mi się zupa przypali od twojego gadania.”",
               "goto": "koniec",
               "if": {
                 "flag": "ostoja_gnat_2"
@@ -5710,7 +5710,7 @@
       },
       "danger": 4,
       "secret": true,
-      "hint": "mur na horyzoncie, cztery dni od brodu",
+      "hint": "mur na horyzoncie, cztery dni od Brodu",
       "art": "twierdza_graniczna",
       "spots": [
         {
@@ -5764,7 +5764,7 @@
             {
               "id": "twierdza_brama_porazka",
               "type": "narration",
-              "text": "Budzisz się za murem, tam gdzie nikt cię nie widzi. Nie wiesz, kto cię wyniósł, ale pachnie od niego rumem i świeżym drewnem.",
+              "text": "Budzisz się za murem, tam gdzie nikt cię nie widzi. Nie wiesz, kto cię wyniósł, ale pachnie od niego bimbrem i świeżym drewnem.",
               "goto": "koniec"
             }
           ]
@@ -5844,7 +5844,7 @@
               "id": "twierdza_mirosz_1",
               "type": "narration",
               "title": "Stary celnik Mirosz",
-              "text": "„Wróciłeś. Dawno nikt do mnie nie wracał.” Mirosz przewraca stronę. „Cesarz zamknął granicę, bo mu się coś przyśniło. Co, tego nie wiem, ale po tym, co widzę w nocach nad górami, mu współczuję.”",
+              "text": "„Wróciłeś. Dawno nikt do mnie nie wracał.” Mirosz przewraca stronę. „Cesarz zamknął granicę, bo mu się coś przyśniło. Co, tego nie wiem, ale po tym, co widzę nocami nad górami, mu współczuję.”",
               "if": {
                 "all": [
                   {
@@ -6041,14 +6041,14 @@
         },
         {
           "id": "wit",
-          "name": "Pogorzelec Wit",
+          "name": "Pogorzelec Chwalisław",
           "type": "scene",
           "scenes": [
             {
               "id": "osada_wit_0",
               "type": "narration",
-              "title": "Pogorzelec Wit",
-              "text": "Na zwalonej belce siedzi chłop w okopconym kożuchu i obgryza kość. „Wit. Ja tu mieszkałem, zanim przyszli z mieczami, a potem z pochodniami.” Podaje ci obgryzioną kość. Grzecznie odmawiasz.",
+              "title": "Pogorzelec Chwalisław",
+              "text": "Na zwalonej belce siedzi chłop w okopconym kożuchu i obgryza kość. „Chwalisław. Ja tu mieszkałem, zanim przyszli z mieczami, a potem z pochodniami.” Podaje ci obgryzioną kość. Grzecznie odmawiasz.",
               "if": {
                 "notFlag": "osada_wit_0"
               }
@@ -6067,8 +6067,8 @@
             {
               "id": "osada_wit_1",
               "type": "narration",
-              "title": "Pogorzelec Wit",
-              "text": "„Wróciłeś? Dobrze. Przynajmniej ktoś widział, co z nami zrobili.” Wit patrzy na zgliszcza. „Szukali kowala. Ten, co zrobił pistolet z rury upiora. Znaleźli kowala, pistolet i całą wieś na dokładkę.”",
+              "title": "Pogorzelec Chwalisław",
+              "text": "„Wróciłeś? Dobrze. Przynajmniej ktoś widział, co z nami zrobili.” Chwalisław patrzy na zgliszcza. „Szukali kowala. Ten, co zrobił pistolet z rury upiora. Znaleźli kowala, pistolet i całą wieś na dokładkę.”",
               "if": {
                 "all": [
                   {
@@ -6101,8 +6101,8 @@
             {
               "id": "osada_wit_2",
               "type": "narration",
-              "title": "Pogorzelec Wit",
-              "text": "„Wielu myśli, że cesarz to zło. Cesarz to urzędnik. Zło ma twarz z czarnego szkła i nie przychodzi z mieczem.” Wit milknie, jakby się przestraszył własnych słów.",
+              "title": "Pogorzelec Chwalisław",
+              "text": "„Wielu myśli, że cesarz to zło. Cesarz to urzędnik. Zło ma twarz z czarnego szkła i nie przychodzi z mieczem.” Chwalisław milknie, jakby się przestraszył własnych słów.",
               "if": {
                 "all": [
                   {
@@ -6135,8 +6135,8 @@
             {
               "id": "osada_wit_3",
               "type": "narration",
-              "title": "Pogorzelec Wit",
-              "text": "Wit zerka na ciebie z politowaniem. „Nic więcej nie powiem. Nie przeżyłbym, gdybym gadał.”",
+              "title": "Pogorzelec Chwalisław",
+              "text": "Chwalisław zerka na ciebie z politowaniem. „Nic więcej nie powiem. Nie przeżyłbym, gdybym gadał.”",
               "goto": "koniec",
               "if": {
                 "flag": "osada_wit_2"
@@ -6504,7 +6504,7 @@
               "id": "lodz_gwidon_0",
               "type": "narration",
               "title": "Astronom Gwidon",
-              "text": "Na kadłubie siedzi mężczyzna z lunetą i notesem. „Gwidon. Zbieram światło.” Podnosi lunetę do oka i znów ją opuszcza. „Ten statek spadł tu sto lat temu. Albo wczoraj. W kalendarzu jest bałagan.”",
+              "text": "Na kadłubie siedzi mężczyzna z lunetą i kajetem. „Gwidon. Zbieram światło.” Podnosi lunetę do oka i znów ją opuszcza. „Ten statek spadł tu sto lat temu. Albo wczoraj. W kalendarzu jest bałagan.”",
               "if": {
                 "notFlag": "lodz_gwidon_0"
               }
@@ -6732,7 +6732,7 @@
               "id": "stacja_jaromir_0",
               "type": "narration",
               "title": "Kustosz Jaromir",
-              "text": "W holu siedzi człowiek w płaszczu z czerwonego sukna. „Jaromir. Kustosz. Pilnuję, żeby nic nie wyszło i nic nie weszło. Przepraszam, już weszło.” Uśmiecha się niepewnie.",
+              "text": "W sieni siedzi człowiek w płaszczu z czerwonego sukna. „Jaromir. Kustosz. Pilnuję, żeby nic nie wyszło i nic nie weszło. Przepraszam, już weszło.” Uśmiecha się niepewnie.",
               "if": {
                 "notFlag": "stacja_jaromir_0"
               }
@@ -8847,14 +8847,14 @@
         },
         {
           "id": "sklep_hurtownika",
-          "name": "Hurtownia pod Murem",
+          "name": "Skład Pod Murem",
           "type": "shop",
           "ref": "sklep_hurtownika",
           "art": "kram"
         },
         {
           "id": "biuro_pisarza",
-          "name": "Biuro pisarza",
+          "name": "Kancelaria pisarza",
           "type": "talk",
           "ref": "pisarz"
         },
@@ -11484,7 +11484,7 @@
         },
         {
           "id": "biuro_kapitana",
-          "name": "Biuro kapitana przystani",
+          "name": "Kancelaria kapitana przystani",
           "type": "talk",
           "ref": "kapitan_przystani"
         },
@@ -14533,7 +14533,7 @@
           "id": "patrol_ucieczka",
           "type": "narration",
           "title": "Uciekasz",
-          "text": "Rzucasz się w chaszcze, a miecze świszczą tam, gdzie przed chwilą stałeś. Gonią cię przez pół boru, aż gubią trop w strumieniu. Do wsi dowlekasz się w błocie po uszy i wściekły jak pies, ale cały."
+          "text": "Rzucasz się w chaszcze, a miecze świszczą tam, gdzie przed chwilą stałeś. Gonią cię przez pół boru, aż gubią trop w strumieniu. Na drogę wracasz w błocie po uszy i wściekły jak pies, ale cały."
         }
       ]
     },
@@ -14904,13 +14904,13 @@
         {
           "id": "marudery_na_drodze_wstep",
           "type": "narration",
-          "title": "Marudery",
+          "title": "Maruderzy",
           "text": "Dwóch obdartusów w mundurach bez dystynkcji blokuje dróżkę. Trzeci, łucznik, siedzi na pniaku i naciąga cięciwę. „Wędrowcze, mamy taki zwyczaj. Płacisz za przejście albo przechodzisz przez nas.”"
         },
         {
           "id": "marudery_na_drodze_walka",
           "type": "combat",
-          "title": "Marudery",
+          "title": "Maruderzy",
           "enemies": [
             {
               "id": "maruder",

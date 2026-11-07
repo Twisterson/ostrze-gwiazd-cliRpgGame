@@ -1,0 +1,23 @@
+{
+  "nodes.bunt.options.[dalej].text": {"t":"Onward.","h":"8e1b24cb"},
+  "nodes.bunt.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.bunt.text": {"t":"The glass face tilts, as if looking at a worm. \"That too is recorded.\" The stars in it tremble. You get the feeling it liked that answer.","h":"677f75a4"},
+  "nodes.cesarz.options.[dalej].text": {"t":"Keep listening.","h":"48594bd0"},
+  "nodes.cesarz.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.cesarz.text": {"t":"The glass face doesn't so much as twitch, but the voice adds, almost in passing: \"The Emperor's order was no embassy.\" The stars in it go out and light up again.","h":"3f63aa5a"},
+  "nodes.nadejscie.options.[cesarz].text": {"t":"\"The Emperor?…\"","h":"7064589e"},
+  "nodes.nadejscie.options.[dalej].text": {"t":"Keep listening.","h":"48594bd0"},
+  "nodes.nadejscie.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.nadejscie.text": {"t":"You wake in the middle of the night. Bent over you is the Being, with a face of black glass where stars shine, though they're no reflection of the sky. Your wounds are sealed, as if they had never been. You hear the voice not with your ears but somewhere in your bones: \"Tissue knit. Core functional. Debt incurred. Destroy what was built upon this land.\"","h":"76e24b1e"},
+  "nodes.pokora.options.[dalej].text": {"t":"Onward.","h":"8e1b24cb"},
+  "nodes.pokora.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.pokora.text": {"t":"\"Recorded.\" The glass face turns to the sky, and then the Being is gone. You're left alone, in the cold.","h":"75786c8e"},
+  "nodes.pytanie.options.[dalej].text": {"t":"Onward.","h":"8e1b24cb"},
+  "nodes.pytanie.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.pytanie.text": {"t":"Nothing, for a long while. At last the voice says: \"It will be explained.\" And nothing more.","h":"705fbd85"},
+  "nodes.wybor.options.[bunt].text": {"t":"\"I owe nobody anything.\"","h":"6d4ace1d"},
+  "nodes.wybor.options.[pokora].text": {"t":"\"I'll repay what I owe.\"","h":"1fb67912"},
+  "nodes.wybor.options.[pytanie].text": {"t":"\"What debt?\"","h":"b95f756e"},
+  "nodes.wybor.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.wybor.text": {"t":"The Being waits for an answer. It doesn't breathe and doesn't blink.","h":"e91e274b"}
+}

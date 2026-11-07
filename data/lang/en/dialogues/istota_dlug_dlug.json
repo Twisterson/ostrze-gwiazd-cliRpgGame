@@ -1,0 +1,8 @@
+{
+  "nodes.komora.options.[raty].text": {"t":"A debt is always paid in instalments, and I'm not done yet.","h":"52c66745"},
+  "nodes.komora.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.komora.text": {"t":"\"The Emperor is dead, his guard no longer exists. The debt is paid. You may go.\" She says it as to an equal, without command. Only the stars in her face flicker, as if unsure whether this should sound like an ending.","h":"77a31b2e"},
+  "nodes.raty.options.[wychodze].text": {"t":"I'm leaving.","h":"c4b7872a"},
+  "nodes.raty.speaker": {"t":"The Being","h":"84893ead"},
+  "nodes.raty.text": {"t":"The stars in her face hold still for a moment. \"Instalments. I understand that word better than 'freedom'. Bargaining is my language, and the war I set going is only one of the possible prices.\"","h":"e43a5ffe"}
+}

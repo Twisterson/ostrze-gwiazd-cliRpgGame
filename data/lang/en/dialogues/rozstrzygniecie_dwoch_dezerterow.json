@@ -1,0 +1,20 @@
+{
+  "nodes.namiot.options.[klam].text": {"t":"I haven't seen any deserters. They went over the river.","h":"cba75066"},
+  "nodes.namiot.options.[tomasz].text": {"t":"Tomasz vouches for them. He knows them better than you do.","h":"61472ee3"},
+  "nodes.namiot.options.[wydaj].text": {"t":"I'll show you where.","h":"2a8df27b"},
+  "nodes.namiot.options.[wykup].text": {"t":"How much for the two? I'll buy them off you.","h":"96c725c3"},
+  "nodes.namiot.speaker": {"t":"Lieutenant Rogala","h":"e4f1d17e"},
+  "nodes.namiot.text": {"t":"The lieutenant is thin, dried out and stiff as his own collar, and he talks as if he were reading a sermon. \"Two of my men vanished the night after the battle. I know where they are. The Captain is hiding them, because he's soft on excuses. Find them and bring them in, and you get a purse. Or don't find them and keep your mouth shut, and you get trouble.\"","h":"80cf67e8"},
+  "nodes.puszczeni.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.puszczeni.speaker": {"t":"Lieutenant Rogala","h":"e4f1d17e"},
+  "nodes.puszczeni.text": {"t":"Rogala narrows his eyes. \"Over the river, you say.\" He stares at you for a long while, then waves a hand. \"Fine. Let the Jarnowians feed them, maybe they'll learn something.\" You know he doesn't believe you, but he can't be bothered to check.","h":"a617772c"},
+  "nodes.tomasz.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.tomasz.speaker": {"t":"Lieutenant Rogala","h":"e4f1d17e"},
+  "nodes.tomasz.text": {"t":"Rogala listens to Tomasz talk, about lads from the same platoon, about hunger, and about how someone has to say \"enough\" now and then. He is silent for a very long time. \"Let them go. But not under my banner.\"","h":"96320b7a"},
+  "nodes.wydani.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.wydani.speaker": {"t":"Lieutenant Rogala","h":"e4f1d17e"},
+  "nodes.wydani.text": {"t":"Rogala jots something in his notebook without even looking up. \"A good citizen. The Emperor will be pleased to learn his cause still has a few clean hands.\" By evening you can hear screaming from the ravine, and it stops at dusk. The Captain won't ask how they found out.","h":"037a8367"},
+  "nodes.wykupieni.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.wykupieni.speaker": {"t":"Lieutenant Rogala","h":"e4f1d17e"},
+  "nodes.wykupieni.text": {"t":"The lieutenant counts in his head, then aloud. \"Thirty. For two deserters who aren't worth anything anyway.\" He takes the coins and writes \"Found\" in his notebook. The deserters are no longer in the register, and no longer in the world either, at least not the imperial one.","h":"b3a2f801"}
+}

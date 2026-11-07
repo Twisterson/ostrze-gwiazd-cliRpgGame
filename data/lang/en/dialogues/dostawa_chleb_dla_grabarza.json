@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odebrane.speaker": {"t":"Gravedigger","h":"58c83786"},
+  "nodes.odebrane.text": {"t":"The gravedigger eats half the loaf standing up, elbow propped on his spade. \"Good bread. Tell the baker there's no room in the graveyard for her temper, but I could find a spot for the woman herself. Not soon, mind.\"","h":"e59af6fa"},
+  "nodes.s.options.[daj].text": {"t":"I'm handing over the bread from the baker.","h":"df3809c7"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back.","h":"554def87"},
+  "nodes.s.speaker": {"t":"Gravedigger","h":"58c83786"},
+  "nodes.s.text": {"t":"The gravedigger is digging. He stops to look at you hopefully, and goes back to digging when he sees your hands are empty.","h":"72f6618b"}
+}

@@ -1,0 +1,13 @@
+{
+  "nodes.obozowy.options.[dalej].text": {"t":"I'm moving on.","h":"81af1e33"},
+  "nodes.obozowy.speaker": {"t":"Guard","h":"5f7b0c83"},
+  "nodes.obozowy.text": {"t":"The three of you set off. On the way the prisoner is silent, and the guard swears under his breath at orders nobody thought up and everybody carries out. In the camp someone writes his name in a ledger. The name vanishes into the ledger for good.","h":"98c554c9"},
+  "nodes.puszczony.options.[dalej].text": {"t":"I'm moving on.","h":"81af1e33"},
+  "nodes.puszczony.speaker": {"t":"Guard","h":"5f7b0c83"},
+  "nodes.puszczony.text": {"t":"The guard cuts the rope in one move and turns his back. For a moment the prisoner doesn't understand, then he understands too much, and before he can say anything he's gone. \"Don't know what happened,\" the guard mutters. \"And I'd advise you not to know, either.\"","h":"1e130c2b"},
+  "nodes.s.options.[pomoc].text": {"t":"I'll walk him to the camp with you.","h":"b3b3454d"},
+  "nodes.s.options.[puszczam].text": {"t":"Let him go. He's just a lad from the other side.","h":"c502de23"},
+  "nodes.s.options.[zostaw].text": {"t":"Not my business. I'm moving on.","h":"46cc7332"},
+  "nodes.s.speaker": {"t":"Guard","h":"5f7b0c83"},
+  "nodes.s.text": {"t":"The guard stands over the prisoner with his head bowed. \"I was ordered to deliver him to the camp. But on the way it turned out the camp is full and the road is long.\" He glances meaningfully at the copse. \"You saw nothing, I heard nothing, and he's as hungry as I am.\"","h":"8b797b3b"}
+}

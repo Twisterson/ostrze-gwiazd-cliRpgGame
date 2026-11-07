@@ -5,7 +5,7 @@
 
 [English version](README.en.md)
 
-Terminalowe RPG po polsku, w mrocznym, słowiańskim fantasy. Jesteś jedynym, który przeżył rzeź delegacji ze szkoły ostrza. Cesarstwo uważa cię za martwego i szuka świadka. Ty szukasz odpowiedzi w Pogórzu, w Głuszcu i na Szklanych Wzgórzach, a na końcu stajesz przed trzema drogami: uległością, oporem albo ucieczką.
+Terminalowe RPG po polsku i po angielsku, w mrocznym, słowiańskim fantasy. Jesteś jedynym, który przeżył rzeź delegacji ze szkoły ostrza. Cesarstwo uważa cię za martwego i szuka świadka. Ty szukasz odpowiedzi w Pogórzu, w Głuszcu i na Szklanych Wzgórzach, a na końcu ktoś z gwiazd upomina się o dług.
 
 Gra działa w zwykłym terminalu, bez żadnych zależności. Zwykły tekst, ramki z bloków, ilustracje z półblokowych pikseli.
 
@@ -45,11 +45,11 @@ npm install -g ostrze@latest # na stałe albo aktualizacja; potem polecenie: ost
 
 Samo `npm install ostrze`, bez `-g`, instaluje grę tylko w bieżącym katalogu. Jeśli masz starszą wersję zainstalowaną globalnie, polecenie `ostrze` dalej ją uruchamia. Zainstalowaną wersję pokaże `npm ls -g ostrze`.
 
-Z paczki lokalnej (`ostrze-0.2.3.tgz`) lub z repozytorium:
+Z paczki lokalnej (`ostrze-0.3.0.tgz`) lub z repozytorium:
 
 ```
-npx --package=./ostrze-0.2.3.tgz ostrze
-npm install -g ./ostrze-0.2.3.tgz
+npx --package=./ostrze-0.3.0.tgz ostrze
+npm install -g ./ostrze-0.3.0.tgz
 node bin/game.js     # bezpośrednio z katalogu projektu
 ```
 
@@ -61,10 +61,17 @@ Opcje:
 | `--scene <id>` | zacznij od wskazanej sceny (do testów i szukania błędów) |
 | `--debug` | pokazuj stos błędów |
 | `--validate` | sprawdź poprawność plików danych i wyjdź |
+| `--lang <pl|en>` | język gry na to jedno uruchomienie, bez zapisu ustawienia |
 | `--art <id>` | pokaż grafikę z `data/art` i wyjdź |
 | `--help` | pomoc |
 
 Zapisy gry leżą w `~/.ostrze` (zmienna `OSTRZE_HOME` zmienia katalog).
+
+## Język
+
+Gra ma dwie wersje językowe: polską i angielską. Przy pierwszym uruchomieniu w terminalu pyta, w której chcesz grać, i zapamiętuje wybór w `~/.ostrze/config.json` (ustawienie `language`: `"pl"` albo `"en"`). Język można potem zmienić w menu głównym, pozycją **Język**, albo ręcznie w tym pliku.
+
+`--lang pl` lub `--lang en` wymusza język na to jedno uruchomienie. Wtedy gra o nic nie pyta, a przełączenie języka w menu nie zapisuje się do pliku. Bez zapisanego wyboru i bez `--lang` (np. gdy wejście nie jest terminalem) gra jest po polsku. `--validate` sprawdza domyślnie dane polskie; angielskie nakładki sprawdzisz przez `--validate --lang en` (z `--strict` brak przekładu jest błędem). Angielski przekład leży w `data/lang/en/`.
 
 ## Sterowanie
 
@@ -84,32 +91,13 @@ Zapisy gry leżą w `~/.ostrze` (zmienna `OSTRZE_HOME` zmienia katalog).
 - walka turowa z punktami akcji, zasięgiem, ciosami celowanymi, parą broni, rzutami i biegłością w broniach; wojsko i panowie lochu rosną w siłę razem z bohaterem;
 - mistyka: zjawiska nieba, artefakty, dług i wola jako dwie osie wyborów.
 
-## Bieżące zmiany (0.2.3)
+## Bieżące zmiany (0.3.0)
 
-**Broń dystansowa**
+**Wersja angielska**
 
-- Kusza albo pistolet mogą czekać na plecach, w slocie broni zapasowej. Zmiana na broń dystansową i z powrotem kosztuje 1 PA, a nie 2.
-- Strzał z kuszy i pistoletu kosztuje 3 PA, z rusznicy 4 PA. Ładowanie w walce kosztuje 6 PA.
-- Broń ładuje się sama, za darmo, po walce i przy zakładaniu, jeśli masz amunicję.
-- Każda broń strzela inaczej. Lekka kusza jest najlepsza z bliska. Kusze żołnierska i cesarska biją celnie z daleka, ale w zwarciu tracą 20 punktów celności. Pistolety trafiają tak samo z daleka i z bliska.
-- Trafienie z kuszy albo broni palnej w połowie przypadków spowalnia wroga: −2 PA i brak ruchu przez 2 tury.
-- Nowa technika „Odskok ze strzałem” (5 PA, rusznica i kusze z korbą 6 PA). Bohater odskakuje od wroga w zwarciu, przyjmuje jego darmowy cios, strzela z broni zapasowej i wraca do broni głównej.
-- Strzał z broni palnej zawsze daje dym, chyba że był niewypał. Wróg, który wchodzi w zwarcie przez dym, ma −15 do trafienia w tej turze. Dym i świeca dymna dają przy ucieczce +20 zamiast +40.
-
-**Ulepszanie u kowali**
-
-- Kowale ulepszają broń i pancerz na tułów w dwóch stopniach. Oddajesz przedmiot i pieniądze, dostajesz ulepszoną wersję o tej samej wadze.
-- Miecze i włócznie: lepszy uchwyt (+5 do umiejętności), potem ostrzenie (+1 przebicia pancerza). Kusze: lepsze łoże, potem mocniejsze ramię. Broń palna: muszka, potem lekki spust (mniej niewypałów). Pancerz: warstwa skóry (+5% redukcji), potem lżejsze płyty bez kary do PA.
-- Pierwszy stopień kosztuje około połowy wartości przedmiotu, drugi około całej.
-- Ulepszają: Zbych i Bogdan (pierwszy stopień broni białej i pancerza), kowal polowy i Brygida (oba stopnie, także kusze; u kowala polowego także muszka), Szkarad (broń palna, oba stopnie). Warsztat Zbycha otwiera się po pierwszej rozmowie z nim, a Szkarada trzeba najpierw znaleźć.
-
-**Bełty**
-
-- Bełt wzmocniony zadaje +1 do obrażeń. Bełt wybuchowy też ma +1, a przy trafieniu rani odłamkami innych wrogów w tej samej strefie. Odłamki liczą pancerz i mogą spowolnić. Przy pudle bełt wybucha w połowie przypadków. Gdy strzelasz do wroga w zwarciu, odłamki ranią też ciebie.
-- Kowal polowy i Brygida wymieniają bełty paczkami po 10: zwykłe na wzmocnione za 20 gr, wzmocnione na wybuchowe za 100 gr.
-- W ekwipunku, przy kuszy, jest przełącznik ładowania bełtów wybuchowych. Bez niego kusza nie bierze drogich bełtów do każdej drobnej walki.
-
-Stare zapisy wczytują się bez zmian w postępie.
+- Całą grę można przejść po angielsku: fabułę, rozmowy, zlecenia, przedmioty, interfejs i mapy. Imiona i wymyślone nazwy miejsc zostają polskie.
+- Przy pierwszym uruchomieniu gra pyta o język. Zmienisz go później w menu głównym albo na jedno uruchomienie opcją `--lang` (szczegóły w sekcji „Język”).
+- Stare zapisy wczytują się w obu językach bez zmian w postępie.
 
 ## Dane zamiast kodu
 
@@ -144,5 +132,5 @@ Czy AI zrobi za ciebie grę? Zrobi. Gorzej, jeśli potem zechcesz w nią zagrać
 
 Podwójna licencja, autor: Daniel Twiist Antonik (twisterson@gmail.com).
 
-- **Kod** (`bin/`, `src/`, `test/`): [MIT](LICENSE).
+- **Kod** (`bin/`, `src/`): [MIT](LICENSE).
 - **Treść gry** (`data/`: fabuła, dialogi, grafiki, mapy): [CC BY-NC-SA 4.0](LICENSE-TRESC.md). Wolno kopiować i przerabiać z podaniem autora, bez użycia komercyjnego, przeróbki na tej samej licencji.

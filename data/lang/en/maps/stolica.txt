@@ -1,0 +1,12 @@
+   ~~~~ Ulfgród ~~~~
+
+                                           {palac}
+                                            /
+ {port_rzeczny}------{ulfgrod}-------------
+                  /      |      \
+   {zaulek_szklarzy}  {dom_ciszy}  {targ_pod_murem}
+
+   distant trails (days away)
+      {koszary}    {cmentarz_zbiorowy}
+      {stare_wodociagi}
+      {opuszczony_klasztor}

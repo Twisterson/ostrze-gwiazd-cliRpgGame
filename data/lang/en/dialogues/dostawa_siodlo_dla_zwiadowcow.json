@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odebrane.speaker": {"t":"Scout by His Horse","h":"b6e41ca5"},
+  "nodes.odebrane.text": {"t":"The scout slips a few groats into your hand and goes back to his horse. \"Tell the saddler it'll do.\" The highest praise you'll ever hear from a scout.","h":"1118505f"},
+  "nodes.s.options.[daj].text": {"t":"Saddle from the saddler.","h":"71c0ba72"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back.","h":"554def87"},
+  "nodes.s.speaker": {"t":"Scout by His Horse","h":"b6e41ca5"},
+  "nodes.s.text": {"t":"The scout looks at you without interest. \"What? If you've got the saddle, hand it over. If not, don't stand by my horse.\"","h":"2e92bfd8"}
+}

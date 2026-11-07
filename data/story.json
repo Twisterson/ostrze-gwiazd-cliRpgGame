@@ -13,7 +13,7 @@
       "art": "wstep_brzezina",
       "type": "narration",
       "title": "Brzezina",
-      "text": "Brzezina to ostatnia wieś przed Pogórzem, zapomniana przez bogów i tak daleko od stolicy, że cesarza zna się tu tylko z monety, a poborcę aż za dobrze. Na jej skraju od stuleci stoi szkoła ostrza, gdzie z biedaków robi się wojów, a z wojów mięso dla tych, co płacą. Kto tu trafi, ma do wyboru miecz albo włócznię, kaszę bez omasty i mistrza Hjalmira Gnieworada, który co rano przypomina, że za darmo to się nawet w głupi ryj nie dostanie. Dziś zwykły dzień. Przynajmniej tak wygląda od rana."
+      "text": "Brzezina to ostatnia wieś przed Pogórzem, zapomniana przez bogów i tak daleko od stolicy, że cesarza zna się tu tylko z monety, a poborcę aż za dobrze. Na jej skraju od stuleci stoi szkoła ostrza, gdzie z biedaków robi się wojów, a z wojów mięso dla tych, co płacą. Kto tu trafi, ma do wyboru miecz albo włócznię, kaszę bez omasty i mistrza Gnieworada, który co rano przypomina, że za darmo to się nawet w głupi ryj nie dostanie. Dziś zwykły dzień. Przynajmniej tak wygląda od rana."
     },
     {
       "id": "demo_swit",
@@ -21,7 +21,7 @@
       "type": "narration",
       "title": "Prolog",
       "time": 30,
-      "text": "Nad placem ćwiczeń wisi mgła gęsta jak śmietana, a z kuchni ciągnie dymem i przypaloną cebulą. Mistrz Hjalmir Gnieworad stoi w bramie i łypie, jakby każdy z was był mu winien dozgonną wdzięczność za codzienne krzyki, nauki, z których nic nie wynika, i katorżniczy trening. „Wy tam, ślimaki! Imię podać, bo nad grobem nie będę ryczał »ej, ty«!”"
+      "text": "Nad placem ćwiczeń wisi mgła gęsta jak śmietana, a z kuchni ciągnie dymem i przypaloną cebulą. Mistrz Gnieworad stoi w bramie i łypie, jakby każdy z was był mu winien dozgonną wdzięczność za codzienne krzyki, nauki, z których nic nie wynika, i katorżniczą musztrę. „Wy tam, ślimaki! Imię podać, bo nad grobem nie będę ryczał »ej, ty«!”"
     },
     {
       "id": "demo_kreator",
@@ -31,14 +31,14 @@
       "id": "demo_sparing",
       "art": "szkolka",
       "type": "narration",
-      "title": "Sparing",
+      "title": "Walka ćwiczebna",
       "time": 120,
       "text": "Gnieworad wciska ci w garść drewnianą pałę i spycha na środek placu. „Trzymasz to jak baba miotłę. Radogost, pokaż tym ślimakom, jak się z nich robi ludzi!” Instruktor strzela knykciami, a reszta uczniów rechocze."
     },
     {
       "id": "demo_sparing_walka",
       "type": "combat",
-      "title": "Sparing",
+      "title": "Walka ćwiczebna",
       "enemies": [
         {
           "id": "instruktor"
@@ -307,7 +307,7 @@
       "type": "narration",
       "art": "obserwatorium",
       "title": "Obserwatorium",
-      "text": "Leziesz cały dzień na północ, aż do nocy, tam gdzie las przechodzi w spaloną ziemię, a ziemia w szkło. Wzgórza błyszczą, choć słońca nie ma. Na jednym stoi wieża z okrągłą kopułą i strzaskanym teleskopem, a z komina u jej stóp ciągnie dym, jakby sam się dziwił, że jeszcze jest. To dawne cesarskie Obserwatorium. Tu ktoś liczył gwiazdy, zanim zaczęły spadać."
+      "text": "Leziesz na północ dwa dni, a drugiego po zmroku docierasz tam, gdzie las przechodzi w spaloną ziemię, a ziemia w szkło. Wzgórza błyszczą, choć słońca nie ma. Na jednym stoi wieża z okrągłą kopułą i strzaskanym teleskopem, a z komina u jej stóp ciągnie dym, jakby sam się dziwił, że jeszcze jest. To dawne cesarskie Obserwatorium. Tu ktoś liczył gwiazdy, zanim zaczęły spadać."
     },
     {
       "id": "akt3b_mapa",
@@ -706,7 +706,7 @@
     {
       "id": "akt4c_cisza_wywiad_prawda",
       "type": "narration",
-      "text": "Spalony tabor pod przeprawą wchodzi do raportu jako zbieg okoliczności. Marszałek każe powiesić dwóch woźniców, którzy przeżyli, i szuka dalej. Nikt nie pyta o dziewięćdziesiąt groszy.",
+      "text": "Spalony tabor pod przeprawą wchodzi do meldunku jako zbieg okoliczności. Marszałek każe powiesić dwóch woźniców, którzy przeżyli, i szuka dalej. Nikt nie pyta o dziewięćdziesiąt groszy.",
       "if": {
         "flag": "wojna_wywiad_prawda"
       }
@@ -738,7 +738,7 @@
     {
       "id": "akt4c_cisza_jar_wydani",
       "type": "narration",
-      "text": "Ze Wzgórza Wisielców przywożą raport: trzydziestu dwóch, jeden po drugim. Marszałek podpisuje, nie czytając nazwisk. W obozie na Wroniej Górze rano już nikt nie ucieka, a w nocy też mało kto śpi.",
+      "text": "Ze Wzgórza Wisielców przywożą meldunek: trzydziestu dwóch, jeden po drugim. Marszałek podpisuje, nie czytając nazwisk. W obozie na Wroniej Górze rano już nikt nie ucieka, a w nocy też mało kto śpi.",
       "if": {
         "flag": "wojna_jar_wydani"
       }
@@ -746,7 +746,7 @@
     {
       "id": "akt4c_cisza_jar_ucieczka",
       "type": "narration",
-      "text": "Zza wzgórz przychodzą pogłoski o wsi, w której nagle jest dużo chłopów, a nikt nie pyta skąd. Nie ma ich w żadnym raporcie, co w tym roku uchodzi za cud.",
+      "text": "Zza wzgórz przychodzą pogłoski o wsi, w której nagle jest dużo chłopów, a nikt nie pyta skąd. Nie ma ich w żadnym meldunku, co w tym roku uchodzi za cud.",
       "if": {
         "flag": "wojna_jar_ucieczka"
       }

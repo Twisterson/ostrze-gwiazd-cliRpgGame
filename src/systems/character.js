@@ -16,7 +16,7 @@ export function validateCreatorChoices(choices, data) {
   const errors = [];
   const { name, classId, attributes, tagged } = choices ?? {};
 
-  if (typeof name !== "string" || name.length < creator.nameMin || name.length > creator.nameMax) {
+  if (typeof name !== "string" || [...name].length < creator.nameMin || [...name].length > creator.nameMax) {
     errors.push(`imię musi mieć od ${creator.nameMin} do ${creator.nameMax} znaków`);
   } else if (!NAME_PATTERN.test(name)) {
     errors.push("imię może zawierać tylko litery, spacje i myślniki (i zaczyna się od litery)");

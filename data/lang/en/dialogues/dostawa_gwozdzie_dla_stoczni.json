@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odebrane.speaker": {"t":"Carpenter","h":"c12d9e47"},
+  "nodes.odebrane.text": {"t":"The carpenter opens the box and tips a handful of nails into his apron pocket. \"That'll do. Tell Gudrun I'll pay next time, and you I'll give something right now, because I can see you've worked up a sweat.\"","h":"fd586cc7"},
+  "nodes.s.options.[daj].text": {"t":"I hand over Gudrun's box.","h":"37c85afb"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back.","h":"554def87"},
+  "nodes.s.speaker": {"t":"Carpenter","h":"c12d9e47"},
+  "nodes.s.text": {"t":"The carpenter taps his hammer on an empty crate and sighs. \"Nails are the only thing we're short of here. That and patience.\"","h":"dde6e1e2"}
+}

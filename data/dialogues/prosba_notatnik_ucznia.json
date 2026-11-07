@@ -4,7 +4,7 @@
   "nodes": {
     "s": {
       "speaker": "Zbłąkany uczeń",
-      "text": "Chłopak w poplamionym kitlu siedzi na kamieniu i trzyma w rękach notatnik jak niemowlę. „Jestem uczniem Hieronima, zgubiłem się. Zaniesiesz to do skrzynki uczniów w Obserwatorium? Gdyby mistrz zobaczył, że to zgubiłem, zrobiłby ze mnie szkielet.”",
+      "text": "Chłopak w poplamionym kitlu siedzi na kamieniu i trzyma w rękach kajet jak niemowlę. „Jestem uczniem Hieronima, zgubiłem się. Zaniesiesz to do skrzynki uczniów w Obserwatorium? Gdyby mistrz zobaczył, że to zgubiłem, zrobiłby ze mnie szkielet.”",
       "options": [
         {
           "id": "zgoda",
@@ -20,7 +20,7 @@
     },
     "zgoda": {
       "speaker": "Zbłąkany uczeń",
-      "text": "Chłopak wciska ci notatnik. „Nie otwieraj! Tam są rysunki gwiazd, a każda ma imię.”",
+      "text": "Chłopak wciska ci kajet. „Nie otwieraj! Tam są rysunki gwiazd, a każda ma imię.”",
       "options": [
         {
           "id": "dalej",
@@ -36,7 +36,7 @@
     },
     "nie": {
       "speaker": "Zbłąkany uczeń",
-      "text": "Chłopak spuszcza głowę i kuli się nad notatnikiem. „No trudno. Wrócę na piechotę, o ile gwiazdy pozwolą.”",
+      "text": "Chłopak spuszcza głowę i kuli się nad kajetem. „No trudno. Wrócę na piechotę, o ile gwiazdy pozwolą.”",
       "options": [
         {
           "id": "dalej",

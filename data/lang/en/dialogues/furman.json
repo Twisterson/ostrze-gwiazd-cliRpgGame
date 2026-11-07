@@ -1,0 +1,21 @@
+{
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[q11_koniec].text": {"t":"I found your caravan.","h":"1e9bdfd9"},
+  "nodes.powitanie.options.[q11_mapa].text": {"t":"I've got the guide's map. Might be something on it.","h":"ce966db6"},
+  "nodes.powitanie.options.[q11_po].text": {"t":"What will you do now?","h":"5e856b86"},
+  "nodes.powitanie.options.[q11_start].text": {"t":"What happened?","h":"a6845fb3"},
+  "nodes.powitanie.speaker": {"t":"Sieciech the Carter","h":"a495e3e1"},
+  "nodes.powitanie.text": {"t":"Sieciech the carter sits on an upturned barrel, staring at the empty mud where his wagon stood two days ago. \"Me? I've got nothing left. Still got my mouth, so I can talk.\"","h":"789cccd6"},
+  "nodes.q11_koniec.options.[dalej].text": {"t":"I'll take it.","h":"3dda598e"},
+  "nodes.q11_koniec.speaker": {"t":"Sieciech the Carter","h":"a495e3e1"},
+  "nodes.q11_koniec.text": {"t":"Sieciech listens, going whiter in the face, and by the end he puts down the reins. \"Smashed in the gully, the men scattered, the goods plundered. So they didn't die, they ran. Means they're somewhere round here. God repay you. Take the twenty groats I've got left, and a hunk of ham from what I brought back.\"","h":"a34472c6"},
+  "nodes.q11_mapa.options.[dalej].text": {"t":"As you say.","h":"0155f7de"},
+  "nodes.q11_mapa.speaker": {"t":"Sieciech the Carter","h":"a495e3e1"},
+  "nodes.q11_mapa.text": {"t":"Sieciech studies the map in the failing light and sniffs. \"Here. An old shortcut through the gully, never knew it was there. The wagons could've gone that way, if somebody drove them. Have a look, if you've a mind to. Me, I'm scared, God's truth.\"","h":"0c74dc9c"},
+  "nodes.q11_po.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.q11_po.speaker": {"t":"Sieciech the Carter","h":"a495e3e1"},
+  "nodes.q11_po.text": {"t":"\"I'll wait for the ones who ran to come back. When people start turning up again, not everything's gone to the devil yet. You went where I was too scared to go. A man doesn't forget a thing like that.\"","h":"8170fda7"},
+  "nodes.q11_start.options.[dalej].text": {"t":"I'll do that.","h":"3dda598e"},
+  "nodes.q11_start.speaker": {"t":"Sieciech the Carter","h":"a495e3e1"},
+  "nodes.q11_start.text": {"t":"\"The caravan. Four wagons, seven men, goods from the south. We set off along the Old Road all together, and I came back alone. The horses wandered home by themselves, the wagons never did. If you spot anything on that road, let me know, 'cause I keep thinking I saw tracks, only the devil knows whose.\"","h":"ee99880a"}
+}

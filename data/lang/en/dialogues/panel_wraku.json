@@ -1,0 +1,20 @@
+{
+  "nodes.iskry.options.[jeszcze].text": {"t":"Try again.","h":"4cf334ee"},
+  "nodes.iskry.options.[sila].text": {"t":"Rip it out by force.","h":"b6d169d4"},
+  "nodes.iskry.speaker": {"t":"Inside the Wreck","h":"a705b933"},
+  "nodes.iskry.text": {"t":"A spray of sparks shoots from the socket straight into your hand. You yell, and the machine flinches like a beast under the knife. \"Patience,\" someone whispers inside your head. You can try again or rip it out by force.","h":"e4016f5a"},
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[wyjmij].text": {"t":"Try to take the core out carefully.","h":"e103a37a"},
+  "nodes.powitanie.speaker": {"t":"Inside the Wreck","h":"a705b933"},
+  "nodes.powitanie.text": {"t":"In the heart of the machine, between ribs of sheet metal, sits a cylinder of copper and glass. It pulses in a rhythm that seems familiar, though you've never heard it. It stinks of rust and burnt tallow.","h":"69548b56"},
+  "nodes.sila.options.[dalej].text": {"t":"Got what I came for.","h":"33d39c13"},
+  "nodes.sila.speaker": {"t":"Inside the Wreck","h":"a705b933"},
+  "nodes.sila.text": {"t":"You rip the cylinder out along with a bundle of cables, with a crash that carries across the whole hill. Your hands burn, your ears ring, and the machine caves in on itself like a pricked bladder. The core lands in your bag, and you're as worn out as after a whole day's march through mud.","h":"78621913"},
+  "nodes.wyjety.options.[dalej].text": {"t":"Got it.","h":"bfb265ea"},
+  "nodes.wyjety.speaker": {"t":"Inside the Wreck","h":"a705b933"},
+  "nodes.wyjety.text": {"t":"Your fingers slip in between the ribs, and the core leaves its socket with a quiet, wet suck. The machine shudders but doesn't wake. You put the cylinder in your bag, and it weighs as much as a few coiled chains.","h":"67c77fa4"},
+  "nodes.wyjmij.options.[w_cicho].text": {"t":"Ease it out slowly, so as not to wake the machine.","h":"71451f1a"},
+  "nodes.wyjmij.options.[w_sila].text": {"t":"Rip it out by force.","h":"b6d169d4"},
+  "nodes.wyjmij.speaker": {"t":"Inside the Wreck","h":"a705b933"},
+  "nodes.wyjmij.text": {"t":"The core sits in a socket of sheet metal and copper. Every move throws sparks.","h":"a9ffb470"}
+}

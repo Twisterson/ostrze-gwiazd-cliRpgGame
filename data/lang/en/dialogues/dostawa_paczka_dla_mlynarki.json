@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care.","h":"30caaebd"},
+  "nodes.odebrane.speaker": {"t":"Dobrosława the Miller's Wife","h":"801e586a"},
+  "nodes.odebrane.text": {"t":"Dobrosława undoes three knots and raises her eyebrows. \"Spoons. Twelve of them. What do I want with twelve spoons? Oh, so there's someone to eat the soup when my husband comes back.\" She nods at you. \"Go on, I've no room in here for thank-yous.\"","h":"870540ee"},
+  "nodes.s.options.[daj].text": {"t":"Sulisław sends a parcel.","h":"f1911993"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back later.","h":"7eabaf21"},
+  "nodes.s.speaker": {"t":"Dobrosława the Miller's Wife","h":"801e586a"},
+  "nodes.s.text": {"t":"The miller's wife wipes her hands on her apron and sizes you up. \"What? The flour's on the other side of the river, and my husband's in hell.\"","h":"2e6c42d4"}
+}

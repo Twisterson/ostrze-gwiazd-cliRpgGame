@@ -1,0 +1,21 @@
+{
+  "nodes.ragnoslawa.options.#0.text": {"t":"I look around some more.","h":"a6b8623b"},
+  "nodes.ragnoslawa.speaker": {"t":"The Battleground","h":"b837c1a5"},
+  "nodes.ragnoslawa.text": {"t":"Ragnosława lies face to the sky, with the look of someone who took offence at everything in advance. In her bag are clean bandages, and round her neck a worn tin guard's token. You take both, because the living can use them.","h":"c2872396"},
+  "nodes.rozejrzenie.options.[dalej].text": {"t":"Enough. Moving on.","h":"f15f0a0e"},
+  "nodes.rozejrzenie.options.[ragnoslawa].text": {"t":"Search Ragnosława's body.","h":"21eb740c"},
+  "nodes.rozejrzenie.options.[skarimir].text": {"t":"Search Skarimir's body.","h":"ff5fb9dc"},
+  "nodes.rozejrzenie.options.[tobolek].text": {"t":"Check the guide's bundle.","h":"55a9ee17"},
+  "nodes.rozejrzenie.options.[wojmir].text": {"t":"Search Wojmir's body.","h":"86d3a5d6"},
+  "nodes.rozejrzenie.speaker": {"t":"The Battleground","h":"b837c1a5"},
+  "nodes.rozejrzenie.text": {"t":"The morning is insolently calm. The grass steams with dew, and in it lie the ones you shared a pot with yesterday. Beside them their bundles, strewn about as if after a robbery, and one more: a stranger's, dropped mid-stride. The guide isn't among the bodies. The bastard bolted as soon as things got hot.","h":"2b54522a"},
+  "nodes.skarimir.options.#0.text": {"t":"I look around some more.","h":"a6b8623b"},
+  "nodes.skarimir.speaker": {"t":"The Battleground","h":"b837c1a5"},
+  "nodes.skarimir.text": {"t":"Skarimir still has a dagger clutched in his fist. He never got his supper. You prise his stiff fingers open; he has no more use for the dagger, but you might.","h":"79a50fa2"},
+  "nodes.tobolek.options.#0.text": {"t":"I look around some more.","h":"a6b8623b"},
+  "nodes.tobolek.speaker": {"t":"The Battleground","h":"b837c1a5"},
+  "nodes.tobolek.text": {"t":"The guide ran so fast he even left his bundle behind. From the bottom of it you dig out a greasy sketch of the road: a river, a ford, a watchtower and a path into the forest that someone marked just in case. The devil took the guide, but the map stayed.","h":"c9056409"},
+  "nodes.wojmir.options.#0.text": {"t":"I look around some more.","h":"a6b8623b"},
+  "nodes.wojmir.speaker": {"t":"The Battleground","h":"b837c1a5"},
+  "nodes.wojmir.text": {"t":"Wojmir had more brains than brawn, and neither did him any good today. In his bundle: rations for two days, an inkpot and a pen.","h":"cbed97b2"}
+}

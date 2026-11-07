@@ -1,0 +1,9 @@
+{
+  "nodes.szklo.options.[przyloz].text": {"t":"I press the Blade to the wall.","h":"12c0e9f1"},
+  "nodes.szklo.options.[zostaw].text": {"t":"I step back and leave the glass alone.","h":"fd484e66"},
+  "nodes.szklo.speaker": {"t":"Black glass","h":"4fc41511"},
+  "nodes.szklo.text": {"t":"In the House of Black Glass the walls are smooth as ice and glow quietly from within. The Blade at your belt starts ringing thinly, as if greeting an acquaintance. One wall darkens and takes on a shape that resembles a face. It waits for you to press the iron to it.","h":"5b07468a"},
+  "nodes.zapis.options.[wychodze].text": {"t":"I leave the house.","h":"44c2d487"},
+  "nodes.zapis.speaker": {"t":"Black glass","h":"4fc41511"},
+  "nodes.zapis.text": {"t":"The glass fills with a voice you know. The Being is speaking to someone you can't see: \"The hetman is a good client. He doesn't know he's a client. Give him powder, give him steel, let him think the war was his idea. The Core will be ours before he finds out what he bought.\" The recording falls silent and the glass dies to black.","h":"a82a0fc2"}
+}

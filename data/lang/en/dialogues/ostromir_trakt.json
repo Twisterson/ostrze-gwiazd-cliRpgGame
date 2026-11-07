@@ -1,0 +1,9 @@
+{
+  "nodes.weksel.options.#0.text": {"t":"I'll pass it on.","h":"0d80b316"},
+  "nodes.weksel.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.weksel.text": {"t":"Ostromir grimaces at the sight of the promissory note. \"Wrzosek. Of course. Three barrels of beer I never drank, because it went sour on the road.\" He scrawls something on a scrap of bark and hands it to you. \"A receipt. Let him clutch that and stop whining.\"","h":"933ea5e4"},
+  "nodes.wozu.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.wozu.options.[weksel].text": {"t":"I've a promissory note.","h":"a9f32321"},
+  "nodes.wozu.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.wozu.text": {"t":"Ostromir sits on the driver's box counting something on his fingers, and it keeps coming up short. \"A wanderer! Either you want something, or you're selling something, or you mean to rob me. Which is it, out with it?\"","h":"4f0d91ed"}
+}

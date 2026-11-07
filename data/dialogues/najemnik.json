@@ -31,7 +31,7 @@
       "options": [
         {
           "id": "klam",
-          "text": "Nic nie wiem, ale mogę wskazać fałszywy trop.",
+          "text": "Sam nic nie wiem, ale coś słyszałem.",
           "goto": "klam_test"
         },
         {

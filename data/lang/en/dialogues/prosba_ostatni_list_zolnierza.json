@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Dying Soldier","h":"9dc0b129"},
+  "nodes.nie.text": {"t":"The soldier closes his eyes. \"Fine. I'll go myself. Some day.\"","h":"5f0cffcb"},
+  "nodes.s.options.[nie].text": {"t":"No time for the dead.","h":"0901cec9"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll take it.","h":"44302728"},
+  "nodes.s.speaker": {"t":"Dying Soldier","h":"9dc0b129"},
+  "nodes.s.text": {"t":"A soldier lies propped against a stone, shot through the chest. Every word costs him. \"A letter. For my mother. She's buried by the Crossroads Shrine. Lay it on her grave and don't read it. The rest will come by itself.\"","h":"2f0068d4"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Dying Soldier","h":"9dc0b129"},
+  "nodes.zgoda.text": {"t":"The soldier gives a crooked smile. \"Mother always said there were still good people about. She was right.\" He presses the letter on you and sinks back against the stone.","h":"c35254c1"}
+}

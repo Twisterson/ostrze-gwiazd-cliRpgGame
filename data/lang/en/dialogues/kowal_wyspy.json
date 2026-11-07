@@ -1,0 +1,21 @@
+{
+  "nodes.bogdana.options.[dalej].text": {"t":"All right then.","h":"1442dab3"},
+  "nodes.bogdana.speaker": {"t":"Ragnar the Smith","h":"323bd534"},
+  "nodes.bogdana.text": {"t":"The smith turns the blade to the light and studies it for a long while, like a physician. \"The hand that forged this knew what it was doing. A smith like that wouldn't go hungry here.\"","h":"fb4193e4"},
+  "nodes.kuznia.options.[bogdana].text": {"t":"Look at this blade.","h":"2dae99b2"},
+  "nodes.kuznia.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.kuznia.options.[rusznice].text": {"t":"How's a handgun forged?","h":"c3e9862a"},
+  "nodes.kuznia.options.[stal].text": {"t":"Where's this steel from?","h":"3ac59978"},
+  "nodes.kuznia.options.[surowe].text": {"t":"Look at this blade.","h":"2dae99b2"},
+  "nodes.kuznia.speaker": {"t":"Ragnar the Smith","h":"323bd534"},
+  "nodes.kuznia.text": {"t":"The islander smith doesn't lift his head from the anvil. \"I'm not selling. The hetman buys up all my steel. If you want to buy, go to the shop by the Shipyard.\"","h":"849cf356"},
+  "nodes.rusznice.options.[dalej].text": {"t":"All right then.","h":"1442dab3"},
+  "nodes.rusznice.speaker": {"t":"Ragnar the Smith","h":"323bd534"},
+  "nodes.rusznice.text": {"t":"\"You forge the barrel on a mandrel, without a break, the way you hold your breath. Stop, and it cracks. That's why a handgun smith knows breathing better than his prayers.\"","h":"ab5dd742"},
+  "nodes.stal.options.[dalej].text": {"t":"All right then.","h":"1442dab3"},
+  "nodes.stal.speaker": {"t":"Ragnar the Smith","h":"323bd534"},
+  "nodes.stal.text": {"t":"\"From the stars. I'm not laughing. When my grandad was a boy, a lump fell here that you couldn't melt in an ordinary fire. Only for a few years now has anyone been able to, and it's none of us.\"","h":"65c8276a"},
+  "nodes.surowe.options.[dalej].text": {"t":"All right then.","h":"1442dab3"},
+  "nodes.surowe.speaker": {"t":"Ragnar the Smith","h":"323bd534"},
+  "nodes.surowe.text": {"t":"The smith looks the blade over and snorts. \"Rough work, but first-class steel. It wants finishing, but who's got time for that in wartime?\"","h":"2a26b9f0"}
+}

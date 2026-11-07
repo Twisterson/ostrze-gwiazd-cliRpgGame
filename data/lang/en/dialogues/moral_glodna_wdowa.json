@@ -1,0 +1,20 @@
+{
+  "nodes.monety.options.[dalej].text": {"t":"I'll be on my way.","h":"81af1e33"},
+  "nodes.monety.speaker": {"t":"Widow by the Road","h":"ac44f4c0"},
+  "nodes.monety.text": {"t":"\"Three groats aren't bread, but they'll buy some.\" The woman slips the coins into her bosom. \"I'll remember you, sir. Go in health.\"","h":"64bdc4f9"},
+  "nodes.odmow.options.[dalej].text": {"t":"I'll be on my way.","h":"81af1e33"},
+  "nodes.odmow.speaker": {"t":"Widow by the Road","h":"ac44f4c0"},
+  "nodes.odmow.text": {"t":"The woman nods, no offence taken. \"Nobody has. Go in health.\" The child stares at you blankly.","h":"731872e6"},
+  "nodes.prowiant.options.[dalej].text": {"t":"I'll be on my way.","h":"81af1e33"},
+  "nodes.prowiant.speaker": {"t":"Widow by the Road","h":"ac44f4c0"},
+  "nodes.prowiant.text": {"t":"The woman tucks the rations into her apron. \"May Mother keep you, sir.\" The child smiles for the first time in a long while.","h":"fdcda894"},
+  "nodes.rabuj.options.[dalej].text": {"t":"I'll be on my way.","h":"81af1e33"},
+  "nodes.rabuj.speaker": {"t":"Widow by the Road","h":"ac44f4c0"},
+  "nodes.rabuj.text": {"t":"The woman doesn't fight back. In the bundle: a few groats, a pinch of salt and three onions. Well done. You've robbed a widow of three onions.","h":"49bc0391"},
+  "nodes.s.options.[monety].text": {"t":"Give her three groats.","h":"9aa517e9"},
+  "nodes.s.options.[odmow].text": {"t":"I've nothing, sister.","h":"4a0db4b3"},
+  "nodes.s.options.[prowiant].text": {"t":"Give her your rations.","h":"9daeab2f"},
+  "nodes.s.options.[rabuj].text": {"t":"Take her bundle.","h":"4c2a699e"},
+  "nodes.s.speaker": {"t":"Widow by the Road","h":"ac44f4c0"},
+  "nodes.s.text": {"t":"On a stump sits a woman with a child on her lap, staring at the ground. \"I'm not asking for much, sir. Bread. Anything. The child hasn't eaten in three days.\"","h":"f0886222"}
+}

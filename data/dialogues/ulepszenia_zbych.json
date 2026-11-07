@@ -1,6 +1,7 @@
 {
   "id": "ulepszenia_zbych",
   "portrait": "portret_kowal",
+  "wideList": true,
   "start": "warsztat",
   "nodes": {
     "warsztat": {
@@ -92,7 +93,7 @@
               "giveItem": "kaftan_przeszywany_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kaftan_przeszywany_u1",
@@ -124,7 +125,7 @@
               "giveItem": "kolczuga_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kolczuga_u1",
@@ -265,7 +266,7 @@
         },
         {
           "id": "u_maczuga_kolkowa_u1",
-          "text": "Maczuga kolkowa: uchwyt (22 gr)",
+          "text": "Maczuga z kolcami: uchwyt (22 gr)",
           "requires": {
             "item": "maczuga_kolkowa",
             "money": 22
@@ -288,7 +289,7 @@
         },
         {
           "id": "b_maczuga_kolkowa_u1",
-          "text": "Maczuga kolkowa: uchwyt (22 gr)",
+          "text": "Maczuga z kolcami: uchwyt (22 gr)",
           "requires": {
             "item": "maczuga_kolkowa",
             "moneyBelow": 22
@@ -540,7 +541,7 @@
               "giveItem": "kurta_skorzana_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kurta_skorzana_u1",
@@ -572,7 +573,7 @@
               "giveItem": "skorznia_nabijana_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_skorznia_nabijana_u1",
@@ -604,7 +605,7 @@
               "giveItem": "kaftan_wlocznika_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kaftan_wlocznika_u1",
@@ -636,7 +637,7 @@
               "giveItem": "kolczuga_straznicza_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_kolczuga_straznicza_u1",
@@ -668,7 +669,7 @@
               "giveItem": "polpancerz_u1"
             }
           ],
-          "goto": "zrobione"
+          "goto": "zrobione_pancerz"
         },
         {
           "id": "b_polpancerz_u1",
@@ -687,6 +688,17 @@
       ]
     },
     "zrobione": {
+      "speaker": "Kowal Zbych",
+      "text": "Zbych podaje ci robotę, jeszcze ciepłą. „Masz. Tylko weź to do ręki, zanim ktoś ci da w łeb.”",
+      "options": [
+        {
+          "id": "dalej",
+          "text": "Dobra.",
+          "goto": "warsztat"
+        }
+      ]
+    },
+    "zrobione_pancerz": {
       "speaker": "Kowal Zbych",
       "text": "Zbych podaje ci robotę, jeszcze ciepłą. „Masz. Tylko załóż, zanim ktoś ci da w łeb.”",
       "options": [

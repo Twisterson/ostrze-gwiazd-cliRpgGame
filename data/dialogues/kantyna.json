@@ -428,11 +428,11 @@
     "stol_kosci": {
       "speaker": "Kapral Żegota",
       "portrait": "portret_zegota",
-      "text": "Żołnierz obok wysypuje na stół trzy guziki i ząb. „O guziki. I o ząb, ale ząb jest Bolka i Bolko chce go z powrotem.” Bolko kiwa głową i przykłada szmatę do dziąsła, bo dziura po zębie jeszcze krwawi.",
+      "text": "Żołnierz obok wysypuje na stół trzy guziki i ząb. „O guziki. I o ząb, ale ząb jest Domasława i Domasław chce go z powrotem.” Domasław kiwa głową i przykłada szmatę do dziąsła, bo dziura po zębie jeszcze krwawi.",
       "options": [
         {
           "id": "dalej",
-          "text": "Powodzenia, Bolko.",
+          "text": "Powodzenia, Domasławie.",
           "goto": "stol"
         }
       ]
@@ -520,7 +520,7 @@
     "zegota_zwrot": {
       "speaker": "Kapral Żegota",
       "portrait": "portret_zegota",
-      "text": "Kapral odkłada łyżkę. Przy stole robi się cicho, tylko Bolko dalej ssie dziąsło. „No i co? Był ten mieszek przy nim?”",
+      "text": "Kapral odkłada łyżkę. Przy stole robi się cicho, tylko Domasław dalej ssie dziąsło. „No i co? Był ten mieszek przy nim?”",
       "options": [
         {
           "id": "oddaj",
@@ -542,7 +542,7 @@
     "zegota_oddane": {
       "speaker": "Kapral Żegota",
       "portrait": "portret_zegota",
-      "text": "Żegota liczy dwa razy, potem daje liczyć Bolkowi, który liczy na palcach i kończy na trzydziestu, bo tyle umie. Odsuwa ku tobie garść monet. „Dwadzieścia pięć. Drużyna się zrzuciła. Nie płacz, nie jesteśmy rodziną, tylko nikt nam dawno niczego nie oddał.”",
+      "text": "Żegota liczy dwa razy, potem daje liczyć Domasławowi, który liczy na palcach i kończy na trzydziestu, bo tyle umie. Odsuwa ku tobie garść monet. „Dwadzieścia pięć. Drużyna się zrzuciła. Nie płacz, nie jesteśmy rodziną, tylko nikt nam dawno niczego nie oddał.”",
       "options": [
         {
           "id": "dalej",

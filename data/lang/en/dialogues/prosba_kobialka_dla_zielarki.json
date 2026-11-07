@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Mirogost the Herbalist","h":"3d0d85a8"},
+  "nodes.nie.text": {"t":"\"Pity. I'll go when the knee lets me.\" The herbalist sighs and swears under his breath, at some length.","h":"3aed685f"},
+  "nodes.s.options.[nie].text": {"t":"Marshes aren't for me.","h":"91b574da"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll take it.","h":"44302728"},
+  "nodes.s.speaker": {"t":"Mirogost the Herbalist","h":"3d0d85a8"},
+  "nodes.s.text": {"t":"On the road, a herbalist with a basket full of grain and herbs. \"Mirogost. I won't make it to the herbalist's hut in the marshes, my knee's given out on me. Will you take her this basket? She knows what to do with it.\"","h":"dc8c2dee"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Mirogost the Herbalist","h":"3d0d85a8"},
+  "nodes.zgoda.text": {"t":"Mirogost hands over the basket with great ceremony, as if he were giving away a child. \"Don't open it, or they'll fly off. Herbs have a mind of their own.\"","h":"0b8ac6a5"}
+}

@@ -1,0 +1,13 @@
+{
+  "nodes.las.options.#0.text": {"t":"I'll bring you news.","h":"62725cd8"},
+  "nodes.las.speaker": {"t":"The Forester","h":"97c83c0f"},
+  "nodes.las.text": {"t":"\"The game's gone, the birds have gone quiet, and the wolves howl in broad daylight. The leshy's angry, or something worse is. If the sky starts sparking again, I'm locking myself in my hut, and let come what may.\"","h":"8456b581"},
+  "nodes.list.options.#0.text": {"t":"Keep to the road. Got it.","h":"f85c4ae8"},
+  "nodes.list.speaker": {"t":"The Forester","h":"97c83c0f"},
+  "nodes.list.text": {"t":"The forester reads slowly, moving his lips, and turns the sheet over twice. \"Tell Wszebor: the paths in the forest aren't paths, they're the brigands' doing, and the patrols are to keep to the road. Got that? Say it back.\"","h":"5657f2da"},
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[las].text": {"t":"What's new in the woods?","h":"a354120f"},
+  "nodes.powitanie.options.[list].text": {"t":"The commander's letter.","h":"a7158cfc"},
+  "nodes.powitanie.speaker": {"t":"The Forester","h":"97c83c0f"},
+  "nodes.powitanie.text": {"t":"The forester sits on a stump whittling something that was once meant to be a spoon. \"From the commander? Always someone from someone. If you must, hand it over.\"","h":"f8b59141"}
+}

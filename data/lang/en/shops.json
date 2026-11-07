@@ -1,0 +1,22 @@
+{
+  "[handlarz_gluszec].name": {"t":"Głuszec Stalls","h":"d3158180"},
+  "[handlarz_wedrowny].name": {"t":"Travelling Trader","h":"015a4b1f"},
+  "[kantor_portowy].name": {"t":"Port Counting House","h":"91162d55"},
+  "[kantyna_frontowa].name": {"t":"Sutler's Tent","h":"9eca8c18"},
+  "[kowal_brod].name": {"t":"Zbych's Forge","h":"38856a4a"},
+  "[kowal_gluszec_sklep].name": {"t":"Bogdan's Forge","h":"b463d942"},
+  "[kramarz_brod].name": {"t":"Stall at the Ford","h":"86bcb9bf"},
+  "[kramarz_szkolny].name": {"t":"Quartermaster's Stall","h":"42ace520"},
+  "[kupiec_drogi].name": {"t":"Travelling Merchant's Wagon","h":"42c2f397"},
+  "[kuznia_polowa].name": {"t":"Field Forge","h":"f855ade3"},
+  "[sklep_hurtownika].name": {"t":"Store Below the Wall","h":"41b7c20d"},
+  "[sklep_stoczni].name": {"t":"Shipyard Shop","h":"abbcb4e3"},
+  "[szkarad_ruszniczar].name": {"t":"Szkarad's Chest","h":"221ecdae"},
+  "[szklarz].name": {"t":"Glassmaker's Workshop","h":"c43e371a"},
+  "[warsztat_brygidy].name": {"t":"Brygida's Workshop","h":"ac2517b8"},
+  "[wedrowny_front].name": {"t":"Sutler's Wares","h":"d7083b2b"},
+  "[wedrowny_glusz].name": {"t":"Road Trader's Bags","h":"2d1dc29c"},
+  "[wedrowny_gwiazdy].name": {"t":"Alchemist's Tent","h":"caf7f812"},
+  "[wedrowny_pogorze].name": {"t":"Travelling Smith's Wagon","h":"edbdae9c"},
+  "[zapasy_obserwatorium].name": {"t":"Starwatch Stores","h":"91bd6ebf"}
+}

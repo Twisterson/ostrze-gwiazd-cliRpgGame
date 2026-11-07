@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.#0.text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Commander Wszebor","h":"638c8fa3"},
+  "nodes.nie.text": {"t":"\"Suit yourself. I sit here and I'll go on sitting here, and the sheep go missing every night.\"","h":"895b4281"},
+  "nodes.pytanie.options.[nie].text": {"t":"Not yet.","h":"479674a4"},
+  "nodes.pytanie.options.[zgoda].text": {"t":"Thought it over. I'll take it.","h":"26fda099"},
+  "nodes.pytanie.speaker": {"t":"Commander Wszebor","h":"638c8fa3"},
+  "nodes.pytanie.text": {"t":"\"Ah, the ragamuffin's back. Thought it over? Coin's coin, and the pay's sure. Wolves won't kill themselves, though by a hundred devils I wish they would.\"","h":"f184bde4"},
+  "nodes.zgoda.options.#0.text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.zgoda.speaker": {"t":"Commander Wszebor","h":"638c8fa3"},
+  "nodes.zgoda.text": {"t":"\"There, you see. You've got some sense in your head after all. A day up the stream, the ears for proof.\"","h":"56960c4a"}
+}

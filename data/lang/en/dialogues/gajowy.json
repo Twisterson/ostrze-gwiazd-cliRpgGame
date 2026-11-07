@@ -1,0 +1,21 @@
+{
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[q1_oszczedzony].text": {"t":"Stach sets nothing. You were wrong.","h":"471285e0"},
+  "nodes.powitanie.options.[q1_po].text": {"t":"How's the wood, now it's all over?","h":"149290de"},
+  "nodes.powitanie.options.[q1_wydany].text": {"t":"Stach sets the snares. He told me himself.","h":"966a3829"},
+  "nodes.powitanie.options.[zlecenie].text": {"t":"What's troubling you?","h":"6383dd11"},
+  "nodes.powitanie.speaker": {"t":"Radowit the Gamekeeper","h":"512de4ea"},
+  "nodes.powitanie.text": {"t":"Radowit the gamekeeper sits outside his lodge, cleaning a gun that hasn't smelled powder in years. \"What? If it's game you're after, game's scarce as hen's teeth. If it's snares, ask Stach, not me.\"","h":"457aaef5"},
+  "nodes.q1_oszczedzony.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.q1_oszczedzony.speaker": {"t":"Radowit the Gamekeeper","h":"512de4ea"},
+  "nodes.q1_oszczedzony.text": {"t":"The gamekeeper narrows his eyes. \"I was wrong? So was the roebuck, when it walked into the snare. But have it your way: you've no proof, I've none, and we're all as clean as after confession. Here's fifteen groats for your trouble. On your head be it.\"","h":"ac29b952"},
+  "nodes.q1_po.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.q1_po.speaker": {"t":"Radowit the Gamekeeper","h":"512de4ea"},
+  "nodes.q1_po.text": {"t":"\"Quiet as a wake. The snares are still hanging, but empty. Stach's stopped setting them, or moved them further off, where I can't see. That's the forest for you: what the eye doesn't see, the heart doesn't grieve over. Good work.\"","h":"8f2de521"},
+  "nodes.q1_start.options.[dalej].text": {"t":"I'll talk to him.","h":"ee244a71"},
+  "nodes.q1_start.speaker": {"t":"Radowit the Gamekeeper","h":"512de4ea"},
+  "nodes.q1_start.text": {"t":"\"Someone's setting snares in the wood, and not for hares. Last night I cut a roebuck out of one, still alive, and I haven't slept since. Stach, most likely, but I never caught him at it, and without proof that's no accusation, just old wives' talk. Talk to him, he's scared of me. Only don't say I sent you.\"","h":"cb775359"},
+  "nodes.q1_wydany.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.q1_wydany.speaker": {"t":"Radowit the Gamekeeper","h":"512de4ea"},
+  "nodes.q1_wydany.text": {"t":"The gamekeeper slowly puts down his gun. \"He told you himself? Either he's a fool, or he wanted you to warn me. I'll deal with him my own way. And here's fifteen groats for your trouble.\" It's plain that being right gives him no joy at all.","h":"33ca5d56"}
+}

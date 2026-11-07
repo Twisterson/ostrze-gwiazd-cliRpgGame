@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odebrane.speaker": {"t":"The Hermit's Cache","h":"7638da0e"},
+  "nodes.odebrane.text": {"t":"The box swallows the scroll, and a moment later a grunt comes from somewhere deep below. Beside it stands a jar with a few coins and a scrap of paper: \"For your trouble. Don't count it.\"","h":"ed89cc95"},
+  "nodes.s.options.[daj].text": {"t":"Put the scroll in.","h":"d1ea06cc"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back.","h":"554def87"},
+  "nodes.s.speaker": {"t":"The Hermit's Cache","h":"7638da0e"},
+  "nodes.s.text": {"t":"A box stands under a boulder. Nobody's about, but someone must come by to check it.","h":"b4d01573"}
+}

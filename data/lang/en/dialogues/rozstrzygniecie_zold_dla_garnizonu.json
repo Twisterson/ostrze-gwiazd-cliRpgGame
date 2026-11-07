@@ -1,0 +1,19 @@
+{
+  "nodes.brama.options.[oddaj].text": {"t":"The chest. Count it.","h":"c3b2c70e"},
+  "nodes.brama.options.[targ].text": {"t":"Half for the garrison, half for the courier. Meaning me.","h":"ab4e5157"},
+  "nodes.brama.options.[zatrzymaj].text": {"t":"The chest is lighter than it was. That's war.","h":"06f2ca52"},
+  "nodes.brama.speaker": {"t":"Sergeant Gniewko","h":"05914054"},
+  "nodes.brama.text": {"t":"The sergeant stands in the gate of a fort that isn't there and guards it with a general's gravity. \"Pay? Two bloody months late. The lads have been boiling their boots for a week and calling it stew. Hand over what you've got.\"","h":"b8c63f05"},
+  "nodes.oddany.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.oddany.speaker": {"t":"Sergeant Gniewko","h":"05914054"},
+  "nodes.oddany.text": {"t":"The sergeant lifts the lid, counts, counts again, and goes quiet. \"First time anyone's brought me all of it. I'll tell the lads I'm not mad.\" He turns and bellows across the yard, twice as loud as he needs to.","h":"7c4c4633"},
+  "nodes.podzielony.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.podzielony.speaker": {"t":"Sergeant Gniewko","h":"05914054"},
+  "nodes.podzielony.text": {"t":"The sergeant snorts, then smiles, then snorts again. \"You've got a tongue on you, wanderer. Half is still more than the Emperor ever gave us.\" The soldiers get their half, you get yours, and the command acts as if it never counted anything.","h":"b0e34ff7"},
+  "nodes.przylapany.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.przylapany.speaker": {"t":"Sergeant Gniewko","h":"05914054"},
+  "nodes.przylapany.text": {"t":"\"Half for the courier? A courier who pays himself.\" The sergeant snatches the chest from you and counts it with the face of a man who'd rather hit someone after all. \"Go, before I change my mind about your head.\"","h":"4b8309d4"},
+  "nodes.zatrzymany.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.zatrzymany.speaker": {"t":"Sergeant Gniewko","h":"05914054"},
+  "nodes.zatrzymany.text": {"t":"The sergeant looks at you for a long time. \"I never saw a chest. I never saw you. All I saw is that the lads will go hungry a while longer.\" Your pocket is heavier. Your conscience, allegedly, as well.","h":"7f90ee7b"}
+}

@@ -187,7 +187,7 @@
     "type": "ammo",
     "weight": 0.05,
     "value": 6,
-    "description": "Ołowiana kula i odmierzony zapał, zawinięte w papierowy nabój."
+    "description": "Ołowiana kula i odmierzony proch, zawinięte w papierowy nabój."
   },
   {
     "id": "strzala",
@@ -199,7 +199,7 @@
   },
   {
     "id": "belt",
-    "name": "Belt",
+    "name": "Bełt",
     "type": "ammo",
     "weight": 0.1,
     "value": 2,
@@ -388,7 +388,7 @@
   },
   {
     "id": "gulasz",
-    "name": "Gulasz z kaszą",
+    "name": "Potrawka z kaszą",
     "type": "consumable",
     "target": "self",
     "apCost": 3,
@@ -400,7 +400,7 @@
     },
     "weight": 0.6,
     "value": 9,
-    "description": "Miska gęstego gulaszu z kaszą, jeszcze ciepła od garnka. Po takiej chłop chodzi pewniej."
+    "description": "Miska gęstej potrawki z kaszą, jeszcze ciepła od garnka. Po takiej chłop chodzi pewniej."
   },
   {
     "id": "napar_z_korzeni",
@@ -862,7 +862,7 @@
     "masteryType": "miecz",
     "weight": 2.5,
     "value": 650,
-    "description": "Ktoś nad nim spędził cały zimowy sezon. Nie dla wsi, nie dla bandy."
+    "description": "Ktoś nad nim spędził całą zimę. Nie dla wsi, nie dla bandy."
   },
   {
     "id": "sztylet_zbojecki",
@@ -905,7 +905,7 @@
   },
   {
     "id": "maczuga_kolkowa",
-    "name": "Maczuga kolkowa",
+    "name": "Maczuga z kolcami",
     "type": "weapon",
     "tier": 2,
     "skill": "sieczna",
@@ -1392,7 +1392,7 @@
   },
   {
     "id": "helm_skorzany",
-    "name": "Helm skórzany",
+    "name": "Hełm skórzany",
     "type": "armor",
     "tier": 1,
     "slot": "glowa",
@@ -1403,7 +1403,7 @@
   },
   {
     "id": "czapa_kolcza",
-    "name": "Czapa kolcza",
+    "name": "Czepiec kolczy",
     "type": "armor",
     "tier": 2,
     "slot": "glowa",
@@ -1417,7 +1417,7 @@
   },
   {
     "id": "helm_zelazny",
-    "name": "Helm żelazny",
+    "name": "Hełm żelazny",
     "type": "armor",
     "tier": 2,
     "slot": "glowa",
@@ -1431,7 +1431,7 @@
   },
   {
     "id": "helm_straznika",
-    "name": "Helm strażnika",
+    "name": "Hełm strażnika",
     "type": "armor",
     "tier": 3,
     "slot": "glowa",
@@ -1586,7 +1586,7 @@
   },
   {
     "id": "oberog_krwawienia",
-    "name": "Oberóg od krwi",
+    "name": "Obereg od krwi",
     "type": "armor",
     "tier": 2,
     "slot": "talizman",
@@ -1856,7 +1856,7 @@
   },
   {
     "id": "notatnik_ucznia",
-    "name": "Notatnik ucznia",
+    "name": "Kajet ucznia",
     "type": "misc",
     "weight": 0.3,
     "value": 0,
@@ -2097,7 +2097,7 @@
     "type": "misc",
     "weight": 0.4,
     "value": 0,
-    "description": "Ciężkie siodło z świeżo przyszytym popręgiem. Pachnie skórą i smołą."
+    "description": "Ciężkie siodło ze świeżo przyszytym popręgiem. Pachnie skórą i smołą."
   },
   {
     "id": "swiece_woskowe",
@@ -2105,7 +2105,7 @@
     "type": "misc",
     "weight": 0.4,
     "value": 0,
-    "description": "Pęk świec z pszczelego wosku, obwiązany łykiem. Kapie z nich tłuszcz, a nie pobożność."
+    "description": "Pęk świec z pszczelego wosku, obwiązany łykiem. Kapie z nich wosk, a nie pobożność."
   },
   {
     "id": "zwoj_pustelnika",
@@ -2121,7 +2121,7 @@
     "type": "misc",
     "weight": 0.4,
     "value": 0,
-    "description": "Para podbitych butów, związanych za sznurówki. Jeden but ma inny kolor od drugiego."
+    "description": "Para podbitych butów, związanych rzemykiem. Jeden but ma inny kolor od drugiego."
   },
   {
     "id": "bochen_dla_grabarza",
@@ -2156,7 +2156,7 @@
     "weight": 2,
     "value": 60,
     "masteryType": "miecz",
-    "description": "Krótkie, szerokie ostrze. W ciasnocie jak znalazł. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Krótkie, szerokie ostrze. W ciasnocie jak znalazł. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "sieczna": 5
     }
@@ -2178,11 +2178,12 @@
     "weight": 2,
     "value": 100,
     "masteryType": "miecz",
-    "description": "Krótkie, szerokie ostrze. W ciasnocie jak znalazł. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Krótkie, szerokie ostrze. W ciasnocie jak znalazł. Przeszlifowane i naostrzone, co się dało. Łatwiej wchodzi w pancerz.",
     "modifiers": {
       "sieczna": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Krótki miecz (ostrzony)"
   },
   {
     "id": "para_wloczni_u1",
@@ -2204,7 +2205,7 @@
     "throwName": "Włócznia",
     "throwSkill": "drzewcowa",
     "masteryType": "wlocznie",
-    "description": "Dwie krótkie włócznie o długich grotach. Kłują i tną. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Dwie krótkie włócznie o długich grotach. Kłują i tną. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "drzewcowa": 5
     }
@@ -2229,11 +2230,12 @@
     "throwName": "Włócznia",
     "throwSkill": "drzewcowa",
     "masteryType": "wlocznie",
-    "description": "Dwie krótkie włócznie o długich grotach. Kłują i tną. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Dwie krótkie włócznie o długich grotach. Kłują i tną. Przeszlifowane i naostrzone, co się dało. Łatwiej wchodzi w pancerz.",
     "modifiers": {
       "drzewcowa": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Para włóczni (ostrzony)"
   },
   {
     "id": "kusza_lekka_u1",
@@ -2258,7 +2260,7 @@
     "weight": 4,
     "value": 90,
     "masteryType": "kusza",
-    "description": "Napina się szybko, o udo. Trafia dobrze tylko z bliska. Łoże wymienione na nowe, kusza trzyma celnie.",
+    "description": "Napina się szybko, o udo. Trafia dobrze tylko z bliska. Łoże wymienione na nowe, kusza strzela celniej.",
     "hitFar": 0,
     "hitClose": 15,
     "noMeleePenalty": true,
@@ -2309,7 +2311,8 @@
     ],
     "modifiers": {
       "strzelecka": 5
-    }
+    },
+    "listName": "Lekka kusza (ramię)"
   },
   {
     "id": "pistolet_skalkowy_u1",
@@ -2343,7 +2346,7 @@
     "masteryType": "palna",
     "weight": 1.5,
     "value": 99,
-    "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha. Kowal dorobił nową muszkę, łatwiej wycelować.",
+    "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha. Dorobiona nowa muszka, łatwiej wycelować.",
     "hitFar": 10,
     "hitClose": 10,
     "noMeleePenalty": true,
@@ -2390,7 +2393,7 @@
     "masteryType": "palna",
     "weight": 1.5,
     "value": 165,
-    "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha. Spust przetarty i wyregulowany, rzadziej zawodzi.",
+    "description": "Jeden strzał, huk na pół okolicy i smród prochu. Czasem zawiedzie, psiajucha. Spust wyczyszczony i wyregulowany, kurek spada pewnie.",
     "hitFar": 10,
     "hitClose": 10,
     "noMeleePenalty": true,
@@ -2403,7 +2406,8 @@
     ],
     "modifiers": {
       "proch": 5
-    }
+    },
+    "listName": "Pistolet skałkowy (spust)"
   },
   {
     "id": "kaftan_przeszywany_u1",
@@ -2441,7 +2445,8 @@
     },
     "weight": 5,
     "value": 100,
-    "description": "Gruba warstwa pikowanego płótna. Latem parzy jak kożuch. Dołożono płyty w miejscach, gdzie najczęściej tną."
+    "description": "Gruba warstwa pikowanego płótna. Latem parzy jak kożuch. Dołożono płyty w miejscach, gdzie najczęściej tną.",
+    "listName": "Kaftan przeszywany (płyty)"
   },
   {
     "id": "kolczuga_u1",
@@ -2478,7 +2483,8 @@
     },
     "weight": 12,
     "value": 208,
-    "description": "Ciężka i brzęczy, ale trzyma ostrze z dala od skóry. Dołożono płyty w miejscach, gdzie najczęściej tną."
+    "description": "Ciężka i brzęczy, ale trzyma ostrze z dala od skóry. Dołożono płyty w miejscach, gdzie najczęściej tną.",
+    "listName": "Kolczuga (płyty)"
   },
   {
     "id": "miecz_zolnierski_u1",
@@ -2497,7 +2503,7 @@
     "masteryType": "miecz",
     "weight": 2.5,
     "value": 92,
-    "description": "Prosty, pewny i wyszczerbiony w sam raz. Wojsko takie lubi. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Prosty, pewny i wyszczerbiony w sam raz. Wojsko takie lubi. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "sieczna": 5
     }
@@ -2519,11 +2525,12 @@
     "masteryType": "miecz",
     "weight": 2.5,
     "value": 153,
-    "description": "Prosty, pewny i wyszczerbiony w sam raz. Wojsko takie lubi. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Prosty, pewny i wyszczerbiony w sam raz. Wojsko takie lubi. Przeszlifowane i naostrzone, co się dało. Łatwiej wchodzi w pancerz.",
     "modifiers": {
       "sieczna": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Miecz żołnierski (ostrzony)"
   },
   {
     "id": "miecz_straznika_u1",
@@ -2542,7 +2549,7 @@
     "masteryType": "miecz",
     "weight": 3,
     "value": 203,
-    "description": "Kuty w dobrej kuźni, z rękojeścią, co nie ślizga się we krwi. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Kuty w dobrej kuźni, z rękojeścią, co nie ślizga się we krwi. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "sieczna": 5
     }
@@ -2564,11 +2571,12 @@
     "masteryType": "miecz",
     "weight": 3,
     "value": 338,
-    "description": "Kuty w dobrej kuźni, z rękojeścią, co nie ślizga się we krwi. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Kuty w dobrej kuźni, z rękojeścią, co nie ślizga się we krwi. Przeszlifowane i naostrzone, co się dało. Łatwiej wchodzi w pancerz.",
     "modifiers": {
       "sieczna": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Miecz strażnika (ostrzony)"
   },
   {
     "id": "miecz_mistrza_u1",
@@ -2587,7 +2595,7 @@
     "masteryType": "miecz",
     "weight": 2.5,
     "value": 975,
-    "description": "Ktoś nad nim spędził cały zimowy sezon. Nie dla wsi, nie dla bandy. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Ktoś nad nim spędził całą zimę. Nie dla wsi, nie dla bandy. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "sieczna": 5
     }
@@ -2609,11 +2617,12 @@
     "masteryType": "miecz",
     "weight": 2.5,
     "value": 1625,
-    "description": "Ktoś nad nim spędził cały zimowy sezon. Nie dla wsi, nie dla bandy. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Ktoś nad nim spędził całą zimę. Nie dla wsi, nie dla bandy. Przeszlifowane i naostrzone, co się dało. Łatwiej wchodzi w pancerz.",
     "modifiers": {
       "sieczna": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Miecz mistrza (ostrzony)"
   },
   {
     "id": "topor_zbojecki_u1",
@@ -2632,7 +2641,7 @@
     "masteryType": "miecz",
     "weight": 3,
     "value": 83,
-    "description": "Rąbie drwa i kości z równą ochotą. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Rąbie drwa i kości z równą ochotą. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "sieczna": 5
     }
@@ -2654,15 +2663,16 @@
     "masteryType": "miecz",
     "weight": 3,
     "value": 138,
-    "description": "Rąbie drwa i kości z równą ochotą. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Rąbie drwa i kości z równą ochotą. Przeszlifowane i naostrzone, co się dało. Łatwiej wchodzi w pancerz.",
     "modifiers": {
       "sieczna": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Topór zbójecki (ostrzony)"
   },
   {
     "id": "maczuga_kolkowa_u1",
-    "name": "Maczuga kolkowa (uchwyt)",
+    "name": "Maczuga z kolcami (uchwyt)",
     "type": "weapon",
     "tier": 2,
     "skill": "sieczna",
@@ -2677,14 +2687,14 @@
     "masteryType": "miecz",
     "weight": 3.5,
     "value": 66,
-    "description": "Kij z żelaznymi kolcami. Argument, nie broń. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Kij z żelaznymi kolcami. Argument, nie broń. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "sieczna": 5
     }
   },
   {
     "id": "maczuga_kolkowa_u2",
-    "name": "Maczuga kolkowa (uchwyt, ostrzony)",
+    "name": "Maczuga z kolcami (uchwyt, okuty)",
     "type": "weapon",
     "tier": 2,
     "skill": "sieczna",
@@ -2699,11 +2709,12 @@
     "masteryType": "miecz",
     "weight": 3.5,
     "value": 110,
-    "description": "Kij z żelaznymi kolcami. Argument, nie broń. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Kij z żelaznymi kolcami. Argument, nie broń. Okute na nowo twardszym żelazem tam, gdzie uderza. Łatwiej przebija się przez pancerz.",
     "modifiers": {
       "sieczna": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Maczuga z kolcami (okuty)"
   },
   {
     "id": "bulawa_u1",
@@ -2722,14 +2733,14 @@
     "masteryType": "miecz",
     "weight": 4,
     "value": 180,
-    "description": "Ciężka głowica na żelaznym trzonku. Kto oberwie, ten nie zapyta za co. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Ciężka głowica na żelaznym trzonku. Kto oberwie, ten nie zapyta za co. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "sieczna": 5
     }
   },
   {
     "id": "bulawa_u2",
-    "name": "Buława (uchwyt, ostrzony)",
+    "name": "Buława (uchwyt, okuty)",
     "type": "weapon",
     "tier": 3,
     "skill": "sieczna",
@@ -2744,11 +2755,12 @@
     "masteryType": "miecz",
     "weight": 4,
     "value": 300,
-    "description": "Ciężka głowica na żelaznym trzonku. Kto oberwie, ten nie zapyta za co. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Ciężka głowica na żelaznym trzonku. Kto oberwie, ten nie zapyta za co. Okute na nowo twardszym żelazem tam, gdzie uderza. Łatwiej przebija się przez pancerz.",
     "modifiers": {
       "sieczna": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Buława (okuty)"
   },
   {
     "id": "para_wloczni_lowieckich_u1",
@@ -2770,7 +2782,7 @@
     "masteryType": "wlocznie",
     "weight": 3,
     "value": 92,
-    "description": "Szerokie groty na dziki. Na ludzi też się nadają. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Szerokie groty na dziki. Na ludzi też się nadają. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "drzewcowa": 5
     }
@@ -2795,11 +2807,12 @@
     "masteryType": "wlocznie",
     "weight": 3,
     "value": 153,
-    "description": "Szerokie groty na dziki. Na ludzi też się nadają. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Szerokie groty na dziki. Na ludzi też się nadają. Przeszlifowane i naostrzone, co się dało. Łatwiej wchodzi w pancerz.",
     "modifiers": {
       "drzewcowa": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Para włóczni łowieckich (ostrzony)"
   },
   {
     "id": "para_wloczni_strazniczych_u1",
@@ -2821,7 +2834,7 @@
     "masteryType": "wlocznie",
     "weight": 3.5,
     "value": 195,
-    "description": "Wyważone, z grotami od porządnego kowala. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Wyważone, z grotami od porządnego kowala. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "drzewcowa": 5
     }
@@ -2846,11 +2859,12 @@
     "masteryType": "wlocznie",
     "weight": 3.5,
     "value": 325,
-    "description": "Wyważone, z grotami od porządnego kowala. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Wyważone, z grotami od porządnego kowala. Przeszlifowane i naostrzone, co się dało. Łatwiej wchodzi w pancerz.",
     "modifiers": {
       "drzewcowa": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Para włóczni strażniczych (ostrzony)"
   },
   {
     "id": "para_wloczni_kutych_u1",
@@ -2872,7 +2886,7 @@
     "masteryType": "wlocznie",
     "weight": 3,
     "value": 960,
-    "description": "Groty kute tak, że wchodzą w blachę jak w masło. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Groty kute tak, że wchodzą w blachę jak w masło. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "drzewcowa": 5
     }
@@ -2897,11 +2911,12 @@
     "masteryType": "wlocznie",
     "weight": 3,
     "value": 1600,
-    "description": "Groty kute tak, że wchodzą w blachę jak w masło. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Groty kute tak, że wchodzą w blachę jak w masło. Przeszlifowane i naostrzone, co się dało. Łatwiej wchodzi w pancerz.",
     "modifiers": {
       "drzewcowa": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Para włóczni kutych (ostrzony)"
   },
   {
     "id": "kastet_u1",
@@ -2919,14 +2934,14 @@
     "minStrength": 1,
     "weight": 0.5,
     "value": 30,
-    "description": "Żelazo na palce. Rozmowa staje się krótsza. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Żelazo na palce. Rozmowa staje się krótsza. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "wrecz": 5
     }
   },
   {
     "id": "kastet_u2",
-    "name": "Kastet (uchwyt, ostrzony)",
+    "name": "Kastet (uchwyt, okuty)",
     "type": "weapon",
     "tier": 1,
     "skill": "wrecz",
@@ -2940,11 +2955,12 @@
     "minStrength": 1,
     "weight": 0.5,
     "value": 50,
-    "description": "Żelazo na palce. Rozmowa staje się krótsza. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Żelazo na palce. Rozmowa staje się krótsza. Okute na nowo twardszym żelazem tam, gdzie uderza. Łatwiej przebija się przez pancerz.",
     "modifiers": {
       "wrecz": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Kastet (okuty)"
   },
   {
     "id": "rekawice_nabijane_u1",
@@ -2962,14 +2978,14 @@
     "minStrength": 2,
     "weight": 1,
     "value": 59,
-    "description": "Skóra, gwoździe i dobre chęci. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Skóra, gwoździe i dobre chęci. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "wrecz": 5
     }
   },
   {
     "id": "rekawice_nabijane_u2",
-    "name": "Rękawice nabijane (uchwyt, ostrzony)",
+    "name": "Rękawice nabijane (uchwyt, okuty)",
     "type": "weapon",
     "tier": 2,
     "skill": "wrecz",
@@ -2983,11 +2999,12 @@
     "minStrength": 2,
     "weight": 1,
     "value": 98,
-    "description": "Skóra, gwoździe i dobre chęci. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Skóra, gwoździe i dobre chęci. Okute na nowo twardszym żelazem tam, gdzie uderza. Łatwiej przebija się przez pancerz.",
     "modifiers": {
       "wrecz": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Rękawice nabijane (okuty)"
   },
   {
     "id": "piesc_zelazna_u1",
@@ -3005,14 +3022,14 @@
     "minStrength": 5,
     "weight": 1.5,
     "value": 173,
-    "description": "Żelazna rękawica z wypustkami. Zęby liczy się później. Kowal wymienił uchwyt na nowy, leży w dłoni pewniej.",
+    "description": "Żelazna rękawica z wypustkami. Zęby liczy się później. Uchwyt wymieniony na nowy, leży w dłoni pewniej.",
     "modifiers": {
       "wrecz": 5
     }
   },
   {
     "id": "piesc_zelazna_u2",
-    "name": "Pięść żelazna (uchwyt, ostrzony)",
+    "name": "Pięść żelazna (uchwyt, okuty)",
     "type": "weapon",
     "tier": 3,
     "skill": "wrecz",
@@ -3026,11 +3043,12 @@
     "minStrength": 5,
     "weight": 1.5,
     "value": 288,
-    "description": "Żelazna rękawica z wypustkami. Zęby liczy się później. Kowal przeszlifował i naostrzył, co się dało. Łatwiej wchodzi w pancerz.",
+    "description": "Żelazna rękawica z wypustkami. Zęby liczy się później. Okute na nowo twardszym żelazem tam, gdzie uderza. Łatwiej przebija się przez pancerz.",
     "modifiers": {
       "wrecz": 5
     },
-    "armorPierce": 1
+    "armorPierce": 1,
+    "listName": "Pięść żelazna (okuty)"
   },
   {
     "id": "kusza_zolnierska_u1",
@@ -3055,7 +3073,7 @@
     "masteryType": "kusza",
     "weight": 4.5,
     "value": 188,
-    "description": "Napina się korbą. Bełt przebija kolczugę i gadkę. Łoże wymienione na nowe, kusza trzyma celnie.",
+    "description": "Napina się korbą. Bełt przebija kolczugę i gadkę. Łoże wymienione na nowe, kusza strzela celniej.",
     "hitFar": 15,
     "hitClose": 15,
     "noMeleePenalty": false,
@@ -3106,7 +3124,8 @@
     ],
     "modifiers": {
       "strzelecka": 5
-    }
+    },
+    "listName": "Kusza żołnierska (ramię)"
   },
   {
     "id": "kusza_cesarska_u1",
@@ -3131,7 +3150,7 @@
     "masteryType": "kusza",
     "weight": 4.5,
     "value": 1050,
-    "description": "Cesarski arsenał nie rozdaje takich ludziom. Ta jakoś wyszła. Łoże wymienione na nowe, kusza trzyma celnie.",
+    "description": "Cesarski arsenał nie rozdaje takich ludziom. Ta jakoś wyszła. Łoże wymienione na nowe, kusza strzela celniej.",
     "hitFar": 15,
     "hitClose": 15,
     "noMeleePenalty": false,
@@ -3182,7 +3201,8 @@
     ],
     "modifiers": {
       "strzelecka": 5
-    }
+    },
+    "listName": "Kusza cesarska (ramię)"
   },
   {
     "id": "pistolet_wojskowy_u1",
@@ -3216,7 +3236,7 @@
     "masteryType": "palna",
     "weight": 1.8,
     "value": 218,
-    "description": "Dłuższa lufa, lepszy zamek. Zacina się rzadziej, ale też. Kowal dorobił nową muszkę, łatwiej wycelować.",
+    "description": "Dłuższa lufa, lepszy zamek. Zacina się rzadziej, ale też. Dorobiona nowa muszka, łatwiej wycelować.",
     "hitFar": 10,
     "hitClose": 10,
     "noMeleePenalty": true,
@@ -3263,7 +3283,7 @@
     "masteryType": "palna",
     "weight": 1.8,
     "value": 363,
-    "description": "Dłuższa lufa, lepszy zamek. Zacina się rzadziej, ale też. Spust przetarty i wyregulowany, rzadziej zawodzi.",
+    "description": "Dłuższa lufa, lepszy zamek. Zacina się rzadziej, ale też. Spust wyczyszczony i wyregulowany, kurek spada pewnie.",
     "hitFar": 10,
     "hitClose": 10,
     "noMeleePenalty": true,
@@ -3276,7 +3296,8 @@
     ],
     "modifiers": {
       "proch": 5
-    }
+    },
+    "listName": "Pistolet wojskowy (spust)"
   },
   {
     "id": "rusznica_u1",
@@ -3310,7 +3331,7 @@
     "masteryType": "palna",
     "weight": 5,
     "value": 248,
-    "description": "Huk słychać do sąsiedniej wsi. Wróg fika w powietrzu, a ty w ucho. Kowal dorobił nową muszkę, łatwiej wycelować.",
+    "description": "Huk słychać do sąsiedniej wsi. Wróg fika w powietrzu, a ty w ucho. Dorobiona nowa muszka, łatwiej wycelować.",
     "hitFar": 10,
     "hitClose": 10,
     "noMeleePenalty": false,
@@ -3357,7 +3378,7 @@
     "masteryType": "palna",
     "weight": 5,
     "value": 413,
-    "description": "Huk słychać do sąsiedniej wsi. Wróg fika w powietrzu, a ty w ucho. Spust przetarty i wyregulowany, rzadziej zawodzi.",
+    "description": "Huk słychać do sąsiedniej wsi. Wróg fika w powietrzu, a ty w ucho. Spust wyczyszczony i wyregulowany, kurek spada pewnie.",
     "hitFar": 10,
     "hitClose": 10,
     "noMeleePenalty": false,
@@ -3370,7 +3391,8 @@
     ],
     "modifiers": {
       "proch": 5
-    }
+    },
+    "listName": "Rusznica (spust)"
   },
   {
     "id": "kurta_skorzana_u1",
@@ -3400,7 +3422,8 @@
     },
     "weight": 3,
     "value": 113,
-    "description": "Wygarbowana, cuchnie, ale trzyma. Dołożono płyty w miejscach, gdzie najczęściej tną."
+    "description": "Wygarbowana, cuchnie, ale trzyma. Dołożono płyty w miejscach, gdzie najczęściej tną.",
+    "listName": "Kurta skórzana (płyty)"
   },
   {
     "id": "skorznia_nabijana_u1",
@@ -3438,7 +3461,8 @@
     },
     "weight": 8,
     "value": 153,
-    "description": "Skóra z naszytymi blaszkami. Skrzypi na każdy krok. Dołożono płyty w miejscach, gdzie najczęściej tną."
+    "description": "Skóra z naszytymi blaszkami. Skrzypi na każdy krok. Dołożono płyty w miejscach, gdzie najczęściej tną.",
+    "listName": "Skórznia nabijana (płyty)"
   },
   {
     "id": "kaftan_wlocznika_u1",
@@ -3476,7 +3500,8 @@
     },
     "weight": 7,
     "value": 300,
-    "description": "Gruby kaftan z naszytą skórą. Nie wiąże rąk, bo drzewcem trzeba jeszcze machać. Dołożono płyty w miejscach, gdzie najczęściej tną."
+    "description": "Gruby kaftan z naszytą skórą. Nie wiąże rąk, bo drzewcem trzeba jeszcze machać. Dołożono płyty w miejscach, gdzie najczęściej tną.",
+    "listName": "Kaftan włócznika (płyty)"
   },
   {
     "id": "kolczuga_straznicza_u1",
@@ -3515,7 +3540,8 @@
     },
     "weight": 13,
     "value": 338,
-    "description": "Drobne, gęste oczka. Kowal, co ją plótł, ślepł dla chleba. Dołożono płyty w miejscach, gdzie najczęściej tną."
+    "description": "Drobne, gęste oczka. Kowal, co ją plótł, ślepł dla chleba. Dołożono płyty w miejscach, gdzie najczęściej tną.",
+    "listName": "Kolczuga strażnicza (płyty)"
   },
   {
     "id": "polpancerz_u1",
@@ -3554,6 +3580,7 @@
     },
     "weight": 16,
     "value": 425,
-    "description": "Blacha na piersi i plecach. W takim kroczysz jak beczka, ale beczka nie umiera od strzały. Dołożono płyty w miejscach, gdzie najczęściej tną."
+    "description": "Blacha na piersi i plecach. W takim kroczysz jak beczka, ale beczka nie umiera od strzały. Dołożono płyty w miejscach, gdzie najczęściej tną.",
+    "listName": "Półpancerz (płyty)"
   }
 ]

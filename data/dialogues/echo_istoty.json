@@ -75,7 +75,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Wdzięczny.",
+          "text": "Dzięki.",
           "goto": "end"
         }
       ],

@@ -1,0 +1,20 @@
+{
+  "[burza_iskier].name": {"t":"Spark Storm","h":"e28ae463"},
+  "[burza_iskier].omen.text": {"t":"The air thickens, your hair stands on end, and something crackles softly in your ears.","h":"bf3457e4"},
+  "[grad].name": {"t":"Hail","h":"d1a1ada5"},
+  "[grad].omen.text": {"t":"The sky turns yellow, and a dry rattle comes from beyond the horizon.","h":"1cd04354"},
+  "[mgla_ciszy].name": {"t":"Fog of Silence","h":"6bb71f9a"},
+  "[mgla_ciszy].omen.text": {"t":"The birds fall silent, and a thick white damp creeps in from the marshes.","h":"be0a7cd2"},
+  "[mgla_poranna].name": {"t":"Thick fog","h":"a8219933"},
+  "[mgla_poranna].omen.text": {"t":"A white pall rises off the river, and the birds go quiet in the woods.","h":"b7c03a96"},
+  "[noc_bez_gwiazd].name": {"t":"Starless Night","h":"502a0043"},
+  "[noc_bez_gwiazd].omen.text": {"t":"The stars go out one by one, as if someone were snuffing candles.","h":"659e9fda"},
+  "[przymrozek].name": {"t":"Frost","h":"214316ac"},
+  "[przymrozek].omen.text": {"t":"The air smells sharply of iron, and the grass stiffens with rime.","h":"88b417be"},
+  "[ulewa].name": {"t":"Downpour","h":"301bb4e2"},
+  "[ulewa].omen.text": {"t":"The sky goes dark from the west, and the wind carries the smell of wet earth.","h":"dcd71fc2"},
+  "[upal].name": {"t":"Dog days","h":"b7dd9baa"},
+  "[upal].omen.text": {"t":"The air stands still, and your shadow shrinks under your feet.","h":"00f9e9a9"},
+  "[wichura].name": {"t":"Gale","h":"f3dfcc68"},
+  "[wichura].omen.text": {"t":"The branches start to creak, and the first gust rolls across the field.","h":"d78a1f87"}
+}

@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care, all.","h":"30caaebd"},
+  "nodes.odebrane.speaker": {"t":"Wacław's Hideout","h":"48b9ec2b"},
+  "nodes.odebrane.text": {"t":"The pouch clinks softly as you set it down. Something glints in the crack, as if someone had winked, and a moment later you find your pay in the little pot.","h":"2f433fdb"},
+  "nodes.s.options.[daj].text": {"t":"Leave the pouch there.","h":"44daff06"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back later.","h":"7eabaf21"},
+  "nodes.s.speaker": {"t":"Wacław's Hideout","h":"48b9ec2b"},
+  "nodes.s.text": {"t":"In a crack between the glass boulders someone has built a cramped hidey-hole, with a little quilt and a small pot. Nobody's in, but the place is kept ready.","h":"d3824bab"}
+}

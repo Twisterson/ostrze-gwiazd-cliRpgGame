@@ -5,7 +5,7 @@
   "nodes": {
     "powitanie": {
       "speaker": "Ranny górnik",
-      "text": "W głębi sztolni, pod zwaloną podporą, leży górnik z nogą przygniecioną belką. Blady jak łój, ale gęby nie traci. „Nie ruszaj, bo zacznę klnąć, aż strop spadnie. Albo przestań się gapić, psia mać, i pomóż.”",
+      "text": "W głębi sztolni, pod zwaloną podporą, leży górnik z nogą przygniecioną belką. Blady jak łój, ale rezonu nie traci. „Nie ruszaj, bo zacznę klnąć, aż strop spadnie. Albo przestań się gapić, psia mać, i pomóż.”",
       "options": [
         {
           "id": "opatrz",
@@ -68,7 +68,7 @@
     },
     "opatrz_zle": {
       "speaker": "Ranny górnik",
-      "text": "Szyna się zsuwa, górnik wyje tak, że echo wraca ze trzy razy. „Zostaw! Zostaw, bo cię gołymi rękami wyrzucę, niech cię kule biją! Niech mnie kto zaniesie do tej Dobrawy, a ty łap precz.” Zostaje ci jedna rozsądna droga.",
+      "text": "Szyna się zsuwa, górnik wyje tak, że echo wraca ze trzy razy. „Zostaw! Zostaw, bo cię gołymi rękami wyrzucę, niech cię kule biją! Niech mnie kto zaniesie do tej Dobrawy, a ty łapy precz.” Zostaje ci jedna rozsądna droga.",
       "options": [
         {
           "id": "zanies",

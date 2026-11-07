@@ -43,7 +43,7 @@ function effectLine(entry, def, data) {
   const long = def.unit === "hour" && entry.remaining >= 24;
   const line = long
     ? t(ui, "char.effectLong", { name: def.name, remaining: formatRemaining(ui, entry.remaining) })
-    : t(ui, "char.effect", { name: def.name, remaining: entry.remaining, unit: t(ui, `effect.unit.${def.unit}`) });
+    : t(ui, "char.effect", { name: def.name, remaining: entry.remaining, unit: t(ui, `effect.unit.${def.unit}`, { n: entry.remaining }) });
   return entry.stacks > 1 ? `${line} ×${entry.stacks}` : line;
 }
 

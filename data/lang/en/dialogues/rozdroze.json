@@ -1,0 +1,16 @@
+{
+  "nodes.odrzucenie.options.#0.text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.odrzucenie.speaker": {"t":"The Crossroads","h":"f19b65d7"},
+  "nodes.odrzucenie.text": {"t":"You spit in the dust of the road to the capital. The Emperor can give orders all he likes; you've got one head and you mean to keep it on your shoulders. You set off into the wilds, kicking a stone ahead of you.","h":"8ad02ecc"},
+  "nodes.pokora.options.#0.text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.pokora.speaker": {"t":"The Crossroads","h":"f19b65d7"},
+  "nodes.pokora.text": {"t":"You bow to the post, as if it were the one giving orders. First you'll find out at the Ford how things stand, and then you'll think. You take the road to the Ford.","h":"30918748"},
+  "nodes.rozstaje.options.[odrzucam].text": {"t":"Not the capital. Nobody waits for me there, or if they do, it's with an axe.","h":"5bb4cc4c"},
+  "nodes.rozstaje.options.[pokora].text": {"t":"First I'll ask the way at the Ford. The order won't run off, unlike the guide.","h":"f558c26a"},
+  "nodes.rozstaje.options.[waham].text": {"t":"I stand and stare. Both roads look like shit.","h":"a644f8a2"},
+  "nodes.rozstaje.speaker": {"t":"The Crossroads","h":"f19b65d7"},
+  "nodes.rozstaje.text": {"t":"Under a roadside post the road forks in two. One branch leads to the capital, where the Emperor's order told you to go with the whole tribute party. Of the tribute party there's only you, and the order still binds, only there's nobody left to carry it out with. The other branch turns off into the wilds toward Wolf's Ford, where at least someone will light a fire.","h":"94e2c0ac"},
+  "nodes.wahanie.options.#0.text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.wahanie.speaker": {"t":"The Crossroads","h":"f19b65d7"},
+  "nodes.wahanie.text": {"t":"You stand there so long the sun has time to crawl up over the forest. In the end your feet turn of their own accord toward wherever's nearer a hot meal.","h":"ff55a070"}
+}

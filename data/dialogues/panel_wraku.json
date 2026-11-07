@@ -53,7 +53,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Jak mówisz.",
+          "text": "Mam go.",
           "goto": "powitanie"
         }
       ],
@@ -68,7 +68,7 @@
     },
     "iskry": {
       "speaker": "Wnętrze wraku",
-      "text": "Z gniazda strzela snop iskier prosto w twoją dłoń. Wrzeszczysz, a maszyna wzdryga się jak zwierzę pod nożem. „Cierpliwości,” szepcze ktoś w twojej głowie. Możesz spróbować jeszcze raz albo wyrwać go siłą.",
+      "text": "Z gniazda strzela snop iskier prosto w twoją dłoń. Wrzeszczysz, a maszyna wzdryga się jak zwierzę pod nożem. „Cierpliwości” – szepcze ktoś w twojej głowie. Możesz spróbować jeszcze raz albo wyrwać go siłą.",
       "options": [
         {
           "id": "jeszcze",

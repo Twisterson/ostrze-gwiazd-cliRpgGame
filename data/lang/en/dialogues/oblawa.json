@@ -1,0 +1,19 @@
+{
+  "nodes.oblawa.options.[uciekaj].text": {"t":"Run through the cellar and into the forest.","h":"b84d0821"},
+  "nodes.oblawa.options.[zostan].text": {"t":"Stay and try to talk your way out.","h":"b2867d5a"},
+  "nodes.oblawa.speaker": {"t":"Głuszec","h":"b4954cfb"},
+  "nodes.oblawa.text": {"t":"The village is too quiet for this hour. Someone sticks his head out of the tavern and pulls it straight back in. Five riders in red stand in the square, and Wawrzyn the reeve is waving his arms at them like a man who's just lost everything, shirt included. One of the riders points at you.","h":"ba1453a8"},
+  "nodes.ucieczka.options.[dalej].text": {"t":"Keep running.","h":"2b2b3bb4"},
+  "nodes.ucieczka.speaker": {"t":"Głuszec","h":"b4954cfb"},
+  "nodes.ucieczka.text": {"t":"You reach the cellar hatch, squeeze through a cramped storeroom and crawl out in the smith's barn. From there it's one leap to the forest. Behind you, shouting, hoofbeats and barking dogs. You run till your lungs burn, and Głuszec drops behind the hill, with the reeve and the innkeeper.","h":"b6a8e970"},
+  "nodes.zostan_ok.options.[dalej].text": {"t":"Move on.","h":"81af1e33"},
+  "nodes.zostan_ok.speaker": {"t":"Głuszec","h":"b4954cfb"},
+  "nodes.zostan_ok.text": {"t":"The rider listens, eyes narrowed. The reeve, without waiting to be asked, babbles that all this fuss is the fault of two drunk carters. The Imperials trade looks and after a moment climb back into the saddle. They ride off. They'll be back, no doubt about it.","h":"7cf810d8"},
+  "nodes.zostan_test.options.[zostan_t].text": {"t":"Tell them they're after someone who isn't here.","h":"2b2ec9d1"},
+  "nodes.zostan_test.options.[zostan_u].text": {"t":"Better to run after all.","h":"5852a0e0"},
+  "nodes.zostan_test.speaker": {"t":"Głuszec","h":"b4954cfb"},
+  "nodes.zostan_test.text": {"t":"A rider in red gets down from his horse and walks over, taking his time.","h":"3c1d07f2"},
+  "nodes.zostan_zle.options.[dalej].text": {"t":"Run!","h":"54b39ae1"},
+  "nodes.zostan_zle.speaker": {"t":"Głuszec","h":"b4954cfb"},
+  "nodes.zostan_zle.text": {"t":"The rider listens a moment, then laughs without a scrap of mirth. \"Nobody here? Then why's everyone gawking at you, boy? Take him.\" The reeve looks away. You've one way out left and very little time.","h":"b39ed796"}
+}

@@ -1,0 +1,15 @@
+{
+  "nodes.ok.options.#0.text": {"t":"Thanks.","h":"32c07e9d"},
+  "nodes.ok.speaker": {"t":"Borek's Wife","h":"9d15f2a4"},
+  "nodes.ok.text": {"t":"The woman drops her bucket and gasps, as if for three days she'd forgotten how to breathe. \"Alive. That's enough. The rest will mend. Go to the daughter of the guard from the ruins, she's got something for you about that token you wear. She told me.\"","h":"460d14d4"},
+  "nodes.prosba.options.#0.text": {"t":"I'll look for him.","h":"2180c097"},
+  "nodes.prosba.speaker": {"t":"Borek's Wife","h":"9d15f2a4"},
+  "nodes.prosba.text": {"t":"\"He took the usual path past the glade, where the Ford's sheep graze. The tracks start by the glade and lead on toward the old walls on the hill. Folk say it was a watchtower once. Look for him. I'll pay with what I have, which is next to nothing.\"","h":"ad81cc1a"},
+  "nodes.zona.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.zona.options.[kulawy].text": {"t":"Found him. Alive, but lame.","h":"b4279c6e"},
+  "nodes.zona.options.[prosba].text": {"t":"What happened?","h":"a6845fb3"},
+  "nodes.zona.options.[zdrow].text": {"t":"Found him. Alive and well.","h":"4e82801c"},
+  "nodes.zona.options.[zyje].text": {"t":"Found him. He's alive.","h":"8560c6a9"},
+  "nodes.zona.speaker": {"t":"Borek's Wife","h":"9d15f2a4"},
+  "nodes.zona.text": {"t":"A woman stands by the well with a bucket and draws no water. \"Borek took the sheep into the woods three days ago. The sheep came back on their own. He didn't. You wanderers see more than we do. Will you help, for the love of God?\"","h":"321078e1"}
+}

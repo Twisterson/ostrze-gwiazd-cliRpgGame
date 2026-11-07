@@ -1,0 +1,20 @@
+{
+  "nodes.beczki.options.[dalej].text": {"t":"Fair enough.","h":"1442dab3"},
+  "nodes.beczki.speaker": {"t":"Market Woman Turnip","h":"33e76318"},
+  "nodes.beczki.text": {"t":"\"Pitch? The whole market's talking about it! That somebody tipped it into the river and now the whole front is sticking to it, and nobody knows whose it was. You know? No? Never mind, I don't either, and I tell it better than those who do.\"","h":"9727942f"},
+  "nodes.drozej.options.[dalej].text": {"t":"Fair enough.","h":"1442dab3"},
+  "nodes.drozej.speaker": {"t":"Market Woman Turnip","h":"33e76318"},
+  "nodes.drozej.text": {"t":"\"Cheaper? Mister, this is a market, not a poorhouse! I charge extra for haggling, and it comes to so much you'd be better off not haggling.\" She turns to the next customer as if you didn't exist.","h":"0a508d6e"},
+  "nodes.kram.options.[beczki].text": {"t":"Heard anything about pitch in the river?","h":"d8916cad"},
+  "nodes.kram.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.kram.options.[plotki].text": {"t":"What's the talk at the market?","h":"28682e98"},
+  "nodes.kram.options.[targ].text": {"t":"How much for a basket?","h":"19d60ef8"},
+  "nodes.kram.speaker": {"t":"Market Woman Turnip","h":"33e76318"},
+  "nodes.kram.text": {"t":"The market woman has a voice like a saw and a smile like a comb salesman's in a room full of bald men. \"Apples! Apples so juicy it's a shame to eat them! What are you staring at, mister? You look like a man who knows about apples. Or about trouble.\"","h":"695e0029"},
+  "nodes.plotki.options.[dalej].text": {"t":"Fair enough.","h":"1442dab3"},
+  "nodes.plotki.speaker": {"t":"Market Woman Turnip","h":"33e76318"},
+  "nodes.plotki.text": {"t":"\"That the marshal's gathering men, that the Emperor doesn't come out, that somebody's burning something in Glassmakers' Alley at night and nobody knows why. That the lads on the watch don't take bribes anymore, because there's nobody left to take them from. Otherwise it's all as usual, meaning bad.\" She squints at you. \"And you, where do I know you from?\"","h":"695a7929"},
+  "nodes.taniej.options.[dalej].text": {"t":"Fair enough.","h":"1442dab3"},
+  "nodes.taniej.speaker": {"t":"Market Woman Turnip","h":"33e76318"},
+  "nodes.taniej.text": {"t":"\"All right, all right, you've got the gift of the gab like a town councillor. Two groats, and eat them before I change my mind.\" She shoves a basket of apples at you. You don't mean to eat them, but it was worth it.","h":"7973e272"}
+}

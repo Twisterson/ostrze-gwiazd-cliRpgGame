@@ -1,0 +1,16 @@
+{
+  "nodes.czysta.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.czysta.speaker": {"t":"Old Rojka","h":"0e862e9a"},
+  "nodes.czysta.text": {"t":"It's hard work and the water is cloudy, but by afternoon something finally glints in the curb. Rojka draws a bucket, tastes it, grimaces, tastes it again. \"Thin as a widow's soup, but alive.\" By evening nobody will be killed over it. Maybe.","h":"76679a51"},
+  "nodes.studnia.options.[czysc].text": {"t":"I'll clean it. Let the water be for everyone.","h":"2540144f"},
+  "nodes.studnia.options.[zasyp].text": {"t":"We'll fill it in. Let nobody fight over it.","h":"f87f0c3a"},
+  "nodes.studnia.options.[zatruj].text": {"t":"We'll poison it properly. Let the Jarnowians suffer.","h":"8e2afb08"},
+  "nodes.studnia.speaker": {"t":"Old Rojka","h":"0e862e9a"},
+  "nodes.studnia.text": {"t":"The old woman sits on the well-curb, guarding the well like a dog. \"Poisoned. Someone threw in a horse, and not out of love for animals. Since then, anyone with a strong stomach and a weak head drinks from it. Do something, because if you don't, they will, and they'll make it worse.\"","h":"58c0128e"},
+  "nodes.zasypana.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.zasypana.speaker": {"t":"Old Rojka","h":"0e862e9a"},
+  "nodes.zasypana.text": {"t":"The earth falls into the hole with a dull thud, like into a grave. Rojka stands beside you, counting the shovelfuls. \"They'll drink from the river now, and the river is lower, so they'll be lower too. Good idea, if you don't live here.\" She leaves you with the shovel.","h":"92cd6ce2"},
+  "nodes.zatruta.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.zatruta.speaker": {"t":"Old Rojka","h":"0e862e9a"},
+  "nodes.zatruta.text": {"t":"Rojka doesn't say a word. She only watches as you toss into the water what you toss in, then turns her back. \"Ah, people, people,\" she says to the wall.","h":"344870f8"}
+}

@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Cobbler Mojżesz","h":"418bedd6"},
+  "nodes.nie.text": {"t":"\"Pity. Let him walk in the rag, he doesn't mind, and my conscience isn't kicking me.\"","h":"fc01f5fe"},
+  "nodes.s.options.[nie].text": {"t":"I haven't got the time.","h":"2aa81813"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll take it.","h":"44302728"},
+  "nodes.s.speaker": {"t":"Cobbler Mojżesz","h":"418bedd6"},
+  "nodes.s.text": {"t":"An old cobbler sits by the road with a sack on his knees, staring at the sky as if asking what it wants from him. \"Mojżesz, field cobbler. The sentry on the Bridge on the Grey has been walking around in one boot and a rag for a month, and I've got a second pair ready for him. Will you take it? I don't know who's standing on that bridge now, but somebody is. Somebody always is.\"","h":"bf8c2f71"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Cobbler Mojżesz","h":"418bedd6"},
+  "nodes.zgoda.text": {"t":"Mojżesz ties the boots to your belt and pats you on the shoulder. \"Take them, and while you're at it ask whether the one in the rag is still alive, because he's stopped answering me.\"","h":"87c3ef1b"}
+}

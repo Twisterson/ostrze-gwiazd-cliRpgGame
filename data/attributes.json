@@ -2,7 +2,7 @@
   { "id": "sila", "name": "Siła", "description": "Moc ramienia: ciosy w zwarciu, udźwig i napinanie kuszy." },
   { "id": "zrecznosc", "name": "Zręczność", "description": "Szybkie ręce i nogi: trafienie, uniki, punkty akcji i miotanie." },
   { "id": "krzepa", "name": "Krzepa", "description": "Twarde ciało: HP oraz odporność na rany, trucizny i ogłuszenie." },
-  { "id": "bystrosc", "name": "Bystrość", "description": "Czujne oko: celność z dystansu, wykrywanie zasadzek i skupienie w biegu walki." },
+  { "id": "bystrosc", "name": "Bystrość", "description": "Czujne oko: celność z dystansu, wykrywanie zasadzek i skupienie w ferworze walki." },
   { "id": "rozum", "name": "Rozum", "description": "Ostry łeb: punkty umiejętności przy awansie, wiedza i rzemiosło." },
   { "id": "oglada", "name": "Ogłada", "description": "Gładka gadka: dialogi, handel i przekonywanie, żeby nikt nie splunął pod nogi." },
   { "id": "fart", "name": "Fart", "description": "Łut szczęścia: trafienia krytyczne i niewypały, swoje i cudze." }

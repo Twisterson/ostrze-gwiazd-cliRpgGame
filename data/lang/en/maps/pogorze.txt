@@ -1,0 +1,12 @@
+   ~~~~ River ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      {stary_mlyn}
+          |
+      {wilczy_brod}-----------{wilczy_las}
+          |    \                  |
+      {wilcza_nora} \        {kamienna_przelecz}
+          |          \
+      {trakt_kupiecki} \
+
+   distant trails (days away)
+      {ruiny_straznicy}   {lesniczowka}
+      {ostoja_zbojcow}   {twierdza_graniczna}

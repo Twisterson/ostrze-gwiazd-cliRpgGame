@@ -24,7 +24,7 @@ const PAIR = { type: "array" }; // content checked by validatePair
 const strict = (required, fields) => ({ type: "object", required, fields, additional: false });
 
 const COMMON = {
-  id: ID, name: { type: "string", nonEmpty: true }, type: { type: "string" },
+  id: ID, name: { type: "string", nonEmpty: true }, listName: { type: "string", nonEmpty: true }, type: { type: "string" },
   weight: { type: "number", min: 0 }, value: INT_MIN0,
   description: { type: "string", nonEmpty: true }, hidden: { type: "boolean" }, tier: INT_MIN1, unburdened: { type: "boolean" },
   // Food (consumables only; content checked by validateFood).

@@ -1,0 +1,16 @@
+{
+  "[bystrosc].description": {"t":"A keen eye: ranged accuracy, spotting ambushes and keeping your head in a fight.","h":"45609808"},
+  "[bystrosc].name": {"t":"Perception","h":"4e0002b0"},
+  "[fart].description": {"t":"A bit of luck: critical hits and misfires, yours and other people's.","h":"16fe80e5"},
+  "[fart].name": {"t":"Luck","h":"2d8bbee5"},
+  "[krzepa].description": {"t":"A hard body: HP and resistance to wounds, poison and stunning.","h":"9421ef3f"},
+  "[krzepa].name": {"t":"Endurance","h":"3c6cba7c"},
+  "[oglada].description": {"t":"A smooth tongue: talk, trade and persuasion, so nobody spits at your feet.","h":"3cd54967"},
+  "[oglada].name": {"t":"Charm","h":"f805e5b5"},
+  "[rozum].description": {"t":"A sharp head: skill points on level-up, knowledge and crafts.","h":"4a5d2a0b"},
+  "[rozum].name": {"t":"Wits","h":"53dad4b9"},
+  "[sila].description": {"t":"Arm power: melee blows, carrying and spanning a crossbow.","h":"6fb67a2e"},
+  "[sila].name": {"t":"Strength","h":"a20a0a67"},
+  "[zrecznosc].description": {"t":"Quick hands and feet: hitting, dodging, action points and throwing.","h":"38d3a94e"},
+  "[zrecznosc].name": {"t":"Agility","h":"1d064d31"}
+}

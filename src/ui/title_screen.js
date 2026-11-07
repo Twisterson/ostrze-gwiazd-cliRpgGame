@@ -3,6 +3,8 @@
  * half-block pixels to fill the whole scene panel. Pure: `titleLines` builds the lines of one animation frame (`tick`);
  * the menu redraws it a few times a second. Without colours (or too small) it returns a plain still picture.
  */
+import defaultUi from "./default_ui.js";
+
 export const RESET = "\x1b[0m";
 
 // 5×7 glyphs of the letters of the logo ("1" = pixel)
@@ -23,7 +25,7 @@ export const FONT = {
   V: ["10001", "10001", "10001", "10001", "10001", "01010", "00100"],
 };
 const LOGO = "VOIDED";
-export const TAGLINE = "NA PRZEKÓR GWIAZDOM";
+export const TAGLINE = defaultUi["title.tagline"];
 export const SKY = [16, 16, 17, 17, 17, 18, 18, 19, 19, 53, 53, 54, 89, 95];
 export const hash = (n) => { let x = (n * 2654435761) >>> 0; x ^= x >>> 15; x = Math.imul(x, 2246822519) >>> 0; x ^= x >>> 13; return x >>> 0; };
 

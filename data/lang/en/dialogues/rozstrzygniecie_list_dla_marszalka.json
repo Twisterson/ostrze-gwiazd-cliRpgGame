@@ -1,0 +1,16 @@
+{
+  "nodes.start.options.[przeczytaj].text": {"t":"I'll read it before I deliver it. I'd rather know what I'm carrying.","h":"bf2622f5"},
+  "nodes.start.options.[spal].text": {"t":"I'll burn it. Let the Marshal live in ignorance.","h":"cdcf660e"},
+  "nodes.start.options.[zanies].text": {"t":"I'll take it to the Marshal, just as it is.","h":"27048545"},
+  "nodes.start.speaker": {"t":"Skipper Wiślak","h":"6e5a5090"},
+  "nodes.start.text": {"t":"The skipper stands over the courier's body with his hands in his pockets. \"Not me. Didn't see it. Not my barge. The letter? Aye, there's a letter, but you'd best not read it, because around here they only read the ones who are dead. Taking it to the marshal is a one-chance job. Burning it is wiping it out. And reading it is making yourself a witness.\"","h":"e6df42d9"},
+  "nodes.wynik_przeczytaj.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_przeczytaj.speaker": {"t":"Skipper Wiślak","h":"6e5a5090"},
+  "nodes.wynik_przeczytaj.text": {"t":"The letter is short. \"The Core is failing. The Emperor sleeps. Check the pact.\" The signature is illegible, the seal copper. You feel your back go damp with sweat. When you look up, the skipper is watching you with no expression at all. \"Now you know,\" he says. \"And that's your trouble now.\"","h":"bbeda6cb"},
+  "nodes.wynik_spal.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_spal.speaker": {"t":"Skipper Wiślak","h":"6e5a5090"},
+  "nodes.wynik_spal.text": {"t":"The paper goes up in a blink. The skipper watches the ash drift out over the water and says nothing. Only after a moment: \"You're brave, sir. Or stupid. In this town that's the same trait.\"","h":"c8937dd1"},
+  "nodes.wynik_zanies.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_zanies.speaker": {"t":"Skipper Wiślak","h":"6e5a5090"},
+  "nodes.wynik_zanies.text": {"t":"The skipper nods and hands you the letter like a hot pot. \"Good man. Stupid, but good.\" As you walk away you hear him whistling softly behind you, a tune you don't know but which sounds like a funeral.","h":"b8f22141"}
+}

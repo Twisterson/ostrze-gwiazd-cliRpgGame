@@ -1,0 +1,23 @@
+{
+  "nodes.bez_groszy.options.[dalej].text": {"t":"I'll be back with the rest.","h":"27193def"},
+  "nodes.bez_groszy.speaker": {"t":"Szkarad the Gunsmith","h":"0e167667"},
+  "nodes.bez_groszy.text": {"t":"\"No coin, no gawking. I told you that at the door.\"","h":"1e14e2b3"},
+  "nodes.warsztat.options.[b_pistolet_skalkowy_u1].text": {"t":"Flintlock pistol: sight (33 gr)","h":"c3d15276"},
+  "nodes.warsztat.options.[b_pistolet_skalkowy_u2].text": {"t":"Flintlock pistol: trigger (66 gr)","h":"d36778a0"},
+  "nodes.warsztat.options.[b_pistolet_wojskowy_u1].text": {"t":"Soldier's pistol: sight (73 gr)","h":"a330d939"},
+  "nodes.warsztat.options.[b_pistolet_wojskowy_u2].text": {"t":"Soldier's pistol: trigger (145 gr)","h":"21ee440a"},
+  "nodes.warsztat.options.[b_rusznica_u1].text": {"t":"Handgun: sight (83 gr)","h":"4c90c058"},
+  "nodes.warsztat.options.[b_rusznica_u2].text": {"t":"Handgun: trigger (165 gr)","h":"cf70742a"},
+  "nodes.warsztat.options.[u_pistolet_skalkowy_u1].text": {"t":"Flintlock pistol: sight (33 gr)","h":"c3d15276"},
+  "nodes.warsztat.options.[u_pistolet_skalkowy_u2].text": {"t":"Flintlock pistol: trigger (66 gr)","h":"d36778a0"},
+  "nodes.warsztat.options.[u_pistolet_wojskowy_u1].text": {"t":"Soldier's pistol: sight (73 gr)","h":"a330d939"},
+  "nodes.warsztat.options.[u_pistolet_wojskowy_u2].text": {"t":"Soldier's pistol: trigger (145 gr)","h":"21ee440a"},
+  "nodes.warsztat.options.[u_rusznica_u1].text": {"t":"Handgun: sight (83 gr)","h":"4c90c058"},
+  "nodes.warsztat.options.[u_rusznica_u2].text": {"t":"Handgun: trigger (165 gr)","h":"cf70742a"},
+  "nodes.warsztat.options.[wyjscie].text": {"t":"Another time.","h":"539d11b8"},
+  "nodes.warsztat.speaker": {"t":"Szkarad the Gunsmith","h":"0e167667"},
+  "nodes.warsztat.text": {"t":"Szkarad chews a straw and turns somebody's handgun over in his hands. \"Sight, trigger. I'll fix what needs fixing, but not for free, boy.\"","h":"226ba038"},
+  "nodes.zrobione.options.[dalej].text": {"t":"Right.","h":"a8072584"},
+  "nodes.zrobione.speaker": {"t":"Szkarad the Gunsmith","h":"0e167667"},
+  "nodes.zrobione.text": {"t":"Szkarad slings the gun across the counter. \"Now it's got nothing to be ashamed of. Take it, before somebody puts a ball in your back and you've nothing to answer with.\"","h":"77b0730b"}
+}

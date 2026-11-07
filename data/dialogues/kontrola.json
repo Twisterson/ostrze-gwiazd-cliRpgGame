@@ -124,7 +124,7 @@
     },
     "gadka_zle": {
       "speaker": "Cesarscy zwiadowcy",
-      "text": "„Pielgrzymka? Z mieczem u pasa i odciskami od rękojeści na palcach? Marnego wuj ma bratanka, skoro tak łże.” Młodszy skrobie coś w notesie. „Zapamiętamy. Ty też zapamiętaj, żeś nas widział.” Odchodzą, a ty czujesz na plecach ich wzrok jeszcze długo potem.",
+      "text": "„Pielgrzymka? Z mieczem u pasa i odciskami od rękojeści na palcach? Marnego wuj ma bratanka, skoro tak łże.” Młodszy skrobie coś na tabliczce. „Zapamiętamy. Ty też zapamiętaj, żeś nas widział.” Odchodzą, a ty czujesz na plecach ich wzrok jeszcze długo potem.",
       "options": [
         {
           "id": "dalej",
@@ -178,7 +178,7 @@
     },
     "obszukaj_ok": {
       "speaker": "Cesarscy zwiadowcy",
-      "text": "Zwiadowcy grzebią w torbie, plecaku i kieszeniach, bez ceregieli. Nic, chyba że liczyć szczerbaty grzebień. „Czysty,” mruczy starszy bez zapału. „Idź. I uważaj, bo czysty w te czasy to podejrzany.” Odchodzą.",
+      "text": "Zwiadowcy grzebią w torbie i kieszeniach, bez ceregieli. Nic, chyba że liczyć szczerbaty grzebień. „Czysty,” mruczy starszy bez zapału. „Idź. I uważaj, bo czysty w te czasy to podejrzany.” Odchodzą.",
       "options": [
         {
           "id": "dalej",
@@ -189,7 +189,7 @@
     },
     "obszukaj_zle": {
       "speaker": "Cesarscy zwiadowcy",
-      "text": "Młodszy zwiadowca wyciąga z plecaka zwinięte insygnia delegacji i unosi je pod światło jak złowioną rybę. Starszy milczy, potem uśmiecha się krzywo. „Szkoła ostrza. Patrz no, co za traf.” Kończy się to dla ciebie biegiem przez podwórzec, kuleniem się w ciemnym kącie i pewnością, że zaraz będzie gorzej. Zwiadowcy nie gonią, ale zapisują.",
+      "text": "Młodszy zwiadowca wyciąga z torby zwinięte insygnia delegacji i unosi je pod światło jak złowioną rybę. Starszy milczy, potem uśmiecha się krzywo. „Szkoła ostrza. Patrz no, co za traf.” Kończy się to dla ciebie biegiem przez podwórzec, kuleniem się w ciemnym kącie i pewnością, że zaraz będzie gorzej. Zwiadowcy nie gonią, ale zapisują.",
       "options": [
         {
           "id": "dalej",

@@ -1,0 +1,16 @@
+{
+  "nodes.odrzucil.options.[dalej].text": {"t":"All the better.","h":"5eb55083"},
+  "nodes.odrzucil.speaker": {"t":"Standing Stones","h":"0bb743a2"},
+  "nodes.odrzucil.text": {"t":"'Refusal accepted.' The murmur sounds one last time and dies away. The stone goes cold as a gravestone. You're left alone with your questions, but also with the sense that nobody has any power over you.","h":"780902af"},
+  "nodes.powitanie.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.powitanie.options.[sluchaj].text": {"t":"Put your hand on a stone and listen.","h":"1d52341d"},
+  "nodes.powitanie.speaker": {"t":"Standing Stones","h":"0bb743a2"},
+  "nodes.powitanie.text": {"t":"Twelve stones stand in a ring, each with one face smooth as a mirror. The murmur you take for voices runs together into a single note, barely audible, like wind in a chimney.","h":"af4ea978"},
+  "nodes.przyjal.options.[dalej].text": {"t":"As you say.","h":"0155f7de"},
+  "nodes.przyjal.speaker": {"t":"Standing Stones","h":"0bb743a2"},
+  "nodes.przyjal.text": {"t":"'Good. The debt is incurred.' The murmur dies away, and in your head stays a hazy trace of something you have never seen. As if someone had burned a mark inside you that won't come off.","h":"6886d662"},
+  "nodes.sluchaj.options.[odrzuc].text": {"t":"Refuse.","h":"615d4a56"},
+  "nodes.sluchaj.options.[przyjmij].text": {"t":"Agree.","h":"4ecfd690"},
+  "nodes.sluchaj.speaker": {"t":"Standing Stones","h":"0bb743a2"},
+  "nodes.sluchaj.text": {"t":"The stone is warm as skin. The murmur forms into words that are not words: 'We remember you. We remember what you carry inside you. We can explain it to you, if you agree that we will remember you always.' For a moment you feel that for a yes you'd get an answer to every question, and for a no you'll be left alone with your own.","h":"1505afb0"}
+}

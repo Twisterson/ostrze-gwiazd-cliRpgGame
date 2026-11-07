@@ -1,0 +1,12 @@
+   ~~~~ Glass Hills ~~~~
+
+      {pole_szkla}----------{krater_gwiazdy}
+          |
+      {obserwatorium}
+          |
+      {menhiry}-----------{wrak_maszyny}
+          |
+      {zapadlisko_ciszy}
+
+   distant trails (days away)
+      {rozbita_lodz}    {ruiny_stacji}    {ostatnia_strazica}

@@ -27,7 +27,7 @@
         },
         {
           "id": "p_koniec",
-          "text": "Poznałem Brygidę. Mam dach, zwierzęta i nerwy.",
+          "text": "Poznałem Brygidę. Dach mam, ciszy nie, za to kota i nerwy.",
           "goto": "p_koniec",
           "requires": {
             "all": [
@@ -831,7 +831,7 @@
     },
     "q8_nie": {
       "speaker": "Astronom Hieronim",
-      "text": "Hieronim kiwa głową, a w twarzy nie ma osądu. „Niech będzie. Nie każdy uratuje wszystkich. Pamiętaj tylko, że w Głuszcu też to zapamiętają.” Wraca do teleskopu, ale ręka mu się chwieje.",
+      "text": "Hieronim kiwa głową, a w twarzy nie ma osądu. „Niech będzie. Nie każdy uratuje wszystkich. Pamiętaj tylko, że w Głuszcu też to zapamiętają.” Wraca do teleskopu, ale ręka mu drży.",
       "options": [
         {
           "id": "dalej",

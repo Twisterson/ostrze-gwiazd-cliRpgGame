@@ -4,11 +4,11 @@
   "nodes": {
     "s": {
       "speaker": "Skrzynka uczniów",
-      "text": "Przy wejściu do wieży stoi żelazna skrzynka z przecięciem na listy. Ktoś kredą nabazgrał na niej: «Tu gubią się jedynie rzeczy ważne».",
+      "text": "Przy wejściu do wieży stoi żelazna skrzynka ze szczeliną na listy. Ktoś kredą nabazgrał na niej: «Tu gubią się jedynie rzeczy ważne».",
       "options": [
         {
           "id": "daj",
-          "text": "Wrzuć notatnik.",
+          "text": "Wrzuć kajet.",
           "goto": "odebrane",
           "requires": {
             "item": "notatnik_ucznia"
@@ -23,7 +23,7 @@
     },
     "odebrane": {
       "speaker": "Skrzynka uczniów",
-      "text": "Notatnik wsuwa się w szczelinę z szelestem, jakby sam chciał tam wejść. Chwilę później na schodach słychać kroki, a potem głos Brygidy: „Znowu ktoś przyniósł?” W skrzynce zostaje coś dla ciebie.",
+      "text": "Kajet wsuwa się w szczelinę z szelestem, jakby sam chciał tam wejść. Chwilę później na schodach słychać kroki, a potem głos Brygidy: „Znowu ktoś przyniósł?” W skrzynce zostaje coś dla ciebie.",
       "options": [
         {
           "id": "dalej",

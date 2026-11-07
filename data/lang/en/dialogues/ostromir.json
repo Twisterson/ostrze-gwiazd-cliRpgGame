@@ -1,0 +1,12 @@
+{
+  "nodes.odmowa.options.#0.text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odmowa.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.odmowa.text": {"t":"\"Pity. A strapping lad like you, and scared of a few furlongs of mud.\" Ostromir sighs and goes back to patching his wheel.","h":"16aa4ded"},
+  "nodes.prosba.options.[odmowa].text": {"t":"Not this time.","h":"c2f2548b"},
+  "nodes.prosba.options.[zgoda].text": {"t":"I'll take it. Wait for me at the Ford.","h":"990e9965"},
+  "nodes.prosba.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.prosba.text": {"t":"\"So, taking the job? Forty groats to see my wagon to Stone Pass. I'll wait three days at the Ford, then I'm going alone, even if they flay me for it.\"","h":"dfc653df"},
+  "nodes.zgoda.options.#0.text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.zgoda.speaker": {"t":"Ostromir the Merchant","h":"2ff50550"},
+  "nodes.zgoda.text": {"t":"The merchant grips your hand in both of his. \"Three days! Not a day longer, or my cloth goes mouldy and my wife beats me to death.\"","h":"4eff13ef"}
+}

@@ -1,5 +1,5 @@
 [
-  { "id": "burza_iskier", "name": "Iskrząca Burza", "kind": "magiczne",
+  { "id": "burza_iskier", "name": "Burza iskier", "kind": "magiczne",
     "omen": { "hoursBefore": 2, "text": "Powietrze gęstnieje, włosy stają dęba, a w uszach coś cicho trzeszczy." },
     "duration": [2, 4], "timeOfDay": null, "frequency": { "chancePerDay": 15 },
     "onArtifacts": { "exposed": "full", "carried": { "multiplier": 3 } },

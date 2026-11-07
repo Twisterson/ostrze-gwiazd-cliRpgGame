@@ -1,0 +1,16 @@
+{
+  "nodes.start.options.[splac].text": {"t":"I'll pay it for you. You can give it back when you have it.","h":"597cd3fe"},
+  "nodes.start.options.[umorz].text": {"t":"You don't pay. The market woman writes off the debt, and I explain to her that it's worth her while.","h":"61f5fdde"},
+  "nodes.start.options.[zastrasz].text": {"t":"You pay by tomorrow or your stools go for firewood.","h":"0d89021a"},
+  "nodes.start.speaker": {"t":"Debtor Nail","h":"006700aa"},
+  "nodes.start.text": {"t":"The debtor sits on a stool, sipping something from a mug. \"Turnip sent you? That woman has an imagination. Debt? What debt? I only borrow, and she only thinks it's a debt. If you don't like it, go to the bailiff, if you can find him.\"","h":"fd0ae2e6"},
+  "nodes.wynik_splac.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_splac.speaker": {"t":"Debtor Nail","h":"006700aa"},
+  "nodes.wynik_splac.text": {"t":"Nail drinks in your words like a man dying of thirst. \"Mister, you're a saint!\" Before you know it he's bought you a tankard, but leaves the bill on your knee. The market woman gets her money, you get gratitude you can't spend.","h":"3f0b5935"},
+  "nodes.wynik_umorz.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_umorz.speaker": {"t":"Debtor Nail","h":"006700aa"},
+  "nodes.wynik_umorz.text": {"t":"Turnip stares at you in surprise, then at Nail, who suddenly looks like a man who's been pardoned. \"All right, but only because you've got the gift of the gab.\" With a wave of her hand she wipes out four months of debt and two months of hatred.","h":"01ca0113"},
+  "nodes.wynik_zastrasz.options.[wracam].text": {"t":"Back to town.","h":"4fabe2b8"},
+  "nodes.wynik_zastrasz.speaker": {"t":"Debtor Nail","h":"006700aa"},
+  "nodes.wynik_zastrasz.text": {"t":"Nail goes white as flour, puts down the glass and pulls a handkerchief-wrapped bundle of coins from his pocket. \"You're brutal! But honest, because you say what you want.\" He pays to the last groat, and you feel as if you'd learned a new trade.","h":"d940ad27"}
+}

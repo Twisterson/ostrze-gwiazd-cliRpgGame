@@ -1,0 +1,16 @@
+{
+  "nodes.dzieki_jagody.options.#0.text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.dzieki_jagody.speaker": {"t":"Wanderer","h":"47c946ec"},
+  "nodes.dzieki_jagody.text": {"t":"The berries vanish in a blink, and the man's beard goes purple with the juice. \"Not much, but from the heart, and from the heart tastes best. The gods see, sir, the gods see everything.\"","h":"fb07a65b"},
+  "nodes.dzieki_prowiant.options.#0.text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.dzieki_prowiant.speaker": {"t":"Wanderer","h":"47c946ec"},
+  "nodes.dzieki_prowiant.text": {"t":"The man falls on the bread like a wolf on a sheep, and sniffs the bacon as if it were perfume from the imperial court. \"May the gods repay you in your children, sir! And when you're at the Ford, don't drink at Wrzosek's – the cur waters his beer.\"","h":"14dce646"},
+  "nodes.odmowa.options.#0.text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odmowa.speaker": {"t":"Wanderer","h":"47c946ec"},
+  "nodes.odmowa.text": {"t":"The man nods, as if he expected nothing else. \"Aye, hard times don't ask your name.\" He spits in the dust over his left shoulder and looks away.","h":"da618a6e"},
+  "nodes.prosba.options.[jagody].text": {"t":"Some berries. (berries)","h":"ff8ea8a2"},
+  "nodes.prosba.options.[odmowa].text": {"t":"I'm short too. Farewell.","h":"e0ad1639"},
+  "nodes.prosba.options.[prowiant].text": {"t":"Here, eat. (rations)","h":"0af5b8fc"},
+  "nodes.prosba.speaker": {"t":"Wanderer","h":"47c946ec"},
+  "nodes.prosba.text": {"t":"By the ditch squats a man thin as a beanpole, in a coat that's nothing but holes. \"Sir, three days now I've had nothing in my gob but my own tongue, and I'm sick of that too. Got a bite of something, for pity's sake?\"","h":"2c82026c"}
+}

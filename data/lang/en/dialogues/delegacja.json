@@ -1,0 +1,12 @@
+{
+  "nodes.danina.options.#0.text": {"t":"Onward.","h":"8e1b24cb"},
+  "nodes.danina.speaker": {"t":"Master Gnieworad","h":"63018bd3"},
+  "nodes.danina.text": {"t":"Gnieworad falls silent, looks down at his calloused paws and growls: \"The Emperor wants tribute, and tribute is paid in what you'll miss least. I'll say no more. You've heard too much as it is.\"","h":"fe3f04d7"},
+  "nodes.ucina.options.#0.text": {"t":"Onward.","h":"8e1b24cb"},
+  "nodes.ucina.speaker": {"t":"Master Gnieworad","h":"63018bd3"},
+  "nodes.ucina.text": {"t":"\"Because I said so!\" Gnieworad rolls the list up. \"Save your questions for the privy, boy. And the next one to open his gob without leave scrubs the stable with his tongue today.\"","h":"b62941ea"},
+  "nodes.wskazanie.options.[dlaczego].text": {"t":"Why us?","h":"00ceefd7"},
+  "nodes.wskazanie.options.[ruszam].text": {"t":"I'll go and pack.","h":"ec4a3bca"},
+  "nodes.wskazanie.speaker": {"t":"Master Gnieworad","h":"63018bd3"},
+  "nodes.wskazanie.text": {"t":"Gnieworad unrolls the list and runs a finger down it. \"The Emperor wants four. I'm taking the ones I'll miss least: you, Skarimir, Ragnosława and Wojmir, the little scribe.\" He says it like a man picking hens for the soup pot.","h":"558463f1"}
+}

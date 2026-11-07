@@ -1,4 +1,4 @@
-import { t } from "./strings.js";
+import { t, hotkey } from "./strings.js";
 import { paint } from "./colors.js";
 import { drawFrame, say, choiceCapacity, framesOn, redrawScreen, reopenFrame } from "./screen.js";
 import { choiceWidthOf, visibleWidth } from "./frame.js";
@@ -141,7 +141,7 @@ export async function select(io, ui, opts) {
   writeTitle(io, title);
   if (io.frame) {
     io.frame.commands = items.filter((it, i) => hidden(i)).map((it) => ({ key: it.hotkey.toUpperCase(), label: it.label, disabled: it.disabled }));
-    if (io.frame.notices.length > 2 && !items.some((it) => sameLetter(it.hotkey, "l"))) io.frame.commands.push({ key: "L", label: t(ui, "frame.notices") });
+    if (io.frame.notices.length > 2 && !items.some((it) => sameLetter(it.hotkey, hotkey(ui, "key.notices")))) io.frame.commands.push({ key: hotkey(ui, "key.notices").toUpperCase(), label: t(ui, "frame.notices") });
   }
 
   if (!io.isTTY) {
@@ -172,7 +172,7 @@ export async function select(io, ui, opts) {
   // In a frame rows are numbered "[n] …", except those with their own hotkey ("[A] Atak").
   const numbered = (i) => (io.frame && !items[i].hotkey ? `[${i + 1}] ${labelOf(items[i])}` : labelOf(items[i]));
   // A row wider than the choice panel is cut with "…"; its full text goes to the description field under the list.
-  const tooWide = (i) => Boolean(io.frame) && visibleWidth(numbered(i)) + 2 > choiceWidthOf(io.columns);
+  const tooWide = (i) => Boolean(io.frame) && visibleWidth(numbered(i)) + 2 > choiceWidthOf(io.columns, Boolean(io.frame?.wideList));
   // Asked anew for every draw: a window made narrower may cut rows that fitted before.
   const hasInfo = () => Boolean(io.frame) && (items.some((it) => it.description) || shown.some(tooWide));
   const view = makeWindow(io, ui, 0, { info: hasInfo });
@@ -198,7 +198,7 @@ export async function select(io, ui, opts) {
     if (key.name === "char") {
       const hot = items.findIndex((it) => it.hotkey && !it.disabled && sameLetter(it.hotkey, key.char));
       if (hot >= 0) return hot;
-      if (io.frame && io.frame.notices.length > 2 && sameLetter(key.char, "l")) await showAllNotices(io, ui);
+      if (io.frame && io.frame.notices.length > 2 && sameLetter(key.char, hotkey(ui, "key.notices"))) await showAllNotices(io, ui);
     }
   }
 }

@@ -1,0 +1,9 @@
+{
+  "nodes.odebrane.options.[dalej].text": {"t":"Take care.","h":"30caaebd"},
+  "nodes.odebrane.speaker": {"t":"Żywia the Herbalist","h":"d635aba9"},
+  "nodes.odebrane.text": {"t":"The herbalist lifts the lid, sniffs, and gives you half a smile. \"Good. Nothing died on the way this time.\" She scoops you out a handful of salve and hands you a flask.","h":"6ff7449a"},
+  "nodes.s.options.[daj].text": {"t":"Mirogost sends a basket.","h":"9eecf924"},
+  "nodes.s.options.[nic].text": {"t":"I'll be back later.","h":"7eabaf21"},
+  "nodes.s.speaker": {"t":"Żywia the Herbalist","h":"d635aba9"},
+  "nodes.s.text": {"t":"An old woman with eyes like wet stones looks out of the hut. \"Who sent you? Don't tell me, I know already.\" She nods you inside.","h":"f121bd80"}
+}

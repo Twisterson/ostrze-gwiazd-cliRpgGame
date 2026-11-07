@@ -1,0 +1,20 @@
+{
+  "nodes.stol.options.[dalej].text": {"t":"Show me what you found.","h":"4e71955e"},
+  "nodes.stol.options.[hieronim].text": {"t":"Show me. And fetch Hieronim.","h":"3a5bf07e"},
+  "nodes.stol.speaker": {"t":"Brygida the Handywoman","h":"df26b415"},
+  "nodes.stol.text": {"t":"By the quay stands a drawing table weighed down with stones, and over it Brygida, charcoal in hand. \"The island's forge told me nothing. But this engraving from Bald Rock is no craft work, it's a construction. A frame, a coil, and a vortex in the middle that closes or opens depending on who stands next to it.\"","h":"c6e51739"},
+  "nodes.urzadzenie.options.[zapis].text": {"t":"Write the drawings down. They'll come in handy.","h":"92702bd1"},
+  "nodes.urzadzenie.options.[zniszcz].text": {"t":"Burn the notes. Better that nobody has them.","h":"44fc04b9"},
+  "nodes.urzadzenie.speaker": {"t":"Brygida the Handywoman","h":"df26b415"},
+  "nodes.urzadzenie.text": {"t":"Brygida draws one circle inside another in charcoal. \"It's a gate. You can close it by tearing out two couplings, and then nobody goes through. Or you can leave it as it is. I don't know what's on the other side, but I know somebody is there.\"","h":"d82b2ae6"},
+  "nodes.urzadzenie_h.options.[zapis].text": {"t":"Write the drawings down. They'll come in handy.","h":"92702bd1"},
+  "nodes.urzadzenie_h.options.[zniszcz].text": {"t":"Burn the notes. Better that nobody has them.","h":"44fc04b9"},
+  "nodes.urzadzenie_h.speaker": {"t":"Brygida the Handywoman","h":"df26b415"},
+  "nodes.urzadzenie_h.text": {"t":"Brygida draws one circle inside another in charcoal. \"It's a gate.\" Hieronim, who sailed over with her, adds that he saw the same mark on one of the shards in Starwatch. \"I know this pattern. It's not a trap, it's a door. Somebody built it from the inside.\" Brygida nods: the couplings can be torn out or left alone.","h":"8d6393a8"},
+  "nodes.wynik_zapis.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_zapis.speaker": {"t":"Brygida the Handywoman","h":"df26b415"},
+  "nodes.wynik_zapis.text": {"t":"Brygida folds the sheets into a leather case and slips it into your bag. \"When you stand before the gate, you'll know which coupling to tear out. Or not to.\"","h":"078d3425"},
+  "nodes.wynik_zniszcz.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_zniszcz.speaker": {"t":"Brygida the Handywoman","h":"df26b415"},
+  "nodes.wynik_zniszcz.text": {"t":"The charcoal snaps in her fingers, the sheets burn in the brazier by the table. Brygida watches the fire. \"Fine. Now nobody knows how it works. You neither.\"","h":"72aeecbc"}
+}

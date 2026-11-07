@@ -1,0 +1,13 @@
+{
+  "[drzewcowa].name": {"t":"Polearms","h":"282242d0"},
+  "[handel].name": {"t":"Trade","h":"9694a9aa"},
+  "[medycyna].name": {"t":"Healing","h":"b68d85ed"},
+  "[miotanie].name": {"t":"Throwing","h":"48ee3017"},
+  "[proch].name": {"t":"Firearms","h":"b92bd97e"},
+  "[sieczna].name": {"t":"Bladed weapons","h":"a02bc5d0"},
+  "[skradanie].name": {"t":"Stealth","h":"92220b8c"},
+  "[strzelecka].name": {"t":"Bow and crossbow","h":"5187d6f8"},
+  "[wiedza_tajemna].name": {"t":"Hidden lore","h":"43929090"},
+  "[wrecz].name": {"t":"Brawling","h":"4906aa4d"},
+  "[wymowa].name": {"t":"Speech","h":"2e6779c6"}
+}

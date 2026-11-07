@@ -9,22 +9,18 @@ import { isKnown } from "../systems/places.js";
 import { searchLevel } from "../systems/search.js";
 import { mapOptions, currentObjectives } from "../systems/quests.js";
 
-/** "1 dzień" / "2 dni". */
-export const daysText = (ui, n) => t(ui, n === 1 ? "map.day" : "map.days", { n });
+/** "1 dzień" / "2 dni"; the plural form comes from the template. */
+export const daysText = (ui, n) => t(ui, "map.days", { n });
 
-/** Polish agreement for "został 1 dzień" / "zostały 3 dni" / "zostało 5 dni". */
-export function deadlineText(ui, n) {
-  if (n === 1) return t(ui, "map.deadline1", { n });
-  const few = n % 10 >= 2 && n % 10 <= 4 && !(n % 100 >= 12 && n % 100 <= 14);
-  return t(ui, few ? "map.deadlineFew" : "map.deadlineMany", { n });
-}
+/** "został 1 dzień" / "zostały 3 dni" / "zostało 5 dni"; the template picks the forms. */
+export const deadlineText = (ui, n) => t(ui, "map.deadlineDays", { n });
 
 /** "{hub} – dokąd?" */
 export function renderMapTitle(data, hub) {
   return paint("title", t(data.ui, "map.title", { hub: locationById(data, hub).short }));
 }
 
-/** "Wilcza Nora · zadanie „Wilcza nora” · 1 dzień[ · termin: zostały 2 dni]" for a `mapOptions` entry. */
+/** "Wilcza Nora · zadanie „Wilcza Nora” · 1 dzień[ · termin: zostały 2 dni]" for a `mapOptions` entry. */
 export function destinationLabel(data, option) {
   const { ui } = data;
   const parts = [option.location.name, t(ui, `map.kind.${option.quest.kind}`, { name: option.quest.name }), daysText(ui, option.days)];

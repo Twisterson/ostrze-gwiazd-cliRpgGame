@@ -1,0 +1,17 @@
+{
+  "nodes.hieronim.options.[dalej].text": {"t":"All right then.","h":"1442dab3"},
+  "nodes.hieronim.speaker": {"t":"Brygida","h":"df26b415"},
+  "nodes.hieronim.text": {"t":"\"Yes. Sits there with his nose in the drawings, talking to himself. I told him not to bring an inkwell into the forge. He didn't listen.\"","h":"d6d404fe"},
+  "nodes.kacik.options.[bywaj].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.kacik.options.[hieronim].text": {"t":"Did Hieronim come over with you?","h":"ffef26dd"},
+  "nodes.kacik.options.[ostrze].text": {"t":"How's the Blade doing?","h":"2fab3ff9"},
+  "nodes.kacik.options.[tu].text": {"t":"What are you doing here?","h":"a631e7d8"},
+  "nodes.kacik.speaker": {"t":"Brygida","h":"df26b415"},
+  "nodes.kacik.text": {"t":"Brygida stands in somebody else's forge with her sleeves rolled to the elbows and the look of someone who has found good company among the hammers. \"Don't ask how I got here. If you must, say I came over for the craft. The island's steel is odd, you know? As if it remembered falling. Half the day I'm here and half at the drafting table on the quay, so if I'm not here, look there.\"","h":"a376db42"},
+  "nodes.ostrze.options.[dalej].text": {"t":"All right then.","h":"1442dab3"},
+  "nodes.ostrze.speaker": {"t":"Brygida","h":"df26b415"},
+  "nodes.ostrze.text": {"t":"\"It hums when it's near glass, but that's nothing bad. It's even a good sign.\"","h":"bf92a085"},
+  "nodes.tu.options.[dalej].text": {"t":"All right then.","h":"1442dab3"},
+  "nodes.tu.speaker": {"t":"Brygida","h":"df26b415"},
+  "nodes.tu.text": {"t":"\"Working. The island's forges speak a different tongue from ours, but iron is iron and it's afraid of the same thing: a mistake.\"","h":"e8adb6fa"}
+}

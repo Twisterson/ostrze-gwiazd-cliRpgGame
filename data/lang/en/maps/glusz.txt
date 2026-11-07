@@ -1,0 +1,12 @@
+   ~~~~ Głuszec Backwoods ~~~~
+
+      {wzgorze_wartownicze}
+          |
+      {kapliczka_rozstaje}
+          |
+      {gluszec}---------{bor_klusownikow}----------{kamieniolom}
+          |
+      {bagna_szarej_wody}
+
+   distant trails (days away)
+      {stary_trakt}    {spalona_osada}    {stara_kopalnia}

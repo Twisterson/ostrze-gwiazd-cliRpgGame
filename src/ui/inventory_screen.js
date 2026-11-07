@@ -1,11 +1,11 @@
 import { select, sliders } from "./menu.js";
 import { confirm, pressEnter } from "./prompt.js";
-import { clear, pushNotice, flushNotices, framesOn, showScreen, sceneCapacity } from "./screen.js";
+import { clear, pushNotice, flushNotices, framesOn, showScreen, sceneCapacity, frameSceneWidth } from "./screen.js";
 import { pushEventNotices } from "./events.js";
 import { paint } from "./colors.js";
 import { compareLines, wearLines, modifierName } from "./item_compare.js";
-import { sceneWidth, sceneLines, cell, fitWidth } from "./frame.js";
-import { t } from "./strings.js";
+import { sceneLines, cell, fitWidth } from "./frame.js";
+import { t, hotkey } from "./strings.js";
 import { itemById, isWeapon, SLOTS } from "../systems/items.js";
 import { artifactState } from "../systems/artifacts.js";
 import { phenomenonById } from "../systems/phenomena.js";
@@ -19,7 +19,7 @@ import {
 const round1 = (n) => Math.round(n * 10) / 10;
 const signed = (n) => (n > 0 ? `+${n}` : `-${Math.abs(n)}`);
 
-/** Name of an artifact regeneration condition ("noc", "w pobliżu upiora", "podczas: Iskrząca Burza"). */
+/** Name of an artifact regeneration condition ("noc", "w pobliżu upiora", "podczas: Burza iskier"). */
 function conditionName(when, data) {
   const { ui } = data;
   if (when.startsWith("phenomenon:")) {
@@ -58,13 +58,13 @@ function artifactLines(item, state, data) {
   return lines;
 }
 
-/** Pure: the item card (type, weight, value, combat/armor stats, artifact charge and powers, description) as text; `description` and `diff` can be left out. */
-export function renderItemCard(item, state, data, { description = true, diff = true } = {}) {
+/** Pure: the item card (type, weight, value, combat/armor stats, artifact charge and powers, description) as text; `description`, `diff` and `wear` (where it is worn) can be left out; `width`: the columns it is shown in (a narrow one gets the short comparison). */
+export function renderItemCard(item, state, data, { description = true, diff = true, wear = true, width = Infinity } = {}) {
   const { ui } = data;
   const lines = [
     paint("title", item.name),
     t(ui, "card.type", { type: t(ui, `itemType.${item.type}`), weight: item.weight, value: item.value, currency: t(ui, "currency.short") }),
-    ...wearLines(item, ui),
+    ...(wear ? wearLines(item, ui) : []),
   ];
   if (isWeapon(item)) {
     const [min, max] = item.damage;
@@ -87,21 +87,29 @@ export function renderItemCard(item, state, data, { description = true, diff = t
   const modifiers = Object.entries(item.modifiers ?? {})
     .map(([key, value]) => (typeof value === "number" ? `${modifierName(key, data)} ${signed(value)}` : modifierName(key, data)));
   if (modifiers.length) lines.push(t(ui, "card.modifiers", { list: modifiers.join(", ") }));
-  lines.push(...compareLines(item, state, data, { diff }));
+  lines.push(...compareLines(item, state, data, { diff, width }));
   if (description) lines.push(item.description);
   return lines.join("\n");
 }
 
 /**
- * The card as the lines of a preview in the scene panel, beside `reserved` rows already used there. A preview cannot be paged, so what
- * does not fit is left out, first what the choice panel repeats (the description), then the difference line; the table stays.
+ * The card as the lines of a preview in the scene panel, under the lines `above` (as they wrap there). A preview cannot be paged, so what
+ * does not fit is left out, first what the choice panel repeats (the description), then the difference line, then the slot line;
+ * the table stays. When even that is too tall, the head is kept (name, type, stats) and the tail is cut with "…".
  */
-export function fittedCard(item, state, data, io, reserved = 0) {
-  const room = sceneCapacity(io) - reserved;
-  const fits = (lines) => sceneLines(lines, sceneWidth(io.columns)).length <= room;
-  const variants = [{}, { description: false }, { description: false, diff: false }];
-  const cards = variants.map((v) => renderItemCard(item, state, data, v).split("\n"));
-  return cards.find(fits) ?? cards.at(-1);
+export function fittedCard(item, state, data, io, above = []) {
+  const width = frameSceneWidth(io);
+  const room = sceneCapacity(io) - sceneLines(above, width).length; // the lines above wrap in the panel too
+  const fits = (lines) => sceneLines(lines, width).length <= room;
+  // the slot line goes last: beside a comparison "Założone: …" it is the least needed
+  const variants = [{}, { description: false }, { description: false, diff: false }, { description: false, diff: false, wear: false }];
+  const cards = variants.map((v) => renderItemCard(item, state, data, { ...v, width }).split("\n"));
+  const card = cards.find(fits);
+  if (card) return card;
+  // Even the shortest card is too tall: keep its head (name, type, stats) and cut the tail, so the frame never opens on a
+  // later page that shows only the weight row; the last row kept says the card goes on.
+  const rows = sceneLines(cards.at(-1), width);
+  return room > 1 ? [...rows.slice(0, room - 1), paint("dim", "…")] : rows.slice(0, 1);
 }
 
 /** Slots in which `itemId` is worn. */
@@ -171,7 +179,7 @@ function headerLines(state, data, io) {
     weight: round1(carriedWeight(state, data)), carry: stats.derived.carry, money: state.character.money, currency: t(ui, "currency.short"),
   });
   if (isOverloaded(state, data)) header += ` ${paint("warn", t(ui, "inv.overloaded"))}`;
-  if (framesOn(io) && io.rows >= DOLL_MIN_ROWS) return [paint("title", header), ...slotDoll(state, data, sceneWidth(io.columns))];
+  if (framesOn(io) && io.rows >= DOLL_MIN_ROWS) return [paint("title", header), ...slotDoll(state, data, frameSceneWidth(io))];
   const eq = state.inventory.equipped;
   const slots = SLOTS.filter((slot) => eq[slot] || slot === "bron" || slot === "bron_zapas")
     .map((slot) => t(ui, "inv.slotEntry", {
@@ -189,7 +197,9 @@ function listItem(stack, state, data, strength) {
   if (state.inventory.quickSlots.includes(stack.id)) tags.push(t(ui, "inv.tagBelt"));
   const heavy = isWeapon(item) && item.minStrength > strength;
   const hint = [tags.length ? `[${tags.join(", ")}]` : "", heavy ? t(ui, "inv.tagHeavy") : ""].filter(Boolean).join(" ");
-  return { label: stack.qty > 1 ? `${item.name} ×${stack.qty}` : item.name, ...(hint ? { hint } : {}), ...(wornIn(state, stack.id).length ? { role: "worn" } : {}) };
+  const name = item.listName ?? item.name; // the highest upgrade stage only, as in the shop's rows
+  // the shortened row gets its full name in the description box under the list
+  return { label: stack.qty > 1 ? `${name} ×${stack.qty}` : name, ...(item.listName ? { description: item.name } : {}), ...(hint ? { hint } : {}), ...(wornIn(state, stack.id).length ? { role: "worn" } : {}) };
 }
 
 /** The stacks in list order: worn items first, by slot, then the rest as they lie in the bag. Only the view: the bag keeps its order. */
@@ -307,8 +317,8 @@ async function itemMenu(ctx, item) {
   let last = 0;
   for (;;) {
     const acts = actionsFor(item, ctx);
-    const items = [...acts, { label: t(ui, "inv.back"), hotkey: "w" }];
-    const preview = () => [...headerLines(ctx.state, data, io), "", ...fittedCard(item, ctx.state, data, io, headerLines(ctx.state, data, io).length + 1)];
+    const items = [...acts, { label: t(ui, "inv.back"), hotkey: hotkey(ui, "key.back") }];
+    const preview = () => [...headerLines(ctx.state, data, io), "", ...fittedCard(item, ctx.state, data, io, [...headerLines(ctx.state, data, io), ""])];
     const pick = await select(io, ui, { title: item.name, items, initial: last, preview });
     if (pick === acts.length) return;
     if ((await acts[pick].run()) !== "stay") return;
@@ -320,7 +330,7 @@ async function itemMenu(ctx, item) {
 /** The inventory's header (weight, money, slots); in a frame it fills the scene panel, otherwise it starts a cleared screen. */
 async function drawHeader(ctx, notices) {
   const { io, state, data } = ctx;
-  if (framesOn(io)) return showScreen(ctx, { lines: headerLines(state, data, io) });
+  if (framesOn(io)) return showScreen(ctx, { lines: headerLines(state, data, io), wideList: true });
   clear(io);
   for (const line of headerLines(state, data, io)) io.write(line);
   if (notices) flushNotices(ctx);
@@ -339,10 +349,10 @@ export async function showInventory(ctx) {
     const stacks = listedStacks(state, data);
     const same = stacks.findIndex((s) => s.id === lastId);
     if (same >= 0) last = same;
-    const items = [...stacks.map((s) => listItem(s, state, data, strength)), { label: t(ui, "inv.back"), hotkey: "w" }];
+    const items = [...stacks.map((s) => listItem(s, state, data, strength)), { label: t(ui, "inv.back"), hotkey: hotkey(ui, "key.back") }];
     // In a frame the card of the item under the cursor shows at once (stats, comparison with the worn item).
     const preview = (cursor) => (stacks[cursor]
-      ? [...headerLines(state, data, io), "", ...fittedCard(itemById(data, stacks[cursor].id), state, data, io, headerLines(state, data, io).length + 1)]
+      ? [...headerLines(state, data, io), "", ...fittedCard(itemById(data, stacks[cursor].id), state, data, io, [...headerLines(state, data, io), ""])]
       : headerLines(state, data, io));
     const pick = await select(io, ui, { items, initial: last, preview });
     if (pick === stacks.length) return;

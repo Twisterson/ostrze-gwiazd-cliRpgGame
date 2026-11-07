@@ -8,7 +8,7 @@
       "options": [
         {
           "id": "daj",
-          "text": "Radogost przysyła paczkę.",
+          "text": "Sulisław przysyła paczkę.",
           "goto": "odebrane",
           "requires": {
             "item": "paczka_kupca"

@@ -1,0 +1,17 @@
+{
+  "nodes.po_falsz.options.[dalej].text": {"t":"I'm leaving.","h":"c4b7872a"},
+  "nodes.po_falsz.speaker": {"t":"Sotnik Hauk","h":"f4a1a2ae"},
+  "nodes.po_falsz.text": {"t":"Hauk puts down the cleaning rod. \"I lost forty men under that fort. Two of them were my relatives, and one I even liked.\" He says it in the same voice he uses for boots. \"Now you're standing in my tent with two ways out: the one you came in by, as long as I don't change my mind. There is no other.\"","h":"2e4838cf"},
+  "nodes.po_prawda.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.po_prawda.speaker": {"t":"Sotnik Hauk","h":"f4a1a2ae"},
+  "nodes.po_prawda.text": {"t":"\"Burned. Three wagons and the drivers. They burned well, powder does that.\" He looks down the barrel. \"If you get anything else, you know where I sit. I won't tell anyone you were here. You won't either, because who would you tell.\"","h":"910a3ee9"},
+  "nodes.po_proch.options.[dalej].text": {"t":"No idea.","h":"1b5f3e33"},
+  "nodes.po_proch.speaker": {"t":"Sotnik Hauk","h":"f4a1a2ae"},
+  "nodes.po_proch.text": {"t":"\"Powder?\" Hauk raises an eyebrow. \"Our powder's as wet as our spirits. The handguns misfired halfway through the first volley and the officer had the quartermaster flogged. You wouldn't happen to know who could've done that?\" He wipes the barrel and doesn't look at you. He takes great care not to look.","h":"d83e91ef"},
+  "nodes.s.options.[falsz].text": {"t":"How are the wagons?","h":"21dd4ebc"},
+  "nodes.s.options.[nic].text": {"t":"Just passing through.","h":"72c669c8"},
+  "nodes.s.options.[prawda].text": {"t":"How are the wagons?","h":"21dd4ebc"},
+  "nodes.s.options.[proch].text": {"t":"How's the powder?","h":"76cfc190"},
+  "nodes.s.speaker": {"t":"Sotnik Hauk","h":"f4a1a2ae"},
+  "nodes.s.text": {"t":"Hauk doesn't get up. His boots are clean now; he's cleaning his handgun.","h":"1838935d"}
+}

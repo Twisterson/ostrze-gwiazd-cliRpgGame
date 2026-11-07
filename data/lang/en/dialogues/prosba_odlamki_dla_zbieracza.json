@@ -1,0 +1,12 @@
+{
+  "nodes.nie.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.nie.speaker": {"t":"Wacław the Shard Gatherer","h":"8e47315c"},
+  "nodes.nie.text": {"t":"Wacław nods and stares into the fire. \"Sure. I'll crawl there myself one of these days.\"","h":"fb3b274e"},
+  "nodes.s.options.[nie].text": {"t":"Glass isn't for me.","h":"c62e21fe"},
+  "nodes.s.options.[zgoda].text": {"t":"I'll take it.","h":"44302728"},
+  "nodes.s.speaker": {"t":"Wacław the Shard Gatherer","h":"8e47315c"},
+  "nodes.s.text": {"t":"By a campfire sits a scrawny fellow with a bag full of glass. \"Wacław, gatherer. With this leg of mine I'll never reach my hideout in the Glass Field. Will you take the pouch there? It's everything I own.\"","h":"9b1bab55"},
+  "nodes.zgoda.options.[dalej].text": {"t":"On my way.","h":"c445d67d"},
+  "nodes.zgoda.speaker": {"t":"Wacław the Shard Gatherer","h":"8e47315c"},
+  "nodes.zgoda.text": {"t":"Wacław hands you the pouch with care. \"Don't turn it to the light. That's when the glass starts telling what it's seen.\"","h":"a99b7595"}
+}

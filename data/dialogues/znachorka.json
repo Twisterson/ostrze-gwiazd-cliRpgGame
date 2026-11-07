@@ -111,7 +111,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Tak zrobię.",
+          "text": "Nie ma za co.",
           "goto": "powitanie"
         }
       ]
@@ -141,7 +141,7 @@
       "options": [
         {
           "id": "dalej",
-          "text": "Tak zrobię.",
+          "text": "Biorę.",
           "goto": "powitanie"
         }
       ],

@@ -151,7 +151,7 @@
     },
     "oddanie": {
       "speaker": "Karczmarz Wrzosek",
-      "text": "Wrzosek wącha pęczek i pierwszy raz od rana szczerzy zęby. „Pachnie jak zbawienie. Masz u mnie dobre słowo, może i jedno piwo.” „A jak ci się nudzi, to za rzeką, na starym młynie, ktoś się nocą kręci. Ostap, nasz młynarz, wiecznie coś stęka.”",
+      "text": "Wrzosek wącha pęczek i pierwszy raz od rana szczerzy zęby. „Pachnie jak zbawienie. Masz u mnie dobre słowo, może i jedno piwo. A jak ci się nudzi, to za rzeką, na starym młynie, ktoś się nocą kręci. Ostap, nasz młynarz, wiecznie coś stęka.”",
       "actions": [
         {
           "takeItem": "ziola_dla_wrzoska"

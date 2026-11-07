@@ -14,6 +14,7 @@ import { validatePhenomena, phenomenonById } from "../systems/phenomena.js";
 import { validateTravel, locationById, routeById, EVENT_END } from "../systems/travel.js";
 import { validateQuests, questById } from "../systems/quests.js";
 import { validateLootTables } from "../systems/loot.js";
+import { applyOverlay, checkOverlay } from "../i18n/overlay.js";
 
 export class DataLoadError extends Error {
   constructor(message) {
@@ -102,27 +103,152 @@ async function readMaps(dir) {
   return maps;
 }
 
-/** Loads ui, rules, attributes, skills, classes, perks, effects, enemies, phenomena, art, maps, items, shops, dialogues, story, travel and quests (in that order) and deep-freezes the result. */
-export async function loadData(dir = dataDir()) {
-  const ui = await readJson(dir, "ui.json");
-  const rules = await readJson(dir, "rules.json");
-  const attributes = await readJson(dir, "attributes.json");
-  const skills = await readJson(dir, "skills.json");
-  const classes = await readJson(dir, "classes.json");
-  const perks = await readJson(dir, "perks.json");
-  const effects = await readJson(dir, "effects.json");
-  const enemies = await readJson(dir, "enemies.json");
-  const phenomena = await readJson(dir, "phenomena.json");
-  const art = await readArt(dir);
-  const maps = await readMaps(dir);
-  const items = await readJson(dir, "items.json");
-  const shops = await readJson(dir, "shops.json");
-  const dialogues = await readDialogues(dir);
-  const story = await readJson(dir, "story.json");
-  const travel = await readJson(dir, "travel.json");
-  const quests = await readJson(dir, "quests.json");
-  const loot = await readJson(dir, "loot.json");
-  return deepFreeze({ ui, rules, attributes, skills, classes, perks, effects, enemies, phenomena, art, maps, items, shops, dialogues, story, travel, quests, loot });
+// Data parts read from `<part>.json`, in load order (art, maps and dialogues have their own readers).
+export const JSON_PARTS = ["ui", "rules", "attributes", "skills", "classes", "perks", "effects", "enemies", "phenomena", "items", "shops", "story", "travel", "quests", "loot"];
+const MAP_TOKEN = /\{([a-z0-9_]+)\}/g;
+export const mapTokens = (text) => [...new Set([...String(text).matchAll(MAP_TOKEN)].map((m) => m[1]))].sort();
+
+/** Reads the Polish source: every JSON part, art, maps and dialogues (throws DataLoadError like before). */
+async function readSource(dir) {
+  const parts = {};
+  for (const part of JSON_PARTS.slice(0, 9)) parts[part] = await readJson(dir, `${part}.json`);
+  parts.art = await readArt(dir);
+  parts.maps = await readMaps(dir);
+  for (const part of ["items", "shops"]) parts[part] = await readJson(dir, `${part}.json`);
+  parts.dialogues = await readDialogues(dir);
+  for (const part of ["story", "travel", "quests", "loot"]) parts[part] = await readJson(dir, `${part}.json`);
+  return parts;
+}
+
+/**
+ * Lists the files `dir/*<ext>` (sorted); a missing directory is an empty list, any other failure goes into `errors` as
+ * `<label>: <message>`. `readdir` is injectable for tests.
+ */
+export async function listFiles(dir, ext, errors, label, readdir = fs.readdir) {
+  try {
+    return (await readdir(dir, { withFileTypes: true })).filter((e) => e.isFile() && e.name.endsWith(ext)).map((e) => e.name).sort();
+  } catch (e) {
+    if (e.code !== "ENOENT" && e.code !== "ENOTDIR") errors.push(`${label}: ${e.message}`);
+    return [];
+  }
+}
+
+/**
+ * Lays the overlay `dir/lang/<lang>/` over the Polish source `parts` (mutating it) and reports the state of the translation.
+ * Never throws because of the overlay: a broken or invalid overlay file is skipped (that file stays Polish) and goes into
+ * `errors`. A translated map must have the same `{id}` tokens as the Polish one. `missing` / `stale` go into `warnings`
+ * (one line per file, `<file>: brak N, nieaktualne M`) and `perFile`; `entries` holds the paths themselves per file
+ * (`{ missing: [path], stale: [path] }`, a missing map is the path "").
+ */
+async function overlaySource(dir, lang, parts) {
+  const base = path.join(dir, "lang", lang);
+  const prefix = `lang/${lang}`;
+  const errors = [];
+  const warnings = [];
+  const perFile = {};
+  const entries = {};
+  const isDir = await fs.stat(base).then((s) => s.isDirectory(), () => false);
+  if (!isDir) warnings.push(`${prefix}: brak katalogu – dane po polsku`);
+  const count = (file, missing, stale) => {
+    entries[file] = { missing, stale };
+    perFile[file] = { missing: missing.length, stale: stale.length };
+    if (missing.length > 0 || stale.length > 0) warnings.push(`${file}: brak ${missing.length}, nieaktualne ${stale.length}`);
+  };
+  /** Reads and checks one overlay file (an absent one counts as empty); returns the overlay to apply, or null to keep the file Polish. */
+  const overlayFor = async (file, json) => {
+    let text;
+    try {
+      text = await fs.readFile(path.join(base, file), "utf8");
+    } catch (e) {
+      if (e.code !== "ENOENT") {
+        errors.push(`${prefix}/${file}: ${e.message}`);
+        return null;
+      }
+      text = null;
+    }
+    let overlay = {};
+    if (text !== null) {
+      try {
+        overlay = JSON.parse(text);
+      } catch (e) {
+        errors.push(`${prefix}/${file}: niepoprawny JSON (${e.message})`);
+        count(file, checkOverlay(file, json, {}).missing, []);
+        return null;
+      }
+      if (!isPlainObject(overlay)) {
+        errors.push(`${prefix}/${file}: oczekiwano obiektu`);
+        count(file, checkOverlay(file, json, {}).missing, []);
+        return null;
+      }
+    }
+    const r = checkOverlay(file, json, overlay);
+    const bad = [
+      ...r.orphan.map((p) => `${prefix}/${file} › ${p}: ścieżka nie istnieje w danych`),
+      ...r.nonText.map((p) => `${prefix}/${file} › ${p}: wpis nie jest tekstem (oczekiwano pola tekstowego i { "t": tekst, "h": skrót })`),
+      ...r.varMismatch.map((p) => `${prefix}/${file} › ${p}: zmienne {…} niezgodne z polskim tekstem`),
+      ...r.empty.map((p) => `${prefix}/${file} › ${p}: pusty przekład niepustego tekstu`),
+    ];
+    errors.push(...bad);
+    count(file, r.missing, r.stale);
+    return bad.length > 0 || text === null ? null : overlay;
+  };
+
+  for (const part of JSON_PARTS) {
+    const file = `${part}.json`;
+    const overlay = await overlayFor(file, parts[part]);
+    if (overlay) parts[part] = applyOverlay(file, parts[part], overlay);
+  }
+  for (const [i, d] of parts.dialogues.entries()) {
+    if (!isPlainObject(d)) continue;
+    const { file: name, ...json } = d;
+    const file = `dialogues/${name}`;
+    const overlay = await overlayFor(file, json);
+    if (overlay) parts.dialogues[i] = { ...applyOverlay(file, json, overlay), file: name };
+  }
+  const known = new Set(JSON_PARTS.map((p) => `${p}.json`));
+  for (const f of await listFiles(base, ".json", errors, prefix)) if (!known.has(f)) errors.push(`${prefix}/${f}: brak polskiego pliku`);
+  const dialogueFiles = new Set(parts.dialogues.map((d) => d?.file));
+  for (const f of await listFiles(path.join(base, "dialogues"), ".json", errors, `${prefix}/dialogues`)) if (!dialogueFiles.has(f)) errors.push(`${prefix}/dialogues/${f}: brak polskiego pliku`);
+
+  const mapFiles = new Set(await listFiles(path.join(base, "maps"), ".txt", errors, `${prefix}/maps`));
+  for (const region of Object.keys(parts.maps)) {
+    const file = `maps/${region}.txt`;
+    if (!mapFiles.has(`${region}.txt`)) {
+      count(file, [""], []);
+      continue;
+    }
+    count(file, [], []);
+    let text;
+    try {
+      text = await fs.readFile(path.join(base, file), "utf8");
+    } catch (e) {
+      errors.push(`${prefix}/${file}: ${e.message}`);
+      continue;
+    }
+    if (mapTokens(text).join() !== mapTokens(parts.maps[region]).join()) {
+      errors.push(`${prefix}/${file}: znaczniki {id} niezgodne z polską mapą (pl: ${mapTokens(parts.maps[region]).join(", ")}; ${lang}: ${mapTokens(text).join(", ")})`);
+      continue;
+    }
+    parts.maps[region] = text;
+  }
+  for (const f of mapFiles) if (!Object.hasOwn(parts.maps, f.slice(0, -4))) errors.push(`${prefix}/maps/${f}: brak polskiej mapy`);
+  return { errors, warnings, perFile, entries };
+}
+
+/**
+ * Loads ui, rules, attributes, skills, classes, perks, effects, enemies, phenomena, art, maps, items, shops, dialogues, story,
+ * travel and quests (in that order) and deep-freezes the result. With `lang` other than "pl" the overlay `dir/lang/<lang>/`
+ * is laid over the text first (see overlaySource; overlay problems never throw). The result carries `lang`.
+ */
+export async function loadData(dir = dataDir(), { lang = "pl" } = {}) {
+  const parts = await readSource(dir);
+  if (lang !== "pl") await overlaySource(dir, lang, parts);
+  return deepFreeze({ ...parts, lang });
+}
+
+/** The state of the `lang` translation of `dir`: overlay errors, missing / stale warnings (one line per file) and counts per file. */
+export async function translationReport(dir, lang) {
+  return overlaySource(dir, lang, await readSource(dir));
 }
 
 const ID = { type: "string", pattern: /^[a-z0-9_]+$/ };

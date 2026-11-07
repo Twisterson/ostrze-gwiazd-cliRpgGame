@@ -6,7 +6,7 @@ import { showCharacter } from "../ui/character_screen.js";
 import { pushEventNotices } from "../ui/events.js";
 import { paint } from "../ui/colors.js";
 import { wrap } from "../ui/text.js";
-import { t } from "../ui/strings.js";
+import { t, hotkey } from "../ui/strings.js";
 import { nodeView, enterNode, chooseOption, finishDialogue, optionKey, startNodeOf } from "../systems/dialogue.js";
 import { itemById } from "../systems/items.js";
 import { MissingCharacterError } from "./errors.js";
@@ -39,9 +39,11 @@ export async function dialogue(ctx, scene) {
   const { ui } = data;
   if (!state.character) throw new MissingCharacterError();
   const done = state.world.finishedDialogues;
+  // a smith's exchange lists items with prices: the wide choice column of the shop (see WIDE_LIST)
+  const wideList = Boolean(data.dialogues.find((d) => d.id === scene.dialogue)?.wideList);
   const render = (view, lines = []) => (view
-    ? showScreen(ctx, { title: view.speaker, text: view.text, lines: [""], art: view.portrait ?? scene.art })
-    : showScreen(ctx, { lines, art: scene.art }));
+    ? showScreen(ctx, { title: view.speaker, text: view.text, lines: [""], art: view.portrait ?? scene.art, wideList })
+    : showScreen(ctx, { lines, art: scene.art, wideList }));
 
   if (done.includes(scene.id)) {
     const doneLine = [paint("dim", t(ui, "dialogue.done"))];
@@ -85,7 +87,7 @@ export async function dialogue(ctx, scene) {
       }
       return item;
     });
-    items.push({ label: t(ui, "camp.character"), hotkey: "p", hidden: true });
+    items.push({ label: t(ui, "camp.character"), hotkey: hotkey(ui, "key.character"), hidden: true });
     const pick = await select(io, ui, { items });
     if (pick === view.options.length) { await showCharacter(ctx); continue; }
 

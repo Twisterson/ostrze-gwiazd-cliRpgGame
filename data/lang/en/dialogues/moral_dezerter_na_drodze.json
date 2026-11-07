@@ -1,0 +1,16 @@
+{
+  "nodes.puszcz.options.[dalej].text": {"t":"Move on.","h":"81af1e33"},
+  "nodes.puszcz.speaker": {"t":"Deserter","h":"db33825c"},
+  "nodes.puszcz.text": {"t":"The deserter bows three times and vanishes into the forest as if he'd never been there. All he leaves behind is a smell of smoke.","h":"9fa547fd"},
+  "nodes.s.options.[puszcz].text": {"t":"Let him go.","h":"04a10fd1"},
+  "nodes.s.options.[zostaw].text": {"t":"Leave him and walk on.","h":"2c59c7e5"},
+  "nodes.s.options.[zwiaz].text": {"t":"Tie him up and take him to the patrol.","h":"d550cac7"},
+  "nodes.s.speaker": {"t":"Deserter","h":"db33825c"},
+  "nodes.s.text": {"t":"A man in a rumpled uniform cowers under a bush. \"Don't kill me. I don't want to fight. I only want to go home to my wife.\" He unbuckles the knife from his belt and throws it in the grass.","h":"27cd9f8d"},
+  "nodes.zostaw.options.[dalej].text": {"t":"Move on.","h":"81af1e33"},
+  "nodes.zostaw.speaker": {"t":"Deserter","h":"db33825c"},
+  "nodes.zostaw.text": {"t":"The deserter clenches his teeth, but doesn't beg again. You walk on and feel his eyes on your back all the way to the bend.","h":"474956ee"},
+  "nodes.zwiaz.options.[dalej].text": {"t":"Move on.","h":"81af1e33"},
+  "nodes.zwiaz.speaker": {"t":"Deserter","h":"db33825c"},
+  "nodes.zwiaz.text": {"t":"The patrol in a nearby village pays fifteen groats and looks at the deserter like a broken hinge. The man doesn't fight back. That's the worst of it.","h":"1eecedfe"}
+}

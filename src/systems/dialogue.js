@@ -13,7 +13,7 @@ const TEXT = { type: "string", nonEmpty: true };
 const DIALOGUE_SCHEMA = {
   type: "object",
   required: ["id", "start", "nodes"],
-  fields: { id: ID, file: { type: "string" }, portrait: ID, start: ID, returnStart: ID, minutes: { type: "integer", min: 0 }, nodes: { type: "object" } },
+  fields: { id: ID, file: { type: "string" }, portrait: ID, wideList: { type: "boolean" }, start: ID, returnStart: ID, minutes: { type: "integer", min: 0 }, nodes: { type: "object" } },
   additional: false,
 };
 const NODE_SCHEMA = {

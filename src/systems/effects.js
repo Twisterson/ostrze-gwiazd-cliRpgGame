@@ -15,7 +15,7 @@ const EFFECT_SCHEMA = {
   type: "object",
   required: ["id", "name", "description", "unit", "duration"],
   fields: {
-    id: ID, name: TEXT, description: TEXT, unit: { type: "string" }, duration: INT_MIN1,
+    id: ID, name: TEXT, noun: TEXT, description: TEXT, unit: { type: "string" }, duration: INT_MIN1,
     modifiers: { type: "object" }, // content checked by validateModifiers
     tick: {
       type: "object",

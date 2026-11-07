@@ -1,0 +1,16 @@
+{
+  "nodes.lodz.options.[oddaj].text": {"t":"I'm handing the barrels to the Harbour arsenal.","h":"6aeff6e9"},
+  "nodes.lodz.options.[ukryj].text": {"t":"I'm hauling the barrels into the dunes and hiding them.","h":"4d36d2e6"},
+  "nodes.lodz.options.[zatop].text": {"t":"I sink the cargo in deep water.","h":"f4fda954"},
+  "nodes.lodz.speaker": {"t":"Skipper Bjarn","h":"90bbb049"},
+  "nodes.lodz.text": {"t":"A boat without a crew lies on the sand, its sides tarred, and in the hold four barrels give off a smell familiar to anyone who has seen a handgun. Beside it stands an old skipper with his hands in his pockets. \"Not mine. Nobody's. Somebody left it here after the last storm. You can sink it, you can hand it to the Harbour, you can haul the barrels off into the dunes. I'd rather not know what you pick.\"","h":"49a6a46f"},
+  "nodes.wynik_oddaj.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_oddaj.speaker": {"t":"Skipper Bjarn","h":"90bbb049"},
+  "nodes.wynik_oddaj.text": {"t":"Two men from the arsenal cart the barrels off on wheelbarrows, jotting something in a notebook. The skipper watches them go for a long time. \"The hetman will have something to shoot with,\" he says, with neither reproach nor joy.","h":"5d85e916"},
+  "nodes.wynik_ukryj.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_ukryj.speaker": {"t":"Skipper Bjarn","h":"90bbb049"},
+  "nodes.wynik_ukryj.text": {"t":"The barrels vanish into the dunes under a tarpaulin and a few bunches of seaweed. The skipper nods like a man who saw nothing because he was looking the other way. \"If anyone asks, I know nothing about it. And if anyone needs powder, then maybe I do.\"","h":"d6c01c57"},
+  "nodes.wynik_zatop.options.[wracam].text": {"t":"Back to the harbour.","h":"3af2b21f"},
+  "nodes.wynik_zatop.speaker": {"t":"Skipper Bjarn","h":"90bbb049"},
+  "nodes.wynik_zatop.text": {"t":"The sides creak as you push the boat out into deep water. The barrels go to the bottom one after another, and the water closes over them as over any other junk. The skipper says nothing, just spits over the side.","h":"3a2d15aa"}
+}

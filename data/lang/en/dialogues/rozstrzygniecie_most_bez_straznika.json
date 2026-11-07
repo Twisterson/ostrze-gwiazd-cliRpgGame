@@ -1,0 +1,16 @@
+{
+  "nodes.most.options.[pal].text": {"t":"I'll tear out the spans. Let everyone swim for themselves.","h":"c3bd770a"},
+  "nodes.most.options.[straz].text": {"t":"I'll stay on watch until dawn.","h":"7c5ca05d"},
+  "nodes.most.options.[zostaw].text": {"t":"I'll leave it open. The river is wide and people are stupid.","h":"e3d06319"},
+  "nodes.most.speaker": {"t":"Ferryman Pole","h":"ec6eaa0b"},
+  "nodes.most.text": {"t":"The ferryman sits on a beam with his feet over the water, chewing a stalk of grass. \"The sentry left when he heard the shots. Now anyone with legs just walks over, and anyone with a wagon pays me to help. I'll give you some advice: do something about this bridge before the bridge does something about you.\"","h":"35a1fc1d"},
+  "nodes.otwarty.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.otwarty.speaker": {"t":"Ferryman Pole","h":"ec6eaa0b"},
+  "nodes.otwarty.text": {"t":"\"Open? Your call.\" The ferryman shrugs and goes back to chewing his stalk.","h":"e4a09516"},
+  "nodes.strzezony.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.strzezony.speaker": {"t":"Ferryman Pole","h":"ec6eaa0b"},
+  "nodes.strzezony.text": {"t":"A night on the bridge drags on like a sermon. At dawn someone from the camp takes over the watch, and Pole nods with respect. \"You kept a good watch. First time in a week anyone here was guarding something other than his own purse.\"","h":"e464c56f"},
+  "nodes.zerwany.options.[wracam].text": {"t":"Back to camp.","h":"b26192d0"},
+  "nodes.zerwany.speaker": {"t":"Ferryman Pole","h":"ec6eaa0b"},
+  "nodes.zerwany.text": {"t":"The axe does its work. The span drops into the water with a splash, as if it had earned it. Pole says nothing, just watches the Grey carry off the planks. \"Now I'll have work,\" he mutters, and he even seems pleased. Both armies will have less to hide and more to curse about.","h":"712a1988"}
+}

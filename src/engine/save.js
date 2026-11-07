@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { savesDir, SAVE_FORMAT_VERSION } from "../config.js";
 import { check } from "./schema.js";
+import { t } from "../ui/strings.js";
 import { clockOf } from "./time.js";
 import { effectById } from "../systems/effects.js";
 import { itemById, slotAccepts } from "../systems/items.js";
@@ -23,9 +24,11 @@ export class SaveError extends Error {
 }
 
 export class LoadError extends Error {
-  constructor(message) {
+  /** `reason`: the full (Polish) schema message for the developer; the player sees only `message`. */
+  constructor(message, reason = null) {
     super(message);
     this.name = "LoadError";
+    this.reason = reason;
   }
 }
 
@@ -457,24 +460,32 @@ export function repairDialogues(state, data) {
   return [fill(data.ui["load.repaired"], { what })];
 }
 
+/** The player sees "invalid structure (field path)"; the schema's own reason stays in `reason`. */
+function structureError(ui, schemaMessage) {
+  const path = /^([^\s:]+): /.exec(schemaMessage)?.[1];
+  return new LoadError(path ? t(ui, "load.err.structure", { detail: path }) : t(ui, "load.err.structureNoPath"), schemaMessage);
+}
+
 export async function loadGame(slot, data, { warnings } = {}) {
   let text;
   try {
     text = await fs.readFile(slotFile(slot), "utf8");
   } catch (err) {
-    throw new LoadError(err.code === "ENOENT" ? "brak zapisu" : err.message);
+    // the OS message (in the system's language) goes only to the debug output; the player gets the ui text
+    if (err.code === "ENOENT") throw new LoadError(t(data.ui, "load.err.missing"));
+    throw new LoadError(t(data.ui, "load.err.unreadable"), err.message);
   }
   let state;
   try {
     state = JSON.parse(text);
   } catch {
-    throw new LoadError("uszkodzony plik");
+    throw new LoadError(t(data.ui, "load.err.damaged"));
   }
   if (typeof state !== "object" || state === null || Array.isArray(state)) {
-    throw new LoadError("niepoprawna struktura (oczekiwano obiektu)");
+    throw new LoadError(t(data.ui, "load.err.structure", { detail: t(data.ui, "load.err.expectedObject") }));
   }
   if (Number.isInteger(state.version)) {
-    if (state.version > SAVE_FORMAT_VERSION) throw new LoadError("zapis z nowszej wersji gry");
+    if (state.version > SAVE_FORMAT_VERSION) throw new LoadError(t(data.ui, "load.err.newer"));
     while (state.version < SAVE_FORMAT_VERSION && migrations[state.version]) {
       const from = state.version;
       state = migrations[from](state, data);
@@ -482,21 +493,21 @@ export async function loadGame(slot, data, { warnings } = {}) {
     }
   }
   if (Number.isInteger(state.version) && state.version !== SAVE_FORMAT_VERSION) {
-    throw new LoadError("niepoprawna struktura (nieobsługiwana wersja zapisu)");
+    throw new LoadError(t(data.ui, "load.err.structure", { detail: t(data.ui, "load.err.unsupportedVersion") }));
   }
   const errors = check(state, STATE_SCHEMA);
-  if (errors.length > 0) throw new LoadError(`niepoprawna struktura (${errors[0]})`);
+  if (errors.length > 0) throw structureError(data.ui, errors[0]);
   if (state.character !== null && state.character !== undefined) {
     const charErrors = check(state.character, CHARACTER_SCHEMA, "character");
     if (charErrors.length === 0 && state.character.pendingLevelUp !== null) {
       charErrors.push(...check(state.character.pendingLevelUp, PENDING_SCHEMA, "character.pendingLevelUp"));
     }
-    if (charErrors.length > 0) throw new LoadError(`niepoprawna struktura (${charErrors[0]})`);
+    if (charErrors.length > 0) throw structureError(data.ui, charErrors[0]);
     if (!data.classes.some((c) => c.id === state.character.classId)) {
-      throw new LoadError(`nieznana klasa "${state.character.classId}"`);
+      throw new LoadError(t(data.ui, "load.err.class", { id: state.character.classId }));
     }
     for (const id of state.character.perks) {
-      if (!data.perks.some((p) => p.id === id)) throw new LoadError(`nieznany perk "${id}"`);
+      if (!data.perks.some((p) => p.id === id)) throw new LoadError(t(data.ui, "load.err.perk", { id }));
     }
   }
   // Saves written before dialogueProgress / finishedCombats existed get the empty default.
@@ -507,7 +518,7 @@ export async function loadGame(slot, data, { warnings } = {}) {
   }
   const invErrors = check(state.inventory, INVENTORY_SCHEMA, "inventory");
   if (invErrors.length === 0) invErrors.push(...check(state.world, WORLD_SCHEMA, "world"));
-  if (invErrors.length > 0) throw new LoadError(`niepoprawna struktura (${invErrors[0]})`);
+  if (invErrors.length > 0) throw structureError(data.ui, invErrors[0]);
   const repairs = [...repairInventory(state, data), ...repairEffects(state, data), ...repairMastery(state, data), ...repairDialogues(state, data), ...repairMystic(state, data), ...repairTravel(state, data), ...repairQuests(state, data), ...repairPlaces(state, data)];
   if (warnings) warnings.push(...repairs);
   // A save from before the end of act III was rewritten (E2f): the old finale scenes are gone, and the glass scene stands under the
@@ -522,7 +533,7 @@ export async function loadGame(slot, data, { warnings } = {}) {
   }
   if (!data.story.scenes.some((s) => s.id === state.scene.id)) {
     // A save from before the story was rewritten: the map scene is where the hub's life goes on.
-    if (!data.story.scenes.some((s) => s.id === "demo_mapa")) throw new LoadError(`nieznana scena "${state.scene.id}"`);
+    if (!data.story.scenes.some((s) => s.id === "demo_mapa")) throw new LoadError(t(data.ui, "load.err.scene", { id: state.scene.id }));
     if (warnings) warnings.push(fill(data.ui["load.repaired"], { what: fill(data.ui["load.repair.scene"], { id: state.scene.id }) }));
     state.scene.id = "demo_mapa";
   }
@@ -552,7 +563,7 @@ export async function listSaves(data) {
       });
     } catch (err) {
       if (!(err instanceof LoadError)) throw err;
-      result.push({ slot, ok: false, error: err.message });
+      result.push({ slot, ok: false, error: err.message, reason: err.reason });
     }
   }
   return result;

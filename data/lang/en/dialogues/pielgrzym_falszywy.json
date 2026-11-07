@@ -1,0 +1,19 @@
+{
+  "nodes.odpusc.options.[dalej].text": {"t":"Take care.","h":"1f0ac9fe"},
+  "nodes.odpusc.speaker": {"t":"Pilgrim with a Wineskin","h":"138bfa9c"},
+  "nodes.odpusc.text": {"t":"The pilgrim nods slowly. \"A wise man. God keep you, and I'll keep you in mind.\" He walks off, and a cold shiver runs down your back.","h":"c983358d"},
+  "nodes.oskarz_ok.options.[dalej].text": {"t":"Nicely done.","h":"3a648ada"},
+  "nodes.oskarz_ok.speaker": {"t":"Pilgrim with a Wineskin","h":"138bfa9c"},
+  "nodes.oskarz_ok.text": {"t":"The pilgrim drops his rosary, then his purse. \"Only for two groats, sir! Nothing big! I'm already gone.\" He bolts for the road faster than you'd think men with wineskins could run. The purse stays in the mud.","h":"cc6dcd7b"},
+  "nodes.oskarz_test.options.[oskarz_t].text": {"t":"Say it so it puts the fear in him.","h":"010ac2b3"},
+  "nodes.oskarz_test.options.[oskarz_w].text": {"t":"Back off.","h":"4eeabade"},
+  "nodes.oskarz_test.speaker": {"t":"Pilgrim with a Wineskin","h":"138bfa9c"},
+  "nodes.oskarz_test.text": {"t":"The pilgrim goes pale, but bares his teeth in a grin.","h":"19a3d460"},
+  "nodes.oskarz_zle.options.[dalej].text": {"t":"Damn.","h":"4dc21f95"},
+  "nodes.oskarz_zle.speaker": {"t":"Pilgrim with a Wineskin","h":"138bfa9c"},
+  "nodes.oskarz_zle.text": {"t":"The pilgrim brays with laughter so loud that someone in the tavern leans out the door. \"Me? Sir, I'm a man of faith!\" He goes, but the look he throws you over his shoulder bodes no good. You know this isn't over.","h":"7934f504"},
+  "nodes.powitanie.options.[odpusc].text": {"t":"Leave him be.","h":"ed98db9e"},
+  "nodes.powitanie.options.[oskarz].text": {"t":"Imperial informer, eh?","h":"ab93bf11"},
+  "nodes.powitanie.speaker": {"t":"Pilgrim with a Wineskin","h":"138bfa9c"},
+  "nodes.powitanie.text": {"t":"A fellow hangs about outside the tavern with a rosary he never runs through his fingers and a wineskin he never drinks from. His eyes are too sharp for a man seeking grace.","h":"8a141d47"}
+}

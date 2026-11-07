@@ -7,7 +7,7 @@ import { showJournal } from "./journal_screen.js";
 import { saveToSlot } from "./save_screen.js";
 import { saveGame, SaveError } from "../engine/save.js";
 import { paint } from "./colors.js";
-import { t } from "./strings.js";
+import { t, hotkey } from "./strings.js";
 import { QuitToMenuError } from "../scenes/errors.js";
 
 /**
@@ -32,11 +32,11 @@ export async function campMenu(ctx, render, { continueLabel, before = [], extra 
       ...before.map(row),
       ...(hasContinue ? [{ label: continueLabel ?? t(ui, "camp.continue") }] : []),
       ...extra.map(row),
-      { label: t(ui, "camp.character"), hotkey: "p", hidden: true },
-      { label: t(ui, "camp.inventory"), hotkey: "e", hidden: true },
-      { label: t(ui, "camp.journal"), hotkey: "d", hidden: true },
-      { label: t(ui, "camp.save"), hotkey: "z", hidden: true },
-      { label: t(ui, "camp.menu"), hotkey: "m", hidden: true },
+      { label: t(ui, "camp.character"), hotkey: hotkey(ui, "key.character"), hidden: true },
+      { label: t(ui, "camp.inventory"), hotkey: hotkey(ui, "key.inventory"), hidden: true },
+      { label: t(ui, "camp.journal"), hotkey: hotkey(ui, "key.journal"), hidden: true },
+      { label: t(ui, "camp.save"), hotkey: hotkey(ui, "key.save"), hidden: true },
+      { label: t(ui, "camp.menu"), hotkey: hotkey(ui, "key.menu"), hidden: true },
     ];
     const pick = await select(io, ui, { items, initial: start, emptyPicksInitial: true, title, preview });
     if (pick < before.length) return before[pick].id;
