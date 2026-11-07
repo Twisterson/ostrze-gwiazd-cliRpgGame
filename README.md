@@ -124,19 +124,21 @@ Po zmianie danych uruchom `node bin/game.js --validate`. Walidacja sprawdza odwo
 
 ## Jak powstała ta gra
 
-Gra powstała z pomocą Claude Code. Nie ukrywam tego, bo nie ma czego: dobrym narzędziem robi się szybciej, ale nie samo.
+Grę zrobiłem razem z Claude Code. Ja wymyśliłem świat, fabułę i to, kto kogo w niej oszuka. Claude pisał kod, testy i pierwsze wersje tekstów, a potem cierpliwie wysłuchiwał, że są do niczego.
 
-Jeśli wierzyć filmikom z internetu, z AI taką grę robi się w 15 minut. Wpisujesz „zrób mi RPG”, idziesz po kawę, wracasz i grasz. U mnie kawa trochę ostygła:
+Podział pracy był prosty: maszyna w minutę pisze trzy strony dialogu, a ja w kwadrans skreślam z nich wszystko poza dwiema linijkami i żartem o mule. Muł zawsze zostawał.
 
-- około 90 godzin wspólnej pracy w dwa tygodnie;
-- co najmniej 4 godziny samego wymyślania świata i fabuły, zanim AI zobaczyło pierwszy plik;
-- ponad 480 commitów i prawie 1900 testów;
-- 62 tysiące słów tekstu, które trzeba było przeczytać, a większość poprawić, bo maszyna puszczona samopas pisze ładnie i o niczym;
-- dziesiątki partii rozegranych tylko po to, żeby znaleźć błąd, którego testy nie widziały.
+Rachunek:
 
-Świat, fabułę i decyzje wymyśliłem ja. Claude Code pisał kod i testy, pomagał przy tekstach i szukał błędów. Ja czytałem, grałem, poprawiałem i mówiłem, co jest do niczego.
+- ponad 110 godzin pracy w niecałe trzy tygodnie, w tym kilka dni na przekład na angielski;
+- 4 godziny wymyślania świata, zanim AI zobaczyło pierwszy plik. To był najspokojniejszy etap, bo nic się jeszcze nie psuło;
+- ponad 570 commitów i ponad 2000 testów, które i tak nie wszystko wyłapały;
+- dziesiątki partii rozegranych tylko po to, żeby sprawdzić, czy przespanie nocy w karczmie nie kasuje zadań (kasowało);
+- ponad 60 tysięcy słów po polsku i prawie 90 tysięcy po angielsku. Angielska wersja wyszła dłuższa, bo tam nawet muł potrzebuje przedimka.
 
-Więc jeśli ktoś zapyta, ile to trwało: 15 minut plus 89 godzin i 45 minut, o których w tytułach filmików się nie wspomina.
+Najczęstsze zdanie w tym projekcie: „gotowe, działa” (AI). Drugie najczęstsze: „nie działa” (ja).
+
+Czy AI zrobi za ciebie grę? Zrobi. Gorzej, jeśli potem zechcesz w nią zagrać.
 
 ## Licencja
 

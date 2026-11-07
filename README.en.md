@@ -124,19 +124,21 @@ After changing the data, run `node bin/game.js --validate`. It checks references
 
 ## How this game was made
 
-This game was made with Claude Code. I'm not hiding it, because there's nothing to hide: a good tool makes the work faster, but it doesn't do it for you.
+I made this game together with Claude Code. I came up with the world, the plot and who cheats whom. Claude wrote the code, the tests and the first drafts of the text, then listened patiently while I explained why they were rubbish.
 
-If you believe the videos online, with AI you make a game like this in 15 minutes. You type "make me an RPG", go get a coffee, come back and play. My coffee got a bit cold:
+The division of labour was simple: the machine writes three pages of dialogue in a minute, and I spend fifteen minutes cutting everything except two lines and a joke about a mule. The mule always stayed.
 
-- about 90 hours of joint work over two weeks;
-- at least 4 hours of building the world and the story before the AI saw a single file;
-- over 480 commits and nearly 1,900 tests;
-- 62,000 words of text that had to be read, and most of it fixed, because a machine left to itself writes pretty sentences about nothing;
-- dozens of playthroughs just to find the bug the tests didn't see.
+The bill:
 
-The world, the story and the decisions are mine. Claude Code wrote the code and the tests, helped with the text and hunted bugs. I read, played, fixed and said what was rubbish.
+- over 110 hours of work in under three weeks, a few days of it on the English translation;
+- 4 hours of building the world before the AI saw a single file, the calmest stage, since nothing could break yet;
+- over 570 commits and over 2,000 tests, which still didn't catch everything;
+- dozens of playthroughs just to check that sleeping at the inn didn't wipe your quests (it did);
+- over 60,000 words in Polish and nearly 90,000 in English. The English came out longer because there even the mule needs an article.
 
-So if anyone asks how long it took: 15 minutes plus the 89 hours and 45 minutes the video titles never mention.
+The most common sentence in this project: "done, it works" (the AI). The second most common: "it doesn't" (me).
+
+Will AI make a game for you? It will. The trouble starts when you want to play it.
 
 ## License
 
